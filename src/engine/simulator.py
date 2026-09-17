@@ -1,6 +1,7 @@
 """Discrete bullet-by-bullet combat simulation and practical TTK engine."""
 
 import math
+import random
 from typing import Dict, List, Tuple
 
 from src.models import AmmoPrice, DamageDropoff, GunMeta, SimulationResult
@@ -14,6 +15,21 @@ ARMOR_MAX_DURABILITY: Dict[int, float] = {
     5: 95.0,
     6: 115.0,
 }
+
+# Standard helmet baseline durability lookup table
+HELMET_MAX_DURABILITY: Dict[int, float] = {
+    1: 25.0,
+    2: 30.0,
+    3: 35.0,
+    4: 45.0,
+    5: 55.0,
+    6: 70.0,
+}
+
+# Real combat hit location probability distribution from dfttk.com:
+# 头部 17.24% / 胸部 30.46% / 腹部 18.97% / 上臂 12.00% / 其余四肢 21.33%
+HIT_PARTS: List[str] = ["head", "chest", "stomach", "arms", "legs"]
+HIT_WEIGHTS: List[float] = [0.1724, 0.3046, 0.1897, 0.1200, 0.2133]
 
 
 def get_damage_at_distance(
@@ -55,67 +71,87 @@ def calc_effective_hit_rate(
 
 
 def simulate_duel(
-    gun: GunMeta, ammo: AmmoPrice, armor_level: int, distance_m: int
+    gun: GunMeta,
+    ammo: AmmoPrice,
+    armor_level: int,
+    distance_m: int,
+    sim_iterations: int = 500,
+    seed: int = 42,
 ) -> SimulationResult:
-    """Simulate discrete bullet-by-bullet combat duel against an armored target.
+    """Simulate real combat duel against an armored target using dfttk hit location distribution.
 
-    Chest HP: 100.0
-    Armor durability: Looked up from ARMOR_MAX_DURABILITY based on armor_level.
-    Simulation logic:
-        - Target penetration baseline = armor_level * 10
-        - Delta penetration = ammo.penetration - target_pen
-        - Penetration probability follows a logistic transition that jumps as armor durability drops below 35%
-        - Unpenetrated: deals blunt flesh damage (~15% base damage) and heavy durability damage
-        - Penetrated: deals full flesh damage and medium durability damage
-        - Shots continue until HP <= 0 (STK)
-        - Theoretical TTK = (STK - 1) * (60.0 / gun.rpm) * 1000 ms
-        - Practical TTK = ads_time_ms * k_ads + theoretical_ttk_ms / EHR
+    Hit location probabilities:
+        - 头部 (17.24%): 受到头盔保护，穿透后 2.5x 爆头暴击肉伤，未穿透造成钝伤与头盔耐久损耗
+        - 胸部 (30.46%): 受到胸部护甲保护，穿透全额肉伤 (1.0x)，未穿透造成钝伤 (0.15x) 与甲耐久损耗
+        - 腹部 (18.97%): 受到防具保护，肉伤 1.0x
+        - 上臂 (12.00%): 无护甲保护 (0 Armor)，全额直伤 0.8x 绕过护甲扣减 HP
+        - 腿部 (21.33%): 无护甲保护 (0 Armor)，全额直伤 0.7x 绕过护甲扣减 HP
+
+    Simulation runs Monte Carlo iterations with deterministic seed to calculate expected STK and TTK.
     """
     chest_damage, armor_damage = get_damage_at_distance(gun.dropoffs, float(distance_m))
-    max_durability = ARMOR_MAX_DURABILITY.get(
+
+    max_body_dur = ARMOR_MAX_DURABILITY.get(
         armor_level, max(20.0, armor_level * 18.0 + 5.0)
     )
-    current_durability = max_durability
+    max_head_dur = HELMET_MAX_DURABILITY.get(
+        armor_level, max(15.0, armor_level * 10.0 + 5.0)
+    )
 
-    target_penetration = armor_level * 10
-    delta_pen = ammo.penetration - target_penetration
+    target_pen = armor_level * 10
+    delta_pen = ammo.penetration - target_pen
 
     # Material resistance factor against lower-tier bullets
     tier_diff = max(0, armor_level - ammo.level)
     armor_eff = max(0.20, 1.0 - 0.55 * tier_diff)
 
-    hp = 100.0
-    shots = 0
+    rng = random.Random(seed)
+    stk_samples: List[int] = []
 
-    while hp > 0.0 and shots < 100:
-        shots += 1
-        durability_ratio = current_durability / max_durability if max_durability > 0 else 0.0
+    for _ in range(sim_iterations):
+        hp = 100.0
+        cur_body_dur = max_body_dur
+        cur_head_dur = max_head_dur
+        shots = 0
 
-        # Degradation score rises sharply once durability drops below 35%
-        if durability_ratio < 0.35:
-            degradation = (0.35 - durability_ratio) / 0.35
-        else:
-            degradation = 0.0
+        while hp > 0.0 and shots < 50:
+            shots += 1
+            part = rng.choices(HIT_PARTS, weights=HIT_WEIGHTS)[0]
 
-        z = delta_pen + 30.0 * degradation - 5.0
-        if current_durability <= 0.0:
-            penetration_prob = 1.0
-        else:
-            penetration_prob = 1.0 / (1.0 + math.exp(-z / 3.0))
+            if part == "arms":
+                hp -= chest_damage * 0.80
+            elif part == "legs":
+                hp -= chest_damage * 0.70
+            elif part in ["chest", "stomach"]:
+                dur_ratio = cur_body_dur / max_body_dur if max_body_dur > 0 else 0.0
+                deg = (0.35 - dur_ratio) / 0.35 if dur_ratio < 0.35 else 0.0
+                z = delta_pen + 30.0 * deg - 5.0
 
-        penetrated = penetration_prob >= 0.5
+                prob = 1.0 if cur_body_dur <= 0.0 else 1.0 / (1.0 + math.exp(-z / 3.0))
+                if rng.random() < prob:
+                    hp -= chest_damage * 1.0
+                    cur_body_dur = max(0.0, cur_body_dur - armor_damage * 0.60 * armor_eff)
+                else:
+                    hp -= chest_damage * 0.15
+                    cur_body_dur = max(0.0, cur_body_dur - armor_damage * 1.00 * armor_eff)
+            elif part == "head":
+                dur_ratio = cur_head_dur / max_head_dur if max_head_dur > 0 else 0.0
+                deg = (0.35 - dur_ratio) / 0.35 if dur_ratio < 0.35 else 0.0
+                z = delta_pen + 30.0 * deg - 5.0
 
-        if penetrated:
-            flesh_damage = chest_damage
-            durability_loss = armor_damage * 0.60 * armor_eff
-        else:
-            flesh_damage = chest_damage * 0.15
-            durability_loss = armor_damage * 1.00 * armor_eff
+                prob = 1.0 if cur_head_dur <= 0.0 else 1.0 / (1.0 + math.exp(-z / 3.0))
+                if rng.random() < prob:
+                    hp -= chest_damage * 2.50
+                    cur_head_dur = max(0.0, cur_head_dur - armor_damage * 0.60 * armor_eff)
+                else:
+                    hp -= chest_damage * 2.50 * 0.15
+                    cur_head_dur = max(0.0, cur_head_dur - armor_damage * 1.00 * armor_eff)
 
-        hp -= flesh_damage
-        current_durability = max(0.0, current_durability - durability_loss)
+        stk_samples.append(shots)
 
-    stk = shots
+    avg_stk = sum(stk_samples) / len(stk_samples)
+    stk = max(1, int(round(avg_stk)))
+
     theoretical_ttk_ms = (stk - 1) * (60.0 / gun.rpm) * 1000.0
     ehr = calc_effective_hit_rate(
         gun.recoil_control, gun.stability, gun.bullet_velocity, float(distance_m)
@@ -130,3 +166,4 @@ def simulate_duel(
         practical_ttk_ms=round(practical_ttk_ms, 2),
         ehr=round(ehr, 4),
     )
+
