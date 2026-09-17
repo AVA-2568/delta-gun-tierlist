@@ -7,7 +7,10 @@ import random
 from datetime import datetime, timezone
 from typing import Dict, List, Optional, Tuple, Union
 import requests
-from bs4 import BeautifulSoup
+try:
+    from bs4 import BeautifulSoup
+except ImportError:
+    BeautifulSoup = None
 from src.models import AmmoPrice, DataSourceStatus
 
 logger = logging.getLogger(__name__)
@@ -85,34 +88,35 @@ def _parse_live_payload(text: str) -> List[AmmoPrice]:
         pass
 
     # 2. Attempt HTML table parsing with BeautifulSoup
-    try:
-        soup = BeautifulSoup(text, "html.parser")
-        tables = soup.find_all("table")
-        ammo_items: List[AmmoPrice] = []
-        now_str = datetime.now(timezone.utc).isoformat()
+    if BeautifulSoup is not None:
+        try:
+            soup = BeautifulSoup(text, "html.parser")
+            tables = soup.find_all("table")
+            ammo_items: List[AmmoPrice] = []
+            now_str = datetime.now(timezone.utc).isoformat()
 
-        for table in tables:
-            rows = table.find_all("tr")
-            for row in rows:
-                cols = [c.get_text(strip=True) for c in row.find_all(["td", "th"])]
-                if len(cols) >= 5 and cols[2].isdigit() and cols[4].isdigit():
-                    try:
-                        ammo = AmmoPrice(
-                            name=cols[0],
-                            caliber=cols[1],
-                            level=int(cols[2]),
-                            penetration=int(cols[3]),
-                            price_per_round=int(cols[4]),
-                            source="zxfps_live",
-                            updated_at=now_str,
-                        )
-                        ammo_items.append(ammo)
-                    except Exception:
-                        continue
-        if ammo_items:
-            return ammo_items
-    except Exception:
-        pass
+            for table in tables:
+                rows = table.find_all("tr")
+                for row in rows:
+                    cols = [c.get_text(strip=True) for c in row.find_all(["td", "th"])]
+                    if len(cols) >= 5 and cols[2].isdigit() and cols[4].isdigit():
+                        try:
+                            ammo = AmmoPrice(
+                                name=cols[0],
+                                caliber=cols[1],
+                                level=int(cols[2]),
+                                penetration=int(cols[3]),
+                                price_per_round=int(cols[4]),
+                                source="zxfps_live",
+                                updated_at=now_str,
+                            )
+                            ammo_items.append(ammo)
+                        except Exception:
+                            continue
+            if ammo_items:
+                return ammo_items
+        except Exception:
+            pass
 
     raise ValueError("Failed to parse valid ammo price data from response payload")
 
