@@ -167,6 +167,8 @@ def rank_weapons(
             effective_ads = max(50, gun.ads_time_ms + build.ads_modifier_ms)
             effective_recoil = min(100.0, max(0.0, gun.recoil_control + build.recoil_bonus))
             build_code = build.build_code
+            code_status = build.code_status
+            attachments = build.attachments
             sim_gun = gun.model_copy(
                 update={"ads_time_ms": effective_ads, "recoil_control": effective_recoil}
             )
@@ -176,6 +178,8 @@ def rank_weapons(
         else:
             sim_gun = gun
             build_code = "STOCK"
+            code_status = "manual_only"
+            attachments = []
             handling_score = calc_handling_score(
                 recoil=gun.recoil_control, stability=gun.stability, rpm=gun.rpm
             )
@@ -196,6 +200,9 @@ def rank_weapons(
                 "ammo": ammo,
                 "sim": sim,
                 "build_code": build_code,
+                "code_status": code_status,
+                "attachments": attachments,
+                "mod_cost": build.mod_cost if build is not None else 0,
                 "handling_score": handling_score,
                 "total_cost": total_cost,
                 "ammo_60_cost": ammo_60_cost,
@@ -273,6 +280,7 @@ def rank_weapons(
             ammo_level=ammo_level,
             stk=sim.stk,
             practical_ttk_ms=sim.practical_ttk_ms,
+            mod_cost=item.get("mod_cost", 0),
             ammo_60_cost=item["ammo_60_cost"],
             total_loadout_cost=total_cost,
             single_kill_cost=item["single_kill_cost"],
@@ -282,6 +290,8 @@ def rank_weapons(
             composite_score=composite_score,
             tier=tier,
             build_code=item["build_code"],
+            code_status=item["code_status"],
+            attachments=item["attachments"],
             tags=tags,
         )
         entries.append(entry)

@@ -1,6 +1,6 @@
 """Pydantic data contract models for weapon metadata, ammo pricing, builds, and simulation results."""
 
-from typing import List
+from typing import List, Optional
 from pydantic import BaseModel, ConfigDict, Field
 
 
@@ -54,7 +54,8 @@ class WeaponBuild(BaseModel):
 
     gun_id: str = Field(min_length=1, description="对应枪械ID")
     build_name: str = Field(min_length=1, description="方案名称")
-    build_code: str = Field(min_length=1, description="游戏内改枪码")
+    build_code: Optional[str] = Field(default=None, description="游戏内真实改枪码，若无有效真码则为 None")
+    code_status: str = Field(default="manual_only", description="改枪码状态：verified(实测有效真码) / manual_only(仅配件清单需手动装配)")
     mod_cost: int = Field(ge=0, description="改装配件总造价（哈夫币）")
     ads_modifier_ms: int = Field(default=0, description="改装对开镜时间的影响 (ms)")
     recoil_bonus: float = Field(default=0.0, description="改装后坐优化增益")
@@ -85,6 +86,7 @@ class TierEntry(BaseModel):
     ammo_level: int = Field(ge=1, le=7, description="弹药等级")
     stk: int = Field(gt=0, description="击杀所需发数")
     practical_ttk_ms: float = Field(ge=0.0, description="实战击杀时间 (ms)")
+    mod_cost: int = Field(default=0, ge=0, description="推荐最优改装配件总造价（哈夫币）")
     ammo_60_cost: int = Field(ge=0, description="60发备弹成本（哈夫币）")
     total_loadout_cost: int = Field(ge=0, description="裸枪+改装+60发备弹总成本（哈夫币）")
     single_kill_cost: int = Field(ge=0, description="单次击杀消耗弹药成本（哈夫币）")
@@ -93,7 +95,9 @@ class TierEntry(BaseModel):
     cost_score: float = Field(ge=0.0, le=100.0, description="经济性价比分 (0~100)")
     composite_score: float = Field(ge=0.0, le=100.0, description="加权综合得分 (0~100)")
     tier: str = Field(min_length=1, description="梯队级别 (T0, T1, T2, T3)")
-    build_code: str = Field(min_length=1, description="推荐实用改枪码")
+    build_code: Optional[str] = Field(default=None, description="推荐实用改枪码（若无则为 None）")
+    code_status: str = Field(default="manual_only", description="改枪码状态：verified / manual_only")
+    attachments: List[str] = Field(default_factory=list, description="推荐改装配件清单")
     tags: List[str] = Field(default_factory=list, description="特性标签")
 
 

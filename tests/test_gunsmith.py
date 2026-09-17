@@ -1,4 +1,4 @@
-"""Unit tests for the gunsmith weapon modification system."""
+"""Unit tests for the gunsmith weapon modification system focusing on best-value attachment blueprints."""
 
 import pytest
 from src.engine.gunsmith import (
@@ -11,21 +11,31 @@ from src.models import WeaponBuild
 
 
 def test_mainstream_builds_coverage():
-    assert len(MAINSTREAM_BUILDS) >= 12
+    assert len(MAINSTREAM_BUILDS) >= 15
     for gun_id, build in MAINSTREAM_BUILDS.items():
         assert build.gun_id == gun_id
-        # In-game share code format: {name}-烽火地带-{code}
-        assert "烽火地带" in build.build_code
-        assert len(build.build_code.split("-")) >= 3
         assert build.total_mod_cost > 0
         assert len(build.attachments) >= 4
+        # Verify slot naming in formatted attachments (integrally suppressed weapons like AS-Val/VSS have built-in suppressed barrels)
+        formatted = build.formatted_attachment_list
+        if gun_id not in ["asval", "vss"]:
+            assert any("枪管" in item or "枪口" in item for item in formatted)
+        assert any("握把" in item or "托" in item for item in formatted)
+        # Ensure zero synthetic sha256 fake hash pattern exists
+        if build.build_code:
+            assert "6G7" not in build.build_code or "A4APK" not in build.build_code
 
 
 def test_get_all_builds():
     builds = get_all_builds()
-    assert len(builds) >= 12
+    assert len(builds) >= 45
     assert all(isinstance(b, WeaponBuild) for b in builds)
     assert all(b.mod_cost > 0 for b in builds)
+    assert all(len(b.attachments) >= 4 for b in builds)
+    # Ensure every attachment has slot specification
+    for b in builds:
+        for att in b.attachments:
+            assert ":" in att, f"Attachment '{att}' in gun {b.gun_id} missing slot prefix"
 
 
 def test_get_detailed_build():
@@ -33,9 +43,17 @@ def test_get_detailed_build():
     assert m4_build is not None
     assert isinstance(m4_build, DetailedWeaponBuild)
     assert m4_build.gun_name == "M4A1突击步枪"
-    assert "M4A1突击步枪-烽火地带" in m4_build.build_code
-    assert m4_build.total_mod_cost == 71000
+    assert m4_build.total_mod_cost == 93711
     assert len(m4_build.attachments) == 6
+
+    # Verify attachment slots
+    slots = [a.slot for a in m4_build.attachments]
+    assert "枪管" in slots
+    assert "枪口" in slots
+    assert "前握把" in slots
+    assert "瞄具" in slots
+    assert "弹匣" in slots
+    assert "枪托" in slots
 
     # Non-existent gun returns None
     assert get_detailed_build("unknown_gun_xyz") is None
