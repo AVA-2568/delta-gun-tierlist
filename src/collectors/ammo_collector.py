@@ -4,6 +4,7 @@ import json
 import logging
 import os
 import random
+import re
 from datetime import datetime, timezone
 from typing import Dict, List, Optional, Tuple, Union
 import requests
@@ -15,7 +16,11 @@ from src.models import AmmoPrice, DataSourceStatus
 
 logger = logging.getLogger(__name__)
 
-DEFAULT_ZXFPS_URL = "https://zxfps.com/api/ammo"
+DEFAULT_LIVE_URLS = [
+    "https://www.onebiji.com/hykb_tools/sjz/mrmm/tqc.php?immgj=0",
+    "https://zxfps.com/api/ammo",
+]
+DEFAULT_ZXFPS_URL = DEFAULT_LIVE_URLS[0]
 DEFAULT_SNAPSHOT_PATH = "data/snapshot_prices.json"
 DEFAULT_BASELINE_PATH = "data/baseline_ammo_prices.json"
 
@@ -61,7 +66,9 @@ def _http_get(url: str, headers: dict, timeout: float = 5.0) -> str:
 
 
 def _parse_live_payload(text: str) -> List[AmmoPrice]:
-    """Parse raw HTTP response text into AmmoPrice models, supporting JSON and HTML tables."""
+    """Parse raw HTTP response text into AmmoPrice models, supporting JSON, objectlist JS, and HTML tables."""
+    now_str = datetime.now(timezone.utc).isoformat()
+
     # 1. Attempt JSON parsing
     try:
         data = json.loads(text)
@@ -74,7 +81,6 @@ def _parse_live_payload(text: str) -> List[AmmoPrice]:
                     raw_items = data[key]
                     break
         if raw_items:
-            now_str = datetime.now(timezone.utc).isoformat()
             parsed_list = []
             for item in raw_items:
                 payload = dict(item)
@@ -87,13 +93,53 @@ def _parse_live_payload(text: str) -> List[AmmoPrice]:
     except (json.JSONDecodeError, TypeError):
         pass
 
-    # 2. Attempt HTML table parsing with BeautifulSoup
+    # 2. Attempt JavaScript objectlist parsing (onebiji / 好游快爆市场洲期律)
+    m = re.search(r'var objectlist\s*=\s*(\{.*?\});\s*(?:var|</script>)', text, re.DOTALL)
+    if m:
+        try:
+            data = json.loads(m.group(1))
+            calibers_map = {
+                "5.56x45mm": ("5.56", 42, 53),
+                "5.45x39mm": ("5.45", 41, 51),
+                "7.62x51mm": ("7.62x51", 44, 54),
+                "7.62x54mmR": ("7.62x54", 45, 55),
+                "9x19mm": ("9x19", 40, 48),
+                "5.7x28mm": ("5.7x28", 41, 50),
+                "9x39mm": ("9x39", 43, 52),
+                "6.8x51mm": ("6.8x51", 45, 55),
+            }
+            parsed_list = []
+            for k, v in data.items():
+                name = v.get("itemName", "")
+                grade = v.get("grade", "")
+                price = int(v.get("price", 0))
+                if str(grade) in ["4", "5"] and price > 0:
+                    for cal, (kw, pen4, pen5) in calibers_map.items():
+                        if kw in name:
+                            level = int(grade)
+                            pen = pen4 if level == 4 else pen5
+                            parsed_list.append(
+                                AmmoPrice(
+                                    name=name,
+                                    caliber=cal,
+                                    level=level,
+                                    penetration=pen,
+                                    price_per_round=price,
+                                    source="onebiji_live",
+                                    updated_at=now_str,
+                                )
+                            )
+            if parsed_list:
+                return parsed_list
+        except Exception:
+            pass
+
+    # 3. Attempt HTML table parsing with BeautifulSoup
     if BeautifulSoup is not None:
         try:
             soup = BeautifulSoup(text, "html.parser")
             tables = soup.find_all("table")
             ammo_items: List[AmmoPrice] = []
-            now_str = datetime.now(timezone.utc).isoformat()
 
             for table in tables:
                 rows = table.find_all("tr")
@@ -192,36 +238,57 @@ def fetch_ammo_prices(
 
     # --- Tier 0: Live Fetch ---
     if live:
-        try:
-            headers = {
-                "User-Agent": _get_random_user_agent(),
-                "Accept": "application/json, text/html, */*",
-            }
-            raw_text = _http_get(url=url, headers=headers, timeout=timeout)
-            ammo_list = _parse_live_payload(raw_text)
+        urls_to_try = DEFAULT_LIVE_URLS if url == DEFAULT_ZXFPS_URL else [url]
+        for live_url in urls_to_try:
+            try:
+                headers = {
+                    "User-Agent": _get_random_user_agent(),
+                    "Accept": "application/json, text/html, */*",
+                }
+                raw_text = _http_get(url=live_url, headers=headers, timeout=timeout)
+                ammo_list = _parse_live_payload(raw_text)
 
-            # Atomically persist fresh data to snapshot
-            serializable_list = [item.model_dump() for item in ammo_list]
-            _atomic_write_json(snapshot_path, serializable_list)
+                # Atomically persist fresh data to snapshot
+                serializable_list = [item.model_dump() for item in ammo_list]
+                _atomic_write_json(snapshot_path, serializable_list)
 
-            ammo_dict = {f"{item.caliber}_{item.level}": item for item in ammo_list}
-            status = DataSourceStatus(
-                source="zxfps_live",
-                is_fallback=False,
-                fallback_tier=0,
-                updated_at=now_str,
-                message="Live ammo prices fetched and verified successfully from zxfps.com",
-            )
-            return ammo_dict, status
-        except Exception as exc:
-            err_msg = f"Tier 0 (Live) failed: {type(exc).__name__} - {exc}"
-            logger.warning(err_msg)
-            errors.append(err_msg)
+                ammo_dict = {f"{item.caliber}_{item.level}": item for item in ammo_list}
+                # Backfill any missing caliber levels from baseline
+                if os.path.exists(baseline_path):
+                    try:
+                        for b_item in _load_json_file(baseline_path, expected_source="baseline"):
+                            b_key = f"{b_item.caliber}_{b_item.level}"
+                            if b_key not in ammo_dict:
+                                ammo_dict[b_key] = b_item
+                    except Exception:
+                        pass
+
+                status = DataSourceStatus(
+                    source="zxfps_live",
+                    is_fallback=False,
+                    fallback_tier=0,
+                    updated_at=now_str,
+                    message=f"Live ammo prices fetched and verified successfully from {live_url}",
+                )
+                return ammo_dict, status
+            except Exception as exc:
+                err_msg = f"Tier 0 (Live on {live_url}) failed: {type(exc).__name__} - {exc}"
+                logger.warning(err_msg)
+                errors.append(err_msg)
 
     # --- Tier 1: Snapshot Fallback ---
     try:
         ammo_list = _load_json_file(snapshot_path, expected_source="snapshot")
         ammo_dict = {f"{item.caliber}_{item.level}": item for item in ammo_list}
+        if os.path.exists(baseline_path):
+            try:
+                for b_item in _load_json_file(baseline_path, expected_source="baseline"):
+                    b_key = f"{b_item.caliber}_{b_item.level}"
+                    if b_key not in ammo_dict:
+                        ammo_dict[b_key] = b_item
+            except Exception:
+                pass
+
         status = DataSourceStatus(
             source="snapshot",
             is_fallback=True,

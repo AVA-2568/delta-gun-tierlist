@@ -243,6 +243,7 @@ def test_run_pipeline_custom_paths(tmp_path):
         output_dir=str(tmp_path),
         guns_path="data/base_guns.json",
         builds_path="data/default_builds.json",
+        snapshot_path=str(tmp_path / "non_existent_snapshot.json"),
         baseline_path="data/baseline_ammo_prices.json",
     )
     assert res["updated"] is True
