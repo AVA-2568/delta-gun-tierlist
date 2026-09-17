@@ -1,0 +1,362 @@
+[
+  {
+    "id": "m4a1",
+    "name": "M4A1",
+    "category": "突击步枪",
+    "caliber": "5.56x45mm",
+    "rpm": 800,
+    "bullet_velocity": 750.0,
+    "base_price": 35000,
+    "default_mag_size": 30,
+    "ads_time_ms": 220,
+    "recoil_control": 72.0,
+    "stability": 68.0,
+    "dropoffs": [
+      {
+        "max_distance": 25.0,
+        "chest_damage": 34.0,
+        "armor_damage": 30.0
+      },
+      {
+        "max_distance": 45.0,
+        "chest_damage": 29.0,
+        "armor_damage": 26.0
+      },
+      {
+        "max_distance": 100.0,
+        "chest_damage": 24.0,
+        "armor_damage": 22.0
+      }
+    ]
+  },
+  {
+    "id": "k416",
+    "name": "K416",
+    "category": "突击步枪",
+    "caliber": "5.56x45mm",
+    "rpm": 857,
+    "bullet_velocity": 780.0,
+    "base_price": 48000,
+    "default_mag_size": 30,
+    "ads_time_ms": 230,
+    "recoil_control": 70.0,
+    "stability": 66.0,
+    "dropoffs": [
+      {
+        "max_distance": 25.0,
+        "chest_damage": 33.0,
+        "armor_damage": 29.0
+      },
+      {
+        "max_distance": 45.0,
+        "chest_damage": 28.0,
+        "armor_damage": 25.0
+      },
+      {
+        "max_distance": 100.0,
+        "chest_damage": 23.0,
+        "armor_damage": 21.0
+      }
+    ]
+  },
+  {
+    "id": "car15",
+    "name": "CAR-15",
+    "category": "突击步枪",
+    "caliber": "5.56x45mm",
+    "rpm": 730,
+    "bullet_velocity": 680.0,
+    "base_price": 18000,
+    "default_mag_size": 30,
+    "ads_time_ms": 190,
+    "recoil_control": 65.0,
+    "stability": 62.0,
+    "dropoffs": [
+      {
+        "max_distance": 20.0,
+        "chest_damage": 34.0,
+        "armor_damage": 30.0
+      },
+      {
+        "max_distance": 40.0,
+        "chest_damage": 28.0,
+        "armor_damage": 25.0
+      },
+      {
+        "max_distance": 100.0,
+        "chest_damage": 23.0,
+        "armor_damage": 21.0
+      }
+    ]
+  },
+  {
+    "id": "asval",
+    "name": "AS Val",
+    "category": "突击步枪",
+    "caliber": "9x39mm",
+    "rpm": 900,
+    "bullet_velocity": 310.0,
+    "base_price": 52000,
+    "default_mag_size": 20,
+    "ads_time_ms": 210,
+    "recoil_control": 64.0,
+    "stability": 60.0,
+    "dropoffs": [
+      {
+        "max_distance": 18.0,
+        "chest_damage": 42.0,
+        "armor_damage": 38.0
+      },
+      {
+        "max_distance": 35.0,
+        "chest_damage": 33.0,
+        "armor_damage": 30.0
+      },
+      {
+        "max_distance": 100.0,
+        "chest_damage": 25.0,
+        "armor_damage": 23.0
+      }
+    ]
+  },
+  {
+    "id": "vector",
+    "name": "Vector",
+    "category": "冲锋枪",
+    "caliber": "9x19mm",
+    "rpm": 1100,
+    "bullet_velocity": 380.0,
+    "base_price": 42000,
+    "default_mag_size": 30,
+    "ads_time_ms": 150,
+    "recoil_control": 78.0,
+    "stability": 72.0,
+    "dropoffs": [
+      {
+        "max_distance": 15.0,
+        "chest_damage": 28.0,
+        "armor_damage": 24.0
+      },
+      {
+        "max_distance": 30.0,
+        "chest_damage": 21.0,
+        "armor_damage": 18.0
+      },
+      {
+        "max_distance": 100.0,
+        "chest_damage": 15.0,
+        "armor_damage": 13.0
+      }
+    ]
+  },
+  {
+    "id": "mp5",
+    "name": "MP5",
+    "category": "冲锋枪",
+    "caliber": "9x19mm",
+    "rpm": 800,
+    "bullet_velocity": 400.0,
+    "base_price": 22000,
+    "default_mag_size": 30,
+    "ads_time_ms": 160,
+    "recoil_control": 82.0,
+    "stability": 78.0,
+    "dropoffs": [
+      {
+        "max_distance": 18.0,
+        "chest_damage": 29.0,
+        "armor_damage": 25.0
+      },
+      {
+        "max_distance": 35.0,
+        "chest_damage": 22.0,
+        "armor_damage": 19.0
+      },
+      {
+        "max_distance": 100.0,
+        "chest_damage": 16.0,
+        "armor_damage": 14.0
+      }
+    ]
+  },
+  {
+    "id": "p90",
+    "name": "P90",
+    "category": "冲锋枪",
+    "caliber": "5.7x28mm",
+    "rpm": 900,
+    "bullet_velocity": 520.0,
+    "base_price": 38000,
+    "default_mag_size": 50,
+    "ads_time_ms": 170,
+    "recoil_control": 76.0,
+    "stability": 70.0,
+    "dropoffs": [
+      {
+        "max_distance": 18.0,
+        "chest_damage": 27.0,
+        "armor_damage": 25.0
+      },
+      {
+        "max_distance": 35.0,
+        "chest_damage": 21.0,
+        "armor_damage": 19.0
+      },
+      {
+        "max_distance": 100.0,
+        "chest_damage": 16.0,
+        "armor_damage": 14.0
+      }
+    ]
+  },
+  {
+    "id": "ak12",
+    "name": "AK-12",
+    "category": "突击步枪",
+    "caliber": "5.45x39mm",
+    "rpm": 700,
+    "bullet_velocity": 730.0,
+    "base_price": 36000,
+    "default_mag_size": 30,
+    "ads_time_ms": 215,
+    "recoil_control": 70.0,
+    "stability": 67.0,
+    "dropoffs": [
+      {
+        "max_distance": 25.0,
+        "chest_damage": 36.0,
+        "armor_damage": 32.0
+      },
+      {
+        "max_distance": 50.0,
+        "chest_damage": 30.0,
+        "armor_damage": 27.0
+      },
+      {
+        "max_distance": 100.0,
+        "chest_damage": 25.0,
+        "armor_damage": 22.0
+      }
+    ]
+  },
+  {
+    "id": "m7",
+    "name": "M7战斗步枪",
+    "category": "战斗步枪",
+    "caliber": "6.8x51mm",
+    "rpm": 650,
+    "bullet_velocity": 820.0,
+    "base_price": 68000,
+    "default_mag_size": 20,
+    "ads_time_ms": 260,
+    "recoil_control": 60.0,
+    "stability": 65.0,
+    "dropoffs": [
+      {
+        "max_distance": 30.0,
+        "chest_damage": 48.0,
+        "armor_damage": 44.0
+      },
+      {
+        "max_distance": 60.0,
+        "chest_damage": 42.0,
+        "armor_damage": 38.0
+      },
+      {
+        "max_distance": 100.0,
+        "chest_damage": 36.0,
+        "armor_damage": 33.0
+      }
+    ]
+  },
+  {
+    "id": "m14",
+    "name": "M14",
+    "category": "精确射手步枪",
+    "caliber": "7.62x51mm",
+    "rpm": 450,
+    "bullet_velocity": 850.0,
+    "base_price": 32000,
+    "default_mag_size": 20,
+    "ads_time_ms": 270,
+    "recoil_control": 58.0,
+    "stability": 75.0,
+    "dropoffs": [
+      {
+        "max_distance": 35.0,
+        "chest_damage": 58.0,
+        "armor_damage": 52.0
+      },
+      {
+        "max_distance": 65.0,
+        "chest_damage": 52.0,
+        "armor_damage": 47.0
+      },
+      {
+        "max_distance": 120.0,
+        "chest_damage": 46.0,
+        "armor_damage": 42.0
+      }
+    ]
+  },
+  {
+    "id": "sr25",
+    "name": "SR-25",
+    "category": "精确射手步枪",
+    "caliber": "7.62x51mm",
+    "rpm": 360,
+    "bullet_velocity": 870.0,
+    "base_price": 62000,
+    "default_mag_size": 20,
+    "ads_time_ms": 290,
+    "recoil_control": 56.0,
+    "stability": 78.0,
+    "dropoffs": [
+      {
+        "max_distance": 40.0,
+        "chest_damage": 64.0,
+        "armor_damage": 58.0
+      },
+      {
+        "max_distance": 75.0,
+        "chest_damage": 58.0,
+        "armor_damage": 53.0
+      },
+      {
+        "max_distance": 150.0,
+        "chest_damage": 52.0,
+        "armor_damage": 48.0
+      }
+    ]
+  },
+  {
+    "id": "svd",
+    "name": "SVD",
+    "category": "精确射手步枪",
+    "caliber": "7.62x54mmR",
+    "rpm": 300,
+    "bullet_velocity": 830.0,
+    "base_price": 55000,
+    "default_mag_size": 10,
+    "ads_time_ms": 320,
+    "recoil_control": 52.0,
+    "stability": 80.0,
+    "dropoffs": [
+      {
+        "max_distance": 40.0,
+        "chest_damage": 72.0,
+        "armor_damage": 66.0
+      },
+      {
+        "max_distance": 80.0,
+        "chest_damage": 66.0,
+        "armor_damage": 60.0
+      },
+      {
+        "max_distance": 150.0,
+        "chest_damage": 60.0,
+        "armor_damage": 55.0
+      }
+    ]
+  }
+]
