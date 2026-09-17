@@ -121,6 +121,9 @@ def render_main_readme(
                     "name": e.gun_name,
                     "category": e.category,
                     "build_code": e.build_code,
+                    "code_status": getattr(e, "code_status", "manual_only"),
+                    "attachments": getattr(e, "attachments", []),
+                    "mod_cost": getattr(e, "mod_cost", 0),
                     "costs": {},
                 }
             # Record total loadout costs by ammo level
@@ -227,13 +230,16 @@ def render_main_readme(
             tag_badges = " ".join([f"`{t}`" for t in feat_entry.tags])
             dist_desc = ", ".join(item["t0_dists"]) if item["t0_dists"] else "全距离综合"
 
+            att_desc = " / ".join(feat_entry.attachments) if feat_entry.attachments else "标准原厂出厂配置"
+            scheme_tag = f" (方案: {feat_entry.build_code})" if feat_entry.build_code else ""
+
             card_lines.extend([
                 f"- **{feat_entry.gun_name}** (`{caliber}` | 梯队评级: {_format_tier(feat_entry.tier)} | 优势距离: {dist_desc})",
-                f"  - **起枪总成本 (裸枪+改装+60发备弹)**: **{feat_entry.total_loadout_cost:,} 哈夫币**",
-                f"  - **60发备弹成本**: **{feat_entry.ammo_60_cost:,} 哈夫币** (单杀弹药消耗: {feat_entry.single_kill_cost:,} 币)",
-                f"  - **综合评分**: **{feat_entry.composite_score:.2f}** | 击杀需发数 STK: **{feat_entry.stk}发**",
-                f"  - **推荐实用改枪码** (游戏内导入一键复制):",
-                f"    ```{feat_entry.build_code}```",
+                f"  - **起枪总成本 (裸枪+最优改装+60发备弹)**: **{feat_entry.total_loadout_cost:,} 哈夫币**",
+                f"    - **成本拆解**: 最优改装配件造价 **{feat_entry.mod_cost:,}** 币 | 60发备弹成本 **{feat_entry.ammo_60_cost:,}** 币 | 单杀弹药消耗 **{feat_entry.single_kill_cost:,}** 币",
+                f"  - **实战击杀性能**: 击杀需发数 STK: **{feat_entry.stk}发** | 实战TTK: **{feat_entry.practical_ttk_ms:.1f}ms** | 综合战力评分: **{feat_entry.composite_score:.2f}**",
+                f"  - **🛠️ 最优高性价比实战改装配件清单 (推荐改枪方案 · 照单装配不失效)**{scheme_tag}:",
+                f"    `{att_desc}`",
                 f"  - **战术特性标签**: {tag_badges}",
                 "",
             ])
@@ -245,8 +251,8 @@ def render_main_readme(
 
     # Build 9-Dimension Overview Matrix Table
     matrix_header = [
-        "| 枪械名称 | 类别 | 4套4弹 (15m/35m/50m) | 4套5弹 (15m/35m/50m) | 5套5弹 (15m/35m/50m) | 起枪总成本 (4级/5级弹) | 实用改枪码 (点击复制) |",
-        "| :--- | :---: | :---: | :---: | :---: | :---: | :--- |",
+        "| 枪械名称 | 类别 | 4套4弹 (15m/35m/50m) | 4套5弹 (15m/35m/50m) | 5套5弹 (15m/35m/50m) | 最优改装造价 | 起枪总成本 (4级/5级弹) | 最优高性价比改装配件清单 (实战推荐改枪方案) |",
+        "| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :--- |",
     ]
 
     # Pre-fetch scenario maps
@@ -268,10 +274,12 @@ def render_main_readme(
 
     matrix_rows = []
     for gid in sorted_gun_ids:
-        meta = gun_meta_map.get(gid, {"name": gid, "category": "突击步枪", "build_code": "STOCK", "costs": {}})
+        meta = gun_meta_map.get(gid, {"name": gid, "category": "突击步枪", "build_code": None, "code_status": "manual_only", "attachments": [], "costs": {}, "mod_cost": 0})
         g_name = meta["name"]
         category = meta["category"]
         build_code = meta["build_code"]
+        attachments = meta.get("attachments", [])
+        mod_cost_val = meta.get("mod_cost", 0)
 
         def get_triplet(armor: int, ammo: int) -> str:
             t15 = sc_map.get((gid, armor, ammo, 15))
@@ -297,9 +305,12 @@ def render_main_readme(
         else:
             cost_str = "-"
 
-        code_str = f"`{build_code}`"
+        mod_cost_str = f"{mod_cost_val:,} 币" if mod_cost_val > 0 else "0 币"
+        att_str = " / ".join(attachments) if attachments else "标准原厂出厂配置"
+        att_display = f"{att_str} *(方案: `{build_code}`)*" if build_code else att_str
+
         matrix_rows.append(
-            f"| **{g_name}** | {category} | {c_4_4} | {c_4_5} | {c_5_5} | {cost_str} | {code_str} |"
+            f"| **{g_name}** | {category} | {c_4_4} | {c_4_5} | {c_5_5} | {mod_cost_str} | {cost_str} | {att_display} |"
         )
 
     matrix_table = "\n".join(matrix_header + matrix_rows)
@@ -481,13 +492,14 @@ def render_scenario_docs(
             lines.extend([
                 f"## {dist_title}",
                 f"> {dist_desc}",
+                "> 💡 **实战改装说明**：因官方改枪码存在时效性与版本淘汰机制，本表采用**最优高性价比配件清单**（实测推荐改枪码/改枪方案），提供明确的槽位与配件名称，支持玩家照单直接手动装配，永久保值不失效。",
                 "",
-                "| 排名 | 梯队 | 枪械 | 口径 | STK | 实战TTK | 60发备弹成本 | 起枪总成本 | 单杀弹药成本 | 综合评分 | 推荐改枪码 | 战术标签 |",
-                "| :---: | :---: | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :--- | :--- |",
+                "| 排名 | 梯队 | 枪械 | 口径 | STK | 实战TTK | 改装配件造价 | 60发备弹成本 | 起枪总成本 | 单杀弹药成本 | 综合评分 | 推荐改枪码与最优配件清单 | 战术标签 |",
+                "| :---: | :---: | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- | :--- |",
             ])
 
             if not entries:
-                lines.append("| - | - | 暂无数据 | - | - | - | - | - | - | - | - | - |")
+                lines.append("| - | - | 暂无数据 | - | - | - | - | - | - | - | - | - | - |")
             else:
                 for idx, entry in enumerate(entries, start=1):
                     rank = idx
@@ -496,14 +508,19 @@ def render_scenario_docs(
                     caliber = _get_gun_caliber(entry)
                     stk_str = f"{entry.stk}发"
                     ttk_str = f"{entry.practical_ttk_ms:.1f}ms"
+                    mod_cost_str = f"{entry.mod_cost:,}"
                     ammo60_str = f"{entry.ammo_60_cost:,}"
                     total_str = f"{entry.total_loadout_cost:,}"
                     single_str = f"{entry.single_kill_cost:,}"
                     score_str = f"{entry.composite_score:.2f}"
-                    code_str = f"`{entry.build_code}`"
+                    att_str = " / ".join(entry.attachments) if entry.attachments else "标准原厂出厂配置"
+                    if entry.build_code:
+                        att_display = f"{att_str} *(方案: `{entry.build_code}`)*"
+                    else:
+                        att_display = att_str
                     tags_str = " ".join([f"`{t}`" for t in entry.tags])
 
-                    row = f"| {rank} | {tier_str} | {gun_name} | {caliber} | {stk_str} | {ttk_str} | {ammo60_str} | {total_str} | {single_str} | {score_str} | {code_str} | {tags_str} |"
+                    row = f"| {rank} | {tier_str} | {gun_name} | {caliber} | {stk_str} | {ttk_str} | {mod_cost_str} | {ammo60_str} | {total_str} | {single_str} | {score_str} | {att_display} | {tags_str} |"
                     lines.append(row)
 
             lines.extend(["", "---", ""])

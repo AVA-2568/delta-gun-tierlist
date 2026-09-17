@@ -52,10 +52,15 @@ def normalize_weapon_build(
     if max_mod_cost is not None and new_cost > max_mod_cost:
         new_cost = max_mod_cost
 
+    # If attachments were modified/replaced, the original in-game share code is invalidated
+    effective_code = None if replaced_count > 0 else build.build_code
+    effective_status = "manual_only" if replaced_count > 0 else build.code_status
+
     return WeaponBuild(
         gun_id=build.gun_id,
         build_name=build.build_name,
-        build_code=build.build_code,
+        build_code=effective_code,
+        code_status=effective_status,
         mod_cost=new_cost,
         ads_modifier_ms=build.ads_modifier_ms,
         recoil_bonus=build.recoil_bonus,
