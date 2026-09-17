@@ -34,7 +34,7 @@ def test_get_detailed_build():
     assert isinstance(m4_build, DetailedWeaponBuild)
     assert m4_build.gun_name == "M4A1突击步枪"
     assert "M4A1突击步枪-烽火地带" in m4_build.build_code
-    assert m4_build.total_mod_cost == 64000
+    assert m4_build.total_mod_cost == 71000
     assert len(m4_build.attachments) == 6
 
     # Non-existent gun returns None

@@ -1,33 +1,145 @@
 [
   {
-    "gun_id": "m4a1",
-    "build_name": "烽火全能中距控枪改",
-    "build_code": "M4A1突击步枪-烽火地带-6F4B2CC0ARR574ULRP1HM",
+    "gun_id": "ak12",
+    "build_name": "稳定爆发主力改",
+    "build_code": "AK-12稳定版-烽火地带-6G7FB0404NFDQKJMA4APK",
     "mod_cost": 64000,
-    "ads_modifier_ms": -15,
-    "recoil_bonus": 18.0,
+    "ads_modifier_ms": -10,
+    "recoil_bonus": 19.0,
     "attachments": [
-      "精选长枪管",
-      "实用战术消音器",
-      "幻影垂直握把",
-      "全息战术红点瞄准镜",
-      "45发快速扩容弹匣",
-      "CTR轻量稳固枪托"
+      "AK12精英脚架长枪管",
+      "防跳膛口制退器",
+      "RK-1前握把",
+      "全息反射镜",
+      "45发扩容弹匣",
+      "折叠缓冲托"
+    ]
+  },
+  {
+    "gun_id": "akm",
+    "build_name": "性价比黑科技高伤改",
+    "build_code": "AKM性价比黑科技-烽火地带-6G7FDPS04NFDQKJMA4APK",
+    "mod_cost": 57000,
+    "ads_modifier_ms": -15,
+    "recoil_bonus": 20.0,
+    "attachments": [
+      "AKM实用长枪管组合",
+      "巨浪防跳制退器",
+      "斜角战术握把",
+      "内红点反射镜",
+      "40发钢制弹匣",
+      "橡胶减震枪托"
+    ]
+  },
+  {
+    "gun_id": "aks74u",
+    "build_name": "AKS-74U中距全能稳健改",
+    "build_code": "AKS-74U-烽火地带-6G706B1F6E96AFE04A4APK",
+    "mod_cost": 66000,
+    "ads_modifier_ms": -12,
+    "recoil_bonus": 19.0,
+    "attachments": [
+      "精选长枪管组合",
+      "实用膛口制退器",
+      "战术垂直阻手把",
+      "高透全息瞄准镜",
+      "40发快速战术匣",
+      "战术轻量缓冲托"
+    ]
+  },
+  {
+    "gun_id": "ar57",
+    "build_name": "AR57中距全能稳健改",
+    "build_code": "AR57-烽火地带-6G76D4AD657F227CCA4APK",
+    "mod_cost": 66000,
+    "ads_modifier_ms": -12,
+    "recoil_bonus": 19.0,
+    "attachments": [
+      "精选长枪管组合",
+      "实用膛口制退器",
+      "战术垂直阻手把",
+      "高透全息瞄准镜",
+      "40发快速战术匣",
+      "战术轻量缓冲托"
+    ]
+  },
+  {
+    "gun_id": "asval",
+    "build_name": "近战潜行高爆改",
+    "build_code": "ASVal突击步枪-烽火地带-6G7FCU804NFDQKJMA4APK",
+    "mod_cost": 57000,
+    "ads_modifier_ms": -18,
+    "recoil_bonus": 15.0,
+    "attachments": [
+      "VSS海啸长枪管组合",
+      "竞技短垂直把",
+      "紧凑微型红点",
+      "30发加长弹匣",
+      "管状轻量枪托"
+    ]
+  },
+  {
+    "gun_id": "ash12",
+    "build_name": "ASh-12中距全能稳健改",
+    "build_code": "ASh-12-烽火地带-6G7723A497F06C396A4APK",
+    "mod_cost": 66000,
+    "ads_modifier_ms": -12,
+    "recoil_bonus": 19.0,
+    "attachments": [
+      "精选长枪管组合",
+      "实用膛口制退器",
+      "战术垂直阻手把",
+      "高透全息瞄准镜",
+      "40发快速战术匣",
+      "战术轻量缓冲托"
+    ]
+  },
+  {
+    "gun_id": "aug",
+    "build_name": "AUG中距全能稳健改",
+    "build_code": "AUG-烽火地带-6G7AF3112E9D1EA38A4APK",
+    "mod_cost": 66000,
+    "ads_modifier_ms": -12,
+    "recoil_bonus": 19.0,
+    "attachments": [
+      "精选长枪管组合",
+      "实用膛口制退器",
+      "战术垂直阻手把",
+      "高透全息瞄准镜",
+      "40发快速战术匣",
+      "战术轻量缓冲托"
     ]
   },
   {
     "gun_id": "car15",
     "build_name": "平民卡战备近战突袭改",
     "build_code": "CAR-15突击步枪-烽火地带-6F313I40ARR574ULRP1HM",
-    "mod_cost": 18000,
+    "mod_cost": 30000,
     "ads_modifier_ms": -25,
     "recoil_bonus": 12.0,
     "attachments": [
+      "AR加百列长枪管组合",
       "竞赛消焰补偿器",
       "尼龙斜角握把",
       "微型反射红点",
       "30发快速聚合物弹匣",
       "轻便骨架枪托"
+    ]
+  },
+  {
+    "gun_id": "g3",
+    "build_name": "G3中距全能稳健改",
+    "build_code": "G3-烽火地带-6G7A915F86A67AB07A4APK",
+    "mod_cost": 66000,
+    "ads_modifier_ms": -12,
+    "recoil_bonus": 19.0,
+    "attachments": [
+      "精选长枪管组合",
+      "实用膛口制退器",
+      "战术垂直阻手把",
+      "高透全息瞄准镜",
+      "40发快速战术匣",
+      "战术轻量缓冲托"
     ]
   },
   {
@@ -38,7 +150,7 @@
     "ads_modifier_ms": -12,
     "recoil_bonus": 20.0,
     "attachments": [
-      "长款重型枪管",
+      "K416A8长枪管组合",
       "钛合金制退器",
       "SE-5战术握把",
       "眼镜蛇高透红点",
@@ -47,49 +159,243 @@
     ]
   },
   {
-    "gun_id": "ak12",
-    "build_name": "稳定爆发主力改",
-    "build_code": "AK-12稳定版-烽火地带-6G7FB0404NFDQKJMA4APK",
-    "mod_cost": 58000,
-    "ads_modifier_ms": -10,
+    "gun_id": "k437",
+    "build_name": "K437中距全能稳健改",
+    "build_code": "K437-烽火地带-6G78549F8BC6F1F93A4APK",
+    "mod_cost": 66000,
+    "ads_modifier_ms": -12,
     "recoil_bonus": 19.0,
     "attachments": [
-      "加长精密枪管",
-      "防跳膛口制退器",
-      "RK-1前握把",
-      "全息反射镜",
-      "45发扩容弹匣",
-      "折叠缓冲托"
+      "精选长枪管组合",
+      "实用膛口制退器",
+      "战术垂直阻手把",
+      "高透全息瞄准镜",
+      "40发快速战术匣",
+      "战术轻量缓冲托"
     ]
   },
   {
-    "gun_id": "asval",
-    "build_name": "近战潜行高爆改",
-    "build_code": "ASVal突击步枪-烽火地带-6G7FCU804NFDQKJMA4APK",
-    "mod_cost": 51000,
-    "ads_modifier_ms": -18,
+    "gun_id": "kc17",
+    "build_name": "KC17中距全能稳健改",
+    "build_code": "KC17-烽火地带-6G75AB7F6BC72B44BA4APK",
+    "mod_cost": 66000,
+    "ads_modifier_ms": -12,
+    "recoil_bonus": 19.0,
+    "attachments": [
+      "精选长枪管组合",
+      "实用膛口制退器",
+      "战术垂直阻手把",
+      "高透全息瞄准镜",
+      "40发快速战术匣",
+      "战术轻量缓冲托"
+    ]
+  },
+  {
+    "gun_id": "m16a4",
+    "build_name": "M16A4中距全能稳健改",
+    "build_code": "M16A4-烽火地带-6G761667A4C51FFCCA4APK",
+    "mod_cost": 66000,
+    "ads_modifier_ms": -12,
+    "recoil_bonus": 19.0,
+    "attachments": [
+      "精选长枪管组合",
+      "实用膛口制退器",
+      "战术垂直阻手把",
+      "高透全息瞄准镜",
+      "40发快速战术匣",
+      "战术轻量缓冲托"
+    ]
+  },
+  {
+    "gun_id": "m4a1",
+    "build_name": "烽火全能中距控枪改",
+    "build_code": "M4A1突击步枪-烽火地带-6F4B2CC0ARR574ULRP1HM",
+    "mod_cost": 71000,
+    "ads_modifier_ms": -15,
+    "recoil_bonus": 18.0,
+    "attachments": [
+      "AR加百列长枪管组合",
+      "实用战术消音器",
+      "幻影垂直握把",
+      "全息战术红点瞄准镜",
+      "45发快速扩容弹匣",
+      "CTR轻量稳固枪托"
+    ]
+  },
+  {
+    "gun_id": "m7",
+    "build_name": "重火高穿突坚改",
+    "build_code": "M7战斗步枪-烽火地带-6G7ES9004NFDQKJMA4APK",
+    "mod_cost": 88000,
+    "ads_modifier_ms": -12,
+    "recoil_bonus": 22.0,
+    "attachments": [
+      "增程战术枪管",
+      "巨浪防后坐补偿器",
+      "全铝直角阻手把",
+      "全息混合瞄准镜",
+      "30发钢制重型弹匣",
+      "缓冲战术吸震托"
+    ]
+  },
+  {
+    "gun_id": "mcxlt",
+    "build_name": "MCX-LT中距全能稳健改",
+    "build_code": "MCX-LT-烽火地带-6G714F34DE27102B5A4APK",
+    "mod_cost": 66000,
+    "ads_modifier_ms": -12,
+    "recoil_bonus": 19.0,
+    "attachments": [
+      "精选长枪管组合",
+      "实用膛口制退器",
+      "战术垂直阻手把",
+      "高透全息瞄准镜",
+      "40发快速战术匣",
+      "战术轻量缓冲托"
+    ]
+  },
+  {
+    "gun_id": "mdr突击步枪",
+    "build_name": "MDR突击步枪中距全能稳健改",
+    "build_code": "MDR突击步枪-烽火地带-6G7B8EA18F7C65640A4APK",
+    "mod_cost": 66000,
+    "ads_modifier_ms": -12,
+    "recoil_bonus": 19.0,
+    "attachments": [
+      "精选长枪管组合",
+      "实用膛口制退器",
+      "战术垂直阻手把",
+      "高透全息瞄准镜",
+      "40发快速战术匣",
+      "战术轻量缓冲托"
+    ]
+  },
+  {
+    "gun_id": "mk47",
+    "build_name": "MK47中距全能稳健改",
+    "build_code": "MK47-烽火地带-6G781F8994CA4C3C9A4APK",
+    "mod_cost": 66000,
+    "ads_modifier_ms": -12,
+    "recoil_bonus": 19.0,
+    "attachments": [
+      "精选长枪管组合",
+      "实用膛口制退器",
+      "战术垂直阻手把",
+      "高透全息瞄准镜",
+      "40发快速战术匣",
+      "战术轻量缓冲托"
+    ]
+  },
+  {
+    "gun_id": "ptr32",
+    "build_name": "PTR-32中距全能稳健改",
+    "build_code": "PTR-32-烽火地带-6G7417C5E45A9D505A4APK",
+    "mod_cost": 66000,
+    "ads_modifier_ms": -12,
+    "recoil_bonus": 19.0,
+    "attachments": [
+      "精选长枪管组合",
+      "实用膛口制退器",
+      "战术垂直阻手把",
+      "高透全息瞄准镜",
+      "40发快速战术匣",
+      "战术轻量缓冲托"
+    ]
+  },
+  {
+    "gun_id": "qbz951",
+    "build_name": "QBZ95-1中距全能稳健改",
+    "build_code": "QBZ95-1-烽火地带-6G74A773F5C98789BA4APK",
+    "mod_cost": 66000,
+    "ads_modifier_ms": -12,
+    "recoil_bonus": 19.0,
+    "attachments": [
+      "精选长枪管组合",
+      "实用膛口制退器",
+      "战术垂直阻手把",
+      "高透全息瞄准镜",
+      "40发快速战术匣",
+      "战术轻量缓冲托"
+    ]
+  },
+  {
+    "gun_id": "rm277",
+    "build_name": "RM277中距全能稳健改",
+    "build_code": "RM277-烽火地带-6G7E10BB1056173D1A4APK",
+    "mod_cost": 66000,
+    "ads_modifier_ms": -12,
+    "recoil_bonus": 19.0,
+    "attachments": [
+      "精选长枪管组合",
+      "实用膛口制退器",
+      "战术垂直阻手把",
+      "高透全息瞄准镜",
+      "40发快速战术匣",
+      "战术轻量缓冲托"
+    ]
+  },
+  {
+    "gun_id": "scarh",
+    "build_name": "SCAR-H中距全能稳健改",
+    "build_code": "SCAR-H-烽火地带-6G703DD94009E1F8FA4APK",
+    "mod_cost": 66000,
+    "ads_modifier_ms": -12,
+    "recoil_bonus": 19.0,
+    "attachments": [
+      "精选长枪管组合",
+      "实用膛口制退器",
+      "战术垂直阻手把",
+      "高透全息瞄准镜",
+      "40发快速战术匣",
+      "战术轻量缓冲托"
+    ]
+  },
+  {
+    "gun_id": "sg552",
+    "build_name": "SG552中距全能稳健改",
+    "build_code": "SG552-烽火地带-6G7E1E1778B8695D7A4APK",
+    "mod_cost": 66000,
+    "ads_modifier_ms": -12,
+    "recoil_bonus": 19.0,
+    "attachments": [
+      "精选长枪管组合",
+      "实用膛口制退器",
+      "战术垂直阻手把",
+      "高透全息瞄准镜",
+      "40发快速战术匣",
+      "战术轻量缓冲托"
+    ]
+  },
+  {
+    "gun_id": "腾龙",
+    "build_name": "腾龙中距全能稳健改",
+    "build_code": "腾龙-烽火地带-6G7CF6714054C3B0DA4APK",
+    "mod_cost": 66000,
+    "ads_modifier_ms": -12,
+    "recoil_bonus": 19.0,
+    "attachments": [
+      "精选长枪管组合",
+      "实用膛口制退器",
+      "战术垂直阻手把",
+      "高透全息瞄准镜",
+      "40发快速战术匣",
+      "战术轻量缓冲托"
+    ]
+  },
+  {
+    "gun_id": "mk4",
+    "build_name": "MK4机动近战突袭改",
+    "build_code": "MK4-烽火地带-6G7DBA163C39C5671A4APK",
+    "mod_cost": 47000,
+    "ads_modifier_ms": -20,
     "recoil_bonus": 15.0,
     "attachments": [
-      "一体微声管组件",
-      "竞技短垂直把",
-      "紧凑微型红点",
-      "30发加长弹匣",
-      "管状轻量枪托"
-    ]
-  },
-  {
-    "gun_id": "vector",
-    "build_name": "千转近距洗头改",
-    "build_code": "Vector冲锋枪-烽火地带-6G7M1AG04NFDQKJMA4APK",
-    "mod_cost": 51000,
-    "ads_modifier_ms": -20,
-    "recoil_bonus": 17.0,
-    "attachments": [
-      "低语消音器",
-      "巡逻垂直握把",
-      "50发大容量弹鼓",
-      "单点全息镜",
-      "战术折叠托"
+      "特勤短枪管",
+      "低语微声消音器",
+      "轻型战术斜角把",
+      "紧凑反射红点",
+      "快速大容量弹匣",
+      "极速骨架伸缩托"
     ]
   },
   {
@@ -108,6 +414,22 @@
     ]
   },
   {
+    "gun_id": "mp7",
+    "build_name": "MP7机动近战突袭改",
+    "build_code": "MP7-烽火地带-6G7B7CE0A8A08FD8CA4APK",
+    "mod_cost": 47000,
+    "ads_modifier_ms": -20,
+    "recoil_bonus": 15.0,
+    "attachments": [
+      "特勤短枪管",
+      "低语微声消音器",
+      "轻型战术斜角把",
+      "紧凑反射红点",
+      "快速大容量弹匣",
+      "极速骨架伸缩托"
+    ]
+  },
+  {
     "gun_id": "p90",
     "build_name": "原生大弹容腰射改",
     "build_code": "P90冲锋枪-烽火地带-6F40D340ARR574ULRP1HM",
@@ -123,14 +445,205 @@
     ]
   },
   {
+    "gun_id": "qcq171",
+    "build_name": "QCQ171机动近战突袭改",
+    "build_code": "QCQ171-烽火地带-6G7F20C74AAA0E1B6A4APK",
+    "mod_cost": 47000,
+    "ads_modifier_ms": -20,
+    "recoil_bonus": 15.0,
+    "attachments": [
+      "特勤短枪管",
+      "低语微声消音器",
+      "轻型战术斜角把",
+      "紧凑反射红点",
+      "快速大容量弹匣",
+      "极速骨架伸缩托"
+    ]
+  },
+  {
+    "gun_id": "smg45",
+    "build_name": "SMG-45机动近战突袭改",
+    "build_code": "SMG-45-烽火地带-6G7040491E0E3764BA4APK",
+    "mod_cost": 47000,
+    "ads_modifier_ms": -20,
+    "recoil_bonus": 15.0,
+    "attachments": [
+      "特勤短枪管",
+      "低语微声消音器",
+      "轻型战术斜角把",
+      "紧凑反射红点",
+      "快速大容量弹匣",
+      "极速骨架伸缩托"
+    ]
+  },
+  {
+    "gun_id": "sr3m",
+    "build_name": "SR-3M机动近战突袭改",
+    "build_code": "SR-3M-烽火地带-6G7D615B4972E8051A4APK",
+    "mod_cost": 47000,
+    "ads_modifier_ms": -20,
+    "recoil_bonus": 15.0,
+    "attachments": [
+      "特勤短枪管",
+      "低语微声消音器",
+      "轻型战术斜角把",
+      "紧凑反射红点",
+      "快速大容量弹匣",
+      "极速骨架伸缩托"
+    ]
+  },
+  {
+    "gun_id": "uzi",
+    "build_name": "UZI机动近战突袭改",
+    "build_code": "UZI-烽火地带-6G79E11E9A9734292A4APK",
+    "mod_cost": 47000,
+    "ads_modifier_ms": -20,
+    "recoil_bonus": 15.0,
+    "attachments": [
+      "特勤短枪管",
+      "低语微声消音器",
+      "轻型战术斜角把",
+      "紧凑反射红点",
+      "快速大容量弹匣",
+      "极速骨架伸缩托"
+    ]
+  },
+  {
+    "gun_id": "vector",
+    "build_name": "千转近距洗头改",
+    "build_code": "Vector冲锋枪-烽火地带-6G7M1AG04NFDQKJMA4APK",
+    "mod_cost": 51000,
+    "ads_modifier_ms": -20,
+    "recoil_bonus": 17.0,
+    "attachments": [
+      "低语消音器",
+      "巡逻垂直握把",
+      "50发大容量弹鼓",
+      "单点全息镜",
+      "战术折叠托"
+    ]
+  },
+  {
+    "gun_id": "勇士",
+    "build_name": "勇士机动近战突袭改",
+    "build_code": "勇士-烽火地带-6G77D05AA2664ECBAA4APK",
+    "mod_cost": 47000,
+    "ads_modifier_ms": -20,
+    "recoil_bonus": 15.0,
+    "attachments": [
+      "特勤短枪管",
+      "低语微声消音器",
+      "轻型战术斜角把",
+      "紧凑反射红点",
+      "快速大容量弹匣",
+      "极速骨架伸缩托"
+    ]
+  },
+  {
+    "gun_id": "汤姆逊冲锋枪",
+    "build_name": "汤姆逊冲锋枪机动近战突袭改",
+    "build_code": "汤姆逊冲锋枪-烽火地带-6G747A3C9DD7091C0A4APK",
+    "mod_cost": 47000,
+    "ads_modifier_ms": -20,
+    "recoil_bonus": 15.0,
+    "attachments": [
+      "特勤短枪管",
+      "低语微声消音器",
+      "轻型战术斜角把",
+      "紧凑反射红点",
+      "快速大容量弹匣",
+      "极速骨架伸缩托"
+    ]
+  },
+  {
+    "gun_id": "野牛",
+    "build_name": "野牛机动近战突袭改",
+    "build_code": "野牛-烽火地带-6G71F7EC79404D379A4APK",
+    "mod_cost": 47000,
+    "ads_modifier_ms": -20,
+    "recoil_bonus": 15.0,
+    "attachments": [
+      "特勤短枪管",
+      "低语微声消音器",
+      "轻型战术斜角把",
+      "紧凑反射红点",
+      "快速大容量弹匣",
+      "极速骨架伸缩托"
+    ]
+  },
+  {
+    "gun_id": "m249",
+    "build_name": "M249阵地火力压制改",
+    "build_code": "M249-烽火地带-6G7A69C7B51632865A4APK",
+    "mod_cost": 77000,
+    "ads_modifier_ms": -15,
+    "recoil_bonus": 21.0,
+    "attachments": [
+      "重型加长机枪管",
+      "多气室防跳补偿器",
+      "全钢重型垂直握把",
+      "全息战术光学镜",
+      "百发大弹鼓",
+      "重型抗震机枪托"
+    ]
+  },
+  {
+    "gun_id": "m250",
+    "build_name": "M250阵地火力压制改",
+    "build_code": "M250-烽火地带-6G75AFF99C1249249A4APK",
+    "mod_cost": 77000,
+    "ads_modifier_ms": -15,
+    "recoil_bonus": 21.0,
+    "attachments": [
+      "重型加长机枪管",
+      "多气室防跳补偿器",
+      "全钢重型垂直握把",
+      "全息战术光学镜",
+      "百发大弹鼓",
+      "重型抗震机枪托"
+    ]
+  },
+  {
+    "gun_id": "pkm",
+    "build_name": "火力压制战壕改",
+    "build_code": "PKM通用机枪-烽火地带-6G7F1R404NFDQKJMA4APK",
+    "mod_cost": 77000,
+    "ads_modifier_ms": -15,
+    "recoil_bonus": 22.0,
+    "attachments": [
+      "长款重型机枪管",
+      "机枪高效补偿器",
+      "全钢垂直战术把",
+      "眼镜蛇全息瞄准镜",
+      "100发通用大弹箱",
+      "机枪重型缓冲托"
+    ]
+  },
+  {
+    "gun_id": "qjb201",
+    "build_name": "轻便机动火力改",
+    "build_code": "QJB201轻机枪-烽火地带-6G7M1AG04NFDQKJMA4APK",
+    "mod_cost": 65000,
+    "ads_modifier_ms": -12,
+    "recoil_bonus": 20.0,
+    "attachments": [
+      "精密散热长管",
+      "多槽防跳补偿器",
+      "轻量斜角阻手把",
+      "全息战术红点",
+      "75发扩容弹鼓",
+      "工程塑料战术托"
+    ]
+  },
+  {
     "gun_id": "m14",
     "build_name": "中远速射连点改",
     "build_code": "M14射手步枪-烽火地带-6F40H3C0ARR574ULRP1HM",
-    "mod_cost": 63000,
+    "mod_cost": 73000,
     "ads_modifier_ms": -10,
     "recoil_bonus": 17.0,
     "attachments": [
-      "特等射手长枪管",
+      "M14洞察超长枪管",
       "精密枪口制退器",
       "全尺寸战斗握把",
       "全息红点+3x翻折倍镜",
@@ -139,26 +652,74 @@
     ]
   },
   {
-    "gun_id": "svd",
-    "build_name": "远距高穿架枪改",
-    "build_code": "SVD射手步枪-烽火地带-6F52N6G0ARR574ULRP1HM",
-    "mod_cost": 64000,
-    "ads_modifier_ms": -5,
-    "recoil_bonus": 16.0,
+    "gun_id": "marlin杠杆步枪",
+    "build_name": "Marlin杠杆步枪高精点射压制改",
+    "build_code": "Marlin杠杆步枪-烽火地带-6G73CD32B2B3C2774A4APK",
+    "mod_cost": 83000,
+    "ads_modifier_ms": -10,
+    "recoil_bonus": 18.0,
     "attachments": [
-      "精密重型狙击管",
-      "重型消音器",
-      "轻量两脚握把",
-      "PSO-1高透战术镜",
-      "15发战术弹匣",
-      "贴腮高稳定托"
+      "特等长狙击管",
+      "精密长管消音器",
+      "狙击双脚握把",
+      "3.5x战术倍镜",
+      "20发扩容战术匣",
+      "精密可调贴腮托"
+    ]
+  },
+  {
+    "gun_id": "mini14",
+    "build_name": "Mini-14高精点射压制改",
+    "build_code": "Mini-14-烽火地带-6G73D27D4702F3D11A4APK",
+    "mod_cost": 83000,
+    "ads_modifier_ms": -10,
+    "recoil_bonus": 18.0,
+    "attachments": [
+      "特等长狙击管",
+      "精密长管消音器",
+      "狙击双脚握把",
+      "3.5x战术倍镜",
+      "20发扩容战术匣",
+      "精密可调贴腮托"
+    ]
+  },
+  {
+    "gun_id": "psg1",
+    "build_name": "PSG-1高精点射压制改",
+    "build_code": "PSG-1-烽火地带-6G7BB2305B7D65FB4A4APK",
+    "mod_cost": 83000,
+    "ads_modifier_ms": -10,
+    "recoil_bonus": 18.0,
+    "attachments": [
+      "特等长狙击管",
+      "精密长管消音器",
+      "狙击双脚握把",
+      "3.5x战术倍镜",
+      "20发扩容战术匣",
+      "精密可调贴腮托"
+    ]
+  },
+  {
+    "gun_id": "sks",
+    "build_name": "SKS高精点射压制改",
+    "build_code": "SKS-烽火地带-6G791FAD789ED1DCDA4APK",
+    "mod_cost": 83000,
+    "ads_modifier_ms": -10,
+    "recoil_bonus": 18.0,
+    "attachments": [
+      "特等长狙击管",
+      "精密长管消音器",
+      "狙击双脚握把",
+      "3.5x战术倍镜",
+      "20发扩容战术匣",
+      "精密可调贴腮托"
     ]
   },
   {
     "gun_id": "sr25",
     "build_name": "精密压制旗舰改",
     "build_code": "SR25精确步枪-烽火地带-6G7EV4004NFDQKJMA4APK",
-    "mod_cost": 81000,
+    "mod_cost": 91000,
     "ads_modifier_ms": -8,
     "recoil_bonus": 21.0,
     "attachments": [
@@ -171,19 +732,67 @@
     ]
   },
   {
-    "gun_id": "m7",
-    "build_name": "重火高穿突坚改",
-    "build_code": "M7战斗步枪-烽火地带-6G7ES9004NFDQKJMA4APK",
-    "mod_cost": 88000,
-    "ads_modifier_ms": -12,
-    "recoil_bonus": 22.0,
+    "gun_id": "sr9",
+    "build_name": "SR9高精点射压制改",
+    "build_code": "SR9-烽火地带-6G74AB6CE3844C8C6A4APK",
+    "mod_cost": 83000,
+    "ads_modifier_ms": -10,
+    "recoil_bonus": 18.0,
     "attachments": [
-      "增程战术枪管",
-      "巨浪防后坐补偿器",
-      "全铝直角阻手把",
-      "全息混合瞄准镜",
-      "30发钢制重型弹匣",
-      "缓冲战术吸震托"
+      "特等长狙击管",
+      "精密长管消音器",
+      "狙击双脚握把",
+      "3.5x战术倍镜",
+      "20发扩容战术匣",
+      "精密可调贴腮托"
+    ]
+  },
+  {
+    "gun_id": "svch",
+    "build_name": "SVCH高精点射压制改",
+    "build_code": "SVCH-烽火地带-6G797602084D6BD57A4APK",
+    "mod_cost": 83000,
+    "ads_modifier_ms": -10,
+    "recoil_bonus": 18.0,
+    "attachments": [
+      "特等长狙击管",
+      "精密长管消音器",
+      "狙击双脚握把",
+      "3.5x战术倍镜",
+      "20发扩容战术匣",
+      "精密可调贴腮托"
+    ]
+  },
+  {
+    "gun_id": "svd",
+    "build_name": "远距高穿架枪改",
+    "build_code": "SVD射手步枪-烽火地带-6F52N6G0ARR574ULRP1HM",
+    "mod_cost": 74000,
+    "ads_modifier_ms": -5,
+    "recoil_bonus": 16.0,
+    "attachments": [
+      "精密重型狙击管",
+      "重型消音器",
+      "轻量两脚握把",
+      "PSO-1高透战术镜",
+      "15发战术弹匣",
+      "贴腮高稳定托"
+    ]
+  },
+  {
+    "gun_id": "vss",
+    "build_name": "VSS高精点射压制改",
+    "build_code": "VSS-烽火地带-6G7035789AF344BEBA4APK",
+    "mod_cost": 83000,
+    "ads_modifier_ms": -10,
+    "recoil_bonus": 18.0,
+    "attachments": [
+      "特等长狙击管",
+      "精密长管消音器",
+      "狙击双脚握把",
+      "3.5x战术倍镜",
+      "20发扩容战术匣",
+      "精密可调贴腮托"
     ]
   }
 ]

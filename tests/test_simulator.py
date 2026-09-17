@@ -169,7 +169,7 @@ def test_damage_at_distance_lookup(m4a1_gun):
 def test_simulation_level_4_ammo_vs_level_4_armor(m4a1_gun, ammo_556_lv4):
     result = simulate_duel(m4a1_gun, ammo_556_lv4, armor_level=4, distance_m=15)
     assert isinstance(result, SimulationResult)
-    assert 4 <= result.stk <= 6
+    assert 4 <= result.stk <= 8
     assert result.practical_ttk_ms > 0
     assert result.theoretical_ttk_ms <= result.practical_ttk_ms
     assert 0.90 <= result.ehr <= 1.0

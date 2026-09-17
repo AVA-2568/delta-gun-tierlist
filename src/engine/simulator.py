@@ -6,29 +6,32 @@ from typing import Dict, List, Tuple
 
 from src.models import AmmoPrice, DamageDropoff, GunMeta, SimulationResult
 
-# Standard armor baseline durability lookup table
+# Official Delta Force defense preset values from dfttk.com v3:
+# 3套: 头盔耐久 40 / 护甲耐久 85
+# 4套: 头盔耐久 48 / 护甲耐久 110
+# 5套: 头盔耐久 50 / 护甲耐久 125
+# 6套: 头盔耐久 50 / 护甲耐久 150
 ARMOR_MAX_DURABILITY: Dict[int, float] = {
-    1: 35.0,
-    2: 50.0,
-    3: 60.0,
-    4: 75.0,
-    5: 95.0,
-    6: 115.0,
+    1: 45.0,
+    2: 65.0,
+    3: 85.0,
+    4: 110.0,
+    5: 125.0,
+    6: 150.0,
 }
 
-# Standard helmet baseline durability lookup table
 HELMET_MAX_DURABILITY: Dict[int, float] = {
     1: 25.0,
     2: 30.0,
-    3: 35.0,
-    4: 45.0,
-    5: 55.0,
-    6: 70.0,
+    3: 40.0,
+    4: 48.0,
+    5: 50.0,
+    6: 50.0,
 }
 
 # Real combat hit location probability distribution from dfttk.com:
-# 头部 17.24% / 胸部 30.46% / 腹部 18.97% / 上臂 12.00% / 其余四肢 21.33%
-HIT_PARTS: List[str] = ["head", "chest", "stomach", "arms", "legs"]
+# 头部 17.24% / 胸部 30.46% / 腹部 18.97% / 上臂 12.00% / 其余四肢 21.33% (小臂7.11%, 大腿7.11%, 小腿7.11%)
+HIT_PARTS: List[str] = ["head", "chest", "abdomen", "upper_arm", "limbs"]
 HIT_WEIGHTS: List[float] = [0.1724, 0.3046, 0.1897, 0.1200, 0.2133]
 
 
@@ -118,21 +121,22 @@ def simulate_duel(
             shots += 1
             part = rng.choices(HIT_PARTS, weights=HIT_WEIGHTS)[0]
 
-            if part == "arms":
-                hp -= chest_damage * 0.80
-            elif part == "legs":
-                hp -= chest_damage * 0.70
-            elif part in ["chest", "stomach"]:
+            if part == "upper_arm":
+                hp -= chest_damage * 0.50
+            elif part == "limbs":
+                hp -= chest_damage * 0.45
+            elif part in ["chest", "abdomen"]:
+                multiplier = 1.0 if part == "chest" else 0.90
                 dur_ratio = cur_body_dur / max_body_dur if max_body_dur > 0 else 0.0
                 deg = (0.35 - dur_ratio) / 0.35 if dur_ratio < 0.35 else 0.0
                 z = delta_pen + 30.0 * deg - 5.0
 
                 prob = 1.0 if cur_body_dur <= 0.0 else 1.0 / (1.0 + math.exp(-z / 3.0))
                 if rng.random() < prob:
-                    hp -= chest_damage * 1.0
+                    hp -= chest_damage * multiplier
                     cur_body_dur = max(0.0, cur_body_dur - armor_damage * 0.60 * armor_eff)
                 else:
-                    hp -= chest_damage * 0.15
+                    hp -= chest_damage * multiplier * 0.15
                     cur_body_dur = max(0.0, cur_body_dur - armor_damage * 1.00 * armor_eff)
             elif part == "head":
                 dur_ratio = cur_head_dur / max_head_dur if max_head_dur > 0 else 0.0
@@ -141,10 +145,10 @@ def simulate_duel(
 
                 prob = 1.0 if cur_head_dur <= 0.0 else 1.0 / (1.0 + math.exp(-z / 3.0))
                 if rng.random() < prob:
-                    hp -= chest_damage * 2.50
+                    hp -= chest_damage * 2.00
                     cur_head_dur = max(0.0, cur_head_dur - armor_damage * 0.60 * armor_eff)
                 else:
-                    hp -= chest_damage * 2.50 * 0.15
+                    hp -= chest_damage * 2.00 * 0.15
                     cur_head_dur = max(0.0, cur_head_dur - armor_damage * 1.00 * armor_eff)
 
         stk_samples.append(shots)
