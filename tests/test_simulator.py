@@ -176,9 +176,9 @@ def test_simulation_level_4_ammo_vs_level_4_armor(m4a1_gun, ammo_556_lv4):
 
 
 def test_simulation_level_5_ammo_vs_level_4_armor_fast_penetration(m4a1_gun, ammo_556_lv5):
-    # 5级弹击穿4级甲具备极速穿透特征 (STK 3~4 发)
+    # 5级弹击穿4级甲具备极速穿透特征 (STK 4~5 发)
     result = simulate_duel(m4a1_gun, ammo_556_lv5, armor_level=4, distance_m=15)
-    assert 3 <= result.stk <= 4
+    assert 4 <= result.stk <= 5
     assert result.practical_ttk_ms > 0
     assert result.theoretical_ttk_ms <= result.practical_ttk_ms
 
@@ -211,6 +211,36 @@ def test_theoretical_ttk_calculation_edge_cases(m4a1_gun, ammo_556_lv4):
     res_15m = simulate_duel(m4a1_gun, ammo_556_lv4, armor_level=4, distance_m=15)
     res_35m = simulate_duel(m4a1_gun, ammo_556_lv4, armor_level=4, distance_m=35)
 
-    # 理论 TTK 应当严格按 (stk - 1) * (60.0 / rpm) * 1000 计算
-    expected_theo_15m = (res_15m.stk - 1) * (60.0 / m4a1_gun.rpm) * 1000.0
-    assert abs(res_15m.theoretical_ttk_ms - expected_theo_15m) < 0.1
+    shot_interval = (60.0 / m4a1_gun.rpm) * 1000.0
+    # 理论 TTK 严格基于连续期望 avg_stk 计算，与离散 stk 偏差在半个射击间隔内
+    approx_theo = (res_15m.stk - 1) * shot_interval
+    assert abs(res_15m.theoretical_ttk_ms - approx_theo) <= shot_interval * 0.5 + 0.1
+
+    # 在15m近距离(EHR=1.0)下，实战TTK应精确等于 0.5 * ads_time_ms + 理论TTK
+    assert abs(res_15m.practical_ttk_ms - (m4a1_gun.ads_time_ms * 0.5 + res_15m.theoretical_ttk_ms)) < 0.1
+    # 在35m交战距离，实战TTK应包含 0.8 * ads_time_ms 以及由 EHR 衰减拉长的期望耗时
+    assert res_35m.practical_ttk_ms > m4a1_gun.ads_time_ms * 0.8 + res_35m.theoretical_ttk_ms
+
+
+def test_deterministic_pen_rates_and_no_blunt_damage(m4a1_gun, ammo_556_lv4):
+    from src.engine.simulator import simulate_duel, get_pen_rate
+    assert get_pen_rate(ammo_level=4, armor_level=5) == 0.0
+    assert get_pen_rate(ammo_level=4, armor_level=4) == 0.50
+    assert get_pen_rate(ammo_level=5, armor_level=4) == 0.75
+    assert get_pen_rate(ammo_level=5, armor_level=3) == 1.00
+
+    # Lv4 ammo vs Lv5 armor: takes significantly more shots to break armor and kill
+    res = simulate_duel(m4a1_gun, ammo_556_lv4, armor_level=5, distance_m=15)
+    assert res.stk >= 8
+
+
+def test_effective_velocity_override(m4a1_gun, ammo_556_lv4):
+    from src.engine.simulator import simulate_duel
+    # Higher velocity increases EHR at 50m
+    res_base = simulate_duel(m4a1_gun, ammo_556_lv4, armor_level=4, distance_m=50)
+    res_boosted = simulate_duel(
+        m4a1_gun, ammo_556_lv4, armor_level=4, distance_m=50, effective_velocity=m4a1_gun.bullet_velocity * 1.2
+    )
+    assert res_boosted.ehr >= res_base.ehr
+    assert res_boosted.practical_ttk_ms <= res_base.practical_ttk_ms
+

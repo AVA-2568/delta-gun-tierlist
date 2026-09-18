@@ -2,7 +2,7 @@
 
 import math
 import random
-from typing import Dict, List, Tuple
+from typing import Dict, List, Optional, Tuple
 
 from src.models import AmmoPrice, DamageDropoff, GunMeta, SimulationResult
 
@@ -29,10 +29,36 @@ HELMET_MAX_DURABILITY: Dict[int, float] = {
     6: 50.0,
 }
 
-# Real combat hit location probability distribution from dfttk.com:
-# 头部 17.24% / 胸部 30.46% / 腹部 18.97% / 上臂 12.00% / 其余四肢 21.33% (小臂7.11%, 大腿7.11%, 小腿7.11%)
+# Real combat hit location probability distribution:
+# 头部 17.24% / 胸部 30.46% / 腹部 18.97% / 上臂 8.33% / 其余四肢 25.00%
 HIT_PARTS: List[str] = ["head", "chest", "abdomen", "upper_arm", "limbs"]
-HIT_WEIGHTS: List[float] = [0.1724, 0.3046, 0.1897, 0.1200, 0.2133]
+HIT_WEIGHTS: List[float] = [0.1724, 0.3046, 0.1897, 0.0833, 0.2500]
+
+HITBOX_MULTIPLIERS: Dict[str, float] = {
+    "head": 1.90,
+    "chest": 1.00,
+    "abdomen": 0.90,
+    "upper_arm": 0.40,
+    "limbs": 0.40,
+}
+
+
+def get_pen_rate(ammo_level: int, armor_level: int) -> float:
+    """Official deterministic penetration coefficient.
+
+    - ammo_level < armor_level: 0.0 (no blunt damage before break)
+    - ammo_level == armor_level: 0.50
+    - ammo_level == armor_level + 1: 0.75
+    - ammo_level >= armor_level + 2: 1.00
+    """
+    if ammo_level < armor_level:
+        return 0.0
+    elif ammo_level == armor_level:
+        return 0.50
+    elif ammo_level == armor_level + 1:
+        return 0.75
+    else:
+        return 1.00
 
 
 def get_damage_at_distance(
@@ -78,35 +104,25 @@ def simulate_duel(
     ammo: AmmoPrice,
     armor_level: int,
     distance_m: int,
+    effective_velocity: Optional[float] = None,
     sim_iterations: int = 500,
     seed: int = 42,
 ) -> SimulationResult:
-    """Simulate real combat duel against an armored target using dfttk hit location distribution.
-
-    Hit location probabilities:
-        - 头部 (17.24%): 受到头盔保护，穿透后 2.5x 爆头暴击肉伤，未穿透造成钝伤与头盔耐久损耗
-        - 胸部 (30.46%): 受到胸部护甲保护，穿透全额肉伤 (1.0x)，未穿透造成钝伤 (0.15x) 与甲耐久损耗
-        - 腹部 (18.97%): 受到防具保护，肉伤 1.0x
-        - 上臂 (12.00%): 无护甲保护 (0 Armor)，全额直伤 0.8x 绕过护甲扣减 HP
-        - 腿部 (21.33%): 无护甲保护 (0 Armor)，全额直伤 0.7x 绕过护甲扣减 HP
-
-    Simulation runs Monte Carlo iterations with deterministic seed to calculate expected STK and TTK.
-    """
+    """Simulate real combat duel against an armored target using official deterministic pen and hitboxes."""
+    velocity = effective_velocity if effective_velocity is not None else gun.bullet_velocity
     chest_damage, armor_damage = get_damage_at_distance(gun.dropoffs, float(distance_m))
 
-    max_body_dur = ARMOR_MAX_DURABILITY.get(
-        armor_level, max(20.0, armor_level * 18.0 + 5.0)
-    )
-    max_head_dur = HELMET_MAX_DURABILITY.get(
-        armor_level, max(15.0, armor_level * 10.0 + 5.0)
-    )
+    # Ammo flesh damage rate adjustment (e.g. .45 ACP Super has 0.85 rate)
+    flesh_rate = 0.85 if ".45" in ammo.caliber and ammo.level == 5 else 1.00
+    chest_damage *= flesh_rate
 
-    target_pen = armor_level * 10
-    delta_pen = ammo.penetration - target_pen
+    # Ammo armor damage rate
+    ammo_armor_rate = 1.10 if ammo.level >= 5 else 1.00
+    actual_armor_dmg = armor_damage * ammo_armor_rate
 
-    # Material resistance factor against lower-tier bullets
-    tier_diff = max(0, armor_level - ammo.level)
-    armor_eff = max(0.20, 1.0 - 0.55 * tier_diff)
+    max_body_dur = ARMOR_MAX_DURABILITY.get(armor_level, float(armor_level * 25.0))
+    max_head_dur = HELMET_MAX_DURABILITY.get(armor_level, float(armor_level * 10.0))
+    pen_rate = get_pen_rate(ammo.level, armor_level)
 
     rng = random.Random(seed)
     stk_samples: List[int] = []
@@ -120,49 +136,42 @@ def simulate_duel(
         while hp > 0.0 and shots < 50:
             shots += 1
             part = rng.choices(HIT_PARTS, weights=HIT_WEIGHTS)[0]
+            mult = HITBOX_MULTIPLIERS[part]
 
-            if part == "upper_arm":
-                hp -= chest_damage * 0.50
-            elif part == "limbs":
-                hp -= chest_damage * 0.45
+            if part in ["upper_arm", "limbs"]:
+                hp -= chest_damage * mult
             elif part in ["chest", "abdomen"]:
-                multiplier = 1.0 if part == "chest" else 0.90
-                dur_ratio = cur_body_dur / max_body_dur if max_body_dur > 0 else 0.0
-                deg = (0.35 - dur_ratio) / 0.35 if dur_ratio < 0.35 else 0.0
-                z = delta_pen + 30.0 * deg - 5.0
-
-                prob = 1.0 if cur_body_dur <= 0.0 else 1.0 / (1.0 + math.exp(-z / 3.0))
-                if rng.random() < prob:
-                    hp -= chest_damage * multiplier
-                    cur_body_dur = max(0.0, cur_body_dur - armor_damage * 0.60 * armor_eff)
+                if cur_body_dur <= 0.0:
+                    hp -= chest_damage * mult
+                elif actual_armor_dmg >= cur_body_dur:
+                    dur_fraction = cur_body_dur / actual_armor_dmg
+                    cur_body_dur = 0.0
+                    hp -= chest_damage * mult * ((1.0 - dur_fraction) + dur_fraction * pen_rate)
                 else:
-                    hp -= chest_damage * multiplier * 0.15
-                    cur_body_dur = max(0.0, cur_body_dur - armor_damage * 1.00 * armor_eff)
+                    cur_body_dur -= actual_armor_dmg
+                    hp -= chest_damage * mult * pen_rate
             elif part == "head":
-                dur_ratio = cur_head_dur / max_head_dur if max_head_dur > 0 else 0.0
-                deg = (0.35 - dur_ratio) / 0.35 if dur_ratio < 0.35 else 0.0
-                z = delta_pen + 30.0 * deg - 5.0
-
-                prob = 1.0 if cur_head_dur <= 0.0 else 1.0 / (1.0 + math.exp(-z / 3.0))
-                if rng.random() < prob:
-                    hp -= chest_damage * 2.00
-                    cur_head_dur = max(0.0, cur_head_dur - armor_damage * 0.60 * armor_eff)
+                if cur_head_dur <= 0.0:
+                    hp -= chest_damage * mult
+                elif actual_armor_dmg >= cur_head_dur:
+                    dur_fraction = cur_head_dur / actual_armor_dmg
+                    cur_head_dur = 0.0
+                    hp -= chest_damage * mult * ((1.0 - dur_fraction) + dur_fraction * pen_rate)
                 else:
-                    hp -= chest_damage * 2.00 * 0.15
-                    cur_head_dur = max(0.0, cur_head_dur - armor_damage * 1.00 * armor_eff)
+                    cur_head_dur -= actual_armor_dmg
+                    hp -= chest_damage * mult * pen_rate
 
         stk_samples.append(shots)
 
     avg_stk = sum(stk_samples) / len(stk_samples)
     stk = max(1, int(round(avg_stk)))
 
-    theoretical_ttk_ms = (stk - 1) * (60.0 / gun.rpm) * 1000.0
-    ehr = calc_effective_hit_rate(
-        gun.recoil_control, gun.stability, gun.bullet_velocity, float(distance_m)
-    )
+    theoretical_ttk_ms = max(0.0, (avg_stk - 1) * (60.0 / gun.rpm) * 1000.0)
+    ehr = calc_effective_hit_rate(gun.recoil_control, gun.stability, velocity, float(distance_m))
 
+    expected_shots = avg_stk / ehr
     k_ads = 0.5 if distance_m <= 15 else 0.8
-    practical_ttk_ms = gun.ads_time_ms * k_ads + (theoretical_ttk_ms / ehr)
+    practical_ttk_ms = gun.ads_time_ms * k_ads + max(0.0, (expected_shots - 1) * (60.0 / gun.rpm) * 1000.0)
 
     return SimulationResult(
         stk=stk,
@@ -170,4 +179,5 @@ def simulate_duel(
         practical_ttk_ms=round(practical_ttk_ms, 2),
         ehr=round(ehr, 4),
     )
+
 
