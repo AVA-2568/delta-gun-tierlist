@@ -354,7 +354,10 @@ def test_fetch_weapon_builds():
     assert "m4a1" in builds
     assert isinstance(builds["m4a1"], WeaponBuild)
     assert builds["m4a1"].mod_cost > 0
-    assert builds["m4a1"].build_code != ""
+    assert not hasattr(builds["m4a1"], "build_code")
+    assert not hasattr(builds["m4a1"], "code_status")
+    assert builds["m4a1"].stability_bonus >= 0.0
+    assert len(builds["m4a1"].tuning_instructions) > 0
 
 
 def test_fetch_weapon_builds_file_not_found():
@@ -376,35 +379,42 @@ def test_fetch_weapon_builds_non_list_json(tmp_path):
         fetch_weapon_builds(data_path=str(bad_file))
 
 
-def test_fetch_weapon_builds_overprice_normalization(tmp_path):
-    """Verify overprice normalizer caps excessive costs and replaces luxury parts."""
+def test_fetch_weapon_builds_without_cap_and_share_code(tmp_path):
+    """Verify builds preserve true mod_cost exceeding 80k and have no share code."""
     from src.collectors.build_collector import (
         fetch_weapon_builds,
         normalize_weapon_build,
-        DEFAULT_OVERPRICED_REPLACEMENTS,
     )
 
-    # 1. Test replacement of overpriced luxury attachment
     raw_build = {
         "gun_id": "test_rifle",
-        "build_name": "天价奢华改",
-        "build_code": "TEST-LUXURY-001",
+        "build_name": "顶级实战改",
         "mod_cost": 150000,
         "ads_modifier_ms": -10,
         "recoil_bonus": 20.0,
-        "attachments": ["天价碳纤维枪托", "战术消音器", "奢华直角握把"],
+        "stability_bonus": 15.0,
+        "velocity_bonus_pct": 0.05,
+        "mag_size_bonus": 15,
+        "attachments": ["枪托: CTR战术枪托", "枪口: 战术消音器"],
+        "tuning_instructions": ["枪托: 配重右拉满(+50g，垂直/水平后坐-6%)"],
     }
-    file_path = tmp_path / "luxury_builds.json"
+    file_path = tmp_path / "custom_builds.json"
     file_path.write_text(json.dumps([raw_build]), encoding="utf-8")
 
-    builds = fetch_weapon_builds(data_path=str(file_path), max_mod_cost=80000)
-    normalized = builds["test_rifle"]
+    builds = fetch_weapon_builds(data_path=str(file_path))
+    b = builds["test_rifle"]
 
-    assert normalized.mod_cost <= 80000
-    assert "天价碳纤维枪托" not in normalized.attachments
-    assert "CTR战术枪托" in normalized.attachments
-    assert "奢华直角握把" not in normalized.attachments
-    assert "RK-0垂直前握把" in normalized.attachments
+    assert b.mod_cost == 150000  # No 80k artificial truncation!
+    assert not hasattr(b, "build_code")
+    assert not hasattr(b, "code_status")
+    assert b.recoil_bonus == 20.0
+    assert b.stability_bonus == 15.0
+    assert len(b.tuning_instructions) == 1
+
+    # Also verify normalize_weapon_build preserves full build
+    norm = normalize_weapon_build(b)
+    assert norm.mod_cost == 150000
+    assert not hasattr(norm, "build_code")
 
 
 def test_collectors_init_exports():

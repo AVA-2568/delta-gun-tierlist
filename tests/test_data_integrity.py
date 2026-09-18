@@ -36,7 +36,8 @@ def test_default_builds_exists_and_valid():
     assert len(data) >= 6
     for build in data:
         assert "gun_id" in build
-        assert "build_code" in build
+        assert "build_code" not in build
+        assert "tuning_instructions" in build
         assert build["mod_cost"] > 0
 
 def test_data_relational_integrity():
