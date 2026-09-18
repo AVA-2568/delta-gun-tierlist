@@ -10,7 +10,7 @@ from src.models import (
     TierEntry,
 )
 from src.engine.cost_model import calc_loadout_cost
-from src.engine.ranker import rank_weapons, calc_handling_score
+from src.engine.ranker import rank_weapons, calc_handling_score, resolve_ammo
 
 
 @pytest.fixture
@@ -39,11 +39,11 @@ def sample_m4a1_build() -> WeaponBuild:
     return WeaponBuild(
         gun_id="m4a1",
         build_name="实用改",
-        build_code="M4-PRACTICAL-01",
         mod_cost=45000,
         ads_modifier_ms=-20,
         recoil_bonus=15.0,
         attachments=["消音器", "直角握把"],
+        tuning_instructions=["枪托: 配重向右拉满(+50g，后坐-6%)"],
     )
 
 
@@ -97,7 +97,12 @@ def test_rank_weapons_tier_distribution_with_baseline_datasets():
     with open("data/base_guns.json", "r", encoding="utf-8") as f:
         guns = [GunMeta.model_validate(x) for x in json.load(f)]
     with open("data/default_builds.json", "r", encoding="utf-8") as f:
-        builds = {x["gun_id"]: WeaponBuild.model_validate(x) for x in json.load(f)}
+        builds = {
+            x["gun_id"]: WeaponBuild.model_validate(
+                {k: v for k, v in x.items() if k in WeaponBuild.model_fields}
+            )
+            for x in json.load(f)
+        }
     with open("data/baseline_ammo_prices.json", "r", encoding="utf-8") as f:
         ammo_list = [AmmoPrice.model_validate(x) for x in json.load(f)]
     ammo_dict = {(a.caliber, a.level): a for a in ammo_list}
@@ -124,7 +129,7 @@ def test_rank_weapons_tier_distribution_with_baseline_datasets():
         assert 0.0 <= entry.handling_score <= 100.0
         assert 0.0 <= entry.cost_score <= 100.0
         assert 0.0 <= entry.composite_score <= 100.0
-        assert entry.build_code != ""
+        assert entry.caliber != ""
         assert len(entry.tags) > 0
 
         # Tier threshold checks
@@ -137,7 +142,7 @@ def test_rank_weapons_tier_distribution_with_baseline_datasets():
         else:
             assert entry.tier == "T3"
 
-    # Test scenario: 4 armor, 5 ammo, 15m (should have T0/T1 guns)
+    # Test scenario: 4 armor, 5 ammo, 15m (should have T0/T1 guns, 9x19mm weapons gated out)
     results_45_15 = rank_weapons(
         guns=guns,
         builds=builds,
@@ -146,6 +151,11 @@ def test_rank_weapons_tier_distribution_with_baseline_datasets():
         ammo_level=5,
         distance_m=15,
     )
+    guns_with_9mm = [g for g in guns if g.caliber == "9x19mm"]
+    assert len(guns_with_9mm) > 0
+    # Caliber gating: 9x19mm weapons have no level 5 ammo and must be excluded
+    assert len(results_45_15) == len(guns) - len(guns_with_9mm)
+    assert all(e.caliber != "9x19mm" for e in results_45_15)
     tiers_45 = {e.tier for e in results_45_15}
     assert "T0" in tiers_45 or "T1" in tiers_45
 
@@ -171,17 +181,17 @@ def test_rank_weapons_single_gun(sample_m4a1, sample_m4a1_build, sample_556_ammo
     assert entry.gun_id == "m4a1"
 
 
-def test_rank_weapons_missing_ammo_raises_error(sample_m4a1, sample_m4a1_build):
-    """Verify that missing ammo definition raises a clear KeyError."""
-    with pytest.raises(KeyError, match="No ammo found"):
-        rank_weapons(
-            guns=[sample_m4a1],
-            builds={"m4a1": sample_m4a1_build},
-            ammo_prices={},
-            armor_level=4,
-            ammo_level=4,
-            distance_m=15,
-        )
+def test_rank_weapons_missing_ammo_gating(sample_m4a1, sample_m4a1_build):
+    """Verify that weapon with missing ammo is skipped via caliber gating."""
+    results = rank_weapons(
+        guns=[sample_m4a1],
+        builds={"m4a1": sample_m4a1_build},
+        ammo_prices={},
+        armor_level=4,
+        ammo_level=4,
+        distance_m=15,
+    )
+    assert results == []
 
 
 def test_rank_weapons_missing_build_fallback(sample_m4a1, sample_556_ammo_lv4):
@@ -200,7 +210,8 @@ def test_rank_weapons_missing_build_fallback(sample_m4a1, sample_556_ammo_lv4):
     assert len(results) == 1
     entry = results[0]
     assert entry.total_loadout_cost == sample_m4a1.base_price + 60 * sample_556_ammo_lv4.price_per_round
-    assert entry.build_code == "STOCK"
+    assert entry.attachments == []
+    assert entry.tuning_instructions == []
 
 
 def test_tag_generation_meaningful(sample_m4a1, sample_m4a1_build, sample_556_ammo_lv4):
@@ -227,11 +238,16 @@ def test_rank_weapons_empty_guns():
 
 
 def test_rank_weapons_all_nine_scenarios():
-    """Verify all 9 matrix scenarios (3 armor-ammo x 3 distances) run cleanly."""
+    """Verify all 9 matrix scenarios (3 armor-ammo x 3 distances) run cleanly with caliber gating."""
     with open("data/base_guns.json", "r", encoding="utf-8") as f:
         guns = [GunMeta.model_validate(x) for x in json.load(f)]
     with open("data/default_builds.json", "r", encoding="utf-8") as f:
-        builds = {x["gun_id"]: WeaponBuild.model_validate(x) for x in json.load(f)}
+        builds = {
+            x["gun_id"]: WeaponBuild.model_validate(
+                {k: v for k, v in x.items() if k in WeaponBuild.model_fields}
+            )
+            for x in json.load(f)
+        }
     with open("data/baseline_ammo_prices.json", "r", encoding="utf-8") as f:
         ammo_list = [AmmoPrice.model_validate(x) for x in json.load(f)]
     ammo_dict = {(a.caliber, a.level): a for a in ammo_list}
@@ -242,6 +258,9 @@ def test_rank_weapons_all_nine_scenarios():
         (5, 5, 15), (5, 5, 35), (5, 5, 50),
     ]
 
+    guns_9mm_count = len([g for g in guns if g.caliber == "9x19mm"])
+    assert guns_9mm_count > 0
+
     for armor_lv, ammo_lv, dist in matrix:
         results = rank_weapons(
             guns=guns,
@@ -251,7 +270,14 @@ def test_rank_weapons_all_nine_scenarios():
             ammo_level=ammo_lv,
             distance_m=dist,
         )
-        assert len(results) == len(guns)
+        if ammo_lv == 4:
+            # All weapons have level 4 ammo
+            assert len(results) == len(guns)
+        else:
+            # Strict caliber gating: 9x19mm weapons lack level 5 ammo and are excluded
+            assert len(results) == len(guns) - guns_9mm_count
+            assert all(r.caliber != "9x19mm" for r in results)
+
         assert results[0].composite_score >= results[-1].composite_score
         assert all(isinstance(r, TierEntry) for r in results)
 
@@ -264,20 +290,28 @@ def test_resolve_ammo_formats(sample_556_ammo_lv4):
     assert resolve_ammo({("5.56x45mm", 4): sample_556_ammo_lv4}, "5.56x45mm", 4) == sample_556_ammo_lv4
     # Compound string key _
     assert resolve_ammo({"5.56x45mm_4": sample_556_ammo_lv4}, "5.56x45mm", 4) == sample_556_ammo_lv4
-    # Compound string key :
-    assert resolve_ammo({"5.56x45mm:4": sample_556_ammo_lv4}, "5.56x45mm", 4) == sample_556_ammo_lv4
-    # Simple caliber key
-    assert resolve_ammo({"5.56x45mm": sample_556_ammo_lv4}, "5.56x45mm", 4) == sample_556_ammo_lv4
     # Arbitrary dict key (searched in values)
     assert resolve_ammo({"ammo_item_01": sample_556_ammo_lv4}, "5.56x45mm", 4) == sample_556_ammo_lv4
-    # Caliber fallback when level does not strictly match dict key
-    assert resolve_ammo({"5.56x45mm": sample_556_ammo_lv4}, "5.56x45mm", 5) == sample_556_ammo_lv4
+    # Level mismatch returns None strictly (no cross-tier fallback)
+    assert resolve_ammo({"5.56x45mm_4": sample_556_ammo_lv4}, "5.56x45mm", 5) is None
     # List format matching level
     assert resolve_ammo([sample_556_ammo_lv4], "5.56x45mm", 4) == sample_556_ammo_lv4
-    # List format fallback
-    assert resolve_ammo([sample_556_ammo_lv4], "5.56x45mm", 5) == sample_556_ammo_lv4
-    # List format missing caliber
-    with pytest.raises(KeyError, match="No ammo found"):
-        resolve_ammo([sample_556_ammo_lv4], "9x19mm", 4)
+    # List format level mismatch returns None strictly
+    assert resolve_ammo([sample_556_ammo_lv4], "5.56x45mm", 5) is None
+    # List format missing caliber returns None
+    assert resolve_ammo([sample_556_ammo_lv4], "9x19mm", 4) is None
+
+
+def test_resolve_ammo_strict_and_gating():
+    sample_ammo = {
+        "9x19mm_4": AmmoPrice(caliber="9x19mm", level=4, name="9x19mm PBP", penetration=40, price_per_round=1545, source="test", updated_at="2026-09-18T00:00:00Z"),
+        "5.56x45mm_4": AmmoPrice(caliber="5.56x45mm", level=4, name="5.56x45mm M855A1", penetration=42, price_per_round=1150, source="test", updated_at="2026-09-18T00:00:00Z"),
+        "5.56x45mm_5": AmmoPrice(caliber="5.56x45mm", level=5, name="5.56x45mm M995", penetration=53, price_per_round=3100, source="test", updated_at="2026-09-18T00:00:00Z"),
+    }
+    # 9x19mm has level 4
+    assert resolve_ammo(sample_ammo, "9x19mm", 4) is not None
+    # 9x19mm has NO level 5
+    assert resolve_ammo(sample_ammo, "9x19mm", 5) is None
+
 
 

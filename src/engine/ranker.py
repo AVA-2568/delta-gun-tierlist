@@ -22,46 +22,42 @@ def calc_handling_score(recoil: float, stability: float, rpm: int) -> float:
 def resolve_ammo(
     ammo_prices: Union[Dict[Any, AmmoPrice], List[AmmoPrice]],
     caliber: str,
-    ammo_level: int,
-) -> AmmoPrice:
-    """Resolve the matching AmmoPrice for a weapon's caliber and scenario ammo level."""
+    target_level: int,
+) -> Optional[AmmoPrice]:
+    """Resolve ammo price record strictly matching caliber and target level.
+
+    Returns None if no ammo of the specified level exists for the caliber.
+    """
     if isinstance(ammo_prices, dict):
-        # 1. Direct tuple key lookup
-        if (caliber, ammo_level) in ammo_prices:
-            return ammo_prices[(caliber, ammo_level)]
+        key = f"{caliber}_{target_level}"
+        if key in ammo_prices:
+            return ammo_prices[key]
 
-        # 2. String compound keys
-        if f"{caliber}_{ammo_level}" in ammo_prices:
-            return ammo_prices[f"{caliber}_{ammo_level}"]
-        if f"{caliber}:{ammo_level}" in ammo_prices:
-            return ammo_prices[f"{caliber}:{ammo_level}"]
+        if (caliber, target_level) in ammo_prices:
+            return ammo_prices[(caliber, target_level)]
 
-        # 3. Simple caliber key if level matches
-        if caliber in ammo_prices:
-            candidate = ammo_prices[caliber]
-            if candidate.level == ammo_level:
-                return candidate
-
-        # 4. Search across dict values
-        for item in ammo_prices.values():
-            if item.caliber == caliber and item.level == ammo_level:
-                return item
-
-        # 5. Caliber fallback if only one level was loaded in dict
-        if caliber in ammo_prices:
-            return ammo_prices[caliber]
+        norm_cal = caliber.replace(" ", "").lower().rstrip("mm")
+        for v in ammo_prices.values():
+            if isinstance(v, AmmoPrice) and v.level == target_level:
+                if (
+                    v.caliber == caliber
+                    or v.caliber.replace(" ", "").lower().rstrip("mm") == norm_cal
+                ):
+                    return v
+        return None
 
     elif isinstance(ammo_prices, list):
+        norm_cal = caliber.replace(" ", "").lower().rstrip("mm")
         for item in ammo_prices:
-            if item.caliber == caliber and item.level == ammo_level:
-                return item
-        for item in ammo_prices:
-            if item.caliber == caliber:
-                return item
+            if item.level == target_level:
+                if (
+                    item.caliber == caliber
+                    or item.caliber.replace(" ", "").lower().rstrip("mm") == norm_cal
+                ):
+                    return item
+        return None
 
-    raise KeyError(
-        f"No ammo found for caliber '{caliber}' at ammo_level {ammo_level} in provided ammo_prices dataset."
-    )
+    return None
 
 
 def generate_tags(
@@ -161,14 +157,17 @@ def rank_weapons(
 
     for gun in guns:
         ammo = resolve_ammo(ammo_prices, gun.caliber, ammo_level)
+        if ammo is None:
+            # Caliber gating: skip weapon if no suitable ammo for this scenario
+            continue
+
         build = builds.get(gun.id)
 
         if build is not None:
             effective_ads = max(50, gun.ads_time_ms + build.ads_modifier_ms)
             effective_recoil = min(100.0, max(0.0, gun.recoil_control + build.recoil_bonus))
-            build_code = build.build_code
-            code_status = build.code_status
             attachments = build.attachments
+            tuning_instructions = getattr(build, "tuning_instructions", [])
             sim_gun = gun.model_copy(
                 update={"ads_time_ms": effective_ads, "recoil_control": effective_recoil}
             )
@@ -177,9 +176,8 @@ def rank_weapons(
             )
         else:
             sim_gun = gun
-            build_code = "STOCK"
-            code_status = "manual_only"
             attachments = []
+            tuning_instructions = []
             handling_score = calc_handling_score(
                 recoil=gun.recoil_control, stability=gun.stability, rpm=gun.rpm
             )
@@ -199,16 +197,17 @@ def rank_weapons(
                 "build": build,
                 "ammo": ammo,
                 "sim": sim,
-                "build_code": build_code,
-                "code_status": code_status,
                 "attachments": attachments,
-                "mod_cost": build.mod_cost if build is not None else 0,
+                "tuning_instructions": tuning_instructions,
                 "handling_score": handling_score,
                 "total_cost": total_cost,
                 "ammo_60_cost": ammo_60_cost,
                 "single_kill_cost": single_kill_cost,
             }
         )
+
+    if not simulated_items:
+        return []
 
     # Min-Max normalization
     min_ttk = min(item["sim"].practical_ttk_ms for item in simulated_items)
@@ -275,12 +274,12 @@ def rank_weapons(
             gun_id=gun.id,
             gun_name=gun.name,
             category=gun.category,
+            caliber=gun.caliber,
             distance_m=distance_m,
             armor_level=armor_level,
             ammo_level=ammo_level,
             stk=sim.stk,
             practical_ttk_ms=sim.practical_ttk_ms,
-            mod_cost=item.get("mod_cost", 0),
             ammo_60_cost=item["ammo_60_cost"],
             total_loadout_cost=total_cost,
             single_kill_cost=item["single_kill_cost"],
@@ -289,9 +288,8 @@ def rank_weapons(
             cost_score=cost_score,
             composite_score=composite_score,
             tier=tier,
-            build_code=item["build_code"],
-            code_status=item["code_status"],
             attachments=item["attachments"],
+            tuning_instructions=item["tuning_instructions"],
             tags=tags,
         )
         entries.append(entry)
@@ -300,3 +298,7 @@ def rank_weapons(
     entries.sort(key=lambda e: (-e.composite_score, e.practical_ttk_ms, e.total_loadout_cost))
 
     return entries
+
+
+generate_scenario_rankings = rank_weapons
+

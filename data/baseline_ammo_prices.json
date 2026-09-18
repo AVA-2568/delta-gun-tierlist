@@ -90,42 +90,6 @@
     "updated_at": "2026-09-17T00:00:00Z"
   },
   {
-    "caliber": "5.8x42mm",
-    "level": 4,
-    "name": "5.8x42mm DVP88",
-    "penetration": 42,
-    "price_per_round": 1750,
-    "source": "baseline",
-    "updated_at": "2026-09-17T00:00:00Z"
-  },
-  {
-    "caliber": "5.8x42mm",
-    "level": 5,
-    "name": "5.8x42mm DVC12",
-    "penetration": 52,
-    "price_per_round": 4914,
-    "source": "baseline",
-    "updated_at": "2026-09-17T00:00:00Z"
-  },
-  {
-    "caliber": "9x19mm",
-    "level": 4,
-    "name": "9x19mm 7N31",
-    "penetration": 40,
-    "price_per_round": 1602,
-    "source": "baseline",
-    "updated_at": "2026-09-17T00:00:00Z"
-  },
-  {
-    "caliber": "9x19mm",
-    "level": 5,
-    "name": "9x19mm PBP",
-    "penetration": 48,
-    "price_per_round": 3850,
-    "source": "baseline",
-    "updated_at": "2026-09-17T00:00:00Z"
-  },
-  {
     "caliber": "5.7x28mm",
     "level": 4,
     "name": "5.7x28mm SS193",
@@ -180,24 +144,6 @@
     "updated_at": "2026-09-17T00:00:00Z"
   },
   {
-    "caliber": ".45ACP",
-    "level": 4,
-    "name": ".45 ACP AP",
-    "penetration": 40,
-    "price_per_round": 1852,
-    "source": "baseline",
-    "updated_at": "2026-09-17T00:00:00Z"
-  },
-  {
-    "caliber": ".45ACP",
-    "level": 5,
-    "name": ".45 ACP RIP/AP+",
-    "penetration": 50,
-    "price_per_round": 4100,
-    "source": "baseline",
-    "updated_at": "2026-09-17T00:00:00Z"
-  },
-  {
     "caliber": "4.6x30mm",
     "level": 4,
     "name": "4.6x30mm Subsonic SX",
@@ -216,57 +162,120 @@
     "updated_at": "2026-09-17T00:00:00Z"
   },
   {
-    "caliber": ".300BLK",
+    "caliber": "5.8x42mm",
+    "level": 3,
+    "name": "5.8x42mm DVP88",
+    "penetration": 30,
+    "price_per_round": 900,
+    "source": "baseline",
+    "updated_at": "2026-09-18T00:00:00Z"
+  },
+  {
+    "caliber": "5.8x42mm",
     "level": 4,
-    "name": ".300 BLK AP",
+    "name": "5.8x42mm DBP10",
     "penetration": 42,
-    "price_per_round": 1821,
+    "price_per_round": 1450,
     "source": "baseline",
-    "updated_at": "2026-09-17T00:00:00Z"
+    "updated_at": "2026-09-18T00:00:00Z"
+  },
+  {
+    "caliber": "5.8x42mm",
+    "level": 5,
+    "name": "5.8x42mm DVC12",
+    "penetration": 52,
+    "price_per_round": 3400,
+    "source": "baseline",
+    "updated_at": "2026-09-18T00:00:00Z"
+  },
+  {
+    "caliber": "9x19mm",
+    "level": 3,
+    "name": "9x19mm AP6.3",
+    "penetration": 30,
+    "price_per_round": 950,
+    "source": "baseline",
+    "updated_at": "2026-09-18T00:00:00Z"
+  },
+  {
+    "caliber": "9x19mm",
+    "level": 4,
+    "name": "9x19mm PBP",
+    "penetration": 40,
+    "price_per_round": 1545,
+    "source": "baseline",
+    "updated_at": "2026-09-18T00:00:00Z"
+  },
+  {
+    "caliber": ".45ACP",
+    "level": 4,
+    "name": ".45 ACP AP",
+    "penetration": 40,
+    "price_per_round": 3300,
+    "source": "baseline",
+    "updated_at": "2026-09-18T00:00:00Z"
+  },
+  {
+    "caliber": ".45ACP",
+    "level": 5,
+    "name": ".45 ACP Super",
+    "penetration": 50,
+    "price_per_round": 4800,
+    "source": "baseline",
+    "updated_at": "2026-09-18T00:00:00Z"
+  },
+  {
+    "caliber": ".300BLK",
+    "level": 4,
+    "name": ".300 BLK BCP-FMJ",
+    "penetration": 40,
+    "price_per_round": 1800,
+    "source": "baseline",
+    "updated_at": "2026-09-18T00:00:00Z"
   },
   {
     "caliber": ".300BLK",
     "level": 5,
-    "name": ".300 BLK V-Max+",
-    "penetration": 52,
-    "price_per_round": 4300,
-    "source": "baseline",
-    "updated_at": "2026-09-17T00:00:00Z"
-  },
-  {
-    "caliber": "12.7x55",
-    "level": 4,
-    "name": "12.7x55mm PS12B",
-    "penetration": 46,
-    "price_per_round": 2282,
-    "source": "baseline",
-    "updated_at": "2026-09-17T00:00:00Z"
-  },
-  {
-    "caliber": "12.7x55",
-    "level": 5,
-    "name": "12.7x55mm AP",
-    "penetration": 56,
+    "name": ".300 BLK TAC-TX",
+    "penetration": 50,
     "price_per_round": 5200,
     "source": "baseline",
-    "updated_at": "2026-09-17T00:00:00Z"
+    "updated_at": "2026-09-18T00:00:00Z"
+  },
+  {
+    "caliber": "12.7x55",
+    "level": 4,
+    "name": "12.7x55mm PS12",
+    "penetration": 44,
+    "price_per_round": 2200,
+    "source": "baseline",
+    "updated_at": "2026-09-18T00:00:00Z"
+  },
+  {
+    "caliber": "12.7x55",
+    "level": 5,
+    "name": "12.7x55mm PS12B",
+    "penetration": 54,
+    "price_per_round": 5800,
+    "source": "baseline",
+    "updated_at": "2026-09-18T00:00:00Z"
   },
   {
     "caliber": "45-70 Govt",
     "level": 4,
-    "name": "45-70 Govt JHP",
+    "name": "45-70 Govt FMJ",
     "penetration": 44,
     "price_per_round": 2100,
     "source": "baseline",
-    "updated_at": "2026-09-17T00:00:00Z"
+    "updated_at": "2026-09-18T00:00:00Z"
   },
   {
     "caliber": "45-70 Govt",
     "level": 5,
-    "name": "45-70 Govt AP",
+    "name": "45-70 Govt FTX",
     "penetration": 54,
-    "price_per_round": 4800,
+    "price_per_round": 4900,
     "source": "baseline",
-    "updated_at": "2026-09-17T00:00:00Z"
+    "updated_at": "2026-09-18T00:00:00Z"
   }
 ]

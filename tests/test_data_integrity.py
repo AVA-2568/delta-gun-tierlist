@@ -22,8 +22,10 @@ def test_baseline_ammo_prices_exists_and_valid():
     assert isinstance(data, list)
     assert len(data) >= 6
     for ammo in data:
-        assert ammo["level"] in [4, 5]
+        assert ammo["level"] in [3, 4, 5]
         assert ammo["price_per_round"] > 0
+        assert "RIP" not in ammo["name"], "Fabricated RIP ammo found"
+        assert "V-Max+" not in ammo["name"], "Fabricated V-Max+ ammo found"
 
 def test_default_builds_exists_and_valid():
     path = "data/default_builds.json"
@@ -52,8 +54,12 @@ def test_data_relational_integrity():
         assert gid in build_gun_ids, f"Weapon {gid} missing default build"
 
     ammo_keys = {(a["caliber"], a["level"]) for a in ammo}
-    # 确保每把枪的口径都有 4 级和 5 级弹药价格
+    # 确保每把枪的口径都有 4 级弹药；除 9x19mm（官方无5级弹）外都有 5 级弹
+    assert ("9x19mm", 5) not in ammo_keys, "9x19mm must not have fabricated level 5 ammo"
+    assert ("9x19mm", 4) in ammo_keys, "9x19mm must have level 4 ammo"
+
     for g in guns:
         cal = g["caliber"]
         assert (cal, 4) in ammo_keys, f"Caliber {cal} missing Level 4 ammo price"
-        assert (cal, 5) in ammo_keys, f"Caliber {cal} missing Level 5 ammo price"
+        if cal != "9x19mm":
+            assert (cal, 5) in ammo_keys, f"Caliber {cal} missing Level 5 ammo price"
