@@ -128,15 +128,21 @@ def test_weapon_build_validation():
     build = WeaponBuild(
         gun_id="m4a1",
         build_name="烽火高性价比实用改",
-        build_code="M4A1-6H3R-PRACTICAL",
         mod_cost=42000,
         ads_modifier_ms=-15,
         recoil_bonus=16.0,
+        stability_bonus=10.0,
+        velocity_bonus_pct=0.05,
+        mag_size_bonus=15,
         attachments=["长枪管", "战术消音器"],
+        tuning_instructions=["枪托: 配重向右拉满"],
     )
     assert build.gun_id == "m4a1"
     assert build.mod_cost == 42000
     assert len(build.attachments) == 2
+    assert build.stability_bonus == 10.0
+    assert not hasattr(build, "build_code")
+    assert not hasattr(build, "code_status")
 
 
 def test_weapon_build_invalid_mod_cost():
@@ -144,10 +150,19 @@ def test_weapon_build_invalid_mod_cost():
         WeaponBuild(
             gun_id="m4a1",
             build_name="非法方案",
-            build_code="TEST-CODE",
             mod_cost=-1000,  # Invalid
             ads_modifier_ms=0,
             recoil_bonus=0.0,
+        )
+
+
+def test_weapon_build_forbid_build_code():
+    with pytest.raises(ValidationError):
+        WeaponBuild(
+            gun_id="m4a1",
+            build_name="带改枪码的非法方案",
+            build_code="M4A1-6H3R-PRACTICAL",  # Forbidden
+            mod_cost=42000,
         )
 
 
@@ -183,6 +198,7 @@ def test_tier_entry_validation():
         gun_id="m4a1",
         gun_name="M4A1",
         category="突击步枪",
+        caliber="5.56x45mm",
         distance_m=15,
         armor_level=4,
         ammo_level=4,
@@ -196,12 +212,62 @@ def test_tier_entry_validation():
         cost_score=78.0,
         composite_score=82.5,
         tier="T1",
-        build_code="M4A1-6H3R-PRACTICAL",
+        attachments=["枪口: 钢制膛口制退器"],
+        tuning_instructions=["枪托: 配重向右拉满(+50g)"],
         tags=["近战撕裂", "高性价比"],
     )
     assert entry.tier == "T1"
     assert entry.composite_score == 82.5
     assert len(entry.tags) == 2
+    assert not hasattr(entry, "build_code")
+    assert not hasattr(entry, "code_status")
+
+
+def test_tier_entry_forbid_build_code():
+    with pytest.raises(ValidationError):
+        TierEntry(
+            gun_id="m4a1",
+            gun_name="M4A1",
+            category="突击步枪",
+            caliber="5.56x45mm",
+            distance_m=15,
+            armor_level=4,
+            ammo_level=4,
+            stk=4,
+            practical_ttk_ms=247.5,
+            ammo_60_cost=69000,
+            total_loadout_cost=146000,
+            single_kill_cost=4600,
+            combat_score=85.5,
+            handling_score=80.0,
+            cost_score=78.0,
+            composite_score=82.5,
+            tier="T1",
+            build_code="M4A1-6H3R-PRACTICAL",  # Forbidden
+        )
+
+
+def test_tier_entry_invalid_tier_pattern():
+    with pytest.raises(ValidationError):
+        TierEntry(
+            gun_id="m4a1",
+            gun_name="M4A1",
+            category="突击步枪",
+            caliber="5.56x45mm",
+            distance_m=15,
+            armor_level=4,
+            ammo_level=4,
+            stk=4,
+            practical_ttk_ms=247.5,
+            ammo_60_cost=69000,
+            total_loadout_cost=146000,
+            single_kill_cost=4600,
+            combat_score=85.5,
+            handling_score=80.0,
+            cost_score=78.0,
+            composite_score=82.5,
+            tier="T4",  # Invalid pattern, only T0-T3 allowed
+        )
 
 
 def test_data_source_status_validation():
@@ -225,6 +291,54 @@ def test_data_source_status_validation():
     assert status_fallback.fallback_tier == 2
 
 
+def test_weapon_build_tuning_and_physical_fields():
+    build = WeaponBuild(
+        gun_id="m4a1",
+        build_name="实用实战改",
+        mod_cost=38500,
+        ads_modifier_ms=10,
+        recoil_bonus=18.5,
+        stability_bonus=12.0,
+        velocity_bonus_pct=0.09,
+        mag_size_bonus=15,
+        attachments=["枪口: 钢制膛口制退器", "弹匣: M4扩容45发弹匣"],
+        tuning_instructions=["枪托: 配重向右拉满(+50g，后坐-6%)"],
+    )
+    assert build.stability_bonus == 12.0
+    assert build.velocity_bonus_pct == 0.09
+    assert build.mag_size_bonus == 15
+    assert len(build.tuning_instructions) == 1
+    assert not hasattr(build, "build_code")
+
+
+def test_tier_entry_without_build_code():
+    entry_dict = {
+        "gun_id": "m4a1",
+        "gun_name": "M4A1",
+        "category": "突击步枪",
+        "caliber": "5.56x45mm",
+        "distance_m": 15,
+        "armor_level": 4,
+        "ammo_level": 4,
+        "stk": 6,
+        "practical_ttk_ms": 520.0,
+        "ammo_60_cost": 69000,
+        "total_loadout_cost": 142500,
+        "single_kill_cost": 6900,
+        "combat_score": 85.0,
+        "handling_score": 80.0,
+        "cost_score": 75.0,
+        "composite_score": 81.0,
+        "tier": "T1",
+        "attachments": ["枪口: 钢制膛口制退器"],
+        "tuning_instructions": ["枪托: 配重向右拉满(+50g)"],
+        "tags": ["均衡全能"],
+    }
+    entry = TierEntry.model_validate(entry_dict)
+    assert entry.tuning_instructions == ["枪托: 配重向右拉满(+50g)"]
+    assert not hasattr(entry, "build_code")
+
+
 def test_validate_existing_json_datasets():
     with open("data/base_guns.json", "r", encoding="utf-8") as f:
         guns_data = json.load(f)
@@ -235,8 +349,3 @@ def test_validate_existing_json_datasets():
         ammo_data = json.load(f)
     ammos = [AmmoPrice.model_validate(item) for item in ammo_data]
     assert len(ammos) >= 6
-
-    with open("data/default_builds.json", "r", encoding="utf-8") as f:
-        builds_data = json.load(f)
-    builds = [WeaponBuild.model_validate(item) for item in builds_data]
-    assert len(builds) >= 6

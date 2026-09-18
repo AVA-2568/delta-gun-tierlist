@@ -48,18 +48,20 @@ class AmmoPrice(BaseModel):
 
 
 class WeaponBuild(BaseModel):
-    """Recommended weapon modification plan and tactical attachment attributes."""
+    """Calibrated weapon build configuration with attachments and tuning instructions."""
 
     model_config = ConfigDict(extra="forbid")
 
-    gun_id: str = Field(min_length=1, description="对应枪械ID")
-    build_name: str = Field(min_length=1, description="方案名称")
-    build_code: Optional[str] = Field(default=None, description="游戏内真实改枪码，若无有效真码则为 None")
-    code_status: str = Field(default="manual_only", description="改枪码状态：verified(实测有效真码) / manual_only(仅配件清单需手动装配)")
-    mod_cost: int = Field(ge=0, description="改装配件总造价（哈夫币）")
-    ads_modifier_ms: int = Field(default=0, description="改装对开镜时间的影响 (ms)")
-    recoil_bonus: float = Field(default=0.0, description="改装后坐优化增益")
-    attachments: List[str] = Field(default_factory=list, description="配件清单")
+    gun_id: str = Field(min_length=1, description="Unique weapon identifier")
+    build_name: str = Field(min_length=1, description="Name of the build profile")
+    mod_cost: int = Field(ge=0, description="Sum of market costs of all equipped attachments")
+    ads_modifier_ms: int = Field(default=0, description="ADS time delta in milliseconds")
+    recoil_bonus: float = Field(default=0.0, description="Total recoil control bonus (base + tuning)")
+    stability_bonus: float = Field(default=0.0, description="Total stability bonus (base + tuning)")
+    velocity_bonus_pct: float = Field(default=0.0, description="Muzzle velocity bonus percentage (e.g. 0.09)")
+    mag_size_bonus: int = Field(default=0, description="Magazine capacity delta (rounds)")
+    attachments: List[str] = Field(default_factory=list, description="Equipped attachment labels with slot prefixes")
+    tuning_instructions: List[str] = Field(default_factory=list, description="Actionable custom tuning recommendations")
 
 
 class SimulationResult(BaseModel):
@@ -74,31 +76,30 @@ class SimulationResult(BaseModel):
 
 
 class TierEntry(BaseModel):
-    """Final tier list entry under a specific scenario matrix condition."""
+    """Final tier ranking entry for a weapon in a specific combat scenario."""
 
     model_config = ConfigDict(extra="forbid")
 
-    gun_id: str = Field(min_length=1, description="枪械ID")
-    gun_name: str = Field(min_length=1, description="枪械中文名称")
-    category: str = Field(min_length=1, description="类别")
-    distance_m: int = Field(gt=0, description="交战距离 (m)")
-    armor_level: int = Field(ge=1, le=7, description="护甲等级")
-    ammo_level: int = Field(ge=1, le=7, description="弹药等级")
-    stk: int = Field(gt=0, description="击杀所需发数")
-    practical_ttk_ms: float = Field(ge=0.0, description="实战击杀时间 (ms)")
-    mod_cost: int = Field(default=0, ge=0, description="推荐最优改装配件总造价（哈夫币）")
-    ammo_60_cost: int = Field(ge=0, description="60发备弹成本（哈夫币）")
-    total_loadout_cost: int = Field(ge=0, description="裸枪+改装+60发备弹总成本（哈夫币）")
-    single_kill_cost: int = Field(ge=0, description="单次击杀消耗弹药成本（哈夫币）")
-    combat_score: float = Field(ge=0.0, le=100.0, description="战力效能分 (0~100)")
-    handling_score: float = Field(ge=0.0, le=100.0, description="操控容错分 (0~100)")
-    cost_score: float = Field(ge=0.0, le=100.0, description="经济性价比分 (0~100)")
-    composite_score: float = Field(ge=0.0, le=100.0, description="加权综合得分 (0~100)")
-    tier: str = Field(min_length=1, description="梯队级别 (T0, T1, T2, T3)")
-    build_code: Optional[str] = Field(default=None, description="推荐实用改枪码（若无则为 None）")
-    code_status: str = Field(default="manual_only", description="改枪码状态：verified / manual_only")
-    attachments: List[str] = Field(default_factory=list, description="推荐改装配件清单")
-    tags: List[str] = Field(default_factory=list, description="特性标签")
+    gun_id: str = Field(min_length=1)
+    gun_name: str = Field(min_length=1)
+    category: str = Field(min_length=1)
+    caliber: str = Field(min_length=1)
+    distance_m: int = Field(ge=1, le=200)
+    armor_level: int = Field(ge=1, le=6)
+    ammo_level: int = Field(ge=1, le=6)
+    stk: int = Field(ge=1)
+    practical_ttk_ms: float = Field(ge=0.0)
+    ammo_60_cost: int = Field(ge=0)
+    total_loadout_cost: int = Field(ge=0)
+    single_kill_cost: int = Field(ge=0)
+    combat_score: float = Field(ge=0.0, le=100.0)
+    handling_score: float = Field(ge=0.0, le=100.0)
+    cost_score: float = Field(ge=0.0, le=100.0)
+    composite_score: float = Field(ge=0.0, le=100.0)
+    tier: str = Field(pattern=r"^T[0-3]$")
+    attachments: List[str] = Field(default_factory=list)
+    tuning_instructions: List[str] = Field(default_factory=list)
+    tags: List[str] = Field(default_factory=list)
 
 
 class DataSourceStatus(BaseModel):
