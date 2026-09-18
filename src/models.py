@@ -1,6 +1,6 @@
 """Pydantic data contract models for weapon metadata, ammo pricing, builds, and simulation results."""
 
-from typing import List, Optional
+from typing import List
 from pydantic import BaseModel, ConfigDict, Field
 
 
