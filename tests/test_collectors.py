@@ -459,3 +459,163 @@ def test_collectors_integration_with_ranker():
     )
     assert any(r.tier == "T0" for r in ranked_45)
 
+
+def test_official_sync_build_dataset_and_sync(monkeypatch, tmp_path):
+    """Verify official_sync module builds weapon dataset and writes to disk correctly."""
+    from src.collectors import official_sync
+
+    mock_weapons = {
+        "objects": {
+            "w_m4": {
+                "categoryId": "assaultRifle",
+                "ammoTypeId": "ammo_556",
+                "combatSummaryByMode": {
+                    "sol": {
+                        "fireRateRpm": 750,
+                        "baseFleshDamage": 32.0,
+                        "baseArmorDamage": 30.0,
+                        "muzzleVelocityMps": 650.0,
+                        "damageFalloffSegments": [
+                            {"toM": 30.0, "rate": 1.0},
+                            {"toM": 60.0, "rate": 0.85},
+                        ],
+                    }
+                },
+            },
+            "w_p90": {
+                "categoryId": "submachineGun",
+                "ammoTypeId": "ammo_57",
+                "combatSummaryByMode": {
+                    "sol": {
+                        "fireRateRpm": 900,
+                        "baseFleshDamage": 26.0,
+                        "baseArmorDamage": 28.0,
+                        "muzzleVelocityMps": 500.0,
+                    }
+                },
+            },
+            "w_pkm": {
+                "categoryId": "lightMachineGun",
+                "ammoTypeId": "ammo_54r",
+                "combatSummaryByMode": {
+                    "sol": {
+                        "fireRateRpm": 650,
+                        "baseFleshDamage": 38.0,
+                        "baseArmorDamage": 42.0,
+                        "muzzleVelocityMps": 600.0,
+                    }
+                },
+            },
+            "w_svd": {
+                "categoryId": "marksmanRifle",
+                "ammoTypeId": "ammo_54r",
+                "combatSummaryByMode": {
+                    "sol": {
+                        "fireRateRpm": 300,
+                        "baseFleshDamage": 55.0,
+                        "baseArmorDamage": 58.0,
+                        "muzzleVelocityMps": 700.0,
+                    }
+                },
+            },
+            "w_pistol": {
+                "categoryId": "sidearm",
+            },
+            "w_no_sol": {
+                "categoryId": "assaultRifle",
+                "ammoTypeId": "ammo_556",
+                "combatSummaryByMode": {},
+            },
+            "w_no_locale": {
+                "categoryId": "assaultRifle",
+                "ammoTypeId": "ammo_556",
+                "combatSummaryByMode": {"sol": {}},
+            },
+        }
+    }
+
+    mock_ammo = {
+        "ammo": {
+            "a1": {"ammoTypeId": "ammo_556", "caliber": "5.56*45mm"},
+            "a2": {"ammoTypeId": "ammo_57", "caliber": "5.7*28mm"},
+            "a3": {"ammoTypeId": "ammo_54r", "caliber": "7.62*54R"},
+        }
+    }
+
+    mock_locale = {
+        "items": {
+            "w_m4": "M4A1",
+            "w_p90": "P90",
+            "w_pkm": "PKM",
+            "w_svd": "SVD",
+            "w_pistol": "G17",
+            "w_no_sol": "BrokenGun",
+        }
+    }
+
+    monkeypatch.setattr(
+        official_sync,
+        "fetch_official_raw_data",
+        lambda: (mock_weapons, mock_ammo, mock_locale),
+    )
+
+    guns = official_sync.build_official_guns_dataset()
+    assert len(guns) == 4
+    # M4A1
+    m4 = next(g for g in guns if g["id"] == "m4a1")
+    assert m4["category"] == "突击步枪"
+    assert m4["caliber"] == "5.56x45mm"
+    assert len(m4["dropoffs"]) == 2
+
+    # P90
+    p90 = next(g for g in guns if g["id"] == "p90")
+    assert p90["category"] == "冲锋枪"
+    assert p90["default_mag_size"] == 50
+    assert len(p90["dropoffs"]) == 3  # Fallback dropoffs
+
+    # PKM
+    pkm = next(g for g in guns if g["id"] == "pkm")
+    assert pkm["category"] == "轻机枪"
+    assert pkm["caliber"] == "7.62x54mmR"
+    assert pkm["default_mag_size"] == 75
+
+    # SVD
+    svd = next(g for g in guns if g["id"] == "svd")
+    assert svd["category"] == "精确射手步枪"
+    assert svd["default_mag_size"] == 10
+
+    # Test sync_to_file
+    out_file = tmp_path / "synced_guns.json"
+    count = official_sync.sync_to_file(output_path=str(out_file))
+    assert count == 4
+    assert out_file.exists()
+
+
+def test_fetch_official_raw_data_network_mock(monkeypatch):
+    """Verify fetch_official_raw_data parses json from urllib requests."""
+    from src.collectors import official_sync
+    import io
+
+    class MockHttpResp:
+        def __init__(self, data):
+            self._data = json.dumps(data).encode("utf-8")
+
+        def read(self):
+            return self._data
+
+    def mock_urlopen(req, timeout=10):
+        url = req.full_url
+        if "weapons" in url:
+            return MockHttpResp({"objects": {}})
+        elif "ammo" in url:
+            return MockHttpResp({"ammo": {}})
+        else:
+            return MockHttpResp({"items": {}})
+
+    monkeypatch.setattr("urllib.request.urlopen", mock_urlopen)
+    w, a, l = official_sync.fetch_official_raw_data()
+    assert "objects" in w
+    assert "ammo" in a
+    assert "items" in l
+
+

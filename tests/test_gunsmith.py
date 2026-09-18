@@ -78,3 +78,55 @@ def test_get_detailed_build():
 
     # Non-existent gun returns None
     assert get_detailed_build("unknown_gun_xyz") is None
+
+
+def test_create_dynamic_build_and_helpers(tmp_path):
+    from src.engine.gunsmith import (
+        create_dynamic_build,
+        get_official_price,
+        get_all_builds_for_guns,
+        CURATED_BUILDS,
+    )
+    import json
+
+    # get_official_price
+    assert get_official_price("不存在的神秘配件", fallback=8888) == 8888
+
+    # create_dynamic_build for curated gun
+    b_m4 = create_dynamic_build("m4a1", "M4A1", "突击步枪")
+    assert b_m4.gun_id == "m4a1"
+
+    # dynamic builds for different categories
+    b_smg = create_dynamic_build("custom_smg", "自定义冲锋枪", "冲锋枪")
+    assert "机动近战突袭改" in b_smg.build_name
+    assert b_smg.ads_modifier_ms == -18
+
+    b_lmg = create_dynamic_build("custom_lmg", "自定义轻机枪", "轻机枪")
+    assert "阵地火力压制改" in b_lmg.build_name
+    assert b_lmg.ads_modifier_ms == 15
+
+    b_dmr = create_dynamic_build("custom_dmr", "自定义连狙", "精确射手步枪")
+    assert "高精点射压制改" in b_dmr.build_name
+    assert b_dmr.velocity_bonus_pct == 0.09
+
+    b_ar = create_dynamic_build("custom_ar", "自定义步枪", "突击步枪")
+    assert "中距全能稳健改" in b_ar.build_name
+
+    # get_all_builds_for_guns with custom file
+    guns_file = tmp_path / "test_guns.json"
+    guns_file.write_text(
+        json.dumps([
+            {"id": "m4a1", "name": "M4A1突击步枪", "category": "突击步枪"},
+            {"id": "custom_smg", "name": "自定义冲锋枪", "category": "冲锋枪"},
+        ]),
+        encoding="utf-8",
+    )
+    builds = get_all_builds_for_guns(guns_file=str(guns_file))
+    # Returns the guns from the file plus any remaining curated builds
+    assert any(b.gun_id == "custom_smg" for b in builds)
+    assert any(b.gun_id == "m4a1" for b in builds)
+
+    # get_all_builds_for_guns fallback on missing file
+    missing_builds = get_all_builds_for_guns(guns_file=str(tmp_path / "missing.json"))
+    assert len(missing_builds) == len(CURATED_BUILDS)
+
