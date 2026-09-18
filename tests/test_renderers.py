@@ -58,6 +58,7 @@ def sample_ranking_results() -> dict:
             gun_id="m4a1",
             gun_name="M4A1",
             category="突击步枪",
+            caliber="5.56x45mm",
             distance_m=dist,
             armor_level=armor,
             ammo_level=ammo,
@@ -71,13 +72,15 @@ def sample_ranking_results() -> dict:
             cost_score=85.0,
             composite_score=88.5 if (armor == 4 and ammo == 4) else 83.5,
             tier="T0" if (armor == 4 and ammo == 4) else "T1",
-            build_code="M4-PRACTICAL-01",
+            attachments=["长枪管", "实用垂直握把"],
+            tuning_instructions=["枪托: 配重右拉满(+50g)", "前握把: 安装位置前拉满"],
             tags=["版本答案", "平民首选"],
         )
         vec = TierEntry(
             gun_id="vector",
             gun_name="Vector",
             category="冲锋枪",
+            caliber="9x19mm",
             distance_m=dist,
             armor_level=armor,
             ammo_level=ammo,
@@ -91,7 +94,8 @@ def sample_ranking_results() -> dict:
             cost_score=90.0,
             composite_score=89.5 if dist == 15 else 68.0,
             tier="T0" if dist == 15 else "T2",
-            build_code="VEC-CQB-99",
+            attachments=["冲锋枪消音器", "实用垂直握把"],
+            tuning_instructions=["后握把: 角度后拉满"],
             tags=["近战撕裂", "高容错"],
         )
         all_rankings[sc_name] = [m4, vec]
@@ -122,6 +126,11 @@ def test_json_export(sample_ranking_results, sample_status, tmp_path):
     assert "rankings" in data
     assert data["metadata"]["status"]["source"] == "zxfps_live"
     assert "4-4-15m" in data["rankings"]
+    first_entry = data["rankings"]["4-4-15m"][0]
+    assert "tuning_instructions" in first_entry
+    assert isinstance(first_entry["tuning_instructions"], list)
+    assert "build_code" not in first_entry
+    assert "code_status" not in first_entry
 
 
 def test_render_main_readme_badges(sample_ranking_results, sample_status, sample_fallback_status, tmp_path):
@@ -143,7 +152,7 @@ def test_render_main_readme_badges(sample_ranking_results, sample_status, sample
 
 
 def test_render_main_readme_t0_quick_lookup_cards(sample_ranking_results, sample_status, tmp_path):
-    """Verify T0 quick lookup cards for the 3 major battle scenarios."""
+    """Verify T0 quick lookup cards for the 3 major battle scenarios with tuning notes and no build codes."""
     readme_path = tmp_path / "README.md"
     render_main_readme(sample_ranking_results, sample_status, output_path=str(readme_path))
     content = readme_path.read_text(encoding="utf-8")
@@ -153,28 +162,28 @@ def test_render_main_readme_t0_quick_lookup_cards(sample_ranking_results, sample
     assert "4套5弹" in content
     assert "5套5弹" in content
 
-    # Check T0 weapon card elements: build code, total cost, 60 ammo cost
-    assert "M4-PRACTICAL-01" in content
+    # Check T0 weapon card elements: attachments list, tuning instructions, total cost, 60 ammo cost
+    assert "🛠️ 最优高性价比实战改装配件清单" in content
+    assert "🎯 实战精校调校要点" in content
+    assert "配重右拉满" in content
     assert "110,000" in content or "110000" in content
     assert "30,000" in content or "30000" in content
+    assert "改枪码" not in content
+    assert "方案码" not in content
 
 
 def test_render_main_readme_nine_dimension_matrix(sample_ranking_results, sample_status, tmp_path):
-    """Verify 9-dimension overview matrix table."""
+    """Verify 9-dimension overview matrix table headers and content."""
     readme_path = tmp_path / "README.md"
     render_main_readme(sample_ranking_results, sample_status, output_path=str(readme_path))
     content = readme_path.read_text(encoding="utf-8")
 
-    # Table contains weapon names and build codes
+    # Table contains weapon names and tuning instructions
     assert "M4A1" in content
     assert "Vector" in content
-    assert "M4-PRACTICAL-01" in content
-    assert "VEC-CQB-99" in content
-
-    # Table header references 15m, 35m, 50m
-    assert "15m" in content
-    assert "35m" in content
-    assert "50m" in content
+    assert "最优高性价比改装配件与精校要点" in content
+    assert "配重右拉满" in content
+    assert "改枪码" not in content
 
 
 def test_render_main_readme_formulas_and_links(sample_ranking_results, sample_status, tmp_path):
@@ -196,7 +205,7 @@ def test_render_main_readme_formulas_and_links(sample_ranking_results, sample_st
 
 
 def test_render_scenario_docs(sample_ranking_results, sample_status, tmp_path):
-    """Verify scenario documentation generator creates 3 sub-docs with 12-column tables."""
+    """Verify scenario documentation generator creates 3 sub-docs with 14-column tables."""
     docs_dir = tmp_path / "tierlist"
     created_files = render_scenario_docs(sample_ranking_results, sample_status, docs_dir=str(docs_dir))
 
@@ -215,7 +224,7 @@ def test_render_scenario_docs(sample_ranking_results, sample_status, tmp_path):
         assert "35m" in content
         assert "50m" in content
 
-        # 12 columns headers or data fields
+        # Headers or data fields
         assert "排名" in content
         assert "梯队" in content
         assert "枪械" in content
@@ -226,12 +235,32 @@ def test_render_scenario_docs(sample_ranking_results, sample_status, tmp_path):
         assert "起枪总成本" in content
         assert "单杀弹药成本" in content
         assert "综合评分" in content
-        assert "推荐改枪码" in content
+        assert "实战推荐改装配件清单" in content
+        assert "实战精校调校" in content
         assert "战术标签" in content
 
         # Check values
         assert "M4A1" in content
-        assert "M4-PRACTICAL-01" in content
+        assert "配重右拉满" in content
+        assert "改枪码" not in content
+
+
+def test_no_build_code_in_generated_markdown(sample_ranking_results, sample_status, tmp_path):
+    """Verify that no build_code or 改枪码 appears in README or scenario docs."""
+    readme_path = tmp_path / "README.md"
+    render_main_readme(sample_ranking_results, sample_status, output_path=str(readme_path))
+    readme_content = readme_path.read_text(encoding="utf-8")
+    assert "改枪码" not in readme_content
+    assert "build_code" not in readme_content
+    assert "方案码" not in readme_content
+
+    docs_dir = tmp_path / "tierlist_nocode"
+    created_files = render_scenario_docs(sample_ranking_results, sample_status, docs_dir=str(docs_dir))
+    for fpath in created_files:
+        content = open(fpath, "r", encoding="utf-8").read()
+        assert "改枪码" not in content
+        assert "build_code" not in content
+        assert "方案码" not in content
 
 
 def test_renderers_auto_create_directories(sample_ranking_results, sample_status, tmp_path):

@@ -1,4 +1,4 @@
-"""Unified pipeline orchestrator and semantic change detection engine."""
+"""Unified pipeline orchestrator and semantic change detection engine for tuning loadouts."""
 
 import argparse
 import json

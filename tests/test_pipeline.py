@@ -102,6 +102,7 @@ def test_has_semantic_changes_dict_and_tier_entry_support():
         gun_id="m4a1",
         gun_name="M4A1",
         category="突击步枪",
+        caliber="5.56x45mm",
         distance_m=15,
         armor_level=4,
         ammo_level=4,
@@ -115,7 +116,8 @@ def test_has_semantic_changes_dict_and_tier_entry_support():
         cost_score=80.0,
         composite_score=82.5,
         tier="T1",
-        build_code="CODE1",
+        attachments=["枪管: 实用长枪管"],
+        tuning_instructions=["枪托: 配重右拉满(+50g)"],
         tags=["标签"],
     )
     t2 = t1.model_copy(update={"composite_score": 83.0})  # diff 0.5

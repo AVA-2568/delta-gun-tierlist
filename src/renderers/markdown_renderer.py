@@ -38,6 +38,38 @@ def _load_caliber_map() -> Dict[str, str]:
 _CALIBER_MAP = _load_caliber_map()
 
 
+def _load_build_mod_cost_map() -> Dict[str, int]:
+    """Load weapon build modification costs from default_builds.json."""
+    mapping: Dict[str, int] = {}
+    default_builds_path = "data/default_builds.json"
+    if os.path.exists(default_builds_path):
+        try:
+            with open(default_builds_path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            for item in data:
+                if isinstance(item, dict) and "gun_id" in item and "mod_cost" in item:
+                    mapping[item["gun_id"]] = int(item["mod_cost"])
+        except Exception:
+            pass
+    return mapping
+
+
+_BUILD_MOD_COST_MAP = _load_build_mod_cost_map()
+
+
+def _get_entry_mod_cost(entry: Any) -> int:
+    """Safely get modification cost for an entry."""
+    val = getattr(entry, "mod_cost", None)
+    if val is not None and isinstance(val, (int, float)) and val > 0:
+        return int(val)
+    if isinstance(entry, dict) and "mod_cost" in entry:
+        return int(entry["mod_cost"])
+    gid = getattr(entry, "gun_id", None) or (entry.get("gun_id") if isinstance(entry, dict) else None)
+    if gid and gid in _BUILD_MOD_COST_MAP:
+        return _BUILD_MOD_COST_MAP[gid]
+    return 0
+
+
 def _get_gun_caliber(entry: TierEntry) -> str:
     """Retrieve caliber for a tier entry."""
     if hasattr(entry, "caliber") and getattr(entry, "caliber"):
@@ -90,6 +122,18 @@ def _render_tier_cell(tier: str) -> str:
     return _format_tier(tier)
 
 
+def _format_top_weapons(entries: List[TierEntry], max_count: int = 3) -> str:
+    """Format top weapon names from scenario entries for FAQ recommendations."""
+    if not entries:
+        return "暂无推荐"
+    t0_list = [e.gun_name for e in entries if e.tier == "T0"]
+    if len(t0_list) >= 2:
+        top_names = t0_list[:max_count]
+    else:
+        top_names = [e.gun_name for e in entries[:max_count]]
+    return " 与 ".join([f"**{name}**" for name in top_names])
+
+
 def render_main_readme(
     all_rankings: Dict[str, List[TierEntry]],
     status: DataSourceStatus,
@@ -120,10 +164,9 @@ def render_main_readme(
                 gun_meta_map[e.gun_id] = {
                     "name": e.gun_name,
                     "category": e.category,
-                    "build_code": e.build_code,
-                    "code_status": getattr(e, "code_status", "manual_only"),
                     "attachments": getattr(e, "attachments", []),
-                    "mod_cost": getattr(e, "mod_cost", 0),
+                    "tuning_instructions": getattr(e, "tuning_instructions", []),
+                    "mod_cost": _get_entry_mod_cost(e),
                     "costs": {},
                 }
             # Record total loadout costs by ammo level
@@ -229,17 +272,20 @@ def render_main_readme(
             caliber = _get_gun_caliber(feat_entry)
             tag_badges = " ".join([f"`{t}`" for t in feat_entry.tags])
             dist_desc = ", ".join(item["t0_dists"]) if item["t0_dists"] else "全距离综合"
+            mod_cost_val = _get_entry_mod_cost(feat_entry)
 
             att_desc = " / ".join(feat_entry.attachments) if feat_entry.attachments else "标准原厂出厂配置"
-            scheme_tag = f" (方案: {feat_entry.build_code})" if feat_entry.build_code else ""
+            tuning_desc = " / ".join(feat_entry.tuning_instructions) if feat_entry.tuning_instructions else "原厂基准精校（无需额外微调）"
 
             card_lines.extend([
                 f"- **{feat_entry.gun_name}** (`{caliber}` | 梯队评级: {_format_tier(feat_entry.tier)} | 优势距离: {dist_desc})",
                 f"  - **起枪总成本 (裸枪+最优改装+60发备弹)**: **{feat_entry.total_loadout_cost:,} 哈夫币**",
-                f"    - **成本拆解**: 最优改装配件造价 **{feat_entry.mod_cost:,}** 币 | 60发备弹成本 **{feat_entry.ammo_60_cost:,}** 币 | 单杀弹药消耗 **{feat_entry.single_kill_cost:,}** 币",
+                f"    - **成本拆解**: 最优改装配件造价 **{mod_cost_val:,}** 币 | 60发备弹成本 **{feat_entry.ammo_60_cost:,}** 币 | 单杀弹药消耗 **{feat_entry.single_kill_cost:,}** 币",
                 f"  - **实战击杀性能**: 击杀需发数 STK: **{feat_entry.stk}发** | 实战TTK: **{feat_entry.practical_ttk_ms:.1f}ms** | 综合战力评分: **{feat_entry.composite_score:.2f}**",
-                f"  - **🛠️ 最优高性价比实战改装配件清单 (推荐改枪方案 · 照单装配不失效)**{scheme_tag}:",
+                f"  - **🛠️ 最优高性价比实战改装配件清单**:",
                 f"    `{att_desc}`",
+                f"  - **🎯 实战精校调校要点**:",
+                f"    `{tuning_desc}`",
                 f"  - **战术特性标签**: {tag_badges}",
                 "",
             ])
@@ -251,7 +297,7 @@ def render_main_readme(
 
     # Build 9-Dimension Overview Matrix Table
     matrix_header = [
-        "| 枪械名称 | 类别 | 4套4弹 (15m/35m/50m) | 4套5弹 (15m/35m/50m) | 5套5弹 (15m/35m/50m) | 最优改装造价 | 起枪总成本 (4级/5级弹) | 最优高性价比改装配件清单 (实战推荐改枪方案) |",
+        "| 枪械名称 | 类别 | 4套4弹 (15m/35m/50m) | 4套5弹 (15m/35m/50m) | 5套5弹 (15m/35m/50m) | 最优改装造价 | 起枪总成本 (4级/5级弹) | 最优高性价比改装配件与精校要点 |",
         "| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :--- |",
     ]
 
@@ -274,11 +320,21 @@ def render_main_readme(
 
     matrix_rows = []
     for gid in sorted_gun_ids:
-        meta = gun_meta_map.get(gid, {"name": gid, "category": "突击步枪", "build_code": None, "code_status": "manual_only", "attachments": [], "costs": {}, "mod_cost": 0})
+        meta = gun_meta_map.get(
+            gid,
+            {
+                "name": gid,
+                "category": "突击步枪",
+                "attachments": [],
+                "tuning_instructions": [],
+                "costs": {},
+                "mod_cost": 0,
+            },
+        )
         g_name = meta["name"]
         category = meta["category"]
-        build_code = meta["build_code"]
         attachments = meta.get("attachments", [])
+        tuning_instructions = meta.get("tuning_instructions", [])
         mod_cost_val = meta.get("mod_cost", 0)
 
         def get_triplet(armor: int, ammo: int) -> str:
@@ -307,13 +363,26 @@ def render_main_readme(
 
         mod_cost_str = f"{mod_cost_val:,} 币" if mod_cost_val > 0 else "0 币"
         att_str = " / ".join(attachments) if attachments else "标准原厂出厂配置"
-        att_display = f"{att_str} *(方案: `{build_code}`)*" if build_code else att_str
+        if tuning_instructions:
+            tuning_str = " / ".join(tuning_instructions)
+            loadout_display = f"配件: {att_str}<br>🎯 精校: {tuning_str}"
+        else:
+            loadout_display = f"配件: {att_str}"
 
         matrix_rows.append(
-            f"| **{g_name}** | {category} | {c_4_4} | {c_4_5} | {c_5_5} | {mod_cost_str} | {cost_str} | {att_display} |"
+            f"| **{g_name}** | {category} | {c_4_4} | {c_4_5} | {c_5_5} | {mod_cost_str} | {cost_str} | {loadout_display} |"
         )
 
     matrix_table = "\n".join(matrix_header + matrix_rows)
+
+    # Dynamic FAQ Top Weapons
+    entries_44_15 = _get_entries_for_scenario(all_rankings, 4, 4, 15)
+    entries_45_15 = _get_entries_for_scenario(all_rankings, 4, 5, 15)
+    entries_55_15 = _get_entries_for_scenario(all_rankings, 5, 5, 15)
+
+    rec_44 = _format_top_weapons(entries_44_15)
+    rec_45 = _format_top_weapons(entries_45_15)
+    rec_55 = _format_top_weapons(entries_55_15)
 
     readme_content = f"""# 🎯 三角洲行动枪械梯度排行榜与 60 发备弹性价比矩阵
 > **Delta Force Weapon Tier List & 60-Round Tactical Economics Engine**
@@ -385,9 +454,9 @@ $$\\text{{综合评分}} = 50\\% \\times \\text{{战力效能分}} + 20\\% \\tim
 ## ❓ 常见问题解答 (FAQ & Search Reference)
 
 ### Q1: 《三角洲行动》在 4套4弹、4套5弹、5套5弹场景下分别推荐使用什么枪械？
-- **4套4弹（常规对决）**：推荐 **M4A1** 与 **K416**（中近距离全能、改件成熟稳定），近战爆发首选 **Vector** 与 **AS Val**。
-- **4套5弹（穿甲压制）**：推荐 **M4A1**（搭配 5.56x45mm 5级穿甲弹）与 **AS Val**，利用高穿透弹药直接穿透 4 级甲快速秒杀。
-- **5套5弹（顶级交锋）**：推荐 **AS Val**（超高肉伤与射速）、**Vector**（高容错洗头洗胸）以及 **SVD / M14**（远距离高破甲高单发伤害）。
+- **4套4弹（常规对决）**：近战交火首推 {rec_44}，兼顾优秀的击杀 TTK 与起枪性价比。
+- **4套5弹（穿甲压制）**：首推 {rec_45}，利用高穿透弹药对 4 级护甲实现瞬秒与强力压制。
+- **5套5弹（顶级交锋）**：首推 {rec_55}，在高耐久顶级重甲对抗中具备出色的破甲效率与持续战力。
 
 ### Q2: 为什么天梯排行榜必须以「60发备弹」计算起枪成本？
 在《三角洲行动》（烽火地带玩法）中，裸枪价格仅占起枪预算的一部分。真正决定战备风险的是进图携带的 60 发弹药（1个主弹匣30发 + 1个备用弹匣30发）。高穿透弹药单价极高（如 5 级弹单发数百至上千哈夫币），60 发备弹往往超过裸枪本身价格。以 60 发备弹作为基准起装单元，能最真实反映不同口径枪械的单局战备风险与战损回报率。
@@ -398,8 +467,8 @@ $$\\text{{综合评分}} = 50\\% \\times \\text{{战力效能分}} + 20\\% \\tim
 2. **操控容错 (20%)**：结合后坐控制、射击稳定性与射速容错率综合打分。
 3. **经济性价比 (30%)**：以「裸枪 + 实用合理改装 + 60发备弹」总成本进行 Min-Max 逆向归一化，成本越低性价比得分越高。
 
-### Q4: 如何在游戏内直接导入排行榜中的改枪方案？
-复制对应枪械行展示的 **推荐改枪码**（如 `M4A1-PRAC-001`），打开《三角洲行动》游戏内「改枪 / 配装」界面，点击「导入方案」并粘贴改枪码，即可一键载入性价比配件方案。
+### Q4: 为什么排行榜提供配件清单和精校调校口诀，而不是直接提供游戏分享码？
+游戏内配装方案分享码具有时效性且经常因小版本更新或配件调整而失效。本天梯直接提供**最优高性价比实战改装配件清单**与**🎯 实战精校调校要点（调校口诀）**，玩家可在游戏改枪台直接按部件名称照单配装并按说明拉动调校滑块，永久稳定有效，兼顾高性价比与极致手感。
 
 ---
 
@@ -492,14 +561,14 @@ def render_scenario_docs(
             lines.extend([
                 f"## {dist_title}",
                 f"> {dist_desc}",
-                "> 💡 **实战改装说明**：因官方改枪码存在时效性与版本淘汰机制，本表采用**最优高性价比配件清单**（实测推荐改枪码/改枪方案），提供明确的槽位与配件名称，支持玩家照单直接手动装配，永久保值不失效。",
+                "> 💡 **实战改装说明**：本表采用**最优高性价比实战改装配件清单与实战精校调校要点**，提供明确的槽位配件名称与滑块调校口诀，支持玩家照单直接手动装配与精校，永久保值不失效。",
                 "",
-                "| 排名 | 梯队 | 枪械 | 口径 | STK | 实战TTK | 改装配件造价 | 60发备弹成本 | 起枪总成本 | 单杀弹药成本 | 综合评分 | 推荐改枪码与最优配件清单 | 战术标签 |",
-                "| :---: | :---: | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- | :--- |",
+                "| 排名 | 梯队 | 枪械 | 口径 | STK | 实战TTK | 改装配件造价 | 60发备弹成本 | 起枪总成本 | 单杀弹药成本 | 综合评分 | 实战推荐改装配件清单 | 实战精校调校 | 战术标签 |",
+                "| :---: | :---: | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- | :--- | :--- |",
             ])
 
             if not entries:
-                lines.append("| - | - | 暂无数据 | - | - | - | - | - | - | - | - | - | - |")
+                lines.append("| - | - | 暂无数据 | - | - | - | - | - | - | - | - | - | - | - |")
             else:
                 for idx, entry in enumerate(entries, start=1):
                     rank = idx
@@ -508,19 +577,17 @@ def render_scenario_docs(
                     caliber = _get_gun_caliber(entry)
                     stk_str = f"{entry.stk}发"
                     ttk_str = f"{entry.practical_ttk_ms:.1f}ms"
-                    mod_cost_str = f"{entry.mod_cost:,}"
+                    mod_cost_val = _get_entry_mod_cost(entry)
+                    mod_cost_str = f"{mod_cost_val:,}"
                     ammo60_str = f"{entry.ammo_60_cost:,}"
                     total_str = f"{entry.total_loadout_cost:,}"
                     single_str = f"{entry.single_kill_cost:,}"
                     score_str = f"{entry.composite_score:.2f}"
                     att_str = " / ".join(entry.attachments) if entry.attachments else "标准原厂出厂配置"
-                    if entry.build_code:
-                        att_display = f"{att_str} *(方案: `{entry.build_code}`)*"
-                    else:
-                        att_display = att_str
+                    tuning_str = " / ".join(entry.tuning_instructions) if entry.tuning_instructions else "原厂基准"
                     tags_str = " ".join([f"`{t}`" for t in entry.tags])
 
-                    row = f"| {rank} | {tier_str} | {gun_name} | {caliber} | {stk_str} | {ttk_str} | {mod_cost_str} | {ammo60_str} | {total_str} | {single_str} | {score_str} | {att_display} | {tags_str} |"
+                    row = f"| {rank} | {tier_str} | {gun_name} | {caliber} | {stk_str} | {ttk_str} | {mod_cost_str} | {ammo60_str} | {total_str} | {single_str} | {score_str} | {att_str} | {tuning_str} | {tags_str} |"
                     lines.append(row)
 
             lines.extend(["", "---", ""])

@@ -1,4 +1,4 @@
-"""JSON serialization and exporter for Delta Force weapon tier list data."""
+"""JSON serialization and exporter for Delta Force weapon tier list data with tuning instructions."""
 
 from datetime import datetime, timezone
 import json
@@ -38,11 +38,15 @@ def export_rankings_json(
             gid = e["gun_id"] if isinstance(e, dict) else getattr(e, "gun_id", str(e))
             unique_guns.add(gid)
             if hasattr(e, "model_dump"):
-                entry_list.append(e.model_dump())
+                entry_data = e.model_dump()
             elif isinstance(e, dict):
-                entry_list.append(e)
+                entry_data = dict(e)
             else:
-                entry_list.append(dict(e))
+                entry_data = dict(e)
+            # Ensure deprecated share code fields are eliminated
+            entry_data.pop("build_code", None)
+            entry_data.pop("code_status", None)
+            entry_list.append(entry_data)
         serializable_rankings[key_str] = entry_list
 
     status_data = (
