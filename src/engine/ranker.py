@@ -163,26 +163,48 @@ def rank_weapons(
 
         build = builds.get(gun.id)
 
-        if build is not None:
-            effective_ads = max(50, gun.ads_time_ms + build.ads_modifier_ms)
-            effective_recoil = min(100.0, max(0.0, gun.recoil_control + build.recoil_bonus))
-            attachments = build.attachments
-            tuning_instructions = getattr(build, "tuning_instructions", [])
-            sim_gun = gun.model_copy(
-                update={"ads_time_ms": effective_ads, "recoil_control": effective_recoil}
-            )
-            handling_score = calc_handling_score(
-                recoil=effective_recoil, stability=gun.stability, rpm=gun.rpm
-            )
-        else:
-            sim_gun = gun
-            attachments = []
-            tuning_instructions = []
-            handling_score = calc_handling_score(
-                recoil=gun.recoil_control, stability=gun.stability, rpm=gun.rpm
-            )
+        effective_velocity = (
+            gun.bullet_velocity * (1.0 + build.velocity_bonus_pct)
+            if build
+            else gun.bullet_velocity
+        )
+        effective_ads = (
+            max(50, gun.ads_time_ms + build.ads_modifier_ms)
+            if build
+            else gun.ads_time_ms
+        )
+        effective_recoil = (
+            min(100.0, max(0.0, gun.recoil_control + build.recoil_bonus))
+            if build
+            else gun.recoil_control
+        )
+        effective_stability = (
+            min(100.0, max(0.0, gun.stability + build.stability_bonus))
+            if build
+            else gun.stability
+        )
+        attachments = build.attachments if build else []
+        tuning_instructions = getattr(build, "tuning_instructions", []) if build else []
 
-        sim = simulate_duel(sim_gun, ammo, armor_level, distance_m)
+        sim_gun = gun.model_copy(
+            update={
+                "ads_time_ms": effective_ads,
+                "recoil_control": effective_recoil,
+                "stability": effective_stability,
+            }
+        )
+        sim = simulate_duel(
+            sim_gun,
+            ammo,
+            armor_level,
+            distance_m,
+            effective_velocity=effective_velocity,
+        )
+        handling_score = calc_handling_score(
+            recoil=effective_recoil,
+            stability=effective_stability,
+            rpm=gun.rpm,
+        )
         total_cost, ammo_60_cost, single_kill_cost = calc_loadout_cost(
             gun=gun,
             build=build,

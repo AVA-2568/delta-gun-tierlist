@@ -314,4 +314,107 @@ def test_resolve_ammo_strict_and_gating():
     assert resolve_ammo(sample_ammo, "9x19mm", 5) is None
 
 
+def test_ranker_propagation_and_tuning():
+    from src.engine.ranker import generate_scenario_rankings
+
+    with open("data/base_guns.json", "r", encoding="utf-8") as f:
+        guns = [GunMeta.model_validate(x) for x in json.load(f)]
+    with open("data/default_builds.json", "r", encoding="utf-8") as f:
+        builds = {
+            x["gun_id"]: WeaponBuild.model_validate(
+                {k: v for k, v in x.items() if k in WeaponBuild.model_fields}
+            )
+            for x in json.load(f)
+        }
+    with open("data/baseline_ammo_prices.json", "r", encoding="utf-8") as f:
+        ammo_list = [AmmoPrice.model_validate(x) for x in json.load(f)]
+    ammo_dict = {(a.caliber, a.level): a for a in ammo_list}
+
+    # 1. Ensure rankings execute cleanly with tuned builds and caliber gating
+    rankings_lv5 = generate_scenario_rankings(
+        guns=guns,
+        builds=builds,
+        ammo_prices=ammo_dict,
+        armor_level=4,
+        ammo_level=5,
+        distance_m=35,
+    )
+    assert len(rankings_lv5) > 0
+    # Strict caliber gating: no 9x19mm weapons
+    assert all(entry.caliber != "9x19mm" for entry in rankings_lv5)
+
+    # 2. Verify no build_code in tier entries and tuning_instructions present
+    for entry in rankings_lv5:
+        assert not hasattr(entry, "build_code")
+        assert not hasattr(entry, "code_status")
+        assert hasattr(entry, "tuning_instructions")
+        assert isinstance(entry.tuning_instructions, list)
+
+    ak12_entry = next((e for e in rankings_lv5 if e.gun_id == "ak12"), None)
+    assert ak12_entry is not None
+    assert len(ak12_entry.tuning_instructions) > 0
+    assert any("配重右拉满" in t for t in ak12_entry.tuning_instructions)
+
+    # 3. Verify effective_velocity affects practical_ttk_ms
+    gun = next(g for g in guns if g.id == "m4a1")
+    ammo_m4 = ammo_dict[("5.56x45mm", 4)]
+
+    build_stock_vel = WeaponBuild(
+        gun_id="m4a1",
+        build_name="原初速",
+        mod_cost=10000,
+        velocity_bonus_pct=0.0,
+        recoil_bonus=0.0,
+        stability_bonus=0.0,
+    )
+    build_boosted_vel = WeaponBuild(
+        gun_id="m4a1",
+        build_name="超高初速",
+        mod_cost=10000,
+        velocity_bonus_pct=0.50,
+        recoil_bonus=0.0,
+        stability_bonus=0.0,
+    )
+
+    rankings_stock = generate_scenario_rankings(
+        guns=[gun],
+        builds={"m4a1": build_stock_vel},
+        ammo_prices={("5.56x45mm", 4): ammo_m4},
+        armor_level=4,
+        ammo_level=4,
+        distance_m=50,
+    )
+    rankings_boosted = generate_scenario_rankings(
+        guns=[gun],
+        builds={"m4a1": build_boosted_vel},
+        ammo_prices={("5.56x45mm", 4): ammo_m4},
+        armor_level=4,
+        ammo_level=4,
+        distance_m=50,
+    )
+    # Higher velocity increases effective hit rate (ehr) at 50m, thereby lowering practical_ttk_ms
+    assert rankings_boosted[0].practical_ttk_ms < rankings_stock[0].practical_ttk_ms
+
+    # 4. Verify stability_bonus affects handling_score and practical_ttk_ms
+    build_boosted_stab = WeaponBuild(
+        gun_id="m4a1",
+        build_name="高稳定",
+        mod_cost=10000,
+        velocity_bonus_pct=0.0,
+        recoil_bonus=0.0,
+        stability_bonus=20.0,
+    )
+    rankings_stab = generate_scenario_rankings(
+        guns=[gun],
+        builds={"m4a1": build_boosted_stab},
+        ammo_prices={("5.56x45mm", 4): ammo_m4},
+        armor_level=4,
+        ammo_level=4,
+        distance_m=50,
+    )
+    assert rankings_stab[0].handling_score > rankings_stock[0].handling_score
+    assert rankings_stab[0].practical_ttk_ms < rankings_stock[0].practical_ttk_ms
+
+
+
 
