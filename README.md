@@ -1,7 +1,7 @@
 # 🎯 三角洲行动枪械梯度排行榜与 60 发备弹性价比矩阵
 > **Delta Force Weapon Tier List & 60-Round Tactical Economics Engine**
 
-![数据源状态](https://img.shields.io/badge/数据源-Live%20在线实时-brightgreen?style=flat-square) ![更新时间](https://img.shields.io/badge/更新时间-2026-09-18T04%3A16%3A37.773749%2B00%3A00-blue?style=flat-square) ![收录枪械](https://img.shields.io/badge/收录枪械-50把-success?style=flat-square) ![游戏](https://img.shields.io/badge/三角洲行动-Delta%20Force-blueviolet?style=flat-square) ![CI/CD](https://img.shields.io/badge/CI%2FCD-自动化更新-informational?style=flat-square)
+![数据源状态](https://img.shields.io/badge/数据源-Live%20在线实时-brightgreen?style=flat-square) ![更新时间](https://img.shields.io/badge/更新时间-2026-09-18T05%3A05%3A56.029355%2B00%3A00-blue?style=flat-square) ![收录枪械](https://img.shields.io/badge/收录枪械-50把-success?style=flat-square) ![游戏](https://img.shields.io/badge/三角洲行动-Delta%20Force-blueviolet?style=flat-square) ![CI/CD](https://img.shields.io/badge/CI%2FCD-自动化更新-informational?style=flat-square)
 
 > ⚠️ **数据源提示**：Live ammo prices fetched and verified successfully from https://www.onebiji.com/hykb_tools/sjz/mrmm/tqc.php?immgj=0（当前降级层级：Tier 0 / 标识：`zxfps_live`）
 
