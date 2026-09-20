@@ -1,31 +1,64 @@
-# 三角洲行动枪械梯度排行榜与60发备弹性价比系统 (Delta Force Weapon Tier List)
+# 三角洲行动 · 纯 TTK 枪械强度榜 (Delta Force Pure TTK Tier List)
 
-> 《三角洲行动》（烽火地带）全自动开源枪械天梯与战备经济学平台。基于真实逐发破甲离散状态机仿真（护甲耐久递减 + EHR 距离有效命中率修正）与 60 发备弹基准起枪总成本模型，为 4套对4弹、4套对5弹与 5套对5弹 在 15m/35m/50m 作战环境下提供客观量化的枪械梯队推荐（T0~T3）与综合战力回报。
+> 《三角洲行动》（烽火地带 / sol 模式）开源枪械强度榜。以官方物理量为唯一输入，
+> 回答一个问题：**在给定护甲、弹药与距离下，这把枪击杀对手需要多久（毫秒）**。
+> 排序键为**距离带内平均实战 TTK**，无经济性权重、无操控权重、无综合评分。
 
-## 核心对决场景 (Core Matchups)
-- **4armor_4ammo (4套对4弹)**: 常规平民对决。双方均为 4 级护甲与 4 级弹药，侧重性价比与常规射速稳定性。
-- **4armor_5ammo (4套对5弹)**: 穿甲降维打击。使用 5 级高穿弹药对战 4 级防具，侧重首发高穿透瞬秒与弹药成本权衡。
-- **5armor_5ammo (5套对5弹)**: 顶级长TTK对局。双方均为 5 级护甲与 5 级弹药，侧重破甲系数、耐久削减速率与持续爆发。
+## TTK 定义 (Definition)
 
-## 核心交战距离 (Combat Distances)
-- **15m (近距离 CQB)**: 贴脸遭遇战，射速、开镜/腰射速度与肉体爆发起决定性作用。
-- **35m (中距离对枪)**: 主流交火区间，考量初速、第一段衰减与后坐可控性。
-- **50m (远距离架枪)**: 点射与压制区间，考量散布控制、稳定度与远距离伤害留存。
+```
+实战 TTK = (期望击杀发数 E[N] − 1) × 射击间隔
+```
 
-## 经济学模型公式 (Loadout Economics)
-- **起枪总成本 (Loadout Cost)** = 裸枪市场指导价 + 实用改装配件造价 + 60 发该级别备弹市场消耗
-- **单次击杀弹药成本 (Single Kill Ammo Cost)** = 实战击杀耗弹数 (STK) × 弹药市场单发单价
-- **综合加权评分 (Composite Score, 0-100)** = 50% × 战力效能分 + 20% × 操控容错分 + 30% × 经济性价比分
-- **梯队划分 (Tiers)**: T0 (>= 88.0 分), T1 (78.0 ~ 87.9 分), T2 (65.0 ~ 77.9 分), T3 (< 65.0 分)
+**不计入** TTK 的四项（前三项作为参考列输出，供玩家自行权衡）：
 
-## 关键文件与数据资源 (Key Resources)
-- [主页与总览矩阵 (README.md)](README.md): 包含状态徽章、三大场景 T0 卡片、9 维推荐天梯总览表及改枪码。
-- [4套4弹详尽天梯文档](docs/tierlist/4armor_4ammo.md): 4-4 场景 15m/35m/50m 全量枪械 TTK、STK 与成本表。
-- [4套5弹详尽天梯文档](docs/tierlist/4armor_5ammo.md): 4-5 场景 15m/35m/50m 全量枪械 TTK、STK 与成本表。
-- [5套5弹详尽天梯文档](docs/tierlist/5armor_5ammo.md): 5-5 场景 15m/35m/50m 全量枪械 TTK、STK 与成本表。
-- [规范化全量 JSON 数据 (latest_rankings.json)](data/latest_rankings.json): 供第三方开发调用的全量场景排行数据。
+| 项 | 说明 |
+| :-- | :-- |
+| 开镜时间 | 由玩家操作与据枪状态决定，属「交战准备」而非击杀过程 |
+| 弹丸飞行时间（初速） | 初速与其「长度」精校交由玩家自行权衡 |
+| 换弹 | 官方击杀假设 `singleMagazineNoReload`（单弹匣不换弹） |
+| 命中率修正（后坐/散布） | 「打得中打不中」属另一维度，见改枪指南 |
 
-## 数据更新与容灾 (Automation & Fallback)
-- GitHub Actions 定时每 12 小时（UTC 00:00, 12:00）自动化运行。
-- 三级容灾机制：在线爬取 (`zxfps.com`, 配装平台) -> 历史快照 (`data/snapshot_prices.json`) -> 固化底表 (`data/baseline_ammo_prices.json`)。
-- 语义防抖提交：仅在梯队迁移或分值波动绝对值 >= 3.0 时自动提交，防止微小金币波动污染 Git 提交历史。
+结论：TTK 只由**两个官方逐位验证的量**构成，全链路可复现、可证伪，无自主参数。
+
+## 数据可信度 (Data Provenance)
+
+上游为 `dfttk.com/data/v3` 运行时数据集（公开数据同步副本，**非腾讯官方 API**）。
+
+| 分量 | 官方验证 |
+| :-- | :-- |
+| 期望击杀发数 `E[N]` | 逐位复现官方 `candidateMetrics`，**3774 个样本，99.92% 精确** |
+| 射击间隔 | 逐位复现官方 `reference_candidates`，**291 个候选零偏差** |
+| 配装合法性 | 官方插槽规则 + 强制联动（`forced` coupling） |
+
+第三方交叉印证：`moligod.com/gunsmith` 的官方对象 ID 与本项目武器池互证（26/26 图片 URL 逐字节一致）。
+
+## 情景与距离 (Scenarios & Distances)
+
+- **情景**：官方 21 个（7 组甲弹组合 × 3 种命中分布预设 `default` / `center` / `chest-only`）
+- **距离场**：0–80 m（官方 `distanceRange`，默认视窗 15–40 m），不做外推
+- **距离带**：贴脸 0–15 m / 近距 15–30 m / 中距 30–50 m / 远距 50–80 m
+- **分层**：带内 TTK 分布分位数切分 T0–T3（前 15% → T0，15–40% → T1，40–70% → T2，其余 → T3），阈值公开
+
+## 关键文件 (Key Resources)
+
+- [README.md](README.md)：主榜（官方默认情景 5套5弹·实战概率 × 4 距离带）
+- [docs/tierlist/](docs/tierlist/)：各情景完整榜单（Markdown）
+- [docs/gunsmith-guide.md](docs/gunsmith-guide.md)：改枪指南（开镜时间 ↔ 操控换算、精校维度总览）
+- [data/tierlist/](data/tierlist/)：机器可读榜单 JSON（含层级阈值与最优配装）
+- [data/game/provenance.json](data/game/provenance.json)：数据来源、哈希与核验状态
+
+## 工程结构 (Architecture)
+
+| 层 | 模块 | 职责 |
+| :-- | :-- | :-- |
+| 采集 | `src/collectors/game_data_sync.py` | 同步上游数据集并归一化 |
+| 引擎 | `src/engine/curves.py` | 机制曲线求值 |
+| 引擎 | `src/engine/weapon_state.py` | 面板 → 规则量 → 武器状态 |
+| 引擎 | `src/engine/ballistics.py` | 伤害/碎甲/STK（官方伤害模型） |
+| 引擎 | `src/engine/engagement.py` | 实战 TTK 组装 |
+| 引擎 | `src/engine/loadout.py` | 配装枚举与最优求解 |
+| 引擎 | `src/engine/tiering.py` | 距离带聚合与分层 |
+| 渲染 | `src/renderers/ttk_report.py` | Markdown 榜单与指南 |
+
+运行期零第三方依赖（仅标准库）。测试：`pytest`。

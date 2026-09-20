@@ -1,28 +1,21 @@
-name: Update Gun Tier List & Prices
+name: CI
 
 on:
-  schedule:
-    - cron: '0 0,12 * * *'  # 每天 UTC 00:00 与 12:00 定时触发
-  workflow_dispatch:        # 支持手动立即触发
   push:
     branches: [ main, master ]
-    paths:
-      - 'data/base_guns.json'
-      - 'data/default_builds.json'
+  pull_request:
+  workflow_dispatch:        # 手动刷新榜单并提交
 
 permissions:
   contents: read
 
 jobs:
-  update-tierlist:
+  test:
+    name: Test Suite
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 2
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -38,17 +31,42 @@ jobs:
       - name: Run Test Suite
         run: pytest -v
 
-      - name: Run Pipeline
-        id: run_pipeline
-        run: python -m src.pipeline
+  refresh-tierlist:
+    name: Refresh Tier List
+    needs: test
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # 数据层来自上游公开数据集（需联网）；榜单计算本身完全离线。
+      - name: Sync Official Game Data
+        run: python -m src.collectors.game_data_sync
+        continue-on-error: true
+
+      - name: Rebuild Tier List
+        run: python -m src.pipeline --scenario all --top-k 4 --beam-width 8
 
       - name: Commit and Push Changes
-        if: env.HAS_SEMANTIC_CHANGES == 'true' && github.event_name != 'pull_request'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add README.md docs/ data/
           if ! git diff --staged --quiet; then
-            git commit -m "chore(auto): refresh weapon rankings and price data [skip ci]"
+            git commit -m "chore(auto): refresh pure TTK tier list [skip ci]"
             git push
           fi

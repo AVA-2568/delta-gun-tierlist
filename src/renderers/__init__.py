@@ -1,10 +1,16 @@
-"""Report and documentation renderers for Delta Force Gun Tier List."""
+"""渲染层：把引擎输出格式化为 Markdown 榜单与改枪指南。
 
-from src.renderers.json_exporter import export_rankings_json
-from src.renderers.markdown_renderer import render_main_readme, render_scenario_docs
+只做格式化，不产出数值。
+"""
+
+from src.renderers.ttk_report import (
+    render_gunsmith_guide,
+    render_readme,
+    render_scenario_markdown,
+)
 
 __all__ = [
-    "render_main_readme",
-    "render_scenario_docs",
-    "export_rankings_json",
+    "render_readme",
+    "render_scenario_markdown",
+    "render_gunsmith_guide",
 ]

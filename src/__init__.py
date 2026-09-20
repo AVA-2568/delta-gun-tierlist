@@ -1,21 +1,8 @@
-"""Delta Force Gun Tier List and Cost-Effectiveness System."""
+"""三角洲行动 · 纯 TTK 枪械强度榜。
 
-from src.models import (
-    AmmoPrice,
-    DamageDropoff,
-    DataSourceStatus,
-    GunMeta,
-    SimulationResult,
-    TierEntry,
-    WeaponBuild,
-)
+以官方物理量（伤害模型、射速节拍、插槽规则）为唯一输入，输出可复现的纯 TTK 排名。
+"""
 
-__all__ = [
-    "AmmoPrice",
-    "DamageDropoff",
-    "DataSourceStatus",
-    "GunMeta",
-    "SimulationResult",
-    "TierEntry",
-    "WeaponBuild",
-]
+__all__ = ["__version__"]
+
+__version__ = "3.1.0"

@@ -1,0 +1,56 @@
+{
+  "source": "moligod.com/gunsmith",
+  "source_type": "third-party-reliable",
+  "retrieved_at": "2026-09-20",
+  "dataset_version_ref": "dfttk-v3 20260911-044903.3",
+  "method": "从 moligod 改枪模拟器页面 HTML 的枪械缩略图 URL 中提取官方对象 ID（图片直连官方 CDN playerhub.df.qq.com/playerhub/60004/object/<对象ID>.png），再与 dfttk catalog 的 imagePath 逐条比对。仅采集 moligod 暴露的官方对象 ID，不采集其自有的属性推算值。",
+  "verification_result": {
+    "entries_with_object_id": 28,
+    "name_match": 28,
+    "image_url_byte_identical": 26,
+    "explained_divergence": [
+      {
+        "object_id": "18030000002",
+        "name": "S12K霰弹枪",
+        "reason": "dfttk catalog imagePath 字段为空，非冲突；名称一致"
+      },
+      {
+        "object_id": "18150000001",
+        "name": "复合弓",
+        "reason": "dfttk catalog imagePath 字段为空，非冲突；名称一致"
+      }
+    ],
+    "conclusion": "moligod 与本项目同源使用官方对象 ID，ID 空间互证成立"
+  },
+  "coverage_note": "moligod 覆盖全部武器类别（含手枪/霰弹枪/狙击步枪/特殊武器）；本项目武器池取自官方排行索引 rankings/firefight/index.json 的 catalog.profiles，仅含 rifle/smg/lmg/marksman 共 61 条（含变体）。差异为口径选择，非数据缺口。",
+  "weapons": [
+    { "object_id": "18010000008", "name": "QBZ95-1突击步枪", "image_url": "https://playerhub.df.qq.com/playerhub/60004/object/18010000008.png" },
+    { "object_id": "18010000017", "name": "SG552突击步枪", "image_url": "https://playerhub.df.qq.com/playerhub/60004/object/18010000017.png" },
+    { "object_id": "18010000021", "name": "SCARH战斗步枪", "image_url": "https://playerhub.df.qq.com/playerhub/60004/object/18010000021.png" },
+    { "object_id": "18010000024", "name": "PTR-32突击步枪", "image_url": "https://playerhub.df.qq.com/playerhub/60004/object/18010000024.png" },
+    { "object_id": "18010000038", "name": "腾龙突击步枪", "image_url": "https://playerhub.df.qq.com/playerhub/60004/object/18010000038.png" },
+    { "object_id": "18010000049", "name": "RM277突击步枪", "image_url": "https://playerhub.df.qq.com/playerhub/60004/object/18010000049.png" },
+    { "object_id": "18020000003", "name": "Vector冲锋枪", "image_url": "https://playerhub.df.qq.com/playerhub/60004/object/18020000003.png" },
+    { "object_id": "18020000004", "name": "UZI冲锋枪", "image_url": "https://playerhub.df.qq.com/playerhub/60004/object/18020000004.png" },
+    { "object_id": "18020000005", "name": "野牛冲锋枪", "image_url": "https://playerhub.df.qq.com/playerhub/60004/object/18020000005.png" },
+    { "object_id": "18020000006", "name": "SMG-45冲锋枪", "image_url": "https://playerhub.df.qq.com/playerhub/60004/object/18020000006.png" },
+    { "object_id": "18020000008", "name": "SR-3M紧凑突击步枪", "image_url": "https://playerhub.df.qq.com/playerhub/60004/object/18020000008.png" },
+    { "object_id": "18020000009", "name": "勇士冲锋枪", "image_url": "https://playerhub.df.qq.com/playerhub/60004/object/18020000009.png" },
+    { "object_id": "18020000011", "name": "QCQ171冲锋枪", "image_url": "https://playerhub.df.qq.com/playerhub/60004/object/18020000011.png" },
+    { "object_id": "18020000046", "name": "汤姆逊冲锋枪", "image_url": "https://playerhub.df.qq.com/playerhub/60004/object/18020000046.png" },
+    { "object_id": "18030000002", "name": "S12K霰弹枪", "image_url": "https://playerhub.df.qq.com/playerhub/60004/object/18030000002.png" },
+    { "object_id": "18040000004", "name": "QJB201轻机枪", "image_url": "https://playerhub.df.qq.com/playerhub/60004/object/18040000004.png" },
+    { "object_id": "18050000003", "name": "VSS射手步枪", "image_url": "https://playerhub.df.qq.com/playerhub/60004/object/18050000003.png" },
+    { "object_id": "18050000004", "name": "SVD狙击步枪", "image_url": "https://playerhub.df.qq.com/playerhub/60004/object/18050000004.png" },
+    { "object_id": "18050000006", "name": "SKS射手步枪", "image_url": "https://playerhub.df.qq.com/playerhub/60004/object/18050000006.png" },
+    { "object_id": "18050000007", "name": "SR-25射手步枪", "image_url": "https://playerhub.df.qq.com/playerhub/60004/object/18050000007.png" },
+    { "object_id": "18050000008", "name": "SR9射手步枪", "image_url": "https://playerhub.df.qq.com/playerhub/60004/object/18050000008.png" },
+    { "object_id": "18050000032", "name": "杠杆式步枪", "image_url": "https://playerhub.df.qq.com/playerhub/60004/object/18050000032.png" },
+    { "object_id": "18050000033", "name": "SVCH精确射手步枪", "image_url": "https://playerhub.df.qq.com/playerhub/60004/object/18050000033.png" },
+    { "object_id": "18060000007", "name": "SV-98狙击步枪", "image_url": "https://playerhub.df.qq.com/playerhub/60004/object/18060000007.png" },
+    { "object_id": "18060000008", "name": "R93狙击步枪", "image_url": "https://playerhub.df.qq.com/playerhub/60004/object/18060000008.png" },
+    { "object_id": "18070000002", "name": "QSZ92G", "image_url": "https://playerhub.df.qq.com/playerhub/60004/object/18070000002.png" },
+    { "object_id": "18070000004", "name": "沙漠之鹰", "image_url": "https://playerhub.df.qq.com/playerhub/60004/object/18070000004.png" },
+    { "object_id": "18150000001", "name": "复合弓", "image_url": "https://playerhub.df.qq.com/playerhub/60004/object/18150000001.png" }
+  ]
+}

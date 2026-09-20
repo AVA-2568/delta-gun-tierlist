@@ -1,0 +1,7642 @@
+{
+ "ammo": [
+  {
+   "ammo_item_id": "37100100001",
+   "name": "RRLP",
+   "caliber": "5.56x45mm",
+   "ammo_type_id": "10",
+   "rarity": "白",
+   "penetration_level": 1,
+   "flesh_damage_multiplier": 1.1,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.25,
+   "throw_blocking_damage_rate": 0.8,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": false
+    },
+    "3": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.3,
+     "helmet_durability_rate": 0.3,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "1401"
+  },
+  {
+   "ammo_item_id": "37100200001",
+   "name": "FMJ",
+   "caliber": "5.56x45mm",
+   "ammo_type_id": "10",
+   "rarity": "绿",
+   "penetration_level": 2,
+   "flesh_damage_multiplier": 1.1,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.2,
+   "throw_blocking_damage_rate": 0.9,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.7,
+     "helmet_durability_rate": 0.7,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 0.7,
+     "helmet_durability_rate": 0.7,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 0.7,
+     "helmet_durability_rate": 0.7,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.7,
+     "helmet_durability_rate": 0.7,
+     "penetrates": false
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.5,
+     "helmet_durability_rate": 0.5,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.3,
+     "helmet_durability_rate": 0.3,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "1402"
+  },
+  {
+   "ammo_item_id": "37100300001",
+   "name": "M855",
+   "caliber": "5.56x45mm",
+   "ammo_type_id": "10",
+   "rarity": "蓝",
+   "penetration_level": 3,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.15,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.5,
+     "helmet_durability_rate": 0.5,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "1403"
+  },
+  {
+   "ammo_item_id": "37100300002",
+   "name": "M855 APC",
+   "caliber": "5.56x45mm",
+   "ammo_type_id": "10",
+   "rarity": "蓝",
+   "penetration_level": 3,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.15,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.1,
+   "throw_blocking_damage_rate": 1.1,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.5,
+     "helmet_durability_rate": 0.5,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "1407"
+  },
+  {
+   "ammo_item_id": "37100400001",
+   "name": "M855A1",
+   "caliber": "5.56x45mm",
+   "ammo_type_id": "10",
+   "rarity": "紫",
+   "penetration_level": 4,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.1,
+   "throw_blocking_damage_rate": 1.1,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "1404"
+  },
+  {
+   "ammo_item_id": "37100400002",
+   "name": "M855A1 APC+",
+   "caliber": "5.56x45mm",
+   "ammo_type_id": "10",
+   "rarity": "紫",
+   "penetration_level": 4,
+   "flesh_damage_multiplier": 1.1,
+   "armor_damage_multiplier": 1.15,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.1,
+   "throw_blocking_damage_rate": 1.2,
+   "penetrate_ammo_level_decrease": 1,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.7,
+     "helmet_durability_rate": 0.7,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "1406"
+  },
+  {
+   "ammo_item_id": "37100500001",
+   "name": "M995",
+   "caliber": "5.56x45mm",
+   "ammo_type_id": "10",
+   "rarity": "橙",
+   "penetration_level": 5,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.1,
+   "throw_blocking_damage_rate": 1.2,
+   "penetrate_ammo_level_decrease": 1,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "1405"
+  },
+  {
+   "ammo_item_id": "37110100001",
+   "name": "LP",
+   "caliber": "7.62x39mm",
+   "ammo_type_id": "11",
+   "rarity": "白",
+   "penetration_level": 1,
+   "flesh_damage_multiplier": 1.1,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.25,
+   "throw_blocking_damage_rate": 0.8,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": false
+    },
+    "3": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.3,
+     "helmet_durability_rate": 0.3,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "1501"
+  },
+  {
+   "ammo_item_id": "37110200001",
+   "name": "T45M",
+   "caliber": "7.62x39mm",
+   "ammo_type_id": "11",
+   "rarity": "绿",
+   "penetration_level": 2,
+   "flesh_damage_multiplier": 1.1,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.2,
+   "throw_blocking_damage_rate": 0.9,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.7,
+     "helmet_durability_rate": 0.7,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 0.7,
+     "helmet_durability_rate": 0.7,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 0.7,
+     "helmet_durability_rate": 0.7,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.7,
+     "helmet_durability_rate": 0.7,
+     "penetrates": false
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.5,
+     "helmet_durability_rate": 0.5,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.3,
+     "helmet_durability_rate": 0.3,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "1502"
+  },
+  {
+   "ammo_item_id": "37110300001",
+   "name": "PS",
+   "caliber": "7.62x39mm",
+   "ammo_type_id": "11",
+   "rarity": "蓝",
+   "penetration_level": 3,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.15,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.5,
+     "helmet_durability_rate": 0.5,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "1503"
+  },
+  {
+   "ammo_item_id": "37110400001",
+   "name": "BP",
+   "caliber": "7.62x39mm",
+   "ammo_type_id": "11",
+   "rarity": "紫",
+   "penetration_level": 4,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.1,
+   "throw_blocking_damage_rate": 1.1,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "1504"
+  },
+  {
+   "ammo_item_id": "37110400002",
+   "name": "BP-SUB",
+   "caliber": "7.62x39mm",
+   "ammo_type_id": "11",
+   "rarity": "紫",
+   "penetration_level": 4,
+   "flesh_damage_multiplier": 1.05,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.1,
+   "throw_blocking_damage_rate": 1.1,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "1506"
+  },
+  {
+   "ammo_item_id": "37110500001",
+   "name": "AP",
+   "caliber": "7.62x39mm",
+   "ammo_type_id": "11",
+   "rarity": "橙",
+   "penetration_level": 5,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.1,
+   "throw_blocking_damage_rate": 1.2,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "1505"
+  },
+  {
+   "ammo_item_id": "37110500002",
+   "name": "AP-SUB",
+   "caliber": "7.62x39mm",
+   "ammo_type_id": "11",
+   "rarity": "橙",
+   "penetration_level": 5,
+   "flesh_damage_multiplier": 1.05,
+   "armor_damage_multiplier": 0.95,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.15,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "1507"
+  },
+  {
+   "ammo_item_id": "37120100001",
+   "name": "PRS",
+   "caliber": "5.45x39mm",
+   "ammo_type_id": "12",
+   "rarity": "白",
+   "penetration_level": 1,
+   "flesh_damage_multiplier": 1.1,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.25,
+   "throw_blocking_damage_rate": 0.8,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": false
+    },
+    "3": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.3,
+     "helmet_durability_rate": 0.3,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "701"
+  },
+  {
+   "ammo_item_id": "37120200001",
+   "name": "T",
+   "caliber": "5.45x39mm",
+   "ammo_type_id": "12",
+   "rarity": "绿",
+   "penetration_level": 2,
+   "flesh_damage_multiplier": 1.1,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.2,
+   "throw_blocking_damage_rate": 0.9,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.7,
+     "helmet_durability_rate": 0.7,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 0.7,
+     "helmet_durability_rate": 0.7,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 0.7,
+     "helmet_durability_rate": 0.7,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.7,
+     "helmet_durability_rate": 0.7,
+     "penetrates": false
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.5,
+     "helmet_durability_rate": 0.5,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.3,
+     "helmet_durability_rate": 0.3,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "702"
+  },
+  {
+   "ammo_item_id": "37120300001",
+   "name": "PS",
+   "caliber": "5.45x39mm",
+   "ammo_type_id": "12",
+   "rarity": "蓝",
+   "penetration_level": 3,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.15,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.5,
+     "helmet_durability_rate": 0.5,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "703"
+  },
+  {
+   "ammo_item_id": "37120400001",
+   "name": "BT",
+   "caliber": "5.45x39mm",
+   "ammo_type_id": "12",
+   "rarity": "紫",
+   "penetration_level": 4,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.1,
+   "throw_blocking_damage_rate": 1.1,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "704"
+  },
+  {
+   "ammo_item_id": "37120400002",
+   "name": "BT +P",
+   "caliber": "5.45x39mm",
+   "ammo_type_id": "12",
+   "rarity": "紫",
+   "penetration_level": 4,
+   "flesh_damage_multiplier": 1.1,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.1,
+   "throw_blocking_damage_rate": 1.2,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": true
+    }
+   },
+   "source_legacy_ammo_id": "706"
+  },
+  {
+   "ammo_item_id": "37120400003",
+   "name": "BT ST",
+   "caliber": "5.45x39mm",
+   "ammo_type_id": "12",
+   "rarity": "紫",
+   "penetration_level": 4,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.1,
+   "throw_blocking_damage_rate": 1.1,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "707"
+  },
+  {
+   "ammo_item_id": "37120500001",
+   "name": "BS",
+   "caliber": "5.45x39mm",
+   "ammo_type_id": "12",
+   "rarity": "橙",
+   "penetration_level": 5,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.1,
+   "throw_blocking_damage_rate": 1.2,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "705"
+  },
+  {
+   "ammo_item_id": "37120500003",
+   "name": "BS ST+",
+   "caliber": "5.45x39mm",
+   "ammo_type_id": "12",
+   "rarity": "橙",
+   "penetration_level": 5,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.1,
+   "throw_blocking_damage_rate": 1.2,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "708"
+  },
+  {
+   "ammo_item_id": "37130200001",
+   "name": "DBP87",
+   "caliber": "5.8x42mm",
+   "ammo_type_id": "13",
+   "rarity": "绿",
+   "penetration_level": 2,
+   "flesh_damage_multiplier": 1.1,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.2,
+   "throw_blocking_damage_rate": 0.9,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.7,
+     "helmet_durability_rate": 0.7,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 0.7,
+     "helmet_durability_rate": 0.7,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 0.7,
+     "helmet_durability_rate": 0.7,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.7,
+     "helmet_durability_rate": 0.7,
+     "penetrates": false
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.5,
+     "helmet_durability_rate": 0.5,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.3,
+     "helmet_durability_rate": 0.3,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "901"
+  },
+  {
+   "ammo_item_id": "37130300001",
+   "name": "DVP88",
+   "caliber": "5.8x42mm",
+   "ammo_type_id": "13",
+   "rarity": "蓝",
+   "penetration_level": 3,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.15,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.5,
+     "helmet_durability_rate": 0.5,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "902"
+  },
+  {
+   "ammo_item_id": "37130400001",
+   "name": "DBP10",
+   "caliber": "5.8x42mm",
+   "ammo_type_id": "13",
+   "rarity": "紫",
+   "penetration_level": 4,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.1,
+   "throw_blocking_damage_rate": 1.1,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "903"
+  },
+  {
+   "ammo_item_id": "37130400002",
+   "name": "5.8x42mm DBP10 +P",
+   "caliber": "",
+   "ammo_type_id": "13",
+   "rarity": "紫",
+   "penetration_level": 4,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.1,
+   "throw_blocking_damage_rate": 1.1,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": null
+  },
+  {
+   "ammo_item_id": "37130500001",
+   "name": "DVC12",
+   "caliber": "5.8x42mm",
+   "ammo_type_id": "13",
+   "rarity": "橙",
+   "penetration_level": 5,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.1,
+   "throw_blocking_damage_rate": 1.2,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "904"
+  },
+  {
+   "ammo_item_id": "37130500002",
+   "name": "5.8x42mm DVC12 +P",
+   "caliber": "",
+   "ammo_type_id": "13",
+   "rarity": "橙",
+   "penetration_level": 5,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.15,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": null
+  },
+  {
+   "ammo_item_id": "37140300001",
+   "name": "SP5",
+   "caliber": "9x39mm",
+   "ammo_type_id": "14",
+   "rarity": "蓝",
+   "penetration_level": 3,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.15,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.5,
+     "helmet_durability_rate": 0.5,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "1201"
+  },
+  {
+   "ammo_item_id": "37140300002",
+   "name": "9x39mm PAB-7",
+   "caliber": "",
+   "ammo_type_id": "14",
+   "rarity": "蓝",
+   "penetration_level": 3,
+   "flesh_damage_multiplier": 0.85,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.15,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.5,
+     "helmet_durability_rate": 0.5,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": null
+  },
+  {
+   "ammo_item_id": "37140400001",
+   "name": "SP6",
+   "caliber": "9x39mm",
+   "ammo_type_id": "14",
+   "rarity": "紫",
+   "penetration_level": 4,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.15,
+   "throw_blocking_damage_rate": 1.1,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "1202"
+  },
+  {
+   "ammo_item_id": "37140400002",
+   "name": "9x39mm PAB-9",
+   "caliber": "",
+   "ammo_type_id": "14",
+   "rarity": "紫",
+   "penetration_level": 4,
+   "flesh_damage_multiplier": 0.85,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.15,
+   "throw_blocking_damage_rate": 1.1,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": null
+  },
+  {
+   "ammo_item_id": "37140500001",
+   "name": "BP",
+   "caliber": "9x39mm",
+   "ammo_type_id": "14",
+   "rarity": "橙",
+   "penetration_level": 5,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.1,
+   "throw_blocking_damage_rate": 1.2,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "1203"
+  },
+  {
+   "ammo_item_id": "37150300002",
+   "name": "PLY-I",
+   "caliber": "6.8x51mm",
+   "ammo_type_id": "15",
+   "rarity": "蓝",
+   "penetration_level": 3,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 0.9,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.1,
+   "throw_blocking_damage_rate": 1.1,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.5,
+     "helmet_durability_rate": 0.5,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "1604"
+  },
+  {
+   "ammo_item_id": "37150400001",
+   "name": "FMJ",
+   "caliber": "6.8x51mm",
+   "ammo_type_id": "15",
+   "rarity": "紫",
+   "penetration_level": 4,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.1,
+   "throw_blocking_damage_rate": 1.1,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "1601"
+  },
+  {
+   "ammo_item_id": "37150400002",
+   "name": "PLY-II",
+   "caliber": "6.8x51mm",
+   "ammo_type_id": "15",
+   "rarity": "紫",
+   "penetration_level": 4,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 0.9,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.1,
+   "throw_blocking_damage_rate": 1.1,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "1605"
+  },
+  {
+   "ammo_item_id": "37150500001",
+   "name": "Hybrid",
+   "caliber": "6.8x51mm",
+   "ammo_type_id": "15",
+   "rarity": "橙",
+   "penetration_level": 5,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.1,
+   "throw_blocking_damage_rate": 1.2,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "1602"
+  },
+  {
+   "ammo_item_id": "37150500002",
+   "name": "PLY-III",
+   "caliber": "6.8x51mm",
+   "ammo_type_id": "15",
+   "rarity": "橙",
+   "penetration_level": 5,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 0.9,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.1,
+   "throw_blocking_damage_rate": 1.2,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "1606"
+  },
+  {
+   "ammo_item_id": "37150600001",
+   "name": "AP",
+   "caliber": "6.8x51mm",
+   "ammo_type_id": "15",
+   "rarity": "红",
+   "penetration_level": 6,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.1,
+   "throw_blocking_damage_rate": 1.6,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "6": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    }
+   },
+   "source_legacy_ammo_id": "1603"
+  },
+  {
+   "ammo_item_id": "37160300001",
+   "name": "PS12A",
+   "caliber": "12.7x55",
+   "ammo_type_id": "16",
+   "rarity": "蓝",
+   "penetration_level": 3,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.15,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.5,
+     "helmet_durability_rate": 0.5,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "601"
+  },
+  {
+   "ammo_item_id": "37160400001",
+   "name": "PS12",
+   "caliber": "12.7x55",
+   "ammo_type_id": "16",
+   "rarity": "紫",
+   "penetration_level": 4,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.1,
+   "throw_blocking_damage_rate": 1.1,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "602"
+  },
+  {
+   "ammo_item_id": "37160400002",
+   "name": "PD12双头弹",
+   "caliber": "12.7x55",
+   "ammo_type_id": "16",
+   "rarity": "紫",
+   "penetration_level": 4,
+   "flesh_damage_multiplier": 0.661,
+   "armor_damage_multiplier": 0.1,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.3,
+   "throw_blocking_damage_rate": 1.1,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.4,
+     "helmet_health_rate": 0.4,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "6": {
+     "body_health_rate": 0.3,
+     "helmet_health_rate": 0.3,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    }
+   },
+   "source_legacy_ammo_id": "603"
+  },
+  {
+   "ammo_item_id": "37160500001",
+   "name": "PS12B",
+   "caliber": "12.7x55",
+   "ammo_type_id": "16",
+   "rarity": "橙",
+   "penetration_level": 5,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.1,
+   "throw_blocking_damage_rate": 1.2,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "604"
+  },
+  {
+   "ammo_item_id": "37170200001",
+   "name": "7.62x51mm Ultra Nosler",
+   "caliber": "",
+   "ammo_type_id": "17",
+   "rarity": "绿",
+   "penetration_level": 2,
+   "flesh_damage_multiplier": 1.1,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.2,
+   "throw_blocking_damage_rate": 0.9,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.7,
+     "helmet_durability_rate": 0.7,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 0.7,
+     "helmet_durability_rate": 0.7,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 0.7,
+     "helmet_durability_rate": 0.7,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.7,
+     "helmet_durability_rate": 0.7,
+     "penetrates": false
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.5,
+     "helmet_durability_rate": 0.5,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.3,
+     "helmet_durability_rate": 0.3,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": null
+  },
+  {
+   "ammo_item_id": "37170300001",
+   "name": "BPZ",
+   "caliber": "7.62x51mm",
+   "ammo_type_id": "17",
+   "rarity": "蓝",
+   "penetration_level": 3,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.15,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.5,
+     "helmet_durability_rate": 0.5,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "1701"
+  },
+  {
+   "ammo_item_id": "37170400001",
+   "name": "M80",
+   "caliber": "7.62x51mm",
+   "ammo_type_id": "17",
+   "rarity": "紫",
+   "penetration_level": 4,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.1,
+   "throw_blocking_damage_rate": 1.1,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "1702"
+  },
+  {
+   "ammo_item_id": "37170500001",
+   "name": "M62",
+   "caliber": "7.62x51mm",
+   "ammo_type_id": "17",
+   "rarity": "橙",
+   "penetration_level": 5,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.1,
+   "throw_blocking_damage_rate": 1.2,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "1703"
+  },
+  {
+   "ammo_item_id": "37170500002",
+   "name": "LS",
+   "caliber": "7.62x51mm",
+   "ammo_type_id": "17",
+   "rarity": "橙",
+   "penetration_level": 5,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.1,
+   "throw_blocking_damage_rate": 2.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": null
+  },
+  {
+   "ammo_item_id": "37170600001",
+   "name": "m61",
+   "caliber": "7.62x51mm",
+   "ammo_type_id": "17",
+   "rarity": "红",
+   "penetration_level": 6,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.1,
+   "throw_blocking_damage_rate": 1.6,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.2,
+     "helmet_durability_rate": 1.2,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.2,
+     "helmet_durability_rate": 1.2,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.2,
+     "helmet_durability_rate": 1.2,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.2,
+     "helmet_durability_rate": 1.2,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.2,
+     "helmet_durability_rate": 1.2,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.2,
+     "helmet_durability_rate": 1.2,
+     "penetrates": true
+    },
+    "6": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.2,
+     "helmet_durability_rate": 1.2,
+     "penetrates": true
+    }
+   },
+   "source_legacy_ammo_id": "1704"
+  },
+  {
+   "ammo_item_id": "37180300001",
+   "name": "T46M",
+   "caliber": "7.62x54R",
+   "ammo_type_id": "18",
+   "rarity": "蓝",
+   "penetration_level": 3,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.15,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.5,
+     "helmet_durability_rate": 0.5,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "1001"
+  },
+  {
+   "ammo_item_id": "37180400001",
+   "name": "LPS",
+   "caliber": "7.62x54R",
+   "ammo_type_id": "18",
+   "rarity": "紫",
+   "penetration_level": 4,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.1,
+   "throw_blocking_damage_rate": 1.1,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "1002"
+  },
+  {
+   "ammo_item_id": "37180500001",
+   "name": "BT",
+   "caliber": "7.62x54R",
+   "ammo_type_id": "18",
+   "rarity": "橙",
+   "penetration_level": 5,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.1,
+   "throw_blocking_damage_rate": 1.2,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "1003"
+  },
+  {
+   "ammo_item_id": "37180600001",
+   "name": "SNB",
+   "caliber": "7.62x54R",
+   "ammo_type_id": "18",
+   "rarity": "红",
+   "penetration_level": 6,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.1,
+   "throw_blocking_damage_rate": 1.6,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.2,
+     "helmet_durability_rate": 1.2,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.2,
+     "helmet_durability_rate": 1.2,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.2,
+     "helmet_durability_rate": 1.2,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.2,
+     "helmet_durability_rate": 1.2,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.2,
+     "helmet_durability_rate": 1.2,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.2,
+     "helmet_durability_rate": 1.2,
+     "penetrates": true
+    },
+    "6": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.2,
+     "helmet_durability_rate": 1.2,
+     "penetrates": true
+    }
+   },
+   "source_legacy_ammo_id": "1004"
+  },
+  {
+   "ammo_item_id": "37190000001",
+   "name": "RIP",
+   "caliber": ".45ACP",
+   "ammo_type_id": "19",
+   "rarity": "蓝",
+   "penetration_level": 0,
+   "flesh_damage_multiplier": 1.35,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.3,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    },
+    "2": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.3,
+     "helmet_durability_rate": 0.3,
+     "penetrates": false
+    },
+    "3": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "304"
+  },
+  {
+   "ammo_item_id": "37190000002",
+   "name": ".45 ACP CT",
+   "caliber": "",
+   "ammo_type_id": "19",
+   "rarity": "紫",
+   "penetration_level": 0,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.3,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    },
+    "2": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.3,
+     "helmet_durability_rate": 0.3,
+     "penetrates": false
+    },
+    "3": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": null
+  },
+  {
+   "ammo_item_id": "37190100001",
+   "name": "HS",
+   "caliber": ".45ACP",
+   "ammo_type_id": "19",
+   "rarity": "白",
+   "penetration_level": 1,
+   "flesh_damage_multiplier": 1.1,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.25,
+   "throw_blocking_damage_rate": 0.8,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": false
+    },
+    "3": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.3,
+     "helmet_durability_rate": 0.3,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "301"
+  },
+  {
+   "ammo_item_id": "37190200001",
+   "name": "JHP",
+   "caliber": ".45ACP",
+   "ammo_type_id": "19",
+   "rarity": "绿",
+   "penetration_level": 2,
+   "flesh_damage_multiplier": 1.1,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.2,
+   "throw_blocking_damage_rate": 0.9,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.7,
+     "helmet_durability_rate": 0.7,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 0.7,
+     "helmet_durability_rate": 0.7,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 0.7,
+     "helmet_durability_rate": 0.7,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.7,
+     "helmet_durability_rate": 0.7,
+     "penetrates": false
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.5,
+     "helmet_durability_rate": 0.5,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.3,
+     "helmet_durability_rate": 0.3,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "302"
+  },
+  {
+   "ammo_item_id": "37190300001",
+   "name": "FMJ",
+   "caliber": ".45ACP",
+   "ammo_type_id": "19",
+   "rarity": "蓝",
+   "penetration_level": 3,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.15,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.5,
+     "helmet_durability_rate": 0.5,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "303"
+  },
+  {
+   "ammo_item_id": "37190400001",
+   "name": "AP",
+   "caliber": ".45ACP",
+   "ammo_type_id": "19",
+   "rarity": "紫",
+   "penetration_level": 4,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.15,
+   "throw_blocking_damage_rate": 1.1,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "305"
+  },
+  {
+   "ammo_item_id": "37190500001",
+   "name": "Super",
+   "caliber": ".45ACP",
+   "ammo_type_id": "19",
+   "rarity": "橙",
+   "penetration_level": 5,
+   "flesh_damage_multiplier": 0.85,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.15,
+   "throw_blocking_damage_rate": 1.2,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    }
+   },
+   "source_legacy_ammo_id": "307"
+  },
+  {
+   "ammo_item_id": "37200000001",
+   "name": "RIP",
+   "caliber": "9x19mm",
+   "ammo_type_id": "20",
+   "rarity": "蓝",
+   "penetration_level": 0,
+   "flesh_damage_multiplier": 1.4,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.3,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    },
+    "2": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.3,
+     "helmet_durability_rate": 0.3,
+     "penetrates": false
+    },
+    "3": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "1104"
+  },
+  {
+   "ammo_item_id": "37200000002",
+   "name": "9x19mm CT",
+   "caliber": "",
+   "ammo_type_id": "20",
+   "rarity": "紫",
+   "penetration_level": 0,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.3,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    },
+    "2": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.3,
+     "helmet_durability_rate": 0.3,
+     "penetrates": false
+    },
+    "3": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": null
+  },
+  {
+   "ammo_item_id": "37200100001",
+   "name": "PSO",
+   "caliber": "9x19mm",
+   "ammo_type_id": "20",
+   "rarity": "白",
+   "penetration_level": 1,
+   "flesh_damage_multiplier": 1.1,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.25,
+   "throw_blocking_damage_rate": 0.8,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": false
+    },
+    "3": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.3,
+     "helmet_durability_rate": 0.3,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "1101"
+  },
+  {
+   "ammo_item_id": "37200200001",
+   "name": "Pst",
+   "caliber": "9x19mm",
+   "ammo_type_id": "20",
+   "rarity": "绿",
+   "penetration_level": 2,
+   "flesh_damage_multiplier": 1.1,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.2,
+   "throw_blocking_damage_rate": 0.9,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.7,
+     "helmet_durability_rate": 0.7,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 0.7,
+     "helmet_durability_rate": 0.7,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 0.7,
+     "helmet_durability_rate": 0.7,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.7,
+     "helmet_durability_rate": 0.7,
+     "penetrates": false
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.5,
+     "helmet_durability_rate": 0.5,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.3,
+     "helmet_durability_rate": 0.3,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "1102"
+  },
+  {
+   "ammo_item_id": "37200300001",
+   "name": "AP6.3",
+   "caliber": "9x19mm",
+   "ammo_type_id": "20",
+   "rarity": "蓝",
+   "penetration_level": 3,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.15,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.5,
+     "helmet_durability_rate": 0.5,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "1103"
+  },
+  {
+   "ammo_item_id": "37200400001",
+   "name": "PBP",
+   "caliber": "9x19mm",
+   "ammo_type_id": "20",
+   "rarity": "紫",
+   "penetration_level": 4,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.15,
+   "throw_blocking_damage_rate": 1.1,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "1105"
+  },
+  {
+   "ammo_item_id": "37210000001",
+   "name": "R37.F",
+   "caliber": "5.7x28mm",
+   "ammo_type_id": "21",
+   "rarity": "蓝",
+   "penetration_level": 0,
+   "flesh_damage_multiplier": 1.4,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.3,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    },
+    "2": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.3,
+     "helmet_durability_rate": 0.3,
+     "penetrates": false
+    },
+    "3": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "804"
+  },
+  {
+   "ammo_item_id": "37210100001",
+   "name": "SS198LF",
+   "caliber": "5.7x28mm",
+   "ammo_type_id": "21",
+   "rarity": "白",
+   "penetration_level": 1,
+   "flesh_damage_multiplier": 1.2,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.25,
+   "throw_blocking_damage_rate": 0.8,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": false
+    },
+    "3": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.3,
+     "helmet_durability_rate": 0.3,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "801"
+  },
+  {
+   "ammo_item_id": "37210200001",
+   "name": "SS197SR",
+   "caliber": "5.7x28mm",
+   "ammo_type_id": "21",
+   "rarity": "绿",
+   "penetration_level": 2,
+   "flesh_damage_multiplier": 1.2,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.2,
+   "throw_blocking_damage_rate": 0.9,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.7,
+     "helmet_durability_rate": 0.7,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 0.7,
+     "helmet_durability_rate": 0.7,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 0.7,
+     "helmet_durability_rate": 0.7,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.7,
+     "helmet_durability_rate": 0.7,
+     "penetrates": false
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.5,
+     "helmet_durability_rate": 0.5,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.3,
+     "helmet_durability_rate": 0.3,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "802"
+  },
+  {
+   "ammo_item_id": "37210300001",
+   "name": "L191",
+   "caliber": "5.7x28mm",
+   "ammo_type_id": "21",
+   "rarity": "蓝",
+   "penetration_level": 3,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.15,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.5,
+     "helmet_durability_rate": 0.5,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "803"
+  },
+  {
+   "ammo_item_id": "37210300002",
+   "name": "HT",
+   "caliber": "5.7x28mm",
+   "ammo_type_id": "21",
+   "rarity": "蓝",
+   "penetration_level": 3,
+   "flesh_damage_multiplier": 1.2,
+   "armor_damage_multiplier": 0.2,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.15,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 0.7,
+     "helmet_health_rate": 0.7,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 0.6,
+     "helmet_health_rate": 0.6,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.4,
+     "helmet_health_rate": 0.4,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.25,
+     "helmet_health_rate": 0.25,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": true
+    },
+    "6": {
+     "body_health_rate": 0.15,
+     "helmet_health_rate": 0.15,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": true
+    }
+   },
+   "source_legacy_ammo_id": null
+  },
+  {
+   "ammo_item_id": "37210400001",
+   "name": "SS193",
+   "caliber": "5.7x28mm",
+   "ammo_type_id": "21",
+   "rarity": "紫",
+   "penetration_level": 4,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.15,
+   "throw_blocking_damage_rate": 1.1,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "805"
+  },
+  {
+   "ammo_item_id": "37210400002",
+   "name": "HT+",
+   "caliber": "5.7x28mm",
+   "ammo_type_id": "21",
+   "rarity": "紫",
+   "penetration_level": 4,
+   "flesh_damage_multiplier": 1.2,
+   "armor_damage_multiplier": 0.2,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.15,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 0.8,
+     "helmet_health_rate": 0.8,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 0.7,
+     "helmet_health_rate": 0.7,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.6,
+     "helmet_health_rate": 0.6,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.4,
+     "helmet_health_rate": 0.4,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": true
+    },
+    "6": {
+     "body_health_rate": 0.25,
+     "helmet_health_rate": 0.25,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": true
+    }
+   },
+   "source_legacy_ammo_id": null
+  },
+  {
+   "ammo_item_id": "37210500001",
+   "name": "SS190",
+   "caliber": "5.7x28mm",
+   "ammo_type_id": "21",
+   "rarity": "橙",
+   "penetration_level": 5,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.1,
+   "throw_blocking_damage_rate": 1.2,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "806"
+  },
+  {
+   "ammo_item_id": "37220000001",
+   "name": "9号霰射“鼠蛋”",
+   "caliber": ".357 Magnum",
+   "ammo_type_id": "22",
+   "rarity": "蓝",
+   "penetration_level": 0,
+   "flesh_damage_multiplier": 0.4,
+   "armor_damage_multiplier": 0.41,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.0,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "catalog-only",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    },
+    "2": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.3,
+     "helmet_durability_rate": 0.3,
+     "penetrates": false
+    },
+    "3": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.15,
+     "helmet_durability_rate": 0.15,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.15,
+     "helmet_durability_rate": 0.15,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.15,
+     "helmet_durability_rate": 0.15,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "203"
+  },
+  {
+   "ammo_item_id": "37220200001",
+   "name": "HP",
+   "caliber": ".357 Magnum",
+   "ammo_type_id": "22",
+   "rarity": "绿",
+   "penetration_level": 2,
+   "flesh_damage_multiplier": 1.1,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.0,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "catalog-only",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.7,
+     "helmet_durability_rate": 0.7,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 0.7,
+     "helmet_durability_rate": 0.7,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 0.7,
+     "helmet_durability_rate": 0.7,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.7,
+     "helmet_durability_rate": 0.7,
+     "penetrates": false
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.5,
+     "helmet_durability_rate": 0.5,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.3,
+     "helmet_durability_rate": 0.3,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "201"
+  },
+  {
+   "ammo_item_id": "37220300001",
+   "name": "JHP",
+   "caliber": ".357 Magnum",
+   "ammo_type_id": "22",
+   "rarity": "蓝",
+   "penetration_level": 3,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.0,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "catalog-only",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.5,
+     "helmet_durability_rate": 0.5,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "202"
+  },
+  {
+   "ammo_item_id": "37220400001",
+   "name": "FMJ",
+   "caliber": ".357 Magnum",
+   "ammo_type_id": "22",
+   "rarity": "紫",
+   "penetration_level": 4,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.0,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "catalog-only",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "204"
+  },
+  {
+   "ammo_item_id": "37230200001",
+   "name": "HP",
+   "caliber": ".50AE",
+   "ammo_type_id": "23",
+   "rarity": "绿",
+   "penetration_level": 2,
+   "flesh_damage_multiplier": 1.1,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.0,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "catalog-only",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.7,
+     "helmet_durability_rate": 0.7,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 0.7,
+     "helmet_durability_rate": 0.7,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 0.7,
+     "helmet_durability_rate": 0.7,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.7,
+     "helmet_durability_rate": 0.7,
+     "penetrates": false
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.5,
+     "helmet_durability_rate": 0.5,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.3,
+     "helmet_durability_rate": 0.3,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "401"
+  },
+  {
+   "ammo_item_id": "37230300001",
+   "name": "JHP",
+   "caliber": ".50AE",
+   "ammo_type_id": "23",
+   "rarity": "蓝",
+   "penetration_level": 3,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.0,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "catalog-only",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.5,
+     "helmet_durability_rate": 0.5,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "402"
+  },
+  {
+   "ammo_item_id": "37230400001",
+   "name": "FMJ",
+   "caliber": ".50AE",
+   "ammo_type_id": "23",
+   "rarity": "紫",
+   "penetration_level": 4,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.0,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "catalog-only",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "403"
+  },
+  {
+   "ammo_item_id": "37230500001",
+   "name": "AP",
+   "caliber": ".50AE",
+   "ammo_type_id": "23",
+   "rarity": "橙",
+   "penetration_level": 5,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.0,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "catalog-only",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    }
+   },
+   "source_legacy_ammo_id": "404"
+  },
+  {
+   "ammo_item_id": "37240700001",
+   "name": "AP",
+   "caliber": ".338 Lap Mag",
+   "ammo_type_id": "24",
+   "rarity": "红",
+   "penetration_level": 7,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.0,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "catalog-only",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "6": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    }
+   },
+   "source_legacy_ammo_id": "101"
+  },
+  {
+   "ammo_item_id": "37250000001",
+   "name": "8.5毫米鹿弹",
+   "caliber": "12Gauge",
+   "ammo_type_id": "25",
+   "rarity": "蓝",
+   "penetration_level": 0,
+   "flesh_damage_multiplier": 1.3,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.0,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "catalog-only",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    },
+    "2": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.3,
+     "helmet_durability_rate": 0.3,
+     "penetrates": false
+    },
+    "3": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.15,
+     "helmet_durability_rate": 0.15,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.15,
+     "helmet_durability_rate": 0.15,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.15,
+     "helmet_durability_rate": 0.15,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "506"
+  },
+  {
+   "ammo_item_id": "37250000002",
+   "name": "独头RIP",
+   "caliber": "12Gauge",
+   "ammo_type_id": "25",
+   "rarity": "绿",
+   "penetration_level": 0,
+   "flesh_damage_multiplier": 5.5,
+   "armor_damage_multiplier": 3.5,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.0,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "catalog-only",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    },
+    "2": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.3,
+     "helmet_durability_rate": 0.3,
+     "penetrates": false
+    },
+    "3": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "503"
+  },
+  {
+   "ammo_item_id": "37250100001",
+   "name": "7毫米鹿弹",
+   "caliber": "12Gauge",
+   "ammo_type_id": "25",
+   "rarity": "白",
+   "penetration_level": 1,
+   "flesh_damage_multiplier": 1.05,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.0,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "catalog-only",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": false
+    },
+    "3": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.3,
+     "helmet_durability_rate": 0.3,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.15,
+     "helmet_durability_rate": 0.15,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "501"
+  },
+  {
+   "ammo_item_id": "37250200002",
+   "name": "独头GT",
+   "caliber": "12Gauge",
+   "ammo_type_id": "25",
+   "rarity": "绿",
+   "penetration_level": 2,
+   "flesh_damage_multiplier": 4.8,
+   "armor_damage_multiplier": 3.5,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.0,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "catalog-only",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.7,
+     "helmet_durability_rate": 0.7,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 0.7,
+     "helmet_durability_rate": 0.7,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 0.7,
+     "helmet_durability_rate": 0.7,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.7,
+     "helmet_durability_rate": 0.7,
+     "penetrates": false
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.5,
+     "helmet_durability_rate": 0.5,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.3,
+     "helmet_durability_rate": 0.3,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "502"
+  },
+  {
+   "ammo_item_id": "37250300001",
+   "name": "箭型弹",
+   "caliber": "12Gauge",
+   "ammo_type_id": "25",
+   "rarity": "蓝",
+   "penetration_level": 3,
+   "flesh_damage_multiplier": 0.85,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.0,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "catalog-only",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.75,
+     "helmet_durability_rate": 0.75,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.75,
+     "helmet_durability_rate": 0.75,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 0.75,
+     "helmet_durability_rate": 0.75,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 0.75,
+     "helmet_durability_rate": 0.75,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.75,
+     "helmet_durability_rate": 0.75,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.43,
+     "helmet_durability_rate": 0.43,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.35,
+     "helmet_durability_rate": 0.35,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "505"
+  },
+  {
+   "ammo_item_id": "37250300002",
+   "name": "独头FTX",
+   "caliber": "12Gauge",
+   "ammo_type_id": "25",
+   "rarity": "蓝",
+   "penetration_level": 3,
+   "flesh_damage_multiplier": 4.8,
+   "armor_damage_multiplier": 3.5,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.0,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "catalog-only",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.5,
+     "helmet_durability_rate": 0.5,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "504"
+  },
+  {
+   "ammo_item_id": "37250400002",
+   "name": "独头AP-20",
+   "caliber": "12Gauge",
+   "ammo_type_id": "25",
+   "rarity": "紫",
+   "penetration_level": 4,
+   "flesh_damage_multiplier": 4.8,
+   "armor_damage_multiplier": 3.5,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.0,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "catalog-only",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "507"
+  },
+  {
+   "ammo_item_id": "37250400003",
+   "name": "12 Gauge 龙息弹",
+   "caliber": "",
+   "ammo_type_id": "25",
+   "rarity": "紫",
+   "penetration_level": 0,
+   "flesh_damage_multiplier": 1.1,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.0,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "catalog-only",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.5,
+     "helmet_durability_rate": 0.5,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": null
+  },
+  {
+   "ammo_item_id": "37250400004",
+   "name": "独头APX",
+   "caliber": "12Gauge",
+   "ammo_type_id": "25",
+   "rarity": "橙",
+   "penetration_level": 4,
+   "flesh_damage_multiplier": 5.3,
+   "armor_damage_multiplier": 3.5,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.0,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "catalog-only",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": true
+    }
+   },
+   "source_legacy_ammo_id": "508"
+  },
+  {
+   "ammo_item_id": "37250400005",
+   "name": "DART",
+   "caliber": "12Gauge",
+   "ammo_type_id": "25",
+   "rarity": "紫",
+   "penetration_level": 3,
+   "flesh_damage_multiplier": 0.85,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.0,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "catalog-only",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.75,
+     "helmet_durability_rate": 0.75,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.75,
+     "helmet_durability_rate": 0.75,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 0.75,
+     "helmet_durability_rate": 0.75,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 0.75,
+     "helmet_durability_rate": 0.75,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.75,
+     "helmet_durability_rate": 0.75,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.43,
+     "helmet_durability_rate": 0.43,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.35,
+     "helmet_durability_rate": 0.35,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": null
+  },
+  {
+   "ammo_item_id": "37260000002",
+   "name": "CT",
+   "caliber": "4.6x30mm",
+   "ammo_type_id": "26",
+   "rarity": "紫",
+   "penetration_level": 0,
+   "flesh_damage_multiplier": 1.85,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.3,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    },
+    "2": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.3,
+     "helmet_durability_rate": 0.3,
+     "penetrates": false
+    },
+    "3": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": null
+  },
+  {
+   "ammo_item_id": "37260300001",
+   "name": "Subsonic SX",
+   "caliber": "4.6x30mm",
+   "ammo_type_id": "26",
+   "rarity": "蓝",
+   "penetration_level": 3,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.15,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.5,
+     "helmet_durability_rate": 0.5,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "1301"
+  },
+  {
+   "ammo_item_id": "37260400001",
+   "name": "FMJ SX",
+   "caliber": "4.6x30mm",
+   "ammo_type_id": "26",
+   "rarity": "紫",
+   "penetration_level": 4,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.1,
+   "throw_blocking_damage_rate": 1.1,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "1302"
+  },
+  {
+   "ammo_item_id": "37260400002",
+   "name": "FMJ ST",
+   "caliber": "4.6x30mm",
+   "ammo_type_id": "26",
+   "rarity": "紫",
+   "penetration_level": 4,
+   "flesh_damage_multiplier": 1.25,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.0,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": null
+  },
+  {
+   "ammo_item_id": "37260500001",
+   "name": "AP SX",
+   "caliber": "4.6x30mm",
+   "ammo_type_id": "26",
+   "rarity": "橙",
+   "penetration_level": 5,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.1,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "1303"
+  },
+  {
+   "ammo_item_id": "37260500002",
+   "name": "AP ST",
+   "caliber": "4.6x30mm",
+   "ammo_type_id": "26",
+   "rarity": "橙",
+   "penetration_level": 5,
+   "flesh_damage_multiplier": 1.25,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.0,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": null
+  },
+  {
+   "ammo_item_id": "37270300001",
+   "name": "玻纤柳叶箭矢",
+   "caliber": "",
+   "ammo_type_id": "28",
+   "rarity": "蓝",
+   "penetration_level": 3,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.0,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "catalog-only",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 0.9,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.14,
+     "helmet_health_rate": 0.14,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.12,
+     "helmet_health_rate": 0.12,
+     "body_durability_rate": 0.5,
+     "helmet_durability_rate": 0.5,
+     "penetrates": true
+    },
+    "6": {
+     "body_health_rate": 0.1,
+     "helmet_health_rate": 0.1,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": true
+    }
+   },
+   "source_legacy_ammo_id": null
+  },
+  {
+   "ammo_item_id": "37270400001",
+   "name": "碳纤维刺骨箭矢",
+   "caliber": "",
+   "ammo_type_id": "28",
+   "rarity": "紫",
+   "penetration_level": 4,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.0,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "catalog-only",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.9,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.14,
+     "helmet_health_rate": 0.14,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "6": {
+     "body_health_rate": 0.12,
+     "helmet_health_rate": 0.12,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": true
+    }
+   },
+   "source_legacy_ammo_id": null
+  },
+  {
+   "ammo_item_id": "37270500001",
+   "name": "碳纤维穿甲箭矢",
+   "caliber": "",
+   "ammo_type_id": "28",
+   "rarity": "橙",
+   "penetration_level": 5,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.0,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "catalog-only",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.9,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "6": {
+     "body_health_rate": 0.14,
+     "helmet_health_rate": 0.14,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    }
+   },
+   "source_legacy_ammo_id": null
+  },
+  {
+   "ammo_item_id": "37270500002",
+   "name": "碳纤维散射箭矢",
+   "caliber": "",
+   "ammo_type_id": "28",
+   "rarity": null,
+   "penetration_level": 5,
+   "flesh_damage_multiplier": 0.3,
+   "armor_damage_multiplier": 0.32,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.0,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "catalog-only",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.9,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "6": {
+     "body_health_rate": 0.14,
+     "helmet_health_rate": 0.14,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    }
+   },
+   "source_legacy_ammo_id": null
+  },
+  {
+   "ammo_item_id": "37280300001",
+   "name": "V-Max",
+   "caliber": ".300BLK",
+   "ammo_type_id": "27",
+   "rarity": "蓝",
+   "penetration_level": 3,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.15,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.5,
+     "helmet_durability_rate": 0.5,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "1801"
+  },
+  {
+   "ammo_item_id": "37280300002",
+   "name": "V-SUB",
+   "caliber": ".300BLK",
+   "ammo_type_id": "27",
+   "rarity": "蓝",
+   "penetration_level": 3,
+   "flesh_damage_multiplier": 1.05,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.15,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.9,
+     "helmet_durability_rate": 0.9,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.5,
+     "helmet_durability_rate": 0.5,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "1804"
+  },
+  {
+   "ammo_item_id": "37280400001",
+   "name": "BCP-FMJ",
+   "caliber": ".300BLK",
+   "ammo_type_id": "27",
+   "rarity": "紫",
+   "penetration_level": 4,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.1,
+   "throw_blocking_damage_rate": 1.1,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "1802"
+  },
+  {
+   "ammo_item_id": "37280400002",
+   "name": "BCP-SUB",
+   "caliber": ".300BLK",
+   "ammo_type_id": "27",
+   "rarity": "紫",
+   "penetration_level": 4,
+   "flesh_damage_multiplier": 1.05,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.15,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "1805"
+  },
+  {
+   "ammo_item_id": "37280500001",
+   "name": "TAC-TX",
+   "caliber": ".300BLK",
+   "ammo_type_id": "27",
+   "rarity": "橙",
+   "penetration_level": 5,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.1,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "combat-pack",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "1803"
+  },
+  {
+   "ammo_item_id": "37290300001",
+   "name": "RN",
+   "caliber": "45-70 Govt",
+   "ammo_type_id": "29",
+   "rarity": "蓝",
+   "penetration_level": 0,
+   "flesh_damage_multiplier": 1.5,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.0,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "catalog-only",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 0.4,
+     "helmet_durability_rate": 0.4,
+     "penetrates": false
+    },
+    "2": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.3,
+     "helmet_durability_rate": 0.3,
+     "penetrates": false
+    },
+    "3": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    },
+    "4": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.2,
+     "helmet_durability_rate": 0.2,
+     "penetrates": false
+    }
+   },
+   "source_legacy_ammo_id": "1901"
+  },
+  {
+   "ammo_item_id": "37290400001",
+   "name": "FMJ",
+   "caliber": "45-70 Govt",
+   "ammo_type_id": "29",
+   "rarity": "紫",
+   "penetration_level": 4,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.0,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "catalog-only",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 0.9,
+     "helmet_health_rate": 0.9,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.0,
+     "helmet_durability_rate": 1.0,
+     "penetrates": true
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 0.6,
+     "helmet_durability_rate": 0.6,
+     "penetrates": true
+    }
+   },
+   "source_legacy_ammo_id": "1902"
+  },
+  {
+   "ammo_item_id": "37290500001",
+   "name": "FTX",
+   "caliber": "45-70 Govt",
+   "ammo_type_id": "29",
+   "rarity": "橙",
+   "penetration_level": 5,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.0,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "catalog-only",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 0.9,
+     "helmet_health_rate": 0.9,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "6": {
+     "body_health_rate": 0.0,
+     "helmet_health_rate": 0.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    }
+   },
+   "source_legacy_ammo_id": "1903"
+  },
+  {
+   "ammo_item_id": "37300600001",
+   "name": "M10 RAZOR",
+   "caliber": ".50 BMG",
+   "ammo_type_id": "30",
+   "rarity": "红",
+   "penetration_level": 6,
+   "flesh_damage_multiplier": 0.7,
+   "armor_damage_multiplier": 5.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.0,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "catalog-only",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.2,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "6": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    }
+   },
+   "source_legacy_ammo_id": "2001"
+  },
+  {
+   "ammo_item_id": "37300600002",
+   "name": "M3 K-O",
+   "caliber": ".50 BMG",
+   "ammo_type_id": "30",
+   "rarity": "红",
+   "penetration_level": 6,
+   "flesh_damage_multiplier": 0.7,
+   "armor_damage_multiplier": 5.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.0,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "catalog-only",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 0.75,
+     "helmet_health_rate": 0.75,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "6": {
+     "body_health_rate": 0.5,
+     "helmet_health_rate": 0.5,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    }
+   },
+   "source_legacy_ammo_id": "2002"
+  },
+  {
+   "ammo_item_id": "37300700001",
+   "name": "M903 SLAP",
+   "caliber": ".50 BMG",
+   "ammo_type_id": "30",
+   "rarity": "红",
+   "penetration_level": 7,
+   "flesh_damage_multiplier": 1.0,
+   "armor_damage_multiplier": 1.0,
+   "limb_damage_multiplier": 1.0,
+   "wound_rate": 0.0,
+   "throw_blocking_damage_rate": 1.0,
+   "penetrate_ammo_level_decrease": 0,
+   "profile_source": "catalog-only",
+   "penetration_matrix": {
+    "0": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "1": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "2": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "3": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "4": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "5": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    },
+    "6": {
+     "body_health_rate": 1.0,
+     "helmet_health_rate": 1.0,
+     "body_durability_rate": 1.1,
+     "helmet_durability_rate": 1.1,
+     "penetrates": true
+    }
+   },
+   "source_legacy_ammo_id": "2003"
+  }
+ ]
+}

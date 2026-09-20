@@ -1,283 +1,200 @@
-"""Unified pipeline orchestrator and semantic change detection engine for tuning loadouts."""
+"""纯 TTK 榜单管线：官方数据 → 最优配装求解 → 分层 → 渲染 → 导出。
+
+用法::
+
+    python -m src.pipeline                      # 主榜情景（官方默认）
+    python -m src.pipeline --scenario all       # 全部 21 个官方情景
+    python -m src.pipeline --limit 8            # 快速冒烟（前 8 把枪）
+
+输出：
+
+- ``data/tierlist/<scenario_id>.json`` —— 机器可读榜单（含层级阈值）
+- ``docs/tierlist/<scenario_id>.md`` —— 人类可读榜单
+- ``README.md`` —— 首页主榜（默认情景 × 4 距离带）
+- ``docs/gunsmith-guide.md`` —— 改枪指南（不进 TTK 的维度）
+"""
+
+from __future__ import annotations
 
 import argparse
 import json
 import logging
 import os
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Any, Dict, List, Optional, Sequence
 
-from src.collectors.ammo_collector import fetch_ammo_prices
-from src.collectors.build_collector import fetch_weapon_builds
-from src.collectors.gun_loader import load_all_guns
-from src.engine.ranker import rank_weapons
-from src.models import DataSourceStatus, TierEntry
-from src.renderers.json_exporter import export_rankings_json
-from src.renderers.markdown_renderer import render_main_readme, render_scenario_docs
+from src.engine import tiering
+from src.engine.game_data import DEFAULT_DATA_DIR, load_game_data
+from src.engine.loadout import LoadoutSolver
+from src.renderers.ttk_report import (
+    render_gunsmith_guide,
+    render_readme,
+    render_scenario_markdown,
+)
 
 logger = logging.getLogger(__name__)
 
-SCENARIO_CONFIGS = [
-    ("4-4-15m", 4, 4, 15),
-    ("4-4-35m", 4, 4, 35),
-    ("4-4-50m", 4, 4, 50),
-    ("4-5-15m", 4, 5, 15),
-    ("4-5-35m", 4, 5, 35),
-    ("4-5-50m", 4, 5, 50),
-    ("5-5-15m", 5, 5, 15),
-    ("5-5-35m", 5, 5, 35),
-    ("5-5-50m", 5, 5, 50),
-]
+DEFAULT_SCENARIO = "armor-5-ammo-5-default"
 
 
-def _get_field_value(obj: Any, field_name: str, default: Any = None) -> Any:
-    """Safely extract field value from a dict or object."""
-    if isinstance(obj, dict):
-        return obj.get(field_name, default)
-    return getattr(obj, field_name, default)
+SLOT_ZH = {
+    "barrel": "枪管件",
+    "muzzle": "枪口件",
+    "foregrip": "前握把件",
+    "rearGrip": "后握把件",
+    "stock": "枪托件",
+    "handguard": "护木件",
+    "magazine": "弹匣件",
+    "scope": "瞄准镜件",
+    "gasSystem": "导气件",
+    "functional": "功能件",
+    "bolt": "枪机件",
+    "trigger": "扳机件",
+}
 
 
-def _extract_rankings_map(data: Any) -> Dict[Tuple[str, str], Tuple[str, float]]:
-    """Normalize arbitrary ranking datasets into a standardized mapping.
+def _part_names(game_data: Any) -> Dict[str, str]:
+    """构造 item_id → 展示名。
 
-    Format:
-        {(gun_id, scenario_key): (tier, composite_score)}
+    官方数据集里约有 355 个配件（多为原厂内置件）没有本地化名称，同步层以
+    「内部配件 <id>」兜底。这里改用**槽位名**兜底，至少能告诉玩家它装在哪个位置。
     """
-    if data is None:
-        return {}
-
-    # Support disk file paths
-    if isinstance(data, (str, os.PathLike)):
-        filepath = str(data)
-        if not os.path.isfile(filepath):
-            return {}
-        try:
-            with open(filepath, "r", encoding="utf-8") as f:
-                data = json.load(f)
-        except Exception as exc:
-            logger.warning("Failed to parse JSON file at '%s': %s", filepath, exc)
-            return {}
-
-    result_map: Dict[Tuple[str, str], Tuple[str, float]] = {}
-
-    # Support dictionary inputs
-    if isinstance(data, dict):
-        target = (
-            data.get("rankings", data)
-            if ("rankings" in data and isinstance(data["rankings"], dict))
-            else data
-        )
-        for sc_key, entries in target.items():
-            if not isinstance(entries, (list, tuple)):
-                continue
-            for item in entries:
-                gid = _get_field_value(item, "gun_id")
-                tier = _get_field_value(item, "tier")
-                score = _get_field_value(item, "composite_score")
-                if gid is not None and tier is not None and score is not None:
-                    result_map[(str(gid), str(sc_key))] = (str(tier), float(score))
-        return result_map
-
-    # Support list / sequence inputs
-    if isinstance(data, (list, tuple)):
-        for item in data:
-            gid = _get_field_value(item, "gun_id")
-            tier = _get_field_value(item, "tier")
-            score = _get_field_value(item, "composite_score")
-            sc_key = _get_field_value(item, "scenario")
-            if sc_key is None:
-                armor = _get_field_value(item, "armor_level")
-                ammo = _get_field_value(item, "ammo_level")
-                dist = _get_field_value(item, "distance_m")
-                if armor is not None and ammo is not None and dist is not None:
-                    sc_key = f"{armor}-{ammo}-{dist}m"
-                else:
-                    sc_key = "default"
-
-            if gid is not None and tier is not None and score is not None:
-                result_map[(str(gid), str(sc_key))] = (str(tier), float(score))
-        return result_map
-
-    return result_map
+    names: Dict[str, str] = {}
+    for item_id, part in (game_data.parts or {}).items():
+        name = str(part.get("name") or item_id)
+        if name.startswith("内部配件 "):
+            slot = str(part.get("slot") or "")
+            name = f"{SLOT_ZH.get(slot, '内置件')} {item_id}"
+        names[str(item_id)] = name
+    return names
 
 
-def has_semantic_changes(
-    old_rankings: Any,
-    new_rankings: Any,
-    delta_threshold: float = 3.0,
-) -> bool:
-    """Compare existing rankings against newly computed rankings for semantic shifts.
-
-    Returns True if:
-        - Old data doesn't exist or is empty (and new data exists).
-        - Any gun switches tier (e.g., T1 -> T0).
-        - Any gun's composite_score shifts by abs(new - old) >= delta_threshold.
-        - Weapons or scenarios are added or removed.
-    Returns False if only tiny fluctuations (< delta_threshold and no tier change).
-    """
-    old_map = _extract_rankings_map(old_rankings)
-    new_map = _extract_rankings_map(new_rankings)
-
-    # Empty inputs
-    if not old_map and not new_map:
-        return False
-    if not old_map and new_map:
-        return True
-    if old_map and not new_map:
-        return True
-
-    # Check for added or removed weapons / scenario combinations
-    if set(old_map.keys()) != set(new_map.keys()):
-        return True
-
-    # Check for tier transitions and score differences >= threshold
-    for key, (new_tier, new_score) in new_map.items():
-        old_tier, old_score = old_map[key]
-        if new_tier != old_tier:
-            return True
-        if abs(new_score - old_score) >= delta_threshold:
-            return True
-
-    return False
+def _scenario_index(game_data: Any) -> List[Dict[str, Any]]:
+    return [
+        {
+            "scenario_id": s["scenario_id"],
+            "label": s.get("label") or s["scenario_id"],
+            "armor_level": s.get("armor_level"),
+            "ammo_level": s.get("ammo_level"),
+            "probability_preset": s.get("probability_preset"),
+            "helmet_durability": s.get("helmet_durability"),
+            "armor_durability": s.get("armor_durability"),
+        }
+        for s in game_data.scenarios_raw.get("scenarios", [])
+    ]
 
 
 def run_pipeline(
-    force: bool = False,
-    live: bool = True,
     output_dir: str = ".",
-    delta_threshold: float = 3.0,
-    guns_path: Optional[str] = None,
-    builds_path: Optional[str] = None,
-    ammo_url: Optional[str] = None,
-    snapshot_path: Optional[str] = None,
-    baseline_path: Optional[str] = None,
-) -> dict:
-    """Orchestrate data collection, combat simulation, ranking, diffing, and report generation.
+    scenario_id: str = DEFAULT_SCENARIO,
+    all_scenarios: bool = False,
+    limit: Optional[int] = None,
+    beam_width: int = 8,
+    top_k: int = 4,
+    write: bool = True,
+) -> Dict[str, Any]:
+    """执行完整管线。
 
     Args:
-        force: Force full report regeneration regardless of semantic differences.
-        live: Whether to attempt live ammo price scraping (default True).
-        output_dir: Root directory for output artifacts (default ".").
-        delta_threshold: Score diff threshold to trigger semantic changes (default 3.0).
-        guns_path: Optional custom path to weapon baseline metadata JSON.
-        builds_path: Optional custom path to weapon builds JSON.
-        ammo_url: Optional custom live ammo price API endpoint.
-        snapshot_path: Optional custom path to snapshot ammo prices JSON.
-        baseline_path: Optional custom path to baseline ammo prices JSON.
-
-    Returns:
-        Summary dictionary containing execution statistics and generated file paths.
+        output_dir: 输出根目录。
+        scenario_id: 主榜情景（``all_scenarios=True`` 时忽略）。
+        all_scenarios: 是否为全部官方情景各出一份榜单。
+        limit: 仅处理前 N 把枪（调试用）。
+        beam_width / top_k: 配装搜索宽度。
+        write: 是否写盘（False 时仅返回结果，便于测试）。
     """
-    # Step 1: Collect guns, ammo prices, and weapon builds
-    guns = load_all_guns(guns_path) if guns_path else load_all_guns()
+    game_data = load_game_data(os.path.join(output_dir, DEFAULT_DATA_DIR))
+    part_names = _part_names(game_data)
+    scenario_meta_all = {s["scenario_id"]: s for s in _scenario_index(game_data)}
+    keys = [w["profile_key"] for w in game_data.weapons]
+    if limit:
+        keys = keys[:limit]
 
-    ammo_kwargs: Dict[str, Any] = {"live": live}
-    if ammo_url is not None:
-        ammo_kwargs["url"] = ammo_url
-    if snapshot_path is not None:
-        ammo_kwargs["snapshot_path"] = snapshot_path
-    if baseline_path is not None:
-        ammo_kwargs["baseline_path"] = baseline_path
+    targets = list(scenario_meta_all.keys()) if all_scenarios else [scenario_id]
+    if scenario_id not in scenario_meta_all:
+        raise KeyError(f"未收录的情景：{scenario_id}")
 
-    ammo_prices, status = fetch_ammo_prices(**ammo_kwargs)
-    builds = fetch_weapon_builds(builds_path) if builds_path else fetch_weapon_builds()
-
-    # Step 2: Compute rankings for all 9 scenarios
-    all_rankings: Dict[str, List[TierEntry]] = {}
-    for sc_key, armor, ammo, dist in SCENARIO_CONFIGS:
-        ranked_entries = rank_weapons(
-            guns=guns,
-            builds=builds,
-            ammo_prices=ammo_prices,
-            armor_level=armor,
-            ammo_level=ammo,
-            distance_m=dist,
-        )
-        all_rankings[sc_key] = ranked_entries
-
-    # Step 3: Check for semantic changes against existing rankings
-    latest_json_path = os.path.join(output_dir, "data", "latest_rankings.json")
-    has_changes = has_semantic_changes(
-        old_rankings=latest_json_path,
-        new_rankings=all_rankings,
-        delta_threshold=delta_threshold,
-    )
-
-    should_update = force or has_changes
+    payloads: Dict[str, Dict[str, Any]] = {}
     files_written: List[str] = []
 
-    # Step 4: Render reports and export JSON if update needed
-    if should_update:
+    for sid in targets:
+        solver = LoadoutSolver(game_data, sid)
+        rankings, thresholds, excluded = tiering.rank_weapons_for_scenario(
+            game_data, sid, solver=solver, beam_width=beam_width, top_k=top_k, profile_keys=keys
+        )
+        payload = tiering.to_export(rankings, thresholds, sid, excluded)
+        payloads[sid] = payload
+        logger.info(
+            "情景 %s 完成：可参赛 %d 把，排除 %d 把（口径无该等级弹药）",
+            sid, len(rankings), len(excluded),
+        )
+
+        if not write:
+            continue
+
+        json_path = os.path.join(output_dir, "data", "tierlist", f"{sid}.json")
+        os.makedirs(os.path.dirname(json_path), exist_ok=True)
+        with open(json_path, "w", encoding="utf-8") as fh:
+            json.dump(payload, fh, ensure_ascii=False, indent=1)
+        files_written.append(json_path)
+
+        md_path = os.path.join(output_dir, "docs", "tierlist", f"{sid}.md")
+        os.makedirs(os.path.dirname(md_path), exist_ok=True)
+        with open(md_path, "w", encoding="utf-8") as fh:
+            fh.write(render_scenario_markdown(payload, scenario_meta_all[sid], part_names))
+        files_written.append(md_path)
+
+    if write and not all_scenarios:
         readme_path = os.path.join(output_dir, "README.md")
-        render_main_readme(all_rankings, status, output_path=readme_path)
+        with open(readme_path, "w", encoding="utf-8") as fh:
+            fh.write(
+                render_readme(
+                    payloads[scenario_id],
+                    scenario_meta_all[scenario_id],
+                    game_data.provenance,
+                    part_names,
+                    scenario_index=_scenario_index(game_data),
+                )
+            )
         files_written.append(readme_path)
 
-        docs_dir = os.path.join(output_dir, "docs", "tierlist")
-        scenario_files = render_scenario_docs(all_rankings, status, docs_dir=docs_dir)
-        files_written.extend(scenario_files)
-
-        exported_json = export_rankings_json(
-            all_rankings, status, output_path=latest_json_path
-        )
-        files_written.append(exported_json)
-
-    # Step 5: Notify GitHub Actions environment if running in CI
-    if "GITHUB_ENV" in os.environ:
-        github_env_file = os.environ["GITHUB_ENV"]
-        env_val = "true" if (has_changes or force) else "false"
-        try:
-            with open(github_env_file, "a", encoding="utf-8") as f:
-                f.write(f"HAS_SEMANTIC_CHANGES={env_val}\n")
-        except Exception as exc:
-            logger.warning("Failed to write to GITHUB_ENV at '%s': %s", github_env_file, exc)
+    guide_path = os.path.join(output_dir, "docs", "gunsmith-guide.md")
+    if write:
+        os.makedirs(os.path.dirname(guide_path), exist_ok=True)
+        with open(guide_path, "w", encoding="utf-8") as fh:
+            fh.write(render_gunsmith_guide(game_data, game_data.provenance))
+        files_written.append(guide_path)
 
     return {
-        "has_changes": has_changes,
-        "updated": should_update,
-        "status": status,
-        "total_guns": len(guns),
-        "total_scenarios": len(all_rankings),
-        "rankings": all_rankings,
+        "scenarios": targets,
+        "weapon_count": len(keys),
+        "payloads": payloads,
         "files_written": files_written,
     }
 
 
 def main() -> None:
-    """CLI entrypoint for running the tier list orchestration pipeline."""
-    parser = argparse.ArgumentParser(
-        description="Delta Force Weapon Tier List & Economics Pipeline Orchestrator"
-    )
-    parser.add_argument(
-        "--force",
-        action="store_true",
-        help="Force full update regardless of semantic difference",
-    )
-    parser.add_argument(
-        "--offline",
-        action="store_true",
-        help="Run in offline mode without attempting live fetch",
-    )
-    parser.add_argument(
-        "--output-dir",
-        default=".",
-        help="Target output directory (default: current directory)",
-    )
-    parser.add_argument(
-        "--delta-threshold",
-        type=float,
-        default=3.0,
-        help="Score delta threshold for semantic change detection (default: 3.0)",
-    )
+    logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
+    parser = argparse.ArgumentParser(description="纯 TTK 枪械强度榜管线")
+    parser.add_argument("--output-dir", default=".", help="输出根目录（默认当前目录）")
+    parser.add_argument("--scenario", default=DEFAULT_SCENARIO, help="主榜情景 ID，或 all 表示全部情景")
+    parser.add_argument("--limit", type=int, default=None, help="仅处理前 N 把枪（调试）")
+    parser.add_argument("--beam-width", type=int, default=8, help="配装束搜索宽度")
+    parser.add_argument("--top-k", type=int, default=4, help="精评候选数")
+    parser.add_argument("--dry-run", action="store_true", help="只计算不写盘")
     args = parser.parse_args()
 
     result = run_pipeline(
-        force=args.force,
-        live=not args.offline,
         output_dir=args.output_dir,
-        delta_threshold=args.delta_threshold,
+        scenario_id=args.scenario if args.scenario != "all" else DEFAULT_SCENARIO,
+        all_scenarios=args.scenario == "all",
+        limit=args.limit,
+        beam_width=args.beam_width,
+        top_k=args.top_k,
+        write=not args.dry_run,
     )
     print(
-        f"Pipeline finished. Updated: {result['updated']}, Has Changes: {result['has_changes']}, "
-        f"Guns: {result['total_guns']}, Files: {len(result['files_written'])}"
+        f"完成：情景 {len(result['scenarios'])} 个，武器 {result['weapon_count']} 把，"
+        f"写出 {len(result['files_written'])} 个文件"
     )
 
 

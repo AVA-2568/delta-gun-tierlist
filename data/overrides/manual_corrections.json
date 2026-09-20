@@ -1,0 +1,21 @@
+{
+  "_comment": [
+    "人工校正层：本文件优先级高于任何上游同步数据。",
+    "上游来源为公开数据同步副本（dfttk v3），非腾讯官方 API，存在误差或滞后可能。",
+    "基座说明 basis 取值：",
+    "  in-game-test     : 游戏内实测读数（最高可信度）",
+    "  official-notice  : 官方公告 / 版本说明",
+    "  community-doc    : 可靠社区文档交叉验证",
+    "字段覆盖写法支持两种：",
+    "  简写  \"manually_corrected\": { \"weapons\": { \"18010000001\": { \"rpm\": 810 } } }",
+    "  详写  \"weapons\": { \"18010000001\": { \"fields\": { \"rpm\": { \"value\": 810, \"basis\": \"in-game-test\", \"verified_at\": \"2026-09-20\", \"note\": \"靶场实测\" } } } }",
+    "覆盖生效的记录会写入 data/game/provenance.json 的 applied_overrides。"
+  ],
+  "weapons": {},
+  "ammo": {},
+  "armor": {},
+  "notes": [
+    "当前无人工校正条目：全部数值来自上游同步数据，核验状态标记为 derived。",
+    "如需校正，请按上方格式补充，并在 note 中写明依据与核验日期。"
+  ]
+}

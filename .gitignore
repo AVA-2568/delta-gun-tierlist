@@ -4,3 +4,8 @@ __pycache__/
 .pytest_cache/
 .coverage
 htmlcov/
+
+# 本地临时目录（探针/备份/数据缓存）
+.probe/
+.backup/
+.cache/

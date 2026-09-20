@@ -1,0 +1,697 @@
+{
+ "scenarios": [
+  {
+   "scenario_id": "armor-3-ammo-3-default",
+   "armor_level": "3",
+   "ammo_level": 3,
+   "probability_preset": "default",
+   "helmet_durability": 40,
+   "armor_durability": 85,
+   "hit_probabilities": {
+    "head": 0.1724,
+    "chest": 0.3046,
+    "abdomen": 0.1897,
+    "upperArm": 0.12,
+    "lowerArm": 0.0711,
+    "thigh": 0.0711,
+    "calf": 0.0711
+   },
+   "file": "rankings/firefight/armor-3-ammo-3-default.json"
+  },
+  {
+   "scenario_id": "armor-3-ammo-3-center",
+   "armor_level": "3",
+   "ammo_level": 3,
+   "probability_preset": "center",
+   "helmet_durability": 40,
+   "armor_durability": 85,
+   "hit_probabilities": {
+    "head": 0.08,
+    "chest": 0.44,
+    "abdomen": 0.28,
+    "upperArm": 0.08,
+    "lowerArm": 0.04,
+    "thigh": 0.04,
+    "calf": 0.04
+   },
+   "file": "rankings/firefight/armor-3-ammo-3-center.json"
+  },
+  {
+   "scenario_id": "armor-3-ammo-3-chest-only",
+   "armor_level": "3",
+   "ammo_level": 3,
+   "probability_preset": "chest-only",
+   "helmet_durability": 40,
+   "armor_durability": 85,
+   "hit_probabilities": {
+    "head": 0.0,
+    "chest": 1.0,
+    "abdomen": 0.0,
+    "upperArm": 0.0,
+    "lowerArm": 0.0,
+    "thigh": 0.0,
+    "calf": 0.0
+   },
+   "file": "rankings/firefight/armor-3-ammo-3-chest-only.json"
+  },
+  {
+   "scenario_id": "armor-4-ammo-3-default",
+   "armor_level": "4",
+   "ammo_level": 3,
+   "probability_preset": "default",
+   "helmet_durability": 48,
+   "armor_durability": 110,
+   "hit_probabilities": {
+    "head": 0.1724,
+    "chest": 0.3046,
+    "abdomen": 0.1897,
+    "upperArm": 0.12,
+    "lowerArm": 0.0711,
+    "thigh": 0.0711,
+    "calf": 0.0711
+   },
+   "file": "rankings/firefight/armor-4-ammo-3-default.json"
+  },
+  {
+   "scenario_id": "armor-4-ammo-3-center",
+   "armor_level": "4",
+   "ammo_level": 3,
+   "probability_preset": "center",
+   "helmet_durability": 48,
+   "armor_durability": 110,
+   "hit_probabilities": {
+    "head": 0.08,
+    "chest": 0.44,
+    "abdomen": 0.28,
+    "upperArm": 0.08,
+    "lowerArm": 0.04,
+    "thigh": 0.04,
+    "calf": 0.04
+   },
+   "file": "rankings/firefight/armor-4-ammo-3-center.json"
+  },
+  {
+   "scenario_id": "armor-4-ammo-3-chest-only",
+   "armor_level": "4",
+   "ammo_level": 3,
+   "probability_preset": "chest-only",
+   "helmet_durability": 48,
+   "armor_durability": 110,
+   "hit_probabilities": {
+    "head": 0.0,
+    "chest": 1.0,
+    "abdomen": 0.0,
+    "upperArm": 0.0,
+    "lowerArm": 0.0,
+    "thigh": 0.0,
+    "calf": 0.0
+   },
+   "file": "rankings/firefight/armor-4-ammo-3-chest-only.json"
+  },
+  {
+   "scenario_id": "armor-4-ammo-4-default",
+   "armor_level": "4",
+   "ammo_level": 4,
+   "probability_preset": "default",
+   "helmet_durability": 48,
+   "armor_durability": 110,
+   "hit_probabilities": {
+    "head": 0.1724,
+    "chest": 0.3046,
+    "abdomen": 0.1897,
+    "upperArm": 0.12,
+    "lowerArm": 0.0711,
+    "thigh": 0.0711,
+    "calf": 0.0711
+   },
+   "file": "rankings/firefight/armor-4-ammo-4-default.json"
+  },
+  {
+   "scenario_id": "armor-4-ammo-4-center",
+   "armor_level": "4",
+   "ammo_level": 4,
+   "probability_preset": "center",
+   "helmet_durability": 48,
+   "armor_durability": 110,
+   "hit_probabilities": {
+    "head": 0.08,
+    "chest": 0.44,
+    "abdomen": 0.28,
+    "upperArm": 0.08,
+    "lowerArm": 0.04,
+    "thigh": 0.04,
+    "calf": 0.04
+   },
+   "file": "rankings/firefight/armor-4-ammo-4-center.json"
+  },
+  {
+   "scenario_id": "armor-4-ammo-4-chest-only",
+   "armor_level": "4",
+   "ammo_level": 4,
+   "probability_preset": "chest-only",
+   "helmet_durability": 48,
+   "armor_durability": 110,
+   "hit_probabilities": {
+    "head": 0.0,
+    "chest": 1.0,
+    "abdomen": 0.0,
+    "upperArm": 0.0,
+    "lowerArm": 0.0,
+    "thigh": 0.0,
+    "calf": 0.0
+   },
+   "file": "rankings/firefight/armor-4-ammo-4-chest-only.json"
+  },
+  {
+   "scenario_id": "armor-4-ammo-5-default",
+   "armor_level": "4",
+   "ammo_level": 5,
+   "probability_preset": "default",
+   "helmet_durability": 48,
+   "armor_durability": 110,
+   "hit_probabilities": {
+    "head": 0.1724,
+    "chest": 0.3046,
+    "abdomen": 0.1897,
+    "upperArm": 0.12,
+    "lowerArm": 0.0711,
+    "thigh": 0.0711,
+    "calf": 0.0711
+   },
+   "file": "rankings/firefight/armor-4-ammo-5-default.json"
+  },
+  {
+   "scenario_id": "armor-4-ammo-5-center",
+   "armor_level": "4",
+   "ammo_level": 5,
+   "probability_preset": "center",
+   "helmet_durability": 48,
+   "armor_durability": 110,
+   "hit_probabilities": {
+    "head": 0.08,
+    "chest": 0.44,
+    "abdomen": 0.28,
+    "upperArm": 0.08,
+    "lowerArm": 0.04,
+    "thigh": 0.04,
+    "calf": 0.04
+   },
+   "file": "rankings/firefight/armor-4-ammo-5-center.json"
+  },
+  {
+   "scenario_id": "armor-4-ammo-5-chest-only",
+   "armor_level": "4",
+   "ammo_level": 5,
+   "probability_preset": "chest-only",
+   "helmet_durability": 48,
+   "armor_durability": 110,
+   "hit_probabilities": {
+    "head": 0.0,
+    "chest": 1.0,
+    "abdomen": 0.0,
+    "upperArm": 0.0,
+    "lowerArm": 0.0,
+    "thigh": 0.0,
+    "calf": 0.0
+   },
+   "file": "rankings/firefight/armor-4-ammo-5-chest-only.json"
+  },
+  {
+   "scenario_id": "armor-5-ammo-4-default",
+   "armor_level": "5",
+   "ammo_level": 4,
+   "probability_preset": "default",
+   "helmet_durability": 50,
+   "armor_durability": 125,
+   "hit_probabilities": {
+    "head": 0.1724,
+    "chest": 0.3046,
+    "abdomen": 0.1897,
+    "upperArm": 0.12,
+    "lowerArm": 0.0711,
+    "thigh": 0.0711,
+    "calf": 0.0711
+   },
+   "file": "rankings/firefight/armor-5-ammo-4-default.json"
+  },
+  {
+   "scenario_id": "armor-5-ammo-4-center",
+   "armor_level": "5",
+   "ammo_level": 4,
+   "probability_preset": "center",
+   "helmet_durability": 50,
+   "armor_durability": 125,
+   "hit_probabilities": {
+    "head": 0.08,
+    "chest": 0.44,
+    "abdomen": 0.28,
+    "upperArm": 0.08,
+    "lowerArm": 0.04,
+    "thigh": 0.04,
+    "calf": 0.04
+   },
+   "file": "rankings/firefight/armor-5-ammo-4-center.json"
+  },
+  {
+   "scenario_id": "armor-5-ammo-4-chest-only",
+   "armor_level": "5",
+   "ammo_level": 4,
+   "probability_preset": "chest-only",
+   "helmet_durability": 50,
+   "armor_durability": 125,
+   "hit_probabilities": {
+    "head": 0.0,
+    "chest": 1.0,
+    "abdomen": 0.0,
+    "upperArm": 0.0,
+    "lowerArm": 0.0,
+    "thigh": 0.0,
+    "calf": 0.0
+   },
+   "file": "rankings/firefight/armor-5-ammo-4-chest-only.json"
+  },
+  {
+   "scenario_id": "armor-5-ammo-5-default",
+   "armor_level": "5",
+   "ammo_level": 5,
+   "probability_preset": "default",
+   "helmet_durability": 50,
+   "armor_durability": 125,
+   "hit_probabilities": {
+    "head": 0.1724,
+    "chest": 0.3046,
+    "abdomen": 0.1897,
+    "upperArm": 0.12,
+    "lowerArm": 0.0711,
+    "thigh": 0.0711,
+    "calf": 0.0711
+   },
+   "file": "rankings/firefight/armor-5-ammo-5-default.json"
+  },
+  {
+   "scenario_id": "armor-5-ammo-5-center",
+   "armor_level": "5",
+   "ammo_level": 5,
+   "probability_preset": "center",
+   "helmet_durability": 50,
+   "armor_durability": 125,
+   "hit_probabilities": {
+    "head": 0.08,
+    "chest": 0.44,
+    "abdomen": 0.28,
+    "upperArm": 0.08,
+    "lowerArm": 0.04,
+    "thigh": 0.04,
+    "calf": 0.04
+   },
+   "file": "rankings/firefight/armor-5-ammo-5-center.json"
+  },
+  {
+   "scenario_id": "armor-5-ammo-5-chest-only",
+   "armor_level": "5",
+   "ammo_level": 5,
+   "probability_preset": "chest-only",
+   "helmet_durability": 50,
+   "armor_durability": 125,
+   "hit_probabilities": {
+    "head": 0.0,
+    "chest": 1.0,
+    "abdomen": 0.0,
+    "upperArm": 0.0,
+    "lowerArm": 0.0,
+    "thigh": 0.0,
+    "calf": 0.0
+   },
+   "file": "rankings/firefight/armor-5-ammo-5-chest-only.json"
+  },
+  {
+   "scenario_id": "armor-6-ammo-5-default",
+   "armor_level": "6",
+   "ammo_level": 5,
+   "probability_preset": "default",
+   "helmet_durability": 50,
+   "armor_durability": 150,
+   "hit_probabilities": {
+    "head": 0.1724,
+    "chest": 0.3046,
+    "abdomen": 0.1897,
+    "upperArm": 0.12,
+    "lowerArm": 0.0711,
+    "thigh": 0.0711,
+    "calf": 0.0711
+   },
+   "file": "rankings/firefight/armor-6-ammo-5-default.json"
+  },
+  {
+   "scenario_id": "armor-6-ammo-5-center",
+   "armor_level": "6",
+   "ammo_level": 5,
+   "probability_preset": "center",
+   "helmet_durability": 50,
+   "armor_durability": 150,
+   "hit_probabilities": {
+    "head": 0.08,
+    "chest": 0.44,
+    "abdomen": 0.28,
+    "upperArm": 0.08,
+    "lowerArm": 0.04,
+    "thigh": 0.04,
+    "calf": 0.04
+   },
+   "file": "rankings/firefight/armor-6-ammo-5-center.json"
+  },
+  {
+   "scenario_id": "armor-6-ammo-5-chest-only",
+   "armor_level": "6",
+   "ammo_level": 5,
+   "probability_preset": "chest-only",
+   "helmet_durability": 50,
+   "armor_durability": 150,
+   "hit_probabilities": {
+    "head": 0.0,
+    "chest": 1.0,
+    "abdomen": 0.0,
+    "upperArm": 0.0,
+    "lowerArm": 0.0,
+    "thigh": 0.0,
+    "calf": 0.0
+   },
+   "file": "rankings/firefight/armor-6-ammo-5-chest-only.json"
+  }
+ ],
+ "distance_range": {
+  "min": 0,
+  "max": 80,
+  "step": 1,
+  "default_min": 15,
+  "default_max": 40
+ },
+ "default_scenario_id": "armor-5-ammo-5-default",
+ "weapon_pool": [
+  {
+   "profile_key": "18010000001:base",
+   "name": "M4A1",
+   "weapon_type": "rifle"
+  },
+  {
+   "profile_key": "18010000001:13020000173",
+   "name": "M4A1-AR特勤一体消音组合",
+   "weapon_type": "rifle"
+  },
+  {
+   "profile_key": "18010000006:base",
+   "name": "AKM",
+   "weapon_type": "rifle"
+  },
+  {
+   "profile_key": "18010000006:13020000355",
+   "name": "AKM-性能枪管组合",
+   "weapon_type": "rifle"
+  },
+  {
+   "profile_key": "18010000008:base",
+   "name": "QBZ95-1",
+   "weapon_type": "rifle"
+  },
+  {
+   "profile_key": "18010000010:base",
+   "name": "AKS-74U",
+   "weapon_type": "rifle"
+  },
+  {
+   "profile_key": "18010000012:base",
+   "name": "ASh-12",
+   "weapon_type": "rifle"
+  },
+  {
+   "profile_key": "18010000012:13020000569",
+   "name": "ASh-12-战斧重型枪管",
+   "weapon_type": "rifle"
+  },
+  {
+   "profile_key": "18010000012:13020000603",
+   "name": "ASh-12-HVK双发枪管",
+   "weapon_type": "rifle"
+  },
+  {
+   "profile_key": "18010000013:base",
+   "name": "K416",
+   "weapon_type": "rifle"
+  },
+  {
+   "profile_key": "18010000014:base",
+   "name": "M16A4",
+   "weapon_type": "rifle"
+  },
+  {
+   "profile_key": "18010000014:13020000173",
+   "name": "M16A4-AR特勤一体消音组合",
+   "weapon_type": "rifle"
+  },
+  {
+   "profile_key": "18010000015:base",
+   "name": "AUG",
+   "weapon_type": "rifle"
+  },
+  {
+   "profile_key": "18010000016:base",
+   "name": "M7",
+   "weapon_type": "rifle"
+  },
+  {
+   "profile_key": "18010000016:13020000383",
+   "name": "M7-堤风超长枪管组合",
+   "weapon_type": "rifle"
+  },
+  {
+   "profile_key": "18010000017:base",
+   "name": "SG552",
+   "weapon_type": "rifle"
+  },
+  {
+   "profile_key": "18010000018:base",
+   "name": "AK12",
+   "weapon_type": "rifle"
+  },
+  {
+   "profile_key": "18010000021:base",
+   "name": "SCAR-H",
+   "weapon_type": "rifle"
+  },
+  {
+   "profile_key": "18010000023:base",
+   "name": "G3",
+   "weapon_type": "rifle"
+  },
+  {
+   "profile_key": "18010000024:base",
+   "name": "PTR-32",
+   "weapon_type": "rifle"
+  },
+  {
+   "profile_key": "18010000031:base",
+   "name": "CAR-15",
+   "weapon_type": "rifle"
+  },
+  {
+   "profile_key": "18010000031:13020000173",
+   "name": "CAR-15-AR特勤一体消音组合",
+   "weapon_type": "rifle"
+  },
+  {
+   "profile_key": "18010000037:base",
+   "name": "AS-Val",
+   "weapon_type": "rifle"
+  },
+  {
+   "profile_key": "18010000037:13020000561",
+   "name": "AS-Val-刺客高级枪管",
+   "weapon_type": "rifle"
+  },
+  {
+   "profile_key": "18010000038:base",
+   "name": "腾龙",
+   "weapon_type": "rifle"
+  },
+  {
+   "profile_key": "18010000040:base",
+   "name": "K437",
+   "weapon_type": "rifle"
+  },
+  {
+   "profile_key": "18010000040:13020000543",
+   "name": "K437-长矛手长枪管组合",
+   "weapon_type": "rifle"
+  },
+  {
+   "profile_key": "18010000042:base",
+   "name": "KC17",
+   "weapon_type": "rifle"
+  },
+  {
+   "profile_key": "18010000043:base",
+   "name": "MK47",
+   "weapon_type": "rifle"
+  },
+  {
+   "profile_key": "18010000043:13020000559",
+   "name": "MK47-余烬枪管",
+   "weapon_type": "rifle"
+  },
+  {
+   "profile_key": "18010000043:13020000560",
+   "name": "MK47-鏖战枪管",
+   "weapon_type": "rifle"
+  },
+  {
+   "profile_key": "18010000044:base",
+   "name": "MCX-LT",
+   "weapon_type": "rifle"
+  },
+  {
+   "profile_key": "18010000044:13020000573",
+   "name": "MCX-LT-焰魂枪管",
+   "weapon_type": "rifle"
+  },
+  {
+   "profile_key": "18010000045:base",
+   "name": "AR57",
+   "weapon_type": "rifle"
+  },
+  {
+   "profile_key": "18010000049:base",
+   "name": "RM277",
+   "weapon_type": "rifle"
+  },
+  {
+   "profile_key": "18010000051:base",
+   "name": "MDR突击步枪",
+   "weapon_type": "rifle"
+  },
+  {
+   "profile_key": "18020000001:base",
+   "name": "MP5",
+   "weapon_type": "smg"
+  },
+  {
+   "profile_key": "18020000002:base",
+   "name": "P90",
+   "weapon_type": "smg"
+  },
+  {
+   "profile_key": "18020000002:13020000579",
+   "name": "P90-长弓精钢枪管",
+   "weapon_type": "smg"
+  },
+  {
+   "profile_key": "18020000003:base",
+   "name": "Vector",
+   "weapon_type": "smg"
+  },
+  {
+   "profile_key": "18020000004:base",
+   "name": "UZI",
+   "weapon_type": "smg"
+  },
+  {
+   "profile_key": "18020000005:base",
+   "name": "野牛",
+   "weapon_type": "smg"
+  },
+  {
+   "profile_key": "18020000006:base",
+   "name": "SMG-45",
+   "weapon_type": "smg"
+  },
+  {
+   "profile_key": "18020000008:base",
+   "name": "SR-3M",
+   "weapon_type": "smg"
+  },
+  {
+   "profile_key": "18020000009:base",
+   "name": "勇士",
+   "weapon_type": "smg"
+  },
+  {
+   "profile_key": "18020000010:base",
+   "name": "MP7",
+   "weapon_type": "smg"
+  },
+  {
+   "profile_key": "18020000011:base",
+   "name": "QCQ171",
+   "weapon_type": "smg"
+  },
+  {
+   "profile_key": "18020000012:base",
+   "name": "MK4",
+   "weapon_type": "smg"
+  },
+  {
+   "profile_key": "18020000012:13020000563",
+   "name": "MK4-击剑手枪管",
+   "weapon_type": "smg"
+  },
+  {
+   "profile_key": "18020000012:13020000564",
+   "name": "MK4-深空镀铬枪管",
+   "weapon_type": "smg"
+  },
+  {
+   "profile_key": "18020000046:base",
+   "name": "汤姆逊冲锋枪",
+   "weapon_type": "smg"
+  },
+  {
+   "profile_key": "18020000046:13050000410",
+   "name": "汤姆逊冲锋枪-汤姆逊先进枪身系统",
+   "weapon_type": "smg"
+  },
+  {
+   "profile_key": "18040000001:base",
+   "name": "PKM",
+   "weapon_type": "lmg"
+  },
+  {
+   "profile_key": "18040000002:base",
+   "name": "M249",
+   "weapon_type": "lmg"
+  },
+  {
+   "profile_key": "18040000003:base",
+   "name": "M250",
+   "weapon_type": "lmg"
+  },
+  {
+   "profile_key": "18040000003:13020000524",
+   "name": "M250-钛金长枪管",
+   "weapon_type": "lmg"
+  },
+  {
+   "profile_key": "18040000004:base",
+   "name": "QJB201",
+   "weapon_type": "lmg"
+  },
+  {
+   "profile_key": "18040000004:13020000529",
+   "name": "QJB201-新式獠牙短枪管",
+   "weapon_type": "lmg"
+  },
+  {
+   "profile_key": "18050000003:base",
+   "name": "VSS",
+   "weapon_type": "marksman"
+  },
+  {
+   "profile_key": "18050000005:base",
+   "name": "M14",
+   "weapon_type": "marksman"
+  },
+  {
+   "profile_key": "18050000033:base",
+   "name": "SVCH",
+   "weapon_type": "marksman"
+  }
+ ]
+}

@@ -1,12 +1,8 @@
-"""Data collectors module with 3-tier fallback resilience."""
+"""采集层：从上游数据集同步并归一化官方游戏数据。
 
-from src.collectors.gun_loader import load_all_guns
-from src.collectors.ammo_collector import fetch_ammo_prices
-from src.collectors.build_collector import fetch_weapon_builds, normalize_weapon_build
+唯一入口 ``game_data_sync``，产出 ``data/game/*.json``。
+"""
 
-__all__ = [
-    "load_all_guns",
-    "fetch_ammo_prices",
-    "fetch_weapon_builds",
-    "normalize_weapon_build",
-]
+from src.collectors.game_data_sync import sync_all
+
+__all__ = ["sync_all"]
