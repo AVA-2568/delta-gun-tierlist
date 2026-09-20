@@ -1,5 +1,5 @@
 {
- "scenario_id": "armor-5-ammo-5-default",
+ "scenario_id": "armor-5-ammo-5-chest-only",
  "ranking_key": "band_mean_ttk_ms",
  "robustness_key": "band_worst_ttk_ms",
  "tier_quantiles": [
@@ -41,24 +41,24 @@
  ],
  "tier_thresholds_ms": {
   "贴脸": {
-   "T0": 325.71,
-   "T1": 346.91,
-   "T2": 393.41
+   "T0": 253.7,
+   "T1": 278.88,
+   "T2": 329.4
   },
   "近距": {
-   "T0": 328.85,
-   "T1": 352.83,
-   "T2": 403.06
+   "T0": 271.69,
+   "T1": 300.0,
+   "T2": 332.38
   },
   "中距": {
-   "T0": 344.38,
-   "T1": 383.24,
-   "T2": 431.73
+   "T0": 276.55,
+   "T1": 317.82,
+   "T2": 363.04
   },
   "远距": {
-   "T0": 385.23,
-   "T1": 428.55,
-   "T2": 486.56
+   "T0": 324.72,
+   "T1": 356.92,
+   "T2": 435.1
   }
  },
  "band_definitions": {
@@ -93,40 +93,40 @@
     "2": "13020000370"
    },
    "tuning": {},
-   "overall_mean_ms": 409.3,
-   "expected_shots_0m": 5.8736,
+   "overall_mean_ms": 345.49,
+   "expected_shots_0m": 5.0,
    "rpm": 735.3,
    "ads_ms_reference": 350.0,
    "muzzle_velocity_mps": 747.5,
    "effective_range_m": 52.0,
    "bands": {
     "贴脸": {
-     "rank": 28,
-     "tier": "T3",
-     "mean_ms": 397.68,
-     "worst_ms": 397.68,
-     "best_ms": 397.68
+     "rank": 26,
+     "tier": "T2",
+     "mean_ms": 326.4,
+     "worst_ms": 326.4,
+     "best_ms": 326.4
     },
     "近距": {
-     "rank": 27,
+     "rank": 24,
      "tier": "T2",
-     "mean_ms": 397.68,
-     "worst_ms": 397.68,
-     "best_ms": 397.68
+     "mean_ms": 326.4,
+     "worst_ms": 326.4,
+     "best_ms": 326.4
     },
     "中距": {
-     "rank": 21,
+     "rank": 18,
      "tier": "T2",
-     "mean_ms": 397.68,
-     "worst_ms": 397.68,
-     "best_ms": 397.68
+     "mean_ms": 326.4,
+     "worst_ms": 326.4,
+     "best_ms": 326.4
     },
     "远距": {
-     "rank": 20,
+     "rank": 24,
      "tier": "T2",
-     "mean_ms": 444.15,
-     "worst_ms": 447.35,
-     "best_ms": 397.68
+     "mean_ms": 402.74,
+     "worst_ms": 408.0,
+     "best_ms": 326.4
     }
    }
   },
@@ -142,44 +142,43 @@
     "AKM-性能枪管组合"
    ],
    "loadout": {
-    "2": "13020000355",
-    "6": "13130000164"
+    "2": "13020000357"
    },
    "tuning": {},
-   "overall_mean_ms": 384.42,
-   "expected_shots_0m": 4.6669,
+   "overall_mean_ms": 323.39,
+   "expected_shots_0m": 4.0,
    "rpm": 600.0,
-   "ads_ms_reference": 344.77,
-   "muzzle_velocity_mps": 656.67,
-   "effective_range_m": 50.03,
+   "ads_ms_reference": 355.38,
+   "muzzle_velocity_mps": 682.5,
+   "effective_range_m": 52.0,
    "bands": {
     "贴脸": {
-     "rank": 24,
-     "tier": "T2",
-     "mean_ms": 366.69,
-     "worst_ms": 366.69,
-     "best_ms": 366.69
-    },
-    "近距": {
-     "rank": 22,
-     "tier": "T2",
-     "mean_ms": 366.69,
-     "worst_ms": 366.69,
-     "best_ms": 366.69
-    },
-    "中距": {
-     "rank": 11,
-     "tier": "T1",
-     "mean_ms": 366.69,
-     "worst_ms": 366.69,
-     "best_ms": 366.69
-    },
-    "远距": {
      "rank": 19,
      "tier": "T2",
-     "mean_ms": 437.62,
-     "worst_ms": 439.98,
-     "best_ms": 366.69
+     "mean_ms": 300.0,
+     "worst_ms": 300.0,
+     "best_ms": 300.0
+    },
+    "近距": {
+     "rank": 16,
+     "tier": "T1",
+     "mean_ms": 300.0,
+     "worst_ms": 300.0,
+     "best_ms": 300.0
+    },
+    "中距": {
+     "rank": 9,
+     "tier": "T1",
+     "mean_ms": 300.0,
+     "worst_ms": 300.0,
+     "best_ms": 300.0
+    },
+    "远距": {
+     "rank": 21,
+     "tier": "T2",
+     "mean_ms": 393.55,
+     "worst_ms": 400.0,
+     "best_ms": 300.0
     }
    }
   },
@@ -196,40 +195,40 @@
     "6": "13130000164"
    },
    "tuning": {},
-   "overall_mean_ms": 570.12,
-   "expected_shots_0m": 5.6857,
+   "overall_mean_ms": 482.57,
+   "expected_shots_0m": 5.0,
    "rpm": 532.9,
    "ads_ms_reference": 321.23,
    "muzzle_velocity_mps": 590.0,
    "effective_range_m": 47.2,
    "bands": {
     "贴脸": {
-     "rank": 38,
-     "tier": "T3",
-     "mean_ms": 527.61,
-     "worst_ms": 527.61,
-     "best_ms": 527.61
-    },
-    "近距": {
-     "rank": 38,
-     "tier": "T3",
-     "mean_ms": 527.61,
-     "worst_ms": 527.61,
-     "best_ms": 527.61
-    },
-    "中距": {
      "rank": 37,
      "tier": "T3",
-     "mean_ms": 548.87,
-     "worst_ms": 676.4,
-     "best_ms": 527.61
+     "mean_ms": 450.4,
+     "worst_ms": 450.4,
+     "best_ms": 450.4
+    },
+    "近距": {
+     "rank": 37,
+     "tier": "T3",
+     "mean_ms": 450.4,
+     "worst_ms": 450.4,
+     "best_ms": 450.4
+    },
+    "中距": {
+     "rank": 36,
+     "tier": "T3",
+     "mean_ms": 466.49,
+     "worst_ms": 563.0,
+     "best_ms": 450.4
     },
     "远距": {
-     "rank": 38,
+     "rank": 37,
      "tier": "T3",
-     "mean_ms": 676.4,
-     "worst_ms": 676.4,
-     "best_ms": 676.4
+     "mean_ms": 563.0,
+     "worst_ms": 563.0,
+     "best_ms": 563.0
     }
    }
   },
@@ -246,40 +245,40 @@
     "2": "13020000593"
    },
    "tuning": {},
-   "overall_mean_ms": 399.77,
-   "expected_shots_0m": 6.4154,
+   "overall_mean_ms": 357.14,
+   "expected_shots_0m": 6.0,
    "rpm": 900.0,
    "ads_ms_reference": 314.96,
    "muzzle_velocity_mps": 619.5,
    "effective_range_m": 41.3,
    "bands": {
     "贴脸": {
-     "rank": 21,
-     "tier": "T2",
-     "mean_ms": 361.02,
-     "worst_ms": 361.02,
-     "best_ms": 361.02
+     "rank": 30,
+     "tier": "T3",
+     "mean_ms": 333.33,
+     "worst_ms": 333.33,
+     "best_ms": 333.33
     },
     "近距": {
-     "rank": 18,
-     "tier": "T2",
-     "mean_ms": 361.02,
-     "worst_ms": 361.02,
-     "best_ms": 361.02
+     "rank": 29,
+     "tier": "T3",
+     "mean_ms": 333.33,
+     "worst_ms": 333.33,
+     "best_ms": 333.33
     },
     "中距": {
-     "rank": 20,
-     "tier": "T2",
-     "mean_ms": 392.78,
-     "worst_ms": 435.14,
-     "best_ms": 361.02
-    },
-    "远距": {
      "rank": 27,
      "tier": "T2",
-     "mean_ms": 484.25,
-     "worst_ms": 504.34,
-     "best_ms": 435.14
+     "mean_ms": 361.9,
+     "worst_ms": 400.0,
+     "best_ms": 333.33
+    },
+    "远距": {
+     "rank": 23,
+     "tier": "T2",
+     "mean_ms": 400.0,
+     "worst_ms": 400.0,
+     "best_ms": 400.0
     }
    }
   },
@@ -296,40 +295,40 @@
    ],
    "loadout": {},
    "tuning": {},
-   "overall_mean_ms": 365.76,
-   "expected_shots_0m": 6.2139,
+   "overall_mean_ms": 310.06,
+   "expected_shots_0m": 5.0,
    "rpm": 972.4,
    "ads_ms_reference": 277.15,
    "muzzle_velocity_mps": 300.0,
    "effective_range_m": 21.0,
    "bands": {
     "贴脸": {
-     "rank": 5,
+     "rank": 4,
      "tier": "T0",
-     "mean_ms": 321.7,
-     "worst_ms": 321.7,
-     "best_ms": 321.7
+     "mean_ms": 246.8,
+     "worst_ms": 246.8,
+     "best_ms": 246.8
     },
     "近距": {
-     "rank": 13,
+     "rank": 12,
      "tier": "T1",
-     "mean_ms": 346.46,
-     "worst_ms": 361.32,
-     "best_ms": 321.7
+     "mean_ms": 285.36,
+     "worst_ms": 308.5,
+     "best_ms": 246.8
     },
     "中距": {
-     "rank": 17,
+     "rank": 22,
      "tier": "T2",
-     "mean_ms": 384.62,
-     "worst_ms": 410.26,
-     "best_ms": 361.32
+     "mean_ms": 337.88,
+     "worst_ms": 370.2,
+     "best_ms": 308.5
     },
     "远距": {
-     "rank": 11,
-     "tier": "T1",
-     "mean_ms": 410.26,
-     "worst_ms": 410.26,
-     "best_ms": 410.26
+     "rank": 17,
+     "tier": "T2",
+     "mean_ms": 370.2,
+     "worst_ms": 370.2,
+     "best_ms": 370.2
     }
    }
   },
@@ -347,40 +346,40 @@
    ],
    "loadout": {},
    "tuning": {},
-   "overall_mean_ms": 323.78,
-   "expected_shots_0m": 3.5832,
+   "overall_mean_ms": 265.16,
+   "expected_shots_0m": 3.0,
    "rpm": 500.0,
    "ads_ms_reference": 308.65,
    "muzzle_velocity_mps": 340.0,
    "effective_range_m": 55.0,
    "bands": {
     "贴脸": {
-     "rank": 3,
+     "rank": 2,
      "tier": "T0",
-     "mean_ms": 309.98,
-     "worst_ms": 309.98,
-     "best_ms": 309.98
+     "mean_ms": 240.0,
+     "worst_ms": 240.0,
+     "best_ms": 240.0
     },
     "近距": {
      "rank": 2,
      "tier": "T0",
-     "mean_ms": 309.98,
-     "worst_ms": 309.98,
-     "best_ms": 309.98
+     "mean_ms": 240.0,
+     "worst_ms": 240.0,
+     "best_ms": 240.0
     },
     "中距": {
      "rank": 2,
      "tier": "T0",
-     "mean_ms": 309.98,
-     "worst_ms": 309.98,
-     "best_ms": 309.98
+     "mean_ms": 240.0,
+     "worst_ms": 240.0,
+     "best_ms": 240.0
     },
     "远距": {
-     "rank": 2,
-     "tier": "T0",
-     "mean_ms": 365.18,
-     "worst_ms": 375.8,
-     "best_ms": 309.98
+     "rank": 12,
+     "tier": "T1",
+     "mean_ms": 340.65,
+     "worst_ms": 360.0,
+     "best_ms": 240.0
     }
    }
   },
@@ -393,45 +392,42 @@
    "is_variant": false,
    "variant_item_name": null,
    "equivalent_variants": [],
-   "loadout": {
-    "2": "13020000367",
-    "6": "13130000164"
-   },
+   "loadout": {},
    "tuning": {},
-   "overall_mean_ms": 422.43,
-   "expected_shots_0m": 5.7786,
+   "overall_mean_ms": 353.6,
+   "expected_shots_0m": 5.0,
    "rpm": 678.7,
-   "ads_ms_reference": 408.47,
-   "muzzle_velocity_mps": 882.05,
-   "effective_range_m": 84.37,
+   "ads_ms_reference": 327.39,
+   "muzzle_velocity_mps": 575.0,
+   "effective_range_m": 55.0,
    "bands": {
     "贴脸": {
-     "rank": 31,
+     "rank": 32,
      "tier": "T3",
-     "mean_ms": 422.43,
-     "worst_ms": 422.43,
-     "best_ms": 422.43
+     "mean_ms": 353.6,
+     "worst_ms": 353.6,
+     "best_ms": 353.6
     },
     "近距": {
-     "rank": 31,
+     "rank": 32,
      "tier": "T3",
-     "mean_ms": 422.43,
-     "worst_ms": 422.43,
-     "best_ms": 422.43
+     "mean_ms": 353.6,
+     "worst_ms": 353.6,
+     "best_ms": 353.6
     },
     "中距": {
-     "rank": 26,
+     "rank": 23,
      "tier": "T2",
-     "mean_ms": 422.43,
-     "worst_ms": 422.43,
-     "best_ms": 422.43
+     "mean_ms": 353.6,
+     "worst_ms": 353.6,
+     "best_ms": 353.6
     },
     "远距": {
-     "rank": 14,
+     "rank": 15,
      "tier": "T1",
-     "mean_ms": 422.43,
-     "worst_ms": 422.43,
-     "best_ms": 422.43
+     "mean_ms": 353.6,
+     "worst_ms": 353.6,
+     "best_ms": 353.6
     }
    }
   },
@@ -450,40 +446,40 @@
     "2": "13020000173"
    },
    "tuning": {},
-   "overall_mean_ms": 545.98,
-   "expected_shots_0m": 6.4404,
+   "overall_mean_ms": 501.62,
+   "expected_shots_0m": 6.0,
    "rpm": 632.2,
    "ads_ms_reference": 339.22,
    "muzzle_velocity_mps": 678.5,
    "effective_range_m": 47.2,
    "bands": {
     "贴脸": {
-     "rank": 37,
+     "rank": 39,
      "tier": "T3",
-     "mean_ms": 516.3,
-     "worst_ms": 516.3,
-     "best_ms": 516.3
+     "mean_ms": 474.5,
+     "worst_ms": 474.5,
+     "best_ms": 474.5
     },
     "近距": {
-     "rank": 37,
+     "rank": 39,
      "tier": "T3",
-     "mean_ms": 516.3,
-     "worst_ms": 516.3,
-     "best_ms": 516.3
+     "mean_ms": 474.5,
+     "worst_ms": 474.5,
+     "best_ms": 474.5
     },
     "中距": {
-     "rank": 36,
+     "rank": 39,
      "tier": "T3",
-     "mean_ms": 531.14,
-     "worst_ms": 620.18,
-     "best_ms": 516.3
+     "mean_ms": 488.06,
+     "worst_ms": 569.4,
+     "best_ms": 474.5
     },
     "远距": {
-     "rank": 37,
+     "rank": 38,
      "tier": "T3",
-     "mean_ms": 620.18,
-     "worst_ms": 620.18,
-     "best_ms": 620.18
+     "mean_ms": 569.4,
+     "worst_ms": 569.4,
+     "best_ms": 569.4
     }
    }
   },
@@ -501,40 +497,40 @@
     "6": "13130000164"
    },
    "tuning": {},
-   "overall_mean_ms": 454.5,
-   "expected_shots_0m": 5.0364,
+   "overall_mean_ms": 337.8,
+   "expected_shots_0m": 4.0,
    "rpm": 532.9,
    "ads_ms_reference": 437.57,
    "muzzle_velocity_mps": 966.42,
    "effective_range_m": 84.37,
    "bands": {
     "贴脸": {
-     "rank": 35,
+     "rank": 31,
      "tier": "T3",
-     "mean_ms": 454.5,
-     "worst_ms": 454.5,
-     "best_ms": 454.5
+     "mean_ms": 337.8,
+     "worst_ms": 337.8,
+     "best_ms": 337.8
     },
     "近距": {
-     "rank": 35,
-     "tier": "T3",
-     "mean_ms": 454.5,
-     "worst_ms": 454.5,
-     "best_ms": 454.5
-    },
-    "中距": {
      "rank": 30,
      "tier": "T3",
-     "mean_ms": 454.5,
-     "worst_ms": 454.5,
-     "best_ms": 454.5
+     "mean_ms": 337.8,
+     "worst_ms": 337.8,
+     "best_ms": 337.8
+    },
+    "中距": {
+     "rank": 21,
+     "tier": "T2",
+     "mean_ms": 337.8,
+     "worst_ms": 337.8,
+     "best_ms": 337.8
     },
     "远距": {
-     "rank": 22,
-     "tier": "T2",
-     "mean_ms": 454.5,
-     "worst_ms": 454.5,
-     "best_ms": 454.5
+     "rank": 10,
+     "tier": "T1",
+     "mean_ms": 337.8,
+     "worst_ms": 337.8,
+     "best_ms": 337.8
     }
    }
   },
@@ -552,40 +548,40 @@
     "6": "13130000164"
    },
    "tuning": {},
-   "overall_mean_ms": 372.25,
-   "expected_shots_0m": 6.0847,
+   "overall_mean_ms": 297.16,
+   "expected_shots_0m": 5.0,
    "rpm": 879.8,
    "ads_ms_reference": 355.38,
    "muzzle_velocity_mps": 882.05,
    "effective_range_m": 41.42,
    "bands": {
     "贴脸": {
-     "rank": 16,
+     "rank": 11,
      "tier": "T1",
-     "mean_ms": 346.78,
-     "worst_ms": 346.78,
-     "best_ms": 346.78
+     "mean_ms": 272.8,
+     "worst_ms": 272.8,
+     "best_ms": 272.8
     },
     "近距": {
-     "rank": 14,
+     "rank": 7,
      "tier": "T1",
-     "mean_ms": 346.78,
-     "worst_ms": 346.78,
-     "best_ms": 346.78
+     "mean_ms": 272.8,
+     "worst_ms": 272.8,
+     "best_ms": 272.8
     },
     "中距": {
-     "rank": 14,
+     "rank": 11,
      "tier": "T1",
-     "mean_ms": 377.35,
-     "worst_ms": 418.11,
-     "best_ms": 346.78
+     "mean_ms": 302.03,
+     "worst_ms": 341.0,
+     "best_ms": 272.8
     },
     "远距": {
      "rank": 13,
      "tier": "T1",
-     "mean_ms": 418.11,
-     "worst_ms": 418.11,
-     "best_ms": 418.11
+     "mean_ms": 341.0,
+     "worst_ms": 341.0,
+     "best_ms": 341.0
     }
    }
   },
@@ -604,40 +600,40 @@
     "2": "13020000543"
    },
    "tuning": {},
-   "overall_mean_ms": 356.39,
-   "expected_shots_0m": 5.5177,
+   "overall_mean_ms": 307.6,
+   "expected_shots_0m": 5.0,
    "rpm": 780.2,
    "ads_ms_reference": 375.11,
    "muzzle_velocity_mps": 862.5,
    "effective_range_m": 52.5,
    "bands": {
     "贴脸": {
-     "rank": 17,
+     "rank": 22,
      "tier": "T2",
-     "mean_ms": 347.41,
-     "worst_ms": 347.41,
-     "best_ms": 347.41
+     "mean_ms": 307.6,
+     "worst_ms": 307.6,
+     "best_ms": 307.6
     },
     "近距": {
-     "rank": 15,
-     "tier": "T1",
-     "mean_ms": 347.41,
-     "worst_ms": 347.41,
-     "best_ms": 347.41
+     "rank": 19,
+     "tier": "T2",
+     "mean_ms": 307.6,
+     "worst_ms": 307.6,
+     "best_ms": 307.6
     },
     "中距": {
-     "rank": 7,
+     "rank": 12,
      "tier": "T1",
-     "mean_ms": 347.41,
-     "worst_ms": 347.41,
-     "best_ms": 347.41
+     "mean_ms": 307.6,
+     "worst_ms": 307.6,
+     "best_ms": 307.6
     },
     "远距": {
-     "rank": 6,
+     "rank": 2,
      "tier": "T0",
-     "mean_ms": 383.35,
-     "worst_ms": 387.2,
-     "best_ms": 347.41
+     "mean_ms": 307.6,
+     "worst_ms": 307.6,
+     "best_ms": 307.6
     }
    }
   },
@@ -655,40 +651,40 @@
     "6": "13130000164"
    },
    "tuning": {},
-   "overall_mean_ms": 379.91,
-   "expected_shots_0m": 5.6856,
+   "overall_mean_ms": 324.32,
+   "expected_shots_0m": 5.0,
    "rpm": 740.0,
    "ads_ms_reference": 417.84,
    "muzzle_velocity_mps": 882.05,
    "effective_range_m": 84.37,
    "bands": {
     "贴脸": {
-     "rank": 26,
+     "rank": 25,
      "tier": "T2",
-     "mean_ms": 379.91,
-     "worst_ms": 379.91,
-     "best_ms": 379.91
+     "mean_ms": 324.32,
+     "worst_ms": 324.32,
+     "best_ms": 324.32
     },
     "近距": {
-     "rank": 24,
+     "rank": 23,
      "tier": "T2",
-     "mean_ms": 379.91,
-     "worst_ms": 379.91,
-     "best_ms": 379.91
+     "mean_ms": 324.32,
+     "worst_ms": 324.32,
+     "best_ms": 324.32
     },
     "中距": {
-     "rank": 15,
-     "tier": "T1",
-     "mean_ms": 379.91,
-     "worst_ms": 379.91,
-     "best_ms": 379.91
+     "rank": 17,
+     "tier": "T2",
+     "mean_ms": 324.32,
+     "worst_ms": 324.32,
+     "best_ms": 324.32
     },
     "远距": {
-     "rank": 5,
+     "rank": 6,
      "tier": "T0",
-     "mean_ms": 379.91,
-     "worst_ms": 379.91,
-     "best_ms": 379.91
+     "mean_ms": 324.32,
+     "worst_ms": 324.32,
+     "best_ms": 324.32
     }
    }
   },
@@ -705,40 +701,40 @@
     "2": "13020000386"
    },
    "tuning": {},
-   "overall_mean_ms": 360.69,
-   "expected_shots_0m": 5.0528,
+   "overall_mean_ms": 271.07,
+   "expected_shots_0m": 4.0,
    "rpm": 727.3,
    "ads_ms_reference": 339.22,
    "muzzle_velocity_mps": 678.5,
    "effective_range_m": 47.2,
    "bands": {
     "贴脸": {
-     "rank": 12,
-     "tier": "T1",
-     "mean_ms": 334.36,
-     "worst_ms": 334.36,
-     "best_ms": 334.36
+     "rank": 5,
+     "tier": "T0",
+     "mean_ms": 247.5,
+     "worst_ms": 247.5,
+     "best_ms": 247.5
     },
     "近距": {
-     "rank": 9,
-     "tier": "T1",
-     "mean_ms": 334.36,
-     "worst_ms": 334.36,
-     "best_ms": 334.36
+     "rank": 3,
+     "tier": "T0",
+     "mean_ms": 247.5,
+     "worst_ms": 247.5,
+     "best_ms": 247.5
     },
     "中距": {
-     "rank": 8,
-     "tier": "T1",
-     "mean_ms": 347.52,
-     "worst_ms": 426.5,
-     "best_ms": 334.36
+     "rank": 3,
+     "tier": "T0",
+     "mean_ms": 259.29,
+     "worst_ms": 330.0,
+     "best_ms": 247.5
     },
     "远距": {
-     "rank": 15,
+     "rank": 9,
      "tier": "T1",
-     "mean_ms": 426.5,
-     "worst_ms": 426.5,
-     "best_ms": 426.5
+     "mean_ms": 330.0,
+     "worst_ms": 330.0,
+     "best_ms": 330.0
     }
    }
   },
@@ -758,40 +754,40 @@
     "6": "13130000164"
    },
    "tuning": {},
-   "overall_mean_ms": 554.28,
-   "expected_shots_0m": 5.6973,
+   "overall_mean_ms": 472.0,
+   "expected_shots_0m": 5.0,
    "rpm": 508.5,
    "ads_ms_reference": 390.9,
    "muzzle_velocity_mps": 882.05,
    "effective_range_m": 84.37,
    "bands": {
     "贴脸": {
-     "rank": 39,
-     "tier": "T3",
-     "mean_ms": 554.28,
-     "worst_ms": 554.28,
-     "best_ms": 554.28
-    },
-    "近距": {
-     "rank": 39,
-     "tier": "T3",
-     "mean_ms": 554.28,
-     "worst_ms": 554.28,
-     "best_ms": 554.28
-    },
-    "中距": {
      "rank": 38,
      "tier": "T3",
-     "mean_ms": 554.28,
-     "worst_ms": 554.28,
-     "best_ms": 554.28
+     "mean_ms": 472.0,
+     "worst_ms": 472.0,
+     "best_ms": 472.0
+    },
+    "近距": {
+     "rank": 38,
+     "tier": "T3",
+     "mean_ms": 472.0,
+     "worst_ms": 472.0,
+     "best_ms": 472.0
+    },
+    "中距": {
+     "rank": 37,
+     "tier": "T3",
+     "mean_ms": 472.0,
+     "worst_ms": 472.0,
+     "best_ms": 472.0
     },
     "远距": {
-     "rank": 32,
+     "rank": 30,
      "tier": "T3",
-     "mean_ms": 554.28,
-     "worst_ms": 554.28,
-     "best_ms": 554.28
+     "mean_ms": 472.0,
+     "worst_ms": 472.0,
+     "best_ms": 472.0
     }
    }
   },
@@ -809,40 +805,40 @@
     "6": "13130000164"
    },
    "tuning": {},
-   "overall_mean_ms": 343.81,
-   "expected_shots_0m": 6.1227,
+   "overall_mean_ms": 272.31,
+   "expected_shots_0m": 5.0,
    "rpm": 944.3,
    "ads_ms_reference": 539.13,
    "muzzle_velocity_mps": 678.5,
    "effective_range_m": 47.2,
    "bands": {
     "贴脸": {
-     "rank": 6,
-     "tier": "T0",
-     "mean_ms": 325.49,
-     "worst_ms": 325.49,
-     "best_ms": 325.49
+     "rank": 7,
+     "tier": "T1",
+     "mean_ms": 254.16,
+     "worst_ms": 254.16,
+     "best_ms": 254.16
     },
     "近距": {
      "rank": 4,
      "tier": "T0",
-     "mean_ms": 325.49,
-     "worst_ms": 325.49,
-     "best_ms": 325.49
+     "mean_ms": 254.16,
+     "worst_ms": 254.16,
+     "best_ms": 254.16
     },
     "中距": {
-     "rank": 5,
+     "rank": 4,
      "tier": "T0",
-     "mean_ms": 334.65,
-     "worst_ms": 389.61,
-     "best_ms": 325.49
+     "mean_ms": 263.23,
+     "worst_ms": 317.7,
+     "best_ms": 254.16
     },
     "远距": {
-     "rank": 9,
-     "tier": "T1",
-     "mean_ms": 389.61,
-     "worst_ms": 389.61,
-     "best_ms": 389.61
+     "rank": 4,
+     "tier": "T0",
+     "mean_ms": 317.7,
+     "worst_ms": 317.7,
+     "best_ms": 317.7
     }
    }
   },
@@ -861,40 +857,40 @@
     "2": "13020000524"
    },
    "tuning": {},
-   "overall_mean_ms": 314.84,
-   "expected_shots_0m": 3.726,
+   "overall_mean_ms": 243.49,
+   "expected_shots_0m": 3.0,
    "rpm": 550.5,
    "ads_ms_reference": 526.87,
    "muzzle_velocity_mps": 819.0,
    "effective_range_m": 52.0,
    "bands": {
     "贴脸": {
-     "rank": 2,
+     "rank": 1,
      "tier": "T0",
-     "mean_ms": 297.14,
-     "worst_ms": 297.14,
-     "best_ms": 297.14
+     "mean_ms": 218.0,
+     "worst_ms": 218.0,
+     "best_ms": 218.0
     },
     "近距": {
      "rank": 1,
      "tier": "T0",
-     "mean_ms": 297.14,
-     "worst_ms": 297.14,
-     "best_ms": 297.14
+     "mean_ms": 218.0,
+     "worst_ms": 218.0,
+     "best_ms": 218.0
     },
     "中距": {
      "rank": 1,
      "tier": "T0",
-     "mean_ms": 297.14,
-     "worst_ms": 297.14,
-     "best_ms": 297.14
+     "mean_ms": 218.0,
+     "worst_ms": 218.0,
+     "best_ms": 218.0
     },
     "远距": {
-     "rank": 3,
+     "rank": 5,
      "tier": "T0",
-     "mean_ms": 367.93,
-     "worst_ms": 372.81,
-     "best_ms": 297.14
+     "mean_ms": 319.97,
+     "worst_ms": 327.0,
+     "best_ms": 218.0
     }
    }
   },
@@ -913,40 +909,40 @@
     "2": "13020000173"
    },
    "tuning": {},
-   "overall_mean_ms": 382.75,
-   "expected_shots_0m": 5.8392,
+   "overall_mean_ms": 321.43,
+   "expected_shots_0m": 5.0,
    "rpm": 800.0,
    "ads_ms_reference": 339.22,
    "muzzle_velocity_mps": 678.5,
    "effective_range_m": 47.2,
    "bands": {
     "贴脸": {
-     "rank": 22,
+     "rank": 20,
      "tier": "T2",
-     "mean_ms": 362.94,
-     "worst_ms": 362.94,
-     "best_ms": 362.94
+     "mean_ms": 300.0,
+     "worst_ms": 300.0,
+     "best_ms": 300.0
     },
     "近距": {
-     "rank": 19,
-     "tier": "T2",
-     "mean_ms": 362.94,
-     "worst_ms": 362.94,
-     "best_ms": 362.94
+     "rank": 17,
+     "tier": "T1",
+     "mean_ms": 300.0,
+     "worst_ms": 300.0,
+     "best_ms": 300.0
     },
     "中距": {
-     "rank": 13,
+     "rank": 14,
      "tier": "T1",
-     "mean_ms": 372.84,
-     "worst_ms": 432.27,
-     "best_ms": 362.94
+     "mean_ms": 310.71,
+     "worst_ms": 375.0,
+     "best_ms": 300.0
     },
     "远距": {
      "rank": 18,
      "tier": "T2",
-     "mean_ms": 432.27,
-     "worst_ms": 432.27,
-     "best_ms": 432.27
+     "mean_ms": 375.0,
+     "worst_ms": 375.0,
+     "best_ms": 375.0
     }
    }
   },
@@ -965,40 +961,40 @@
     "2": "13020000383"
    },
    "tuning": {},
-   "overall_mean_ms": 374.73,
-   "expected_shots_0m": 4.9678,
+   "overall_mean_ms": 289.12,
+   "expected_shots_0m": 4.0,
    "rpm": 649.4,
    "ads_ms_reference": 375.11,
    "muzzle_velocity_mps": 819.0,
    "effective_range_m": 65.0,
    "bands": {
     "贴脸": {
-     "rank": 23,
-     "tier": "T2",
-     "mean_ms": 366.62,
-     "worst_ms": 366.62,
-     "best_ms": 366.62
+     "rank": 16,
+     "tier": "T1",
+     "mean_ms": 277.2,
+     "worst_ms": 277.2,
+     "best_ms": 277.2
     },
     "近距": {
-     "rank": 21,
-     "tier": "T2",
-     "mean_ms": 366.62,
-     "worst_ms": 366.62,
-     "best_ms": 366.62
+     "rank": 11,
+     "tier": "T1",
+     "mean_ms": 277.2,
+     "worst_ms": 277.2,
+     "best_ms": 277.2
     },
     "中距": {
-     "rank": 10,
+     "rank": 7,
      "tier": "T1",
-     "mean_ms": 366.62,
-     "worst_ms": 366.62,
-     "best_ms": 366.62
+     "mean_ms": 277.2,
+     "worst_ms": 277.2,
+     "best_ms": 277.2
     },
     "远距": {
-     "rank": 10,
+     "rank": 7,
      "tier": "T1",
-     "mean_ms": 399.04,
-     "worst_ms": 429.43,
-     "best_ms": 366.62
+     "mean_ms": 324.89,
+     "worst_ms": 369.6,
+     "best_ms": 277.2
     }
    }
   },
@@ -1014,44 +1010,43 @@
     "MCX-LT-焰魂枪管"
    ],
    "loadout": {
-    "2": "13020000572",
-    "6": "13130000164"
+    "2": "13020000573"
    },
    "tuning": {},
-   "overall_mean_ms": 400.96,
-   "expected_shots_0m": 6.2291,
+   "overall_mean_ms": 359.81,
+   "expected_shots_0m": 5.0,
    "rpm": 840.3,
-   "ads_ms_reference": 355.38,
-   "muzzle_velocity_mps": 690.3,
-   "effective_range_m": 46.02,
+   "ads_ms_reference": 270.36,
+   "muzzle_velocity_mps": 450.0,
+   "effective_range_m": 30.0,
    "bands": {
     "贴脸": {
-     "rank": 25,
+     "rank": 17,
      "tier": "T2",
-     "mean_ms": 373.35,
-     "worst_ms": 373.35,
-     "best_ms": 373.35
+     "mean_ms": 285.6,
+     "worst_ms": 285.6,
+     "best_ms": 285.6
     },
     "近距": {
-     "rank": 23,
-     "tier": "T2",
-     "mean_ms": 373.35,
-     "worst_ms": 373.35,
-     "best_ms": 373.35
+     "rank": 14,
+     "tier": "T1",
+     "mean_ms": 290.06,
+     "worst_ms": 357.0,
+     "best_ms": 285.6
     },
     "中距": {
-     "rank": 19,
-     "tier": "T2",
-     "mean_ms": 388.92,
-     "worst_ms": 455.09,
-     "best_ms": 373.35
+     "rank": 28,
+     "tier": "T3",
+     "mean_ms": 363.8,
+     "worst_ms": 499.8,
+     "best_ms": 357.0
     },
     "远距": {
-     "rank": 24,
-     "tier": "T2",
-     "mean_ms": 468.21,
-     "worst_ms": 556.7,
-     "best_ms": 455.09
+     "rank": 33,
+     "tier": "T3",
+     "mean_ms": 499.8,
+     "worst_ms": 499.8,
+     "best_ms": 499.8
     }
    }
   },
@@ -1068,40 +1063,40 @@
     "2": "13020000616"
    },
    "tuning": {},
-   "overall_mean_ms": 384.5,
-   "expected_shots_0m": 4.8439,
+   "overall_mean_ms": 317.38,
+   "expected_shots_0m": 4.0,
    "rpm": 650.1,
    "ads_ms_reference": 344.77,
    "muzzle_velocity_mps": 819.0,
    "effective_range_m": 45.5,
    "bands": {
     "贴脸": {
-     "rank": 19,
-     "tier": "T2",
-     "mean_ms": 354.79,
-     "worst_ms": 354.79,
-     "best_ms": 354.79
+     "rank": 15,
+     "tier": "T1",
+     "mean_ms": 276.9,
+     "worst_ms": 276.9,
+     "best_ms": 276.9
     },
     "近距": {
-     "rank": 17,
-     "tier": "T2",
-     "mean_ms": 354.79,
-     "worst_ms": 354.79,
-     "best_ms": 354.79
+     "rank": 10,
+     "tier": "T1",
+     "mean_ms": 276.9,
+     "worst_ms": 276.9,
+     "best_ms": 276.9
     },
     "中距": {
-     "rank": 12,
+     "rank": 8,
      "tier": "T1",
-     "mean_ms": 371.68,
-     "worst_ms": 425.74,
-     "best_ms": 354.79
+     "mean_ms": 298.88,
+     "worst_ms": 369.2,
+     "best_ms": 276.9
     },
     "远距": {
-     "rank": 23,
+     "rank": 27,
      "tier": "T2",
-     "mean_ms": 456.72,
-     "worst_ms": 485.76,
-     "best_ms": 425.74
+     "mean_ms": 416.84,
+     "worst_ms": 461.5,
+     "best_ms": 369.2
     }
    }
   },
@@ -1118,44 +1113,43 @@
     "MK4-深空镀铬枪管"
    ],
    "loadout": {
-    "2": "13020000563",
-    "6": "13130000164"
+    "2": "13020000564"
    },
    "tuning": {},
-   "overall_mean_ms": 378.23,
-   "expected_shots_0m": 5.3362,
-   "rpm": 793.0,
-   "ads_ms_reference": 361.38,
-   "muzzle_velocity_mps": 728.65,
-   "effective_range_m": 30.68,
+   "overall_mean_ms": 356.9,
+   "expected_shots_0m": 5.0,
+   "rpm": 872.1,
+   "ads_ms_reference": 333.41,
+   "muzzle_velocity_mps": 575.0,
+   "effective_range_m": 20.0,
    "bands": {
     "贴脸": {
-     "rank": 9,
+     "rank": 14,
      "tier": "T1",
-     "mean_ms": 328.11,
-     "worst_ms": 328.11,
-     "best_ms": 328.11
+     "mean_ms": 275.2,
+     "worst_ms": 275.2,
+     "best_ms": 275.2
     },
     "近距": {
-     "rank": 6,
-     "tier": "T0",
-     "mean_ms": 328.11,
-     "worst_ms": 328.11,
-     "best_ms": 328.11
-    },
-    "中距": {
-     "rank": 16,
-     "tier": "T1",
-     "mean_ms": 382.9,
-     "worst_ms": 424.69,
-     "best_ms": 328.11
-    },
-    "远距": {
      "rank": 25,
      "tier": "T2",
-     "mean_ms": 473.81,
-     "worst_ms": 504.84,
-     "best_ms": 424.69
+     "mean_ms": 326.8,
+     "worst_ms": 412.8,
+     "best_ms": 275.2
+    },
+    "中距": {
+     "rank": 32,
+     "tier": "T3",
+     "mean_ms": 412.8,
+     "worst_ms": 412.8,
+     "best_ms": 412.8
+    },
+    "远距": {
+     "rank": 26,
+     "tier": "T2",
+     "mean_ms": 412.8,
+     "worst_ms": 412.8,
+     "best_ms": 412.8
     }
    }
   },
@@ -1175,40 +1169,40 @@
     "2": "13020000560"
    },
    "tuning": {},
-   "overall_mean_ms": 388.27,
-   "expected_shots_0m": 4.3938,
+   "overall_mean_ms": 318.86,
+   "expected_shots_0m": 4.0,
    "rpm": 625.0,
    "ads_ms_reference": 283.74,
    "muzzle_velocity_mps": 525.0,
    "effective_range_m": 30.0,
    "bands": {
     "贴脸": {
-     "rank": 7,
-     "tier": "T1",
-     "mean_ms": 325.81,
-     "worst_ms": 325.81,
-     "best_ms": 325.81
+     "rank": 18,
+     "tier": "T2",
+     "mean_ms": 288.0,
+     "worst_ms": 288.0,
+     "best_ms": 288.0
     },
     "近距": {
-     "rank": 8,
+     "rank": 13,
      "tier": "T1",
-     "mean_ms": 329.97,
-     "worst_ms": 392.3,
-     "best_ms": 325.81
+     "mean_ms": 288.0,
+     "worst_ms": 288.0,
+     "best_ms": 288.0
     },
     "中距": {
-     "rank": 24,
-     "tier": "T2",
-     "mean_ms": 417.35,
-     "worst_ms": 479.96,
-     "best_ms": 392.3
+     "rank": 15,
+     "tier": "T1",
+     "mean_ms": 315.43,
+     "worst_ms": 384.0,
+     "best_ms": 288.0
     },
     "远距": {
-     "rank": 26,
+     "rank": 20,
      "tier": "T2",
-     "mean_ms": 479.96,
-     "worst_ms": 479.96,
-     "best_ms": 479.96
+     "mean_ms": 384.0,
+     "worst_ms": 384.0,
+     "best_ms": 384.0
     }
    }
   },
@@ -1226,40 +1220,40 @@
     "6": "13130000164"
    },
    "tuning": {},
-   "overall_mean_ms": 414.78,
-   "expected_shots_0m": 5.543,
+   "overall_mean_ms": 377.72,
+   "expected_shots_0m": 5.0,
    "rpm": 950.0,
    "ads_ms_reference": 230.0,
    "muzzle_velocity_mps": 531.0,
    "effective_range_m": 23.6,
    "bands": {
     "贴脸": {
-     "rank": 1,
+     "rank": 6,
      "tier": "T0",
-     "mean_ms": 286.92,
-     "worst_ms": 286.92,
-     "best_ms": 286.92
+     "mean_ms": 252.63,
+     "worst_ms": 252.63,
+     "best_ms": 252.63
     },
     "近距": {
-     "rank": 11,
-     "tier": "T1",
-     "mean_ms": 336.62,
-     "worst_ms": 400.52,
-     "best_ms": 286.92
+     "rank": 21,
+     "tier": "T2",
+     "mean_ms": 307.89,
+     "worst_ms": 378.94,
+     "best_ms": 252.63
     },
     "中距": {
-     "rank": 32,
+     "rank": 35,
      "tier": "T3",
-     "mean_ms": 473.78,
-     "worst_ms": 561.81,
-     "best_ms": 400.52
+     "mean_ms": 445.11,
+     "worst_ms": 505.26,
+     "best_ms": 378.94
     },
     "远距": {
      "rank": 34,
      "tier": "T3",
-     "mean_ms": 561.81,
-     "worst_ms": 561.81,
-     "best_ms": 561.81
+     "mean_ms": 505.26,
+     "worst_ms": 505.26,
+     "best_ms": 505.26
     }
    }
   },
@@ -1279,40 +1273,40 @@
     "6": "13130000164"
    },
    "tuning": {},
-   "overall_mean_ms": 438.83,
-   "expected_shots_0m": 5.9277,
+   "overall_mean_ms": 366.5,
+   "expected_shots_0m": 5.0,
    "rpm": 898.2,
    "ads_ms_reference": 390.9,
    "muzzle_velocity_mps": 690.3,
    "effective_range_m": 30.68,
    "bands": {
     "贴脸": {
-     "rank": 10,
+     "rank": 9,
      "tier": "T1",
-     "mean_ms": 329.17,
-     "worst_ms": 329.17,
-     "best_ms": 329.17
+     "mean_ms": 267.2,
+     "worst_ms": 267.2,
+     "best_ms": 267.2
     },
     "近距": {
-     "rank": 7,
-     "tier": "T1",
-     "mean_ms": 329.17,
-     "worst_ms": 329.17,
-     "best_ms": 329.17
+     "rank": 5,
+     "tier": "T0",
+     "mean_ms": 267.2,
+     "worst_ms": 267.2,
+     "best_ms": 267.2
     },
     "中距": {
-     "rank": 34,
+     "rank": 33,
      "tier": "T3",
-     "mean_ms": 490.77,
-     "worst_ms": 544.94,
-     "best_ms": 329.17
+     "mean_ms": 423.07,
+     "worst_ms": 467.6,
+     "best_ms": 267.2
     },
     "远距": {
      "rank": 36,
      "tier": "T3",
-     "mean_ms": 606.22,
-     "worst_ms": 644.92,
-     "best_ms": 544.94
+     "mean_ms": 508.54,
+     "worst_ms": 534.4,
+     "best_ms": 467.6
     }
    }
   },
@@ -1329,40 +1323,40 @@
     "2": "13020000416"
    },
    "tuning": {},
-   "overall_mean_ms": 332.36,
-   "expected_shots_0m": 4.5353,
+   "overall_mean_ms": 290.08,
+   "expected_shots_0m": 4.0,
    "rpm": 668.9,
    "ads_ms_reference": 480.0,
    "muzzle_velocity_mps": 819.0,
    "effective_range_m": 52.0,
    "bands": {
     "贴脸": {
-     "rank": 4,
-     "tier": "T0",
-     "mean_ms": 317.12,
-     "worst_ms": 317.12,
-     "best_ms": 317.12
+     "rank": 10,
+     "tier": "T1",
+     "mean_ms": 269.1,
+     "worst_ms": 269.1,
+     "best_ms": 269.1
     },
     "近距": {
-     "rank": 3,
+     "rank": 6,
      "tier": "T0",
-     "mean_ms": 317.12,
-     "worst_ms": 317.12,
-     "best_ms": 317.12
+     "mean_ms": 269.1,
+     "worst_ms": 269.1,
+     "best_ms": 269.1
     },
     "中距": {
-     "rank": 3,
+     "rank": 5,
      "tier": "T0",
-     "mean_ms": 317.12,
-     "worst_ms": 317.12,
-     "best_ms": 317.12
+     "mean_ms": 269.1,
+     "worst_ms": 269.1,
+     "best_ms": 269.1
     },
     "远距": {
-     "rank": 4,
-     "tier": "T0",
-     "mean_ms": 378.08,
-     "worst_ms": 382.28,
-     "best_ms": 317.12
+     "rank": 14,
+     "tier": "T1",
+     "mean_ms": 353.01,
+     "worst_ms": 358.8,
+     "best_ms": 269.1
     }
    }
   },
@@ -1379,40 +1373,40 @@
     "2": "13020000394"
    },
    "tuning": {},
-   "overall_mean_ms": 445.53,
-   "expected_shots_0m": 5.4518,
+   "overall_mean_ms": 406.72,
+   "expected_shots_0m": 5.0,
    "rpm": 632.2,
    "ads_ms_reference": 314.96,
    "muzzle_velocity_mps": 743.4,
    "effective_range_m": 47.2,
    "bands": {
     "贴脸": {
-     "rank": 32,
+     "rank": 35,
      "tier": "T3",
-     "mean_ms": 422.48,
-     "worst_ms": 422.48,
-     "best_ms": 422.48
+     "mean_ms": 379.6,
+     "worst_ms": 379.6,
+     "best_ms": 379.6
     },
     "近距": {
-     "rank": 32,
+     "rank": 35,
      "tier": "T3",
-     "mean_ms": 422.48,
-     "worst_ms": 422.48,
-     "best_ms": 422.48
+     "mean_ms": 379.6,
+     "worst_ms": 379.6,
+     "best_ms": 379.6
     },
     "中距": {
-     "rank": 28,
+     "rank": 30,
      "tier": "T3",
-     "mean_ms": 434.01,
-     "worst_ms": 503.16,
-     "best_ms": 422.48
+     "mean_ms": 393.16,
+     "worst_ms": 474.5,
+     "best_ms": 379.6
     },
     "远距": {
-     "rank": 29,
+     "rank": 31,
      "tier": "T3",
-     "mean_ms": 503.16,
-     "worst_ms": 503.16,
-     "best_ms": 503.16
+     "mean_ms": 474.5,
+     "worst_ms": 474.5,
+     "best_ms": 474.5
     }
    }
   },
@@ -1430,40 +1424,40 @@
     "6": "13130000164"
    },
    "tuning": {},
-   "overall_mean_ms": 445.39,
-   "expected_shots_0m": 6.0384,
+   "overall_mean_ms": 353.6,
+   "expected_shots_0m": 5.0,
    "rpm": 678.7,
    "ads_ms_reference": 399.48,
    "muzzle_velocity_mps": 882.05,
    "effective_range_m": 84.37,
    "bands": {
     "贴脸": {
-     "rank": 34,
+     "rank": 33,
      "tier": "T3",
-     "mean_ms": 445.39,
-     "worst_ms": 445.39,
-     "best_ms": 445.39
+     "mean_ms": 353.6,
+     "worst_ms": 353.6,
+     "best_ms": 353.6
     },
     "近距": {
-     "rank": 34,
+     "rank": 33,
      "tier": "T3",
-     "mean_ms": 445.39,
-     "worst_ms": 445.39,
-     "best_ms": 445.39
+     "mean_ms": 353.6,
+     "worst_ms": 353.6,
+     "best_ms": 353.6
     },
     "中距": {
-     "rank": 29,
-     "tier": "T3",
-     "mean_ms": 445.39,
-     "worst_ms": 445.39,
-     "best_ms": 445.39
+     "rank": 24,
+     "tier": "T2",
+     "mean_ms": 353.6,
+     "worst_ms": 353.6,
+     "best_ms": 353.6
     },
     "远距": {
-     "rank": 21,
-     "tier": "T2",
-     "mean_ms": 445.39,
-     "worst_ms": 445.39,
-     "best_ms": 445.39
+     "rank": 16,
+     "tier": "T1",
+     "mean_ms": 353.6,
+     "worst_ms": 353.6,
+     "best_ms": 353.6
     }
    }
   },
@@ -1483,40 +1477,40 @@
     "47": "13390000006"
    },
    "tuning": {},
-   "overall_mean_ms": 340.97,
-   "expected_shots_0m": 5.7404,
+   "overall_mean_ms": 291.12,
+   "expected_shots_0m": 5.0,
    "rpm": 872.6,
    "ads_ms_reference": 526.87,
    "muzzle_velocity_mps": 747.5,
    "effective_range_m": 52.0,
    "bands": {
     "贴脸": {
-     "rank": 8,
+     "rank": 13,
      "tier": "T1",
-     "mean_ms": 325.95,
-     "worst_ms": 325.95,
-     "best_ms": 325.95
+     "mean_ms": 275.04,
+     "worst_ms": 275.04,
+     "best_ms": 275.04
     },
     "近距": {
-     "rank": 5,
-     "tier": "T0",
-     "mean_ms": 325.95,
-     "worst_ms": 325.95,
-     "best_ms": 325.95
+     "rank": 9,
+     "tier": "T1",
+     "mean_ms": 275.04,
+     "worst_ms": 275.04,
+     "best_ms": 275.04
     },
     "中距": {
-     "rank": 4,
+     "rank": 6,
      "tier": "T0",
-     "mean_ms": 325.95,
-     "worst_ms": 325.95,
-     "best_ms": 325.95
+     "mean_ms": 275.04,
+     "worst_ms": 275.04,
+     "best_ms": 275.04
     },
     "远距": {
-     "rank": 7,
+     "rank": 11,
      "tier": "T1",
-     "mean_ms": 386.04,
-     "worst_ms": 390.19,
-     "best_ms": 325.95
+     "mean_ms": 339.36,
+     "worst_ms": 343.8,
+     "best_ms": 275.04
     }
    }
   },
@@ -1534,40 +1528,40 @@
     "6": "13130000164"
    },
    "tuning": {},
-   "overall_mean_ms": 410.71,
-   "expected_shots_0m": 4.768,
+   "overall_mean_ms": 327.0,
+   "expected_shots_0m": 4.0,
    "rpm": 550.5,
    "ads_ms_reference": 469.11,
    "muzzle_velocity_mps": 997.1,
    "effective_range_m": 84.37,
    "bands": {
     "贴脸": {
-     "rank": 30,
-     "tier": "T3",
-     "mean_ms": 410.71,
-     "worst_ms": 410.71,
-     "best_ms": 410.71
+     "rank": 27,
+     "tier": "T2",
+     "mean_ms": 327.0,
+     "worst_ms": 327.0,
+     "best_ms": 327.0
     },
     "近距": {
-     "rank": 29,
-     "tier": "T3",
-     "mean_ms": 410.71,
-     "worst_ms": 410.71,
-     "best_ms": 410.71
+     "rank": 26,
+     "tier": "T2",
+     "mean_ms": 327.0,
+     "worst_ms": 327.0,
+     "best_ms": 327.0
     },
     "中距": {
-     "rank": 22,
+     "rank": 19,
      "tier": "T2",
-     "mean_ms": 410.71,
-     "worst_ms": 410.71,
-     "best_ms": 410.71
+     "mean_ms": 327.0,
+     "worst_ms": 327.0,
+     "best_ms": 327.0
     },
     "远距": {
-     "rank": 12,
+     "rank": 8,
      "tier": "T1",
-     "mean_ms": 410.71,
-     "worst_ms": 410.71,
-     "best_ms": 410.71
+     "mean_ms": 327.0,
+     "worst_ms": 327.0,
+     "best_ms": 327.0
     }
    }
   },
@@ -1584,40 +1578,40 @@
     "2": "13020000390"
    },
    "tuning": {},
-   "overall_mean_ms": 397.63,
-   "expected_shots_0m": 4.7719,
+   "overall_mean_ms": 331.8,
+   "expected_shots_0m": 4.0,
    "rpm": 584.8,
    "ads_ms_reference": 344.77,
    "muzzle_velocity_mps": 819.0,
    "effective_range_m": 52.0,
    "bands": {
     "贴脸": {
-     "rank": 27,
+     "rank": 23,
      "tier": "T2",
-     "mean_ms": 387.0,
-     "worst_ms": 387.0,
-     "best_ms": 387.0
+     "mean_ms": 307.8,
+     "worst_ms": 307.8,
+     "best_ms": 307.8
     },
     "近距": {
-     "rank": 25,
+     "rank": 20,
      "tier": "T2",
-     "mean_ms": 387.0,
-     "worst_ms": 387.0,
-     "best_ms": 387.0
+     "mean_ms": 307.8,
+     "worst_ms": 307.8,
+     "best_ms": 307.8
     },
     "中距": {
-     "rank": 18,
-     "tier": "T2",
-     "mean_ms": 387.0,
-     "worst_ms": 387.0,
-     "best_ms": 387.0
+     "rank": 13,
+     "tier": "T1",
+     "mean_ms": 307.8,
+     "worst_ms": 307.8,
+     "best_ms": 307.8
     },
     "远距": {
-     "rank": 17,
+     "rank": 25,
      "tier": "T2",
-     "mean_ms": 429.53,
-     "worst_ms": 432.46,
-     "best_ms": 387.0
+     "mean_ms": 403.78,
+     "worst_ms": 410.4,
+     "best_ms": 307.8
     }
    }
   },
@@ -1635,40 +1629,40 @@
     "6": "13130000164"
    },
    "tuning": {},
-   "overall_mean_ms": 428.94,
-   "expected_shots_0m": 7.1426,
+   "overall_mean_ms": 349.12,
+   "expected_shots_0m": 6.0,
    "rpm": 906.3,
    "ads_ms_reference": 314.96,
    "muzzle_velocity_mps": 800.63,
    "effective_range_m": 48.73,
    "bands": {
     "贴脸": {
-     "rank": 29,
+     "rank": 28,
      "tier": "T3",
-     "mean_ms": 406.64,
-     "worst_ms": 406.64,
-     "best_ms": 406.64
+     "mean_ms": 331.0,
+     "worst_ms": 331.0,
+     "best_ms": 331.0
     },
     "近距": {
-     "rank": 28,
-     "tier": "T3",
-     "mean_ms": 406.64,
-     "worst_ms": 406.64,
-     "best_ms": 406.64
+     "rank": 27,
+     "tier": "T2",
+     "mean_ms": 331.0,
+     "worst_ms": 331.0,
+     "best_ms": 331.0
     },
     "中距": {
-     "rank": 23,
+     "rank": 20,
      "tier": "T2",
-     "mean_ms": 414.4,
-     "worst_ms": 488.1,
-     "best_ms": 406.64
+     "mean_ms": 337.3,
+     "worst_ms": 397.2,
+     "best_ms": 331.0
     },
     "远距": {
-     "rank": 28,
-     "tier": "T3",
-     "mean_ms": 488.1,
-     "worst_ms": 488.1,
-     "best_ms": 488.1
+     "rank": 22,
+     "tier": "T2",
+     "mean_ms": 397.2,
+     "worst_ms": 397.2,
+     "best_ms": 397.2
     }
    }
   },
@@ -1686,8 +1680,8 @@
     "6": "13130000164"
    },
    "tuning": {},
-   "overall_mean_ms": 557.97,
-   "expected_shots_0m": 5.9377,
+   "overall_mean_ms": 467.66,
+   "expected_shots_0m": 5.0,
    "rpm": 604.8,
    "ads_ms_reference": 302.35,
    "muzzle_velocity_mps": 767.0,
@@ -1696,30 +1690,30 @@
     "贴脸": {
      "rank": 36,
      "tier": "T3",
-     "mean_ms": 489.82,
-     "worst_ms": 489.82,
-     "best_ms": 489.82
+     "mean_ms": 396.8,
+     "worst_ms": 396.8,
+     "best_ms": 396.8
     },
     "近距": {
      "rank": 36,
      "tier": "T3",
-     "mean_ms": 489.82,
-     "worst_ms": 489.82,
-     "best_ms": 489.82
+     "mean_ms": 396.8,
+     "worst_ms": 396.8,
+     "best_ms": 396.8
     },
     "中距": {
-     "rank": 39,
+     "rank": 38,
      "tier": "T3",
-     "mean_ms": 571.6,
-     "worst_ms": 680.64,
-     "best_ms": 489.82
+     "mean_ms": 481.83,
+     "worst_ms": 595.2,
+     "best_ms": 396.8
     },
     "远距": {
      "rank": 39,
      "tier": "T3",
-     "mean_ms": 680.64,
-     "worst_ms": 680.64,
-     "best_ms": 680.64
+     "mean_ms": 595.2,
+     "worst_ms": 595.2,
+     "best_ms": 595.2
     }
    }
   },
@@ -1736,40 +1730,40 @@
     "6": "13130000172"
    },
    "tuning": {},
-   "overall_mean_ms": 444.21,
-   "expected_shots_0m": 5.1441,
+   "overall_mean_ms": 378.44,
+   "expected_shots_0m": 4.0,
    "rpm": 747.2,
    "ads_ms_reference": 308.65,
    "muzzle_velocity_mps": 429.0,
    "effective_range_m": 19.5,
    "bands": {
     "贴脸": {
-     "rank": 11,
-     "tier": "T1",
-     "mean_ms": 332.77,
-     "worst_ms": 332.77,
-     "best_ms": 332.77
+     "rank": 3,
+     "tier": "T0",
+     "mean_ms": 240.9,
+     "worst_ms": 240.9,
+     "best_ms": 240.9
     },
     "近距": {
-     "rank": 30,
-     "tier": "T3",
-     "mean_ms": 417.34,
-     "worst_ms": 455.78,
-     "best_ms": 332.77
-    },
-    "中距": {
-     "rank": 35,
-     "tier": "T3",
-     "mean_ms": 492.93,
-     "worst_ms": 533.8,
-     "best_ms": 455.78
-    },
-    "远距": {
      "rank": 31,
      "tier": "T3",
-     "mean_ms": 533.8,
-     "worst_ms": 533.8,
-     "best_ms": 533.8
+     "mean_ms": 351.31,
+     "worst_ms": 401.5,
+     "best_ms": 240.9
+    },
+    "中距": {
+     "rank": 34,
+     "tier": "T3",
+     "mean_ms": 439.74,
+     "worst_ms": 481.8,
+     "best_ms": 401.5
+    },
+    "远距": {
+     "rank": 32,
+     "tier": "T3",
+     "mean_ms": 481.8,
+     "worst_ms": 481.8,
+     "best_ms": 481.8
     }
    }
   },
@@ -1782,44 +1776,42 @@
    "is_variant": false,
    "variant_item_name": null,
    "equivalent_variants": [],
-   "loadout": {
-    "2": "13020000599"
-   },
+   "loadout": {},
    "tuning": {},
-   "overall_mean_ms": 337.32,
-   "expected_shots_0m": 4.3732,
+   "overall_mean_ms": 300.0,
+   "expected_shots_0m": 4.0,
    "rpm": 600.0,
    "ads_ms_reference": 408.47,
-   "muzzle_velocity_mps": 884.0,
-   "effective_range_m": 84.5,
+   "muzzle_velocity_mps": 680.0,
+   "effective_range_m": 65.0,
    "bands": {
     "贴脸": {
-     "rank": 14,
-     "tier": "T1",
-     "mean_ms": 337.32,
-     "worst_ms": 337.32,
-     "best_ms": 337.32
+     "rank": 21,
+     "tier": "T2",
+     "mean_ms": 300.0,
+     "worst_ms": 300.0,
+     "best_ms": 300.0
     },
     "近距": {
-     "rank": 12,
+     "rank": 18,
      "tier": "T1",
-     "mean_ms": 337.32,
-     "worst_ms": 337.32,
-     "best_ms": 337.32
+     "mean_ms": 300.0,
+     "worst_ms": 300.0,
+     "best_ms": 300.0
     },
     "中距": {
-     "rank": 6,
-     "tier": "T0",
-     "mean_ms": 337.32,
-     "worst_ms": 337.32,
-     "best_ms": 337.32
+     "rank": 10,
+     "tier": "T1",
+     "mean_ms": 300.0,
+     "worst_ms": 300.0,
+     "best_ms": 300.0
     },
     "远距": {
      "rank": 1,
      "tier": "T0",
-     "mean_ms": 337.32,
-     "worst_ms": 337.32,
-     "best_ms": 337.32
+     "mean_ms": 300.0,
+     "worst_ms": 300.0,
+     "best_ms": 300.0
     }
    }
   },
@@ -1834,40 +1826,40 @@
    "equivalent_variants": [],
    "loadout": {},
    "tuning": {},
-   "overall_mean_ms": 428.31,
-   "expected_shots_0m": 4.4265,
+   "overall_mean_ms": 375.0,
+   "expected_shots_0m": 4.0,
    "rpm": 480.0,
    "ads_ms_reference": 327.39,
    "muzzle_velocity_mps": 330.0,
    "effective_range_m": 120.0,
    "bands": {
     "贴脸": {
-     "rank": 33,
+     "rank": 34,
      "tier": "T3",
-     "mean_ms": 428.31,
-     "worst_ms": 428.31,
-     "best_ms": 428.31
+     "mean_ms": 375.0,
+     "worst_ms": 375.0,
+     "best_ms": 375.0
     },
     "近距": {
-     "rank": 33,
+     "rank": 34,
      "tier": "T3",
-     "mean_ms": 428.31,
-     "worst_ms": 428.31,
-     "best_ms": 428.31
+     "mean_ms": 375.0,
+     "worst_ms": 375.0,
+     "best_ms": 375.0
     },
     "中距": {
-     "rank": 27,
-     "tier": "T2",
-     "mean_ms": 428.31,
-     "worst_ms": 428.31,
-     "best_ms": 428.31
+     "rank": 29,
+     "tier": "T3",
+     "mean_ms": 375.0,
+     "worst_ms": 375.0,
+     "best_ms": 375.0
     },
     "远距": {
-     "rank": 16,
-     "tier": "T1",
-     "mean_ms": 428.31,
-     "worst_ms": 428.31,
-     "best_ms": 428.31
+     "rank": 19,
+     "tier": "T2",
+     "mean_ms": 375.0,
+     "worst_ms": 375.0,
+     "best_ms": 375.0
     }
    }
   },
@@ -1885,40 +1877,40 @@
     "6": "13130000164"
    },
    "tuning": {},
-   "overall_mean_ms": 440.78,
-   "expected_shots_0m": 7.0878,
+   "overall_mean_ms": 365.19,
+   "expected_shots_0m": 6.0,
    "rpm": 1090.9,
    "ads_ms_reference": 308.65,
    "muzzle_velocity_mps": 767.0,
    "effective_range_m": 30.68,
    "bands": {
     "贴脸": {
-     "rank": 13,
+     "rank": 12,
      "tier": "T1",
-     "mean_ms": 334.83,
-     "worst_ms": 334.83,
-     "best_ms": 334.83
+     "mean_ms": 275.0,
+     "worst_ms": 275.0,
+     "best_ms": 275.0
     },
     "近距": {
-     "rank": 10,
+     "rank": 8,
      "tier": "T1",
-     "mean_ms": 334.83,
-     "worst_ms": 334.83,
-     "best_ms": 334.83
+     "mean_ms": 275.0,
+     "worst_ms": 275.0,
+     "best_ms": 275.0
     },
     "中距": {
-     "rank": 33,
+     "rank": 31,
      "tier": "T3",
-     "mean_ms": 488.62,
-     "worst_ms": 538.49,
-     "best_ms": 334.83
+     "mean_ms": 403.33,
+     "worst_ms": 440.0,
+     "best_ms": 275.0
     },
     "远距": {
      "rank": 35,
      "tier": "T3",
-     "mean_ms": 604.83,
-     "worst_ms": 646.73,
-     "best_ms": 538.49
+     "mean_ms": 507.42,
+     "worst_ms": 550.0,
+     "best_ms": 440.0
     }
    }
   },
@@ -1935,40 +1927,40 @@
     "2": "13020000607"
    },
    "tuning": {},
-   "overall_mean_ms": 442.07,
-   "expected_shots_0m": 6.4055,
+   "overall_mean_ms": 368.94,
+   "expected_shots_0m": 6.0,
    "rpm": 900.1,
    "ads_ms_reference": 290.0,
    "muzzle_velocity_mps": 650.0,
    "effective_range_m": 23.4,
    "bands": {
     "贴脸": {
-     "rank": 20,
-     "tier": "T2",
-     "mean_ms": 360.33,
-     "worst_ms": 360.33,
-     "best_ms": 360.33
+     "rank": 29,
+     "tier": "T3",
+     "mean_ms": 333.3,
+     "worst_ms": 333.3,
+     "best_ms": 333.3
     },
     "近距": {
-     "rank": 26,
-     "tier": "T2",
-     "mean_ms": 388.67,
-     "worst_ms": 425.1,
-     "best_ms": 360.33
+     "rank": 28,
+     "tier": "T3",
+     "mean_ms": 333.3,
+     "worst_ms": 333.3,
+     "best_ms": 333.3
     },
     "中距": {
-     "rank": 31,
-     "tier": "T3",
-     "mean_ms": 457.5,
-     "worst_ms": 500.71,
-     "best_ms": 425.1
+     "rank": 25,
+     "tier": "T2",
+     "mean_ms": 361.87,
+     "worst_ms": 399.96,
+     "best_ms": 333.3
     },
     "远距": {
-     "rank": 33,
+     "rank": 28,
      "tier": "T3",
-     "mean_ms": 561.8,
-     "worst_ms": 586.79,
-     "best_ms": 500.71
+     "mean_ms": 447.27,
+     "worst_ms": 466.62,
+     "best_ms": 399.96
     }
    }
   },
@@ -1985,40 +1977,40 @@
     "2": "13020000607"
    },
    "tuning": {},
-   "overall_mean_ms": 408.24,
-   "expected_shots_0m": 6.0763,
+   "overall_mean_ms": 342.89,
+   "expected_shots_0m": 5.0,
    "rpm": 900.1,
    "ads_ms_reference": 314.96,
    "muzzle_velocity_mps": 650.0,
    "effective_range_m": 23.4,
    "bands": {
     "贴脸": {
-     "rank": 15,
+     "rank": 8,
      "tier": "T1",
-     "mean_ms": 338.39,
-     "worst_ms": 338.39,
-     "best_ms": 338.39
+     "mean_ms": 266.64,
+     "worst_ms": 266.64,
+     "best_ms": 266.64
     },
     "近距": {
-     "rank": 20,
-     "tier": "T2",
-     "mean_ms": 363.17,
-     "worst_ms": 395.04,
-     "best_ms": 338.39
+     "rank": 15,
+     "tier": "T1",
+     "mean_ms": 295.8,
+     "worst_ms": 333.3,
+     "best_ms": 266.64
     },
     "中距": {
-     "rank": 25,
+     "rank": 26,
      "tier": "T2",
-     "mean_ms": 419.95,
-     "worst_ms": 453.16,
-     "best_ms": 395.04
+     "mean_ms": 361.87,
+     "worst_ms": 399.96,
+     "best_ms": 333.3
     },
     "远距": {
-     "rank": 30,
+     "rank": 29,
      "tier": "T3",
-     "mean_ms": 511.45,
-     "worst_ms": 535.3,
-     "best_ms": 453.16
+     "mean_ms": 447.27,
+     "worst_ms": 466.62,
+     "best_ms": 399.96
     }
    }
   },
@@ -2036,40 +2028,40 @@
     "47": "13390000002"
    },
    "tuning": {},
-   "overall_mean_ms": 362.89,
-   "expected_shots_0m": 5.4572,
+   "overall_mean_ms": 316.2,
+   "expected_shots_0m": 5.0,
    "rpm": 759.0,
    "ads_ms_reference": 350.0,
    "muzzle_velocity_mps": 747.5,
    "effective_range_m": 45.5,
    "bands": {
     "贴脸": {
-     "rank": 18,
+     "rank": 24,
      "tier": "T2",
-     "mean_ms": 352.34,
-     "worst_ms": 352.34,
-     "best_ms": 352.34
+     "mean_ms": 316.2,
+     "worst_ms": 316.2,
+     "best_ms": 316.2
     },
     "近距": {
-     "rank": 16,
-     "tier": "T1",
-     "mean_ms": 352.34,
-     "worst_ms": 352.34,
-     "best_ms": 352.34
+     "rank": 22,
+     "tier": "T2",
+     "mean_ms": 316.2,
+     "worst_ms": 316.2,
+     "best_ms": 316.2
     },
     "中距": {
-     "rank": 9,
+     "rank": 16,
      "tier": "T1",
-     "mean_ms": 360.46,
-     "worst_ms": 386.44,
-     "best_ms": 352.34
+     "mean_ms": 316.2,
+     "worst_ms": 316.2,
+     "best_ms": 316.2
     },
     "远距": {
-     "rank": 8,
-     "tier": "T1",
-     "mean_ms": 386.44,
-     "worst_ms": 386.44,
-     "best_ms": 386.44
+     "rank": 3,
+     "tier": "T0",
+     "mean_ms": 316.2,
+     "worst_ms": 316.2,
+     "best_ms": 316.2
     }
    }
   }
