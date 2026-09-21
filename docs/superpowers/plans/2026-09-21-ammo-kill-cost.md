@@ -410,8 +410,6 @@ git commit -m "feat(engine): band_summary 增加带内平均期望击杀发数�
 ```python
 """击杀成本计算测试（口径：带内平均期望发数 × 单发均价，四舍五入）。"""
 
-import pytest
-
 from src.engine.tiering import BandResult, GunRanking, compute_kill_cost
 
 
@@ -536,6 +534,8 @@ git commit -m "feat(tiering): 新增击杀成本计算与弹药字段（禁用 r
 
 ```python
 import os
+
+import pytest
 
 from src.engine.ammo_pricing import AmmoPriceTable
 from src.engine.game_data import load_game_data
