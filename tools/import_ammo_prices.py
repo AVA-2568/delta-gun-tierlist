@@ -180,6 +180,12 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             row["price_avg_30d"] = price_map[item_id]
             updated += 1
     table["source"] = f"orzice.com/v/ammo（30 日价格档）· 抓取于 {scraped_doc.get('fetched_at', '')}"
+    table["updated_at"] = str(scraped_doc.get("fetched_at") or "")
+    table["window"] = {
+        "from": str(scraped_doc.get("fetched_at") or ""),
+        "to": str(scraped_doc.get("fetched_at") or ""),
+        "days": 30,
+    }
     table["note"] = (
         "自动导入：price_avg_30d = 第三方站点「30 日价格」档（30 天前成交价），非实时价，"
         "亦非严格的 30 天滚动均价"

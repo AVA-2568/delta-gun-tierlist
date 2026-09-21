@@ -2,8 +2,12 @@
  "scenario_id": "armor-4-ammo-4-default",
  "ammo_price_meta": {
   "currency": "哈夫币",
-  "window": {},
-  "updated_at": "",
+  "window": {
+   "from": "2026-09-21",
+   "to": "2026-09-21",
+   "days": 30
+  },
+  "updated_at": "2026-09-21",
   "available": true
  },
  "ranking_key": "band_mean_ttk_ms",

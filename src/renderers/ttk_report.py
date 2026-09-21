@@ -46,8 +46,8 @@ def _price_note(payload: Mapping[str, Any]) -> Optional[str]:
     if not meta.get("available"):
         return "- 价格数据：未配置（data/reference/ammo_prices.json 缺失或为空），成本列显示 —"
     window = meta.get("window") or {}
-    span = f"（{window.get('from')} ~ {window.get('to')}）" if window.get("from") else ""
-    return f"- 价格数据：手工维护 30 天均价{span}，截至 {meta.get('updated_at') or '未知'}"
+    span = f"（{window.get('from')}）" if window.get("from") else ""
+    return f"- 价格数据：第三方交易行 30 日价格{span}，抓取于 {meta.get('updated_at') or '未知'}"
 
 
 def loadout_text(loadout: Mapping[str, str], part_names: Mapping[str, str]) -> str:

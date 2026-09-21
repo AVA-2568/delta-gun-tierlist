@@ -237,4 +237,4 @@ def test_readme_notes_price_source():
         PART_NAMES,
     )
     assert "2026-08-23" in md and "2026-09-21" in md
-    assert "手工维护" in md
+    assert "第三方交易行" in md

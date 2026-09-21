@@ -144,6 +144,6 @@
 - **射击间隔**：由官方 `sdkTiming` 与射速模式决定，**291 个官方候选零偏差**
 - **配装搜索**：官方插槽规则 + 强制联动，精校交由玩家自行调校（不影响 TTK）
 - **改枪指南**：开镜时间/初速/后坐等不进 TTK 的维度见 [docs/gunsmith-guide.md](docs/gunsmith-guide.md)
-- 价格数据：手工维护 30 天均价，截至 未知
+- 价格数据：第三方交易行 30 日价格（2026-09-21），抓取于 2026-09-21
 
 详细设计见 [`docs/superpowers/specs/2026-09-20-pure-ttk-redesign-design.md`](docs/superpowers/specs/2026-09-20-pure-ttk-redesign-design.md)，弹药击杀成本相关规范见 [`docs/superpowers/specs/2026-09-21-ammo-kill-cost-design.md`](docs/superpowers/specs/2026-09-21-ammo-kill-cost-design.md)。

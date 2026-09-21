@@ -1,8 +1,12 @@
 {
  "schema": "ammo-price-avg-30d",
  "currency": "哈夫币",
- "window": {},
- "updated_at": "",
+ "window": {
+  "from": "2026-09-21",
+  "to": "2026-09-21",
+  "days": 30
+ },
+ "updated_at": "2026-09-21",
  "note": "自动导入：price_avg_30d = 第三方站点「30 日价格」档（30 天前成交价），非实时价，亦非严格的 30 天滚动均价",
  "ammo": [
   {
