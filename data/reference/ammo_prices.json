@@ -1,0 +1,807 @@
+{
+ "schema": "ammo-price-avg-30d",
+ "currency": "哈夫币",
+ "window": {},
+ "updated_at": "",
+ "note": "手工维护：price_avg_30d = 近 30 天成交均价，非实时价",
+ "ammo": [
+  {
+   "ammo_item_id": "37100100001",
+   "caliber": "5.56x45mm",
+   "name": "RRLP",
+   "penetration_level": 1,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37100200001",
+   "caliber": "5.56x45mm",
+   "name": "FMJ",
+   "penetration_level": 2,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37100300001",
+   "caliber": "5.56x45mm",
+   "name": "M855",
+   "penetration_level": 3,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37100300002",
+   "caliber": "5.56x45mm",
+   "name": "M855 APC",
+   "penetration_level": 3,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37100400001",
+   "caliber": "5.56x45mm",
+   "name": "M855A1",
+   "penetration_level": 4,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37100400002",
+   "caliber": "5.56x45mm",
+   "name": "M855A1 APC+",
+   "penetration_level": 4,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37100500001",
+   "caliber": "5.56x45mm",
+   "name": "M995",
+   "penetration_level": 5,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37110100001",
+   "caliber": "7.62x39mm",
+   "name": "LP",
+   "penetration_level": 1,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37110200001",
+   "caliber": "7.62x39mm",
+   "name": "T45M",
+   "penetration_level": 2,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37110300001",
+   "caliber": "7.62x39mm",
+   "name": "PS",
+   "penetration_level": 3,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37110400001",
+   "caliber": "7.62x39mm",
+   "name": "BP",
+   "penetration_level": 4,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37110400002",
+   "caliber": "7.62x39mm",
+   "name": "BP-SUB",
+   "penetration_level": 4,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37110500001",
+   "caliber": "7.62x39mm",
+   "name": "AP",
+   "penetration_level": 5,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37110500002",
+   "caliber": "7.62x39mm",
+   "name": "AP-SUB",
+   "penetration_level": 5,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37120100001",
+   "caliber": "5.45x39mm",
+   "name": "PRS",
+   "penetration_level": 1,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37120200001",
+   "caliber": "5.45x39mm",
+   "name": "T",
+   "penetration_level": 2,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37120300001",
+   "caliber": "5.45x39mm",
+   "name": "PS",
+   "penetration_level": 3,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37120400001",
+   "caliber": "5.45x39mm",
+   "name": "BT",
+   "penetration_level": 4,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37120400002",
+   "caliber": "5.45x39mm",
+   "name": "BT +P",
+   "penetration_level": 4,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37120400003",
+   "caliber": "5.45x39mm",
+   "name": "BT ST",
+   "penetration_level": 4,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37120500001",
+   "caliber": "5.45x39mm",
+   "name": "BS",
+   "penetration_level": 5,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37120500003",
+   "caliber": "5.45x39mm",
+   "name": "BS ST+",
+   "penetration_level": 5,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37130200001",
+   "caliber": "5.8x42mm",
+   "name": "DBP87",
+   "penetration_level": 2,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37130300001",
+   "caliber": "5.8x42mm",
+   "name": "DVP88",
+   "penetration_level": 3,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37130400001",
+   "caliber": "5.8x42mm",
+   "name": "DBP10",
+   "penetration_level": 4,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37130400002",
+   "caliber": "",
+   "name": "5.8x42mm DBP10 +P",
+   "penetration_level": 4,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37130500001",
+   "caliber": "5.8x42mm",
+   "name": "DVC12",
+   "penetration_level": 5,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37130500002",
+   "caliber": "",
+   "name": "5.8x42mm DVC12 +P",
+   "penetration_level": 5,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37140300001",
+   "caliber": "9x39mm",
+   "name": "SP5",
+   "penetration_level": 3,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37140300002",
+   "caliber": "",
+   "name": "9x39mm PAB-7",
+   "penetration_level": 3,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37140400001",
+   "caliber": "9x39mm",
+   "name": "SP6",
+   "penetration_level": 4,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37140400002",
+   "caliber": "",
+   "name": "9x39mm PAB-9",
+   "penetration_level": 4,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37140500001",
+   "caliber": "9x39mm",
+   "name": "BP",
+   "penetration_level": 5,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37150300002",
+   "caliber": "6.8x51mm",
+   "name": "PLY-I",
+   "penetration_level": 3,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37150400001",
+   "caliber": "6.8x51mm",
+   "name": "FMJ",
+   "penetration_level": 4,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37150400002",
+   "caliber": "6.8x51mm",
+   "name": "PLY-II",
+   "penetration_level": 4,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37150500001",
+   "caliber": "6.8x51mm",
+   "name": "Hybrid",
+   "penetration_level": 5,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37150500002",
+   "caliber": "6.8x51mm",
+   "name": "PLY-III",
+   "penetration_level": 5,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37150600001",
+   "caliber": "6.8x51mm",
+   "name": "AP",
+   "penetration_level": 6,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37160300001",
+   "caliber": "12.7x55",
+   "name": "PS12A",
+   "penetration_level": 3,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37160400001",
+   "caliber": "12.7x55",
+   "name": "PS12",
+   "penetration_level": 4,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37160400002",
+   "caliber": "12.7x55",
+   "name": "PD12双头弹",
+   "penetration_level": 4,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37160500001",
+   "caliber": "12.7x55",
+   "name": "PS12B",
+   "penetration_level": 5,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37170200001",
+   "caliber": "",
+   "name": "7.62x51mm Ultra Nosler",
+   "penetration_level": 2,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37170300001",
+   "caliber": "7.62x51mm",
+   "name": "BPZ",
+   "penetration_level": 3,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37170400001",
+   "caliber": "7.62x51mm",
+   "name": "M80",
+   "penetration_level": 4,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37170500001",
+   "caliber": "7.62x51mm",
+   "name": "M62",
+   "penetration_level": 5,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37170500002",
+   "caliber": "7.62x51mm",
+   "name": "LS",
+   "penetration_level": 5,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37170600001",
+   "caliber": "7.62x51mm",
+   "name": "m61",
+   "penetration_level": 6,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37180300001",
+   "caliber": "7.62x54R",
+   "name": "T46M",
+   "penetration_level": 3,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37180400001",
+   "caliber": "7.62x54R",
+   "name": "LPS",
+   "penetration_level": 4,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37180500001",
+   "caliber": "7.62x54R",
+   "name": "BT",
+   "penetration_level": 5,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37180600001",
+   "caliber": "7.62x54R",
+   "name": "SNB",
+   "penetration_level": 6,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37190000001",
+   "caliber": ".45ACP",
+   "name": "RIP",
+   "penetration_level": 0,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37190000002",
+   "caliber": "",
+   "name": ".45 ACP CT",
+   "penetration_level": 0,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37190100001",
+   "caliber": ".45ACP",
+   "name": "HS",
+   "penetration_level": 1,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37190200001",
+   "caliber": ".45ACP",
+   "name": "JHP",
+   "penetration_level": 2,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37190300001",
+   "caliber": ".45ACP",
+   "name": "FMJ",
+   "penetration_level": 3,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37190400001",
+   "caliber": ".45ACP",
+   "name": "AP",
+   "penetration_level": 4,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37190500001",
+   "caliber": ".45ACP",
+   "name": "Super",
+   "penetration_level": 5,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37200000001",
+   "caliber": "9x19mm",
+   "name": "RIP",
+   "penetration_level": 0,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37200000002",
+   "caliber": "",
+   "name": "9x19mm CT",
+   "penetration_level": 0,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37200100001",
+   "caliber": "9x19mm",
+   "name": "PSO",
+   "penetration_level": 1,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37200200001",
+   "caliber": "9x19mm",
+   "name": "Pst",
+   "penetration_level": 2,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37200300001",
+   "caliber": "9x19mm",
+   "name": "AP6.3",
+   "penetration_level": 3,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37200400001",
+   "caliber": "9x19mm",
+   "name": "PBP",
+   "penetration_level": 4,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37210000001",
+   "caliber": "5.7x28mm",
+   "name": "R37.F",
+   "penetration_level": 0,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37210100001",
+   "caliber": "5.7x28mm",
+   "name": "SS198LF",
+   "penetration_level": 1,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37210200001",
+   "caliber": "5.7x28mm",
+   "name": "SS197SR",
+   "penetration_level": 2,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37210300001",
+   "caliber": "5.7x28mm",
+   "name": "L191",
+   "penetration_level": 3,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37210300002",
+   "caliber": "5.7x28mm",
+   "name": "HT",
+   "penetration_level": 3,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37210400001",
+   "caliber": "5.7x28mm",
+   "name": "SS193",
+   "penetration_level": 4,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37210400002",
+   "caliber": "5.7x28mm",
+   "name": "HT+",
+   "penetration_level": 4,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37210500001",
+   "caliber": "5.7x28mm",
+   "name": "SS190",
+   "penetration_level": 5,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37220000001",
+   "caliber": ".357 Magnum",
+   "name": "9号霰射“鼠蛋”",
+   "penetration_level": 0,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37220200001",
+   "caliber": ".357 Magnum",
+   "name": "HP",
+   "penetration_level": 2,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37220300001",
+   "caliber": ".357 Magnum",
+   "name": "JHP",
+   "penetration_level": 3,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37220400001",
+   "caliber": ".357 Magnum",
+   "name": "FMJ",
+   "penetration_level": 4,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37230200001",
+   "caliber": ".50AE",
+   "name": "HP",
+   "penetration_level": 2,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37230300001",
+   "caliber": ".50AE",
+   "name": "JHP",
+   "penetration_level": 3,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37230400001",
+   "caliber": ".50AE",
+   "name": "FMJ",
+   "penetration_level": 4,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37230500001",
+   "caliber": ".50AE",
+   "name": "AP",
+   "penetration_level": 5,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37240700001",
+   "caliber": ".338 Lap Mag",
+   "name": "AP",
+   "penetration_level": 7,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37250000001",
+   "caliber": "12Gauge",
+   "name": "8.5毫米鹿弹",
+   "penetration_level": 0,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37250000002",
+   "caliber": "12Gauge",
+   "name": "独头RIP",
+   "penetration_level": 0,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37250100001",
+   "caliber": "12Gauge",
+   "name": "7毫米鹿弹",
+   "penetration_level": 1,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37250200002",
+   "caliber": "12Gauge",
+   "name": "独头GT",
+   "penetration_level": 2,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37250300001",
+   "caliber": "12Gauge",
+   "name": "箭型弹",
+   "penetration_level": 3,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37250300002",
+   "caliber": "12Gauge",
+   "name": "独头FTX",
+   "penetration_level": 3,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37250400002",
+   "caliber": "12Gauge",
+   "name": "独头AP-20",
+   "penetration_level": 4,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37250400003",
+   "caliber": "",
+   "name": "12 Gauge 龙息弹",
+   "penetration_level": 0,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37250400004",
+   "caliber": "12Gauge",
+   "name": "独头APX",
+   "penetration_level": 4,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37250400005",
+   "caliber": "12Gauge",
+   "name": "DART",
+   "penetration_level": 3,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37260000002",
+   "caliber": "4.6x30mm",
+   "name": "CT",
+   "penetration_level": 0,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37260300001",
+   "caliber": "4.6x30mm",
+   "name": "Subsonic SX",
+   "penetration_level": 3,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37260400001",
+   "caliber": "4.6x30mm",
+   "name": "FMJ SX",
+   "penetration_level": 4,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37260400002",
+   "caliber": "4.6x30mm",
+   "name": "FMJ ST",
+   "penetration_level": 4,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37260500001",
+   "caliber": "4.6x30mm",
+   "name": "AP SX",
+   "penetration_level": 5,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37260500002",
+   "caliber": "4.6x30mm",
+   "name": "AP ST",
+   "penetration_level": 5,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37270300001",
+   "caliber": "",
+   "name": "玻纤柳叶箭矢",
+   "penetration_level": 3,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37270400001",
+   "caliber": "",
+   "name": "碳纤维刺骨箭矢",
+   "penetration_level": 4,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37270500001",
+   "caliber": "",
+   "name": "碳纤维穿甲箭矢",
+   "penetration_level": 5,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37270500002",
+   "caliber": "",
+   "name": "碳纤维散射箭矢",
+   "penetration_level": 5,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37280300001",
+   "caliber": ".300BLK",
+   "name": "V-Max",
+   "penetration_level": 3,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37280300002",
+   "caliber": ".300BLK",
+   "name": "V-SUB",
+   "penetration_level": 3,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37280400001",
+   "caliber": ".300BLK",
+   "name": "BCP-FMJ",
+   "penetration_level": 4,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37280400002",
+   "caliber": ".300BLK",
+   "name": "BCP-SUB",
+   "penetration_level": 4,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37280500001",
+   "caliber": ".300BLK",
+   "name": "TAC-TX",
+   "penetration_level": 5,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37290300001",
+   "caliber": "45-70 Govt",
+   "name": "RN",
+   "penetration_level": 0,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37290400001",
+   "caliber": "45-70 Govt",
+   "name": "FMJ",
+   "penetration_level": 4,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37290500001",
+   "caliber": "45-70 Govt",
+   "name": "FTX",
+   "penetration_level": 5,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37300600001",
+   "caliber": ".50 BMG",
+   "name": "M10 RAZOR",
+   "penetration_level": 6,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37300600002",
+   "caliber": ".50 BMG",
+   "name": "M3 K-O",
+   "penetration_level": 6,
+   "price_avg_30d": null
+  },
+  {
+   "ammo_item_id": "37300700001",
+   "caliber": ".50 BMG",
+   "name": "M903 SLAP",
+   "penetration_level": 7,
+   "price_avg_30d": null
+  }
+ ]
+}
