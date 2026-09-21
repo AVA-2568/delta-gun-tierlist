@@ -65,10 +65,45 @@ class GunRanking:
     ammo_name: str = ""
     ammo_caliber: str = ""
     ammo_price_avg_30d: Optional[int] = None
+    #: 最优配装相对官方白板的关键 TTK 属性变化（伤害档案替换、射速、优势射程等）
+    loadout_effects: List[Dict[str, Any]] = field(default_factory=list)
 
     @property
     def has_variant(self) -> bool:
         return bool(self.is_variant)
+
+
+#: 参与「配装效果摘要」的状态属性：key → (展示名, 小数位, 单位)
+EFFECT_SPECS: tuple = (
+    ("base_damage", "肉伤", 0, ""),
+    ("base_armor_damage", "甲伤", 0, ""),
+    ("rpm", "射速", 0, ""),
+    ("effective_range_m", "优势射程", 1, " m"),
+    ("projectile_count", "每发弹丸", 0, ""),
+)
+
+
+def summarize_loadout_effects(base_state: Any, final_state: Any) -> List[Dict[str, Any]]:
+    """对比白板状态与配装后状态，列出有变化的关键 TTK 属性。
+
+    只输出真实发生变化的维度（如 K437 长矛手长枪管替换伤害档案、
+    M249 链锯套件改射速），渲染层直接格式化，禁止二次计算。
+    """
+    effects: List[Dict[str, Any]] = []
+    for key, label, digits, unit in EFFECT_SPECS:
+        base = float(getattr(base_state, key, 0.0) or 0.0)
+        final = float(getattr(final_state, key, 0.0) or 0.0)
+        if abs(final - base) > 1e-9:
+            effects.append(
+                {
+                    "key": key,
+                    "label": label,
+                    "unit": unit,
+                    "base": round(base, digits),
+                    "final": round(final, digits),
+                }
+            )
+    return effects
 
 
 def _effective_loadout(loadout: Mapping[str, str], weapon: Mapping[str, Any]) -> Dict[str, str]:
@@ -226,6 +261,10 @@ def rank_weapons_for_scenario(
             for name, stats in summary.items()
         }
         curve0 = solution.curve[0]
+        base_state = solver.resolver.resolve(profile_key, loadout={}, tuning=None)
+        final_state = solver.resolver.resolve(
+            profile_key, loadout=solution.loadout, tuning=solution.tuning
+        )
         rankings.append(
             GunRanking(
                 profile_key=profile_key,
@@ -248,6 +287,7 @@ def rank_weapons_for_scenario(
                 ammo_name=str(ammo.get("name") or ""),
                 ammo_caliber=str(ammo.get("caliber") or ""),
                 ammo_price_avg_30d=ammo_price,
+                loadout_effects=summarize_loadout_effects(base_state, final_state),
             )
         )
 
@@ -287,6 +327,7 @@ def to_export(
                 "equivalent_variants": list(entry.equivalent_variants),
                 "loadout": entry.loadout,
                 "tuning": entry.tuning,
+                "loadout_effects": [dict(e) for e in entry.loadout_effects],
                 "overall_mean_ms": round(entry.overall_mean_ms, 2),
                 "expected_shots_0m": round(entry.expected_shots_0m, 4),
                 "rpm": round(entry.rpm, 1),

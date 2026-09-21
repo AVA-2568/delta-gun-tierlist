@@ -61,6 +61,23 @@ def loadout_text(loadout: Mapping[str, str], part_names: Mapping[str, str]) -> s
     return " + ".join(labels)
 
 
+def loadout_effect_text(effects: Sequence[Mapping[str, Any]]) -> str:
+    """渲染「配装效果」摘要：最优配装相对白板的关键 TTK 属性变化。
+
+    例：``（肉伤 45→50 · 甲伤 50→65 · 优势射程 35.0→52.5 m）``；无变化时返回空串。
+    """
+    if not effects:
+        return ""
+    chunks = [
+        f"{e['label']} {e['base']:g}→{e['final']:g}{e.get('unit', '')}"
+        for e in effects
+        if e.get("base") is not None and e.get("final") is not None
+    ]
+    if not chunks:
+        return ""
+    return "<br><sub>配装效果：" + " · ".join(chunks) + "</sub>"
+
+
 def _tier_badge(tier: str) -> str:
     return {"T0": "**T0**", "T1": "T1", "T2": "T2", "T3": "T3"}.get(tier, tier or "—")
 
@@ -112,7 +129,8 @@ def render_band_table(
                 cost=_fmt_money(band_data.get("kill_cost"), currency),
                 rpm=_fmt(w.get("rpm"), 0),
                 rng=_fmt(w.get("effective_range_m"), 1, " m"),
-                loadout=loadout_text(w.get("loadout") or {}, part_names),
+                loadout=loadout_text(w.get("loadout") or {}, part_names)
+                + loadout_effect_text(w.get("loadout_effects") or []),
             )
         )
     return "\n".join(lines)
@@ -210,7 +228,7 @@ def render_readme(
     lines.append("| :-- | :-- |")
     lines.append("| 排序键 | 距离带内平均实战 TTK（`(期望击杀发数 − 1) × 射击间隔`） |")
     lines.append("| 不参与 | 开镜时间、弹丸飞行时间（初速）、换弹、命中率修正 |")
-    lines.append("| 配装 | 官方插槽规则下的**最优合法配装**，非人工预设 |")
+    lines.append("| 配装 | 官方插槽规则下的**最优合法配装**，非人工预设；配装对白板的关键属性变化标注在配装下方 |")
     lines.append("| 距离场 | 0–80 m（官方排行口径），分 4 个距离带 |")
     lines.append("| 分层 | 带内 TTK 分位数切分 T0–T3，阈值公开 |")
     lines.append(f"| 数据版本 | `{source.get('dataset_version', '未知')}`（{source.get('name', 'dfttk-v3')}） |")
@@ -260,7 +278,9 @@ def render_readme(
     lines.append("- **期望击杀发数**：按官方伤害规则（血量 100、单弹匣不换弹、碎甲按剩余耐久比例、"
                  "距离衰减同时作用于肉伤与护甲）逐位复现官方 `candidateMetrics`，**3774 个样本零偏差**")
     lines.append("- **射击间隔**：由官方 `sdkTiming` 与射速模式决定，**291 个官方候选零偏差**")
-    lines.append("- **配装搜索**：官方插槽规则 + 强制联动，精校交由玩家自行调校（不影响 TTK）")
+    lines.append("- **配装搜索**：官方插槽规则 + 强制联动，精校交由玩家自行调校（不影响 TTK）；"
+                 "已绝版的赛季限时件（哈夫克军工改件，如 S9 链锯/格斗套件）不参与搜索，"
+                 "榜单为**当前赛季可达成**的最优 TTK")
     lines.append("- **改枪指南**：开镜时间/初速/后坐等不进 TTK 的维度见 [docs/gunsmith-guide.md](docs/gunsmith-guide.md)")
     note = _price_note(main_payload)
     if note:

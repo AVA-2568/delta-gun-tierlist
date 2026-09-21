@@ -52,6 +52,22 @@ TTK_RULE_PREFIXES = ("BulletFlyingId", "AttackerValueId")
 _ATTR_PREFIXES = ("DisplayAttrValues.", "WeaponMainAttribute.MainAttrValues.")
 
 
+# --------------------------------------------------------------------------- #
+# 赛季限时件（绝版）排除表
+# --------------------------------------------------------------------------- #
+# 哈夫克军工「限时武器改件」按赛季轮换：活动凭证兑换、配件自带 30 天有效期，
+# 赛季结束后无法获取。上游 dfttk published data 只含游戏内配件定义、不含获取渠道，
+# 若不过滤，配装搜索会选中这些已绝版件，导致榜单最优 TTK 在新赛季不可达成。
+# 维护方式：每赛季对照官方更新公告核对本清单（S11 起）。
+EXCLUDED_PART_IDS: frozenset = frozenset(
+    {
+        "13020000590",  # M249 H.A.V.K 链锯套件（S9「回声」限时）
+        "13020000595",  # MP7 H.A.V.K 格斗套件（S9「回声」限时）
+        "13020000603",  # ASh-12 HVK 双发枪管（S10「裂变」限时）
+    }
+)
+
+
 def target_affects_ttk(target: Optional[str]) -> bool:
     """目标是否改变 TTK（射速 / 弹道与伤害档案 / 优势射程）。"""
     if not target:
@@ -136,15 +152,25 @@ def _prune_options(
 ) -> List[str]:
     """只保留直接影响 TTK 的选项，并保证默认件在内（否则最优可能被剪掉）。"""
     if include_non_ttk:
-        return list(options)
+        kept = [
+            item for item in options
+            if str(item) not in EXCLUDED_PART_IDS
+        ]
+        if default_item and str(default_item) not in EXCLUDED_PART_IDS and default_item not in kept:
+            kept.insert(0, default_item)
+        return kept
     kept: List[str] = []
     seen = set()
     for item in options:
-        if item in seen or not part_affects_ttk(game_data.get_part(item)):
+        if (
+            item in seen
+            or str(item) in EXCLUDED_PART_IDS
+            or not part_affects_ttk(game_data.get_part(item))
+        ):
             continue
         seen.add(item)
         kept.append(item)
-    if default_item and default_item not in seen:
+    if default_item and str(default_item) not in EXCLUDED_PART_IDS and default_item not in seen:
         kept.insert(0, default_item)
     return kept
 
