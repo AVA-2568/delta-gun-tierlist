@@ -1,5 +1,11 @@
 {
  "scenario_id": "armor-4-ammo-4-default",
+ "ammo_price_meta": {
+  "currency": "哈夫币",
+  "window": {},
+  "updated_at": "",
+  "available": false
+ },
  "ranking_key": "band_mean_ttk_ms",
  "robustness_key": "band_worst_ttk_ms",
  "tier_quantiles": [
@@ -73,34 +79,48 @@
    "ads_ms_reference": 350.0,
    "muzzle_velocity_mps": 747.5,
    "effective_range_m": 52.0,
+   "ammo": {
+    "ammo_item_id": "37120400001",
+    "name": "BT",
+    "caliber": "5.45x39mm",
+    "price_avg_30d": null
+   },
    "bands": {
     "贴脸": {
      "rank": 31,
      "tier": "T2",
      "mean_ms": 397.87,
      "worst_ms": 397.87,
-     "best_ms": 397.87
+     "best_ms": 397.87,
+     "mean_expected_shots": 5.875813,
+     "kill_cost": null
     },
     "近距": {
      "rank": 30,
      "tier": "T2",
      "mean_ms": 397.87,
      "worst_ms": 397.87,
-     "best_ms": 397.87
+     "best_ms": 397.87,
+     "mean_expected_shots": 5.875813,
+     "kill_cost": null
     },
     "中距": {
      "rank": 22,
      "tier": "T2",
      "mean_ms": 397.87,
      "worst_ms": 397.87,
-     "best_ms": 397.87
+     "best_ms": 397.87,
+     "mean_expected_shots": 5.875813,
+     "kill_cost": null
     },
     "远距": {
      "rank": 19,
      "tier": "T2",
      "mean_ms": 442.13,
      "worst_ms": 445.18,
-     "best_ms": 397.87
+     "best_ms": 397.87,
+     "mean_expected_shots": 6.418256,
+     "kill_cost": null
     }
    }
   },
@@ -126,34 +146,48 @@
    "ads_ms_reference": 344.77,
    "muzzle_velocity_mps": 656.67,
    "effective_range_m": 50.03,
+   "ammo": {
+    "ammo_item_id": "37110400001",
+    "name": "BP",
+    "caliber": "7.62x39mm",
+    "price_avg_30d": null
+   },
    "bands": {
     "贴脸": {
      "rank": 22,
      "tier": "T2",
      "mean_ms": 359.91,
      "worst_ms": 359.91,
-     "best_ms": 359.91
+     "best_ms": 359.91,
+     "mean_expected_shots": 4.599145,
+     "kill_cost": null
     },
     "近距": {
      "rank": 21,
      "tier": "T2",
      "mean_ms": 359.91,
      "worst_ms": 359.91,
-     "best_ms": 359.91
+     "best_ms": 359.91,
+     "mean_expected_shots": 4.599145,
+     "kill_cost": null
     },
     "中距": {
      "rank": 10,
      "tier": "T1",
      "mean_ms": 359.91,
      "worst_ms": 359.91,
-     "best_ms": 359.91
+     "best_ms": 359.91,
+     "mean_expected_shots": 4.599145,
+     "kill_cost": null
     },
     "远距": {
      "rank": 17,
      "tier": "T1",
      "mean_ms": 427.88,
      "worst_ms": 430.15,
-     "best_ms": 359.91
+     "best_ms": 359.91,
+     "mean_expected_shots": 5.278847,
+     "kill_cost": null
     }
    }
   },
@@ -176,34 +210,48 @@
    "ads_ms_reference": 321.23,
    "muzzle_velocity_mps": 590.0,
    "effective_range_m": 47.2,
+   "ammo": {
+    "ammo_item_id": "37120400001",
+    "name": "BT",
+    "caliber": "5.45x39mm",
+    "price_avg_30d": null
+   },
    "bands": {
     "贴脸": {
      "rank": 43,
      "tier": "T3",
      "mean_ms": 526.86,
      "worst_ms": 526.86,
-     "best_ms": 526.86
+     "best_ms": 526.86,
+     "mean_expected_shots": 5.679008,
+     "kill_cost": null
     },
     "近距": {
      "rank": 43,
      "tier": "T3",
      "mean_ms": 526.86,
      "worst_ms": 526.86,
-     "best_ms": 526.86
+     "best_ms": 526.86,
+     "mean_expected_shots": 5.679008,
+     "kill_cost": null
     },
     "中距": {
      "rank": 39,
      "tier": "T3",
      "mean_ms": 548.63,
      "worst_ms": 679.28,
-     "best_ms": 526.86
+     "best_ms": 526.86,
+     "mean_expected_shots": 5.872393,
+     "kill_cost": null
     },
     "远距": {
      "rank": 40,
      "tier": "T3",
      "mean_ms": 679.28,
      "worst_ms": 679.28,
-     "best_ms": 679.28
+     "best_ms": 679.28,
+     "mean_expected_shots": 7.032705,
+     "kill_cost": null
     }
    }
   },
@@ -226,34 +274,48 @@
    "ads_ms_reference": 314.96,
    "muzzle_velocity_mps": 619.5,
    "effective_range_m": 41.3,
+   "ammo": {
+    "ammo_item_id": "37210400001",
+    "name": "SS193",
+    "caliber": "5.7x28mm",
+    "price_avg_30d": null
+   },
    "bands": {
     "贴脸": {
      "rank": 23,
      "tier": "T2",
      "mean_ms": 360.41,
      "worst_ms": 360.41,
-     "best_ms": 360.41
+     "best_ms": 360.41,
+     "mean_expected_shots": 6.406246,
+     "kill_cost": null
     },
     "近距": {
      "rank": 22,
      "tier": "T2",
      "mean_ms": 360.41,
      "worst_ms": 360.41,
-     "best_ms": 360.41
+     "best_ms": 360.41,
+     "mean_expected_shots": 6.406246,
+     "kill_cost": null
     },
     "中距": {
      "rank": 21,
      "tier": "T2",
      "mean_ms": 392.27,
      "worst_ms": 434.75,
-     "best_ms": 360.41
+     "best_ms": 360.41,
+     "mean_expected_shots": 6.884122,
+     "kill_cost": null
     },
     "远距": {
      "rank": 28,
      "tier": "T2",
      "mean_ms": 480.13,
      "worst_ms": 498.7,
-     "best_ms": 434.75
+     "best_ms": 434.75,
+     "mean_expected_shots": 8.202026,
+     "kill_cost": null
     }
    }
   },
@@ -278,34 +340,48 @@
    "ads_ms_reference": 302.35,
    "muzzle_velocity_mps": 450.0,
    "effective_range_m": 21.0,
+   "ammo": {
+    "ammo_item_id": "37140400001",
+    "name": "SP6",
+    "caliber": "9x39mm",
+    "price_avg_30d": null
+   },
    "bands": {
     "贴脸": {
      "rank": 10,
      "tier": "T1",
      "mean_ms": 321.06,
      "worst_ms": 321.06,
-     "best_ms": 321.06
+     "best_ms": 321.06,
+     "mean_expected_shots": 4.638111,
+     "kill_cost": null
     },
     "近距": {
      "rank": 16,
      "tier": "T1",
      "mean_ms": 345.68,
      "worst_ms": 360.45,
-     "best_ms": 321.06
+     "best_ms": 321.06,
+     "mean_expected_shots": 4.91705,
+     "kill_cost": null
     },
     "中距": {
      "rank": 19,
      "tier": "T2",
      "mean_ms": 386.3,
      "worst_ms": 414.74,
-     "best_ms": 360.45
+     "best_ms": 360.45,
+     "mean_expected_shots": 5.377335,
+     "kill_cost": null
     },
     "远距": {
      "rank": 13,
      "tier": "T1",
      "mean_ms": 414.74,
      "worst_ms": 414.74,
-     "best_ms": 414.74
+     "best_ms": 414.74,
+     "mean_expected_shots": 5.699547,
+     "kill_cost": null
     }
    }
   },
@@ -329,34 +405,48 @@
    "ads_ms_reference": 308.65,
    "muzzle_velocity_mps": 340.0,
    "effective_range_m": 55.0,
+   "ammo": {
+    "ammo_item_id": "37160400001",
+    "name": "PS12",
+    "caliber": "12.7x55",
+    "price_avg_30d": null
+   },
    "bands": {
     "贴脸": {
      "rank": 3,
      "tier": "T0",
      "mean_ms": 289.96,
      "worst_ms": 289.96,
-     "best_ms": 289.96
+     "best_ms": 289.96,
+     "mean_expected_shots": 3.416346,
+     "kill_cost": null
     },
     "近距": {
      "rank": 2,
      "tier": "T0",
      "mean_ms": 289.96,
      "worst_ms": 289.96,
-     "best_ms": 289.96
+     "best_ms": 289.96,
+     "mean_expected_shots": 3.416346,
+     "kill_cost": null
     },
     "中距": {
      "rank": 1,
      "tier": "T0",
      "mean_ms": 289.96,
      "worst_ms": 289.96,
-     "best_ms": 289.96
+     "best_ms": 289.96,
+     "mean_expected_shots": 3.416346,
+     "kill_cost": null
     },
     "远距": {
      "rank": 3,
      "tier": "T0",
      "mean_ms": 362.77,
      "worst_ms": 376.77,
-     "best_ms": 289.96
+     "best_ms": 289.96,
+     "mean_expected_shots": 4.023085,
+     "kill_cost": null
     }
    }
   },
@@ -380,34 +470,48 @@
    "ads_ms_reference": 408.47,
    "muzzle_velocity_mps": 882.05,
    "effective_range_m": 84.37,
+   "ammo": {
+    "ammo_item_id": "37100400001",
+    "name": "M855A1",
+    "caliber": "5.56x45mm",
+    "price_avg_30d": null
+   },
    "bands": {
     "贴脸": {
      "rank": 34,
      "tier": "T3",
      "mean_ms": 422.02,
      "worst_ms": 422.02,
-     "best_ms": 422.02
+     "best_ms": 422.02,
+     "mean_expected_shots": 5.774014,
+     "kill_cost": null
     },
     "近距": {
      "rank": 34,
      "tier": "T3",
      "mean_ms": 422.02,
      "worst_ms": 422.02,
-     "best_ms": 422.02
+     "best_ms": 422.02,
+     "mean_expected_shots": 5.774014,
+     "kill_cost": null
     },
     "中距": {
      "rank": 28,
      "tier": "T2",
      "mean_ms": 422.02,
      "worst_ms": 422.02,
-     "best_ms": 422.02
+     "best_ms": 422.02,
+     "mean_expected_shots": 5.774014,
+     "kill_cost": null
     },
     "远距": {
      "rank": 15,
      "tier": "T1",
      "mean_ms": 422.02,
      "worst_ms": 422.02,
-     "best_ms": 422.02
+     "best_ms": 422.02,
+     "mean_expected_shots": 5.774014,
+     "kill_cost": null
     }
    }
   },
@@ -432,34 +536,48 @@
    "ads_ms_reference": 339.22,
    "muzzle_velocity_mps": 678.5,
    "effective_range_m": 47.2,
+   "ammo": {
+    "ammo_item_id": "37100400001",
+    "name": "M855A1",
+    "caliber": "5.56x45mm",
+    "price_avg_30d": null
+   },
    "bands": {
     "贴脸": {
      "rank": 42,
      "tier": "T3",
      "mean_ms": 515.76,
      "worst_ms": 515.76,
-     "best_ms": 515.76
+     "best_ms": 515.76,
+     "mean_expected_shots": 6.43475,
+     "kill_cost": null
     },
     "近距": {
      "rank": 42,
      "tier": "T3",
      "mean_ms": 515.76,
      "worst_ms": 515.76,
-     "best_ms": 515.76
+     "best_ms": 515.76,
+     "mean_expected_shots": 6.43475,
+     "kill_cost": null
     },
     "中距": {
      "rank": 38,
      "tier": "T3",
      "mean_ms": 531.64,
      "worst_ms": 626.93,
-     "best_ms": 515.76
+     "best_ms": 515.76,
+     "mean_expected_shots": 6.602105,
+     "kill_cost": null
     },
     "远距": {
      "rank": 39,
      "tier": "T3",
      "mean_ms": 626.93,
      "worst_ms": 626.93,
-     "best_ms": 626.93
+     "best_ms": 626.93,
+     "mean_expected_shots": 7.606233,
+     "kill_cost": null
     }
    }
   },
@@ -483,34 +601,48 @@
    "ads_ms_reference": 437.57,
    "muzzle_velocity_mps": 966.42,
    "effective_range_m": 84.37,
+   "ammo": {
+    "ammo_item_id": "37170400001",
+    "name": "M80",
+    "caliber": "7.62x51mm",
+    "price_avg_30d": null
+   },
    "bands": {
     "贴脸": {
      "rank": 39,
      "tier": "T3",
      "mean_ms": 446.67,
      "worst_ms": 446.67,
-     "best_ms": 446.67
+     "best_ms": 446.67,
+     "mean_expected_shots": 4.966909,
+     "kill_cost": null
     },
     "近距": {
      "rank": 39,
      "tier": "T3",
      "mean_ms": 446.67,
      "worst_ms": 446.67,
-     "best_ms": 446.67
+     "best_ms": 446.67,
+     "mean_expected_shots": 4.966909,
+     "kill_cost": null
     },
     "中距": {
      "rank": 31,
      "tier": "T2",
      "mean_ms": 446.67,
      "worst_ms": 446.67,
-     "best_ms": 446.67
+     "best_ms": 446.67,
+     "mean_expected_shots": 4.966909,
+     "kill_cost": null
     },
     "远距": {
      "rank": 21,
      "tier": "T2",
      "mean_ms": 446.67,
      "worst_ms": 446.67,
-     "best_ms": 446.67
+     "best_ms": 446.67,
+     "mean_expected_shots": 4.966909,
+     "kill_cost": null
     }
    }
   },
@@ -534,34 +666,48 @@
    "ads_ms_reference": 355.38,
    "muzzle_velocity_mps": 882.05,
    "effective_range_m": 41.42,
+   "ammo": {
+    "ammo_item_id": "37100400001",
+    "name": "M855A1",
+    "caliber": "5.56x45mm",
+    "price_avg_30d": null
+   },
    "bands": {
     "贴脸": {
      "rank": 20,
      "tier": "T2",
      "mean_ms": 349.51,
      "worst_ms": 349.51,
-     "best_ms": 349.51
+     "best_ms": 349.51,
+     "mean_expected_shots": 6.124829,
+     "kill_cost": null
     },
     "近距": {
      "rank": 19,
      "tier": "T2",
      "mean_ms": 349.51,
      "worst_ms": 349.51,
-     "best_ms": 349.51
+     "best_ms": 349.51,
+     "mean_expected_shots": 6.124829,
+     "kill_cost": null
     },
     "中距": {
      "rank": 16,
      "tier": "T1",
      "mean_ms": 378.22,
      "worst_ms": 416.49,
-     "best_ms": 349.51
+     "best_ms": 349.51,
+     "mean_expected_shots": 6.545696,
+     "kill_cost": null
     },
     "远距": {
      "rank": 14,
      "tier": "T1",
      "mean_ms": 416.49,
      "worst_ms": 416.49,
-     "best_ms": 416.49
+     "best_ms": 416.49,
+     "mean_expected_shots": 7.106852,
+     "kill_cost": null
     }
    }
   },
@@ -586,34 +732,48 @@
    "ads_ms_reference": 375.11,
    "muzzle_velocity_mps": 862.5,
    "effective_range_m": 52.5,
+   "ammo": {
+    "ammo_item_id": "37280400001",
+    "name": "BCP-FMJ",
+    "caliber": ".300BLK",
+    "price_avg_30d": null
+   },
    "bands": {
     "贴脸": {
      "rank": 18,
      "tier": "T1",
      "mean_ms": 346.56,
      "worst_ms": 346.56,
-     "best_ms": 346.56
+     "best_ms": 346.56,
+     "mean_expected_shots": 5.506673,
+     "kill_cost": null
     },
     "近距": {
      "rank": 17,
      "tier": "T1",
      "mean_ms": 346.56,
      "worst_ms": 346.56,
-     "best_ms": 346.56
+     "best_ms": 346.56,
+     "mean_expected_shots": 5.506673,
+     "kill_cost": null
     },
     "中距": {
      "rank": 8,
      "tier": "T1",
      "mean_ms": 346.56,
      "worst_ms": 346.56,
-     "best_ms": 346.56
+     "best_ms": 346.56,
+     "mean_expected_shots": 5.506673,
+     "kill_cost": null
     },
     "远距": {
      "rank": 5,
      "tier": "T0",
      "mean_ms": 377.77,
      "worst_ms": 381.11,
-     "best_ms": 346.56
+     "best_ms": 346.56,
+     "mean_expected_shots": 5.912477,
+     "kill_cost": null
     }
    }
   },
@@ -637,34 +797,48 @@
    "ads_ms_reference": 417.84,
    "muzzle_velocity_mps": 882.05,
    "effective_range_m": 84.37,
+   "ammo": {
+    "ammo_item_id": "37120400001",
+    "name": "BT",
+    "caliber": "5.45x39mm",
+    "price_avg_30d": null
+   },
    "bands": {
     "贴脸": {
      "rank": 29,
      "tier": "T2",
      "mean_ms": 387.77,
      "worst_ms": 387.77,
-     "best_ms": 387.77
+     "best_ms": 387.77,
+     "mean_expected_shots": 5.782474,
+     "kill_cost": null
     },
     "近距": {
      "rank": 28,
      "tier": "T2",
      "mean_ms": 387.77,
      "worst_ms": 387.77,
-     "best_ms": 387.77
+     "best_ms": 387.77,
+     "mean_expected_shots": 5.782474,
+     "kill_cost": null
     },
     "中距": {
      "rank": 20,
      "tier": "T2",
      "mean_ms": 387.77,
      "worst_ms": 387.77,
-     "best_ms": 387.77
+     "best_ms": 387.77,
+     "mean_expected_shots": 5.782474,
+     "kill_cost": null
     },
     "远距": {
      "rank": 7,
      "tier": "T0",
      "mean_ms": 387.77,
      "worst_ms": 387.77,
-     "best_ms": 387.77
+     "best_ms": 387.77,
+     "mean_expected_shots": 5.782474,
+     "kill_cost": null
     }
    }
   },
@@ -687,34 +861,48 @@
    "ads_ms_reference": 339.22,
    "muzzle_velocity_mps": 678.5,
    "effective_range_m": 47.2,
+   "ammo": {
+    "ammo_item_id": "37170400001",
+    "name": "M80",
+    "caliber": "7.62x51mm",
+    "price_avg_30d": null
+   },
    "bands": {
     "贴脸": {
      "rank": 16,
      "tier": "T1",
      "mean_ms": 331.54,
      "worst_ms": 331.54,
-     "best_ms": 331.54
+     "best_ms": 331.54,
+     "mean_expected_shots": 5.018699,
+     "kill_cost": null
     },
     "近距": {
      "rank": 14,
      "tier": "T1",
      "mean_ms": 331.54,
      "worst_ms": 331.54,
-     "best_ms": 331.54
+     "best_ms": 331.54,
+     "mean_expected_shots": 5.018699,
+     "kill_cost": null
     },
     "中距": {
      "rank": 7,
      "tier": "T0",
      "mean_ms": 345.16,
      "worst_ms": 426.89,
-     "best_ms": 331.54
+     "best_ms": 331.54,
+     "mean_expected_shots": 5.1838,
+     "kill_cost": null
     },
     "远距": {
      "rank": 16,
      "tier": "T1",
      "mean_ms": 426.89,
      "worst_ms": 426.89,
-     "best_ms": 426.89
+     "best_ms": 426.89,
+     "mean_expected_shots": 6.174409,
+     "kill_cost": null
     }
    }
   },
@@ -740,34 +928,48 @@
    "ads_ms_reference": 390.9,
    "muzzle_velocity_mps": 882.05,
    "effective_range_m": 84.37,
+   "ammo": {
+    "ammo_item_id": "37100400001",
+    "name": "M855A1",
+    "caliber": "5.56x45mm",
+    "price_avg_30d": null
+   },
    "bands": {
     "贴脸": {
      "rank": 44,
      "tier": "T3",
      "mean_ms": 552.67,
      "worst_ms": 552.67,
-     "best_ms": 552.67
+     "best_ms": 552.67,
+     "mean_expected_shots": 5.683648,
+     "kill_cost": null
     },
     "近距": {
      "rank": 44,
      "tier": "T3",
      "mean_ms": 552.67,
      "worst_ms": 552.67,
-     "best_ms": 552.67
+     "best_ms": 552.67,
+     "mean_expected_shots": 5.683648,
+     "kill_cost": null
     },
     "中距": {
      "rank": 40,
      "tier": "T3",
      "mean_ms": 552.67,
      "worst_ms": 552.67,
-     "best_ms": 552.67
+     "best_ms": 552.67,
+     "mean_expected_shots": 5.683648,
+     "kill_cost": null
     },
     "远距": {
      "rank": 35,
      "tier": "T3",
      "mean_ms": 552.67,
      "worst_ms": 552.67,
-     "best_ms": 552.67
+     "best_ms": 552.67,
+     "mean_expected_shots": 5.683648,
+     "kill_cost": null
     }
    }
   },
@@ -791,34 +993,48 @@
    "ads_ms_reference": 539.13,
    "muzzle_velocity_mps": 678.5,
    "effective_range_m": 47.2,
+   "ammo": {
+    "ammo_item_id": "37100400001",
+    "name": "M855A1",
+    "caliber": "5.56x45mm",
+    "price_avg_30d": null
+   },
    "bands": {
     "贴脸": {
      "rank": 14,
      "tier": "T1",
      "mean_ms": 327.89,
      "worst_ms": 327.89,
-     "best_ms": 327.89
+     "best_ms": 327.89,
+     "mean_expected_shots": 6.160493,
+     "kill_cost": null
     },
     "近距": {
      "rank": 12,
      "tier": "T1",
      "mean_ms": 327.89,
      "worst_ms": 327.89,
-     "best_ms": 327.89
+     "best_ms": 327.89,
+     "mean_expected_shots": 6.160493,
+     "kill_cost": null
     },
     "中距": {
      "rank": 6,
      "tier": "T0",
      "mean_ms": 336.88,
      "worst_ms": 390.78,
-     "best_ms": 327.89
+     "best_ms": 327.89,
+     "mean_expected_shots": 6.301874,
+     "kill_cost": null
     },
     "远距": {
      "rank": 9,
      "tier": "T1",
      "mean_ms": 390.78,
      "worst_ms": 390.78,
-     "best_ms": 390.78
+     "best_ms": 390.78,
+     "mean_expected_shots": 7.150164,
+     "kill_cost": null
     }
    }
   },
@@ -843,34 +1059,48 @@
    "ads_ms_reference": 526.87,
    "muzzle_velocity_mps": 819.0,
    "effective_range_m": 52.0,
+   "ammo": {
+    "ammo_item_id": "37150400001",
+    "name": "FMJ",
+    "caliber": "6.8x51mm",
+    "price_avg_30d": null
+   },
    "bands": {
     "贴脸": {
      "rank": 5,
      "tier": "T0",
      "mean_ms": 299.85,
      "worst_ms": 299.85,
-     "best_ms": 299.85
+     "best_ms": 299.85,
+     "mean_expected_shots": 3.750955,
+     "kill_cost": null
     },
     "近距": {
      "rank": 3,
      "tier": "T0",
      "mean_ms": 299.85,
      "worst_ms": 299.85,
-     "best_ms": 299.85
+     "best_ms": 299.85,
+     "mean_expected_shots": 3.750955,
+     "kill_cost": null
     },
     "中距": {
      "rank": 2,
      "tier": "T0",
      "mean_ms": 299.85,
      "worst_ms": 299.85,
-     "best_ms": 299.85
+     "best_ms": 299.85,
+     "mean_expected_shots": 3.750955,
+     "kill_cost": null
     },
     "远距": {
      "rank": 2,
      "tier": "T0",
      "mean_ms": 359.57,
      "worst_ms": 363.69,
-     "best_ms": 299.85
+     "best_ms": 299.85,
+     "mean_expected_shots": 4.298791,
+     "kill_cost": null
     }
    }
   },
@@ -895,34 +1125,48 @@
    "ads_ms_reference": 339.22,
    "muzzle_velocity_mps": 678.5,
    "effective_range_m": 47.2,
+   "ammo": {
+    "ammo_item_id": "37100400001",
+    "name": "M855A1",
+    "caliber": "5.56x45mm",
+    "price_avg_30d": null
+   },
    "bands": {
     "贴脸": {
      "rank": 24,
      "tier": "T2",
      "mean_ms": 362.61,
      "worst_ms": 362.61,
-     "best_ms": 362.61
+     "best_ms": 362.61,
+     "mean_expected_shots": 5.834751,
+     "kill_cost": null
     },
     "近距": {
      "rank": 23,
      "tier": "T2",
      "mean_ms": 362.61,
      "worst_ms": 362.61,
-     "best_ms": 362.61
+     "best_ms": 362.61,
+     "mean_expected_shots": 5.834751,
+     "kill_cost": null
     },
     "中距": {
      "rank": 14,
      "tier": "T1",
      "mean_ms": 372.42,
      "worst_ms": 431.32,
-     "best_ms": 362.61
+     "best_ms": 362.61,
+     "mean_expected_shots": 5.965637,
+     "kill_cost": null
     },
     "远距": {
      "rank": 18,
      "tier": "T1",
      "mean_ms": 431.32,
      "worst_ms": 431.32,
-     "best_ms": 431.32
+     "best_ms": 431.32,
+     "mean_expected_shots": 6.750949,
+     "kill_cost": null
     }
    }
   },
@@ -947,34 +1191,48 @@
    "ads_ms_reference": 375.11,
    "muzzle_velocity_mps": 819.0,
    "effective_range_m": 65.0,
+   "ammo": {
+    "ammo_item_id": "37150400001",
+    "name": "FMJ",
+    "caliber": "6.8x51mm",
+    "price_avg_30d": null
+   },
    "bands": {
     "贴脸": {
      "rank": 26,
      "tier": "T2",
      "mean_ms": 369.66,
      "worst_ms": 369.66,
-     "best_ms": 369.66
+     "best_ms": 369.66,
+     "mean_expected_shots": 5.000633,
+     "kill_cost": null
     },
     "近距": {
      "rank": 25,
      "tier": "T2",
      "mean_ms": 369.66,
      "worst_ms": 369.66,
-     "best_ms": 369.66
+     "best_ms": 369.66,
+     "mean_expected_shots": 5.000633,
+     "kill_cost": null
     },
     "中距": {
      "rank": 12,
      "tier": "T1",
      "mean_ms": 369.66,
      "worst_ms": 369.66,
-     "best_ms": 369.66
+     "best_ms": 369.66,
+     "mean_expected_shots": 5.000633,
+     "kill_cost": null
     },
     "远距": {
      "rank": 10,
      "tier": "T1",
      "mean_ms": 396.92,
      "worst_ms": 422.47,
-     "best_ms": 369.66
+     "best_ms": 369.66,
+     "mean_expected_shots": 5.295638,
+     "kill_cost": null
     }
    }
   },
@@ -1000,34 +1258,48 @@
    "ads_ms_reference": 355.38,
    "muzzle_velocity_mps": 690.3,
    "effective_range_m": 46.02,
+   "ammo": {
+    "ammo_item_id": "37280400001",
+    "name": "BCP-FMJ",
+    "caliber": ".300BLK",
+    "price_avg_30d": null
+   },
    "bands": {
     "贴脸": {
      "rank": 25,
      "tier": "T2",
      "mean_ms": 364.69,
      "worst_ms": 364.69,
-     "best_ms": 364.69
+     "best_ms": 364.69,
+     "mean_expected_shots": 6.107729,
+     "kill_cost": null
     },
     "近距": {
      "rank": 24,
      "tier": "T2",
      "mean_ms": 364.69,
      "worst_ms": 364.69,
-     "best_ms": 364.69
+     "best_ms": 364.69,
+     "mean_expected_shots": 6.107729,
+     "kill_cost": null
     },
     "中距": {
      "rank": 17,
      "tier": "T1",
      "mean_ms": 379.51,
      "worst_ms": 442.51,
-     "best_ms": 364.69
+     "best_ms": 364.69,
+     "mean_expected_shots": 6.315331,
+     "kill_cost": null
     },
     "远距": {
      "rank": 23,
      "tier": "T2",
      "mean_ms": 455.84,
      "worst_ms": 545.82,
-     "best_ms": 442.51
+     "best_ms": 442.51,
+     "mean_expected_shots": 7.384328,
+     "kill_cost": null
     }
    }
   },
@@ -1050,34 +1322,48 @@
    "ads_ms_reference": 344.77,
    "muzzle_velocity_mps": 819.0,
    "effective_range_m": 45.5,
+   "ammo": {
+    "ammo_item_id": "37170400001",
+    "name": "M80",
+    "caliber": "7.62x51mm",
+    "price_avg_30d": null
+   },
    "bands": {
     "贴脸": {
      "rank": 19,
      "tier": "T2",
      "mean_ms": 348.8,
      "worst_ms": 348.8,
-     "best_ms": 348.8
+     "best_ms": 348.8,
+     "mean_expected_shots": 4.778953,
+     "kill_cost": null
     },
     "近距": {
      "rank": 18,
      "tier": "T1",
      "mean_ms": 348.8,
      "worst_ms": 348.8,
-     "best_ms": 348.8
+     "best_ms": 348.8,
+     "mean_expected_shots": 4.778953,
+     "kill_cost": null
     },
     "中距": {
      "rank": 11,
      "tier": "T1",
      "mean_ms": 367.48,
      "worst_ms": 427.25,
-     "best_ms": 348.8
+     "best_ms": 348.8,
+     "mean_expected_shots": 4.981325,
+     "kill_cost": null
     },
     "远距": {
      "rank": 25,
      "tier": "T2",
      "mean_ms": 458.38,
      "worst_ms": 487.57,
-     "best_ms": 427.25
+     "best_ms": 427.25,
+     "mean_expected_shots": 5.966216,
+     "kill_cost": null
     }
    }
   },
@@ -1104,34 +1390,48 @@
    "ads_ms_reference": 361.38,
    "muzzle_velocity_mps": 728.65,
    "effective_range_m": 30.68,
+   "ammo": {
+    "ammo_item_id": "37260400001",
+    "name": "FMJ SX",
+    "caliber": "4.6x30mm",
+    "price_avg_30d": null
+   },
    "bands": {
     "贴脸": {
      "rank": 6,
      "tier": "T0",
      "mean_ms": 313.25,
      "worst_ms": 313.25,
-     "best_ms": 313.25
+     "best_ms": 313.25,
+     "mean_expected_shots": 5.139827,
+     "kill_cost": null
     },
     "近距": {
      "rank": 4,
      "tier": "T0",
      "mean_ms": 313.25,
      "worst_ms": 313.25,
-     "best_ms": 313.25
+     "best_ms": 313.25,
+     "mean_expected_shots": 5.139827,
+     "kill_cost": null
     },
     "中距": {
      "rank": 15,
      "tier": "T1",
      "mean_ms": 377.89,
      "worst_ms": 423.98,
-     "best_ms": 313.25
+     "best_ms": 313.25,
+     "mean_expected_shots": 5.994118,
+     "kill_cost": null
     },
     "远距": {
      "rank": 26,
      "tier": "T2",
      "mean_ms": 465.09,
      "worst_ms": 491.05,
-     "best_ms": 423.98
+     "best_ms": 423.98,
+     "mean_expected_shots": 7.146534,
+     "kill_cost": null
     }
    }
   },
@@ -1157,34 +1457,48 @@
    "ads_ms_reference": 283.74,
    "muzzle_velocity_mps": 525.0,
    "effective_range_m": 30.0,
+   "ammo": {
+    "ammo_item_id": "37110400001",
+    "name": "BP",
+    "caliber": "7.62x39mm",
+    "price_avg_30d": null
+   },
    "bands": {
     "贴脸": {
      "rank": 9,
      "tier": "T1",
      "mean_ms": 319.91,
      "worst_ms": 319.91,
-     "best_ms": 319.91
+     "best_ms": 319.91,
+     "mean_expected_shots": 4.332432,
+     "kill_cost": null
     },
     "近距": {
      "rank": 8,
      "tier": "T1",
      "mean_ms": 324.03,
      "worst_ms": 385.8,
-     "best_ms": 319.91
+     "best_ms": 319.91,
+     "mean_expected_shots": 4.375324,
+     "kill_cost": null
     },
     "中距": {
      "rank": 25,
      "tier": "T2",
      "mean_ms": 412.46,
      "worst_ms": 479.11,
-     "best_ms": 385.8
+     "best_ms": 385.8,
+     "mean_expected_shots": 5.296408,
+     "kill_cost": null
     },
     "远距": {
      "rank": 27,
      "tier": "T2",
      "mean_ms": 479.11,
      "worst_ms": 479.11,
-     "best_ms": 479.11
+     "best_ms": 479.11,
+     "mean_expected_shots": 5.99068,
+     "kill_cost": null
     }
    }
   },
@@ -1208,34 +1522,48 @@
    "ads_ms_reference": 290.0,
    "muzzle_velocity_mps": 690.3,
    "effective_range_m": 30.68,
+   "ammo": {
+    "ammo_item_id": "37200400001",
+    "name": "PBP",
+    "caliber": "9x19mm",
+    "price_avg_30d": null
+   },
    "bands": {
     "贴脸": {
      "rank": 30,
      "tier": "T2",
      "mean_ms": 392.59,
      "worst_ms": 392.59,
-     "best_ms": 392.59
+     "best_ms": 392.59,
+     "mean_expected_shots": 6.363248,
+     "kill_cost": null
     },
     "近距": {
      "rank": 29,
      "tier": "T2",
      "mean_ms": 392.59,
      "worst_ms": 392.59,
-     "best_ms": 392.59
+     "best_ms": 392.59,
+     "mean_expected_shots": 6.363248,
+     "kill_cost": null
     },
     "中距": {
      "rank": 41,
      "tier": "T3",
      "mean_ms": 577.58,
      "worst_ms": 637.92,
-     "best_ms": 392.59
+     "best_ms": 392.59,
+     "mean_expected_shots": 8.890439,
+     "kill_cost": null
     },
     "远距": {
      "rank": 41,
      "tier": "T3",
      "mean_ms": 715.07,
      "worst_ms": 763.8,
-     "best_ms": 637.92
+     "best_ms": 637.92,
+     "mean_expected_shots": 10.768781,
+     "kill_cost": null
     }
    }
   },
@@ -1259,34 +1587,48 @@
    "ads_ms_reference": 230.0,
    "muzzle_velocity_mps": 531.0,
    "effective_range_m": 23.6,
+   "ammo": {
+    "ammo_item_id": "37260400001",
+    "name": "FMJ SX",
+    "caliber": "4.6x30mm",
+    "price_avg_30d": null
+   },
    "bands": {
     "贴脸": {
      "rank": 1,
      "tier": "T0",
      "mean_ms": 280.14,
      "worst_ms": 280.14,
-     "best_ms": 280.14
+     "best_ms": 280.14,
+     "mean_expected_shots": 5.435597,
+     "kill_cost": null
     },
     "近距": {
      "rank": 10,
      "tier": "T1",
      "mean_ms": 325.87,
      "worst_ms": 384.67,
-     "best_ms": 280.14
+     "best_ms": 280.14,
+     "mean_expected_shots": 6.159707,
+     "kill_cost": null
     },
     "中距": {
      "rank": 33,
      "tier": "T3",
      "mean_ms": 458.12,
      "worst_ms": 540.38,
-     "best_ms": 384.67
+     "best_ms": 384.67,
+     "mean_expected_shots": 8.253635,
+     "kill_cost": null
     },
     "远距": {
      "rank": 34,
      "tier": "T3",
      "mean_ms": 540.38,
      "worst_ms": 540.38,
-     "best_ms": 540.38
+     "best_ms": 540.38,
+     "mean_expected_shots": 9.556185,
+     "kill_cost": null
     }
    }
   },
@@ -1312,34 +1654,48 @@
    "ads_ms_reference": 390.9,
    "muzzle_velocity_mps": 690.3,
    "effective_range_m": 30.68,
+   "ammo": {
+    "ammo_item_id": "37210400001",
+    "name": "SS193",
+    "caliber": "5.7x28mm",
+    "price_avg_30d": null
+   },
    "bands": {
     "贴脸": {
      "rank": 15,
      "tier": "T1",
      "mean_ms": 329.18,
      "worst_ms": 329.18,
-     "best_ms": 329.18
+     "best_ms": 329.18,
+     "mean_expected_shots": 5.92789,
+     "kill_cost": null
     },
     "近距": {
      "rank": 13,
      "tier": "T1",
      "mean_ms": 329.18,
      "worst_ms": 329.18,
-     "best_ms": 329.18
+     "best_ms": 329.18,
+     "mean_expected_shots": 5.92789,
+     "kill_cost": null
     },
     "中距": {
      "rank": 35,
      "tier": "T3",
      "mean_ms": 489.4,
      "worst_ms": 540.61,
-     "best_ms": 329.18
+     "best_ms": 329.18,
+     "mean_expected_shots": 8.32633,
+     "kill_cost": null
     },
     "远距": {
      "rank": 38,
      "tier": "T3",
      "mean_ms": 604.57,
      "worst_ms": 644.97,
-     "best_ms": 540.61
+     "best_ms": 540.61,
+     "mean_expected_shots": 10.050419,
+     "kill_cost": null
     }
    }
   },
@@ -1362,34 +1718,48 @@
    "ads_ms_reference": 480.0,
    "muzzle_velocity_mps": 819.0,
    "effective_range_m": 52.0,
+   "ammo": {
+    "ammo_item_id": "37180400001",
+    "name": "LPS",
+    "caliber": "7.62x54R",
+    "price_avg_30d": null
+   },
    "bands": {
     "贴脸": {
      "rank": 7,
      "tier": "T0",
      "mean_ms": 313.5,
      "worst_ms": 313.5,
-     "best_ms": 313.5
+     "best_ms": 313.5,
+     "mean_expected_shots": 4.49499,
+     "kill_cost": null
     },
     "近距": {
      "rank": 5,
      "tier": "T0",
      "mean_ms": 313.5,
      "worst_ms": 313.5,
-     "best_ms": 313.5
+     "best_ms": 313.5,
+     "mean_expected_shots": 4.49499,
+     "kill_cost": null
     },
     "中距": {
      "rank": 3,
      "tier": "T0",
      "mean_ms": 313.5,
      "worst_ms": 313.5,
-     "best_ms": 313.5
+     "best_ms": 313.5,
+     "mean_expected_shots": 4.49499,
+     "kill_cost": null
     },
     "远距": {
      "rank": 4,
      "tier": "T0",
      "mean_ms": 369.77,
      "worst_ms": 373.65,
-     "best_ms": 313.5
+     "best_ms": 313.5,
+     "mean_expected_shots": 5.122296,
+     "kill_cost": null
     }
    }
   },
@@ -1412,34 +1782,48 @@
    "ads_ms_reference": 314.96,
    "muzzle_velocity_mps": 743.4,
    "effective_range_m": 47.2,
+   "ammo": {
+    "ammo_item_id": "37110400001",
+    "name": "BP",
+    "caliber": "7.62x39mm",
+    "price_avg_30d": null
+   },
    "bands": {
     "贴脸": {
      "rank": 35,
      "tier": "T3",
      "mean_ms": 425.25,
      "worst_ms": 425.25,
-     "best_ms": 425.25
+     "best_ms": 425.25,
+     "mean_expected_shots": 5.481046,
+     "kill_cost": null
     },
     "近距": {
      "rank": 35,
      "tier": "T3",
      "mean_ms": 425.25,
      "worst_ms": 425.25,
-     "best_ms": 425.25
+     "best_ms": 425.25,
+     "mean_expected_shots": 5.481046,
+     "kill_cost": null
     },
     "中距": {
      "rank": 29,
      "tier": "T2",
      "mean_ms": 436.75,
      "worst_ms": 505.76,
-     "best_ms": 425.25
+     "best_ms": 425.25,
+     "mean_expected_shots": 5.602234,
+     "kill_cost": null
     },
     "远距": {
      "rank": 31,
      "tier": "T2",
      "mean_ms": 505.76,
      "worst_ms": 505.76,
-     "best_ms": 505.76
+     "best_ms": 505.76,
+     "mean_expected_shots": 6.329366,
+     "kill_cost": null
     }
    }
   },
@@ -1463,34 +1847,48 @@
    "ads_ms_reference": 399.48,
    "muzzle_velocity_mps": 882.05,
    "effective_range_m": 84.37,
+   "ammo": {
+    "ammo_item_id": "37130400001",
+    "name": "DBP10",
+    "caliber": "5.8x42mm",
+    "price_avg_30d": null
+   },
    "bands": {
     "贴脸": {
      "rank": 38,
      "tier": "T3",
      "mean_ms": 444.14,
      "worst_ms": 444.14,
-     "best_ms": 444.14
+     "best_ms": 444.14,
+     "mean_expected_shots": 6.024178,
+     "kill_cost": null
     },
     "近距": {
      "rank": 38,
      "tier": "T3",
      "mean_ms": 444.14,
      "worst_ms": 444.14,
-     "best_ms": 444.14
+     "best_ms": 444.14,
+     "mean_expected_shots": 6.024178,
+     "kill_cost": null
     },
     "中距": {
      "rank": 30,
      "tier": "T2",
      "mean_ms": 444.14,
      "worst_ms": 444.14,
-     "best_ms": 444.14
+     "best_ms": 444.14,
+     "mean_expected_shots": 6.024178,
+     "kill_cost": null
     },
     "远距": {
      "rank": 20,
      "tier": "T2",
      "mean_ms": 444.14,
      "worst_ms": 444.14,
-     "best_ms": 444.14
+     "best_ms": 444.14,
+     "mean_expected_shots": 6.024178,
+     "kill_cost": null
     }
    }
   },
@@ -1515,34 +1913,48 @@
    "ads_ms_reference": 339.22,
    "muzzle_velocity_mps": 690.3,
    "effective_range_m": 30.68,
+   "ammo": {
+    "ammo_item_id": "37200400001",
+    "name": "PBP",
+    "caliber": "9x19mm",
+    "price_avg_30d": null
+   },
    "bands": {
     "贴脸": {
      "rank": 11,
      "tier": "T1",
      "mean_ms": 321.71,
      "worst_ms": 321.71,
-     "best_ms": 321.71
+     "best_ms": 321.71,
+     "mean_expected_shots": 5.547821,
+     "kill_cost": null
     },
     "近距": {
      "rank": 7,
      "tier": "T0",
      "mean_ms": 321.71,
      "worst_ms": 321.71,
-     "best_ms": 321.71
+     "best_ms": 321.71,
+     "mean_expected_shots": 5.547821,
+     "kill_cost": null
     },
     "中距": {
      "rank": 34,
      "tier": "T3",
      "mean_ms": 472.38,
      "worst_ms": 521.49,
-     "best_ms": 321.71
+     "best_ms": 321.71,
+     "mean_expected_shots": 7.677678,
+     "kill_cost": null
     },
     "远距": {
      "rank": 36,
      "tier": "T3",
      "mean_ms": 585.96,
      "worst_ms": 626.68,
-     "best_ms": 521.49
+     "best_ms": 521.49,
+     "mean_expected_shots": 9.283325,
+     "kill_cost": null
     }
    }
   },
@@ -1568,34 +1980,48 @@
    "ads_ms_reference": 526.87,
    "muzzle_velocity_mps": 747.5,
    "effective_range_m": 52.0,
+   "ammo": {
+    "ammo_item_id": "37130400001",
+    "name": "DBP10",
+    "caliber": "5.8x42mm",
+    "price_avg_30d": null
+   },
    "bands": {
     "贴脸": {
      "rank": 12,
      "tier": "T1",
      "mean_ms": 324.94,
      "worst_ms": 324.94,
-     "best_ms": 324.94
+     "best_ms": 324.94,
+     "mean_expected_shots": 5.725764,
+     "kill_cost": null
     },
     "近距": {
      "rank": 9,
      "tier": "T1",
      "mean_ms": 324.94,
      "worst_ms": 324.94,
-     "best_ms": 324.94
+     "best_ms": 324.94,
+     "mean_expected_shots": 5.725764,
+     "kill_cost": null
     },
     "中距": {
      "rank": 4,
      "tier": "T0",
      "mean_ms": 324.94,
      "worst_ms": 324.94,
-     "best_ms": 324.94
+     "best_ms": 324.94,
+     "mean_expected_shots": 5.725764,
+     "kill_cost": null
     },
     "远距": {
      "rank": 8,
      "tier": "T0",
      "mean_ms": 387.77,
      "worst_ms": 392.1,
-     "best_ms": 324.94
+     "best_ms": 324.94,
+     "mean_expected_shots": 6.63949,
+     "kill_cost": null
     }
    }
   },
@@ -1619,34 +2045,48 @@
    "ads_ms_reference": 469.11,
    "muzzle_velocity_mps": 997.1,
    "effective_range_m": 84.37,
+   "ammo": {
+    "ammo_item_id": "37150400001",
+    "name": "FMJ",
+    "caliber": "6.8x51mm",
+    "price_avg_30d": null
+   },
    "bands": {
     "贴脸": {
      "rank": 32,
      "tier": "T3",
      "mean_ms": 407.1,
      "worst_ms": 407.1,
-     "best_ms": 407.1
+     "best_ms": 407.1,
+     "mean_expected_shots": 4.734839,
+     "kill_cost": null
     },
     "近距": {
      "rank": 31,
      "tier": "T2",
      "mean_ms": 407.1,
      "worst_ms": 407.1,
-     "best_ms": 407.1
+     "best_ms": 407.1,
+     "mean_expected_shots": 4.734839,
+     "kill_cost": null
     },
     "中距": {
      "rank": 24,
      "tier": "T2",
      "mean_ms": 407.1,
      "worst_ms": 407.1,
-     "best_ms": 407.1
+     "best_ms": 407.1,
+     "mean_expected_shots": 4.734839,
+     "kill_cost": null
     },
     "远距": {
      "rank": 11,
      "tier": "T1",
      "mean_ms": 407.1,
      "worst_ms": 407.1,
-     "best_ms": 407.1
+     "best_ms": 407.1,
+     "mean_expected_shots": 4.734839,
+     "kill_cost": null
     }
    }
   },
@@ -1669,34 +2109,48 @@
    "ads_ms_reference": 344.77,
    "muzzle_velocity_mps": 819.0,
    "effective_range_m": 52.0,
+   "ammo": {
+    "ammo_item_id": "37170400001",
+    "name": "M80",
+    "caliber": "7.62x51mm",
+    "price_avg_30d": null
+   },
    "bands": {
     "贴脸": {
      "rank": 27,
      "tier": "T2",
      "mean_ms": 381.32,
      "worst_ms": 381.32,
-     "best_ms": 381.32
+     "best_ms": 381.32,
+     "mean_expected_shots": 4.716568,
+     "kill_cost": null
     },
     "近距": {
      "rank": 26,
      "tier": "T2",
      "mean_ms": 381.32,
      "worst_ms": 381.32,
-     "best_ms": 381.32
+     "best_ms": 381.32,
+     "mean_expected_shots": 4.716568,
+     "kill_cost": null
     },
     "中距": {
      "rank": 18,
      "tier": "T1",
      "mean_ms": 381.32,
      "worst_ms": 381.32,
-     "best_ms": 381.32
+     "best_ms": 381.32,
+     "mean_expected_shots": 4.716568,
+     "kill_cost": null
     },
     "远距": {
      "rank": 12,
      "tier": "T1",
      "mean_ms": 412.6,
      "worst_ms": 414.76,
-     "best_ms": 381.32
+     "best_ms": 381.32,
+     "mean_expected_shots": 5.02147,
+     "kill_cost": null
     }
    }
   },
@@ -1720,34 +2174,48 @@
    "ads_ms_reference": 314.96,
    "muzzle_velocity_mps": 800.63,
    "effective_range_m": 48.73,
+   "ammo": {
+    "ammo_item_id": "37100400001",
+    "name": "M855A1",
+    "caliber": "5.56x45mm",
+    "price_avg_30d": null
+   },
    "bands": {
     "贴脸": {
      "rank": 33,
      "tier": "T3",
      "mean_ms": 409.17,
      "worst_ms": 409.17,
-     "best_ms": 409.17
+     "best_ms": 409.17,
+     "mean_expected_shots": 7.180806,
+     "kill_cost": null
     },
     "近距": {
      "rank": 32,
      "tier": "T3",
      "mean_ms": 409.17,
      "worst_ms": 409.17,
-     "best_ms": 409.17
+     "best_ms": 409.17,
+     "mean_expected_shots": 7.180806,
+     "kill_cost": null
     },
     "中距": {
      "rank": 26,
      "tier": "T2",
      "mean_ms": 417.11,
      "worst_ms": 492.52,
-     "best_ms": 409.17
+     "best_ms": 409.17,
+     "mean_expected_shots": 7.300715,
+     "kill_cost": null
     },
     "远距": {
      "rank": 30,
      "tier": "T2",
      "mean_ms": 492.52,
      "worst_ms": 492.52,
-     "best_ms": 492.52
+     "best_ms": 492.52,
+     "mean_expected_shots": 8.43985,
+     "kill_cost": null
     }
    }
   },
@@ -1771,34 +2239,48 @@
    "ads_ms_reference": 302.35,
    "muzzle_velocity_mps": 767.0,
    "effective_range_m": 41.42,
+   "ammo": {
+    "ammo_item_id": "37190400001",
+    "name": "AP",
+    "caliber": ".45ACP",
+    "price_avg_30d": null
+   },
    "bands": {
     "贴脸": {
      "rank": 37,
      "tier": "T3",
      "mean_ms": 428.59,
      "worst_ms": 428.59,
-     "best_ms": 428.59
+     "best_ms": 428.59,
+     "mean_expected_shots": 5.320476,
+     "kill_cost": null
     },
     "近距": {
      "rank": 37,
      "tier": "T3",
      "mean_ms": 428.59,
      "worst_ms": 428.59,
-     "best_ms": 428.59
+     "best_ms": 428.59,
+     "mean_expected_shots": 5.320476,
+     "kill_cost": null
     },
     "中距": {
      "rank": 37,
      "tier": "T3",
      "mean_ms": 500.11,
      "worst_ms": 595.47,
-     "best_ms": 428.59
+     "best_ms": 428.59,
+     "mean_expected_shots": 6.04146,
+     "kill_cost": null
     },
     "远距": {
      "rank": 37,
      "tier": "T3",
      "mean_ms": 595.47,
      "worst_ms": 595.47,
-     "best_ms": 595.47
+     "best_ms": 595.47,
+     "mean_expected_shots": 7.002772,
+     "kill_cost": null
     }
    }
   },
@@ -1821,34 +2303,48 @@
    "ads_ms_reference": 308.65,
    "muzzle_velocity_mps": 429.0,
    "effective_range_m": 19.5,
+   "ammo": {
+    "ammo_item_id": "37140400001",
+    "name": "SP6",
+    "caliber": "9x39mm",
+    "price_avg_30d": null
+   },
    "bands": {
     "贴脸": {
      "rank": 17,
      "tier": "T1",
      "mean_ms": 340.85,
      "worst_ms": 340.85,
-     "best_ms": 340.85
+     "best_ms": 340.85,
+     "mean_expected_shots": 5.244722,
+     "kill_cost": null
     },
     "近距": {
      "rank": 33,
      "tier": "T3",
      "mean_ms": 421.88,
      "worst_ms": 458.71,
-     "best_ms": 340.85
+     "best_ms": 340.85,
+     "mean_expected_shots": 6.253772,
+     "kill_cost": null
     },
     "中距": {
      "rank": 36,
      "tier": "T3",
      "mean_ms": 496.01,
      "worst_ms": 537.04,
-     "best_ms": 458.71
+     "best_ms": 458.71,
+     "mean_expected_shots": 7.176931,
+     "kill_cost": null
     },
     "远距": {
      "rank": 33,
      "tier": "T3",
      "mean_ms": 537.04,
      "worst_ms": 537.04,
-     "best_ms": 537.04
+     "best_ms": 537.04,
+     "mean_expected_shots": 7.68788,
+     "kill_cost": null
     }
    }
   },
@@ -1871,34 +2367,48 @@
    "ads_ms_reference": 408.47,
    "muzzle_velocity_mps": 884.0,
    "effective_range_m": 84.5,
+   "ammo": {
+    "ammo_item_id": "37180400001",
+    "name": "LPS",
+    "caliber": "7.62x54R",
+    "price_avg_30d": null
+   },
    "bands": {
     "贴脸": {
      "rank": 13,
      "tier": "T1",
      "mean_ms": 326.41,
      "worst_ms": 326.41,
-     "best_ms": 326.41
+     "best_ms": 326.41,
+     "mean_expected_shots": 4.26411,
+     "kill_cost": null
     },
     "近距": {
      "rank": 11,
      "tier": "T1",
      "mean_ms": 326.41,
      "worst_ms": 326.41,
-     "best_ms": 326.41
+     "best_ms": 326.41,
+     "mean_expected_shots": 4.26411,
+     "kill_cost": null
     },
     "中距": {
      "rank": 5,
      "tier": "T0",
      "mean_ms": 326.41,
      "worst_ms": 326.41,
-     "best_ms": 326.41
+     "best_ms": 326.41,
+     "mean_expected_shots": 4.26411,
+     "kill_cost": null
     },
     "远距": {
      "rank": 1,
      "tier": "T0",
      "mean_ms": 326.41,
      "worst_ms": 326.41,
-     "best_ms": 326.41
+     "best_ms": 326.41,
+     "mean_expected_shots": 4.26411,
+     "kill_cost": null
     }
    }
   },
@@ -1922,34 +2432,48 @@
    "ads_ms_reference": 314.96,
    "muzzle_velocity_mps": 690.3,
    "effective_range_m": 30.68,
+   "ammo": {
+    "ammo_item_id": "37200400001",
+    "name": "PBP",
+    "caliber": "9x19mm",
+    "price_avg_30d": null
+   },
    "bands": {
     "贴脸": {
      "rank": 36,
      "tier": "T3",
      "mean_ms": 427.57,
      "worst_ms": 427.57,
-     "best_ms": 427.57
+     "best_ms": 427.57,
+     "mean_expected_shots": 6.560054,
+     "kill_cost": null
     },
     "近距": {
      "rank": 36,
      "tier": "T3",
      "mean_ms": 427.57,
      "worst_ms": 427.57,
-     "best_ms": 427.57
+     "best_ms": 427.57,
+     "mean_expected_shots": 6.560054,
+     "kill_cost": null
     },
     "中距": {
      "rank": 43,
      "tier": "T3",
      "mean_ms": 628.38,
      "worst_ms": 695.85,
-     "best_ms": 427.57
+     "best_ms": 427.57,
+     "mean_expected_shots": 9.171385,
+     "kill_cost": null
     },
     "远距": {
      "rank": 43,
      "tier": "T3",
      "mean_ms": 779.2,
      "worst_ms": 831.84,
-     "best_ms": 695.85
+     "best_ms": 695.85,
+     "mean_expected_shots": 11.132591,
+     "kill_cost": null
     }
    }
   },
@@ -1970,34 +2494,48 @@
    "ads_ms_reference": 327.39,
    "muzzle_velocity_mps": 330.0,
    "effective_range_m": 120.0,
+   "ammo": {
+    "ammo_item_id": "37140400001",
+    "name": "SP6",
+    "caliber": "9x39mm",
+    "price_avg_30d": null
+   },
    "bands": {
     "贴脸": {
      "rank": 41,
      "tier": "T3",
      "mean_ms": 451.05,
      "worst_ms": 451.05,
-     "best_ms": 451.05
+     "best_ms": 451.05,
+     "mean_expected_shots": 4.608389,
+     "kill_cost": null
     },
     "近距": {
      "rank": 41,
      "tier": "T3",
      "mean_ms": 451.05,
      "worst_ms": 451.05,
-     "best_ms": 451.05
+     "best_ms": 451.05,
+     "mean_expected_shots": 4.608389,
+     "kill_cost": null
     },
     "中距": {
      "rank": 32,
      "tier": "T3",
      "mean_ms": 451.05,
      "worst_ms": 451.05,
-     "best_ms": 451.05
+     "best_ms": 451.05,
+     "mean_expected_shots": 4.608389,
+     "kill_cost": null
     },
     "远距": {
      "rank": 22,
      "tier": "T2",
      "mean_ms": 451.05,
      "worst_ms": 451.05,
-     "best_ms": 451.05
+     "best_ms": 451.05,
+     "mean_expected_shots": 4.608389,
+     "kill_cost": null
     }
    }
   },
@@ -2021,34 +2559,48 @@
    "ads_ms_reference": 308.65,
    "muzzle_velocity_mps": 767.0,
    "effective_range_m": 30.68,
+   "ammo": {
+    "ammo_item_id": "37190400001",
+    "name": "AP",
+    "caliber": ".45ACP",
+    "price_avg_30d": null
+   },
    "bands": {
     "贴脸": {
      "rank": 2,
      "tier": "T0",
      "mean_ms": 285.64,
      "worst_ms": 285.64,
-     "best_ms": 285.64
+     "best_ms": 285.64,
+     "mean_expected_shots": 6.193436,
+     "kill_cost": null
     },
     "近距": {
      "rank": 1,
      "tier": "T0",
      "mean_ms": 285.64,
      "worst_ms": 285.64,
-     "best_ms": 285.64
+     "best_ms": 285.64,
+     "mean_expected_shots": 6.193436,
+     "kill_cost": null
     },
     "中距": {
      "rank": 27,
      "tier": "T2",
      "mean_ms": 419.78,
      "worst_ms": 460.52,
-     "best_ms": 285.64
+     "best_ms": 285.64,
+     "mean_expected_shots": 8.632308,
+     "kill_cost": null
     },
     "远距": {
      "rank": 32,
      "tier": "T3",
      "mean_ms": 517.33,
      "worst_ms": 553.21,
-     "best_ms": 460.52
+     "best_ms": 460.52,
+     "mean_expected_shots": 10.406018,
+     "kill_cost": null
     }
    }
   },
@@ -2072,34 +2624,48 @@
    "ads_ms_reference": 344.77,
    "muzzle_velocity_mps": 767.0,
    "effective_range_m": 30.68,
+   "ammo": {
+    "ammo_item_id": "37200400001",
+    "name": "PBP",
+    "caliber": "9x19mm",
+    "price_avg_30d": null
+   },
    "bands": {
     "贴脸": {
      "rank": 28,
      "tier": "T2",
      "mean_ms": 386.22,
      "worst_ms": 386.22,
-     "best_ms": 386.22
+     "best_ms": 386.22,
+     "mean_expected_shots": 5.506673,
+     "kill_cost": null
     },
     "近距": {
      "rank": 27,
      "tier": "T2",
      "mean_ms": 386.22,
      "worst_ms": 386.22,
-     "best_ms": 386.22
+     "best_ms": 386.22,
+     "mean_expected_shots": 5.506673,
+     "kill_cost": null
     },
     "中距": {
      "rank": 42,
      "tier": "T3",
      "mean_ms": 611.11,
      "worst_ms": 682.14,
-     "best_ms": 386.22
+     "best_ms": 386.22,
+     "mean_expected_shots": 8.130806,
+     "kill_cost": null
     },
     "远距": {
      "rank": 42,
      "tier": "T3",
      "mean_ms": 773.09,
      "worst_ms": 830.53,
-     "best_ms": 682.14
+     "best_ms": 682.14,
+     "mean_expected_shots": 10.020848,
+     "kill_cost": null
     }
    }
   },
@@ -2122,34 +2688,48 @@
    "ads_ms_reference": 290.0,
    "muzzle_velocity_mps": 650.0,
    "effective_range_m": 23.4,
+   "ammo": {
+    "ammo_item_id": "37190400001",
+    "name": "AP",
+    "caliber": ".45ACP",
+    "price_avg_30d": null
+   },
    "bands": {
     "贴脸": {
      "rank": 8,
      "tier": "T1",
      "mean_ms": 318.98,
      "worst_ms": 318.98,
-     "best_ms": 318.98
+     "best_ms": 318.98,
+     "mean_expected_shots": 5.785126,
+     "kill_cost": null
     },
     "近距": {
      "rank": 15,
      "tier": "T1",
      "mean_ms": 341.8,
      "worst_ms": 371.15,
-     "best_ms": 318.98
+     "best_ms": 318.98,
+     "mean_expected_shots": 6.127571,
+     "kill_cost": null
     },
     "中距": {
      "rank": 23,
      "tier": "T2",
      "mean_ms": 398.84,
      "worst_ms": 435.75,
-     "best_ms": 371.15
+     "best_ms": 371.15,
+     "mean_expected_shots": 6.983164,
+     "kill_cost": null
     },
     "远距": {
      "rank": 29,
      "tier": "T2",
      "mean_ms": 490.81,
      "worst_ms": 513.33,
-     "best_ms": 435.75
+     "best_ms": 435.75,
+     "mean_expected_shots": 8.362846,
+     "kill_cost": null
     }
    }
   },
@@ -2172,34 +2752,48 @@
    "ads_ms_reference": 314.96,
    "muzzle_velocity_mps": 650.0,
    "effective_range_m": 23.4,
+   "ammo": {
+    "ammo_item_id": "37190400001",
+    "name": "AP",
+    "caliber": ".45ACP",
+    "price_avg_30d": null
+   },
    "bands": {
     "贴脸": {
      "rank": 4,
      "tier": "T0",
      "mean_ms": 294.11,
      "worst_ms": 294.11,
-     "best_ms": 294.11
+     "best_ms": 294.11,
+     "mean_expected_shots": 5.412153,
+     "kill_cost": null
     },
     "近距": {
      "rank": 6,
      "tier": "T0",
      "mean_ms": 316.91,
      "worst_ms": 346.21,
-     "best_ms": 294.11
+     "best_ms": 294.11,
+     "mean_expected_shots": 5.754097,
+     "kill_cost": null
     },
     "中距": {
      "rank": 13,
      "tier": "T1",
      "mean_ms": 370.3,
      "worst_ms": 402.41,
-     "best_ms": 346.21
+     "best_ms": 346.21,
+     "mean_expected_shots": 6.55506,
+     "kill_cost": null
     },
     "远距": {
      "rank": 24,
      "tier": "T2",
      "mean_ms": 457.0,
      "worst_ms": 479.33,
-     "best_ms": 402.41
+     "best_ms": 402.41,
+     "mean_expected_shots": 7.855649,
+     "kill_cost": null
     }
    }
   },
@@ -2223,34 +2817,48 @@
    "ads_ms_reference": 350.0,
    "muzzle_velocity_mps": 747.5,
    "effective_range_m": 45.5,
+   "ammo": {
+    "ammo_item_id": "37130400001",
+    "name": "DBP10",
+    "caliber": "5.8x42mm",
+    "price_avg_30d": null
+   },
    "bands": {
     "贴脸": {
      "rank": 21,
      "tier": "T2",
      "mean_ms": 351.1,
      "worst_ms": 351.1,
-     "best_ms": 351.1
+     "best_ms": 351.1,
+     "mean_expected_shots": 5.441437,
+     "kill_cost": null
     },
     "近距": {
      "rank": 20,
      "tier": "T2",
      "mean_ms": 351.1,
      "worst_ms": 351.1,
-     "best_ms": 351.1
+     "best_ms": 351.1,
+     "mean_expected_shots": 5.441437,
+     "kill_cost": null
     },
     "中距": {
      "rank": 9,
      "tier": "T1",
      "mean_ms": 359.5,
      "worst_ms": 386.4,
-     "best_ms": 351.1
+     "best_ms": 351.1,
+     "mean_expected_shots": 5.547763,
+     "kill_cost": null
     },
     "远距": {
      "rank": 6,
      "tier": "T0",
      "mean_ms": 386.4,
      "worst_ms": 386.4,
-     "best_ms": 386.4
+     "best_ms": 386.4,
+     "mean_expected_shots": 5.888007,
+     "kill_cost": null
     }
    }
   },
@@ -2274,34 +2882,48 @@
    "ads_ms_reference": 314.96,
    "muzzle_velocity_mps": 767.0,
    "effective_range_m": 30.68,
+   "ammo": {
+    "ammo_item_id": "37200400001",
+    "name": "PBP",
+    "caliber": "9x19mm",
+    "price_avg_30d": null
+   },
    "bands": {
     "贴脸": {
      "rank": 40,
      "tier": "T3",
      "mean_ms": 448.44,
      "worst_ms": 448.44,
-     "best_ms": 448.44
+     "best_ms": 448.44,
+     "mean_expected_shots": 5.92789,
+     "kill_cost": null
     },
     "近距": {
      "rank": 40,
      "tier": "T3",
      "mean_ms": 448.44,
      "worst_ms": 448.44,
-     "best_ms": 448.44
+     "best_ms": 448.44,
+     "mean_expected_shots": 5.92789,
+     "kill_cost": null
     },
     "中距": {
      "rank": 44,
      "tier": "T3",
      "mean_ms": 666.7,
      "worst_ms": 736.45,
-     "best_ms": 448.44
+     "best_ms": 448.44,
+     "mean_expected_shots": 8.32633,
+     "kill_cost": null
     },
     "远距": {
      "rank": 44,
      "tier": "T3",
      "mean_ms": 823.59,
      "worst_ms": 878.62,
-     "best_ms": 736.45
+     "best_ms": 736.45,
+     "mean_expected_shots": 10.050419,
+     "kill_cost": null
     }
    }
   }

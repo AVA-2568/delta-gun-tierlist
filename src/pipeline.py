@@ -24,6 +24,7 @@ import os
 from typing import Any, Dict, List, Optional, Sequence
 
 from src.engine import tiering
+from src.engine.ammo_pricing import load_ammo_prices
 from src.engine.game_data import DEFAULT_DATA_DIR, load_game_data
 from src.engine.loadout import LoadoutSolver
 from src.renderers.ttk_report import (
@@ -36,6 +37,9 @@ logger = logging.getLogger(__name__)
 
 # 主榜情景：官方默认情景（defaultScenarioId）
 MAIN_SCENARIO = "armor-5-ammo-5-default"
+
+#: 手工维护的弹药 30 天均价表（非官方数据，与 data/game/* 物理隔离）
+AMMO_PRICE_TABLE = "data/reference/ammo_prices.json"
 
 # 默认出榜情景（口径已确认）：甲弹组合不含 3 级弹（3-3 / 4-3 不做）；
 # 命中分布只用实战预设 default（center / chest-only 为官方理论聚焦预设，需 --all 才出）。
@@ -132,6 +136,7 @@ def run_pipeline(
         write: 是否写盘（False 时仅返回结果，便于测试）。
     """
     game_data = load_game_data(os.path.join(output_dir, DEFAULT_DATA_DIR))
+    price_table = load_ammo_prices(os.path.join(output_dir, AMMO_PRICE_TABLE))
     part_names = _part_names(game_data)
     scenario_meta_all = {s["scenario_id"]: s for s in _scenario_index(game_data)}
     keys = [w["profile_key"] for w in game_data.weapons]
@@ -154,9 +159,10 @@ def run_pipeline(
     for sid in targets:
         solver = LoadoutSolver(game_data, sid)
         rankings, thresholds, excluded = tiering.rank_weapons_for_scenario(
-            game_data, sid, solver=solver, beam_width=beam_width, top_k=top_k, profile_keys=keys
+            game_data, sid, solver=solver, beam_width=beam_width, top_k=top_k,
+            profile_keys=keys, price_table=price_table,
         )
-        payload = tiering.to_export(rankings, thresholds, sid, excluded)
+        payload = tiering.to_export(rankings, thresholds, sid, excluded, price_table=price_table)
         payloads[sid] = payload
         logger.info(
             "情景 %s 完成：可参赛 %d 把，排除 %d 把（口径无该等级弹药）",
@@ -209,6 +215,7 @@ def run_pipeline(
         "weapon_count": len(keys),
         "payloads": payloads,
         "files_written": files_written,
+        "ammo_price_table": price_table,
     }
 
 

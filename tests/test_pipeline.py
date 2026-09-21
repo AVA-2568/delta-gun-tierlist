@@ -60,3 +60,25 @@ def test_pipeline_payload_is_self_contained(result):
 def test_unknown_scenario_raises():
     with pytest.raises(KeyError):
         run_pipeline(output_dir=ROOT, scenarios=["no-such-scenario"], limit=1, write=False)
+
+
+def test_pipeline_payload_includes_ammo_price_meta(result):
+    payload = result["payloads"][DEFAULT_SCENARIOS[0]]
+    assert "ammo_price_meta" in payload
+    assert set(payload["ammo_price_meta"]) == {"currency", "window", "updated_at", "available"}
+    for weapon in payload["weapons"]:
+        assert "ammo" in weapon
+        assert set(weapon["ammo"]) == {"ammo_item_id", "name", "caliber", "price_avg_30d"}
+        for band, data in weapon["bands"].items():
+            assert "mean_expected_shots" in data
+            assert "kill_cost" in data
+
+
+def test_pipeline_combat_values_are_intact(result):
+    """价格功能不得影响任何战斗数值（TTK / 排名 / 分层照常产出）。"""
+    payload = result["payloads"][DEFAULT_SCENARIOS[0]]
+    for weapon in payload["weapons"]:
+        assert weapon["overall_mean_ms"] > 0
+        for data in weapon["bands"].values():
+            assert data["mean_ms"] > 0
+            assert data["worst_ms"] >= data["mean_ms"] - 1e-9
