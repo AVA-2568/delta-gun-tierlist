@@ -95,6 +95,22 @@ def _scenario_index(game_data: Any) -> List[Dict[str, Any]]:
     ]
 
 
+def _repo_slug() -> Optional[str]:
+    """从 git remote 推导 ``owner/repo``；取不到时返回 ``None``（README 不出徽章）。"""
+    import re
+    import subprocess
+
+    try:
+        url = subprocess.run(
+            ["git", "config", "--get", "remote.origin.url"],
+            capture_output=True, text=True, timeout=10,
+        ).stdout.strip()
+    except Exception:
+        return None
+    match = re.search(r"github\.com[:/](.+?)(?:\.git)?/?$", url)
+    return match.group(1) if match else None
+
+
 def run_pipeline(
     output_dir: str = ".",
     scenarios: Optional[Sequence[str]] = None,
@@ -172,7 +188,11 @@ def run_pipeline(
                     scenario_meta_all[MAIN_SCENARIO],
                     game_data.provenance,
                     part_names,
-                    scenario_index=_scenario_index(game_data),
+                    # 只索引实际生成了榜单文件的情景，避免 README 出现死链
+                    scenario_index=[
+                        s for s in _scenario_index(game_data) if s["scenario_id"] in payloads
+                    ],
+                    repo_slug=_repo_slug(),
                 )
             )
         files_written.append(readme_path)

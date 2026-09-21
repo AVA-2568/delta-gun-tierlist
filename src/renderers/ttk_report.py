@@ -149,11 +149,22 @@ def render_readme(
     part_names: Mapping[str, str],
     scenario_index: Optional[Sequence[Mapping[str, Any]]] = None,
     limit_per_band: Optional[int] = 20,
+    repo_slug: Optional[str] = None,
 ) -> str:
-    """渲染仓库首页 README（主榜 = 官方默认情景 × 4 距离带）。"""
+    """渲染仓库首页 README（主榜 = 官方默认情景 × 4 距离带）。
+
+    ``scenario_index`` 必须只传**实际生成了榜单文件**的情景，否则会产出死链。
+    """
     source = provenance.get("source") or {}
     lines: List[str] = []
     lines.append("# 三角洲行动 · 纯 TTK 枪械强度榜")
+    if repo_slug:
+        lines.insert(
+            1,
+            f"[![CI](https://github.com/{repo_slug}/actions/workflows/update.yml/badge.svg)]"
+            f"(https://github.com/{repo_slug}/actions/workflows/update.yml)",
+        )
+        lines.insert(2, "")
     lines.append("")
     lines.append("只回答一个问题：**在给定护甲、弹药与距离下，这把枪击杀对手需要多久（毫秒）**。")
     lines.append("")
@@ -187,15 +198,22 @@ def render_readme(
         lines.append("")
 
     if scenario_index:
-        lines.append("## 全部情景")
+        lines.append("## 情景索引")
+        lines.append("")
+        lines.append("默认收录以下实战情景（口径：不含 3 级弹组合，命中分布只用实战 `default`）；")
+        lines.append("全部 21 个官方情景（含 `center` / `chest-only` 理论聚焦预设）可用 `python -m src.pipeline --all` 生成。")
         lines.append("")
         lines.append("| 情景 | 护甲 | 弹药 | 命中分布 | 文件 |")
         lines.append("| :-- | --: | --: | :-- | :-- |")
         for item in scenario_index:
+            sid = item.get("scenario_id")
+            label = f"[{item.get('label', sid)}](docs/tierlist/{sid}.md)"
+            if sid == main_payload["scenario_id"]:
+                label += "（主榜）"
             lines.append(
-                f"| {item.get('label', item.get('scenario_id'))} | {item.get('armor_level')} "
+                f"| {label} | {item.get('armor_level')} "
                 f"| {item.get('ammo_level')} | `{item.get('probability_preset')}` "
-                f"| [榜单](docs/tierlist/{item.get('scenario_id')}.md) |"
+                f"| `docs/tierlist/{sid}.md` |"
             )
         lines.append("")
 

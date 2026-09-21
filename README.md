@@ -1,4 +1,6 @@
 # 三角洲行动 · 纯 TTK 枪械强度榜
+[![CI](https://github.com/AVA-2568/delta-gun-tierlist/actions/workflows/update.yml/badge.svg)](https://github.com/AVA-2568/delta-gun-tierlist/actions/workflows/update.yml)
+
 
 只回答一个问题：**在给定护甲、弹药与距离下，这把枪击杀对手需要多久（毫秒）**。
 
@@ -123,31 +125,18 @@
 | 19 | T2 | AKM<br><sub>变体同配置：AKM-性能枪管组合</sub> | 437.6 ms | 440.0 ms | 4.67 发 | 600 | 50.0 m | AKM性能枪管组合 + 轻语战术消音器 |
 | 20 | T2 | AK12 | 444.1 ms | 447.4 ms | 5.87 发 | 735 | 52.0 m | AK12精英脚架长枪管 |
 
-## 全部情景
+## 情景索引
+
+默认收录以下实战情景（口径：不含 3 级弹组合，命中分布只用实战 `default`）；
+全部 21 个官方情景（含 `center` / `chest-only` 理论聚焦预设）可用 `python -m src.pipeline --all` 生成。
 
 | 情景 | 护甲 | 弹药 | 命中分布 | 文件 |
 | :-- | --: | --: | :-- | :-- |
-| armor-3-ammo-3-default | 3 | 3 | `default` | [榜单](docs/tierlist/armor-3-ammo-3-default.md) |
-| armor-3-ammo-3-center | 3 | 3 | `center` | [榜单](docs/tierlist/armor-3-ammo-3-center.md) |
-| armor-3-ammo-3-chest-only | 3 | 3 | `chest-only` | [榜单](docs/tierlist/armor-3-ammo-3-chest-only.md) |
-| armor-4-ammo-3-default | 4 | 3 | `default` | [榜单](docs/tierlist/armor-4-ammo-3-default.md) |
-| armor-4-ammo-3-center | 4 | 3 | `center` | [榜单](docs/tierlist/armor-4-ammo-3-center.md) |
-| armor-4-ammo-3-chest-only | 4 | 3 | `chest-only` | [榜单](docs/tierlist/armor-4-ammo-3-chest-only.md) |
-| armor-4-ammo-4-default | 4 | 4 | `default` | [榜单](docs/tierlist/armor-4-ammo-4-default.md) |
-| armor-4-ammo-4-center | 4 | 4 | `center` | [榜单](docs/tierlist/armor-4-ammo-4-center.md) |
-| armor-4-ammo-4-chest-only | 4 | 4 | `chest-only` | [榜单](docs/tierlist/armor-4-ammo-4-chest-only.md) |
-| armor-4-ammo-5-default | 4 | 5 | `default` | [榜单](docs/tierlist/armor-4-ammo-5-default.md) |
-| armor-4-ammo-5-center | 4 | 5 | `center` | [榜单](docs/tierlist/armor-4-ammo-5-center.md) |
-| armor-4-ammo-5-chest-only | 4 | 5 | `chest-only` | [榜单](docs/tierlist/armor-4-ammo-5-chest-only.md) |
-| armor-5-ammo-4-default | 5 | 4 | `default` | [榜单](docs/tierlist/armor-5-ammo-4-default.md) |
-| armor-5-ammo-4-center | 5 | 4 | `center` | [榜单](docs/tierlist/armor-5-ammo-4-center.md) |
-| armor-5-ammo-4-chest-only | 5 | 4 | `chest-only` | [榜单](docs/tierlist/armor-5-ammo-4-chest-only.md) |
-| armor-5-ammo-5-default | 5 | 5 | `default` | [榜单](docs/tierlist/armor-5-ammo-5-default.md) |
-| armor-5-ammo-5-center | 5 | 5 | `center` | [榜单](docs/tierlist/armor-5-ammo-5-center.md) |
-| armor-5-ammo-5-chest-only | 5 | 5 | `chest-only` | [榜单](docs/tierlist/armor-5-ammo-5-chest-only.md) |
-| armor-6-ammo-5-default | 6 | 5 | `default` | [榜单](docs/tierlist/armor-6-ammo-5-default.md) |
-| armor-6-ammo-5-center | 6 | 5 | `center` | [榜单](docs/tierlist/armor-6-ammo-5-center.md) |
-| armor-6-ammo-5-chest-only | 6 | 5 | `chest-only` | [榜单](docs/tierlist/armor-6-ammo-5-chest-only.md) |
+| [armor-4-ammo-4-default](docs/tierlist/armor-4-ammo-4-default.md) | 4 | 4 | `default` | `docs/tierlist/armor-4-ammo-4-default.md` |
+| [armor-4-ammo-5-default](docs/tierlist/armor-4-ammo-5-default.md) | 4 | 5 | `default` | `docs/tierlist/armor-4-ammo-5-default.md` |
+| [armor-5-ammo-4-default](docs/tierlist/armor-5-ammo-4-default.md) | 5 | 4 | `default` | `docs/tierlist/armor-5-ammo-4-default.md` |
+| [armor-5-ammo-5-default](docs/tierlist/armor-5-ammo-5-default.md)（主榜） | 5 | 5 | `default` | `docs/tierlist/armor-5-ammo-5-default.md` |
+| [armor-6-ammo-5-default](docs/tierlist/armor-6-ammo-5-default.md) | 6 | 5 | `default` | `docs/tierlist/armor-6-ammo-5-default.md` |
 
 ## 方法学与可信度
 
