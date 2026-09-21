@@ -124,3 +124,107 @@ def test_gunsmith_guide_generates_workbench_table():
     # 精校目标总览必须说明其不影响 TTK
     assert "没有任何一个改变期望击杀发数或射击间隔" in md
     assert "GAiming_ADSTime" in md
+
+
+PAYLOAD_WITH_COST = {
+    **PAYLOAD,
+    "ammo_price_meta": {
+        "currency": "哈夫币",
+        "window": {"from": "2026-08-23", "to": "2026-09-21", "days": 30},
+        "updated_at": "2026-09-21",
+        "available": True,
+    },
+    "weapons": [
+        {
+            **PAYLOAD["weapons"][0],
+            "ammo": {"ammo_item_id": "37260500001", "name": "AP SX",
+                     "caliber": "4.6x30mm", "price_avg_30d": 4579},
+            "bands": {
+                "贴脸": {"rank": 1, "tier": "T0", "mean_ms": 286.92, "worst_ms": 286.92,
+                         "best_ms": 286.92, "mean_expected_shots": 5.543, "kill_cost": 25381},
+            },
+        }
+    ],
+}
+
+
+def test_band_table_has_three_new_columns():
+    table = render_band_table(PAYLOAD_WITH_COST, "贴脸", PART_NAMES)
+    header = table.splitlines()[0]
+    assert "弹药" in header
+    assert "单发价" in header
+    assert "击杀成本" in header
+    # 位置：紧跟在「期望击杀发数@0m」之后
+    assert header.index("期望击杀发数@0m") < header.index("弹药") < header.index("单发价") < header.index("击杀成本")
+
+
+def test_band_table_renders_ammo_and_money():
+    table = render_band_table(PAYLOAD_WITH_COST, "贴脸", PART_NAMES)
+    assert "4.6x30mm AP SX" in table
+    assert "4,579 哈夫币" in table
+    assert "25,381 哈夫币" in table
+
+
+def test_missing_price_renders_dash():
+    payload = {
+        **PAYLOAD_WITH_COST,
+        "ammo_price_meta": {**PAYLOAD_WITH_COST["ammo_price_meta"], "available": False},
+        "weapons": [
+            {**PAYLOAD_WITH_COST["weapons"][0],
+             "ammo": {"ammo_item_id": "x", "name": "AP SX", "caliber": "4.6x30mm",
+                      "price_avg_30d": None},
+             "bands": {"贴脸": {"rank": 1, "tier": "T0", "mean_ms": 286.92, "worst_ms": 286.92,
+                                "best_ms": 286.92, "mean_expected_shots": 5.543,
+                                "kill_cost": None}}}
+        ],
+    }
+    table = render_band_table(payload, "贴脸", PART_NAMES)
+    assert "AP SX" in table
+    assert "哈夫币" not in table  # 缺价时不得出现金额
+    assert "—" in table
+
+
+def test_empty_caliber_renders_name_only():
+    payload = {
+        **PAYLOAD_WITH_COST,
+        "weapons": [
+            {**PAYLOAD_WITH_COST["weapons"][0],
+             "ammo": {"ammo_item_id": "y", "name": "碳纤维穿甲箭矢", "caliber": "",
+                      "price_avg_30d": 1000},
+             "bands": {"贴脸": {"rank": 1, "tier": "T0", "mean_ms": 286.92, "worst_ms": 286.92,
+                                "best_ms": 286.92, "mean_expected_shots": 5.0, "kill_cost": 5000}}}
+        ],
+    }
+    table = render_band_table(payload, "贴脸", PART_NAMES)
+    row = table.splitlines()[2]
+    cells = [cell.strip() for cell in row.strip("|").split("|")]
+    # 弹药单元格就是型号本身（口径为空时不产生前导空格或多余分隔）
+    assert "碳纤维穿甲箭矢" in cells
+    assert all(not cell.startswith(" 碳纤维") for cell in cells)
+
+
+def test_legacy_payload_without_new_keys_does_not_raise():
+    """旧 payload（无 ammo / kill_cost / meta）必须仍能渲染。"""
+    table = render_band_table(PAYLOAD, "贴脸", PART_NAMES)   # 原 PAYLOAD 未含新键
+    assert "| 1 |" in table
+    assert "—" in table
+
+
+def test_fmt_money_groups_thousands():
+    from src.renderers.ttk_report import _fmt_money
+
+    assert _fmt_money(4579) == "4,579 哈夫币"
+    assert _fmt_money(25381) == "25,381 哈夫币"
+    assert _fmt_money(999) == "999 哈夫币"
+    assert _fmt_money(None) == "—"
+
+
+def test_readme_notes_price_source():
+    md = render_readme(
+        PAYLOAD_WITH_COST,
+        SCENARIO_META,
+        {"source": {"name": "dfttk-v3", "dataset_version": "x"}},
+        PART_NAMES,
+    )
+    assert "2026-08-23" in md and "2026-09-21" in md
+    assert "手工维护" in md

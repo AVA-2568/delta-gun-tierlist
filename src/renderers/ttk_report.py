@@ -21,6 +21,35 @@ def _fmt(value: Any, digits: int = 1, suffix: str = "") -> str:
         return str(value)
 
 
+def _fmt_money(value: Any, currency: str = "哈夫币") -> str:
+    """整数金额千分位格式化；``None`` 渲染为 ``—``（缺价不猜测）。"""
+    if value is None:
+        return "—"
+    try:
+        return f"{int(value):,} {currency}"
+    except (TypeError, ValueError):
+        return "—"
+
+
+def _ammo_label(ammo: Mapping[str, Any]) -> str:
+    """弹药展示名：``口径 + 型号``；口径为空时只输出型号。"""
+    caliber = str(ammo.get("caliber") or "").strip()
+    name = str(ammo.get("name") or "").strip()
+    return f"{caliber} {name}".strip() or "—"
+
+
+def _price_note(payload: Mapping[str, Any]) -> Optional[str]:
+    """价格数据说明行；未配置价格表时返回提示缺失的文案。"""
+    meta = payload.get("ammo_price_meta")
+    if not meta:
+        return None
+    if not meta.get("available"):
+        return "- 价格数据：未配置（data/reference/ammo_prices.json 缺失或为空），成本列显示 —"
+    window = meta.get("window") or {}
+    span = f"（{window.get('from')} ~ {window.get('to')}）" if window.get("from") else ""
+    return f"- 价格数据：手工维护 30 天均价{span}，截至 {meta.get('updated_at') or '未知'}"
+
+
 def loadout_text(loadout: Mapping[str, str], part_names: Mapping[str, str]) -> str:
     """把 ``{socket: item_id}`` 渲染成可读配件清单。"""
     if not loadout:
@@ -59,8 +88,8 @@ def render_band_table(
         rows = rows[:limit]
 
     lines = [
-        f"| # | 层级 | 武器 | 平均 TTK | 最差 TTK | 期望击杀发数@0m | 射速 | 优势射程 | 最优配装 |",
-        "| :-- | :-- | :-- | --: | --: | --: | --: | --: | :-- |",
+        "| # | 层级 | 武器 | 平均 TTK | 最差 TTK | 期望击杀发数@0m | 弹药 | 单发价 | 击杀成本 | 射速 | 优势射程 | 最优配装 |",
+        "| :-- | :-- | :-- | --: | --: | --: | :-- | --: | --: | --: | --: | :-- |",
     ]
     for w in rows:
         band_data = w["bands"][band]
@@ -68,14 +97,19 @@ def render_band_table(
         equivalents = w.get("equivalent_variants") or []
         if equivalents:
             name = f"{name}<br><sub>变体同配置：{'、'.join(equivalents)}</sub>"
+        ammo = w.get("ammo") or {}
+        currency = ((payload.get("ammo_price_meta") or {}).get("currency")) or "哈夫币"
         lines.append(
-            "| {rank} | {tier} | {name} | {mean} | {worst} | {shots} | {rpm} | {rng} | {loadout} |".format(
+            "| {rank} | {tier} | {name} | {mean} | {worst} | {shots} | {ammo} | {price} | {cost} | {rpm} | {rng} | {loadout} |".format(
                 rank=band_data["rank"],
                 tier=_tier_badge(band_data.get("tier", "")),
                 name=name,
                 mean=_fmt(band_data["mean_ms"], 1, " ms"),
                 worst=_fmt(band_data["worst_ms"], 1, " ms"),
                 shots=_fmt(w.get("expected_shots_0m"), 2, " 发"),
+                ammo=_ammo_label(ammo),
+                price=_fmt_money(ammo.get("price_avg_30d"), currency),
+                cost=_fmt_money(band_data.get("kill_cost"), currency),
                 rpm=_fmt(w.get("rpm"), 0),
                 rng=_fmt(w.get("effective_range_m"), 1, " m"),
                 loadout=loadout_text(w.get("loadout") or {}, part_names),
@@ -139,6 +173,9 @@ def render_scenario_markdown(
     lines.append("- 期望击杀发数与射击间隔均已逐位复现官方数据集（3774 / 291 个官方样本，零偏差）")
     lines.append("- 距离场锁定 0–80m（官方排行 `distanceRange`），不做外推")
     lines.append("- 开镜时间、初速、后坐/散布等维度不计入 TTK，详见 `docs/gunsmith-guide.md`")
+    note = _price_note(payload)
+    if note:
+        lines.append(note)
     return "\n".join(lines)
 
 
@@ -224,7 +261,10 @@ def render_readme(
     lines.append("- **射击间隔**：由官方 `sdkTiming` 与射速模式决定，**291 个官方候选零偏差**")
     lines.append("- **配装搜索**：官方插槽规则 + 强制联动，精校交由玩家自行调校（不影响 TTK）")
     lines.append("- **改枪指南**：开镜时间/初速/后坐等不进 TTK 的维度见 [docs/gunsmith-guide.md](docs/gunsmith-guide.md)")
-    lines.append("")
+    note = _price_note(main_payload)
+    if note:
+        lines.append(note)
+        lines.append("")
     lines.append("详细设计见 [`docs/superpowers/specs/2026-09-20-pure-ttk-redesign-design.md`]"
                  "(docs/superpowers/specs/2026-09-20-pure-ttk-redesign-design.md)。")
     return "\n".join(lines)
