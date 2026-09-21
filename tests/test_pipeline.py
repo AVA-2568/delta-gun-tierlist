@@ -74,14 +74,44 @@ def test_pipeline_payload_includes_ammo_price_meta(result):
             assert "kill_cost" in data
 
 
-def test_pipeline_injects_price_table(result):
-    """守护本任务的核心改动：管线必须真的加载并透传了价格表。
+def test_pipeline_reads_prices_from_disk_and_renders_amounts(monkeypatch, tmp_path):
+    """真端到端：磁盘上的价格表 → 管线 → payload 里出现具体金额。
 
-    没有这条断言时，即使 `run_pipeline` 完全不加载 `price_table` 也能通过
-    ——因为 payload 里的价格字段由 `to_export` 无条件输出。
+    这条守护「文件 → 管线 → 金额」接线；仅断言 currency 无法发现路径写错
+    （空表的默认 currency 也是「哈夫币」）。
     """
-    assert "ammo_price_table" in result
-    assert result["ammo_price_table"].currency == "哈夫币"
+    import json as _json
+
+    from src import pipeline as pipeline_mod
+
+    # 先空跑一次拿到真实弹药主键
+    probe = run_pipeline(output_dir=ROOT, scenarios=DEFAULT_SCENARIOS[:1], limit=2,
+                         beam_width=2, top_k=1, write=False)
+    payload0 = probe["payloads"][DEFAULT_SCENARIOS[0]]
+    weapons_with_ammo = [w for w in payload0["weapons"] if w["ammo"]["ammo_item_id"]]
+    assert weapons_with_ammo, "探针跑应至少带出一把枪的弹药主键"
+    target_id = weapons_with_ammo[0]["ammo"]["ammo_item_id"]
+
+    table_path = tmp_path / "ammo_prices.json"
+    table_path.write_text(_json.dumps({
+        "schema": "ammo-price-avg-30d",
+        "currency": "哈夫币",
+        "window": {"from": "2026-08-23", "to": "2026-09-21", "days": 30},
+        "updated_at": "2026-09-21",
+        "ammo": [{"ammo_item_id": target_id, "price_avg_30d": 1234}],
+    }, ensure_ascii=False), encoding="utf-8")
+
+    monkeypatch.setattr(pipeline_mod, "AMMO_PRICE_TABLE", str(table_path))
+    result = run_pipeline(output_dir=ROOT, scenarios=DEFAULT_SCENARIOS[:1], limit=2,
+                          beam_width=2, top_k=1, write=False)
+    payload = result["payloads"][DEFAULT_SCENARIOS[0]]
+
+    assert payload["ammo_price_meta"]["available"] is True
+    assert payload["ammo_price_meta"]["updated_at"] == "2026-09-21"
+    priced = [w for w in payload["weapons"] if w["ammo"]["ammo_item_id"] == target_id]
+    assert priced, "应能找到配置了价格的那把枪"
+    band = next(iter(priced[0]["bands"].values()))
+    assert band["kill_cost"] is not None and band["kill_cost"] > 0
 
 
 def test_pipeline_combat_fields_present_and_sane(result):

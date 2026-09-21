@@ -60,6 +60,22 @@ def test_invalid_json_yields_empty_table(tmp_path):
     assert load_ammo_prices(str(path)).is_empty
 
 
+def test_gbk_encoded_file_yields_empty_table(tmp_path):
+    """价格表是含中文的手工维护文件，本机 Windows 下「记事本另存为 ANSI/GBK」是现实路径。
+
+    ``UnicodeDecodeError`` 是 ``ValueError`` 子类；若 ``load_ammo_prices`` 未覆盖它，
+    会直接抛异常让管线与 CI 崩溃。这里断言：GBK 编码的文件 → 返回空表且**不抛异常**。
+    """
+    path = tmp_path / "ammo_prices.json"
+    # valid_payload 含中文（currency=哈夫币），以 GBK 写出模拟 ANSI 另存场景
+    payload = _valid_payload()
+    path.write_bytes(json.dumps(payload, ensure_ascii=False).encode("gbk"))
+    table = load_ammo_prices(str(path))
+    assert table.is_empty
+    assert table.currency == DEFAULT_CURRENCY
+    assert table.price_for("37100500001") is None
+
+
 def test_wrong_schema_yields_empty_table(tmp_path):
     payload = _valid_payload()
     payload["schema"] = "something-else"

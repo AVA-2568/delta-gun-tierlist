@@ -18,7 +18,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 def test_basic_cost():
-    # 5.543 × 4579 = 25380.797 → int(+0.5) = 25381
+    # 5.543 × 4579 = 25381.397 → int(+0.5) = 25381
     assert compute_kill_cost(5.543, 4579) == 25381
 
 
@@ -59,7 +59,7 @@ def gd():
 
 
 def test_ranking_attaches_ammo_and_cost(gd):
-    """VSS 在 5-5 情景可用；给了价格表后每带都应有成本。"""
+    """VSS 在 5-5 情景可用；价格表里没有该弹药的价 → 每带成本均为 ``None``。"""
     table = AmmoPriceTable(prices={"__any__": 1000})
     rankings, _thresholds, _excluded = rank_weapons_for_scenario(
         gd, "armor-5-ammo-5-default", beam_width=2, top_k=1,
@@ -150,7 +150,10 @@ def test_to_export_emits_ammo_and_meta(gd):
     assert weapon["ammo"]["price_avg_30d"] == 4579
     assert entry.ammo_price_avg_30d == 4579
     band = weapon["bands"]["贴脸"]
-    assert band["kill_cost"] == compute_kill_cost(entry.bands["贴脸"].mean_expected_shots, 4579)
+    # 硬编码期望整数（真实数据：4.4264610056259 × 4579 → int(+0.5) = 20269）。
+    # 这是「真值」回归断言；compute_kill_cost 本身的公式另由 test_basic_cost 覆盖。
+    assert band["kill_cost"] == 20269
+    # 接线检查：序列化后的 kill_cost 与引擎层一致
     assert entry.bands["贴脸"].kill_cost == band["kill_cost"]
     assert band["mean_expected_shots"] == pytest.approx(entry.bands["贴脸"].mean_expected_shots, abs=1e-6)
 

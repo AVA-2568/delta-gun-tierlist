@@ -64,10 +64,19 @@ def build_skeleton(
 
 
 def _load_json(path: str) -> Optional[Any]:
+    """读取 JSON 文件；不存在或解析失败均返回 ``None``（不让「修数据的工具」因坏文件崩溃）。
+
+    文件不存在返回 ``None`` 是既有约定（``main()`` 据此判断是否需要新建骨架）；
+    解析失败也返回 ``None`` 并打印一行提示，便于用户定位坏文件。
+    """
     if not os.path.exists(path):
         return None
-    with open(path, encoding="utf-8") as fh:
-        return json.load(fh)
+    try:
+        with open(path, encoding="utf-8") as fh:
+            return json.load(fh)
+    except (OSError, ValueError) as exc:
+        print(f"警告：无法读取 JSON（{path}）：{exc}")
+        return None
 
 
 def main(argv: Optional[Sequence[str]] = None) -> int:

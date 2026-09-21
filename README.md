@@ -2,7 +2,7 @@
 [![CI](https://github.com/AVA-2568/delta-gun-tierlist/actions/workflows/update.yml/badge.svg)](https://github.com/AVA-2568/delta-gun-tierlist/actions/workflows/update.yml)
 
 
-只回答一个问题：**在给定护甲、弹药与距离下，这把枪击杀对手需要多久（毫秒）**。
+回答两个问题：**在给定护甲、弹药与距离下，这把枪击杀对手需要多久（毫秒）**，以及**这次击杀要花多少哈夫币**。
 
 | 项 | 说明 |
 | :-- | :-- |
@@ -146,4 +146,4 @@
 - **改枪指南**：开镜时间/初速/后坐等不进 TTK 的维度见 [docs/gunsmith-guide.md](docs/gunsmith-guide.md)
 - 价格数据：未配置（data/reference/ammo_prices.json 缺失或为空），成本列显示 —
 
-详细设计见 [`docs/superpowers/specs/2026-09-20-pure-ttk-redesign-design.md`](docs/superpowers/specs/2026-09-20-pure-ttk-redesign-design.md)。
+详细设计见 [`docs/superpowers/specs/2026-09-20-pure-ttk-redesign-design.md`](docs/superpowers/specs/2026-09-20-pure-ttk-redesign-design.md)，弹药击杀成本相关规范见 [`docs/superpowers/specs/2026-09-21-ammo-kill-cost-design.md`](docs/superpowers/specs/2026-09-21-ammo-kill-cost-design.md)。

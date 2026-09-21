@@ -44,7 +44,7 @@ def test_mean_expected_shots_is_not_rounded():
 def test_existing_fields_unchanged():
     curve = [_result(0.0, 200.0, 5.0), _result(10.0, 300.0, 6.0)]
     bands = band_summary(curve)
-    assert set(bands["贴脸"]) == {"min_ms", "max_ms", "mean_ms", "mean_expected_shots"}
+    assert {"min_ms", "max_ms", "mean_ms", "mean_expected_shots"} <= set(bands["贴脸"])
     assert bands["贴脸"]["min_ms"] == pytest.approx(200.0)
     assert bands["贴脸"]["max_ms"] == pytest.approx(300.0)
     assert bands["贴脸"]["mean_ms"] == pytest.approx(250.0)

@@ -215,7 +215,6 @@ def run_pipeline(
         "weapon_count": len(keys),
         "payloads": payloads,
         "files_written": files_written,
-        "ammo_price_table": price_table,
     }
 
 

@@ -203,7 +203,8 @@ def render_readme(
         )
         lines.insert(2, "")
     lines.append("")
-    lines.append("只回答一个问题：**在给定护甲、弹药与距离下，这把枪击杀对手需要多久（毫秒）**。")
+    lines.append("回答两个问题：**在给定护甲、弹药与距离下，这把枪击杀对手需要多久（毫秒）**，"
+                 "以及**这次击杀要花多少哈夫币**。")
     lines.append("")
     lines.append("| 项 | 说明 |")
     lines.append("| :-- | :-- |")
@@ -266,7 +267,9 @@ def render_readme(
         lines.append(note)
         lines.append("")
     lines.append("详细设计见 [`docs/superpowers/specs/2026-09-20-pure-ttk-redesign-design.md`]"
-                 "(docs/superpowers/specs/2026-09-20-pure-ttk-redesign-design.md)。")
+                 "(docs/superpowers/specs/2026-09-20-pure-ttk-redesign-design.md)，"
+                 "弹药击杀成本相关规范见 [`docs/superpowers/specs/2026-09-21-ammo-kill-cost-design.md`]"
+                 "(docs/superpowers/specs/2026-09-21-ammo-kill-cost-design.md)。")
     return "\n".join(lines)
 
 
@@ -302,7 +305,7 @@ def render_gunsmith_guide(
     lines: List[str] = []
     lines.append("# 改枪指南（不进 TTK 的维度）")
     lines.append("")
-    lines.append("榜单只回答「击杀需要多久」。本指南说明**不影响 TTK、但影响手感与命中**的维度，")
+    lines.append("榜单回答「击杀需要多久」与「这次击杀要花多少钱」。本指南说明**不影响 TTK、但影响手感与命中**的维度，")
     lines.append("供玩家按自己的作战习惯权衡。")
     lines.append("")
     lines.append("## 1. 开镜时间 ↔ 操控速度")

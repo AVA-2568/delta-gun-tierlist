@@ -15,6 +15,7 @@ from dataclasses import dataclass, field
 from typing import TYPE_CHECKING, Any, Dict, List, Mapping, Optional, Sequence
 
 from src.engine import engagement as eg
+from src.engine.ammo_pricing import DEFAULT_CURRENCY
 from src.engine.loadout import LoadoutSolver
 
 if TYPE_CHECKING:  # pragma: no cover - 仅类型标注
@@ -193,16 +194,6 @@ def rank_weapons_for_scenario(
     solver = solver or LoadoutSolver(game_data, scenario_id)
     keys = list(profile_keys) if profile_keys else [w["profile_key"] for w in game_data.weapons]
 
-    # 弹药由「武器口径 × 情景弹药等级」唯一确定，与配装无关，可整体缓存查价结果。
-    price_cache: Dict[str, Optional[int]] = {}
-
-    def _price_of(ammo_item_id: str) -> Optional[int]:
-        if ammo_item_id not in price_cache:
-            price_cache[ammo_item_id] = (
-                price_table.price_for(ammo_item_id) if price_table is not None else None
-            )
-        return price_cache[ammo_item_id]
-
     rankings: List[GunRanking] = []
     excluded: List[Dict[str, str]] = []
     for profile_key in keys:
@@ -222,7 +213,7 @@ def rank_weapons_for_scenario(
         summary = eg.band_summary(solution.curve)
         ammo = solver.ammo_for(profile_key)
         ammo_item_id = str(ammo.get("ammo_item_id") or "")
-        ammo_price = _price_of(ammo_item_id)
+        ammo_price = price_table.price_for(ammo_item_id) if price_table is not None else None
         bands = {
             name: BandResult(
                 band=name,
@@ -331,7 +322,7 @@ def to_export(
     return {
         "scenario_id": scenario_id,
         "ammo_price_meta": {
-            "currency": price_table.currency if price_table is not None else "哈夫币",
+            "currency": price_table.currency if price_table is not None else DEFAULT_CURRENCY,
             "window": dict(price_table.window) if price_table is not None else {},
             "updated_at": price_table.updated_at if price_table is not None else "",
             "available": bool(price_table is not None and not price_table.is_empty),

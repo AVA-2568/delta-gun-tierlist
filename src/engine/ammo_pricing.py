@@ -64,7 +64,7 @@ def load_ammo_prices(path: str) -> AmmoPriceTable:
     except FileNotFoundError:
         logger.info("未找到弹药均价表（%s），成本列将显示 —", path)
         return _empty()
-    except (OSError, json.JSONDecodeError) as exc:
+    except (OSError, ValueError) as exc:
         logger.warning("弹药均价表无法读取（%s）：%s", path, exc)
         return _empty()
 
