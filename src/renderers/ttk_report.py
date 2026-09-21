@@ -59,7 +59,7 @@ def render_band_table(
         rows = rows[:limit]
 
     lines = [
-        f"| # | 层级 | 武器 | 平均 TTK | 最差 TTK | 击杀发数@0m | 射速 | 优势射程 | 最优配装 |",
+        f"| # | 层级 | 武器 | 平均 TTK | 最差 TTK | 期望击杀发数@0m | 射速 | 优势射程 | 最优配装 |",
         "| :-- | :-- | :-- | --: | --: | --: | --: | --: | :-- |",
     ]
     for w in rows:
@@ -302,7 +302,7 @@ def render_gunsmith_guide(
     lines.append("")
     lines.append("| 目标 | 含义 | 对 TTK 的作用 |")
     lines.append("| :-- | :-- | :-- |")
-    lines.append("| `DisplayAttrValues.2` | 优势射程 | 缩放伤害衰减分段 → 改变期望击杀发数 |")
+    lines.append("| `WeaponMainAttribute.MainAttrValues.2` | 优势射程 | 缩放伤害衰减分段 → 改变期望击杀发数 |")
     lines.append("| `GRateOfFire` / `FireRateMode` | 射速 | 改变射击间隔 |")
     lines.append("| `BulletFlyingId` | 弹道档案 | 改变初速与有效射程基准 |")
     lines.append("| `AttackerValueId.DefaultDamageId` | 伤害档案 | 整体替换基础伤害/甲伤/部位倍率 |")

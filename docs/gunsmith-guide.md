@@ -51,7 +51,7 @@
 
 | 目标 | 含义 | 对 TTK 的作用 |
 | :-- | :-- | :-- |
-| `DisplayAttrValues.2` | 优势射程 | 缩放伤害衰减分段 → 改变期望击杀发数 |
+| `WeaponMainAttribute.MainAttrValues.2` | 优势射程 | 缩放伤害衰减分段 → 改变期望击杀发数 |
 | `GRateOfFire` / `FireRateMode` | 射速 | 改变射击间隔 |
 | `BulletFlyingId` | 弹道档案 | 改变初速与有效射程基准 |
 | `AttackerValueId.DefaultDamageId` | 伤害档案 | 整体替换基础伤害/甲伤/部位倍率 |
