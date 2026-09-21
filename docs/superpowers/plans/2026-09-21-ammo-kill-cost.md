@@ -714,40 +714,44 @@ git commit -m "feat(tiering): 装配弹药名与每带击杀成本（缺价留 N
 
 ```python
 def test_to_export_emits_ammo_and_meta(gd):
+    """走真实链路：先取实际弹药主键，再用含该键的价格表跑完整装配与序列化。"""
     from src.engine.tiering import to_export
 
-    real_id = "37100500001"
+    probe, _t0, _e0 = rank_weapons_for_scenario(
+        gd, "armor-5-ammo-5-default", beam_width=2, top_k=1,
+        profile_keys=["18050000003:base"],
+    )
+    real_id = probe[0].ammo_item_id
+    assert real_id, "装配层必须带出弹药主键"
+
     table = AmmoPriceTable(
         currency="哈夫币",
         window={"from": "2026-08-23", "to": "2026-09-21", "days": 30},
         updated_at="2026-09-21",
-        prices={"__x__": 1},
+        prices={real_id: 4579},
     )
     rankings, thresholds, excluded = rank_weapons_for_scenario(
         gd, "armor-5-ammo-5-default", beam_width=2, top_k=1,
         profile_keys=["18050000003:base"], price_table=table,
     )
-    entry = rankings[0]
-    entry.ammo_item_id = entry.ammo_item_id or real_id
-    entry.ammo_name = entry.ammo_name or "X"
-    entry.ammo_caliber = entry.ammo_caliber or "5.56x45mm"
-    entry.ammo_price_avg_30d = 4579
-    for band in entry.bands.values():
-        band.kill_cost = compute_kill_cost(band.mean_expected_shots, 4579)
-
     payload = to_export(rankings, thresholds, "armor-5-ammo-5-default", excluded, price_table=table)
+
     meta = payload["ammo_price_meta"]
     assert meta["currency"] == "哈夫币"
     assert meta["available"] is True
     assert meta["window"]["days"] == 30
     assert meta["updated_at"] == "2026-09-21"
+
+    entry = rankings[0]
     weapon = payload["weapons"][0]
-    assert weapon["ammo"]["ammo_item_id"] == entry.ammo_item_id
+    assert weapon["ammo"]["ammo_item_id"] == real_id
     assert weapon["ammo"]["name"] == entry.ammo_name
     assert weapon["ammo"]["caliber"] == entry.ammo_caliber
     assert weapon["ammo"]["price_avg_30d"] == 4579
+    assert entry.ammo_price_avg_30d == 4579
     band = weapon["bands"]["贴脸"]
     assert band["kill_cost"] == compute_kill_cost(entry.bands["贴脸"].mean_expected_shots, 4579)
+    assert entry.bands["贴脸"].kill_cost == band["kill_cost"]
     assert band["mean_expected_shots"] == pytest.approx(entry.bands["贴脸"].mean_expected_shots, abs=1e-6)
 
 
