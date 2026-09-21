@@ -15,8 +15,7 @@ def result():
         output_dir=ROOT,
         scenarios=DEFAULT_SCENARIOS[:1],
         limit=2,
-        beam_width=2,
-        top_k=1,
+        beam_width=8,
         write=False,
     )
 
@@ -44,7 +43,8 @@ def test_pipeline_payload_is_self_contained(result):
     assert payload["scenario_id"] == DEFAULT_SCENARIOS[0]
     assert payload["eligible_weapon_count"] == len(payload["weapons"])
     assert payload["weapon_pool_count"] == payload["eligible_weapon_count"] + payload["excluded_weapon_count"]
-    assert payload["weapon_pool_count"] == result["weapon_count"]  # 与本次处理的池一致
+    # 起枪状态口径：每把枪可展开多个 TTK 状态行，状态行数 >= 处理枪数
+    assert payload["weapon_pool_count"] >= result["weapon_count"]  # 与本次处理的池一致
     assert set(payload["band_definitions"]) == {"贴脸", "近距", "中距", "远距"}
     for weapon in payload["weapons"]:
         assert weapon["profile_key"]
@@ -86,7 +86,7 @@ def test_pipeline_reads_prices_from_disk_and_renders_amounts(monkeypatch, tmp_pa
 
     # 先空跑一次拿到真实弹药主键
     probe = run_pipeline(output_dir=ROOT, scenarios=DEFAULT_SCENARIOS[:1], limit=2,
-                         beam_width=2, top_k=1, write=False)
+                         beam_width=8, write=False)
     payload0 = probe["payloads"][DEFAULT_SCENARIOS[0]]
     weapons_with_ammo = [w for w in payload0["weapons"] if w["ammo"]["ammo_item_id"]]
     assert weapons_with_ammo, "探针跑应至少带出一把枪的弹药主键"
@@ -103,7 +103,7 @@ def test_pipeline_reads_prices_from_disk_and_renders_amounts(monkeypatch, tmp_pa
 
     monkeypatch.setattr(pipeline_mod, "AMMO_PRICE_TABLE", str(table_path))
     result = run_pipeline(output_dir=ROOT, scenarios=DEFAULT_SCENARIOS[:1], limit=2,
-                          beam_width=2, top_k=1, write=False)
+                          beam_width=8, write=False)
     payload = result["payloads"][DEFAULT_SCENARIOS[0]]
 
     assert payload["ammo_price_meta"]["available"] is True

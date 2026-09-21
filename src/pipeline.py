@@ -120,8 +120,7 @@ def run_pipeline(
     scenarios: Optional[Sequence[str]] = None,
     all_scenarios: bool = False,
     limit: Optional[int] = None,
-    beam_width: int = 8,
-    top_k: int = 4,
+    beam_width: int = 48,
     write: bool = True,
 ) -> Dict[str, Any]:
     """执行完整管线。
@@ -132,7 +131,7 @@ def run_pipeline(
             ``None`` 且 ``all_scenarios=False`` 时用 :data:`DEFAULT_SCENARIOS`。
         all_scenarios: 为全部官方情景（含 center / chest-only 理论聚焦预设）各出一份榜单。
         limit: 仅处理前 N 把枪（调试用）。
-        beam_width / top_k: 配装搜索宽度。
+        beam_width: 起枪状态束搜索宽度（决定每枪枚举的状态数上限）。
         write: 是否写盘（False 时仅返回结果，便于测试）。
     """
     game_data = load_game_data(os.path.join(output_dir, DEFAULT_DATA_DIR))
@@ -159,7 +158,7 @@ def run_pipeline(
     for sid in targets:
         solver = LoadoutSolver(game_data, sid)
         rankings, thresholds, excluded = tiering.rank_weapons_for_scenario(
-            game_data, sid, solver=solver, beam_width=beam_width, top_k=top_k,
+            game_data, sid, solver=solver, beam_width=beam_width,
             profile_keys=keys, price_table=price_table,
         )
         payload = tiering.to_export(rankings, thresholds, sid, excluded, price_table=price_table)
@@ -225,8 +224,7 @@ def main() -> None:
     parser.add_argument("--all", action="store_true", help="全部 21 个官方情景（含理论聚焦预设）")
     parser.add_argument("--scenario", default=None, help="单甲弹组合，如 5-5（用其 default 实战情景）")
     parser.add_argument("--limit", type=int, default=None, help="仅处理前 N 把枪（调试）")
-    parser.add_argument("--beam-width", type=int, default=8, help="配装束搜索宽度")
-    parser.add_argument("--top-k", type=int, default=4, help="精评候选数")
+    parser.add_argument("--beam-width", type=int, default=48, help="起枪状态束搜索宽度")
     parser.add_argument("--dry-run", action="store_true", help="只计算不写盘")
     args = parser.parse_args()
 
@@ -241,7 +239,6 @@ def main() -> None:
         all_scenarios=args.all,
         limit=args.limit,
         beam_width=args.beam_width,
-        top_k=args.top_k,
         write=not args.dry_run,
     )
     print(

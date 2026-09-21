@@ -42,11 +42,15 @@ class BandResult:
 
 @dataclass
 class GunRanking:
-    """一把枪在一个情景下的完整成绩与配装。
+    """一个配置状态在一个情景下的完整成绩。
 
-    ``is_variant=True`` 的条目是**官方变体枪的出厂预装态**：预装件生效、
-    无其他改装，作为独立成绩参与排名与分层；``best_ttk_0m_ms`` 记录该枪
-    继续改装可达的最优 TTK（改装可达标注）。
+    ``entry_kind`` 区分三种单状态行：
+
+    - ``"base"``：本体裸枪（官方默认配装）；
+    - ``"variant"``：官方变体枪出厂预装态（预装件生效、无其他改装）；
+    - ``"single_part"``：本体裸枪 + 单件装配（仅该件替换默认件，不做组合）。
+
+    每行只代表一个配置状态，全部参与排名与分层。
     """
 
     profile_key: str
@@ -58,6 +62,8 @@ class GunRanking:
     variant_item_name: Optional[str]
     loadout: Dict[str, str]
     tuning: Dict[str, Dict[str, float]]
+    entry_kind: str = "base"
+    single_part_item_id: Optional[str] = None
     bands: Dict[str, BandResult] = field(default_factory=dict)
     overall_mean_ms: float = 0.0
     expected_shots_0m: float = 0.0
@@ -69,10 +75,12 @@ class GunRanking:
     ammo_name: str = ""
     ammo_caliber: str = ""
     ammo_price_avg_30d: Optional[int] = None
-    #: 最优配装相对官方白板的关键 TTK 属性变化（伤害档案替换、射速、优势射程等）
+    #: 相对本体裸枪的关键 TTK 属性变化（伤害档案替换、射速、优势射程等）
     loadout_effects: List[Dict[str, Any]] = field(default_factory=list)
-    #: 官方白板（无改装）在各距离带的 TTK 聚合，用于体现配装的 TTK 差异
+    #: 本体裸枪（无改装）在各距离带的 TTK 聚合，作为本行收益的参照
     stock_bands: Dict[str, Dict[str, float]] = field(default_factory=dict)
+    #: 本状态在整数采样距离（每 10 m）下的 TTK（毫秒）
+    ttk_by_distance_ms: Dict[str, float] = field(default_factory=dict)
 
     @property
     def has_variant(self) -> bool:
@@ -185,20 +193,21 @@ def rank_weapons_for_scenario(
     game_data: Any,
     scenario_id: str,
     solver: Optional[LoadoutSolver] = None,
-    beam_width: int = 8,
-    top_k: int = 4,
+    beam_width: int = 48,
     profile_keys: Optional[Sequence[str]] = None,
     price_table: Optional["AmmoPriceTable"] = None,
 ) -> tuple:
-    """对武器池逐枪求解最优配装，聚合距离带并分层。
+    """起枪状态口径榜单：每行 = 一个起枪配置状态的 TTK，聚合距离带并分层。
 
-    条目构成：
+    条目构成（同一把枪会产生多个状态行）：
 
-    - **base 本体**：最优合法配装口径（强度榜核心）；
-    - **官方变体枪（仅预装件影响 TTK 的）**：以**出厂预装态**（预装件生效、
-      无其他改装）作为独立成绩参与排名与分层。改装上限即 base 本体行的
-      最优配装成绩，不再重复标注。预装件不影响 TTK 的变体（如只改初速的
-      枪管）不列出。
+    - **base 本体**：官方默认配装（裸枪）；
+    - **改装状态**：束搜索枚举的合法配装（仅影响 TTK 的插槽参与），每个
+      TTK 互异状态一行——四带平均 TTK 相同的状态视为同一情况，不重复列；
+    - **官方变体枪（仅预装件影响 TTK 的）**：出厂预装态。
+
+    全部状态行一起参与排名与 T0–T3 分层。各行的「预装收益」以同枪本体
+    裸枪为参照。
 
     **口径弹药不可用的武器会被排除**（与官方榜一致：某些口径没有该等级弹药，
     例如 9x19mm 无 5 级弹）。官方对应输出为 ``eligibleWeaponCount`` / ``excludedWeaponCount``。
@@ -220,7 +229,9 @@ def rank_weapons_for_scenario(
         else:
             group["base"] = weapon
 
-    def _band_results(summary: Mapping[str, Mapping[str, float]], ammo_price: Optional[int]) -> Dict[str, BandResult]:
+    def _band_results(
+        summary: Mapping[str, Mapping[str, float]], ammo_price: Optional[int]
+    ) -> Dict[str, BandResult]:
         return {
             name: BandResult(
                 band=name,
@@ -233,10 +244,9 @@ def rank_weapons_for_scenario(
             for name, stats in summary.items()
         }
 
-    def _ammo_fields(ammo: Mapping[str, Any], price_table_ref: Any) -> tuple:
+    def _ammo_price(ammo: Mapping[str, Any]) -> Optional[int]:
         ammo_item_id = str(ammo.get("ammo_item_id") or "")
-        ammo_price = price_table_ref.price_for(ammo_item_id) if price_table_ref is not None else None
-        return ammo_item_id, ammo_price
+        return price_table.price_for(ammo_item_id) if price_table is not None else None
 
     def _exclude(profile_key: str, weapon: Mapping[str, Any], exc: Exception) -> Dict[str, str]:
         return {
@@ -244,6 +254,54 @@ def rank_weapons_for_scenario(
             "name": str(weapon.get("display_name") or weapon.get("name") or profile_key),
             "reason": str(exc),
         }
+
+    def _signature(summary: Mapping[str, Mapping[str, float]]) -> tuple:
+        """四带平均 TTK 签名：相同签名 = 同一 TTK 状态（不重复列）。"""
+        return tuple(round(summary[b]["mean_ms"], 6) for b in BAND_NAMES if b in summary)
+
+    def _factory_ranking(
+        weapon: Mapping[str, Any],
+        *,
+        entry_kind: str,
+        curve: Sequence[eg.TtkResult],
+        ammo: Mapping[str, Any],
+        stock_bands: Mapping[str, Mapping[str, float]],
+        loadout_effects: List[Dict[str, Any]],
+        loadout: Optional[Mapping[str, Any]] = None,
+    ) -> GunRanking:
+        ammo_price = _ammo_price(ammo)
+        curve0 = curve[0]
+        by_distance: Dict[str, float] = {}
+        for point in curve:
+            d = point.distance_m
+            if abs(d - round(d)) < 1e-9 and round(d) % 10 == 0:
+                by_distance[str(int(d))] = round(point.ttk_milliseconds, 2)
+        return GunRanking(
+            profile_key=str(weapon["profile_key"]),
+            weapon_id=str(weapon["weapon_id"]),
+            display_name=str(weapon.get("display_name") or weapon.get("name") or weapon["profile_key"]),
+            base_name=str(weapon.get("name") or weapon["profile_key"]),
+            category=str(weapon.get("category") or ""),
+            is_variant=entry_kind == "variant",
+            variant_item_name=weapon.get("variant_item_name") if entry_kind == "variant" else None,
+            loadout=_effective_loadout(loadout or {}, weapon),
+            tuning={},
+            entry_kind=entry_kind,
+            bands=_band_results(eg.band_summary(curve), ammo_price),
+            overall_mean_ms=0.0,
+            expected_shots_0m=curve0.expected_shots,
+            rpm=curve0.rpm,
+            ads_ms_reference=curve0.ads_seconds * 1000.0,
+            muzzle_velocity_mps=curve0.muzzle_velocity_mps,
+            effective_range_m=curve0.effective_range_m,
+            ammo_item_id=str(ammo.get("ammo_item_id") or ""),
+            ammo_name=str(ammo.get("name") or ""),
+            ammo_caliber=str(ammo.get("caliber") or ""),
+            ammo_price_avg_30d=ammo_price,
+            loadout_effects=loadout_effects,
+            stock_bands=dict(stock_bands),
+            ttk_by_distance_ms=by_distance,
+        )
 
     rankings: List[GunRanking] = []
     excluded: List[Dict[str, str]] = []
@@ -256,53 +314,31 @@ def rank_weapons_for_scenario(
         if base_key not in keys_set:
             continue
 
-        # ---- base 本体：最优配装口径 ----
+        # ---- base 本体：官方默认（裸枪）----
         try:
-            solution = solver.solve(base_key, beam_width=beam_width, top_k=top_k)
+            ammo = solver.ammo_for(base_key)
+            base_state = solver.resolver.resolve(base_key, loadout={}, tuning=None)
         except eg.ScenarioError as exc:
             excluded.append(_exclude(base_key, base_weapon, exc))
             continue
-        ammo = solver.ammo_for(base_key)
-        ammo_item_id, ammo_price = _ammo_fields(ammo, price_table)
-        summary = eg.band_summary(solution.curve)
-        curve0 = solution.curve[0]
-        base_stock_state = solver.resolver.resolve(base_key, loadout={}, tuning=None)
-        final_state = solver.resolver.resolve(
-            base_key, loadout=solution.loadout, tuning=solution.tuning
-        )
-        # 白板（无改装）TTK 曲线：与最优解同一距离场，按带聚合后供「配装 TTK 差异」对比
-        base_stock_curve = eg.ttk_curve(
-            base_stock_state, ammo, solver.armor, solver.probabilities, distances
-        )
-        base_stock_bands = eg.band_summary(base_stock_curve)
+        base_curve = eg.ttk_curve(base_state, ammo, solver.armor, solver.probabilities, distances)
+        base_stock_bands = eg.band_summary(base_curve)
         rankings.append(
-            GunRanking(
-                profile_key=base_key,
-                weapon_id=str(base_weapon["weapon_id"]),
-                display_name=str(base_weapon.get("display_name") or base_weapon.get("name") or base_key),
-                base_name=str(base_weapon.get("name") or base_key),
-                category=str(base_weapon.get("category") or ""),
-                is_variant=False,
-                variant_item_name=base_weapon.get("variant_item_name"),
-                loadout=_effective_loadout(solution.loadout, base_weapon),
-                tuning={k: dict(v) for k, v in solution.tuning.items()},
-                bands=_band_results(summary, ammo_price),
-                overall_mean_ms=0.0,
-                expected_shots_0m=curve0.expected_shots,
-                rpm=curve0.rpm,
-                ads_ms_reference=curve0.ads_seconds * 1000.0,
-                muzzle_velocity_mps=curve0.muzzle_velocity_mps,
-                effective_range_m=curve0.effective_range_m,
-                ammo_item_id=ammo_item_id,
-                ammo_name=str(ammo.get("name") or ""),
-                ammo_caliber=str(ammo.get("caliber") or ""),
-                ammo_price_avg_30d=ammo_price,
-                loadout_effects=summarize_loadout_effects(base_stock_state, final_state),
+            _factory_ranking(
+                base_weapon,
+                entry_kind="base",
+                curve=base_curve,
+                ammo=ammo,
                 stock_bands=base_stock_bands,
+                loadout_effects=[],
             )
         )
 
-        # ---- 变体枪：出厂预装态，仅预装件影响 TTK 的才列 ----
+        # ---- 变体枪先入榜：出厂预装态（保留官方身份命名），仅预装件影响 TTK 的才列 ----
+        variant_item_ids = {
+            str(v.get("variant_item_id") or "") for v in group["variants"]
+        }
+        variant_signatures: set = set()
         for variant_weapon in group["variants"]:
             variant_key = str(variant_weapon["profile_key"])
             if variant_key not in keys_set:
@@ -311,46 +347,67 @@ def rank_weapons_for_scenario(
             if not part_affects_ttk(game_data.get_part(variant_item_id)):
                 continue
             try:
-                # 出厂态口径校验：与 base 共用弹药池，口径无该等级弹药时同样排除
+                # 与 base 共用弹药池：口径无该等级弹药时同样排除
                 variant_ammo = solver.ammo_for(variant_key)
+                variant_state = solver.resolver.resolve(variant_key, loadout={}, tuning=None)
             except eg.ScenarioError as exc:
                 excluded.append(_exclude(variant_key, variant_weapon, exc))
                 continue
-            v_ammo_item_id, v_ammo_price = _ammo_fields(variant_ammo, price_table)
-            v_stock_state = solver.resolver.resolve(variant_key, loadout={}, tuning=None)
-            v_stock_curve = eg.ttk_curve(
-                v_stock_state, variant_ammo, solver.armor, solver.probabilities, distances
+            variant_curve = eg.ttk_curve(
+                variant_state, variant_ammo, solver.armor, solver.probabilities, distances
             )
-            v_summary = eg.band_summary(v_stock_curve)
-            v_curve0 = v_stock_curve[0]
+            variant_summary = eg.band_summary(variant_curve)
+            variant_signatures.add(_signature(variant_summary))
             rankings.append(
-                GunRanking(
-                    profile_key=variant_key,
-                    weapon_id=str(variant_weapon["weapon_id"]),
-                    display_name=str(
-                        variant_weapon.get("display_name")
-                        or variant_weapon.get("name")
-                        or variant_key
-                    ),
-                    base_name=str(variant_weapon.get("name") or variant_key),
-                    category=str(variant_weapon.get("category") or ""),
-                    is_variant=True,
-                    variant_item_name=variant_weapon.get("variant_item_name"),
-                    loadout={},
-                    tuning={},
-                    bands=_band_results(v_summary, v_ammo_price),
-                    overall_mean_ms=0.0,
-                    expected_shots_0m=v_curve0.expected_shots,
-                    rpm=v_curve0.rpm,
-                    ads_ms_reference=v_curve0.ads_seconds * 1000.0,
-                    muzzle_velocity_mps=v_curve0.muzzle_velocity_mps,
-                    effective_range_m=v_curve0.effective_range_m,
-                    ammo_item_id=v_ammo_item_id,
-                    ammo_name=str(variant_ammo.get("name") or ""),
-                    ammo_caliber=str(variant_ammo.get("caliber") or ""),
-                    ammo_price_avg_30d=v_ammo_price,
-                    loadout_effects=summarize_loadout_effects(base_stock_state, v_stock_state),
+                _factory_ranking(
+                    variant_weapon,
+                    entry_kind="variant",
+                    curve=variant_curve,
+                    ammo=variant_ammo,
                     stock_bands=base_stock_bands,
+                    loadout_effects=summarize_loadout_effects(base_state, variant_state),
+                )
+            )
+
+        # ---- 起枪状态池：束搜索合法配装（仅影响 TTK 的插槽参与）----
+        # 与变体出厂态同 TTK 签名的状态（即"本体装上该预装件"）已由变体行覆盖，跳过。
+        try:
+            beam = solver.enumerate_loadouts(base_key, beam_width=beam_width)
+        except eg.ScenarioError as exc:
+            excluded.append(_exclude(base_key, base_weapon, exc))
+            continue
+
+        seen_signatures = {_signature(base_stock_bands)} | variant_signatures
+
+        # 束搜索状态：按四带均值升序排列（与排名方向一致）
+        scored: List[tuple] = []
+        for loadout in beam:
+            try:
+                state_mounted = solver.resolver.resolve(base_key, loadout=loadout, tuning=None)
+            except eg.ScenarioError:
+                continue
+            state_curve = eg.ttk_curve(
+                state_mounted, ammo, solver.armor, solver.probabilities, distances
+            )
+            scored.append((loadout, state_mounted, state_curve, eg.band_summary(state_curve)))
+        scored.sort(key=lambda item: tuple(item[3][b]["mean_ms"] for b in BAND_NAMES if b in item[3]))
+
+        for loadout_choice, _mounted, state_curve, state_summary in scored:
+            signature = _signature(state_summary)
+            if signature in seen_signatures:
+                continue  # TTK 与已列状态相同 → 不属于"会影响 TTK 的情况"
+            seen_signatures.add(signature)
+            rankings.append(
+                _factory_ranking(
+                    base_weapon,
+                    entry_kind="state",
+                    curve=state_curve,
+                    ammo=ammo,
+                    stock_bands=base_stock_bands,
+                    loadout_effects=summarize_loadout_effects(
+                        base_state, solver.resolver.resolve(base_key, loadout=loadout_choice, tuning=None)
+                    ),
+                    loadout=loadout_choice,
                 )
             )
 
@@ -390,7 +447,9 @@ def to_export(
                 "variant_item_name": entry.variant_item_name,
                 "loadout": entry.loadout,
                 "tuning": entry.tuning,
+                "entry_kind": entry.entry_kind,
                 "loadout_effects": [dict(e) for e in entry.loadout_effects],
+                "ttk_by_distance_ms": dict(entry.ttk_by_distance_ms),
                 "stock_bands": {
                     name: {k: round(v, 2) for k, v in stats.items()}
                     for name, stats in entry.stock_bands.items()

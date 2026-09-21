@@ -1,4 +1,8 @@
-"""分层与距离带聚合测试（Task #6）。"""
+"""分层与距离带聚合测试（Task #6）。
+
+口径：起枪状态榜——每行 = 一个起枪配置状态（本体裸枪 / 变体出厂预装态 /
+束搜索枚举的改装状态），全部一起排名分层。
+"""
 
 import os
 
@@ -83,8 +87,7 @@ def test_unsupported_caliber_is_excluded(gd):
     rankings, _thresholds, excluded = rank_weapons_for_scenario(
         gd,
         "armor-5-ammo-5-default",
-        beam_width=2,
-        top_k=1,
+        beam_width=8,
         profile_keys=["18020000001:base"],  # MP5
     )
     assert rankings == []
@@ -97,39 +100,70 @@ def test_ranking_produces_bands_and_thresholds(gd):
     rankings, thresholds, excluded = rank_weapons_for_scenario(
         gd,
         "armor-5-ammo-5-default",
-        beam_width=2,
-        top_k=1,
+        beam_width=8,
         profile_keys=["18050000003:base", "18020000001:base"],  # VSS 可用 / MP5 被排除
     )
-    assert len(rankings) == 1
+    assert rankings
     assert len(excluded) == 1
-    entry = rankings[0]
+    for entry in rankings:
+        assert entry.weapon_id == "18050000003"
+    base_rows = [e for e in rankings if e.entry_kind == "base"]
+    assert len(base_rows) == 1
+    entry = base_rows[0]
     for band in BAND_NAMES:
         assert band in entry.bands
         assert entry.bands[band].mean_ms > 0
         assert entry.bands[band].worst_ms >= entry.bands[band].mean_ms - 1e-9
     assert set(thresholds) == set(BAND_NAMES)
-    assert entry.bands["贴脸"].rank == 1
     assert entry.bands["贴脸"].tier in {"T0", "T1", "T2", "T3"}
+
+
+def test_states_deduplicated_and_all_ranked(gd):
+    """同一把枪的多状态行：TTK 互异（签名去重），且全部有排名与层级。"""
+    rankings, thresholds, _excluded = rank_weapons_for_scenario(
+        gd, "armor-5-ammo-5-default", beam_width=16, profile_keys=["18020000012:base"]  # MK4
+    )
+    assert len(rankings) >= 2  # 至少裸枪 + 一个改装状态
+    kinds = {e.entry_kind for e in rankings}
+    assert "base" in kinds
+    signatures = [
+        tuple(round(e.bands[b].mean_ms, 6) for b in BAND_NAMES) for e in rankings
+    ]
+    assert len(signatures) == len(set(signatures))  # 四带签名互异
+    for entry in rankings:
+        for band in BAND_NAMES:
+            assert entry.bands[band].rank > 0
+            assert entry.bands[band].tier
+
+
+def test_ttk_by_distance_samples_cover_official_range(gd):
+    """每状态携带 0–80m 每 10m 采样 TTK（距离维度明细）。"""
+    rankings, _thresholds, _excluded = rank_weapons_for_scenario(
+        gd, "armor-5-ammo-5-default", beam_width=16, profile_keys=["18020000012:base"]
+    )
+    for entry in rankings:
+        assert set(entry.ttk_by_distance_ms) == {str(d) for d in range(0, 81, 10)}
+        values = list(entry.ttk_by_distance_ms.values())
+        assert all(v > 0 for v in values)
 
 
 def test_to_export_payload_shape(gd):
     rankings, thresholds, excluded = rank_weapons_for_scenario(
-        gd, "armor-5-ammo-5-default", beam_width=2, top_k=1, profile_keys=["18050000003:base"]
+        gd, "armor-5-ammo-5-default", beam_width=8, profile_keys=["18050000003:base"]
     )
     payload = to_export(rankings, thresholds, "armor-5-ammo-5-default", excluded)
     assert payload["scenario_id"] == "armor-5-ammo-5-default"
     assert payload["ranking_key"] == "band_mean_ttk_ms"
     assert payload["robustness_key"] == "band_worst_ttk_ms"
-    assert payload["eligible_weapon_count"] == 1
+    assert payload["eligible_weapon_count"] == len(payload["weapons"])
     assert payload["excluded_weapon_count"] == 0
-    assert payload["weapon_pool_count"] == 1
-    assert payload["ranked_entry_count"] == 1
+    assert payload["weapon_pool_count"] == payload["eligible_weapon_count"]
+    assert payload["ranked_entry_count"] == len(rankings)
     assert "贴脸" in payload["tier_thresholds_ms"]
     weapon = payload["weapons"][0]
     for key in ("profile_key", "name", "loadout", "overall_mean_ms", "bands",
                 "expected_shots_0m", "rpm", "ads_ms_reference", "muzzle_velocity_mps",
-                "stock_bands", "loadout_effects"):
+                "stock_bands", "loadout_effects", "entry_kind", "ttk_by_distance_ms"):
         assert key in weapon
 
 
@@ -144,25 +178,20 @@ def test_effective_loadout_drops_defaults():
 
 
 def test_ttk_relevant_variant_ranks_as_factory_state(gd):
-    """预装件影响 TTK 的变体（MK4-击剑手枪管）以出厂态成行，与本体一起参赛。"""
-    rankings, thresholds, excluded = rank_weapons_for_scenario(
+    """预装件影响 TTK 的变体（MK4-击剑手枪管）以出厂态成行，与本体各状态一起参赛。"""
+    rankings, thresholds, _excluded = rank_weapons_for_scenario(
         gd,
         "armor-5-ammo-5-default",
-        beam_width=2,
-        top_k=1,
+        beam_width=16,
         profile_keys=["18020000012:base", "18020000012:13020000563"],
     )
-    names = {r.display_name: r for r in rankings}
-    assert "MK4" in names
-    assert "MK4-击剑手枪管" in names
-    variant = names["MK4-击剑手枪管"]
-    assert variant.is_variant
+    variant_rows = [r for r in rankings if r.entry_kind == "variant"]
+    assert any(r.display_name == "MK4-击剑手枪管" for r in variant_rows)
+    variant = next(r for r in variant_rows if r.display_name == "MK4-击剑手枪管")
     assert variant.loadout == {}  # 出厂态：无玩家改装
     assert variant.bands["贴脸"].mean_ms > 0
     assert variant.bands["贴脸"].rank > 0  # 参与排名
     assert variant.bands["贴脸"].tier  # 参与分层
-    # 出厂态成绩与本体最优配装口径独立：本体行 loadout 非空
-    assert names["MK4"].loadout
     assert thresholds["贴脸"]
 
 
@@ -171,25 +200,24 @@ def test_battle_axe_variant_ranks_as_factory_state(gd):
     rankings, _thresholds, _excluded = rank_weapons_for_scenario(
         gd,
         "armor-5-ammo-5-default",
-        beam_width=2,
-        top_k=1,
+        beam_width=16,
         profile_keys=["18010000012:base", "18010000012:13020000569"],
     )
-    names = {r.display_name: r for r in rankings}
-    assert "ASh-12" in names
-    variant = names.get("ASh-12-战斧重型枪管")
-    assert variant is not None
+    variant_rows = [r for r in rankings if r.entry_kind == "variant"]
+    assert any(r.display_name == "ASh-12-战斧重型枪管" for r in variant_rows)
+    variant = next(r for r in variant_rows if r.display_name == "ASh-12-战斧重型枪管")
     assert variant.is_variant and variant.loadout == {}
     assert variant.rpm == pytest.approx(400.0)  # 出厂预装态：射速 500→400
     assert variant.bands["贴脸"].tier
 
 
-def test_real_qjb201_loadout_has_no_internal_parts(gd):
-    """真实数据校验：QJB201 的最优配装不应列出原厂内部件。"""
+def test_real_qjb201_states_have_no_internal_parts(gd):
+    """真实数据校验：QJB201 的改装状态行不应装配原厂内部件。"""
     rankings, _thresholds, _excluded = rank_weapons_for_scenario(
-        gd, "armor-5-ammo-5-default", beam_width=4, top_k=2, profile_keys=["18040000004:base"]
+        gd, "armor-5-ammo-5-default", beam_width=16, profile_keys=["18040000004:base"]
     )
     weapon = gd.get_weapon("18040000004:base")
     defaults = {str(v) for v in (weapon.get("default_items") or {}).values()}
-    for item_id in rankings[0].loadout.values():
-        assert item_id not in defaults, f"配装里出现了默认件 {item_id}"
+    for entry in rankings:
+        for item_id in entry.loadout.values():
+            assert item_id not in defaults, f"配装里出现了默认件 {item_id}"

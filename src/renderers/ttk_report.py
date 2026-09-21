@@ -121,15 +121,17 @@ def render_band_table(
         rows = rows[:limit]
 
     lines = [
-        "| # | 层级 | 武器 | 平均 TTK | 最差 TTK | 配装收益 | 期望击杀发数@0m | 弹药 | 单发价 | 击杀成本 | 射速 | 优势射程 | 最优配装 |",
+        "| # | 层级 | 武器 | 平均 TTK | 最差 TTK | 预装收益 | 期望击杀发数@0m | 弹药 | 单发价 | 击杀成本 | 射速 | 优势射程 | 起枪配置 |",
         "| :-- | :-- | :-- | --: | --: | --: | --: | :-- | --: | --: | --: | --: | :-- |",
     ]
     for w in rows:
         band_data = w["bands"][band]
         if w.get("is_variant"):
-            # 变体枪：出厂预装态成绩（独立参与排名分层），配装列显示预装件
+            # 变体枪：出厂预装态成绩，配装列显示预装件
             name = f"{w['name']}<br><sub>变体 · 出厂预装态</sub>"
-            loadout = f"出厂预装：{w.get('variant_item_name') or '—'}"
+            loadout = f"出厂预装：{w.get('variant_item_name') or '—'}" + loadout_effect_text(
+                w.get("loadout_effects") or []
+            )
         else:
             name = w["name"]
             loadout = loadout_text(w.get("loadout") or {}, part_names) + loadout_effect_text(
@@ -162,7 +164,7 @@ def render_scenario_markdown(
     payload: Mapping[str, Any],
     scenario_meta: Mapping[str, Any],
     part_names: Mapping[str, str],
-    limit_per_band: Optional[int] = 40,
+    limit_per_band: Optional[int] = 120,
 ) -> str:
     """渲染单个情景的完整榜单文档。"""
     scenario_id = payload["scenario_id"]
@@ -250,10 +252,9 @@ def render_readme(
     lines.append("| :-- | :-- |")
     lines.append("| 排序键 | 距离带内平均实战 TTK（`(期望击杀发数 − 1) × 射击间隔`） |")
     lines.append("| 不参与 | 开镜时间、弹丸飞行时间（初速）、换弹、命中率修正 |")
-    lines.append("| 配装 | 官方插槽规则下的**最优合法配装**，非人工预设；对白板的属性变化标注在配装下方 |")
-    lines.append("| 配装收益 | 该距离带内**白板 → 最优配装**的平均 TTK 缩短量与百分比（`—` 表示官方默认即最优） |")
-    lines.append("| 变体 | 官方变体枪以**出厂预装态**参赛（预装件生效、无其他改装），仅预装件影响 TTK 的变体列出，"
-                 "预装不改 TTK 的变体不出榜 |")
+    lines.append("| 起枪状态 | 每行 = 一个起枪配置状态：本体裸枪、官方变体出厂预装态、束搜索枚举的改装状态（官方插槽规则 + 强制联动）；"
+                 "仅 TTK 有差异的状态列出，全部一起排名分层 |")
+    lines.append("| 预装收益 | 该距离带内**本体裸枪 → 本状态**的平均 TTK 缩短量与百分比（`—` 表示本体裸枪行） |")
     lines.append("| 距离场 | 0–80 m（官方排行口径），分 4 个距离带 |")
     lines.append("| 分层 | 带内 TTK 分位数切分 T0–T3，阈值公开 |")
     lines.append(f"| 数据版本 | `{source.get('dataset_version', '未知')}`（{source.get('name', 'dfttk-v3')}） |")
@@ -303,9 +304,11 @@ def render_readme(
     lines.append("- **期望击杀发数**：按官方伤害规则（血量 100、单弹匣不换弹、碎甲按剩余耐久比例、"
                  "距离衰减同时作用于肉伤与护甲）逐位复现官方 `candidateMetrics`，**3774 个样本零偏差**")
     lines.append("- **射击间隔**：由官方 `sdkTiming` 与射速模式决定，**291 个官方候选零偏差**")
-    lines.append("- **配装搜索**：官方插槽规则 + 强制联动，精校交由玩家自行调校（不影响 TTK）；"
-                 "已绝版的赛季限时件（哈夫克军工改件，如 S9 链锯/格斗套件）不参与搜索，"
-                 "榜单为**当前赛季可达成**的最优 TTK")
+    lines.append("- **状态枚举**：官方插槽规则 + 强制联动，束搜索枚举合法起枪状态，"
+                 "仅保留 TTK 有差异的状态；已绝版的赛季限时件（哈夫克军工改件，如 S9 链锯/格斗套件）"
+                 "不参与枚举，榜单为**当前赛季可达成**的配置")
+    lines.append("- **距离明细**：每状态的 0–80 m 每 10 m 采样 TTK 见 `data/tierlist/<情景>.json` 的 "
+                 "`ttk_by_distance_ms`")
     lines.append("- **改枪指南**：开镜时间/初速/后坐等不进 TTK 的维度见 [docs/gunsmith-guide.md](docs/gunsmith-guide.md)")
     note = _price_note(main_payload)
     if note:

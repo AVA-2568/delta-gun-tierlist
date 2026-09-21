@@ -62,7 +62,7 @@ def test_ranking_attaches_ammo_and_cost(gd):
     """VSS 在 5-5 情景可用；价格表里没有该弹药的价 → 每带成本均为 ``None``。"""
     table = AmmoPriceTable(prices={"__any__": 1000})
     rankings, _thresholds, _excluded = rank_weapons_for_scenario(
-        gd, "armor-5-ammo-5-default", beam_width=2, top_k=1,
+        gd, "armor-5-ammo-5-default", beam_width=8,
         profile_keys=["18050000003:base"], price_table=table,
     )
     entry = rankings[0]
@@ -80,7 +80,7 @@ def test_cost_uses_band_mean_shots(gd):
     price = 2000
     table = AmmoPriceTable(prices={"__any__": price})
     rankings, _t, _e = rank_weapons_for_scenario(
-        gd, "armor-5-ammo-5-default", beam_width=2, top_k=1,
+        gd, "armor-5-ammo-5-default", beam_width=8,
         profile_keys=["18050000003:base"], price_table=table,
     )
     entry = rankings[0]
@@ -90,7 +90,7 @@ def test_cost_uses_band_mean_shots(gd):
     real_id = entry.ammo_item_id
     table2 = AmmoPriceTable(prices={real_id: price})
     rankings2, _t2, _e2 = rank_weapons_for_scenario(
-        gd, "armor-5-ammo-5-default", beam_width=2, top_k=1,
+        gd, "armor-5-ammo-5-default", beam_width=8,
         profile_keys=["18050000003:base"], price_table=table2,
     )
     entry2 = rankings2[0]
@@ -103,7 +103,7 @@ def test_cost_uses_band_mean_shots(gd):
 def test_ranking_without_price_table_still_works(gd):
     """不传价格表：TTK 与发数照常，成本为 None（榜单完全可用）。"""
     rankings, _t, _e = rank_weapons_for_scenario(
-        gd, "armor-5-ammo-5-default", beam_width=2, top_k=1,
+        gd, "armor-5-ammo-5-default", beam_width=8,
         profile_keys=["18050000003:base"],
     )
     entry = rankings[0]
@@ -118,7 +118,7 @@ def test_to_export_emits_ammo_and_meta(gd):
     from src.engine.tiering import to_export
 
     probe, _t0, _e0 = rank_weapons_for_scenario(
-        gd, "armor-5-ammo-5-default", beam_width=2, top_k=1,
+        gd, "armor-5-ammo-5-default", beam_width=8,
         profile_keys=["18050000003:base"],
     )
     real_id = probe[0].ammo_item_id
@@ -131,7 +131,7 @@ def test_to_export_emits_ammo_and_meta(gd):
         prices={real_id: 4579},
     )
     rankings, thresholds, excluded = rank_weapons_for_scenario(
-        gd, "armor-5-ammo-5-default", beam_width=2, top_k=1,
+        gd, "armor-5-ammo-5-default", beam_width=8,
         profile_keys=["18050000003:base"], price_table=table,
     )
     payload = to_export(rankings, thresholds, "armor-5-ammo-5-default", excluded, price_table=table)
@@ -162,7 +162,7 @@ def test_to_export_without_price_table_marks_unavailable(gd):
     from src.engine.tiering import to_export
 
     rankings, thresholds, excluded = rank_weapons_for_scenario(
-        gd, "armor-5-ammo-5-default", beam_width=2, top_k=1,
+        gd, "armor-5-ammo-5-default", beam_width=8,
         profile_keys=["18050000003:base"],
     )
     payload = to_export(rankings, thresholds, "armor-5-ammo-5-default", excluded)
