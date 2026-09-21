@@ -279,6 +279,7 @@ def to_export(
     thresholds: Mapping[str, Mapping[str, float]],
     scenario_id: str,
     excluded: Optional[Sequence[Mapping[str, str]]] = None,
+    price_table: Optional["AmmoPriceTable"] = None,
 ) -> Dict[str, Any]:
     """序列化为可写入 JSON 的结构（渲染层直接消费，禁止二次计算）。"""
     payload_rankings: List[Dict[str, Any]] = []
@@ -301,6 +302,12 @@ def to_export(
                 "ads_ms_reference": round(entry.ads_ms_reference, 2),
                 "muzzle_velocity_mps": round(entry.muzzle_velocity_mps, 2),
                 "effective_range_m": round(entry.effective_range_m, 2),
+                "ammo": {
+                    "ammo_item_id": entry.ammo_item_id,
+                    "name": entry.ammo_name,
+                    "caliber": entry.ammo_caliber,
+                    "price_avg_30d": entry.ammo_price_avg_30d,
+                },
                 "bands": {
                     name: {
                         "rank": b.rank,
@@ -308,6 +315,8 @@ def to_export(
                         "mean_ms": round(b.mean_ms, 2),
                         "worst_ms": round(b.worst_ms, 2),
                         "best_ms": round(b.best_ms, 2),
+                        "mean_expected_shots": round(b.mean_expected_shots, 6),
+                        "kill_cost": b.kill_cost,
                     }
                     for name, b in entry.bands.items()
                 },
@@ -321,6 +330,12 @@ def to_export(
 
     return {
         "scenario_id": scenario_id,
+        "ammo_price_meta": {
+            "currency": price_table.currency if price_table is not None else "哈夫币",
+            "window": dict(price_table.window) if price_table is not None else {},
+            "updated_at": price_table.updated_at if price_table is not None else "",
+            "available": bool(price_table is not None and not price_table.is_empty),
+        },
         "ranking_key": "band_mean_ttk_ms",
         "robustness_key": "band_worst_ttk_ms",
         "tier_quantiles": list(TIER_QUANTILES),
