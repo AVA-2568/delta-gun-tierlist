@@ -302,7 +302,7 @@ payload 新增：
 | :-- | :-- |
 | `ammo_pricing` | 正常加载、按 id 查价、缺文件返回空表、`null` 价格不入表、未知 id 返回 `None` |
 | `band_summary` | `mean_expected_shots` 等于带内各点 `expected_shots` 的算术平均 |
-| `tiering` | 成本 = `round(mean_expected_shots × price)`；缺价时 `kill_cost is None` |
+| `tiering` | 成本 = `int(mean_expected_shots × price + 0.5)`（**四舍五入，非 `round()`**）；缺价时 `kill_cost is None` |
 | `to_export` | payload 含 `ammo_price_meta` 与 `weapons[].ammo`、`bands[].kill_cost` |
 | `render_band_table` | 三列出现在表头；缺价渲染 `—`；空 `caliber` 只显示型号 |
 
