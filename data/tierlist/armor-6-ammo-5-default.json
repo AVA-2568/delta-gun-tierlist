@@ -112,6 +112,32 @@
      "final": 52.0
     }
    ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 613.99,
+     "max_ms": 613.99,
+     "mean_ms": 613.99,
+     "mean_expected_shots": 8.52
+    },
+    "近距": {
+     "min_ms": 613.99,
+     "max_ms": 613.99,
+     "mean_ms": 613.99,
+     "mean_expected_shots": 8.52
+    },
+    "中距": {
+     "min_ms": 613.99,
+     "max_ms": 689.04,
+     "mean_ms": 653.3,
+     "mean_expected_shots": 9.01
+    },
+    "远距": {
+     "min_ms": 689.04,
+     "max_ms": 843.31,
+     "mean_ms": 743.78,
+     "mean_expected_shots": 10.11
+    }
+   },
    "overall_mean_ms": 631.54,
    "expected_shots_0m": 8.5244,
    "rpm": 735.3,
@@ -188,6 +214,32 @@
      "final": 50.0
     }
    ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 662.23,
+     "max_ms": 662.23,
+     "mean_ms": 662.23,
+     "mean_expected_shots": 7.62
+    },
+    "近距": {
+     "min_ms": 662.23,
+     "max_ms": 662.23,
+     "mean_ms": 662.23,
+     "mean_expected_shots": 7.62
+    },
+    "中距": {
+     "min_ms": 662.23,
+     "max_ms": 790.69,
+     "mean_ms": 729.52,
+     "mean_expected_shots": 8.3
+    },
+    "远距": {
+     "min_ms": 790.69,
+     "max_ms": 994.76,
+     "mean_ms": 863.1,
+     "mean_expected_shots": 9.63
+    }
+   },
    "overall_mean_ms": 664.66,
    "expected_shots_0m": 7.3125,
    "rpm": 600.0,
@@ -261,6 +313,32 @@
      "final": 47.2
     }
    ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 890.32,
+     "max_ms": 890.32,
+     "mean_ms": 890.32,
+     "mean_expected_shots": 8.91
+    },
+    "近距": {
+     "min_ms": 890.32,
+     "max_ms": 890.32,
+     "mean_ms": 890.32,
+     "mean_expected_shots": 8.91
+    },
+    "中距": {
+     "min_ms": 890.32,
+     "max_ms": 1144.66,
+     "mean_ms": 1023.55,
+     "mean_expected_shots": 10.09
+    },
+    "远距": {
+     "min_ms": 1144.66,
+     "max_ms": 1579.31,
+     "mean_ms": 1298.89,
+     "mean_expected_shots": 12.54
+    }
+   },
    "overall_mean_ms": 962.99,
    "expected_shots_0m": 8.9069,
    "rpm": 532.9,
@@ -334,6 +412,32 @@
      "final": 41.3
     }
    ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 615.79,
+     "max_ms": 615.79,
+     "mean_ms": 615.79,
+     "mean_expected_shots": 10.24
+    },
+    "近距": {
+     "min_ms": 615.79,
+     "max_ms": 615.79,
+     "mean_ms": 615.79,
+     "mean_expected_shots": 10.24
+    },
+    "中距": {
+     "min_ms": 615.79,
+     "max_ms": 855.14,
+     "mean_ms": 712.62,
+     "mean_expected_shots": 11.69
+    },
+    "远距": {
+     "min_ms": 855.14,
+     "max_ms": 855.14,
+     "mean_ms": 855.14,
+     "mean_expected_shots": 13.83
+    }
+   },
    "overall_mean_ms": 679.75,
    "expected_shots_0m": 10.2369,
    "rpm": 900.0,
@@ -399,6 +503,32 @@
    "loadout": {},
    "tuning": {},
    "loadout_effects": [],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 482.73,
+     "max_ms": 482.73,
+     "mean_ms": 482.73,
+     "mean_expected_shots": 8.82
+    },
+    "近距": {
+     "min_ms": 482.73,
+     "max_ms": 540.59,
+     "mean_ms": 518.89,
+     "mean_expected_shots": 9.41
+    },
+    "中距": {
+     "min_ms": 540.59,
+     "max_ms": 614.16,
+     "mean_ms": 575.63,
+     "mean_expected_shots": 10.33
+    },
+    "远距": {
+     "min_ms": 614.16,
+     "max_ms": 614.16,
+     "mean_ms": 614.16,
+     "mean_expected_shots": 10.95
+    }
+   },
    "overall_mean_ms": 547.85,
    "expected_shots_0m": 8.8239,
    "rpm": 972.4,
@@ -465,6 +595,32 @@
    "loadout": {},
    "tuning": {},
    "loadout_effects": [],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 542.47,
+     "max_ms": 542.47,
+     "mean_ms": 542.47,
+     "mean_expected_shots": 5.52
+    },
+    "近距": {
+     "min_ms": 542.47,
+     "max_ms": 542.47,
+     "mean_ms": 542.47,
+     "mean_expected_shots": 5.52
+    },
+    "中距": {
+     "min_ms": 542.47,
+     "max_ms": 542.47,
+     "mean_ms": 542.47,
+     "mean_expected_shots": 5.52
+    },
+    "远距": {
+     "min_ms": 542.47,
+     "max_ms": 629.27,
+     "mean_ms": 615.27,
+     "mean_expected_shots": 6.13
+    }
+   },
    "overall_mean_ms": 560.67,
    "expected_shots_0m": 5.5206,
    "rpm": 500.0,
@@ -539,6 +695,32 @@
      "final": 84.4
     }
    ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 719.61,
+     "max_ms": 719.61,
+     "mean_ms": 719.61,
+     "mean_expected_shots": 9.14
+    },
+    "近距": {
+     "min_ms": 719.61,
+     "max_ms": 719.61,
+     "mean_ms": 719.61,
+     "mean_expected_shots": 9.14
+    },
+    "中距": {
+     "min_ms": 719.61,
+     "max_ms": 719.61,
+     "mean_ms": 719.61,
+     "mean_expected_shots": 9.14
+    },
+    "远距": {
+     "min_ms": 719.61,
+     "max_ms": 802.4,
+     "mean_ms": 789.05,
+     "mean_expected_shots": 9.93
+    }
+   },
    "overall_mean_ms": 719.61,
    "expected_shots_0m": 9.1403,
    "rpm": 678.7,
@@ -614,6 +796,32 @@
      "final": 47.2
     }
    ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 901.16,
+     "max_ms": 901.16,
+     "mean_ms": 901.16,
+     "mean_expected_shots": 10.5
+    },
+    "近距": {
+     "min_ms": 901.16,
+     "max_ms": 901.16,
+     "mean_ms": 901.16,
+     "mean_expected_shots": 10.5
+    },
+    "中距": {
+     "min_ms": 901.16,
+     "max_ms": 1083.3,
+     "mean_ms": 996.57,
+     "mean_expected_shots": 11.5
+    },
+    "远距": {
+     "min_ms": 1083.3,
+     "max_ms": 1343.29,
+     "mean_ms": 1175.55,
+     "mean_expected_shots": 13.39
+    }
+   },
    "overall_mean_ms": 915.24,
    "expected_shots_0m": 10.0909,
    "rpm": 632.2,
@@ -688,6 +896,32 @@
      "final": 84.4
     }
    ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 773.18,
+     "max_ms": 773.18,
+     "mean_ms": 773.18,
+     "mean_expected_shots": 7.87
+    },
+    "近距": {
+     "min_ms": 773.18,
+     "max_ms": 773.18,
+     "mean_ms": 773.18,
+     "mean_expected_shots": 7.87
+    },
+    "中距": {
+     "min_ms": 773.18,
+     "max_ms": 773.18,
+     "mean_ms": 773.18,
+     "mean_expected_shots": 7.87
+    },
+    "远距": {
+     "min_ms": 773.18,
+     "max_ms": 851.41,
+     "mean_ms": 838.79,
+     "mean_expected_shots": 8.45
+    }
+   },
    "overall_mean_ms": 773.18,
    "expected_shots_0m": 7.8666,
    "rpm": 532.9,
@@ -762,6 +996,32 @@
      "final": 41.4
     }
    ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 568.31,
+     "max_ms": 568.31,
+     "mean_ms": 568.31,
+     "mean_expected_shots": 9.33
+    },
+    "近距": {
+     "min_ms": 568.31,
+     "max_ms": 688.53,
+     "mean_ms": 598.37,
+     "mean_expected_shots": 9.77
+    },
+    "中距": {
+     "min_ms": 688.53,
+     "max_ms": 688.53,
+     "mean_ms": 688.53,
+     "mean_expected_shots": 11.1
+    },
+    "远距": {
+     "min_ms": 688.53,
+     "max_ms": 855.27,
+     "mean_ms": 833.75,
+     "mean_expected_shots": 13.23
+    }
+   },
    "overall_mean_ms": 611.25,
    "expected_shots_0m": 9.333,
    "rpm": 879.8,
@@ -844,6 +1104,32 @@
      "final": 52.5
     }
    ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 637.05,
+     "max_ms": 637.05,
+     "mean_ms": 637.05,
+     "mean_expected_shots": 9.28
+    },
+    "近距": {
+     "min_ms": 637.05,
+     "max_ms": 637.05,
+     "mean_ms": 637.05,
+     "mean_expected_shots": 9.28
+    },
+    "中距": {
+     "min_ms": 637.05,
+     "max_ms": 713.5,
+     "mean_ms": 695.3,
+     "mean_expected_shots": 10.04
+    },
+    "远距": {
+     "min_ms": 713.5,
+     "max_ms": 960.98,
+     "mean_ms": 881.15,
+     "mean_expected_shots": 12.46
+    }
+   },
    "overall_mean_ms": 618.55,
    "expected_shots_0m": 8.8191,
    "rpm": 780.2,
@@ -918,6 +1204,32 @@
      "final": 84.4
     }
    ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 570.5,
+     "max_ms": 570.5,
+     "mean_ms": 570.5,
+     "mean_expected_shots": 8.04
+    },
+    "近距": {
+     "min_ms": 570.5,
+     "max_ms": 570.5,
+     "mean_ms": 570.5,
+     "mean_expected_shots": 8.04
+    },
+    "中距": {
+     "min_ms": 570.5,
+     "max_ms": 570.5,
+     "mean_ms": 570.5,
+     "mean_expected_shots": 8.04
+    },
+    "远距": {
+     "min_ms": 570.5,
+     "max_ms": 682.4,
+     "mean_ms": 664.35,
+     "mean_expected_shots": 9.19
+    }
+   },
    "overall_mean_ms": 570.5,
    "expected_shots_0m": 8.0361,
    "rpm": 740.0,
@@ -991,6 +1303,32 @@
      "final": 47.2
     }
    ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 567.42,
+     "max_ms": 567.42,
+     "mean_ms": 567.42,
+     "mean_expected_shots": 7.88
+    },
+    "近距": {
+     "min_ms": 567.42,
+     "max_ms": 567.42,
+     "mean_ms": 567.42,
+     "mean_expected_shots": 7.88
+    },
+    "中距": {
+     "min_ms": 567.42,
+     "max_ms": 717.84,
+     "mean_ms": 646.21,
+     "mean_expected_shots": 8.83
+    },
+    "远距": {
+     "min_ms": 717.84,
+     "max_ms": 838.67,
+     "mean_ms": 760.71,
+     "mean_expected_shots": 10.22
+    }
+   },
    "overall_mean_ms": 610.4,
    "expected_shots_0m": 7.8778,
    "rpm": 727.3,
@@ -1067,6 +1405,32 @@
      "final": 84.4
     }
    ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 901.62,
+     "max_ms": 901.62,
+     "mean_ms": 901.62,
+     "mean_expected_shots": 8.64
+    },
+    "近距": {
+     "min_ms": 901.62,
+     "max_ms": 901.62,
+     "mean_ms": 901.62,
+     "mean_expected_shots": 8.64
+    },
+    "中距": {
+     "min_ms": 901.62,
+     "max_ms": 901.62,
+     "mean_ms": 901.62,
+     "mean_expected_shots": 8.64
+    },
+    "远距": {
+     "min_ms": 901.62,
+     "max_ms": 1080.27,
+     "mean_ms": 1051.46,
+     "mean_expected_shots": 9.91
+    }
+   },
    "overall_mean_ms": 901.62,
    "expected_shots_0m": 8.6409,
    "rpm": 508.5,
@@ -1140,6 +1504,32 @@
      "final": 52.0
     }
    ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 566.35,
+     "max_ms": 566.35,
+     "mean_ms": 566.35,
+     "mean_expected_shots": 9.1
+    },
+    "近距": {
+     "min_ms": 566.35,
+     "max_ms": 566.35,
+     "mean_ms": 566.35,
+     "mean_expected_shots": 9.1
+    },
+    "中距": {
+     "min_ms": 566.35,
+     "max_ms": 683.95,
+     "mean_ms": 627.95,
+     "mean_expected_shots": 9.98
+    },
+    "远距": {
+     "min_ms": 683.95,
+     "max_ms": 846.39,
+     "mean_ms": 741.59,
+     "mean_expected_shots": 11.61
+    }
+   },
    "overall_mean_ms": 593.85,
    "expected_shots_0m": 9.1022,
    "rpm": 858.4,
@@ -1215,6 +1605,32 @@
      "final": 52.0
     }
    ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 527.02,
+     "max_ms": 527.02,
+     "mean_ms": 527.02,
+     "mean_expected_shots": 5.84
+    },
+    "近距": {
+     "min_ms": 527.02,
+     "max_ms": 527.02,
+     "mean_ms": 527.02,
+     "mean_expected_shots": 5.84
+    },
+    "中距": {
+     "min_ms": 527.02,
+     "max_ms": 644.95,
+     "mean_ms": 588.79,
+     "mean_expected_shots": 6.4
+    },
+    "远距": {
+     "min_ms": 644.95,
+     "max_ms": 811.96,
+     "mean_ms": 704.21,
+     "mean_expected_shots": 7.46
+    }
+   },
    "overall_mean_ms": 542.88,
    "expected_shots_0m": 5.7345,
    "rpm": 550.5,
@@ -1290,6 +1706,32 @@
      "final": 47.2
     }
    ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 652.02,
+     "max_ms": 652.02,
+     "mean_ms": 652.02,
+     "mean_expected_shots": 9.69
+    },
+    "近距": {
+     "min_ms": 652.02,
+     "max_ms": 652.02,
+     "mean_ms": 652.02,
+     "mean_expected_shots": 9.69
+    },
+    "中距": {
+     "min_ms": 652.02,
+     "max_ms": 784.66,
+     "mean_ms": 721.5,
+     "mean_expected_shots": 10.62
+    },
+    "远距": {
+     "min_ms": 784.66,
+     "max_ms": 977.86,
+     "mean_ms": 853.21,
+     "mean_expected_shots": 12.38
+    }
+   },
    "overall_mean_ms": 670.59,
    "expected_shots_0m": 9.5057,
    "rpm": 800.0,
@@ -1379,6 +1821,32 @@
      "final": 65.0
     }
    ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 677.39,
+     "max_ms": 677.39,
+     "mean_ms": 677.39,
+     "mean_expected_shots": 8.33
+    },
+    "近距": {
+     "min_ms": 677.39,
+     "max_ms": 677.39,
+     "mean_ms": 677.39,
+     "mean_expected_shots": 8.33
+    },
+    "中距": {
+     "min_ms": 677.39,
+     "max_ms": 749.0,
+     "mean_ms": 680.8,
+     "mean_expected_shots": 8.37
+    },
+    "远距": {
+     "min_ms": 749.0,
+     "max_ms": 848.43,
+     "mean_ms": 784.28,
+     "mean_expected_shots": 9.49
+    }
+   },
    "overall_mean_ms": 646.16,
    "expected_shots_0m": 7.891,
    "rpm": 649.4,
@@ -1455,6 +1923,32 @@
      "final": 46.0
     }
    ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 716.82,
+     "max_ms": 716.82,
+     "mean_ms": 716.82,
+     "mean_expected_shots": 11.04
+    },
+    "近距": {
+     "min_ms": 716.82,
+     "max_ms": 864.25,
+     "mean_ms": 726.04,
+     "mean_expected_shots": 11.17
+    },
+    "中距": {
+     "min_ms": 864.25,
+     "max_ms": 1065.3,
+     "mean_ms": 873.82,
+     "mean_expected_shots": 13.24
+    },
+    "远距": {
+     "min_ms": 1065.3,
+     "max_ms": 1065.3,
+     "mean_ms": 1065.3,
+     "mean_expected_shots": 15.92
+    }
+   },
    "overall_mean_ms": 767.18,
    "expected_shots_0m": 11.0395,
    "rpm": 840.3,
@@ -1528,6 +2022,32 @@
      "final": 45.5
     }
    ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 593.83,
+     "max_ms": 593.83,
+     "mean_ms": 593.83,
+     "mean_expected_shots": 7.43
+    },
+    "近距": {
+     "min_ms": 593.83,
+     "max_ms": 593.83,
+     "mean_ms": 593.83,
+     "mean_expected_shots": 7.43
+    },
+    "中距": {
+     "min_ms": 593.83,
+     "max_ms": 816.55,
+     "mean_ms": 689.57,
+     "mean_expected_shots": 8.47
+    },
+    "远距": {
+     "min_ms": 816.55,
+     "max_ms": 816.55,
+     "mean_ms": 816.55,
+     "mean_expected_shots": 9.85
+    }
+   },
    "overall_mean_ms": 644.08,
    "expected_shots_0m": 7.4337,
    "rpm": 650.1,
@@ -1612,6 +2132,32 @@
      "final": 30.7
     }
    ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 628.06,
+     "max_ms": 628.06,
+     "mean_ms": 628.06,
+     "mean_expected_shots": 9.3
+    },
+    "近距": {
+     "min_ms": 628.06,
+     "max_ms": 828.06,
+     "mean_ms": 701.68,
+     "mean_expected_shots": 10.27
+    },
+    "中距": {
+     "min_ms": 828.06,
+     "max_ms": 969.29,
+     "mean_ms": 902.03,
+     "mean_expected_shots": 12.92
+    },
+    "远距": {
+     "min_ms": 969.29,
+     "max_ms": 969.29,
+     "mean_ms": 969.29,
+     "mean_expected_shots": 13.81
+    }
+   },
    "overall_mean_ms": 654.18,
    "expected_shots_0m": 8.5292,
    "rpm": 793.0,
@@ -1695,6 +2241,32 @@
      "final": 47.0
     }
    ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 600.88,
+     "max_ms": 600.88,
+     "mean_ms": 600.88,
+     "mean_expected_shots": 7.26
+    },
+    "近距": {
+     "min_ms": 600.88,
+     "max_ms": 705.83,
+     "mean_ms": 607.44,
+     "mean_expected_shots": 7.33
+    },
+    "中距": {
+     "min_ms": 705.83,
+     "max_ms": 863.85,
+     "mean_ms": 750.98,
+     "mean_expected_shots": 8.82
+    },
+    "远距": {
+     "min_ms": 863.85,
+     "max_ms": 863.85,
+     "mean_ms": 863.85,
+     "mean_expected_shots": 10.0
+    }
+   },
    "overall_mean_ms": 659.83,
    "expected_shots_0m": 6.7248,
    "rpm": 625.0,
@@ -1769,6 +2341,32 @@
      "final": 30.7
     }
    ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 605.01,
+     "max_ms": 605.01,
+     "mean_ms": 605.01,
+     "mean_expected_shots": 10.58
+    },
+    "近距": {
+     "min_ms": 605.01,
+     "max_ms": 977.42,
+     "mean_ms": 799.38,
+     "mean_expected_shots": 13.66
+    },
+    "中距": {
+     "min_ms": 977.42,
+     "max_ms": 1177.94,
+     "mean_ms": 1082.45,
+     "mean_expected_shots": 18.14
+    },
+    "远距": {
+     "min_ms": 1177.94,
+     "max_ms": 1177.94,
+     "mean_ms": 1177.94,
+     "mean_expected_shots": 19.65
+    }
+   },
    "overall_mean_ms": 799.05,
    "expected_shots_0m": 10.5795,
    "rpm": 950.0,
@@ -1845,6 +2443,32 @@
      "final": 30.7
     }
    ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 548.49,
+     "max_ms": 548.49,
+     "mean_ms": 548.49,
+     "mean_expected_shots": 9.21
+    },
+    "近距": {
+     "min_ms": 548.49,
+     "max_ms": 899.27,
+     "mean_ms": 730.62,
+     "mean_expected_shots": 11.94
+    },
+    "中距": {
+     "min_ms": 899.27,
+     "max_ms": 1071.6,
+     "mean_ms": 989.53,
+     "mean_expected_shots": 15.81
+    },
+    "远距": {
+     "min_ms": 1071.6,
+     "max_ms": 1332.07,
+     "mean_ms": 1290.06,
+     "mean_expected_shots": 20.31
+    }
+   },
    "overall_mean_ms": 728.44,
    "expected_shots_0m": 9.2109,
    "rpm": 898.2,
@@ -1918,6 +2542,32 @@
      "final": 52.0
     }
    ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 567.92,
+     "max_ms": 567.92,
+     "mean_ms": 567.92,
+     "mean_expected_shots": 7.33
+    },
+    "近距": {
+     "min_ms": 567.92,
+     "max_ms": 567.92,
+     "mean_ms": 567.92,
+     "mean_expected_shots": 7.33
+    },
+    "中距": {
+     "min_ms": 567.92,
+     "max_ms": 678.4,
+     "mean_ms": 625.79,
+     "mean_expected_shots": 7.98
+    },
+    "远距": {
+     "min_ms": 678.4,
+     "max_ms": 841.36,
+     "mean_ms": 736.22,
+     "mean_expected_shots": 9.21
+    }
+   },
    "overall_mean_ms": 593.76,
    "expected_shots_0m": 7.3313,
    "rpm": 668.9,
@@ -1991,6 +2641,32 @@
      "final": 47.2
     }
    ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 718.11,
+     "max_ms": 718.11,
+     "mean_ms": 718.11,
+     "mean_expected_shots": 8.57
+    },
+    "近距": {
+     "min_ms": 718.11,
+     "max_ms": 718.11,
+     "mean_ms": 718.11,
+     "mean_expected_shots": 8.57
+    },
+    "中距": {
+     "min_ms": 718.11,
+     "max_ms": 853.58,
+     "mean_ms": 789.07,
+     "mean_expected_shots": 9.31
+    },
+    "远距": {
+     "min_ms": 853.58,
+     "max_ms": 1076.94,
+     "mean_ms": 932.84,
+     "mean_expected_shots": 10.83
+    }
+   },
    "overall_mean_ms": 756.82,
    "expected_shots_0m": 8.5671,
    "rpm": 632.2,
@@ -2065,6 +2741,32 @@
      "final": 84.4
     }
    ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 689.05,
+     "max_ms": 689.05,
+     "mean_ms": 689.05,
+     "mean_expected_shots": 8.79
+    },
+    "近距": {
+     "min_ms": 689.05,
+     "max_ms": 689.05,
+     "mean_ms": 689.05,
+     "mean_expected_shots": 8.79
+    },
+    "中距": {
+     "min_ms": 689.05,
+     "max_ms": 689.05,
+     "mean_ms": 689.05,
+     "mean_expected_shots": 8.79
+    },
+    "远距": {
+     "min_ms": 689.05,
+     "max_ms": 817.92,
+     "mean_ms": 797.14,
+     "mean_expected_shots": 10.02
+    }
+   },
    "overall_mean_ms": 689.05,
    "expected_shots_0m": 8.7946,
    "rpm": 678.7,
@@ -2148,6 +2850,32 @@
      "final": 52.0
     }
    ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 596.78,
+     "max_ms": 596.78,
+     "mean_ms": 596.78,
+     "mean_expected_shots": 8.81
+    },
+    "近距": {
+     "min_ms": 596.78,
+     "max_ms": 596.78,
+     "mean_ms": 596.78,
+     "mean_expected_shots": 8.81
+    },
+    "中距": {
+     "min_ms": 596.78,
+     "max_ms": 704.16,
+     "mean_ms": 653.03,
+     "mean_expected_shots": 9.55
+    },
+    "远距": {
+     "min_ms": 704.16,
+     "max_ms": 884.8,
+     "mean_ms": 768.26,
+     "mean_expected_shots": 11.06
+    }
+   },
    "overall_mean_ms": 559.7,
    "expected_shots_0m": 8.8113,
    "rpm": 872.6,
@@ -2222,6 +2950,32 @@
      "final": 84.4
     }
    ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 699.9,
+     "max_ms": 699.9,
+     "mean_ms": 699.9,
+     "mean_expected_shots": 7.42
+    },
+    "近距": {
+     "min_ms": 699.9,
+     "max_ms": 699.9,
+     "mean_ms": 699.9,
+     "mean_expected_shots": 7.42
+    },
+    "中距": {
+     "min_ms": 699.9,
+     "max_ms": 699.9,
+     "mean_ms": 699.9,
+     "mean_expected_shots": 7.42
+    },
+    "远距": {
+     "min_ms": 699.9,
+     "max_ms": 796.64,
+     "mean_ms": 781.04,
+     "mean_expected_shots": 8.17
+    }
+   },
    "overall_mean_ms": 699.9,
    "expected_shots_0m": 7.4211,
    "rpm": 550.5,
@@ -2295,6 +3049,32 @@
      "final": 52.0
     }
    ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 653.54,
+     "max_ms": 653.54,
+     "mean_ms": 653.54,
+     "mean_expected_shots": 7.37
+    },
+    "近距": {
+     "min_ms": 653.54,
+     "max_ms": 653.54,
+     "mean_ms": 653.54,
+     "mean_expected_shots": 7.37
+    },
+    "中距": {
+     "min_ms": 653.54,
+     "max_ms": 754.71,
+     "mean_ms": 706.53,
+     "mean_expected_shots": 7.89
+    },
+    "远距": {
+     "min_ms": 754.71,
+     "max_ms": 905.2,
+     "mean_ms": 808.11,
+     "mean_expected_shots": 8.88
+    }
+   },
    "overall_mean_ms": 677.2,
    "expected_shots_0m": 7.3697,
    "rpm": 584.8,
@@ -2369,6 +3149,32 @@
      "final": 48.7
     }
    ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 637.43,
+     "max_ms": 637.43,
+     "mean_ms": 637.43,
+     "mean_expected_shots": 10.63
+    },
+    "近距": {
+     "min_ms": 637.43,
+     "max_ms": 637.43,
+     "mean_ms": 637.43,
+     "mean_expected_shots": 10.63
+    },
+    "中距": {
+     "min_ms": 637.43,
+     "max_ms": 756.96,
+     "mean_ms": 728.5,
+     "mean_expected_shots": 12.0
+    },
+    "远距": {
+     "min_ms": 756.96,
+     "max_ms": 868.99,
+     "mean_ms": 814.78,
+     "mean_expected_shots": 13.31
+    }
+   },
    "overall_mean_ms": 670.16,
    "expected_shots_0m": 10.6288,
    "rpm": 906.3,
@@ -2443,6 +3249,32 @@
      "final": 41.4
     }
    ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 769.34,
+     "max_ms": 769.34,
+     "mean_ms": 769.34,
+     "mean_expected_shots": 8.76
+    },
+    "近距": {
+     "min_ms": 769.34,
+     "max_ms": 1058.85,
+     "mean_ms": 841.72,
+     "mean_expected_shots": 9.49
+    },
+    "中距": {
+     "min_ms": 1058.85,
+     "max_ms": 1058.85,
+     "mean_ms": 1058.85,
+     "mean_expected_shots": 11.67
+    },
+    "远距": {
+     "min_ms": 1058.85,
+     "max_ms": 1245.22,
+     "mean_ms": 1221.17,
+     "mean_expected_shots": 13.31
+    }
+   },
    "overall_mean_ms": 872.74,
    "expected_shots_0m": 8.7554,
    "rpm": 604.8,
@@ -2516,6 +3348,32 @@
      "final": 19.5
     }
    ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 517.84,
+     "max_ms": 713.29,
+     "mean_ms": 530.05,
+     "mean_expected_shots": 7.6
+    },
+    "近距": {
+     "min_ms": 713.29,
+     "max_ms": 713.29,
+     "mean_ms": 713.29,
+     "mean_expected_shots": 9.88
+    },
+    "中距": {
+     "min_ms": 713.29,
+     "max_ms": 836.13,
+     "mean_ms": 830.28,
+     "mean_expected_shots": 11.34
+    },
+    "远距": {
+     "min_ms": 836.13,
+     "max_ms": 836.13,
+     "mean_ms": 836.13,
+     "mean_expected_shots": 11.41
+    }
+   },
    "overall_mean_ms": 694.49,
    "expected_shots_0m": 7.4488,
    "rpm": 747.2,
@@ -2589,6 +3447,32 @@
      "final": 84.5
     }
    ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 572.48,
+     "max_ms": 572.48,
+     "mean_ms": 572.48,
+     "mean_expected_shots": 6.72
+    },
+    "近距": {
+     "min_ms": 572.48,
+     "max_ms": 572.48,
+     "mean_ms": 572.48,
+     "mean_expected_shots": 6.72
+    },
+    "中距": {
+     "min_ms": 572.48,
+     "max_ms": 572.48,
+     "mean_ms": 572.48,
+     "mean_expected_shots": 6.72
+    },
+    "远距": {
+     "min_ms": 572.48,
+     "max_ms": 645.9,
+     "mean_ms": 610.37,
+     "mean_expected_shots": 7.1
+    }
+   },
    "overall_mean_ms": 572.48,
    "expected_shots_0m": 6.7248,
    "rpm": 600.0,
@@ -2652,6 +3536,32 @@
    "loadout": {},
    "tuning": {},
    "loadout_effects": [],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 709.43,
+     "max_ms": 709.43,
+     "mean_ms": 709.43,
+     "mean_expected_shots": 6.68
+    },
+    "近距": {
+     "min_ms": 709.43,
+     "max_ms": 709.43,
+     "mean_ms": 709.43,
+     "mean_expected_shots": 6.68
+    },
+    "中距": {
+     "min_ms": 709.43,
+     "max_ms": 709.43,
+     "mean_ms": 709.43,
+     "mean_expected_shots": 6.68
+    },
+    "远距": {
+     "min_ms": 709.43,
+     "max_ms": 709.43,
+     "mean_ms": 709.43,
+     "mean_expected_shots": 6.68
+    }
+   },
    "overall_mean_ms": 709.43,
    "expected_shots_0m": 6.6755,
    "rpm": 480.0,
@@ -2726,6 +3636,32 @@
      "final": 30.7
     }
    ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 569.88,
+     "max_ms": 569.88,
+     "mean_ms": 569.88,
+     "mean_expected_shots": 11.36
+    },
+    "近距": {
+     "min_ms": 569.88,
+     "max_ms": 911.98,
+     "mean_ms": 748.69,
+     "mean_expected_shots": 14.61
+    },
+    "中距": {
+     "min_ms": 911.98,
+     "max_ms": 1095.64,
+     "mean_ms": 1008.18,
+     "mean_expected_shots": 19.33
+    },
+    "远距": {
+     "min_ms": 1095.64,
+     "max_ms": 1352.18,
+     "mean_ms": 1310.81,
+     "mean_expected_shots": 24.83
+    }
+   },
    "overall_mean_ms": 748.12,
    "expected_shots_0m": 11.3615,
    "rpm": 1090.9,
@@ -2799,6 +3735,32 @@
      "final": 23.4
     }
    ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 572.57,
+     "max_ms": 572.57,
+     "mean_ms": 572.57,
+     "mean_expected_shots": 9.59
+    },
+    "近距": {
+     "min_ms": 572.57,
+     "max_ms": 691.72,
+     "mean_ms": 669.38,
+     "mean_expected_shots": 11.04
+    },
+    "中距": {
+     "min_ms": 691.72,
+     "max_ms": 933.86,
+     "mean_ms": 822.98,
+     "mean_expected_shots": 13.35
+    },
+    "远距": {
+     "min_ms": 933.86,
+     "max_ms": 933.86,
+     "mean_ms": 933.86,
+     "mean_expected_shots": 15.01
+    }
+   },
    "overall_mean_ms": 706.16,
    "expected_shots_0m": 9.5895,
    "rpm": 900.1,
@@ -2872,6 +3834,32 @@
      "final": 23.4
     }
    ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 543.01,
+     "max_ms": 543.01,
+     "mean_ms": 543.01,
+     "mean_expected_shots": 9.15
+    },
+    "近距": {
+     "min_ms": 543.01,
+     "max_ms": 654.49,
+     "mean_ms": 633.59,
+     "mean_expected_shots": 10.5
+    },
+    "中距": {
+     "min_ms": 654.49,
+     "max_ms": 880.27,
+     "mean_ms": 779.57,
+     "mean_expected_shots": 12.69
+    },
+    "远距": {
+     "min_ms": 880.27,
+     "max_ms": 880.27,
+     "mean_ms": 880.27,
+     "mean_expected_shots": 14.21
+    }
+   },
    "overall_mean_ms": 668.58,
    "expected_shots_0m": 9.146,
    "rpm": 900.1,
@@ -2953,6 +3941,32 @@
      "final": 45.5
     }
    ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 628.39,
+     "max_ms": 628.39,
+     "mean_ms": 628.39,
+     "mean_expected_shots": 8.39
+    },
+    "近距": {
+     "min_ms": 628.39,
+     "max_ms": 628.39,
+     "mean_ms": 628.39,
+     "mean_expected_shots": 8.39
+    },
+    "中距": {
+     "min_ms": 628.39,
+     "max_ms": 707.12,
+     "mean_ms": 688.38,
+     "mean_expected_shots": 9.1
+    },
+    "远距": {
+     "min_ms": 707.12,
+     "max_ms": 946.4,
+     "mean_ms": 853.78,
+     "mean_expected_shots": 11.04
+    }
+   },
    "overall_mean_ms": 607.07,
    "expected_shots_0m": 8.3929,
    "rpm": 759.0,

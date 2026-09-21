@@ -67,6 +67,8 @@ class GunRanking:
     ammo_price_avg_30d: Optional[int] = None
     #: 最优配装相对官方白板的关键 TTK 属性变化（伤害档案替换、射速、优势射程等）
     loadout_effects: List[Dict[str, Any]] = field(default_factory=list)
+    #: 官方白板（无改装）在各距离带的 TTK 聚合，用于体现配装的 TTK 差异
+    stock_bands: Dict[str, Dict[str, float]] = field(default_factory=dict)
 
     @property
     def has_variant(self) -> bool:
@@ -265,6 +267,15 @@ def rank_weapons_for_scenario(
         final_state = solver.resolver.resolve(
             profile_key, loadout=solution.loadout, tuning=solution.tuning
         )
+        # 白板（无改装）TTK 曲线：与最优解同一距离场，按带聚合后供「配装 TTK 差异」对比
+        stock_curve = eg.ttk_curve(
+            base_state,
+            ammo,
+            solver.armor,
+            solver.probabilities,
+            tuple(float(d) for d in range(0, int(eg.DISTANCE_MAX) + 1)),
+        )
+        stock_bands = eg.band_summary(stock_curve)
         rankings.append(
             GunRanking(
                 profile_key=profile_key,
@@ -288,6 +299,7 @@ def rank_weapons_for_scenario(
                 ammo_caliber=str(ammo.get("caliber") or ""),
                 ammo_price_avg_30d=ammo_price,
                 loadout_effects=summarize_loadout_effects(base_state, final_state),
+                stock_bands=stock_bands,
             )
         )
 
@@ -328,6 +340,10 @@ def to_export(
                 "loadout": entry.loadout,
                 "tuning": entry.tuning,
                 "loadout_effects": [dict(e) for e in entry.loadout_effects],
+                "stock_bands": {
+                    name: {k: round(v, 2) for k, v in stats.items()}
+                    for name, stats in entry.stock_bands.items()
+                },
                 "overall_mean_ms": round(entry.overall_mean_ms, 2),
                 "expected_shots_0m": round(entry.expected_shots_0m, 4),
                 "rpm": round(entry.rpm, 1),

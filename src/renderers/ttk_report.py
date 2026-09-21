@@ -64,7 +64,8 @@ def loadout_text(loadout: Mapping[str, str], part_names: Mapping[str, str]) -> s
 def loadout_effect_text(effects: Sequence[Mapping[str, Any]]) -> str:
     """渲染「配装效果」摘要：最优配装相对白板的关键 TTK 属性变化。
 
-    例：``（肉伤 45→50 · 甲伤 50→65 · 优势射程 35.0→52.5 m）``；无变化时返回空串。
+    例：``（甲伤 32→35 · 优势射程 35→52.5 m）``；无变化时返回空串。
+    TTK 差异由独立的「配装收益」列呈现，不在此重复。
     """
     if not effects:
         return ""
@@ -76,6 +77,21 @@ def loadout_effect_text(effects: Sequence[Mapping[str, Any]]) -> str:
     if not chunks:
         return ""
     return "<br><sub>配装效果：" + " · ".join(chunks) + "</sub>"
+
+
+def loadout_gain_text(stock_mean_ms: Optional[float], final_mean_ms: Optional[float]) -> str:
+    """渲染「配装收益」列：最优配装相对官方白板的**带内平均 TTK 缩短量**。
+
+    正值 = 配装赚到的毫秒，括号内为相对白板的缩短百分比；白板与配装无差异
+    （如官方默认即最优）时显示 ``—``，数据缺失时同样不猜测。
+    """
+    if stock_mean_ms is None or final_mean_ms is None:
+        return "—"
+    gain = stock_mean_ms - final_mean_ms
+    if abs(gain) <= 1e-9:
+        return "—"
+    pct = gain / stock_mean_ms * 100.0
+    return f"{_fmt(gain, 1, ' ms')}（{_fmt(pct, 1, '%')}）"
 
 
 def _tier_badge(tier: str) -> str:
@@ -105,8 +121,8 @@ def render_band_table(
         rows = rows[:limit]
 
     lines = [
-        "| # | 层级 | 武器 | 平均 TTK | 最差 TTK | 期望击杀发数@0m | 弹药 | 单发价 | 击杀成本 | 射速 | 优势射程 | 最优配装 |",
-        "| :-- | :-- | :-- | --: | --: | --: | :-- | --: | --: | --: | --: | :-- |",
+        "| # | 层级 | 武器 | 平均 TTK | 最差 TTK | 配装收益 | 期望击杀发数@0m | 弹药 | 单发价 | 击杀成本 | 射速 | 优势射程 | 最优配装 |",
+        "| :-- | :-- | :-- | --: | --: | --: | --: | :-- | --: | --: | --: | --: | :-- |",
     ]
     for w in rows:
         band_data = w["bands"][band]
@@ -116,13 +132,15 @@ def render_band_table(
             name = f"{name}<br><sub>变体同配置：{'、'.join(equivalents)}</sub>"
         ammo = w.get("ammo") or {}
         currency = ((payload.get("ammo_price_meta") or {}).get("currency")) or "哈夫币"
+        stock_mean = ((w.get("stock_bands") or {}).get(band) or {}).get("mean_ms")
         lines.append(
-            "| {rank} | {tier} | {name} | {mean} | {worst} | {shots} | {ammo} | {price} | {cost} | {rpm} | {rng} | {loadout} |".format(
+            "| {rank} | {tier} | {name} | {mean} | {worst} | {gain} | {shots} | {ammo} | {price} | {cost} | {rpm} | {rng} | {loadout} |".format(
                 rank=band_data["rank"],
                 tier=_tier_badge(band_data.get("tier", "")),
                 name=name,
                 mean=_fmt(band_data["mean_ms"], 1, " ms"),
                 worst=_fmt(band_data["worst_ms"], 1, " ms"),
+                gain=loadout_gain_text(stock_mean, band_data["mean_ms"]),
                 shots=_fmt(w.get("expected_shots_0m"), 2, " 发"),
                 ammo=_ammo_label(ammo),
                 price=_fmt_money(ammo.get("price_avg_30d"), currency),
@@ -228,7 +246,8 @@ def render_readme(
     lines.append("| :-- | :-- |")
     lines.append("| 排序键 | 距离带内平均实战 TTK（`(期望击杀发数 − 1) × 射击间隔`） |")
     lines.append("| 不参与 | 开镜时间、弹丸飞行时间（初速）、换弹、命中率修正 |")
-    lines.append("| 配装 | 官方插槽规则下的**最优合法配装**，非人工预设；配装对白板的关键属性变化标注在配装下方 |")
+    lines.append("| 配装 | 官方插槽规则下的**最优合法配装**，非人工预设；对白板的属性变化标注在配装下方 |")
+    lines.append("| 配装收益 | 该距离带内**白板 → 最优配装**的平均 TTK 缩短量与百分比（`—` 表示官方默认即最优） |")
     lines.append("| 距离场 | 0–80 m（官方排行口径），分 4 个距离带 |")
     lines.append("| 分层 | 带内 TTK 分位数切分 T0–T3，阈值公开 |")
     lines.append(f"| 数据版本 | `{source.get('dataset_version', '未知')}`（{source.get('name', 'dfttk-v3')}） |")
