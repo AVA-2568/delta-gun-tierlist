@@ -530,7 +530,7 @@ git commit -m "feat(tiering): 新增击杀成本计算与弹药字段（禁用 r
 
 - [ ] **Step 1: 写失败测试**
 
-在 `tests/test_kill_cost.py` 追加：
+在 `tests/test_kill_cost.py` 的**文件顶部 import 区**补充下列 import 与模块常量（**不要**把它们追加到文件末尾——那会形成模块中部的 import）；下面的测试函数则追加到文件末尾：
 
 ```python
 import os
