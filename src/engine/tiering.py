@@ -12,10 +12,13 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import Any, Dict, List, Mapping, Optional, Sequence
+from typing import TYPE_CHECKING, Any, Dict, List, Mapping, Optional, Sequence
 
 from src.engine import engagement as eg
 from src.engine.loadout import LoadoutSolver
+
+if TYPE_CHECKING:  # pragma: no cover - 仅类型标注
+    from src.engine.ammo_pricing import AmmoPriceTable
 
 TIER_QUANTILES: tuple = (0.15, 0.40, 0.70)
 TIER_NAMES: tuple = ("T0", "T1", "T2", "T3")
@@ -177,6 +180,7 @@ def rank_weapons_for_scenario(
     beam_width: int = 8,
     top_k: int = 4,
     profile_keys: Optional[Sequence[str]] = None,
+    price_table: Optional["AmmoPriceTable"] = None,
 ) -> tuple:
     """对武器池逐枪求解最优配装，聚合距离带并分层。
 
@@ -188,6 +192,16 @@ def rank_weapons_for_scenario(
     """
     solver = solver or LoadoutSolver(game_data, scenario_id)
     keys = list(profile_keys) if profile_keys else [w["profile_key"] for w in game_data.weapons]
+
+    # 弹药由「武器口径 × 情景弹药等级」唯一确定，与配装无关，可整体缓存查价结果。
+    price_cache: Dict[str, Optional[int]] = {}
+
+    def _price_of(ammo_item_id: str) -> Optional[int]:
+        if ammo_item_id not in price_cache:
+            price_cache[ammo_item_id] = (
+                price_table.price_for(ammo_item_id) if price_table is not None else None
+            )
+        return price_cache[ammo_item_id]
 
     rankings: List[GunRanking] = []
     excluded: List[Dict[str, str]] = []
@@ -206,12 +220,17 @@ def rank_weapons_for_scenario(
             )
             continue
         summary = eg.band_summary(solution.curve)
+        ammo = solver.ammo_for(profile_key)
+        ammo_item_id = str(ammo.get("ammo_item_id") or "")
+        ammo_price = _price_of(ammo_item_id)
         bands = {
             name: BandResult(
                 band=name,
                 mean_ms=stats["mean_ms"],
                 worst_ms=stats["max_ms"],
                 best_ms=stats["min_ms"],
+                mean_expected_shots=stats["mean_expected_shots"],
+                kill_cost=compute_kill_cost(stats["mean_expected_shots"], ammo_price),
             )
             for name, stats in summary.items()
         }
@@ -234,6 +253,10 @@ def rank_weapons_for_scenario(
                 ads_ms_reference=curve0.ads_seconds * 1000.0,
                 muzzle_velocity_mps=curve0.muzzle_velocity_mps,
                 effective_range_m=curve0.effective_range_m,
+                ammo_item_id=ammo_item_id,
+                ammo_name=str(ammo.get("name") or ""),
+                ammo_caliber=str(ammo.get("caliber") or ""),
+                ammo_price_avg_30d=ammo_price,
             )
         )
 
