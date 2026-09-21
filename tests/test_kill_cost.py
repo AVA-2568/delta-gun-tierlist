@@ -1,7 +1,5 @@
 """击杀成本计算测试（口径：带内平均期望发数 × 单发均价，四舍五入）。"""
 
-import pytest
-
 from src.engine.tiering import BandResult, GunRanking, compute_kill_cost
 
 
