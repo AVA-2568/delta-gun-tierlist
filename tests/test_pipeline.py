@@ -4,7 +4,7 @@ import os
 
 import pytest
 
-from src.pipeline import DEFAULT_SCENARIO, run_pipeline
+from src.pipeline import DEFAULT_SCENARIOS, MAIN_SCENARIO, run_pipeline
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -13,7 +13,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 def result():
     return run_pipeline(
         output_dir=ROOT,
-        scenario_id=DEFAULT_SCENARIO,
+        scenarios=DEFAULT_SCENARIOS[:1],
         limit=2,
         beam_width=2,
         top_k=1,
@@ -21,17 +21,27 @@ def result():
     )
 
 
+def test_default_scenarios_match_confirmed_scope():
+    """默认榜单口径：不含 3 级弹组合，只用实战命中分布 default。"""
+    assert len(DEFAULT_SCENARIOS) == 5
+    for sid in DEFAULT_SCENARIOS:
+        assert sid.endswith("-default")
+        level = int(sid.split("-")[1])
+        assert level >= 4, f"{sid} 不应包含 3 级甲弹组合"
+    assert MAIN_SCENARIO in DEFAULT_SCENARIOS
+
+
 def test_pipeline_returns_payload_for_requested_scenario(result):
-    assert result["scenarios"] == [DEFAULT_SCENARIO]
-    assert DEFAULT_SCENARIO in result["payloads"]
+    assert result["scenarios"] == [DEFAULT_SCENARIOS[0]]
+    assert DEFAULT_SCENARIOS[0] in result["payloads"]
     assert result["weapon_count"] == 2
     # write=False 时不应产出文件
     assert result["files_written"] == []
 
 
 def test_pipeline_payload_is_self_contained(result):
-    payload = result["payloads"][DEFAULT_SCENARIO]
-    assert payload["scenario_id"] == DEFAULT_SCENARIO
+    payload = result["payloads"][DEFAULT_SCENARIOS[0]]
+    assert payload["scenario_id"] == DEFAULT_SCENARIOS[0]
     assert payload["eligible_weapon_count"] == len(payload["weapons"]) + payload["folded_variant_count"]
     assert payload["weapon_pool_count"] == payload["eligible_weapon_count"] + payload["excluded_weapon_count"]
     assert payload["weapon_pool_count"] == result["weapon_count"]  # 与本次处理的池一致
@@ -49,4 +59,4 @@ def test_pipeline_payload_is_self_contained(result):
 
 def test_unknown_scenario_raises():
     with pytest.raises(KeyError):
-        run_pipeline(output_dir=ROOT, scenario_id="no-such-scenario", limit=1, write=False)
+        run_pipeline(output_dir=ROOT, scenarios=["no-such-scenario"], limit=1, write=False)

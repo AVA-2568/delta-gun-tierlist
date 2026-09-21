@@ -59,7 +59,7 @@ jobs:
         continue-on-error: true
 
       - name: Rebuild Tier List
-        run: python -m src.pipeline --scenario all --top-k 4 --beam-width 8
+        run: python -m src.pipeline --top-k 4 --beam-width 8
 
       - name: Commit and Push Changes
         run: |

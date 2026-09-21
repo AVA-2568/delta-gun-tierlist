@@ -2,15 +2,16 @@
 
 用法::
 
-    python -m src.pipeline                      # 主榜情景（官方默认）
-    python -m src.pipeline --scenario all       # 全部 21 个官方情景
+    python -m src.pipeline                      # 默认 5 个情景（见 DEFAULT_SCENARIOS）
+    python -m src.pipeline --all                # 全部 21 个官方情景（含理论聚焦预设）
+    python -m src.pipeline --scenario 5-5       # 单个甲弹组合的实战情景
     python -m src.pipeline --limit 8            # 快速冒烟（前 8 把枪）
 
 输出：
 
 - ``data/tierlist/<scenario_id>.json`` —— 机器可读榜单（含层级阈值）
 - ``docs/tierlist/<scenario_id>.md`` —— 人类可读榜单
-- ``README.md`` —— 首页主榜（默认情景 × 4 距离带）
+- ``README.md`` —— 首页主榜（官方默认情景 × 4 距离带）
 - ``docs/gunsmith-guide.md`` —— 改枪指南（不进 TTK 的维度）
 """
 
@@ -33,7 +34,18 @@ from src.renderers.ttk_report import (
 
 logger = logging.getLogger(__name__)
 
-DEFAULT_SCENARIO = "armor-5-ammo-5-default"
+# 主榜情景：官方默认情景（defaultScenarioId）
+MAIN_SCENARIO = "armor-5-ammo-5-default"
+
+# 默认出榜情景（口径已确认）：甲弹组合不含 3 级弹（3-3 / 4-3 不做）；
+# 命中分布只用实战预设 default（center / chest-only 为官方理论聚焦预设，需 --all 才出）。
+DEFAULT_SCENARIOS: tuple = (
+    "armor-4-ammo-4-default",
+    "armor-4-ammo-5-default",
+    "armor-5-ammo-4-default",
+    "armor-5-ammo-5-default",
+    "armor-6-ammo-5-default",
+)
 
 
 SLOT_ZH = {
@@ -85,7 +97,7 @@ def _scenario_index(game_data: Any) -> List[Dict[str, Any]]:
 
 def run_pipeline(
     output_dir: str = ".",
-    scenario_id: str = DEFAULT_SCENARIO,
+    scenarios: Optional[Sequence[str]] = None,
     all_scenarios: bool = False,
     limit: Optional[int] = None,
     beam_width: int = 8,
@@ -96,8 +108,9 @@ def run_pipeline(
 
     Args:
         output_dir: 输出根目录。
-        scenario_id: 主榜情景（``all_scenarios=True`` 时忽略）。
-        all_scenarios: 是否为全部官方情景各出一份榜单。
+        scenarios: 指定情景 ID 列表（完整 ID，如 ``armor-5-ammo-5-default``）；
+            ``None`` 且 ``all_scenarios=False`` 时用 :data:`DEFAULT_SCENARIOS`。
+        all_scenarios: 为全部官方情景（含 center / chest-only 理论聚焦预设）各出一份榜单。
         limit: 仅处理前 N 把枪（调试用）。
         beam_width / top_k: 配装搜索宽度。
         write: 是否写盘（False 时仅返回结果，便于测试）。
@@ -109,9 +122,15 @@ def run_pipeline(
     if limit:
         keys = keys[:limit]
 
-    targets = list(scenario_meta_all.keys()) if all_scenarios else [scenario_id]
-    if scenario_id not in scenario_meta_all:
-        raise KeyError(f"未收录的情景：{scenario_id}")
+    if all_scenarios:
+        targets = list(scenario_meta_all.keys())
+    elif scenarios:
+        targets = list(scenarios)
+    else:
+        targets = list(DEFAULT_SCENARIOS)
+    for sid in targets:
+        if sid not in scenario_meta_all:
+            raise KeyError(f"未收录的情景：{sid}")
 
     payloads: Dict[str, Dict[str, Any]] = {}
     files_written: List[str] = []
@@ -143,13 +162,14 @@ def run_pipeline(
             fh.write(render_scenario_markdown(payload, scenario_meta_all[sid], part_names))
         files_written.append(md_path)
 
-    if write and not all_scenarios:
+    main_payload = payloads.get(MAIN_SCENARIO)
+    if write and main_payload is not None:
         readme_path = os.path.join(output_dir, "README.md")
         with open(readme_path, "w", encoding="utf-8") as fh:
             fh.write(
                 render_readme(
-                    payloads[scenario_id],
-                    scenario_meta_all[scenario_id],
+                    main_payload,
+                    scenario_meta_all[MAIN_SCENARIO],
                     game_data.provenance,
                     part_names,
                     scenario_index=_scenario_index(game_data),
@@ -176,17 +196,23 @@ def main() -> None:
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
     parser = argparse.ArgumentParser(description="纯 TTK 枪械强度榜管线")
     parser.add_argument("--output-dir", default=".", help="输出根目录（默认当前目录）")
-    parser.add_argument("--scenario", default=DEFAULT_SCENARIO, help="主榜情景 ID，或 all 表示全部情景")
+    parser.add_argument("--all", action="store_true", help="全部 21 个官方情景（含理论聚焦预设）")
+    parser.add_argument("--scenario", default=None, help="单甲弹组合，如 5-5（用其 default 实战情景）")
     parser.add_argument("--limit", type=int, default=None, help="仅处理前 N 把枪（调试）")
     parser.add_argument("--beam-width", type=int, default=8, help="配装束搜索宽度")
     parser.add_argument("--top-k", type=int, default=4, help="精评候选数")
     parser.add_argument("--dry-run", action="store_true", help="只计算不写盘")
     args = parser.parse_args()
 
+    scenarios = None
+    if args.scenario:
+        armor, ammo = args.scenario.split("-")
+        scenarios = [f"armor-{armor}-ammo-{ammo}-default"]
+
     result = run_pipeline(
         output_dir=args.output_dir,
-        scenario_id=args.scenario if args.scenario != "all" else DEFAULT_SCENARIO,
-        all_scenarios=args.scenario == "all",
+        scenarios=scenarios,
+        all_scenarios=args.all,
         limit=args.limit,
         beam_width=args.beam_width,
         top_k=args.top_k,
