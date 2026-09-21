@@ -179,16 +179,22 @@ DISTANCE_BANDS: Dict[str, tuple] = {
 
 
 def band_summary(curve: Sequence[TtkResult]) -> Dict[str, Dict[str, float]]:
-    """按距离带聚合：带内加权 TTK 与带内最差 TTK（毫秒）。"""
+    """按距离带聚合：带内 TTK（毫秒）与带内平均期望击杀发数。
+
+    ``mean_expected_shots`` 供上层计算击杀成本使用，故**不做取整**——
+    它乘上单价后由成本函数统一四舍五入。
+    """
     out: Dict[str, Dict[str, float]] = {}
     for name, (lo, hi) in DISTANCE_BANDS.items():
         points = [r for r in curve if lo <= r.distance_m <= hi]
         if not points:
             continue
         ttks = [r.ttk_milliseconds for r in points]
+        shots = [r.expected_shots for r in points]
         out[name] = {
             "min_ms": round(min(ttks), 2),
             "max_ms": round(max(ttks), 2),
             "mean_ms": round(sum(ttks) / len(ttks), 2),
+            "mean_expected_shots": sum(shots) / len(shots),
         }
     return out
