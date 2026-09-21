@@ -196,11 +196,21 @@ def test_empty_caliber_renders_name_only():
         ],
     }
     table = render_band_table(payload, "贴脸", PART_NAMES)
-    row = table.splitlines()[2]
-    cells = [cell.strip() for cell in row.strip("|").split("|")]
-    # 弹药单元格就是型号本身（口径为空时不产生前导空格或多余分隔）
-    assert "碳纤维穿甲箭矢" in cells
-    assert all(not cell.startswith(" 碳纤维") for cell in cells)
+    assert "碳纤维穿甲箭矢" in table
+    assert "哈夫币" in table  # 有价时金额正常出现
+
+
+def test_ammo_label_skips_empty_caliber():
+    """直接单测格式化函数：空口径只输出型号，无前导/尾随空格。
+
+    不在表格层断言前导空格——表格单元格会被 strip，那类缺陷在那里测不出来（会变成恒真断言）。
+    """
+    from src.renderers.ttk_report import _ammo_label
+
+    assert _ammo_label({"caliber": "4.6x30mm", "name": "AP SX"}) == "4.6x30mm AP SX"
+    assert _ammo_label({"caliber": "", "name": "碳纤维穿甲箭矢"}) == "碳纤维穿甲箭矢"
+    assert _ammo_label({"caliber": None, "name": "碳纤维穿甲箭矢"}) == "碳纤维穿甲箭矢"
+    assert _ammo_label({}) == "—"
 
 
 def test_legacy_payload_without_new_keys_does_not_raise():
