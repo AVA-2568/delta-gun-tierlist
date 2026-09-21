@@ -32,6 +32,8 @@ class BandResult:
     best_ms: float
     rank: int = 0
     tier: str = ""
+    mean_expected_shots: float = 0.0
+    kill_cost: Optional[int] = None
 
 
 @dataclass
@@ -55,6 +57,10 @@ class GunRanking:
     ads_ms_reference: float = 0.0
     muzzle_velocity_mps: float = 0.0
     effective_range_m: float = 0.0
+    ammo_item_id: str = ""
+    ammo_name: str = ""
+    ammo_caliber: str = ""
+    ammo_price_avg_30d: Optional[int] = None
 
     @property
     def has_variant(self) -> bool:
@@ -107,6 +113,22 @@ def _merge_equivalent_variants(rankings: List["GunRanking"]) -> List["GunRanking
         merged.append(base)
     merged.sort(key=lambda e: e.display_name)
     return merged
+
+
+def compute_kill_cost(
+    mean_expected_shots: Optional[float],
+    price_per_round: Optional[int],
+) -> Optional[int]:
+    """单次击杀的弹药成本（哈夫币）：带内平均期望发数 × 单发均价。
+
+    **禁用内建 ``round()``**：Python 采用银行家舍入（``round(2.5) == 2``），
+    会让成本列出现反直觉数值，故统一用 ``int(x + 0.5)``。
+
+    任一输入为 ``None``（缺价）时返回 ``None``——不猜测、不兜底。
+    """
+    if mean_expected_shots is None or price_per_round is None:
+        return None
+    return int(mean_expected_shots * price_per_round + 0.5)
 
 
 def _quantile(sorted_values: Sequence[float], q: float) -> float:
