@@ -42,7 +42,7 @@ def test_pipeline_returns_payload_for_requested_scenario(result):
 def test_pipeline_payload_is_self_contained(result):
     payload = result["payloads"][DEFAULT_SCENARIOS[0]]
     assert payload["scenario_id"] == DEFAULT_SCENARIOS[0]
-    assert payload["eligible_weapon_count"] == len(payload["weapons"]) + payload["folded_variant_count"]
+    assert payload["eligible_weapon_count"] == len(payload["weapons"])
     assert payload["weapon_pool_count"] == payload["eligible_weapon_count"] + payload["excluded_weapon_count"]
     assert payload["weapon_pool_count"] == result["weapon_count"]  # 与本次处理的池一致
     assert set(payload["band_definitions"]) == {"贴脸", "近距", "中距", "远距"}

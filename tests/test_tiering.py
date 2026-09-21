@@ -125,12 +125,11 @@ def test_to_export_payload_shape(gd):
     assert payload["excluded_weapon_count"] == 0
     assert payload["weapon_pool_count"] == 1
     assert payload["ranked_entry_count"] == 1
-    assert payload["folded_variant_count"] == 0
     assert "贴脸" in payload["tier_thresholds_ms"]
     weapon = payload["weapons"][0]
     for key in ("profile_key", "name", "loadout", "overall_mean_ms", "bands",
                 "expected_shots_0m", "rpm", "ads_ms_reference", "muzzle_velocity_mps",
-                "equivalent_variants"):
+                "stock_bands", "loadout_effects"):
         assert key in weapon
 
 
@@ -144,32 +143,45 @@ def test_effective_loadout_drops_defaults():
     assert _effective_loadout({"2": "long_barrel"}, weapon) == {"2": "long_barrel"}
 
 
-def test_equivalent_variants_are_folded():
-    """与 base 成绩完全一致的变体应折叠，不重复占榜。"""
-    from src.engine.tiering import _merge_equivalent_variants
+def test_ttk_relevant_variant_ranks_as_factory_state(gd):
+    """预装件影响 TTK 的变体（MK4-击剑手枪管）以出厂态成行，与本体一起参赛。"""
+    rankings, thresholds, excluded = rank_weapons_for_scenario(
+        gd,
+        "armor-5-ammo-5-default",
+        beam_width=2,
+        top_k=1,
+        profile_keys=["18020000012:base", "18020000012:13020000563"],
+    )
+    names = {r.display_name: r for r in rankings}
+    assert "MK4" in names
+    assert "MK4-击剑手枪管" in names
+    variant = names["MK4-击剑手枪管"]
+    assert variant.is_variant
+    assert variant.loadout == {}  # 出厂态：无玩家改装
+    assert variant.bands["贴脸"].mean_ms > 0
+    assert variant.bands["贴脸"].rank > 0  # 参与排名
+    assert variant.bands["贴脸"].tier  # 参与分层
+    # 出厂态成绩与本体最优配装口径独立：本体行 loadout 非空
+    assert names["MK4"].loadout
+    assert thresholds["贴脸"]
 
-    def entry(name, weapon_id, variant, loadout, ms):
-        return GunRanking(
-            profile_key=name,
-            weapon_id=weapon_id,
-            display_name=name,
-            base_name=weapon_id,
-            category="突击步枪",
-            is_variant=variant,
-            variant_item_name=name if variant else None,
-            loadout=loadout,
-            tuning={},
-            bands={"贴脸": BandResult(band="贴脸", mean_ms=ms, worst_ms=ms, best_ms=ms)},
-        )
 
-    base = entry("GUN", "g1", False, {"2": "barrel"}, 300.0)
-    same = entry("GUN-barrel", "g1", True, {"2": "barrel"}, 300.0)
-    better = entry("GUN-special", "g1", True, {"2": "other"}, 280.0)
-    merged = _merge_equivalent_variants([base, same, better])
-    names = {e.display_name for e in merged}
-    assert "GUN-barrel" not in names  # 等价变体被折叠
-    assert base.equivalent_variants == ["GUN-barrel"]
-    assert "GUN-special" in names  # 成绩不同的变体保留
+def test_battle_axe_variant_ranks_as_factory_state(gd):
+    """ASh-12-战斧重型枪管（预装件改射速 500→400 + 伤害档案）以出厂态成行。"""
+    rankings, _thresholds, _excluded = rank_weapons_for_scenario(
+        gd,
+        "armor-5-ammo-5-default",
+        beam_width=2,
+        top_k=1,
+        profile_keys=["18010000012:base", "18010000012:13020000569"],
+    )
+    names = {r.display_name: r for r in rankings}
+    assert "ASh-12" in names
+    variant = names.get("ASh-12-战斧重型枪管")
+    assert variant is not None
+    assert variant.is_variant and variant.loadout == {}
+    assert variant.rpm == pytest.approx(400.0)  # 出厂预装态：射速 500→400
+    assert variant.bands["贴脸"].tier
 
 
 def test_real_qjb201_loadout_has_no_internal_parts(gd):

@@ -126,10 +126,15 @@ def render_band_table(
     ]
     for w in rows:
         band_data = w["bands"][band]
-        name = w["name"]
-        equivalents = w.get("equivalent_variants") or []
-        if equivalents:
-            name = f"{name}<br><sub>变体同配置：{'、'.join(equivalents)}</sub>"
+        if w.get("is_variant"):
+            # 变体枪：出厂预装态成绩（独立参与排名分层），配装列显示预装件
+            name = f"{w['name']}<br><sub>变体 · 出厂预装态</sub>"
+            loadout = f"出厂预装：{w.get('variant_item_name') or '—'}"
+        else:
+            name = w["name"]
+            loadout = loadout_text(w.get("loadout") or {}, part_names) + loadout_effect_text(
+                w.get("loadout_effects") or []
+            )
         ammo = w.get("ammo") or {}
         currency = ((payload.get("ammo_price_meta") or {}).get("currency")) or "哈夫币"
         stock_mean = ((w.get("stock_bands") or {}).get(band) or {}).get("mean_ms")
@@ -147,8 +152,7 @@ def render_band_table(
                 cost=_fmt_money(band_data.get("kill_cost"), currency),
                 rpm=_fmt(w.get("rpm"), 0),
                 rng=_fmt(w.get("effective_range_m"), 1, " m"),
-                loadout=loadout_text(w.get("loadout") or {}, part_names)
-                + loadout_effect_text(w.get("loadout_effects") or []),
+                loadout=loadout,
             )
         )
     return "\n".join(lines)
@@ -248,6 +252,8 @@ def render_readme(
     lines.append("| 不参与 | 开镜时间、弹丸飞行时间（初速）、换弹、命中率修正 |")
     lines.append("| 配装 | 官方插槽规则下的**最优合法配装**，非人工预设；对白板的属性变化标注在配装下方 |")
     lines.append("| 配装收益 | 该距离带内**白板 → 最优配装**的平均 TTK 缩短量与百分比（`—` 表示官方默认即最优） |")
+    lines.append("| 变体 | 官方变体枪以**出厂预装态**参赛（预装件生效、无其他改装），仅预装件影响 TTK 的变体列出，"
+                 "预装不改 TTK 的变体不出榜 |")
     lines.append("| 距离场 | 0–80 m（官方排行口径），分 4 个距离带 |")
     lines.append("| 分层 | 带内 TTK 分位数切分 T0–T3，阈值公开 |")
     lines.append(f"| 数据版本 | `{source.get('dataset_version', '未知')}`（{source.get('name', 'dfttk-v3')}） |")

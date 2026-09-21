@@ -20,8 +20,7 @@
  "weapon_pool_count": 61,
  "eligible_weapon_count": 56,
  "excluded_weapon_count": 5,
- "ranked_entry_count": 39,
- "folded_variant_count": 17,
+ "ranked_entry_count": 56,
  "excluded_weapons": [
   {
    "profile_key": "18020000001:base",
@@ -51,24 +50,24 @@
  ],
  "tier_thresholds_ms": {
   "贴脸": {
-   "T0": 327.46,
-   "T1": 348.4,
-   "T2": 393.41
+   "T0": 326.49,
+   "T1": 347.41,
+   "T2": 381.76
   },
   "近距": {
-   "T0": 329.73,
-   "T1": 355.45,
-   "T2": 403.06
+   "T0": 330.65,
+   "T1": 358.07,
+   "T2": 393.18
   },
   "中距": {
-   "T0": 347.49,
-   "T1": 383.24,
-   "T2": 431.73
+   "T0": 350.16,
+   "T1": 387.0,
+   "T2": 439.7
   },
   "远距": {
-   "T0": 385.23,
-   "T1": 428.55,
-   "T2": 486.56
+   "T0": 386.14,
+   "T1": 432.27,
+   "T2": 501.42
   }
  },
  "band_definitions": {
@@ -91,16 +90,15 @@
  },
  "weapons": [
   {
-   "profile_key": "18010000018:base",
-   "weapon_id": "18010000018",
-   "name": "AK12",
-   "base_name": "AK12",
+   "profile_key": "18010000001:base",
+   "weapon_id": "18010000001",
+   "name": "M4A1",
+   "base_name": "M4A1",
    "category": "突击步枪",
    "is_variant": false,
    "variant_item_name": null,
-   "equivalent_variants": [],
    "loadout": {
-    "2": "13020000370"
+    "2": "13020000173"
    },
    "tuning": {},
    "loadout_effects": [
@@ -109,83 +107,179 @@
      "label": "优势射程",
      "unit": " m",
      "base": 40.0,
-     "final": 52.0
+     "final": 47.2
     }
    ],
    "stock_bands": {
     "贴脸": {
-     "min_ms": 397.68,
-     "max_ms": 397.68,
-     "mean_ms": 397.68,
-     "mean_expected_shots": 5.87
+     "min_ms": 388.39,
+     "max_ms": 388.39,
+     "mean_ms": 388.39,
+     "mean_expected_shots": 6.18
     },
     "近距": {
-     "min_ms": 397.68,
-     "max_ms": 397.68,
-     "mean_ms": 397.68,
-     "mean_expected_shots": 5.87
+     "min_ms": 388.39,
+     "max_ms": 388.39,
+     "mean_ms": 388.39,
+     "mean_expected_shots": 6.18
     },
     "中距": {
-     "min_ms": 397.68,
-     "max_ms": 447.35,
-     "mean_ms": 423.7,
-     "mean_expected_shots": 6.19
+     "min_ms": 388.39,
+     "max_ms": 468.6,
+     "mean_ms": 430.41,
+     "mean_expected_shots": 6.74
     },
     "远距": {
-     "min_ms": 447.35,
-     "max_ms": 545.06,
-     "mean_ms": 482.02,
-     "mean_expected_shots": 6.91
+     "min_ms": 468.6,
+     "max_ms": 585.28,
+     "mean_ms": 510.0,
+     "mean_expected_shots": 7.8
     }
    },
-   "overall_mean_ms": 409.3,
-   "expected_shots_0m": 5.8736,
-   "rpm": 735.3,
-   "ads_ms_reference": 350.0,
-   "muzzle_velocity_mps": 747.5,
-   "effective_range_m": 52.0,
+   "overall_mean_ms": 382.75,
+   "expected_shots_0m": 5.8392,
+   "rpm": 800.0,
+   "ads_ms_reference": 339.22,
+   "muzzle_velocity_mps": 678.5,
+   "effective_range_m": 47.2,
    "ammo": {
-    "ammo_item_id": "37120500001",
-    "name": "BS",
-    "caliber": "5.45x39mm",
-    "price_avg_30d": 4419
+    "ammo_item_id": "37100500001",
+    "name": "M995",
+    "caliber": "5.56x45mm",
+    "price_avg_30d": 4992
    },
    "bands": {
     "贴脸": {
-     "rank": 28,
-     "tier": "T3",
-     "mean_ms": 397.68,
-     "worst_ms": 397.68,
-     "best_ms": 397.68,
-     "mean_expected_shots": 5.873557,
-     "kill_cost": 25955
+     "rank": 31,
+     "tier": "T2",
+     "mean_ms": 362.94,
+     "worst_ms": 362.94,
+     "best_ms": 362.94,
+     "mean_expected_shots": 5.839162,
+     "kill_cost": 29149
     },
     "近距": {
      "rank": 27,
      "tier": "T2",
-     "mean_ms": 397.68,
-     "worst_ms": 397.68,
-     "best_ms": 397.68,
-     "mean_expected_shots": 5.873557,
-     "kill_cost": 25955
+     "mean_ms": 362.94,
+     "worst_ms": 362.94,
+     "best_ms": 362.94,
+     "mean_expected_shots": 5.839162,
+     "kill_cost": 29149
     },
     "中距": {
-     "rank": 21,
-     "tier": "T2",
-     "mean_ms": 397.68,
-     "worst_ms": 397.68,
-     "best_ms": 397.68,
-     "mean_expected_shots": 5.873557,
-     "kill_cost": 25955
+     "rank": 16,
+     "tier": "T1",
+     "mean_ms": 372.84,
+     "worst_ms": 432.27,
+     "best_ms": 362.94,
+     "mean_expected_shots": 5.971222,
+     "kill_cost": 29808
     },
     "远距": {
-     "rank": 20,
+     "rank": 22,
+     "tier": "T1",
+     "mean_ms": 432.27,
+     "worst_ms": 432.27,
+     "best_ms": 432.27,
+     "mean_expected_shots": 6.763581,
+     "kill_cost": 33764
+    }
+   }
+  },
+  {
+   "profile_key": "18010000001:13020000173",
+   "weapon_id": "18010000001",
+   "name": "M4A1-AR特勤一体消音组合",
+   "base_name": "M4A1",
+   "category": "突击步枪",
+   "is_variant": true,
+   "variant_item_name": "AR特勤一体消音组合",
+   "loadout": {},
+   "tuning": {},
+   "loadout_effects": [
+    {
+     "key": "effective_range_m",
+     "label": "优势射程",
+     "unit": " m",
+     "base": 40.0,
+     "final": 47.2
+    }
+   ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 388.39,
+     "max_ms": 388.39,
+     "mean_ms": 388.39,
+     "mean_expected_shots": 6.18
+    },
+    "近距": {
+     "min_ms": 388.39,
+     "max_ms": 388.39,
+     "mean_ms": 388.39,
+     "mean_expected_shots": 6.18
+    },
+    "中距": {
+     "min_ms": 388.39,
+     "max_ms": 468.6,
+     "mean_ms": 430.41,
+     "mean_expected_shots": 6.74
+    },
+    "远距": {
+     "min_ms": 468.6,
+     "max_ms": 585.28,
+     "mean_ms": 510.0,
+     "mean_expected_shots": 7.8
+    }
+   },
+   "overall_mean_ms": 382.75,
+   "expected_shots_0m": 5.8392,
+   "rpm": 800.0,
+   "ads_ms_reference": 339.22,
+   "muzzle_velocity_mps": 678.5,
+   "effective_range_m": 47.2,
+   "ammo": {
+    "ammo_item_id": "37100500001",
+    "name": "M995",
+    "caliber": "5.56x45mm",
+    "price_avg_30d": 4992
+   },
+   "bands": {
+    "贴脸": {
+     "rank": 32,
      "tier": "T2",
-     "mean_ms": 444.15,
-     "worst_ms": 447.35,
-     "best_ms": 397.68,
-     "mean_expected_shots": 6.44297,
-     "kill_cost": 28471
+     "mean_ms": 362.94,
+     "worst_ms": 362.94,
+     "best_ms": 362.94,
+     "mean_expected_shots": 5.839162,
+     "kill_cost": 29149
+    },
+    "近距": {
+     "rank": 28,
+     "tier": "T2",
+     "mean_ms": 362.94,
+     "worst_ms": 362.94,
+     "best_ms": 362.94,
+     "mean_expected_shots": 5.839162,
+     "kill_cost": 29149
+    },
+    "中距": {
+     "rank": 17,
+     "tier": "T1",
+     "mean_ms": 372.84,
+     "worst_ms": 432.27,
+     "best_ms": 362.94,
+     "mean_expected_shots": 5.971222,
+     "kill_cost": 29808
+    },
+    "远距": {
+     "rank": 23,
+     "tier": "T1",
+     "mean_ms": 432.27,
+     "worst_ms": 432.27,
+     "best_ms": 432.27,
+     "mean_expected_shots": 6.763581,
+     "kill_cost": 33764
     }
    }
   },
@@ -197,9 +291,6 @@
    "category": "突击步枪",
    "is_variant": false,
    "variant_item_name": null,
-   "equivalent_variants": [
-    "AKM-性能枪管组合"
-   ],
    "loadout": {
     "2": "13020000355",
     "6": "13130000164"
@@ -254,7 +345,7 @@
    },
    "bands": {
     "贴脸": {
-     "rank": 24,
+     "rank": 35,
      "tier": "T2",
      "mean_ms": 366.69,
      "worst_ms": 366.69,
@@ -263,7 +354,7 @@
      "kill_cost": 23199
     },
     "近距": {
-     "rank": 22,
+     "rank": 31,
      "tier": "T2",
      "mean_ms": 366.69,
      "worst_ms": 366.69,
@@ -272,7 +363,7 @@
      "kill_cost": 23199
     },
     "中距": {
-     "rank": 11,
+     "rank": 14,
      "tier": "T1",
      "mean_ms": 366.69,
      "worst_ms": 366.69,
@@ -281,13 +372,208 @@
      "kill_cost": 23199
     },
     "远距": {
-     "rank": 19,
+     "rank": 25,
      "tier": "T2",
      "mean_ms": 437.62,
      "worst_ms": 439.98,
      "best_ms": 366.69,
      "mean_expected_shots": 5.376197,
      "kill_cost": 26725
+    }
+   }
+  },
+  {
+   "profile_key": "18010000006:13020000355",
+   "weapon_id": "18010000006",
+   "name": "AKM-性能枪管组合",
+   "base_name": "AKM",
+   "category": "突击步枪",
+   "is_variant": true,
+   "variant_item_name": "AKM性能枪管组合",
+   "loadout": {},
+   "tuning": {},
+   "loadout_effects": [
+    {
+     "key": "effective_range_m",
+     "label": "优势射程",
+     "unit": " m",
+     "base": 40.0,
+     "final": 42.4
+    }
+   ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 394.17,
+     "max_ms": 394.17,
+     "mean_ms": 394.17,
+     "mean_expected_shots": 4.94
+    },
+    "近距": {
+     "min_ms": 394.17,
+     "max_ms": 394.17,
+     "mean_ms": 394.17,
+     "mean_expected_shots": 4.94
+    },
+    "中距": {
+     "min_ms": 394.17,
+     "max_ms": 468.57,
+     "mean_ms": 433.14,
+     "mean_expected_shots": 5.33
+    },
+    "远距": {
+     "min_ms": 468.57,
+     "max_ms": 583.04,
+     "mean_ms": 509.19,
+     "mean_expected_shots": 6.09
+    }
+   },
+   "overall_mean_ms": 397.07,
+   "expected_shots_0m": 4.6669,
+   "rpm": 600.0,
+   "ads_ms_reference": 314.96,
+   "muzzle_velocity_mps": 556.5,
+   "effective_range_m": 42.4,
+   "ammo": {
+    "ammo_item_id": "37110500001",
+    "name": "AP",
+    "caliber": "7.62x39mm",
+    "price_avg_30d": 4971
+   },
+   "bands": {
+    "贴脸": {
+     "rank": 36,
+     "tier": "T2",
+     "mean_ms": 366.69,
+     "worst_ms": 366.69,
+     "best_ms": 366.69,
+     "mean_expected_shots": 4.666861,
+     "kill_cost": 23199
+    },
+    "近距": {
+     "rank": 32,
+     "tier": "T2",
+     "mean_ms": 366.69,
+     "worst_ms": 366.69,
+     "best_ms": 366.69,
+     "mean_expected_shots": 4.666861,
+     "kill_cost": 23199
+    },
+    "中距": {
+     "rank": 27,
+     "tier": "T2",
+     "mean_ms": 394.61,
+     "worst_ms": 439.98,
+     "best_ms": 366.69,
+     "mean_expected_shots": 4.946092,
+     "kill_cost": 24587
+    },
+    "远距": {
+     "rank": 30,
+     "tier": "T2",
+     "mean_ms": 460.28,
+     "worst_ms": 544.82,
+     "best_ms": 439.98,
+     "mean_expected_shots": 5.602755,
+     "kill_cost": 27851
+    }
+   }
+  },
+  {
+   "profile_key": "18010000008:base",
+   "weapon_id": "18010000008",
+   "name": "QBZ95-1",
+   "base_name": "QBZ95-1",
+   "category": "突击步枪",
+   "is_variant": false,
+   "variant_item_name": null,
+   "loadout": {
+    "2": "13020000373",
+    "6": "13130000164"
+   },
+   "tuning": {},
+   "loadout_effects": [
+    {
+     "key": "effective_range_m",
+     "label": "优势射程",
+     "unit": " m",
+     "base": 55.0,
+     "final": 84.4
+    }
+   ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 445.39,
+     "max_ms": 445.39,
+     "mean_ms": 445.39,
+     "mean_expected_shots": 6.04
+    },
+    "近距": {
+     "min_ms": 445.39,
+     "max_ms": 445.39,
+     "mean_ms": 445.39,
+     "mean_expected_shots": 6.04
+    },
+    "中距": {
+     "min_ms": 445.39,
+     "max_ms": 445.39,
+     "mean_ms": 445.39,
+     "mean_expected_shots": 6.04
+    },
+    "远距": {
+     "min_ms": 445.39,
+     "max_ms": 528.83,
+     "mean_ms": 515.37,
+     "mean_expected_shots": 6.83
+    }
+   },
+   "overall_mean_ms": 445.39,
+   "expected_shots_0m": 6.0384,
+   "rpm": 678.7,
+   "ads_ms_reference": 399.48,
+   "muzzle_velocity_mps": 882.05,
+   "effective_range_m": 84.37,
+   "ammo": {
+    "ammo_item_id": "37130500001",
+    "name": "DVC12",
+    "caliber": "5.8x42mm",
+    "price_avg_30d": 5145
+   },
+   "bands": {
+    "贴脸": {
+     "rank": 48,
+     "tier": "T3",
+     "mean_ms": 445.39,
+     "worst_ms": 445.39,
+     "best_ms": 445.39,
+     "mean_expected_shots": 6.038403,
+     "kill_cost": 31068
+    },
+    "近距": {
+     "rank": 47,
+     "tier": "T3",
+     "mean_ms": 445.39,
+     "worst_ms": 445.39,
+     "best_ms": 445.39,
+     "mean_expected_shots": 6.038403,
+     "kill_cost": 31068
+    },
+    "中距": {
+     "rank": 40,
+     "tier": "T3",
+     "mean_ms": 445.39,
+     "worst_ms": 445.39,
+     "best_ms": 445.39,
+     "mean_expected_shots": 6.038403,
+     "kill_cost": 31068
+    },
+    "远距": {
+     "rank": 27,
+     "tier": "T2",
+     "mean_ms": 445.39,
+     "worst_ms": 445.39,
+     "best_ms": 445.39,
+     "mean_expected_shots": 6.038403,
+     "kill_cost": 31068
     }
    }
   },
@@ -299,7 +585,6 @@
    "category": "突击步枪",
    "is_variant": false,
    "variant_item_name": null,
-   "equivalent_variants": [],
    "loadout": {
     "6": "13130000164"
    },
@@ -353,7 +638,7 @@
    },
    "bands": {
     "贴脸": {
-     "rank": 38,
+     "rank": 54,
      "tier": "T3",
      "mean_ms": 527.61,
      "worst_ms": 527.61,
@@ -362,7 +647,7 @@
      "kill_cost": 25125
     },
     "近距": {
-     "rank": 38,
+     "rank": 54,
      "tier": "T3",
      "mean_ms": 527.61,
      "worst_ms": 527.61,
@@ -371,7 +656,7 @@
      "kill_cost": 25125
     },
     "中距": {
-     "rank": 37,
+     "rank": 52,
      "tier": "T3",
      "mean_ms": 548.87,
      "worst_ms": 676.4,
@@ -380,203 +665,13 @@
      "kill_cost": 25959
     },
     "远距": {
-     "rank": 38,
+     "rank": 54,
      "tier": "T3",
      "mean_ms": 676.4,
      "worst_ms": 676.4,
      "best_ms": 676.4,
      "mean_expected_shots": 7.007093,
      "kill_cost": 30964
-    }
-   }
-  },
-  {
-   "profile_key": "18010000045:base",
-   "weapon_id": "18010000045",
-   "name": "AR57",
-   "base_name": "AR57",
-   "category": "突击步枪",
-   "is_variant": false,
-   "variant_item_name": null,
-   "equivalent_variants": [],
-   "loadout": {
-    "2": "13020000593"
-   },
-   "tuning": {},
-   "loadout_effects": [
-    {
-     "key": "effective_range_m",
-     "label": "优势射程",
-     "unit": " m",
-     "base": 35.0,
-     "final": 41.3
-    }
-   ],
-   "stock_bands": {
-    "贴脸": {
-     "min_ms": 361.02,
-     "max_ms": 361.02,
-     "mean_ms": 361.02,
-     "mean_expected_shots": 6.42
-    },
-    "近距": {
-     "min_ms": 361.02,
-     "max_ms": 361.02,
-     "mean_ms": 361.02,
-     "mean_expected_shots": 6.42
-    },
-    "中距": {
-     "min_ms": 361.02,
-     "max_ms": 504.34,
-     "mean_ms": 420.78,
-     "mean_expected_shots": 7.31
-    },
-    "远距": {
-     "min_ms": 504.34,
-     "max_ms": 504.34,
-     "mean_ms": 504.34,
-     "mean_expected_shots": 8.57
-    }
-   },
-   "overall_mean_ms": 399.77,
-   "expected_shots_0m": 6.4154,
-   "rpm": 900.0,
-   "ads_ms_reference": 314.96,
-   "muzzle_velocity_mps": 619.5,
-   "effective_range_m": 41.3,
-   "ammo": {
-    "ammo_item_id": "37210500001",
-    "name": "SS190",
-    "caliber": "5.7x28mm",
-    "price_avg_30d": 4767
-   },
-   "bands": {
-    "贴脸": {
-     "rank": 21,
-     "tier": "T2",
-     "mean_ms": 361.02,
-     "worst_ms": 361.02,
-     "best_ms": 361.02,
-     "mean_expected_shots": 6.415367,
-     "kill_cost": 30582
-    },
-    "近距": {
-     "rank": 18,
-     "tier": "T2",
-     "mean_ms": 361.02,
-     "worst_ms": 361.02,
-     "best_ms": 361.02,
-     "mean_expected_shots": 6.415367,
-     "kill_cost": 30582
-    },
-    "中距": {
-     "rank": 20,
-     "tier": "T2",
-     "mean_ms": 392.78,
-     "worst_ms": 435.14,
-     "best_ms": 361.02,
-     "mean_expected_shots": 6.891824,
-     "kill_cost": 32853
-    },
-    "远距": {
-     "rank": 27,
-     "tier": "T2",
-     "mean_ms": 484.25,
-     "worst_ms": 504.34,
-     "best_ms": 435.14,
-     "mean_expected_shots": 8.263852,
-     "kill_cost": 39394
-    }
-   }
-  },
-  {
-   "profile_key": "18010000037:base",
-   "weapon_id": "18010000037",
-   "name": "AS-Val",
-   "base_name": "AS-Val",
-   "category": "突击步枪",
-   "is_variant": false,
-   "variant_item_name": null,
-   "equivalent_variants": [
-    "AS-Val-刺客高级枪管"
-   ],
-   "loadout": {},
-   "tuning": {},
-   "loadout_effects": [],
-   "stock_bands": {
-    "贴脸": {
-     "min_ms": 321.7,
-     "max_ms": 321.7,
-     "mean_ms": 321.7,
-     "mean_expected_shots": 6.21
-    },
-    "近距": {
-     "min_ms": 321.7,
-     "max_ms": 361.32,
-     "mean_ms": 346.46,
-     "mean_expected_shots": 6.62
-    },
-    "中距": {
-     "min_ms": 361.32,
-     "max_ms": 410.26,
-     "mean_ms": 384.62,
-     "mean_expected_shots": 7.23
-    },
-    "远距": {
-     "min_ms": 410.26,
-     "max_ms": 410.26,
-     "mean_ms": 410.26,
-     "mean_expected_shots": 7.65
-    }
-   },
-   "overall_mean_ms": 365.76,
-   "expected_shots_0m": 6.2139,
-   "rpm": 972.4,
-   "ads_ms_reference": 277.15,
-   "muzzle_velocity_mps": 300.0,
-   "effective_range_m": 21.0,
-   "ammo": {
-    "ammo_item_id": "37140500001",
-    "name": "BP",
-    "caliber": "9x39mm",
-    "price_avg_30d": 4419
-   },
-   "bands": {
-    "贴脸": {
-     "rank": 4,
-     "tier": "T0",
-     "mean_ms": 321.7,
-     "worst_ms": 321.7,
-     "best_ms": 321.7,
-     "mean_expected_shots": 6.213915,
-     "kill_cost": 27459
-    },
-    "近距": {
-     "rank": 12,
-     "tier": "T1",
-     "mean_ms": 346.46,
-     "worst_ms": 361.32,
-     "best_ms": 321.7,
-     "mean_expected_shots": 6.615242,
-     "kill_cost": 29233
-    },
-    "中距": {
-     "rank": 17,
-     "tier": "T2",
-     "mean_ms": 384.62,
-     "worst_ms": 410.26,
-     "best_ms": 361.32,
-     "mean_expected_shots": 7.23377,
-     "kill_cost": 31966
-    },
-    "远距": {
-     "rank": 10,
-     "tier": "T1",
-     "mean_ms": 410.26,
-     "worst_ms": 410.26,
-     "best_ms": 410.26,
-     "mean_expected_shots": 7.649275,
-     "kill_cost": 33802
     }
    }
   },
@@ -588,10 +683,6 @@
    "category": "突击步枪",
    "is_variant": false,
    "variant_item_name": null,
-   "equivalent_variants": [
-    "ASh-12-战斧重型枪管",
-    "ASh-12-HVK双发枪管"
-   ],
    "loadout": {},
    "tuning": {},
    "loadout_effects": [],
@@ -635,7 +726,7 @@
    },
    "bands": {
     "贴脸": {
-     "rank": 2,
+     "rank": 3,
      "tier": "T0",
      "mean_ms": 309.98,
      "worst_ms": 309.98,
@@ -644,7 +735,7 @@
      "kill_cost": 17783
     },
     "近距": {
-     "rank": 2,
+     "rank": 3,
      "tier": "T0",
      "mean_ms": 309.98,
      "worst_ms": 309.98,
@@ -653,7 +744,7 @@
      "kill_cost": 17783
     },
     "中距": {
-     "rank": 2,
+     "rank": 3,
      "tier": "T0",
      "mean_ms": 309.98,
      "worst_ms": 309.98,
@@ -673,303 +764,229 @@
    }
   },
   {
-   "profile_key": "18010000015:base",
-   "weapon_id": "18010000015",
-   "name": "AUG",
-   "base_name": "AUG",
+   "profile_key": "18010000012:13020000569",
+   "weapon_id": "18010000012",
+   "name": "ASh-12-战斧重型枪管",
+   "base_name": "ASh-12",
    "category": "突击步枪",
-   "is_variant": false,
-   "variant_item_name": null,
-   "equivalent_variants": [],
-   "loadout": {
-    "2": "13020000367",
-    "6": "13130000164"
-   },
+   "is_variant": true,
+   "variant_item_name": "ASH-12战斧重型枪管",
+   "loadout": {},
    "tuning": {},
    "loadout_effects": [
     {
-     "key": "effective_range_m",
-     "label": "优势射程",
-     "unit": " m",
+     "key": "base_damage",
+     "label": "肉伤",
+     "unit": "",
+     "base": 56.0,
+     "final": 75.0
+    },
+    {
+     "key": "base_armor_damage",
+     "label": "甲伤",
+     "unit": "",
      "base": 55.0,
-     "final": 84.4
-    }
-   ],
-   "stock_bands": {
-    "贴脸": {
-     "min_ms": 422.43,
-     "max_ms": 422.43,
-     "mean_ms": 422.43,
-     "mean_expected_shots": 5.78
+     "final": 40.0
     },
-    "近距": {
-     "min_ms": 422.43,
-     "max_ms": 422.43,
-     "mean_ms": 422.43,
-     "mean_expected_shots": 5.78
-    },
-    "中距": {
-     "min_ms": 422.43,
-     "max_ms": 422.43,
-     "mean_ms": 422.43,
-     "mean_expected_shots": 5.78
-    },
-    "远距": {
-     "min_ms": 422.43,
-     "max_ms": 474.73,
-     "mean_ms": 466.29,
-     "mean_expected_shots": 6.27
-    }
-   },
-   "overall_mean_ms": 422.43,
-   "expected_shots_0m": 5.7786,
-   "rpm": 678.7,
-   "ads_ms_reference": 408.47,
-   "muzzle_velocity_mps": 882.05,
-   "effective_range_m": 84.37,
-   "ammo": {
-    "ammo_item_id": "37100500001",
-    "name": "M995",
-    "caliber": "5.56x45mm",
-    "price_avg_30d": 4992
-   },
-   "bands": {
-    "贴脸": {
-     "rank": 31,
-     "tier": "T3",
-     "mean_ms": 422.43,
-     "worst_ms": 422.43,
-     "best_ms": 422.43,
-     "mean_expected_shots": 5.778645,
-     "kill_cost": 28847
-    },
-    "近距": {
-     "rank": 31,
-     "tier": "T3",
-     "mean_ms": 422.43,
-     "worst_ms": 422.43,
-     "best_ms": 422.43,
-     "mean_expected_shots": 5.778645,
-     "kill_cost": 28847
-    },
-    "中距": {
-     "rank": 26,
-     "tier": "T2",
-     "mean_ms": 422.43,
-     "worst_ms": 422.43,
-     "best_ms": 422.43,
-     "mean_expected_shots": 5.778645,
-     "kill_cost": 28847
-    },
-    "远距": {
-     "rank": 13,
-     "tier": "T1",
-     "mean_ms": 422.43,
-     "worst_ms": 422.43,
-     "best_ms": 422.43,
-     "mean_expected_shots": 5.778645,
-     "kill_cost": 28847
-    }
-   }
-  },
-  {
-   "profile_key": "18010000031:base",
-   "weapon_id": "18010000031",
-   "name": "CAR-15",
-   "base_name": "CAR-15",
-   "category": "突击步枪",
-   "is_variant": false,
-   "variant_item_name": null,
-   "equivalent_variants": [
-    "CAR-15-AR特勤一体消音组合"
-   ],
-   "loadout": {
-    "2": "13020000173"
-   },
-   "tuning": {},
-   "loadout_effects": [
     {
-     "key": "effective_range_m",
-     "label": "优势射程",
-     "unit": " m",
-     "base": 40.0,
-     "final": 47.2
+     "key": "rpm",
+     "label": "射速",
+     "unit": "",
+     "base": 500.0,
+     "final": 400.0
     }
    ],
    "stock_bands": {
     "贴脸": {
-     "min_ms": 557.07,
-     "max_ms": 557.07,
-     "mean_ms": 557.07,
-     "mean_expected_shots": 6.87
+     "min_ms": 309.98,
+     "max_ms": 309.98,
+     "mean_ms": 309.98,
+     "mean_expected_shots": 3.58
     },
     "近距": {
-     "min_ms": 557.07,
-     "max_ms": 557.07,
-     "mean_ms": 557.07,
-     "mean_expected_shots": 6.87
+     "min_ms": 309.98,
+     "max_ms": 309.98,
+     "mean_ms": 309.98,
+     "mean_expected_shots": 3.58
     },
     "中距": {
-     "min_ms": 557.07,
-     "max_ms": 667.76,
-     "mean_ms": 615.05,
-     "mean_expected_shots": 7.48
+     "min_ms": 309.98,
+     "max_ms": 309.98,
+     "mean_ms": 309.98,
+     "mean_expected_shots": 3.58
     },
     "远距": {
-     "min_ms": 667.76,
-     "max_ms": 833.17,
-     "mean_ms": 726.46,
-     "mean_expected_shots": 8.65
+     "min_ms": 309.98,
+     "max_ms": 375.8,
+     "mean_ms": 365.18,
+     "mean_expected_shots": 4.04
     }
    },
-   "overall_mean_ms": 545.98,
-   "expected_shots_0m": 6.4404,
-   "rpm": 632.2,
-   "ads_ms_reference": 339.22,
-   "muzzle_velocity_mps": 678.5,
-   "effective_range_m": 47.2,
+   "overall_mean_ms": 396.79,
+   "expected_shots_0m": 3.5574,
+   "rpm": 400.0,
+   "ads_ms_reference": 333.41,
+   "muzzle_velocity_mps": 500.0,
+   "effective_range_m": 55.0,
    "ammo": {
-    "ammo_item_id": "37100500001",
-    "name": "M995",
-    "caliber": "5.56x45mm",
-    "price_avg_30d": 4992
+    "ammo_item_id": "37160500001",
+    "name": "PS12B",
+    "caliber": "12.7x55",
+    "price_avg_30d": 4963
    },
    "bands": {
     "贴脸": {
-     "rank": 37,
+     "rank": 40,
      "tier": "T3",
-     "mean_ms": 516.3,
-     "worst_ms": 516.3,
-     "best_ms": 516.3,
-     "mean_expected_shots": 6.440432,
-     "kill_cost": 32151
+     "mean_ms": 383.61,
+     "worst_ms": 383.61,
+     "best_ms": 383.61,
+     "mean_expected_shots": 3.557371,
+     "kill_cost": 17655
     },
     "近距": {
-     "rank": 37,
-     "tier": "T3",
-     "mean_ms": 516.3,
-     "worst_ms": 516.3,
-     "best_ms": 516.3,
-     "mean_expected_shots": 6.440432,
-     "kill_cost": 32151
-    },
-    "中距": {
      "rank": 36,
-     "tier": "T3",
-     "mean_ms": 531.14,
-     "worst_ms": 620.18,
-     "best_ms": 516.3,
-     "mean_expected_shots": 6.596805,
-     "kill_cost": 32931
+     "tier": "T2",
+     "mean_ms": 383.61,
+     "worst_ms": 383.61,
+     "best_ms": 383.61,
+     "mean_expected_shots": 3.557371,
+     "kill_cost": 17655
+    },
+    "中距": {
+     "rank": 21,
+     "tier": "T1",
+     "mean_ms": 383.61,
+     "worst_ms": 383.61,
+     "best_ms": 383.61,
+     "mean_expected_shots": 3.557371,
+     "kill_cost": 17655
     },
     "远距": {
-     "rank": 37,
-     "tier": "T3",
-     "mean_ms": 620.18,
-     "worst_ms": 620.18,
-     "best_ms": 620.18,
-     "mean_expected_shots": 7.535044,
-     "kill_cost": 37615
+     "rank": 24,
+     "tier": "T2",
+     "mean_ms": 436.31,
+     "worst_ms": 446.45,
+     "best_ms": 383.61,
+     "mean_expected_shots": 3.908737,
+     "kill_cost": 19399
     }
    }
   },
   {
-   "profile_key": "18010000023:base",
-   "weapon_id": "18010000023",
-   "name": "G3",
-   "base_name": "G3",
+   "profile_key": "18010000012:13020000603",
+   "weapon_id": "18010000012",
+   "name": "ASh-12-HVK双发枪管",
+   "base_name": "ASh-12",
    "category": "突击步枪",
-   "is_variant": false,
-   "variant_item_name": null,
-   "equivalent_variants": [],
-   "loadout": {
-    "2": "13020000486",
-    "6": "13130000164"
-   },
+   "is_variant": true,
+   "variant_item_name": "HVK双发枪管",
+   "loadout": {},
    "tuning": {},
    "loadout_effects": [
     {
-     "key": "effective_range_m",
-     "label": "优势射程",
-     "unit": " m",
+     "key": "base_damage",
+     "label": "肉伤",
+     "unit": "",
+     "base": 56.0,
+     "final": 42.0
+    },
+    {
+     "key": "base_armor_damage",
+     "label": "甲伤",
+     "unit": "",
      "base": 55.0,
-     "final": 84.4
+     "final": 45.0
+    },
+    {
+     "key": "rpm",
+     "label": "射速",
+     "unit": "",
+     "base": 500.0,
+     "final": 400.0
+    },
+    {
+     "key": "projectile_count",
+     "label": "每发弹丸",
+     "unit": "",
+     "base": 1.0,
+     "final": 2.0
     }
    ],
    "stock_bands": {
     "贴脸": {
-     "min_ms": 454.5,
-     "max_ms": 454.5,
-     "mean_ms": 454.5,
-     "mean_expected_shots": 5.04
+     "min_ms": 309.98,
+     "max_ms": 309.98,
+     "mean_ms": 309.98,
+     "mean_expected_shots": 3.58
     },
     "近距": {
-     "min_ms": 454.5,
-     "max_ms": 454.5,
-     "mean_ms": 454.5,
-     "mean_expected_shots": 5.04
+     "min_ms": 309.98,
+     "max_ms": 309.98,
+     "mean_ms": 309.98,
+     "mean_expected_shots": 3.58
     },
     "中距": {
-     "min_ms": 454.5,
-     "max_ms": 454.5,
-     "mean_ms": 454.5,
-     "mean_expected_shots": 5.04
+     "min_ms": 309.98,
+     "max_ms": 309.98,
+     "mean_ms": 309.98,
+     "mean_expected_shots": 3.58
     },
     "远距": {
-     "min_ms": 454.5,
-     "max_ms": 511.92,
-     "mean_ms": 502.66,
-     "mean_expected_shots": 5.46
+     "min_ms": 309.98,
+     "max_ms": 375.8,
+     "mean_ms": 365.18,
+     "mean_expected_shots": 4.04
     }
    },
-   "overall_mean_ms": 454.5,
-   "expected_shots_0m": 5.0364,
-   "rpm": 532.9,
-   "ads_ms_reference": 437.57,
-   "muzzle_velocity_mps": 966.42,
-   "effective_range_m": 84.37,
+   "overall_mean_ms": 575.96,
+   "expected_shots_0m": 4.7465,
+   "rpm": 400.0,
+   "ads_ms_reference": 321.23,
+   "muzzle_velocity_mps": 340.0,
+   "effective_range_m": 55.0,
    "ammo": {
-    "ammo_item_id": "37170500001",
-    "name": "M62",
-    "caliber": "7.62x51mm",
-    "price_avg_30d": 6267
+    "ammo_item_id": "37160500001",
+    "name": "PS12B",
+    "caliber": "12.7x55",
+    "price_avg_30d": 4963
    },
    "bands": {
     "贴脸": {
-     "rank": 35,
+     "rank": 56,
      "tier": "T3",
-     "mean_ms": 454.5,
-     "worst_ms": 454.5,
-     "best_ms": 454.5,
-     "mean_expected_shots": 5.036429,
-     "kill_cost": 31563
+     "mean_ms": 561.97,
+     "worst_ms": 561.97,
+     "best_ms": 561.97,
+     "mean_expected_shots": 4.746464,
+     "kill_cost": 23557
     },
     "近距": {
-     "rank": 35,
+     "rank": 56,
      "tier": "T3",
-     "mean_ms": 454.5,
-     "worst_ms": 454.5,
-     "best_ms": 454.5,
-     "mean_expected_shots": 5.036429,
-     "kill_cost": 31563
+     "mean_ms": 561.97,
+     "worst_ms": 561.97,
+     "best_ms": 561.97,
+     "mean_expected_shots": 4.746464,
+     "kill_cost": 23557
     },
     "中距": {
-     "rank": 30,
+     "rank": 54,
      "tier": "T3",
-     "mean_ms": 454.5,
-     "worst_ms": 454.5,
-     "best_ms": 454.5,
-     "mean_expected_shots": 5.036429,
-     "kill_cost": 31563
+     "mean_ms": 561.97,
+     "worst_ms": 561.97,
+     "best_ms": 561.97,
+     "mean_expected_shots": 4.746464,
+     "kill_cost": 23557
     },
     "远距": {
-     "rank": 22,
-     "tier": "T2",
-     "mean_ms": 454.5,
-     "worst_ms": 454.5,
-     "best_ms": 454.5,
-     "mean_expected_shots": 5.036429,
-     "kill_cost": 31563
+     "rank": 51,
+     "tier": "T3",
+     "mean_ms": 617.93,
+     "worst_ms": 628.69,
+     "best_ms": 561.97,
+     "mean_expected_shots": 5.119545,
+     "kill_cost": 25408
     }
    }
   },
@@ -981,7 +998,6 @@
    "category": "突击步枪",
    "is_variant": false,
    "variant_item_name": null,
-   "equivalent_variants": [],
    "loadout": {
     "2": "13020000493",
     "6": "13130000164"
@@ -1036,7 +1052,7 @@
    },
    "bands": {
     "贴脸": {
-     "rank": 15,
+     "rank": 21,
      "tier": "T1",
      "mean_ms": 346.78,
      "worst_ms": 346.78,
@@ -1045,7 +1061,7 @@
      "kill_cost": 30375
     },
     "近距": {
-     "rank": 13,
+     "rank": 17,
      "tier": "T1",
      "mean_ms": 346.78,
      "worst_ms": 346.78,
@@ -1054,7 +1070,7 @@
      "kill_cost": 30375
     },
     "中距": {
-     "rank": 14,
+     "rank": 18,
      "tier": "T1",
      "mean_ms": 377.35,
      "worst_ms": 418.11,
@@ -1063,13 +1079,1519 @@
      "kill_cost": 32613
     },
     "远距": {
-     "rank": 12,
+     "rank": 15,
      "tier": "T1",
      "mean_ms": 418.11,
      "worst_ms": 418.11,
      "best_ms": 418.11,
      "mean_expected_shots": 7.130611,
      "kill_cost": 35596
+    }
+   }
+  },
+  {
+   "profile_key": "18010000014:base",
+   "weapon_id": "18010000014",
+   "name": "M16A4",
+   "base_name": "M16A4",
+   "category": "突击步枪",
+   "is_variant": false,
+   "variant_item_name": null,
+   "loadout": {
+    "2": "13020000349",
+    "6": "13130000164"
+   },
+   "tuning": {},
+   "loadout_effects": [
+    {
+     "key": "effective_range_m",
+     "label": "优势射程",
+     "unit": " m",
+     "base": 55.0,
+     "final": 84.4
+    }
+   ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 554.28,
+     "max_ms": 554.28,
+     "mean_ms": 554.28,
+     "mean_expected_shots": 5.7
+    },
+    "近距": {
+     "min_ms": 554.28,
+     "max_ms": 554.28,
+     "mean_ms": 554.28,
+     "mean_expected_shots": 5.7
+    },
+    "中距": {
+     "min_ms": 554.28,
+     "max_ms": 554.28,
+     "mean_ms": 554.28,
+     "mean_expected_shots": 5.7
+    },
+    "远距": {
+     "min_ms": 554.28,
+     "max_ms": 663.57,
+     "mean_ms": 645.94,
+     "mean_expected_shots": 6.47
+    }
+   },
+   "overall_mean_ms": 554.28,
+   "expected_shots_0m": 5.6973,
+   "rpm": 508.5,
+   "ads_ms_reference": 390.9,
+   "muzzle_velocity_mps": 882.05,
+   "effective_range_m": 84.37,
+   "ammo": {
+    "ammo_item_id": "37100500001",
+    "name": "M995",
+    "caliber": "5.56x45mm",
+    "price_avg_30d": 4992
+   },
+   "bands": {
+    "贴脸": {
+     "rank": 55,
+     "tier": "T3",
+     "mean_ms": 554.28,
+     "worst_ms": 554.28,
+     "best_ms": 554.28,
+     "mean_expected_shots": 5.697323,
+     "kill_cost": 28441
+    },
+    "近距": {
+     "rank": 55,
+     "tier": "T3",
+     "mean_ms": 554.28,
+     "worst_ms": 554.28,
+     "best_ms": 554.28,
+     "mean_expected_shots": 5.697323,
+     "kill_cost": 28441
+    },
+    "中距": {
+     "rank": 53,
+     "tier": "T3",
+     "mean_ms": 554.28,
+     "worst_ms": 554.28,
+     "best_ms": 554.28,
+     "mean_expected_shots": 5.697323,
+     "kill_cost": 28441
+    },
+    "远距": {
+     "rank": 45,
+     "tier": "T3",
+     "mean_ms": 554.28,
+     "worst_ms": 554.28,
+     "best_ms": 554.28,
+     "mean_expected_shots": 5.697323,
+     "kill_cost": 28441
+    }
+   }
+  },
+  {
+   "profile_key": "18010000014:13020000173",
+   "weapon_id": "18010000014",
+   "name": "M16A4-AR特勤一体消音组合",
+   "base_name": "M16A4",
+   "category": "突击步枪",
+   "is_variant": true,
+   "variant_item_name": "AR特勤一体消音组合",
+   "loadout": {},
+   "tuning": {},
+   "loadout_effects": [
+    {
+     "key": "effective_range_m",
+     "label": "优势射程",
+     "unit": " m",
+     "base": 55.0,
+     "final": 64.9
+    }
+   ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 554.28,
+     "max_ms": 554.28,
+     "mean_ms": 554.28,
+     "mean_expected_shots": 5.7
+    },
+    "近距": {
+     "min_ms": 554.28,
+     "max_ms": 554.28,
+     "mean_ms": 554.28,
+     "mean_expected_shots": 5.7
+    },
+    "中距": {
+     "min_ms": 554.28,
+     "max_ms": 554.28,
+     "mean_ms": 554.28,
+     "mean_expected_shots": 5.7
+    },
+    "远距": {
+     "min_ms": 554.28,
+     "max_ms": 663.57,
+     "mean_ms": 645.94,
+     "mean_expected_shots": 6.47
+    }
+   },
+   "overall_mean_ms": 537.1,
+   "expected_shots_0m": 5.4469,
+   "rpm": 508.5,
+   "ads_ms_reference": 350.0,
+   "muzzle_velocity_mps": 678.5,
+   "effective_range_m": 64.9,
+   "ammo": {
+    "ammo_item_id": "37100500001",
+    "name": "M995",
+    "caliber": "5.56x45mm",
+    "price_avg_30d": 4992
+   },
+   "bands": {
+    "贴脸": {
+     "rank": 53,
+     "tier": "T3",
+     "mean_ms": 524.73,
+     "worst_ms": 524.73,
+     "best_ms": 524.73,
+     "mean_expected_shots": 5.446866,
+     "kill_cost": 27191
+    },
+    "近距": {
+     "rank": 53,
+     "tier": "T3",
+     "mean_ms": 524.73,
+     "worst_ms": 524.73,
+     "best_ms": 524.73,
+     "mean_expected_shots": 5.446866,
+     "kill_cost": 27191
+    },
+    "中距": {
+     "rank": 49,
+     "tier": "T3",
+     "mean_ms": 524.73,
+     "worst_ms": 524.73,
+     "best_ms": 524.73,
+     "mean_expected_shots": 5.446866,
+     "kill_cost": 27191
+    },
+    "远距": {
+     "rank": 47,
+     "tier": "T3",
+     "mean_ms": 574.22,
+     "worst_ms": 620.62,
+     "best_ms": 524.73,
+     "mean_expected_shots": 5.866295,
+     "kill_cost": 29285
+    }
+   }
+  },
+  {
+   "profile_key": "18010000015:base",
+   "weapon_id": "18010000015",
+   "name": "AUG",
+   "base_name": "AUG",
+   "category": "突击步枪",
+   "is_variant": false,
+   "variant_item_name": null,
+   "loadout": {
+    "2": "13020000367",
+    "6": "13130000164"
+   },
+   "tuning": {},
+   "loadout_effects": [
+    {
+     "key": "effective_range_m",
+     "label": "优势射程",
+     "unit": " m",
+     "base": 55.0,
+     "final": 84.4
+    }
+   ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 422.43,
+     "max_ms": 422.43,
+     "mean_ms": 422.43,
+     "mean_expected_shots": 5.78
+    },
+    "近距": {
+     "min_ms": 422.43,
+     "max_ms": 422.43,
+     "mean_ms": 422.43,
+     "mean_expected_shots": 5.78
+    },
+    "中距": {
+     "min_ms": 422.43,
+     "max_ms": 422.43,
+     "mean_ms": 422.43,
+     "mean_expected_shots": 5.78
+    },
+    "远距": {
+     "min_ms": 422.43,
+     "max_ms": 474.73,
+     "mean_ms": 466.29,
+     "mean_expected_shots": 6.27
+    }
+   },
+   "overall_mean_ms": 422.43,
+   "expected_shots_0m": 5.7786,
+   "rpm": 678.7,
+   "ads_ms_reference": 408.47,
+   "muzzle_velocity_mps": 882.05,
+   "effective_range_m": 84.37,
+   "ammo": {
+    "ammo_item_id": "37100500001",
+    "name": "M995",
+    "caliber": "5.56x45mm",
+    "price_avg_30d": 4992
+   },
+   "bands": {
+    "贴脸": {
+     "rank": 45,
+     "tier": "T3",
+     "mean_ms": 422.43,
+     "worst_ms": 422.43,
+     "best_ms": 422.43,
+     "mean_expected_shots": 5.778645,
+     "kill_cost": 28847
+    },
+    "近距": {
+     "rank": 44,
+     "tier": "T3",
+     "mean_ms": 422.43,
+     "worst_ms": 422.43,
+     "best_ms": 422.43,
+     "mean_expected_shots": 5.778645,
+     "kill_cost": 28847
+    },
+    "中距": {
+     "rank": 35,
+     "tier": "T2",
+     "mean_ms": 422.43,
+     "worst_ms": 422.43,
+     "best_ms": 422.43,
+     "mean_expected_shots": 5.778645,
+     "kill_cost": 28847
+    },
+    "远距": {
+     "rank": 16,
+     "tier": "T1",
+     "mean_ms": 422.43,
+     "worst_ms": 422.43,
+     "best_ms": 422.43,
+     "mean_expected_shots": 5.778645,
+     "kill_cost": 28847
+    }
+   }
+  },
+  {
+   "profile_key": "18010000016:base",
+   "weapon_id": "18010000016",
+   "name": "M7",
+   "base_name": "M7",
+   "category": "突击步枪",
+   "is_variant": false,
+   "variant_item_name": null,
+   "loadout": {
+    "2": "13020000383"
+   },
+   "tuning": {},
+   "loadout_effects": [
+    {
+     "key": "base_damage",
+     "label": "肉伤",
+     "unit": "",
+     "base": 37.0,
+     "final": 39.0
+    },
+    {
+     "key": "base_armor_damage",
+     "label": "甲伤",
+     "unit": "",
+     "base": 40.0,
+     "final": 42.0
+    },
+    {
+     "key": "effective_range_m",
+     "label": "优势射程",
+     "unit": " m",
+     "base": 50.0,
+     "final": 65.0
+    }
+   ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 402.19,
+     "max_ms": 402.19,
+     "mean_ms": 402.19,
+     "mean_expected_shots": 5.35
+    },
+    "近距": {
+     "min_ms": 402.19,
+     "max_ms": 402.19,
+     "mean_ms": 402.19,
+     "mean_expected_shots": 5.35
+    },
+    "中距": {
+     "min_ms": 402.19,
+     "max_ms": 441.49,
+     "mean_ms": 404.06,
+     "mean_expected_shots": 5.37
+    },
+    "远距": {
+     "min_ms": 441.49,
+     "max_ms": 503.81,
+     "mean_ms": 463.61,
+     "mean_expected_shots": 6.02
+    }
+   },
+   "overall_mean_ms": 374.73,
+   "expected_shots_0m": 4.9678,
+   "rpm": 649.4,
+   "ads_ms_reference": 375.11,
+   "muzzle_velocity_mps": 819.0,
+   "effective_range_m": 65.0,
+   "ammo": {
+    "ammo_item_id": "37150500001",
+    "name": "Hybrid",
+    "caliber": "6.8x51mm",
+    "price_avg_30d": 5359
+   },
+   "bands": {
+    "贴脸": {
+     "rank": 33,
+     "tier": "T2",
+     "mean_ms": 366.62,
+     "worst_ms": 366.62,
+     "best_ms": 366.62,
+     "mean_expected_shots": 4.967785,
+     "kill_cost": 26622
+    },
+    "近距": {
+     "rank": 29,
+     "tier": "T2",
+     "mean_ms": 366.62,
+     "worst_ms": 366.62,
+     "best_ms": 366.62,
+     "mean_expected_shots": 4.967785,
+     "kill_cost": 26622
+    },
+    "中距": {
+     "rank": 12,
+     "tier": "T1",
+     "mean_ms": 366.62,
+     "worst_ms": 366.62,
+     "best_ms": 366.62,
+     "mean_expected_shots": 4.967785,
+     "kill_cost": 26622
+    },
+    "远距": {
+     "rank": 11,
+     "tier": "T1",
+     "mean_ms": 399.04,
+     "worst_ms": 429.43,
+     "best_ms": 366.62,
+     "mean_expected_shots": 5.31861,
+     "kill_cost": 28502
+    }
+   }
+  },
+  {
+   "profile_key": "18010000016:13020000383",
+   "weapon_id": "18010000016",
+   "name": "M7-堤风超长枪管组合",
+   "base_name": "M7",
+   "category": "突击步枪",
+   "is_variant": true,
+   "variant_item_name": "M7堤风超长枪管组合",
+   "loadout": {},
+   "tuning": {},
+   "loadout_effects": [
+    {
+     "key": "base_damage",
+     "label": "肉伤",
+     "unit": "",
+     "base": 37.0,
+     "final": 39.0
+    },
+    {
+     "key": "base_armor_damage",
+     "label": "甲伤",
+     "unit": "",
+     "base": 40.0,
+     "final": 42.0
+    },
+    {
+     "key": "effective_range_m",
+     "label": "优势射程",
+     "unit": " m",
+     "base": 50.0,
+     "final": 65.0
+    }
+   ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 402.19,
+     "max_ms": 402.19,
+     "mean_ms": 402.19,
+     "mean_expected_shots": 5.35
+    },
+    "近距": {
+     "min_ms": 402.19,
+     "max_ms": 402.19,
+     "mean_ms": 402.19,
+     "mean_expected_shots": 5.35
+    },
+    "中距": {
+     "min_ms": 402.19,
+     "max_ms": 441.49,
+     "mean_ms": 404.06,
+     "mean_expected_shots": 5.37
+    },
+    "远距": {
+     "min_ms": 441.49,
+     "max_ms": 503.81,
+     "mean_ms": 463.61,
+     "mean_expected_shots": 6.02
+    }
+   },
+   "overall_mean_ms": 374.73,
+   "expected_shots_0m": 4.9678,
+   "rpm": 649.4,
+   "ads_ms_reference": 375.11,
+   "muzzle_velocity_mps": 819.0,
+   "effective_range_m": 65.0,
+   "ammo": {
+    "ammo_item_id": "37150500001",
+    "name": "Hybrid",
+    "caliber": "6.8x51mm",
+    "price_avg_30d": 5359
+   },
+   "bands": {
+    "贴脸": {
+     "rank": 34,
+     "tier": "T2",
+     "mean_ms": 366.62,
+     "worst_ms": 366.62,
+     "best_ms": 366.62,
+     "mean_expected_shots": 4.967785,
+     "kill_cost": 26622
+    },
+    "近距": {
+     "rank": 30,
+     "tier": "T2",
+     "mean_ms": 366.62,
+     "worst_ms": 366.62,
+     "best_ms": 366.62,
+     "mean_expected_shots": 4.967785,
+     "kill_cost": 26622
+    },
+    "中距": {
+     "rank": 13,
+     "tier": "T1",
+     "mean_ms": 366.62,
+     "worst_ms": 366.62,
+     "best_ms": 366.62,
+     "mean_expected_shots": 4.967785,
+     "kill_cost": 26622
+    },
+    "远距": {
+     "rank": 12,
+     "tier": "T1",
+     "mean_ms": 399.04,
+     "worst_ms": 429.43,
+     "best_ms": 366.62,
+     "mean_expected_shots": 5.31861,
+     "kill_cost": 28502
+    }
+   }
+  },
+  {
+   "profile_key": "18010000017:base",
+   "weapon_id": "18010000017",
+   "name": "SG552",
+   "base_name": "SG552",
+   "category": "突击步枪",
+   "is_variant": false,
+   "variant_item_name": null,
+   "loadout": {
+    "2": "13020000320",
+    "6": "13130000164"
+   },
+   "tuning": {},
+   "loadout_effects": [
+    {
+     "key": "effective_range_m",
+     "label": "优势射程",
+     "unit": " m",
+     "base": 35.0,
+     "final": 48.7
+    }
+   ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 406.64,
+     "max_ms": 406.64,
+     "mean_ms": 406.64,
+     "mean_expected_shots": 7.14
+    },
+    "近距": {
+     "min_ms": 406.64,
+     "max_ms": 406.64,
+     "mean_ms": 406.64,
+     "mean_expected_shots": 7.14
+    },
+    "中距": {
+     "min_ms": 406.64,
+     "max_ms": 488.1,
+     "mean_ms": 468.71,
+     "mean_expected_shots": 8.08
+    },
+    "远距": {
+     "min_ms": 488.1,
+     "max_ms": 559.53,
+     "mean_ms": 524.97,
+     "mean_expected_shots": 8.93
+    }
+   },
+   "overall_mean_ms": 428.94,
+   "expected_shots_0m": 7.1426,
+   "rpm": 906.3,
+   "ads_ms_reference": 314.96,
+   "muzzle_velocity_mps": 800.63,
+   "effective_range_m": 48.73,
+   "ammo": {
+    "ammo_item_id": "37100500001",
+    "name": "M995",
+    "caliber": "5.56x45mm",
+    "price_avg_30d": 4992
+   },
+   "bands": {
+    "贴脸": {
+     "rank": 43,
+     "tier": "T3",
+     "mean_ms": 406.64,
+     "worst_ms": 406.64,
+     "best_ms": 406.64,
+     "mean_expected_shots": 7.142557,
+     "kill_cost": 35656
+    },
+    "近距": {
+     "rank": 41,
+     "tier": "T3",
+     "mean_ms": 406.64,
+     "worst_ms": 406.64,
+     "best_ms": 406.64,
+     "mean_expected_shots": 7.142557,
+     "kill_cost": 35656
+    },
+    "中距": {
+     "rank": 32,
+     "tier": "T2",
+     "mean_ms": 414.4,
+     "worst_ms": 488.1,
+     "best_ms": 406.64,
+     "mean_expected_shots": 7.259758,
+     "kill_cost": 36241
+    },
+    "远距": {
+     "rank": 37,
+     "tier": "T2",
+     "mean_ms": 488.1,
+     "worst_ms": 488.1,
+     "best_ms": 488.1,
+     "mean_expected_shots": 8.373166,
+     "kill_cost": 41799
+    }
+   }
+  },
+  {
+   "profile_key": "18010000018:base",
+   "weapon_id": "18010000018",
+   "name": "AK12",
+   "base_name": "AK12",
+   "category": "突击步枪",
+   "is_variant": false,
+   "variant_item_name": null,
+   "loadout": {
+    "2": "13020000370"
+   },
+   "tuning": {},
+   "loadout_effects": [
+    {
+     "key": "effective_range_m",
+     "label": "优势射程",
+     "unit": " m",
+     "base": 40.0,
+     "final": 52.0
+    }
+   ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 397.68,
+     "max_ms": 397.68,
+     "mean_ms": 397.68,
+     "mean_expected_shots": 5.87
+    },
+    "近距": {
+     "min_ms": 397.68,
+     "max_ms": 397.68,
+     "mean_ms": 397.68,
+     "mean_expected_shots": 5.87
+    },
+    "中距": {
+     "min_ms": 397.68,
+     "max_ms": 447.35,
+     "mean_ms": 423.7,
+     "mean_expected_shots": 6.19
+    },
+    "远距": {
+     "min_ms": 447.35,
+     "max_ms": 545.06,
+     "mean_ms": 482.02,
+     "mean_expected_shots": 6.91
+    }
+   },
+   "overall_mean_ms": 409.3,
+   "expected_shots_0m": 5.8736,
+   "rpm": 735.3,
+   "ads_ms_reference": 350.0,
+   "muzzle_velocity_mps": 747.5,
+   "effective_range_m": 52.0,
+   "ammo": {
+    "ammo_item_id": "37120500001",
+    "name": "BS",
+    "caliber": "5.45x39mm",
+    "price_avg_30d": 4419
+   },
+   "bands": {
+    "贴脸": {
+     "rank": 42,
+     "tier": "T3",
+     "mean_ms": 397.68,
+     "worst_ms": 397.68,
+     "best_ms": 397.68,
+     "mean_expected_shots": 5.873557,
+     "kill_cost": 25955
+    },
+    "近距": {
+     "rank": 40,
+     "tier": "T3",
+     "mean_ms": 397.68,
+     "worst_ms": 397.68,
+     "best_ms": 397.68,
+     "mean_expected_shots": 5.873557,
+     "kill_cost": 25955
+    },
+    "中距": {
+     "rank": 28,
+     "tier": "T2",
+     "mean_ms": 397.68,
+     "worst_ms": 397.68,
+     "best_ms": 397.68,
+     "mean_expected_shots": 5.873557,
+     "kill_cost": 25955
+    },
+    "远距": {
+     "rank": 26,
+     "tier": "T2",
+     "mean_ms": 444.15,
+     "worst_ms": 447.35,
+     "best_ms": 397.68,
+     "mean_expected_shots": 6.44297,
+     "kill_cost": 28471
+    }
+   }
+  },
+  {
+   "profile_key": "18010000021:base",
+   "weapon_id": "18010000021",
+   "name": "SCAR-H",
+   "base_name": "SCAR-H",
+   "category": "突击步枪",
+   "is_variant": false,
+   "variant_item_name": null,
+   "loadout": {
+    "2": "13020000390"
+   },
+   "tuning": {},
+   "loadout_effects": [
+    {
+     "key": "effective_range_m",
+     "label": "优势射程",
+     "unit": " m",
+     "base": 40.0,
+     "final": 52.0
+    }
+   ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 387.0,
+     "max_ms": 387.0,
+     "mean_ms": 387.0,
+     "mean_expected_shots": 4.77
+    },
+    "近距": {
+     "min_ms": 387.0,
+     "max_ms": 387.0,
+     "mean_ms": 387.0,
+     "mean_expected_shots": 4.77
+    },
+    "中距": {
+     "min_ms": 387.0,
+     "max_ms": 432.46,
+     "mean_ms": 410.81,
+     "mean_expected_shots": 5.0
+    },
+    "远距": {
+     "min_ms": 432.46,
+     "max_ms": 525.2,
+     "mean_ms": 465.37,
+     "mean_expected_shots": 5.54
+    }
+   },
+   "overall_mean_ms": 397.63,
+   "expected_shots_0m": 4.7719,
+   "rpm": 584.8,
+   "ads_ms_reference": 344.77,
+   "muzzle_velocity_mps": 819.0,
+   "effective_range_m": 52.0,
+   "ammo": {
+    "ammo_item_id": "37170500001",
+    "name": "M62",
+    "caliber": "7.62x51mm",
+    "price_avg_30d": 6267
+   },
+   "bands": {
+    "贴脸": {
+     "rank": 41,
+     "tier": "T3",
+     "mean_ms": 387.0,
+     "worst_ms": 387.0,
+     "best_ms": 387.0,
+     "mean_expected_shots": 4.771887,
+     "kill_cost": 29905
+    },
+    "近距": {
+     "rank": 38,
+     "tier": "T2",
+     "mean_ms": 387.0,
+     "worst_ms": 387.0,
+     "best_ms": 387.0,
+     "mean_expected_shots": 4.771887,
+     "kill_cost": 29905
+    },
+    "中距": {
+     "rank": 23,
+     "tier": "T1",
+     "mean_ms": 387.0,
+     "worst_ms": 387.0,
+     "best_ms": 387.0,
+     "mean_expected_shots": 4.771887,
+     "kill_cost": 29905
+    },
+    "远距": {
+     "rank": 21,
+     "tier": "T1",
+     "mean_ms": 429.53,
+     "worst_ms": 432.46,
+     "best_ms": 387.0,
+     "mean_expected_shots": 5.186449,
+     "kill_cost": 32503
+    }
+   }
+  },
+  {
+   "profile_key": "18010000023:base",
+   "weapon_id": "18010000023",
+   "name": "G3",
+   "base_name": "G3",
+   "category": "突击步枪",
+   "is_variant": false,
+   "variant_item_name": null,
+   "loadout": {
+    "2": "13020000486",
+    "6": "13130000164"
+   },
+   "tuning": {},
+   "loadout_effects": [
+    {
+     "key": "effective_range_m",
+     "label": "优势射程",
+     "unit": " m",
+     "base": 55.0,
+     "final": 84.4
+    }
+   ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 454.5,
+     "max_ms": 454.5,
+     "mean_ms": 454.5,
+     "mean_expected_shots": 5.04
+    },
+    "近距": {
+     "min_ms": 454.5,
+     "max_ms": 454.5,
+     "mean_ms": 454.5,
+     "mean_expected_shots": 5.04
+    },
+    "中距": {
+     "min_ms": 454.5,
+     "max_ms": 454.5,
+     "mean_ms": 454.5,
+     "mean_expected_shots": 5.04
+    },
+    "远距": {
+     "min_ms": 454.5,
+     "max_ms": 511.92,
+     "mean_ms": 502.66,
+     "mean_expected_shots": 5.46
+    }
+   },
+   "overall_mean_ms": 454.5,
+   "expected_shots_0m": 5.0364,
+   "rpm": 532.9,
+   "ads_ms_reference": 437.57,
+   "muzzle_velocity_mps": 966.42,
+   "effective_range_m": 84.37,
+   "ammo": {
+    "ammo_item_id": "37170500001",
+    "name": "M62",
+    "caliber": "7.62x51mm",
+    "price_avg_30d": 6267
+   },
+   "bands": {
+    "贴脸": {
+     "rank": 49,
+     "tier": "T3",
+     "mean_ms": 454.5,
+     "worst_ms": 454.5,
+     "best_ms": 454.5,
+     "mean_expected_shots": 5.036429,
+     "kill_cost": 31563
+    },
+    "近距": {
+     "rank": 48,
+     "tier": "T3",
+     "mean_ms": 454.5,
+     "worst_ms": 454.5,
+     "best_ms": 454.5,
+     "mean_expected_shots": 5.036429,
+     "kill_cost": 31563
+    },
+    "中距": {
+     "rank": 41,
+     "tier": "T3",
+     "mean_ms": 454.5,
+     "worst_ms": 454.5,
+     "best_ms": 454.5,
+     "mean_expected_shots": 5.036429,
+     "kill_cost": 31563
+    },
+    "远距": {
+     "rank": 28,
+     "tier": "T2",
+     "mean_ms": 454.5,
+     "worst_ms": 454.5,
+     "best_ms": 454.5,
+     "mean_expected_shots": 5.036429,
+     "kill_cost": 31563
+    }
+   }
+  },
+  {
+   "profile_key": "18010000024:base",
+   "weapon_id": "18010000024",
+   "name": "PTR-32",
+   "base_name": "PTR-32",
+   "category": "突击步枪",
+   "is_variant": false,
+   "variant_item_name": null,
+   "loadout": {
+    "2": "13020000394"
+   },
+   "tuning": {},
+   "loadout_effects": [
+    {
+     "key": "effective_range_m",
+     "label": "优势射程",
+     "unit": " m",
+     "base": 40.0,
+     "final": 47.2
+    }
+   ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 422.48,
+     "max_ms": 422.48,
+     "mean_ms": 422.48,
+     "mean_expected_shots": 5.45
+    },
+    "近距": {
+     "min_ms": 422.48,
+     "max_ms": 422.48,
+     "mean_ms": 422.48,
+     "mean_expected_shots": 5.45
+    },
+    "中距": {
+     "min_ms": 422.48,
+     "max_ms": 503.16,
+     "mean_ms": 464.74,
+     "mean_expected_shots": 5.9
+    },
+    "远距": {
+     "min_ms": 503.16,
+     "max_ms": 626.98,
+     "mean_ms": 547.1,
+     "mean_expected_shots": 6.76
+    }
+   },
+   "overall_mean_ms": 445.53,
+   "expected_shots_0m": 5.4518,
+   "rpm": 632.2,
+   "ads_ms_reference": 314.96,
+   "muzzle_velocity_mps": 743.4,
+   "effective_range_m": 47.2,
+   "ammo": {
+    "ammo_item_id": "37110500001",
+    "name": "AP",
+    "caliber": "7.62x39mm",
+    "price_avg_30d": 4971
+   },
+   "bands": {
+    "贴脸": {
+     "rank": 46,
+     "tier": "T3",
+     "mean_ms": 422.48,
+     "worst_ms": 422.48,
+     "best_ms": 422.48,
+     "mean_expected_shots": 5.451837,
+     "kill_cost": 27101
+    },
+    "近距": {
+     "rank": 45,
+     "tier": "T3",
+     "mean_ms": 422.48,
+     "worst_ms": 422.48,
+     "best_ms": 422.48,
+     "mean_expected_shots": 5.451837,
+     "kill_cost": 27101
+    },
+    "中距": {
+     "rank": 39,
+     "tier": "T2",
+     "mean_ms": 434.01,
+     "worst_ms": 503.16,
+     "best_ms": 422.48,
+     "mean_expected_shots": 5.573294,
+     "kill_cost": 27705
+    },
+    "远距": {
+     "rank": 40,
+     "tier": "T3",
+     "mean_ms": 503.16,
+     "worst_ms": 503.16,
+     "best_ms": 503.16,
+     "mean_expected_shots": 6.30203,
+     "kill_cost": 31327
+    }
+   }
+  },
+  {
+   "profile_key": "18010000031:base",
+   "weapon_id": "18010000031",
+   "name": "CAR-15",
+   "base_name": "CAR-15",
+   "category": "突击步枪",
+   "is_variant": false,
+   "variant_item_name": null,
+   "loadout": {
+    "2": "13020000173"
+   },
+   "tuning": {},
+   "loadout_effects": [
+    {
+     "key": "effective_range_m",
+     "label": "优势射程",
+     "unit": " m",
+     "base": 40.0,
+     "final": 47.2
+    }
+   ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 557.07,
+     "max_ms": 557.07,
+     "mean_ms": 557.07,
+     "mean_expected_shots": 6.87
+    },
+    "近距": {
+     "min_ms": 557.07,
+     "max_ms": 557.07,
+     "mean_ms": 557.07,
+     "mean_expected_shots": 6.87
+    },
+    "中距": {
+     "min_ms": 557.07,
+     "max_ms": 667.76,
+     "mean_ms": 615.05,
+     "mean_expected_shots": 7.48
+    },
+    "远距": {
+     "min_ms": 667.76,
+     "max_ms": 833.17,
+     "mean_ms": 726.46,
+     "mean_expected_shots": 8.65
+    }
+   },
+   "overall_mean_ms": 545.98,
+   "expected_shots_0m": 6.4404,
+   "rpm": 632.2,
+   "ads_ms_reference": 339.22,
+   "muzzle_velocity_mps": 678.5,
+   "effective_range_m": 47.2,
+   "ammo": {
+    "ammo_item_id": "37100500001",
+    "name": "M995",
+    "caliber": "5.56x45mm",
+    "price_avg_30d": 4992
+   },
+   "bands": {
+    "贴脸": {
+     "rank": 51,
+     "tier": "T3",
+     "mean_ms": 516.3,
+     "worst_ms": 516.3,
+     "best_ms": 516.3,
+     "mean_expected_shots": 6.440432,
+     "kill_cost": 32151
+    },
+    "近距": {
+     "rank": 51,
+     "tier": "T3",
+     "mean_ms": 516.3,
+     "worst_ms": 516.3,
+     "best_ms": 516.3,
+     "mean_expected_shots": 6.440432,
+     "kill_cost": 32151
+    },
+    "中距": {
+     "rank": 50,
+     "tier": "T3",
+     "mean_ms": 531.14,
+     "worst_ms": 620.18,
+     "best_ms": 516.3,
+     "mean_expected_shots": 6.596805,
+     "kill_cost": 32931
+    },
+    "远距": {
+     "rank": 52,
+     "tier": "T3",
+     "mean_ms": 620.18,
+     "worst_ms": 620.18,
+     "best_ms": 620.18,
+     "mean_expected_shots": 7.535044,
+     "kill_cost": 37615
+    }
+   }
+  },
+  {
+   "profile_key": "18010000031:13020000173",
+   "weapon_id": "18010000031",
+   "name": "CAR-15-AR特勤一体消音组合",
+   "base_name": "CAR-15",
+   "category": "突击步枪",
+   "is_variant": true,
+   "variant_item_name": "AR特勤一体消音组合",
+   "loadout": {},
+   "tuning": {},
+   "loadout_effects": [
+    {
+     "key": "effective_range_m",
+     "label": "优势射程",
+     "unit": " m",
+     "base": 40.0,
+     "final": 47.2
+    }
+   ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 557.07,
+     "max_ms": 557.07,
+     "mean_ms": 557.07,
+     "mean_expected_shots": 6.87
+    },
+    "近距": {
+     "min_ms": 557.07,
+     "max_ms": 557.07,
+     "mean_ms": 557.07,
+     "mean_expected_shots": 6.87
+    },
+    "中距": {
+     "min_ms": 557.07,
+     "max_ms": 667.76,
+     "mean_ms": 615.05,
+     "mean_expected_shots": 7.48
+    },
+    "远距": {
+     "min_ms": 667.76,
+     "max_ms": 833.17,
+     "mean_ms": 726.46,
+     "mean_expected_shots": 8.65
+    }
+   },
+   "overall_mean_ms": 545.98,
+   "expected_shots_0m": 6.4404,
+   "rpm": 632.2,
+   "ads_ms_reference": 339.22,
+   "muzzle_velocity_mps": 678.5,
+   "effective_range_m": 47.2,
+   "ammo": {
+    "ammo_item_id": "37100500001",
+    "name": "M995",
+    "caliber": "5.56x45mm",
+    "price_avg_30d": 4992
+   },
+   "bands": {
+    "贴脸": {
+     "rank": 52,
+     "tier": "T3",
+     "mean_ms": 516.3,
+     "worst_ms": 516.3,
+     "best_ms": 516.3,
+     "mean_expected_shots": 6.440432,
+     "kill_cost": 32151
+    },
+    "近距": {
+     "rank": 52,
+     "tier": "T3",
+     "mean_ms": 516.3,
+     "worst_ms": 516.3,
+     "best_ms": 516.3,
+     "mean_expected_shots": 6.440432,
+     "kill_cost": 32151
+    },
+    "中距": {
+     "rank": 51,
+     "tier": "T3",
+     "mean_ms": 531.14,
+     "worst_ms": 620.18,
+     "best_ms": 516.3,
+     "mean_expected_shots": 6.596805,
+     "kill_cost": 32931
+    },
+    "远距": {
+     "rank": 53,
+     "tier": "T3",
+     "mean_ms": 620.18,
+     "worst_ms": 620.18,
+     "best_ms": 620.18,
+     "mean_expected_shots": 7.535044,
+     "kill_cost": 37615
+    }
+   }
+  },
+  {
+   "profile_key": "18010000037:base",
+   "weapon_id": "18010000037",
+   "name": "AS-Val",
+   "base_name": "AS-Val",
+   "category": "突击步枪",
+   "is_variant": false,
+   "variant_item_name": null,
+   "loadout": {},
+   "tuning": {},
+   "loadout_effects": [],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 321.7,
+     "max_ms": 321.7,
+     "mean_ms": 321.7,
+     "mean_expected_shots": 6.21
+    },
+    "近距": {
+     "min_ms": 321.7,
+     "max_ms": 361.32,
+     "mean_ms": 346.46,
+     "mean_expected_shots": 6.62
+    },
+    "中距": {
+     "min_ms": 361.32,
+     "max_ms": 410.26,
+     "mean_ms": 384.62,
+     "mean_expected_shots": 7.23
+    },
+    "远距": {
+     "min_ms": 410.26,
+     "max_ms": 410.26,
+     "mean_ms": 410.26,
+     "mean_expected_shots": 7.65
+    }
+   },
+   "overall_mean_ms": 365.76,
+   "expected_shots_0m": 6.2139,
+   "rpm": 972.4,
+   "ads_ms_reference": 277.15,
+   "muzzle_velocity_mps": 300.0,
+   "effective_range_m": 21.0,
+   "ammo": {
+    "ammo_item_id": "37140500001",
+    "name": "BP",
+    "caliber": "9x39mm",
+    "price_avg_30d": 4419
+   },
+   "bands": {
+    "贴脸": {
+     "rank": 5,
+     "tier": "T0",
+     "mean_ms": 321.7,
+     "worst_ms": 321.7,
+     "best_ms": 321.7,
+     "mean_expected_shots": 6.213915,
+     "kill_cost": 27459
+    },
+    "近距": {
+     "rank": 16,
+     "tier": "T1",
+     "mean_ms": 346.46,
+     "worst_ms": 361.32,
+     "best_ms": 321.7,
+     "mean_expected_shots": 6.615242,
+     "kill_cost": 29233
+    },
+    "中距": {
+     "rank": 22,
+     "tier": "T1",
+     "mean_ms": 384.62,
+     "worst_ms": 410.26,
+     "best_ms": 361.32,
+     "mean_expected_shots": 7.23377,
+     "kill_cost": 31966
+    },
+    "远距": {
+     "rank": 13,
+     "tier": "T1",
+     "mean_ms": 410.26,
+     "worst_ms": 410.26,
+     "best_ms": 410.26,
+     "mean_expected_shots": 7.649275,
+     "kill_cost": 33802
+    }
+   }
+  },
+  {
+   "profile_key": "18010000037:13020000561",
+   "weapon_id": "18010000037",
+   "name": "AS-Val-刺客高级枪管",
+   "base_name": "AS-Val",
+   "category": "突击步枪",
+   "is_variant": true,
+   "variant_item_name": "AS Val刺客高级枪管",
+   "loadout": {},
+   "tuning": {},
+   "loadout_effects": [
+    {
+     "key": "base_damage",
+     "label": "肉伤",
+     "unit": "",
+     "base": 28.0,
+     "final": 37.0
+    },
+    {
+     "key": "base_armor_damage",
+     "label": "甲伤",
+     "unit": "",
+     "base": 44.0,
+     "final": 48.0
+    },
+    {
+     "key": "rpm",
+     "label": "射速",
+     "unit": "",
+     "base": 972.0,
+     "final": 680.0
+    }
+   ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 321.7,
+     "max_ms": 321.7,
+     "mean_ms": 321.7,
+     "mean_expected_shots": 6.21
+    },
+    "近距": {
+     "min_ms": 321.7,
+     "max_ms": 361.32,
+     "mean_ms": 346.46,
+     "mean_expected_shots": 6.62
+    },
+    "中距": {
+     "min_ms": 361.32,
+     "max_ms": 410.26,
+     "mean_ms": 384.62,
+     "mean_expected_shots": 7.23
+    },
+    "远距": {
+     "min_ms": 410.26,
+     "max_ms": 410.26,
+     "mean_ms": 410.26,
+     "mean_expected_shots": 7.65
+    }
+   },
+   "overall_mean_ms": 372.9,
+   "expected_shots_0m": 4.6895,
+   "rpm": 679.9,
+   "ads_ms_reference": 302.35,
+   "muzzle_velocity_mps": 450.0,
+   "effective_range_m": 21.0,
+   "ammo": {
+    "ammo_item_id": "37140500001",
+    "name": "BP",
+    "caliber": "9x39mm",
+    "price_avg_30d": 4419
+   },
+   "bands": {
+    "贴脸": {
+     "rank": 6,
+     "tier": "T0",
+     "mean_ms": 325.6,
+     "worst_ms": 325.6,
+     "best_ms": 325.6,
+     "mean_expected_shots": 4.689519,
+     "kill_cost": 20723
+    },
+    "近距": {
+     "rank": 20,
+     "tier": "T1",
+     "mean_ms": 349.28,
+     "worst_ms": 363.48,
+     "best_ms": 325.6,
+     "mean_expected_shots": 4.957796,
+     "kill_cost": 21909
+    },
+    "中距": {
+     "rank": 25,
+     "tier": "T2",
+     "mean_ms": 392.43,
+     "worst_ms": 424.28,
+     "best_ms": 363.48,
+     "mean_expected_shots": 5.446821,
+     "kill_cost": 24070
+    },
+    "远距": {
+     "rank": 18,
+     "tier": "T1",
+     "mean_ms": 424.28,
+     "worst_ms": 424.28,
+     "best_ms": 424.28,
+     "mean_expected_shots": 5.807685,
+     "kill_cost": 25664
+    }
+   }
+  },
+  {
+   "profile_key": "18010000038:base",
+   "weapon_id": "18010000038",
+   "name": "腾龙",
+   "base_name": "腾龙",
+   "category": "突击步枪",
+   "is_variant": false,
+   "variant_item_name": null,
+   "loadout": {
+    "2": "13020000514",
+    "47": "13390000002"
+   },
+   "tuning": {},
+   "loadout_effects": [
+    {
+     "key": "rpm",
+     "label": "射速",
+     "unit": "",
+     "base": 706.0,
+     "final": 759.0
+    },
+    {
+     "key": "effective_range_m",
+     "label": "优势射程",
+     "unit": " m",
+     "base": 35.0,
+     "final": 45.5
+    }
+   ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 378.86,
+     "max_ms": 378.86,
+     "mean_ms": 378.86,
+     "mean_expected_shots": 5.46
+    },
+    "近距": {
+     "min_ms": 378.86,
+     "max_ms": 378.86,
+     "mean_ms": 378.86,
+     "mean_expected_shots": 5.46
+    },
+    "中距": {
+     "min_ms": 378.86,
+     "max_ms": 415.53,
+     "mean_ms": 406.8,
+     "mean_expected_shots": 5.79
+    },
+    "远距": {
+     "min_ms": 415.53,
+     "max_ms": 556.62,
+     "mean_ms": 502.0,
+     "mean_expected_shots": 6.91
+    }
+   },
+   "overall_mean_ms": 362.89,
+   "expected_shots_0m": 5.4572,
+   "rpm": 759.0,
+   "ads_ms_reference": 350.0,
+   "muzzle_velocity_mps": 747.5,
+   "effective_range_m": 45.5,
+   "ammo": {
+    "ammo_item_id": "37130500001",
+    "name": "DVC12",
+    "caliber": "5.8x42mm",
+    "price_avg_30d": 5145
+   },
+   "bands": {
+    "贴脸": {
+     "rank": 24,
+     "tier": "T2",
+     "mean_ms": 352.34,
+     "worst_ms": 352.34,
+     "best_ms": 352.34,
+     "mean_expected_shots": 5.457222,
+     "kill_cost": 28077
+    },
+    "近距": {
+     "rank": 21,
+     "tier": "T1",
+     "mean_ms": 352.34,
+     "worst_ms": 352.34,
+     "best_ms": 352.34,
+     "mean_expected_shots": 5.457222,
+     "kill_cost": 28077
+    },
+    "中距": {
+     "rank": 11,
+     "tier": "T1",
+     "mean_ms": 360.46,
+     "worst_ms": 386.44,
+     "best_ms": 352.34,
+     "mean_expected_shots": 5.559927,
+     "kill_cost": 28606
+    },
+    "远距": {
+     "rank": 10,
+     "tier": "T1",
+     "mean_ms": 386.44,
+     "worst_ms": 386.44,
+     "best_ms": 386.44,
+     "mean_expected_shots": 5.888583,
+     "kill_cost": 30297
     }
    }
   },
@@ -1081,9 +2603,6 @@
    "category": "突击步枪",
    "is_variant": false,
    "variant_item_name": null,
-   "equivalent_variants": [
-    "K437-长矛手长枪管组合"
-   ],
    "loadout": {
     "2": "13020000543"
    },
@@ -1144,7 +2663,7 @@
    },
    "bands": {
     "贴脸": {
-     "rank": 16,
+     "rank": 22,
      "tier": "T1",
      "mean_ms": 347.41,
      "worst_ms": 347.41,
@@ -1153,7 +2672,7 @@
      "kill_cost": 26998
     },
     "近距": {
-     "rank": 14,
+     "rank": 18,
      "tier": "T1",
      "mean_ms": 347.41,
      "worst_ms": 347.41,
@@ -1162,7 +2681,7 @@
      "kill_cost": 26998
     },
     "中距": {
-     "rank": 6,
+     "rank": 7,
      "tier": "T0",
      "mean_ms": 347.41,
      "worst_ms": 347.41,
@@ -1171,7 +2690,110 @@
      "kill_cost": 26998
     },
     "远距": {
-     "rank": 6,
+     "rank": 7,
+     "tier": "T0",
+     "mean_ms": 383.35,
+     "worst_ms": 387.2,
+     "best_ms": 347.41,
+     "mean_expected_shots": 5.985071,
+     "kill_cost": 29285
+    }
+   }
+  },
+  {
+   "profile_key": "18010000040:13020000543",
+   "weapon_id": "18010000040",
+   "name": "K437-长矛手长枪管组合",
+   "base_name": "K437",
+   "category": "突击步枪",
+   "is_variant": true,
+   "variant_item_name": "K437长矛手长枪管组合",
+   "loadout": {},
+   "tuning": {},
+   "loadout_effects": [
+    {
+     "key": "base_armor_damage",
+     "label": "甲伤",
+     "unit": "",
+     "base": 32.0,
+     "final": 35.0
+    },
+    {
+     "key": "effective_range_m",
+     "label": "优势射程",
+     "unit": " m",
+     "base": 35.0,
+     "final": 52.5
+    }
+   ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 351.78,
+     "max_ms": 351.78,
+     "mean_ms": 351.78,
+     "mean_expected_shots": 5.57
+    },
+    "近距": {
+     "min_ms": 351.78,
+     "max_ms": 351.78,
+     "mean_ms": 351.78,
+     "mean_expected_shots": 5.57
+    },
+    "中距": {
+     "min_ms": 351.78,
+     "max_ms": 398.72,
+     "mean_ms": 387.55,
+     "mean_expected_shots": 6.04
+    },
+    "远距": {
+     "min_ms": 398.72,
+     "max_ms": 536.13,
+     "mean_ms": 491.81,
+     "mean_expected_shots": 7.4
+    }
+   },
+   "overall_mean_ms": 356.4,
+   "expected_shots_0m": 5.5177,
+   "rpm": 780.2,
+   "ads_ms_reference": 375.11,
+   "muzzle_velocity_mps": 862.5,
+   "effective_range_m": 52.5,
+   "ammo": {
+    "ammo_item_id": "37280500001",
+    "name": "TAC-TX",
+    "caliber": ".300BLK",
+    "price_avg_30d": 4893
+   },
+   "bands": {
+    "贴脸": {
+     "rank": 23,
+     "tier": "T1",
+     "mean_ms": 347.41,
+     "worst_ms": 347.41,
+     "best_ms": 347.41,
+     "mean_expected_shots": 5.517654,
+     "kill_cost": 26998
+    },
+    "近距": {
+     "rank": 19,
+     "tier": "T1",
+     "mean_ms": 347.41,
+     "worst_ms": 347.41,
+     "best_ms": 347.41,
+     "mean_expected_shots": 5.517654,
+     "kill_cost": 26998
+    },
+    "中距": {
+     "rank": 8,
+     "tier": "T0",
+     "mean_ms": 347.41,
+     "worst_ms": 347.41,
+     "best_ms": 347.41,
+     "mean_expected_shots": 5.517654,
+     "kill_cost": 26998
+    },
+    "远距": {
+     "rank": 8,
      "tier": "T0",
      "mean_ms": 383.35,
      "worst_ms": 387.2,
@@ -1189,7 +2811,6 @@
    "category": "突击步枪",
    "is_variant": false,
    "variant_item_name": null,
-   "equivalent_variants": [],
    "loadout": {
     "2": "13020000552",
     "6": "13130000164"
@@ -1244,7 +2865,7 @@
    },
    "bands": {
     "贴脸": {
-     "rank": 26,
+     "rank": 39,
      "tier": "T2",
      "mean_ms": 379.91,
      "worst_ms": 379.91,
@@ -1253,7 +2874,7 @@
      "kill_cost": 25125
     },
     "近距": {
-     "rank": 24,
+     "rank": 35,
      "tier": "T2",
      "mean_ms": 379.91,
      "worst_ms": 379.91,
@@ -1262,7 +2883,7 @@
      "kill_cost": 25125
     },
     "中距": {
-     "rank": 15,
+     "rank": 19,
      "tier": "T1",
      "mean_ms": 379.91,
      "worst_ms": 379.91,
@@ -1271,7 +2892,7 @@
      "kill_cost": 25125
     },
     "远距": {
-     "rank": 5,
+     "rank": 6,
      "tier": "T0",
      "mean_ms": 379.91,
      "worst_ms": 379.91,
@@ -1282,16 +2903,320 @@
    }
   },
   {
-   "profile_key": "18050000005:base",
-   "weapon_id": "18050000005",
-   "name": "M14",
-   "base_name": "M14",
-   "category": "精确射手步枪",
+   "profile_key": "18010000043:base",
+   "weapon_id": "18010000043",
+   "name": "MK47",
+   "base_name": "MK47",
+   "category": "突击步枪",
    "is_variant": false,
    "variant_item_name": null,
-   "equivalent_variants": [],
    "loadout": {
-    "2": "13020000386"
+    "2": "13020000560"
+   },
+   "tuning": {},
+   "loadout_effects": [
+    {
+     "key": "base_damage",
+     "label": "肉伤",
+     "unit": "",
+     "base": 42.0,
+     "final": 46.0
+    },
+    {
+     "key": "base_armor_damage",
+     "label": "甲伤",
+     "unit": "",
+     "base": 46.0,
+     "final": 47.0
+    }
+   ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 357.76,
+     "max_ms": 357.76,
+     "mean_ms": 357.76,
+     "mean_expected_shots": 4.73
+    },
+    "近距": {
+     "min_ms": 357.76,
+     "max_ms": 425.48,
+     "mean_ms": 361.99,
+     "mean_expected_shots": 4.77
+    },
+    "中距": {
+     "min_ms": 425.48,
+     "max_ms": 521.51,
+     "mean_ms": 452.92,
+     "mean_expected_shots": 5.72
+    },
+    "远距": {
+     "min_ms": 521.51,
+     "max_ms": 521.51,
+     "mean_ms": 521.51,
+     "mean_expected_shots": 6.43
+    }
+   },
+   "overall_mean_ms": 388.27,
+   "expected_shots_0m": 4.3938,
+   "rpm": 625.0,
+   "ads_ms_reference": 283.74,
+   "muzzle_velocity_mps": 525.0,
+   "effective_range_m": 30.0,
+   "ammo": {
+    "ammo_item_id": "37110500001",
+    "name": "AP",
+    "caliber": "7.62x39mm",
+    "price_avg_30d": 4971
+   },
+   "bands": {
+    "贴脸": {
+     "rank": 7,
+     "tier": "T0",
+     "mean_ms": 325.81,
+     "worst_ms": 325.81,
+     "best_ms": 325.81,
+     "mean_expected_shots": 4.393848,
+     "kill_cost": 21842
+    },
+    "近距": {
+     "rank": 8,
+     "tier": "T0",
+     "mean_ms": 329.97,
+     "worst_ms": 392.3,
+     "best_ms": 325.81,
+     "mean_expected_shots": 4.437137,
+     "kill_cost": 22057
+    },
+    "中距": {
+     "rank": 33,
+     "tier": "T2",
+     "mean_ms": 417.35,
+     "worst_ms": 479.96,
+     "best_ms": 392.3,
+     "mean_expected_shots": 5.347377,
+     "kill_cost": 26582
+    },
+    "远距": {
+     "rank": 34,
+     "tier": "T2",
+     "mean_ms": 479.96,
+     "worst_ms": 479.96,
+     "best_ms": 479.96,
+     "mean_expected_shots": 5.999633,
+     "kill_cost": 29824
+    }
+   }
+  },
+  {
+   "profile_key": "18010000043:13020000559",
+   "weapon_id": "18010000043",
+   "name": "MK47-余烬枪管",
+   "base_name": "MK47",
+   "category": "突击步枪",
+   "is_variant": true,
+   "variant_item_name": "MK47余烬枪管",
+   "loadout": {},
+   "tuning": {},
+   "loadout_effects": [
+    {
+     "key": "base_damage",
+     "label": "肉伤",
+     "unit": "",
+     "base": 42.0,
+     "final": 45.0
+    }
+   ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 357.76,
+     "max_ms": 357.76,
+     "mean_ms": 357.76,
+     "mean_expected_shots": 4.73
+    },
+    "近距": {
+     "min_ms": 357.76,
+     "max_ms": 425.48,
+     "mean_ms": 361.99,
+     "mean_expected_shots": 4.77
+    },
+    "中距": {
+     "min_ms": 425.48,
+     "max_ms": 521.51,
+     "mean_ms": 452.92,
+     "mean_expected_shots": 5.72
+    },
+    "远距": {
+     "min_ms": 521.51,
+     "max_ms": 521.51,
+     "mean_ms": 521.51,
+     "mean_expected_shots": 6.43
+    }
+   },
+   "overall_mean_ms": 399.24,
+   "expected_shots_0m": 4.4951,
+   "rpm": 625.0,
+   "ads_ms_reference": 361.38,
+   "muzzle_velocity_mps": 700.0,
+   "effective_range_m": 30.0,
+   "ammo": {
+    "ammo_item_id": "37110500001",
+    "name": "AP",
+    "caliber": "7.62x39mm",
+    "price_avg_30d": 4971
+   },
+   "bands": {
+    "贴脸": {
+     "rank": 17,
+     "tier": "T1",
+     "mean_ms": 335.53,
+     "worst_ms": 335.53,
+     "best_ms": 335.53,
+     "mean_expected_shots": 4.49508,
+     "kill_cost": 22345
+    },
+    "近距": {
+     "rank": 14,
+     "tier": "T1",
+     "mean_ms": 339.67,
+     "worst_ms": 401.84,
+     "best_ms": 335.53,
+     "mean_expected_shots": 4.538253,
+     "kill_cost": 22560
+    },
+    "中距": {
+     "rank": 36,
+     "tier": "T2",
+     "mean_ms": 428.08,
+     "worst_ms": 493.67,
+     "best_ms": 401.84,
+     "mean_expected_shots": 5.45913,
+     "kill_cost": 27137
+    },
+    "远距": {
+     "rank": 38,
+     "tier": "T2",
+     "mean_ms": 493.67,
+     "worst_ms": 493.67,
+     "best_ms": 493.67,
+     "mean_expected_shots": 6.142354,
+     "kill_cost": 30534
+    }
+   }
+  },
+  {
+   "profile_key": "18010000043:13020000560",
+   "weapon_id": "18010000043",
+   "name": "MK47-鏖战枪管",
+   "base_name": "MK47",
+   "category": "突击步枪",
+   "is_variant": true,
+   "variant_item_name": "MK47鏖战枪管",
+   "loadout": {},
+   "tuning": {},
+   "loadout_effects": [
+    {
+     "key": "base_damage",
+     "label": "肉伤",
+     "unit": "",
+     "base": 42.0,
+     "final": 46.0
+    },
+    {
+     "key": "base_armor_damage",
+     "label": "甲伤",
+     "unit": "",
+     "base": 46.0,
+     "final": 47.0
+    }
+   ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 357.76,
+     "max_ms": 357.76,
+     "mean_ms": 357.76,
+     "mean_expected_shots": 4.73
+    },
+    "近距": {
+     "min_ms": 357.76,
+     "max_ms": 425.48,
+     "mean_ms": 361.99,
+     "mean_expected_shots": 4.77
+    },
+    "中距": {
+     "min_ms": 425.48,
+     "max_ms": 521.51,
+     "mean_ms": 452.92,
+     "mean_expected_shots": 5.72
+    },
+    "远距": {
+     "min_ms": 521.51,
+     "max_ms": 521.51,
+     "mean_ms": 521.51,
+     "mean_expected_shots": 6.43
+    }
+   },
+   "overall_mean_ms": 388.27,
+   "expected_shots_0m": 4.3938,
+   "rpm": 625.0,
+   "ads_ms_reference": 283.74,
+   "muzzle_velocity_mps": 525.0,
+   "effective_range_m": 30.0,
+   "ammo": {
+    "ammo_item_id": "37110500001",
+    "name": "AP",
+    "caliber": "7.62x39mm",
+    "price_avg_30d": 4971
+   },
+   "bands": {
+    "贴脸": {
+     "rank": 8,
+     "tier": "T0",
+     "mean_ms": 325.81,
+     "worst_ms": 325.81,
+     "best_ms": 325.81,
+     "mean_expected_shots": 4.393848,
+     "kill_cost": 21842
+    },
+    "近距": {
+     "rank": 9,
+     "tier": "T0",
+     "mean_ms": 329.97,
+     "worst_ms": 392.3,
+     "best_ms": 325.81,
+     "mean_expected_shots": 4.437137,
+     "kill_cost": 22057
+    },
+    "中距": {
+     "rank": 34,
+     "tier": "T2",
+     "mean_ms": 417.35,
+     "worst_ms": 479.96,
+     "best_ms": 392.3,
+     "mean_expected_shots": 5.347377,
+     "kill_cost": 26582
+    },
+    "远距": {
+     "rank": 35,
+     "tier": "T2",
+     "mean_ms": 479.96,
+     "worst_ms": 479.96,
+     "best_ms": 479.96,
+     "mean_expected_shots": 5.999633,
+     "kill_cost": 29824
+    }
+   }
+  },
+  {
+   "profile_key": "18010000044:base",
+   "weapon_id": "18010000044",
+   "name": "MCX-LT",
+   "base_name": "MCX-LT",
+   "category": "突击步枪",
+   "is_variant": false,
+   "variant_item_name": null,
+   "loadout": {
+    "2": "13020000572",
+    "6": "13130000164"
    },
    "tuning": {},
    "loadout_effects": [
@@ -1299,100 +3224,291 @@
      "key": "effective_range_m",
      "label": "优势射程",
      "unit": " m",
-     "base": 40.0,
-     "final": 47.2
+     "base": 30.0,
+     "final": 46.0
     }
    ],
    "stock_bands": {
     "贴脸": {
-     "min_ms": 334.36,
-     "max_ms": 334.36,
-     "mean_ms": 334.36,
-     "mean_expected_shots": 5.05
+     "min_ms": 373.35,
+     "max_ms": 373.35,
+     "mean_ms": 373.35,
+     "mean_expected_shots": 6.23
     },
     "近距": {
-     "min_ms": 334.36,
-     "max_ms": 334.36,
-     "mean_ms": 334.36,
-     "mean_expected_shots": 5.05
+     "min_ms": 373.35,
+     "max_ms": 455.09,
+     "mean_ms": 378.46,
+     "mean_expected_shots": 6.3
     },
     "中距": {
-     "min_ms": 334.36,
-     "max_ms": 426.5,
-     "mean_ms": 382.63,
-     "mean_expected_shots": 5.64
+     "min_ms": 455.09,
+     "max_ms": 556.7,
+     "mean_ms": 459.93,
+     "mean_expected_shots": 7.44
     },
     "远距": {
-     "min_ms": 426.5,
-     "max_ms": 494.02,
-     "mean_ms": 450.46,
-     "mean_expected_shots": 6.46
+     "min_ms": 556.7,
+     "max_ms": 556.7,
+     "mean_ms": 556.7,
+     "mean_expected_shots": 8.8
     }
    },
-   "overall_mean_ms": 360.69,
-   "expected_shots_0m": 5.0528,
-   "rpm": 727.3,
-   "ads_ms_reference": 339.22,
-   "muzzle_velocity_mps": 678.5,
-   "effective_range_m": 47.2,
+   "overall_mean_ms": 400.96,
+   "expected_shots_0m": 6.2291,
+   "rpm": 840.3,
+   "ads_ms_reference": 355.38,
+   "muzzle_velocity_mps": 690.3,
+   "effective_range_m": 46.02,
    "ammo": {
-    "ammo_item_id": "37170500001",
-    "name": "M62",
-    "caliber": "7.62x51mm",
-    "price_avg_30d": 6267
+    "ammo_item_id": "37280500001",
+    "name": "TAC-TX",
+    "caliber": ".300BLK",
+    "price_avg_30d": 4893
    },
    "bands": {
     "贴脸": {
-     "rank": 11,
-     "tier": "T1",
-     "mean_ms": 334.36,
-     "worst_ms": 334.36,
-     "best_ms": 334.36,
-     "mean_expected_shots": 5.052826,
-     "kill_cost": 31666
+     "rank": 37,
+     "tier": "T2",
+     "mean_ms": 373.35,
+     "worst_ms": 373.35,
+     "best_ms": 373.35,
+     "mean_expected_shots": 6.229056,
+     "kill_cost": 30479
     },
     "近距": {
-     "rank": 9,
-     "tier": "T1",
-     "mean_ms": 334.36,
-     "worst_ms": 334.36,
-     "best_ms": 334.36,
-     "mean_expected_shots": 5.052826,
-     "kill_cost": 31666
+     "rank": 34,
+     "tier": "T2",
+     "mean_ms": 373.35,
+     "worst_ms": 373.35,
+     "best_ms": 373.35,
+     "mean_expected_shots": 6.229056,
+     "kill_cost": 30479
     },
     "中距": {
-     "rank": 7,
-     "tier": "T1",
-     "mean_ms": 347.52,
-     "worst_ms": 426.5,
-     "best_ms": 334.36,
-     "mean_expected_shots": 5.212387,
-     "kill_cost": 32666
+     "rank": 24,
+     "tier": "T2",
+     "mean_ms": 388.92,
+     "worst_ms": 455.09,
+     "best_ms": 373.35,
+     "mean_expected_shots": 6.447116,
+     "kill_cost": 31546
     },
     "远距": {
-     "rank": 15,
-     "tier": "T1",
-     "mean_ms": 426.5,
-     "worst_ms": 426.5,
-     "best_ms": 426.5,
-     "mean_expected_shots": 6.16975,
-     "kill_cost": 38666
+     "rank": 31,
+     "tier": "T2",
+     "mean_ms": 468.21,
+     "worst_ms": 556.7,
+     "best_ms": 455.09,
+     "mean_expected_shots": 7.557494,
+     "kill_cost": 36979
     }
    }
   },
   {
-   "profile_key": "18010000014:base",
-   "weapon_id": "18010000014",
-   "name": "M16A4",
-   "base_name": "M16A4",
+   "profile_key": "18010000044:13020000573",
+   "weapon_id": "18010000044",
+   "name": "MCX-LT-焰魂枪管",
+   "base_name": "MCX-LT",
+   "category": "突击步枪",
+   "is_variant": true,
+   "variant_item_name": "MCX LT焰魂枪管",
+   "loadout": {},
+   "tuning": {},
+   "loadout_effects": [
+    {
+     "key": "base_damage",
+     "label": "肉伤",
+     "unit": "",
+     "base": 34.0,
+     "final": 36.0
+    }
+   ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 373.35,
+     "max_ms": 373.35,
+     "mean_ms": 373.35,
+     "mean_expected_shots": 6.23
+    },
+    "近距": {
+     "min_ms": 373.35,
+     "max_ms": 455.09,
+     "mean_ms": 378.46,
+     "mean_expected_shots": 6.3
+    },
+    "中距": {
+     "min_ms": 455.09,
+     "max_ms": 556.7,
+     "mean_ms": 459.93,
+     "mean_expected_shots": 7.44
+    },
+    "远距": {
+     "min_ms": 556.7,
+     "max_ms": 556.7,
+     "mean_ms": 556.7,
+     "mean_expected_shots": 8.8
+    }
+   },
+   "overall_mean_ms": 418.93,
+   "expected_shots_0m": 5.9709,
+   "rpm": 840.3,
+   "ads_ms_reference": 270.36,
+   "muzzle_velocity_mps": 450.0,
+   "effective_range_m": 30.0,
+   "ammo": {
+    "ammo_item_id": "37280500001",
+    "name": "TAC-TX",
+    "caliber": ".300BLK",
+    "price_avg_30d": 4893
+   },
+   "bands": {
+    "贴脸": {
+     "rank": 26,
+     "tier": "T2",
+     "mean_ms": 354.92,
+     "worst_ms": 354.92,
+     "best_ms": 354.92,
+     "mean_expected_shots": 5.97088,
+     "kill_cost": 29216
+    },
+    "近距": {
+     "rank": 24,
+     "tier": "T2",
+     "mean_ms": 359.54,
+     "worst_ms": 428.85,
+     "best_ms": 354.92,
+     "mean_expected_shots": 6.035593,
+     "kill_cost": 29532
+    },
+    "中距": {
+     "rank": 38,
+     "tier": "T2",
+     "mean_ms": 433.56,
+     "worst_ms": 527.69,
+     "best_ms": 428.85,
+     "mean_expected_shots": 7.072205,
+     "kill_cost": 34604
+    },
+    "远距": {
+     "rank": 42,
+     "tier": "T3",
+     "mean_ms": 527.69,
+     "worst_ms": 527.69,
+     "best_ms": 527.69,
+     "mean_expected_shots": 8.390556,
+     "kill_cost": 41055
+    }
+   }
+  },
+  {
+   "profile_key": "18010000045:base",
+   "weapon_id": "18010000045",
+   "name": "AR57",
+   "base_name": "AR57",
    "category": "突击步枪",
    "is_variant": false,
    "variant_item_name": null,
-   "equivalent_variants": [
-    "M16A4-AR特勤一体消音组合"
-   ],
    "loadout": {
-    "2": "13020000349",
+    "2": "13020000593"
+   },
+   "tuning": {},
+   "loadout_effects": [
+    {
+     "key": "effective_range_m",
+     "label": "优势射程",
+     "unit": " m",
+     "base": 35.0,
+     "final": 41.3
+    }
+   ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 361.02,
+     "max_ms": 361.02,
+     "mean_ms": 361.02,
+     "mean_expected_shots": 6.42
+    },
+    "近距": {
+     "min_ms": 361.02,
+     "max_ms": 361.02,
+     "mean_ms": 361.02,
+     "mean_expected_shots": 6.42
+    },
+    "中距": {
+     "min_ms": 361.02,
+     "max_ms": 504.34,
+     "mean_ms": 420.78,
+     "mean_expected_shots": 7.31
+    },
+    "远距": {
+     "min_ms": 504.34,
+     "max_ms": 504.34,
+     "mean_ms": 504.34,
+     "mean_expected_shots": 8.57
+    }
+   },
+   "overall_mean_ms": 399.77,
+   "expected_shots_0m": 6.4154,
+   "rpm": 900.0,
+   "ads_ms_reference": 314.96,
+   "muzzle_velocity_mps": 619.5,
+   "effective_range_m": 41.3,
+   "ammo": {
+    "ammo_item_id": "37210500001",
+    "name": "SS190",
+    "caliber": "5.7x28mm",
+    "price_avg_30d": 4767
+   },
+   "bands": {
+    "贴脸": {
+     "rank": 29,
+     "tier": "T2",
+     "mean_ms": 361.02,
+     "worst_ms": 361.02,
+     "best_ms": 361.02,
+     "mean_expected_shots": 6.415367,
+     "kill_cost": 30582
+    },
+    "近距": {
+     "rank": 25,
+     "tier": "T2",
+     "mean_ms": 361.02,
+     "worst_ms": 361.02,
+     "best_ms": 361.02,
+     "mean_expected_shots": 6.415367,
+     "kill_cost": 30582
+    },
+    "中距": {
+     "rank": 26,
+     "tier": "T2",
+     "mean_ms": 392.78,
+     "worst_ms": 435.14,
+     "best_ms": 361.02,
+     "mean_expected_shots": 6.891824,
+     "kill_cost": 32853
+    },
+    "远距": {
+     "rank": 36,
+     "tier": "T2",
+     "mean_ms": 484.25,
+     "worst_ms": 504.34,
+     "best_ms": 435.14,
+     "mean_expected_shots": 8.263852,
+     "kill_cost": 39394
+    }
+   }
+  },
+  {
+   "profile_key": "18010000049:base",
+   "weapon_id": "18010000049",
+   "name": "RM277",
+   "base_name": "RM277",
+   "category": "突击步枪",
+   "is_variant": false,
+   "variant_item_name": null,
+   "loadout": {
+    "2": "13020000602",
     "6": "13130000164"
    },
    "tuning": {},
@@ -1407,78 +3523,1370 @@
    ],
    "stock_bands": {
     "贴脸": {
-     "min_ms": 554.28,
-     "max_ms": 554.28,
-     "mean_ms": 554.28,
-     "mean_expected_shots": 5.7
+     "min_ms": 410.71,
+     "max_ms": 410.71,
+     "mean_ms": 410.71,
+     "mean_expected_shots": 4.77
     },
     "近距": {
-     "min_ms": 554.28,
-     "max_ms": 554.28,
-     "mean_ms": 554.28,
-     "mean_expected_shots": 5.7
+     "min_ms": 410.71,
+     "max_ms": 410.71,
+     "mean_ms": 410.71,
+     "mean_expected_shots": 4.77
     },
     "中距": {
-     "min_ms": 554.28,
-     "max_ms": 554.28,
-     "mean_ms": 554.28,
-     "mean_expected_shots": 5.7
+     "min_ms": 410.71,
+     "max_ms": 410.71,
+     "mean_ms": 410.71,
+     "mean_expected_shots": 4.77
     },
     "远距": {
-     "min_ms": 554.28,
-     "max_ms": 663.57,
-     "mean_ms": 645.94,
-     "mean_expected_shots": 6.47
+     "min_ms": 410.71,
+     "max_ms": 468.33,
+     "mean_ms": 459.04,
+     "mean_expected_shots": 5.21
     }
    },
-   "overall_mean_ms": 554.28,
-   "expected_shots_0m": 5.6973,
-   "rpm": 508.5,
-   "ads_ms_reference": 390.9,
-   "muzzle_velocity_mps": 882.05,
+   "overall_mean_ms": 410.71,
+   "expected_shots_0m": 4.768,
+   "rpm": 550.5,
+   "ads_ms_reference": 469.11,
+   "muzzle_velocity_mps": 997.1,
    "effective_range_m": 84.37,
    "ammo": {
-    "ammo_item_id": "37100500001",
-    "name": "M995",
-    "caliber": "5.56x45mm",
-    "price_avg_30d": 4992
+    "ammo_item_id": "37150500001",
+    "name": "Hybrid",
+    "caliber": "6.8x51mm",
+    "price_avg_30d": 5359
    },
    "bands": {
     "贴脸": {
-     "rank": 39,
+     "rank": 44,
      "tier": "T3",
-     "mean_ms": 554.28,
-     "worst_ms": 554.28,
-     "best_ms": 554.28,
-     "mean_expected_shots": 5.697323,
-     "kill_cost": 28441
+     "mean_ms": 410.71,
+     "worst_ms": 410.71,
+     "best_ms": 410.71,
+     "mean_expected_shots": 4.76802,
+     "kill_cost": 25552
+    },
+    "近距": {
+     "rank": 42,
+     "tier": "T3",
+     "mean_ms": 410.71,
+     "worst_ms": 410.71,
+     "best_ms": 410.71,
+     "mean_expected_shots": 4.76802,
+     "kill_cost": 25552
+    },
+    "中距": {
+     "rank": 31,
+     "tier": "T2",
+     "mean_ms": 410.71,
+     "worst_ms": 410.71,
+     "best_ms": 410.71,
+     "mean_expected_shots": 4.76802,
+     "kill_cost": 25552
+    },
+    "远距": {
+     "rank": 14,
+     "tier": "T1",
+     "mean_ms": 410.71,
+     "worst_ms": 410.71,
+     "best_ms": 410.71,
+     "mean_expected_shots": 4.76802,
+     "kill_cost": 25552
+    }
+   }
+  },
+  {
+   "profile_key": "18010000051:base",
+   "weapon_id": "18010000051",
+   "name": "MDR突击步枪",
+   "base_name": "MDR突击步枪",
+   "category": "突击步枪",
+   "is_variant": false,
+   "variant_item_name": null,
+   "loadout": {
+    "2": "13020000616"
+   },
+   "tuning": {},
+   "loadout_effects": [
+    {
+     "key": "effective_range_m",
+     "label": "优势射程",
+     "unit": " m",
+     "base": 35.0,
+     "final": 45.5
+    }
+   ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 354.79,
+     "max_ms": 354.79,
+     "mean_ms": 354.79,
+     "mean_expected_shots": 4.84
+    },
+    "近距": {
+     "min_ms": 354.79,
+     "max_ms": 354.79,
+     "mean_ms": 354.79,
+     "mean_expected_shots": 4.84
+    },
+    "中距": {
+     "min_ms": 354.79,
+     "max_ms": 485.76,
+     "mean_ms": 411.7,
+     "mean_expected_shots": 5.46
+    },
+    "远距": {
+     "min_ms": 485.76,
+     "max_ms": 485.76,
+     "mean_ms": 485.76,
+     "mean_expected_shots": 6.26
+    }
+   },
+   "overall_mean_ms": 384.5,
+   "expected_shots_0m": 4.8439,
+   "rpm": 650.1,
+   "ads_ms_reference": 344.77,
+   "muzzle_velocity_mps": 819.0,
+   "effective_range_m": 45.5,
+   "ammo": {
+    "ammo_item_id": "37170500001",
+    "name": "M62",
+    "caliber": "7.62x51mm",
+    "price_avg_30d": 6267
+   },
+   "bands": {
+    "贴脸": {
+     "rank": 25,
+     "tier": "T2",
+     "mean_ms": 354.79,
+     "worst_ms": 354.79,
+     "best_ms": 354.79,
+     "mean_expected_shots": 4.843866,
+     "kill_cost": 30357
+    },
+    "近距": {
+     "rank": 22,
+     "tier": "T1",
+     "mean_ms": 354.79,
+     "worst_ms": 354.79,
+     "best_ms": 354.79,
+     "mean_expected_shots": 4.843866,
+     "kill_cost": 30357
+    },
+    "中距": {
+     "rank": 15,
+     "tier": "T1",
+     "mean_ms": 371.68,
+     "worst_ms": 425.74,
+     "best_ms": 354.79,
+     "mean_expected_shots": 5.026888,
+     "kill_cost": 31504
+    },
+    "远距": {
+     "rank": 29,
+     "tier": "T2",
+     "mean_ms": 456.72,
+     "worst_ms": 485.76,
+     "best_ms": 425.74,
+     "mean_expected_shots": 5.948172,
+     "kill_cost": 37277
+    }
+   }
+  },
+  {
+   "profile_key": "18020000002:base",
+   "weapon_id": "18020000002",
+   "name": "P90",
+   "base_name": "P90",
+   "category": "冲锋枪",
+   "is_variant": false,
+   "variant_item_name": null,
+   "loadout": {
+    "2": "13020000472",
+    "6": "13130000164"
+   },
+   "tuning": {},
+   "loadout_effects": [
+    {
+     "key": "effective_range_m",
+     "label": "优势射程",
+     "unit": " m",
+     "base": 20.0,
+     "final": 30.7
+    }
+   ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 329.17,
+     "max_ms": 329.17,
+     "mean_ms": 329.17,
+     "mean_expected_shots": 5.93
+    },
+    "近距": {
+     "min_ms": 329.17,
+     "max_ms": 544.94,
+     "mean_ms": 440.85,
+     "mean_expected_shots": 7.6
+    },
+    "中距": {
+     "min_ms": 544.94,
+     "max_ms": 644.92,
+     "mean_ms": 597.31,
+     "mean_expected_shots": 9.94
+    },
+    "远距": {
+     "min_ms": 644.92,
+     "max_ms": 803.0,
+     "mean_ms": 777.5,
+     "mean_expected_shots": 12.64
+    }
+   },
+   "overall_mean_ms": 438.83,
+   "expected_shots_0m": 5.9277,
+   "rpm": 898.2,
+   "ads_ms_reference": 390.9,
+   "muzzle_velocity_mps": 690.3,
+   "effective_range_m": 30.68,
+   "ammo": {
+    "ammo_item_id": "37210500001",
+    "name": "SS190",
+    "caliber": "5.7x28mm",
+    "price_avg_30d": 4767
+   },
+   "bands": {
+    "贴脸": {
+     "rank": 12,
+     "tier": "T1",
+     "mean_ms": 329.17,
+     "worst_ms": 329.17,
+     "best_ms": 329.17,
+     "mean_expected_shots": 5.927744,
+     "kill_cost": 28258
+    },
+    "近距": {
+     "rank": 7,
+     "tier": "T0",
+     "mean_ms": 329.17,
+     "worst_ms": 329.17,
+     "best_ms": 329.17,
+     "mean_expected_shots": 5.927744,
+     "kill_cost": 28258
+    },
+    "中距": {
+     "rank": 46,
+     "tier": "T3",
+     "mean_ms": 490.77,
+     "worst_ms": 544.94,
+     "best_ms": 329.17,
+     "mean_expected_shots": 8.34679,
+     "kill_cost": 39789
+    },
+    "远距": {
+     "rank": 49,
+     "tier": "T3",
+     "mean_ms": 606.22,
+     "worst_ms": 644.92,
+     "best_ms": 544.94,
+     "mean_expected_shots": 10.075081,
+     "kill_cost": 48028
+    }
+   }
+  },
+  {
+   "profile_key": "18020000002:13020000579",
+   "weapon_id": "18020000002",
+   "name": "P90-长弓精钢枪管",
+   "base_name": "P90",
+   "category": "冲锋枪",
+   "is_variant": true,
+   "variant_item_name": "P90长弓精钢枪管",
+   "loadout": {},
+   "tuning": {},
+   "loadout_effects": [
+    {
+     "key": "rpm",
+     "label": "射速",
+     "unit": "",
+     "base": 898.0,
+     "final": 785.0
+    }
+   ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 329.17,
+     "max_ms": 329.17,
+     "mean_ms": 329.17,
+     "mean_expected_shots": 5.93
+    },
+    "近距": {
+     "min_ms": 329.17,
+     "max_ms": 544.94,
+     "mean_ms": 440.85,
+     "mean_expected_shots": 7.6
+    },
+    "中距": {
+     "min_ms": 544.94,
+     "max_ms": 644.92,
+     "mean_ms": 597.31,
+     "mean_expected_shots": 9.94
+    },
+    "远距": {
+     "min_ms": 644.92,
+     "max_ms": 803.0,
+     "mean_ms": 777.5,
+     "mean_expected_shots": 12.64
+    }
+   },
+   "overall_mean_ms": 613.37,
+   "expected_shots_0m": 5.9277,
+   "rpm": 785.2,
+   "ads_ms_reference": 290.0,
+   "muzzle_velocity_mps": 600.0,
+   "effective_range_m": 20.0,
+   "ammo": {
+    "ammo_item_id": "37210500001",
+    "name": "SS190",
+    "caliber": "5.7x28mm",
+    "price_avg_30d": 4767
+   },
+   "bands": {
+    "贴脸": {
+     "rank": 38,
+     "tier": "T2",
+     "mean_ms": 376.54,
+     "worst_ms": 376.54,
+     "best_ms": 376.54,
+     "mean_expected_shots": 5.927744,
+     "kill_cost": 28258
+    },
+    "近距": {
+     "rank": 50,
+     "tier": "T3",
+     "mean_ms": 504.28,
+     "worst_ms": 623.35,
+     "best_ms": 376.54,
+     "mean_expected_shots": 7.599503,
+     "kill_cost": 36227
+    },
+    "中距": {
+     "rank": 56,
+     "tier": "T3",
+     "mean_ms": 683.26,
+     "worst_ms": 737.72,
+     "best_ms": 623.35,
+     "mean_expected_shots": 9.941736,
+     "kill_cost": 47392
+    },
+    "远距": {
+     "rank": 56,
+     "tier": "T3",
+     "mean_ms": 889.38,
+     "worst_ms": 918.55,
+     "best_ms": 737.72,
+     "mean_expected_shots": 12.639255,
+     "kill_cost": 60251
+    }
+   }
+  },
+  {
+   "profile_key": "18020000003:base",
+   "weapon_id": "18020000003",
+   "name": "Vector",
+   "base_name": "Vector",
+   "category": "冲锋枪",
+   "is_variant": false,
+   "variant_item_name": null,
+   "loadout": {
+    "2": "13020000421",
+    "6": "13130000164"
+   },
+   "tuning": {},
+   "loadout_effects": [
+    {
+     "key": "effective_range_m",
+     "label": "优势射程",
+     "unit": " m",
+     "base": 20.0,
+     "final": 30.7
+    }
+   ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 334.83,
+     "max_ms": 334.83,
+     "mean_ms": 334.83,
+     "mean_expected_shots": 7.09
+    },
+    "近距": {
+     "min_ms": 334.83,
+     "max_ms": 538.49,
+     "mean_ms": 441.29,
+     "mean_expected_shots": 9.02
+    },
+    "中距": {
+     "min_ms": 538.49,
+     "max_ms": 646.73,
+     "mean_ms": 595.19,
+     "mean_expected_shots": 11.82
+    },
+    "远距": {
+     "min_ms": 646.73,
+     "max_ms": 798.85,
+     "mean_ms": 774.31,
+     "mean_expected_shots": 15.08
+    }
+   },
+   "overall_mean_ms": 440.78,
+   "expected_shots_0m": 7.0878,
+   "rpm": 1090.9,
+   "ads_ms_reference": 308.65,
+   "muzzle_velocity_mps": 767.0,
+   "effective_range_m": 30.68,
+   "ammo": {
+    "ammo_item_id": "37190500001",
+    "name": "Super",
+    "caliber": ".45ACP",
+    "price_avg_30d": 5782
+   },
+   "bands": {
+    "贴脸": {
+     "rank": 16,
+     "tier": "T1",
+     "mean_ms": 334.83,
+     "worst_ms": 334.83,
+     "best_ms": 334.83,
+     "mean_expected_shots": 7.087759,
+     "kill_cost": 40981
+    },
+    "近距": {
+     "rank": 12,
+     "tier": "T1",
+     "mean_ms": 334.83,
+     "worst_ms": 334.83,
+     "best_ms": 334.83,
+     "mean_expected_shots": 7.087759,
+     "kill_cost": 40981
+    },
+    "中距": {
+     "rank": 45,
+     "tier": "T3",
+     "mean_ms": 488.62,
+     "worst_ms": 538.49,
+     "best_ms": 334.83,
+     "mean_expected_shots": 9.883947,
+     "kill_cost": 57149
+    },
+    "远距": {
+     "rank": 48,
+     "tier": "T3",
+     "mean_ms": 604.83,
+     "worst_ms": 646.73,
+     "best_ms": 538.49,
+     "mean_expected_shots": 11.996935,
+     "kill_cost": 69366
+    }
+   }
+  },
+  {
+   "profile_key": "18020000006:base",
+   "weapon_id": "18020000006",
+   "name": "SMG-45",
+   "base_name": "SMG-45",
+   "category": "冲锋枪",
+   "is_variant": false,
+   "variant_item_name": null,
+   "loadout": {
+    "2": "13020000424",
+    "6": "13130000164"
+   },
+   "tuning": {},
+   "loadout_effects": [
+    {
+     "key": "effective_range_m",
+     "label": "优势射程",
+     "unit": " m",
+     "base": 27.0,
+     "final": 41.4
+    }
+   ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 489.82,
+     "max_ms": 489.82,
+     "mean_ms": 489.82,
+     "mean_expected_shots": 5.94
+    },
+    "近距": {
+     "min_ms": 489.82,
+     "max_ms": 680.64,
+     "mean_ms": 537.53,
+     "mean_expected_shots": 6.42
+    },
+    "中距": {
+     "min_ms": 680.64,
+     "max_ms": 680.64,
+     "mean_ms": 680.64,
+     "mean_expected_shots": 7.86
+    },
+    "远距": {
+     "min_ms": 680.64,
+     "max_ms": 797.57,
+     "mean_ms": 782.48,
+     "mean_expected_shots": 8.89
+    }
+   },
+   "overall_mean_ms": 557.97,
+   "expected_shots_0m": 5.9377,
+   "rpm": 604.8,
+   "ads_ms_reference": 302.35,
+   "muzzle_velocity_mps": 767.0,
+   "effective_range_m": 41.42,
+   "ammo": {
+    "ammo_item_id": "37190500001",
+    "name": "Super",
+    "caliber": ".45ACP",
+    "price_avg_30d": 5782
+   },
+   "bands": {
+    "贴脸": {
+     "rank": 50,
+     "tier": "T3",
+     "mean_ms": 489.82,
+     "worst_ms": 489.82,
+     "best_ms": 489.82,
+     "mean_expected_shots": 5.937704,
+     "kill_cost": 34332
+    },
+    "近距": {
+     "rank": 49,
+     "tier": "T3",
+     "mean_ms": 489.82,
+     "worst_ms": 489.82,
+     "best_ms": 489.82,
+     "mean_expected_shots": 5.937704,
+     "kill_cost": 34332
+    },
+    "中距": {
+     "rank": 55,
+     "tier": "T3",
+     "mean_ms": 571.6,
+     "worst_ms": 680.64,
+     "best_ms": 489.82,
+     "mean_expected_shots": 6.762112,
+     "kill_cost": 39099
+    },
+    "远距": {
+     "rank": 55,
+     "tier": "T3",
+     "mean_ms": 680.64,
+     "worst_ms": 680.64,
+     "best_ms": 680.64,
+     "mean_expected_shots": 7.861323,
+     "kill_cost": 45454
+    }
+   }
+  },
+  {
+   "profile_key": "18020000008:base",
+   "weapon_id": "18020000008",
+   "name": "SR-3M",
+   "base_name": "SR-3M",
+   "category": "冲锋枪",
+   "is_variant": false,
+   "variant_item_name": null,
+   "loadout": {
+    "6": "13130000172"
+   },
+   "tuning": {},
+   "loadout_effects": [
+    {
+     "key": "effective_range_m",
+     "label": "优势射程",
+     "unit": " m",
+     "base": 15.0,
+     "final": 19.5
+    }
+   ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 332.77,
+     "max_ms": 455.78,
+     "mean_ms": 340.46,
+     "mean_expected_shots": 5.24
+    },
+    "近距": {
+     "min_ms": 455.78,
+     "max_ms": 455.78,
+     "mean_ms": 455.78,
+     "mean_expected_shots": 6.68
+    },
+    "中距": {
+     "min_ms": 455.78,
+     "max_ms": 533.8,
+     "mean_ms": 530.09,
+     "mean_expected_shots": 7.6
+    },
+    "远距": {
+     "min_ms": 533.8,
+     "max_ms": 533.8,
+     "mean_ms": 533.8,
+     "mean_expected_shots": 7.65
+    }
+   },
+   "overall_mean_ms": 444.21,
+   "expected_shots_0m": 5.1441,
+   "rpm": 747.2,
+   "ads_ms_reference": 308.65,
+   "muzzle_velocity_mps": 429.0,
+   "effective_range_m": 19.5,
+   "ammo": {
+    "ammo_item_id": "37140500001",
+    "name": "BP",
+    "caliber": "9x39mm",
+    "price_avg_30d": 4419
+   },
+   "bands": {
+    "贴脸": {
+     "rank": 14,
+     "tier": "T1",
+     "mean_ms": 332.77,
+     "worst_ms": 332.77,
+     "best_ms": 332.77,
+     "mean_expected_shots": 5.144076,
+     "kill_cost": 22732
+    },
+    "近距": {
+     "rank": 43,
+     "tier": "T3",
+     "mean_ms": 417.34,
+     "worst_ms": 455.78,
+     "best_ms": 332.77,
+     "mean_expected_shots": 6.197238,
+     "kill_cost": 27386
+    },
+    "中距": {
+     "rank": 48,
+     "tier": "T3",
+     "mean_ms": 492.93,
+     "worst_ms": 533.8,
+     "best_ms": 455.78,
+     "mean_expected_shots": 7.138654,
+     "kill_cost": 31546
+    },
+    "远距": {
+     "rank": 43,
+     "tier": "T3",
+     "mean_ms": 533.8,
+     "worst_ms": 533.8,
+     "best_ms": 533.8,
+     "mean_expected_shots": 7.64763,
+     "kill_cost": 33795
+    }
+   }
+  },
+  {
+   "profile_key": "18020000010:base",
+   "weapon_id": "18020000010",
+   "name": "MP7",
+   "base_name": "MP7",
+   "category": "冲锋枪",
+   "is_variant": false,
+   "variant_item_name": null,
+   "loadout": {
+    "2": "13020000498",
+    "6": "13130000164"
+   },
+   "tuning": {},
+   "loadout_effects": [
+    {
+     "key": "effective_range_m",
+     "label": "优势射程",
+     "unit": " m",
+     "base": 20.0,
+     "final": 30.7
+    }
+   ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 332.68,
+     "max_ms": 332.68,
+     "mean_ms": 332.68,
+     "mean_expected_shots": 6.27
+    },
+    "近距": {
+     "min_ms": 332.68,
+     "max_ms": 541.21,
+     "mean_ms": 442.22,
+     "mean_expected_shots": 8.0
+    },
+    "中距": {
+     "min_ms": 541.21,
+     "max_ms": 648.91,
+     "mean_ms": 597.63,
+     "mean_expected_shots": 10.46
+    },
+    "远距": {
+     "min_ms": 648.91,
+     "max_ms": 648.91,
+     "mean_ms": 648.91,
+     "mean_expected_shots": 11.27
+    }
+   },
+   "overall_mean_ms": 440.84,
+   "expected_shots_0m": 6.2675,
+   "rpm": 950.0,
+   "ads_ms_reference": 321.23,
+   "muzzle_velocity_mps": 690.3,
+   "effective_range_m": 30.68,
+   "ammo": {
+    "ammo_item_id": "37260500001",
+    "name": "AP SX",
+    "caliber": "4.6x30mm",
+    "price_avg_30d": 3942
+   },
+   "bands": {
+    "贴脸": {
+     "rank": 13,
+     "tier": "T1",
+     "mean_ms": 332.68,
+     "worst_ms": 332.68,
+     "best_ms": 332.68,
+     "mean_expected_shots": 6.267475,
+     "kill_cost": 24706
+    },
+    "近距": {
+     "rank": 10,
+     "tier": "T1",
+     "mean_ms": 332.68,
+     "worst_ms": 332.68,
+     "best_ms": 332.68,
+     "mean_expected_shots": 6.267475,
+     "kill_cost": 24706
+    },
+    "中距": {
+     "rank": 47,
+     "tier": "T3",
+     "mean_ms": 490.79,
+     "worst_ms": 541.21,
+     "best_ms": 332.68,
+     "mean_expected_shots": 8.770905,
+     "kill_cost": 34575
+    },
+    "远距": {
+     "rank": 50,
+     "tier": "T3",
+     "mean_ms": 607.22,
+     "worst_ms": 648.91,
+     "best_ms": 541.21,
+     "mean_expected_shots": 10.614476,
+     "kill_cost": 41842
+    }
+   }
+  },
+  {
+   "profile_key": "18020000012:base",
+   "weapon_id": "18020000012",
+   "name": "MK4",
+   "base_name": "MK4",
+   "category": "冲锋枪",
+   "is_variant": false,
+   "variant_item_name": null,
+   "loadout": {
+    "2": "13020000563",
+    "6": "13130000164"
+   },
+   "tuning": {},
+   "loadout_effects": [
+    {
+     "key": "base_armor_damage",
+     "label": "甲伤",
+     "unit": "",
+     "base": 30.0,
+     "final": 35.0
+    },
+    {
+     "key": "effective_range_m",
+     "label": "优势射程",
+     "unit": " m",
+     "base": 20.0,
+     "final": 30.7
+    }
+   ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 336.34,
+     "max_ms": 336.34,
+     "mean_ms": 336.34,
+     "mean_expected_shots": 5.44
+    },
+    "近距": {
+     "min_ms": 336.34,
+     "max_ms": 450.79,
+     "mean_ms": 376.83,
+     "mean_expected_shots": 5.98
+    },
+    "中距": {
+     "min_ms": 450.79,
+     "max_ms": 512.44,
+     "mean_ms": 483.09,
+     "mean_expected_shots": 7.38
+    },
+    "远距": {
+     "min_ms": 512.44,
+     "max_ms": 512.44,
+     "mean_ms": 512.44,
+     "mean_expected_shots": 7.77
+    }
+   },
+   "overall_mean_ms": 378.23,
+   "expected_shots_0m": 5.3362,
+   "rpm": 793.0,
+   "ads_ms_reference": 361.38,
+   "muzzle_velocity_mps": 728.65,
+   "effective_range_m": 30.68,
+   "ammo": {
+    "ammo_item_id": "37260500001",
+    "name": "AP SX",
+    "caliber": "4.6x30mm",
+    "price_avg_30d": 3942
+   },
+   "bands": {
+    "贴脸": {
+     "rank": 10,
+     "tier": "T1",
+     "mean_ms": 328.11,
+     "worst_ms": 328.11,
+     "best_ms": 328.11,
+     "mean_expected_shots": 5.336237,
+     "kill_cost": 21035
+    },
+    "近距": {
+     "rank": 6,
+     "tier": "T0",
+     "mean_ms": 328.11,
+     "worst_ms": 328.11,
+     "best_ms": 328.11,
+     "mean_expected_shots": 5.336237,
+     "kill_cost": 21035
+    },
+    "中距": {
+     "rank": 20,
+     "tier": "T1",
+     "mean_ms": 382.9,
+     "worst_ms": 424.69,
+     "best_ms": 328.11,
+     "mean_expected_shots": 6.060409,
+     "kill_cost": 23890
+    },
+    "远距": {
+     "rank": 33,
+     "tier": "T2",
+     "mean_ms": 473.81,
+     "worst_ms": 504.84,
+     "best_ms": 424.69,
+     "mean_expected_shots": 7.261869,
+     "kill_cost": 28626
+    }
+   }
+  },
+  {
+   "profile_key": "18020000012:13020000563",
+   "weapon_id": "18020000012",
+   "name": "MK4-击剑手枪管",
+   "base_name": "MK4",
+   "category": "冲锋枪",
+   "is_variant": true,
+   "variant_item_name": "MK4击剑手枪管",
+   "loadout": {},
+   "tuning": {},
+   "loadout_effects": [
+    {
+     "key": "base_armor_damage",
+     "label": "甲伤",
+     "unit": "",
+     "base": 30.0,
+     "final": 35.0
+    },
+    {
+     "key": "effective_range_m",
+     "label": "优势射程",
+     "unit": " m",
+     "base": 20.0,
+     "final": 26.0
+    }
+   ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 336.34,
+     "max_ms": 336.34,
+     "mean_ms": 336.34,
+     "mean_expected_shots": 5.44
+    },
+    "近距": {
+     "min_ms": 336.34,
+     "max_ms": 450.79,
+     "mean_ms": 376.83,
+     "mean_expected_shots": 5.98
+    },
+    "中距": {
+     "min_ms": 450.79,
+     "max_ms": 512.44,
+     "mean_ms": 483.09,
+     "mean_expected_shots": 7.38
+    },
+    "远距": {
+     "min_ms": 512.44,
+     "max_ms": 512.44,
+     "mean_ms": 512.44,
+     "mean_expected_shots": 7.77
+    }
+   },
+   "overall_mean_ms": 393.65,
+   "expected_shots_0m": 5.3362,
+   "rpm": 793.0,
+   "ads_ms_reference": 333.41,
+   "muzzle_velocity_mps": 617.5,
+   "effective_range_m": 26.0,
+   "ammo": {
+    "ammo_item_id": "37260500001",
+    "name": "AP SX",
+    "caliber": "4.6x30mm",
+    "price_avg_30d": 3942
+   },
+   "bands": {
+    "贴脸": {
+     "rank": 11,
+     "tier": "T1",
+     "mean_ms": 328.11,
+     "worst_ms": 328.11,
+     "best_ms": 328.11,
+     "mean_expected_shots": 5.336237,
+     "kill_cost": 21035
+    },
+    "近距": {
+     "rank": 15,
+     "tier": "T1",
+     "mean_ms": 343.04,
+     "worst_ms": 375.88,
+     "best_ms": 328.11,
+     "mean_expected_shots": 5.533544,
+     "kill_cost": 21813
+    },
+    "中距": {
+     "rank": 30,
+     "tier": "T2",
+     "mean_ms": 403.77,
+     "worst_ms": 424.69,
+     "best_ms": 375.88,
+     "mean_expected_shots": 6.336183,
+     "kill_cost": 24977
+    },
+    "远距": {
+     "rank": 39,
+     "tier": "T2",
+     "mean_ms": 499.67,
+     "worst_ms": 504.84,
+     "best_ms": 424.69,
+     "mean_expected_shots": 7.603587,
+     "kill_cost": 29973
+    }
+   }
+  },
+  {
+   "profile_key": "18020000012:13020000564",
+   "weapon_id": "18020000012",
+   "name": "MK4-深空镀铬枪管",
+   "base_name": "MK4",
+   "category": "冲锋枪",
+   "is_variant": true,
+   "variant_item_name": "MK4深空镀铬枪管",
+   "loadout": {},
+   "tuning": {},
+   "loadout_effects": [
+    {
+     "key": "rpm",
+     "label": "射速",
+     "unit": "",
+     "base": 793.0,
+     "final": 872.0
+    }
+   ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 336.34,
+     "max_ms": 336.34,
+     "mean_ms": 336.34,
+     "mean_expected_shots": 5.44
+    },
+    "近距": {
+     "min_ms": 336.34,
+     "max_ms": 450.79,
+     "mean_ms": 376.83,
+     "mean_expected_shots": 5.98
+    },
+    "中距": {
+     "min_ms": 450.79,
+     "max_ms": 512.44,
+     "mean_ms": 483.09,
+     "mean_expected_shots": 7.38
+    },
+    "远距": {
+     "min_ms": 512.44,
+     "max_ms": 512.44,
+     "mean_ms": 512.44,
+     "mean_expected_shots": 7.77
+    }
+   },
+   "overall_mean_ms": 424.1,
+   "expected_shots_0m": 5.9039,
+   "rpm": 872.1,
+   "ads_ms_reference": 333.41,
+   "muzzle_velocity_mps": 575.0,
+   "effective_range_m": 20.0,
+   "ammo": {
+    "ammo_item_id": "37260500001",
+    "name": "AP SX",
+    "caliber": "4.6x30mm",
+    "price_avg_30d": 3942
+   },
+   "bands": {
+    "贴脸": {
+     "rank": 19,
+     "tier": "T1",
+     "mean_ms": 337.39,
+     "worst_ms": 337.39,
+     "best_ms": 337.39,
+     "mean_expected_shots": 5.903947,
+     "kill_cost": 23273
+    },
+    "近距": {
+     "rank": 33,
+     "tier": "T2",
+     "mean_ms": 372.45,
+     "worst_ms": 438.45,
+     "best_ms": 337.39,
+     "mean_expected_shots": 6.413497,
+     "kill_cost": 25282
+    },
+    "中距": {
+     "rank": 44,
+     "tier": "T3",
+     "mean_ms": 476.14,
+     "worst_ms": 510.41,
+     "best_ms": 438.45,
+     "mean_expected_shots": 7.920703,
+     "kill_cost": 31223
+    },
+    "远距": {
+     "rank": 41,
+     "tier": "T3",
+     "mean_ms": 510.41,
+     "worst_ms": 510.41,
+     "best_ms": 510.41,
+     "mean_expected_shots": 8.418742,
+     "kill_cost": 33187
+    }
+   }
+  },
+  {
+   "profile_key": "18020000046:base",
+   "weapon_id": "18020000046",
+   "name": "汤姆逊冲锋枪",
+   "base_name": "汤姆逊冲锋枪",
+   "category": "冲锋枪",
+   "is_variant": false,
+   "variant_item_name": null,
+   "loadout": {
+    "2": "13020000607"
+   },
+   "tuning": {},
+   "loadout_effects": [
+    {
+     "key": "effective_range_m",
+     "label": "优势射程",
+     "unit": " m",
+     "base": 18.0,
+     "final": 23.4
+    }
+   ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 360.33,
+     "max_ms": 360.33,
+     "mean_ms": 360.33,
+     "mean_expected_shots": 6.41
+    },
+    "近距": {
+     "min_ms": 360.33,
+     "max_ms": 425.1,
+     "mean_ms": 412.95,
+     "mean_expected_shots": 7.19
+    },
+    "中距": {
+     "min_ms": 425.1,
+     "max_ms": 586.79,
+     "mean_ms": 518.1,
+     "mean_expected_shots": 8.77
+    },
+    "远距": {
+     "min_ms": 586.79,
+     "max_ms": 586.79,
+     "mean_ms": 586.79,
+     "mean_expected_shots": 9.8
+    }
+   },
+   "overall_mean_ms": 442.07,
+   "expected_shots_0m": 6.4055,
+   "rpm": 900.1,
+   "ads_ms_reference": 290.0,
+   "muzzle_velocity_mps": 650.0,
+   "effective_range_m": 23.4,
+   "ammo": {
+    "ammo_item_id": "37190500001",
+    "name": "Super",
+    "caliber": ".45ACP",
+    "price_avg_30d": 5782
+   },
+   "bands": {
+    "贴脸": {
+     "rank": 28,
+     "tier": "T2",
+     "mean_ms": 360.33,
+     "worst_ms": 360.33,
+     "best_ms": 360.33,
+     "mean_expected_shots": 6.405484,
+     "kill_cost": 37037
     },
     "近距": {
      "rank": 39,
-     "tier": "T3",
-     "mean_ms": 554.28,
-     "worst_ms": 554.28,
-     "best_ms": 554.28,
-     "mean_expected_shots": 5.697323,
-     "kill_cost": 28441
+     "tier": "T2",
+     "mean_ms": 388.67,
+     "worst_ms": 425.1,
+     "best_ms": 360.33,
+     "mean_expected_shots": 6.830569,
+     "kill_cost": 39494
     },
     "中距": {
-     "rank": 38,
+     "rank": 42,
      "tier": "T3",
-     "mean_ms": 554.28,
-     "worst_ms": 554.28,
-     "best_ms": 554.28,
-     "mean_expected_shots": 5.697323,
-     "kill_cost": 28441
+     "mean_ms": 457.5,
+     "worst_ms": 500.71,
+     "best_ms": 425.1,
+     "mean_expected_shots": 7.863211,
+     "kill_cost": 45465
     },
     "远距": {
-     "rank": 32,
+     "rank": 46,
      "tier": "T3",
-     "mean_ms": 554.28,
-     "worst_ms": 554.28,
-     "best_ms": 554.28,
-     "mean_expected_shots": 5.697323,
-     "kill_cost": 28441
+     "mean_ms": 561.8,
+     "worst_ms": 586.79,
+     "best_ms": 500.71,
+     "mean_expected_shots": 9.427853,
+     "kill_cost": 54512
+    }
+   }
+  },
+  {
+   "profile_key": "18020000046:13050000410",
+   "weapon_id": "18020000046",
+   "name": "汤姆逊冲锋枪-汤姆逊先进枪身系统",
+   "base_name": "汤姆逊冲锋枪",
+   "category": "冲锋枪",
+   "is_variant": true,
+   "variant_item_name": "汤姆逊先进枪身系统",
+   "loadout": {},
+   "tuning": {},
+   "loadout_effects": [
+    {
+     "key": "base_damage",
+     "label": "肉伤",
+     "unit": "",
+     "base": 34.0,
+     "final": 37.0
+    },
+    {
+     "key": "base_armor_damage",
+     "label": "甲伤",
+     "unit": "",
+     "base": 36.0,
+     "final": 37.0
+    }
+   ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 360.33,
+     "max_ms": 360.33,
+     "mean_ms": 360.33,
+     "mean_expected_shots": 6.41
+    },
+    "近距": {
+     "min_ms": 360.33,
+     "max_ms": 425.1,
+     "mean_ms": 412.95,
+     "mean_expected_shots": 7.19
+    },
+    "中距": {
+     "min_ms": 425.1,
+     "max_ms": 586.79,
+     "mean_ms": 518.1,
+     "mean_expected_shots": 8.77
+    },
+    "远距": {
+     "min_ms": 586.79,
+     "max_ms": 586.79,
+     "mean_ms": 586.79,
+     "mean_expected_shots": 9.8
+    }
+   },
+   "overall_mean_ms": 432.3,
+   "expected_shots_0m": 6.0763,
+   "rpm": 900.1,
+   "ads_ms_reference": 270.36,
+   "muzzle_velocity_mps": 500.0,
+   "effective_range_m": 18.0,
+   "ammo": {
+    "ammo_item_id": "37190500001",
+    "name": "Super",
+    "caliber": ".45ACP",
+    "price_avg_30d": 5782
+   },
+   "bands": {
+    "贴脸": {
+     "rank": 20,
+     "tier": "T1",
+     "mean_ms": 338.39,
+     "worst_ms": 338.39,
+     "best_ms": 338.39,
+     "mean_expected_shots": 6.076329,
+     "kill_cost": 35133
+    },
+    "近距": {
+     "rank": 37,
+     "tier": "T2",
+     "mean_ms": 384.42,
+     "worst_ms": 395.04,
+     "best_ms": 338.39,
+     "mean_expected_shots": 6.766887,
+     "kill_cost": 39126
+    },
+    "中距": {
+     "rank": 43,
+     "tier": "T3",
+     "mean_ms": 471.09,
+     "worst_ms": 535.3,
+     "best_ms": 395.04,
+     "mean_expected_shots": 8.067117,
+     "kill_cost": 46644
+    },
+    "远距": {
+     "rank": 44,
+     "tier": "T3",
+     "mean_ms": 535.3,
+     "worst_ms": 535.3,
+     "best_ms": 535.3,
+     "mean_expected_shots": 9.030273,
+     "kill_cost": 52213
+    }
+   }
+  },
+  {
+   "profile_key": "18040000001:base",
+   "weapon_id": "18040000001",
+   "name": "PKM",
+   "base_name": "PKM",
+   "category": "轻机枪",
+   "is_variant": false,
+   "variant_item_name": null,
+   "loadout": {
+    "2": "13020000416"
+   },
+   "tuning": {},
+   "loadout_effects": [
+    {
+     "key": "effective_range_m",
+     "label": "优势射程",
+     "unit": " m",
+     "base": 40.0,
+     "final": 52.0
+    }
+   ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 317.12,
+     "max_ms": 317.12,
+     "mean_ms": 317.12,
+     "mean_expected_shots": 4.54
+    },
+    "近距": {
+     "min_ms": 317.12,
+     "max_ms": 317.12,
+     "mean_ms": 317.12,
+     "mean_expected_shots": 4.54
+    },
+    "中距": {
+     "min_ms": 317.12,
+     "max_ms": 382.28,
+     "mean_ms": 351.25,
+     "mean_expected_shots": 4.92
+    },
+    "远距": {
+     "min_ms": 382.28,
+     "max_ms": 472.72,
+     "mean_ms": 414.37,
+     "mean_expected_shots": 5.62
+    }
+   },
+   "overall_mean_ms": 332.36,
+   "expected_shots_0m": 4.5353,
+   "rpm": 668.9,
+   "ads_ms_reference": 480.0,
+   "muzzle_velocity_mps": 819.0,
+   "effective_range_m": 52.0,
+   "ammo": {
+    "ammo_item_id": "37180500001",
+    "name": "BT",
+    "caliber": "7.62x54R",
+    "price_avg_30d": 6094
+   },
+   "bands": {
+    "贴脸": {
+     "rank": 4,
+     "tier": "T0",
+     "mean_ms": 317.12,
+     "worst_ms": 317.12,
+     "best_ms": 317.12,
+     "mean_expected_shots": 4.535302,
+     "kill_cost": 27638
+    },
+    "近距": {
+     "rank": 4,
+     "tier": "T0",
+     "mean_ms": 317.12,
+     "worst_ms": 317.12,
+     "best_ms": 317.12,
+     "mean_expected_shots": 4.535302,
+     "kill_cost": 27638
+    },
+    "中距": {
+     "rank": 4,
+     "tier": "T0",
+     "mean_ms": 317.12,
+     "worst_ms": 317.12,
+     "best_ms": 317.12,
+     "mean_expected_shots": 4.535302,
+     "kill_cost": 27638
+    },
+    "远距": {
+     "rank": 5,
+     "tier": "T0",
+     "mean_ms": 378.08,
+     "worst_ms": 382.28,
+     "best_ms": 317.12,
+     "mean_expected_shots": 5.214916,
+     "kill_cost": 31780
     }
    }
   },
@@ -1490,7 +4898,6 @@
    "category": "轻机枪",
    "is_variant": false,
    "variant_item_name": null,
-   "equivalent_variants": [],
    "loadout": {
     "2": "13020000239"
    },
@@ -1544,7 +4951,7 @@
    },
    "bands": {
     "贴脸": {
-     "rank": 19,
+     "rank": 27,
      "tier": "T2",
      "mean_ms": 358.07,
      "worst_ms": 358.07,
@@ -1553,8 +4960,8 @@
      "kill_cost": 30564
     },
     "近距": {
-     "rank": 17,
-     "tier": "T2",
+     "rank": 23,
+     "tier": "T1",
      "mean_ms": 358.07,
      "worst_ms": 358.07,
      "best_ms": 358.07,
@@ -1562,7 +4969,7 @@
      "kill_cost": 30564
     },
     "中距": {
-     "rank": 8,
+     "rank": 10,
      "tier": "T1",
      "mean_ms": 358.07,
      "worst_ms": 358.07,
@@ -1571,7 +4978,7 @@
      "kill_cost": 30564
     },
     "远距": {
-     "rank": 14,
+     "rank": 17,
      "tier": "T1",
      "mean_ms": 424.06,
      "worst_ms": 428.62,
@@ -1589,9 +4996,6 @@
    "category": "轻机枪",
    "is_variant": false,
    "variant_item_name": null,
-   "equivalent_variants": [
-    "M250-钛金长枪管"
-   ],
    "loadout": {
     "2": "13020000524"
    },
@@ -1683,855 +5087,14 @@
    }
   },
   {
-   "profile_key": "18010000001:base",
-   "weapon_id": "18010000001",
-   "name": "M4A1",
-   "base_name": "M4A1",
-   "category": "突击步枪",
-   "is_variant": false,
-   "variant_item_name": null,
-   "equivalent_variants": [
-    "M4A1-AR特勤一体消音组合"
-   ],
-   "loadout": {
-    "2": "13020000173"
-   },
-   "tuning": {},
-   "loadout_effects": [
-    {
-     "key": "effective_range_m",
-     "label": "优势射程",
-     "unit": " m",
-     "base": 40.0,
-     "final": 47.2
-    }
-   ],
-   "stock_bands": {
-    "贴脸": {
-     "min_ms": 388.39,
-     "max_ms": 388.39,
-     "mean_ms": 388.39,
-     "mean_expected_shots": 6.18
-    },
-    "近距": {
-     "min_ms": 388.39,
-     "max_ms": 388.39,
-     "mean_ms": 388.39,
-     "mean_expected_shots": 6.18
-    },
-    "中距": {
-     "min_ms": 388.39,
-     "max_ms": 468.6,
-     "mean_ms": 430.41,
-     "mean_expected_shots": 6.74
-    },
-    "远距": {
-     "min_ms": 468.6,
-     "max_ms": 585.28,
-     "mean_ms": 510.0,
-     "mean_expected_shots": 7.8
-    }
-   },
-   "overall_mean_ms": 382.75,
-   "expected_shots_0m": 5.8392,
-   "rpm": 800.0,
-   "ads_ms_reference": 339.22,
-   "muzzle_velocity_mps": 678.5,
-   "effective_range_m": 47.2,
-   "ammo": {
-    "ammo_item_id": "37100500001",
-    "name": "M995",
-    "caliber": "5.56x45mm",
-    "price_avg_30d": 4992
-   },
-   "bands": {
-    "贴脸": {
-     "rank": 22,
-     "tier": "T2",
-     "mean_ms": 362.94,
-     "worst_ms": 362.94,
-     "best_ms": 362.94,
-     "mean_expected_shots": 5.839162,
-     "kill_cost": 29149
-    },
-    "近距": {
-     "rank": 19,
-     "tier": "T2",
-     "mean_ms": 362.94,
-     "worst_ms": 362.94,
-     "best_ms": 362.94,
-     "mean_expected_shots": 5.839162,
-     "kill_cost": 29149
-    },
-    "中距": {
-     "rank": 13,
-     "tier": "T1",
-     "mean_ms": 372.84,
-     "worst_ms": 432.27,
-     "best_ms": 362.94,
-     "mean_expected_shots": 5.971222,
-     "kill_cost": 29808
-    },
-    "远距": {
-     "rank": 18,
-     "tier": "T2",
-     "mean_ms": 432.27,
-     "worst_ms": 432.27,
-     "best_ms": 432.27,
-     "mean_expected_shots": 6.763581,
-     "kill_cost": 33764
-    }
-   }
-  },
-  {
-   "profile_key": "18010000016:base",
-   "weapon_id": "18010000016",
-   "name": "M7",
-   "base_name": "M7",
-   "category": "突击步枪",
-   "is_variant": false,
-   "variant_item_name": null,
-   "equivalent_variants": [
-    "M7-堤风超长枪管组合"
-   ],
-   "loadout": {
-    "2": "13020000383"
-   },
-   "tuning": {},
-   "loadout_effects": [
-    {
-     "key": "base_damage",
-     "label": "肉伤",
-     "unit": "",
-     "base": 37.0,
-     "final": 39.0
-    },
-    {
-     "key": "base_armor_damage",
-     "label": "甲伤",
-     "unit": "",
-     "base": 40.0,
-     "final": 42.0
-    },
-    {
-     "key": "effective_range_m",
-     "label": "优势射程",
-     "unit": " m",
-     "base": 50.0,
-     "final": 65.0
-    }
-   ],
-   "stock_bands": {
-    "贴脸": {
-     "min_ms": 402.19,
-     "max_ms": 402.19,
-     "mean_ms": 402.19,
-     "mean_expected_shots": 5.35
-    },
-    "近距": {
-     "min_ms": 402.19,
-     "max_ms": 402.19,
-     "mean_ms": 402.19,
-     "mean_expected_shots": 5.35
-    },
-    "中距": {
-     "min_ms": 402.19,
-     "max_ms": 441.49,
-     "mean_ms": 404.06,
-     "mean_expected_shots": 5.37
-    },
-    "远距": {
-     "min_ms": 441.49,
-     "max_ms": 503.81,
-     "mean_ms": 463.61,
-     "mean_expected_shots": 6.02
-    }
-   },
-   "overall_mean_ms": 374.73,
-   "expected_shots_0m": 4.9678,
-   "rpm": 649.4,
-   "ads_ms_reference": 375.11,
-   "muzzle_velocity_mps": 819.0,
-   "effective_range_m": 65.0,
-   "ammo": {
-    "ammo_item_id": "37150500001",
-    "name": "Hybrid",
-    "caliber": "6.8x51mm",
-    "price_avg_30d": 5359
-   },
-   "bands": {
-    "贴脸": {
-     "rank": 23,
-     "tier": "T2",
-     "mean_ms": 366.62,
-     "worst_ms": 366.62,
-     "best_ms": 366.62,
-     "mean_expected_shots": 4.967785,
-     "kill_cost": 26622
-    },
-    "近距": {
-     "rank": 21,
-     "tier": "T2",
-     "mean_ms": 366.62,
-     "worst_ms": 366.62,
-     "best_ms": 366.62,
-     "mean_expected_shots": 4.967785,
-     "kill_cost": 26622
-    },
-    "中距": {
-     "rank": 10,
-     "tier": "T1",
-     "mean_ms": 366.62,
-     "worst_ms": 366.62,
-     "best_ms": 366.62,
-     "mean_expected_shots": 4.967785,
-     "kill_cost": 26622
-    },
-    "远距": {
-     "rank": 9,
-     "tier": "T1",
-     "mean_ms": 399.04,
-     "worst_ms": 429.43,
-     "best_ms": 366.62,
-     "mean_expected_shots": 5.31861,
-     "kill_cost": 28502
-    }
-   }
-  },
-  {
-   "profile_key": "18010000044:base",
-   "weapon_id": "18010000044",
-   "name": "MCX-LT",
-   "base_name": "MCX-LT",
-   "category": "突击步枪",
-   "is_variant": false,
-   "variant_item_name": null,
-   "equivalent_variants": [
-    "MCX-LT-焰魂枪管"
-   ],
-   "loadout": {
-    "2": "13020000572",
-    "6": "13130000164"
-   },
-   "tuning": {},
-   "loadout_effects": [
-    {
-     "key": "effective_range_m",
-     "label": "优势射程",
-     "unit": " m",
-     "base": 30.0,
-     "final": 46.0
-    }
-   ],
-   "stock_bands": {
-    "贴脸": {
-     "min_ms": 373.35,
-     "max_ms": 373.35,
-     "mean_ms": 373.35,
-     "mean_expected_shots": 6.23
-    },
-    "近距": {
-     "min_ms": 373.35,
-     "max_ms": 455.09,
-     "mean_ms": 378.46,
-     "mean_expected_shots": 6.3
-    },
-    "中距": {
-     "min_ms": 455.09,
-     "max_ms": 556.7,
-     "mean_ms": 459.93,
-     "mean_expected_shots": 7.44
-    },
-    "远距": {
-     "min_ms": 556.7,
-     "max_ms": 556.7,
-     "mean_ms": 556.7,
-     "mean_expected_shots": 8.8
-    }
-   },
-   "overall_mean_ms": 400.96,
-   "expected_shots_0m": 6.2291,
-   "rpm": 840.3,
-   "ads_ms_reference": 355.38,
-   "muzzle_velocity_mps": 690.3,
-   "effective_range_m": 46.02,
-   "ammo": {
-    "ammo_item_id": "37280500001",
-    "name": "TAC-TX",
-    "caliber": ".300BLK",
-    "price_avg_30d": 4893
-   },
-   "bands": {
-    "贴脸": {
-     "rank": 25,
-     "tier": "T2",
-     "mean_ms": 373.35,
-     "worst_ms": 373.35,
-     "best_ms": 373.35,
-     "mean_expected_shots": 6.229056,
-     "kill_cost": 30479
-    },
-    "近距": {
-     "rank": 23,
-     "tier": "T2",
-     "mean_ms": 373.35,
-     "worst_ms": 373.35,
-     "best_ms": 373.35,
-     "mean_expected_shots": 6.229056,
-     "kill_cost": 30479
-    },
-    "中距": {
-     "rank": 19,
-     "tier": "T2",
-     "mean_ms": 388.92,
-     "worst_ms": 455.09,
-     "best_ms": 373.35,
-     "mean_expected_shots": 6.447116,
-     "kill_cost": 31546
-    },
-    "远距": {
-     "rank": 24,
-     "tier": "T2",
-     "mean_ms": 468.21,
-     "worst_ms": 556.7,
-     "best_ms": 455.09,
-     "mean_expected_shots": 7.557494,
-     "kill_cost": 36979
-    }
-   }
-  },
-  {
-   "profile_key": "18010000051:base",
-   "weapon_id": "18010000051",
-   "name": "MDR突击步枪",
-   "base_name": "MDR突击步枪",
-   "category": "突击步枪",
-   "is_variant": false,
-   "variant_item_name": null,
-   "equivalent_variants": [],
-   "loadout": {
-    "2": "13020000616"
-   },
-   "tuning": {},
-   "loadout_effects": [
-    {
-     "key": "effective_range_m",
-     "label": "优势射程",
-     "unit": " m",
-     "base": 35.0,
-     "final": 45.5
-    }
-   ],
-   "stock_bands": {
-    "贴脸": {
-     "min_ms": 354.79,
-     "max_ms": 354.79,
-     "mean_ms": 354.79,
-     "mean_expected_shots": 4.84
-    },
-    "近距": {
-     "min_ms": 354.79,
-     "max_ms": 354.79,
-     "mean_ms": 354.79,
-     "mean_expected_shots": 4.84
-    },
-    "中距": {
-     "min_ms": 354.79,
-     "max_ms": 485.76,
-     "mean_ms": 411.7,
-     "mean_expected_shots": 5.46
-    },
-    "远距": {
-     "min_ms": 485.76,
-     "max_ms": 485.76,
-     "mean_ms": 485.76,
-     "mean_expected_shots": 6.26
-    }
-   },
-   "overall_mean_ms": 384.5,
-   "expected_shots_0m": 4.8439,
-   "rpm": 650.1,
-   "ads_ms_reference": 344.77,
-   "muzzle_velocity_mps": 819.0,
-   "effective_range_m": 45.5,
-   "ammo": {
-    "ammo_item_id": "37170500001",
-    "name": "M62",
-    "caliber": "7.62x51mm",
-    "price_avg_30d": 6267
-   },
-   "bands": {
-    "贴脸": {
-     "rank": 18,
-     "tier": "T2",
-     "mean_ms": 354.79,
-     "worst_ms": 354.79,
-     "best_ms": 354.79,
-     "mean_expected_shots": 4.843866,
-     "kill_cost": 30357
-    },
-    "近距": {
-     "rank": 16,
-     "tier": "T1",
-     "mean_ms": 354.79,
-     "worst_ms": 354.79,
-     "best_ms": 354.79,
-     "mean_expected_shots": 4.843866,
-     "kill_cost": 30357
-    },
-    "中距": {
-     "rank": 12,
-     "tier": "T1",
-     "mean_ms": 371.68,
-     "worst_ms": 425.74,
-     "best_ms": 354.79,
-     "mean_expected_shots": 5.026888,
-     "kill_cost": 31504
-    },
-    "远距": {
-     "rank": 23,
-     "tier": "T2",
-     "mean_ms": 456.72,
-     "worst_ms": 485.76,
-     "best_ms": 425.74,
-     "mean_expected_shots": 5.948172,
-     "kill_cost": 37277
-    }
-   }
-  },
-  {
-   "profile_key": "18020000012:base",
-   "weapon_id": "18020000012",
-   "name": "MK4",
-   "base_name": "MK4",
-   "category": "冲锋枪",
-   "is_variant": false,
-   "variant_item_name": null,
-   "equivalent_variants": [
-    "MK4-击剑手枪管",
-    "MK4-深空镀铬枪管"
-   ],
-   "loadout": {
-    "2": "13020000563",
-    "6": "13130000164"
-   },
-   "tuning": {},
-   "loadout_effects": [
-    {
-     "key": "base_armor_damage",
-     "label": "甲伤",
-     "unit": "",
-     "base": 30.0,
-     "final": 35.0
-    },
-    {
-     "key": "effective_range_m",
-     "label": "优势射程",
-     "unit": " m",
-     "base": 20.0,
-     "final": 30.7
-    }
-   ],
-   "stock_bands": {
-    "贴脸": {
-     "min_ms": 336.34,
-     "max_ms": 336.34,
-     "mean_ms": 336.34,
-     "mean_expected_shots": 5.44
-    },
-    "近距": {
-     "min_ms": 336.34,
-     "max_ms": 450.79,
-     "mean_ms": 376.83,
-     "mean_expected_shots": 5.98
-    },
-    "中距": {
-     "min_ms": 450.79,
-     "max_ms": 512.44,
-     "mean_ms": 483.09,
-     "mean_expected_shots": 7.38
-    },
-    "远距": {
-     "min_ms": 512.44,
-     "max_ms": 512.44,
-     "mean_ms": 512.44,
-     "mean_expected_shots": 7.77
-    }
-   },
-   "overall_mean_ms": 378.23,
-   "expected_shots_0m": 5.3362,
-   "rpm": 793.0,
-   "ads_ms_reference": 361.38,
-   "muzzle_velocity_mps": 728.65,
-   "effective_range_m": 30.68,
-   "ammo": {
-    "ammo_item_id": "37260500001",
-    "name": "AP SX",
-    "caliber": "4.6x30mm",
-    "price_avg_30d": 3942
-   },
-   "bands": {
-    "贴脸": {
-     "rank": 7,
-     "tier": "T1",
-     "mean_ms": 328.11,
-     "worst_ms": 328.11,
-     "best_ms": 328.11,
-     "mean_expected_shots": 5.336237,
-     "kill_cost": 21035
-    },
-    "近距": {
-     "rank": 5,
-     "tier": "T0",
-     "mean_ms": 328.11,
-     "worst_ms": 328.11,
-     "best_ms": 328.11,
-     "mean_expected_shots": 5.336237,
-     "kill_cost": 21035
-    },
-    "中距": {
-     "rank": 16,
-     "tier": "T1",
-     "mean_ms": 382.9,
-     "worst_ms": 424.69,
-     "best_ms": 328.11,
-     "mean_expected_shots": 6.060409,
-     "kill_cost": 23890
-    },
-    "远距": {
-     "rank": 25,
-     "tier": "T2",
-     "mean_ms": 473.81,
-     "worst_ms": 504.84,
-     "best_ms": 424.69,
-     "mean_expected_shots": 7.261869,
-     "kill_cost": 28626
-    }
-   }
-  },
-  {
-   "profile_key": "18010000043:base",
-   "weapon_id": "18010000043",
-   "name": "MK47",
-   "base_name": "MK47",
-   "category": "突击步枪",
-   "is_variant": false,
-   "variant_item_name": null,
-   "equivalent_variants": [
-    "MK47-余烬枪管",
-    "MK47-鏖战枪管"
-   ],
-   "loadout": {
-    "2": "13020000560"
-   },
-   "tuning": {},
-   "loadout_effects": [
-    {
-     "key": "base_damage",
-     "label": "肉伤",
-     "unit": "",
-     "base": 42.0,
-     "final": 46.0
-    },
-    {
-     "key": "base_armor_damage",
-     "label": "甲伤",
-     "unit": "",
-     "base": 46.0,
-     "final": 47.0
-    }
-   ],
-   "stock_bands": {
-    "贴脸": {
-     "min_ms": 357.76,
-     "max_ms": 357.76,
-     "mean_ms": 357.76,
-     "mean_expected_shots": 4.73
-    },
-    "近距": {
-     "min_ms": 357.76,
-     "max_ms": 425.48,
-     "mean_ms": 361.99,
-     "mean_expected_shots": 4.77
-    },
-    "中距": {
-     "min_ms": 425.48,
-     "max_ms": 521.51,
-     "mean_ms": 452.92,
-     "mean_expected_shots": 5.72
-    },
-    "远距": {
-     "min_ms": 521.51,
-     "max_ms": 521.51,
-     "mean_ms": 521.51,
-     "mean_expected_shots": 6.43
-    }
-   },
-   "overall_mean_ms": 388.27,
-   "expected_shots_0m": 4.3938,
-   "rpm": 625.0,
-   "ads_ms_reference": 283.74,
-   "muzzle_velocity_mps": 525.0,
-   "effective_range_m": 30.0,
-   "ammo": {
-    "ammo_item_id": "37110500001",
-    "name": "AP",
-    "caliber": "7.62x39mm",
-    "price_avg_30d": 4971
-   },
-   "bands": {
-    "贴脸": {
-     "rank": 5,
-     "tier": "T0",
-     "mean_ms": 325.81,
-     "worst_ms": 325.81,
-     "best_ms": 325.81,
-     "mean_expected_shots": 4.393848,
-     "kill_cost": 21842
-    },
-    "近距": {
-     "rank": 7,
-     "tier": "T1",
-     "mean_ms": 329.97,
-     "worst_ms": 392.3,
-     "best_ms": 325.81,
-     "mean_expected_shots": 4.437137,
-     "kill_cost": 22057
-    },
-    "中距": {
-     "rank": 24,
-     "tier": "T2",
-     "mean_ms": 417.35,
-     "worst_ms": 479.96,
-     "best_ms": 392.3,
-     "mean_expected_shots": 5.347377,
-     "kill_cost": 26582
-    },
-    "远距": {
-     "rank": 26,
-     "tier": "T2",
-     "mean_ms": 479.96,
-     "worst_ms": 479.96,
-     "best_ms": 479.96,
-     "mean_expected_shots": 5.999633,
-     "kill_cost": 29824
-    }
-   }
-  },
-  {
-   "profile_key": "18020000010:base",
-   "weapon_id": "18020000010",
-   "name": "MP7",
-   "base_name": "MP7",
-   "category": "冲锋枪",
-   "is_variant": false,
-   "variant_item_name": null,
-   "equivalent_variants": [],
-   "loadout": {
-    "2": "13020000498",
-    "6": "13130000164"
-   },
-   "tuning": {},
-   "loadout_effects": [
-    {
-     "key": "effective_range_m",
-     "label": "优势射程",
-     "unit": " m",
-     "base": 20.0,
-     "final": 30.7
-    }
-   ],
-   "stock_bands": {
-    "贴脸": {
-     "min_ms": 332.68,
-     "max_ms": 332.68,
-     "mean_ms": 332.68,
-     "mean_expected_shots": 6.27
-    },
-    "近距": {
-     "min_ms": 332.68,
-     "max_ms": 541.21,
-     "mean_ms": 442.22,
-     "mean_expected_shots": 8.0
-    },
-    "中距": {
-     "min_ms": 541.21,
-     "max_ms": 648.91,
-     "mean_ms": 597.63,
-     "mean_expected_shots": 10.46
-    },
-    "远距": {
-     "min_ms": 648.91,
-     "max_ms": 648.91,
-     "mean_ms": 648.91,
-     "mean_expected_shots": 11.27
-    }
-   },
-   "overall_mean_ms": 440.84,
-   "expected_shots_0m": 6.2675,
-   "rpm": 950.0,
-   "ads_ms_reference": 321.23,
-   "muzzle_velocity_mps": 690.3,
-   "effective_range_m": 30.68,
-   "ammo": {
-    "ammo_item_id": "37260500001",
-    "name": "AP SX",
-    "caliber": "4.6x30mm",
-    "price_avg_30d": 3942
-   },
-   "bands": {
-    "贴脸": {
-     "rank": 9,
-     "tier": "T1",
-     "mean_ms": 332.68,
-     "worst_ms": 332.68,
-     "best_ms": 332.68,
-     "mean_expected_shots": 6.267475,
-     "kill_cost": 24706
-    },
-    "近距": {
-     "rank": 8,
-     "tier": "T1",
-     "mean_ms": 332.68,
-     "worst_ms": 332.68,
-     "best_ms": 332.68,
-     "mean_expected_shots": 6.267475,
-     "kill_cost": 24706
-    },
-    "中距": {
-     "rank": 34,
-     "tier": "T3",
-     "mean_ms": 490.79,
-     "worst_ms": 541.21,
-     "best_ms": 332.68,
-     "mean_expected_shots": 8.770905,
-     "kill_cost": 34575
-    },
-    "远距": {
-     "rank": 36,
-     "tier": "T3",
-     "mean_ms": 607.22,
-     "worst_ms": 648.91,
-     "best_ms": 541.21,
-     "mean_expected_shots": 10.614476,
-     "kill_cost": 41842
-    }
-   }
-  },
-  {
-   "profile_key": "18020000002:base",
-   "weapon_id": "18020000002",
-   "name": "P90",
-   "base_name": "P90",
-   "category": "冲锋枪",
-   "is_variant": false,
-   "variant_item_name": null,
-   "equivalent_variants": [
-    "P90-长弓精钢枪管"
-   ],
-   "loadout": {
-    "2": "13020000472",
-    "6": "13130000164"
-   },
-   "tuning": {},
-   "loadout_effects": [
-    {
-     "key": "effective_range_m",
-     "label": "优势射程",
-     "unit": " m",
-     "base": 20.0,
-     "final": 30.7
-    }
-   ],
-   "stock_bands": {
-    "贴脸": {
-     "min_ms": 329.17,
-     "max_ms": 329.17,
-     "mean_ms": 329.17,
-     "mean_expected_shots": 5.93
-    },
-    "近距": {
-     "min_ms": 329.17,
-     "max_ms": 544.94,
-     "mean_ms": 440.85,
-     "mean_expected_shots": 7.6
-    },
-    "中距": {
-     "min_ms": 544.94,
-     "max_ms": 644.92,
-     "mean_ms": 597.31,
-     "mean_expected_shots": 9.94
-    },
-    "远距": {
-     "min_ms": 644.92,
-     "max_ms": 803.0,
-     "mean_ms": 777.5,
-     "mean_expected_shots": 12.64
-    }
-   },
-   "overall_mean_ms": 438.83,
-   "expected_shots_0m": 5.9277,
-   "rpm": 898.2,
-   "ads_ms_reference": 390.9,
-   "muzzle_velocity_mps": 690.3,
-   "effective_range_m": 30.68,
-   "ammo": {
-    "ammo_item_id": "37210500001",
-    "name": "SS190",
-    "caliber": "5.7x28mm",
-    "price_avg_30d": 4767
-   },
-   "bands": {
-    "贴脸": {
-     "rank": 8,
-     "tier": "T1",
-     "mean_ms": 329.17,
-     "worst_ms": 329.17,
-     "best_ms": 329.17,
-     "mean_expected_shots": 5.927744,
-     "kill_cost": 28258
-    },
-    "近距": {
-     "rank": 6,
-     "tier": "T0",
-     "mean_ms": 329.17,
-     "worst_ms": 329.17,
-     "best_ms": 329.17,
-     "mean_expected_shots": 5.927744,
-     "kill_cost": 28258
-    },
-    "中距": {
-     "rank": 33,
-     "tier": "T3",
-     "mean_ms": 490.77,
-     "worst_ms": 544.94,
-     "best_ms": 329.17,
-     "mean_expected_shots": 8.34679,
-     "kill_cost": 39789
-    },
-    "远距": {
-     "rank": 35,
-     "tier": "T3",
-     "mean_ms": 606.22,
-     "worst_ms": 644.92,
-     "best_ms": 544.94,
-     "mean_expected_shots": 10.075081,
-     "kill_cost": 48028
-    }
-   }
-  },
-  {
-   "profile_key": "18040000001:base",
-   "weapon_id": "18040000001",
-   "name": "PKM",
-   "base_name": "PKM",
+   "profile_key": "18040000003:13020000524",
+   "weapon_id": "18040000003",
+   "name": "M250-钛金长枪管",
+   "base_name": "M250",
    "category": "轻机枪",
-   "is_variant": false,
-   "variant_item_name": null,
-   "equivalent_variants": [],
-   "loadout": {
-    "2": "13020000416"
-   },
+   "is_variant": true,
+   "variant_item_name": "M250钛金长枪管",
+   "loadout": {},
    "tuning": {},
    "loadout_effects": [
     {
@@ -2544,277 +5107,78 @@
    ],
    "stock_bands": {
     "贴脸": {
-     "min_ms": 317.12,
-     "max_ms": 317.12,
-     "mean_ms": 317.12,
-     "mean_expected_shots": 4.54
+     "min_ms": 315.07,
+     "max_ms": 315.07,
+     "mean_ms": 315.07,
+     "mean_expected_shots": 3.89
     },
     "近距": {
-     "min_ms": 317.12,
-     "max_ms": 317.12,
-     "mean_ms": 317.12,
-     "mean_expected_shots": 4.54
+     "min_ms": 315.07,
+     "max_ms": 315.07,
+     "mean_ms": 315.07,
+     "mean_expected_shots": 3.89
     },
     "中距": {
-     "min_ms": 317.12,
-     "max_ms": 382.28,
-     "mean_ms": 351.25,
-     "mean_expected_shots": 4.92
+     "min_ms": 315.07,
+     "max_ms": 387.03,
+     "mean_ms": 352.76,
+     "mean_expected_shots": 4.24
     },
     "远距": {
-     "min_ms": 382.28,
-     "max_ms": 472.72,
-     "mean_ms": 414.37,
-     "mean_expected_shots": 5.62
+     "min_ms": 387.03,
+     "max_ms": 480.33,
+     "mean_ms": 420.14,
+     "mean_expected_shots": 4.85
     }
    },
-   "overall_mean_ms": 332.36,
-   "expected_shots_0m": 4.5353,
-   "rpm": 668.9,
-   "ads_ms_reference": 480.0,
+   "overall_mean_ms": 314.84,
+   "expected_shots_0m": 3.726,
+   "rpm": 550.5,
+   "ads_ms_reference": 526.87,
    "muzzle_velocity_mps": 819.0,
    "effective_range_m": 52.0,
    "ammo": {
-    "ammo_item_id": "37180500001",
-    "name": "BT",
-    "caliber": "7.62x54R",
-    "price_avg_30d": 6094
+    "ammo_item_id": "37150500001",
+    "name": "Hybrid",
+    "caliber": "6.8x51mm",
+    "price_avg_30d": 5359
    },
    "bands": {
     "贴脸": {
-     "rank": 3,
+     "rank": 2,
      "tier": "T0",
-     "mean_ms": 317.12,
-     "worst_ms": 317.12,
-     "best_ms": 317.12,
-     "mean_expected_shots": 4.535302,
-     "kill_cost": 27638
+     "mean_ms": 297.14,
+     "worst_ms": 297.14,
+     "best_ms": 297.14,
+     "mean_expected_shots": 3.72602,
+     "kill_cost": 19968
     },
     "近距": {
-     "rank": 3,
+     "rank": 2,
      "tier": "T0",
-     "mean_ms": 317.12,
-     "worst_ms": 317.12,
-     "best_ms": 317.12,
-     "mean_expected_shots": 4.535302,
-     "kill_cost": 27638
+     "mean_ms": 297.14,
+     "worst_ms": 297.14,
+     "best_ms": 297.14,
+     "mean_expected_shots": 3.72602,
+     "kill_cost": 19968
     },
     "中距": {
-     "rank": 3,
+     "rank": 2,
      "tier": "T0",
-     "mean_ms": 317.12,
-     "worst_ms": 317.12,
-     "best_ms": 317.12,
-     "mean_expected_shots": 4.535302,
-     "kill_cost": 27638
+     "mean_ms": 297.14,
+     "worst_ms": 297.14,
+     "best_ms": 297.14,
+     "mean_expected_shots": 3.72602,
+     "kill_cost": 19968
     },
     "远距": {
      "rank": 4,
      "tier": "T0",
-     "mean_ms": 378.08,
-     "worst_ms": 382.28,
-     "best_ms": 317.12,
-     "mean_expected_shots": 5.214916,
-     "kill_cost": 31780
-    }
-   }
-  },
-  {
-   "profile_key": "18010000024:base",
-   "weapon_id": "18010000024",
-   "name": "PTR-32",
-   "base_name": "PTR-32",
-   "category": "突击步枪",
-   "is_variant": false,
-   "variant_item_name": null,
-   "equivalent_variants": [],
-   "loadout": {
-    "2": "13020000394"
-   },
-   "tuning": {},
-   "loadout_effects": [
-    {
-     "key": "effective_range_m",
-     "label": "优势射程",
-     "unit": " m",
-     "base": 40.0,
-     "final": 47.2
-    }
-   ],
-   "stock_bands": {
-    "贴脸": {
-     "min_ms": 422.48,
-     "max_ms": 422.48,
-     "mean_ms": 422.48,
-     "mean_expected_shots": 5.45
-    },
-    "近距": {
-     "min_ms": 422.48,
-     "max_ms": 422.48,
-     "mean_ms": 422.48,
-     "mean_expected_shots": 5.45
-    },
-    "中距": {
-     "min_ms": 422.48,
-     "max_ms": 503.16,
-     "mean_ms": 464.74,
-     "mean_expected_shots": 5.9
-    },
-    "远距": {
-     "min_ms": 503.16,
-     "max_ms": 626.98,
-     "mean_ms": 547.1,
-     "mean_expected_shots": 6.76
-    }
-   },
-   "overall_mean_ms": 445.53,
-   "expected_shots_0m": 5.4518,
-   "rpm": 632.2,
-   "ads_ms_reference": 314.96,
-   "muzzle_velocity_mps": 743.4,
-   "effective_range_m": 47.2,
-   "ammo": {
-    "ammo_item_id": "37110500001",
-    "name": "AP",
-    "caliber": "7.62x39mm",
-    "price_avg_30d": 4971
-   },
-   "bands": {
-    "贴脸": {
-     "rank": 32,
-     "tier": "T3",
-     "mean_ms": 422.48,
-     "worst_ms": 422.48,
-     "best_ms": 422.48,
-     "mean_expected_shots": 5.451837,
-     "kill_cost": 27101
-    },
-    "近距": {
-     "rank": 32,
-     "tier": "T3",
-     "mean_ms": 422.48,
-     "worst_ms": 422.48,
-     "best_ms": 422.48,
-     "mean_expected_shots": 5.451837,
-     "kill_cost": 27101
-    },
-    "中距": {
-     "rank": 28,
-     "tier": "T3",
-     "mean_ms": 434.01,
-     "worst_ms": 503.16,
-     "best_ms": 422.48,
-     "mean_expected_shots": 5.573294,
-     "kill_cost": 27705
-    },
-    "远距": {
-     "rank": 29,
-     "tier": "T3",
-     "mean_ms": 503.16,
-     "worst_ms": 503.16,
-     "best_ms": 503.16,
-     "mean_expected_shots": 6.30203,
-     "kill_cost": 31327
-    }
-   }
-  },
-  {
-   "profile_key": "18010000008:base",
-   "weapon_id": "18010000008",
-   "name": "QBZ95-1",
-   "base_name": "QBZ95-1",
-   "category": "突击步枪",
-   "is_variant": false,
-   "variant_item_name": null,
-   "equivalent_variants": [],
-   "loadout": {
-    "2": "13020000373",
-    "6": "13130000164"
-   },
-   "tuning": {},
-   "loadout_effects": [
-    {
-     "key": "effective_range_m",
-     "label": "优势射程",
-     "unit": " m",
-     "base": 55.0,
-     "final": 84.4
-    }
-   ],
-   "stock_bands": {
-    "贴脸": {
-     "min_ms": 445.39,
-     "max_ms": 445.39,
-     "mean_ms": 445.39,
-     "mean_expected_shots": 6.04
-    },
-    "近距": {
-     "min_ms": 445.39,
-     "max_ms": 445.39,
-     "mean_ms": 445.39,
-     "mean_expected_shots": 6.04
-    },
-    "中距": {
-     "min_ms": 445.39,
-     "max_ms": 445.39,
-     "mean_ms": 445.39,
-     "mean_expected_shots": 6.04
-    },
-    "远距": {
-     "min_ms": 445.39,
-     "max_ms": 528.83,
-     "mean_ms": 515.37,
-     "mean_expected_shots": 6.83
-    }
-   },
-   "overall_mean_ms": 445.39,
-   "expected_shots_0m": 6.0384,
-   "rpm": 678.7,
-   "ads_ms_reference": 399.48,
-   "muzzle_velocity_mps": 882.05,
-   "effective_range_m": 84.37,
-   "ammo": {
-    "ammo_item_id": "37130500001",
-    "name": "DVC12",
-    "caliber": "5.8x42mm",
-    "price_avg_30d": 5145
-   },
-   "bands": {
-    "贴脸": {
-     "rank": 34,
-     "tier": "T3",
-     "mean_ms": 445.39,
-     "worst_ms": 445.39,
-     "best_ms": 445.39,
-     "mean_expected_shots": 6.038403,
-     "kill_cost": 31068
-    },
-    "近距": {
-     "rank": 34,
-     "tier": "T3",
-     "mean_ms": 445.39,
-     "worst_ms": 445.39,
-     "best_ms": 445.39,
-     "mean_expected_shots": 6.038403,
-     "kill_cost": 31068
-    },
-    "中距": {
-     "rank": 29,
-     "tier": "T3",
-     "mean_ms": 445.39,
-     "worst_ms": 445.39,
-     "best_ms": 445.39,
-     "mean_expected_shots": 6.038403,
-     "kill_cost": 31068
-    },
-    "远距": {
-     "rank": 21,
-     "tier": "T2",
-     "mean_ms": 445.39,
-     "worst_ms": 445.39,
-     "best_ms": 445.39,
-     "mean_expected_shots": 6.038403,
-     "kill_cost": 31068
+     "mean_ms": 367.93,
+     "worst_ms": 372.81,
+     "best_ms": 297.14,
+     "mean_expected_shots": 4.375492,
+     "kill_cost": 23448
     }
    }
   },
@@ -2826,9 +5190,6 @@
    "category": "轻机枪",
    "is_variant": false,
    "variant_item_name": null,
-   "equivalent_variants": [
-    "QJB201-新式獠牙短枪管"
-   ],
    "loadout": {
     "2": "13020000530",
     "47": "13390000006"
@@ -2890,7 +5251,7 @@
    },
    "bands": {
     "贴脸": {
-     "rank": 6,
+     "rank": 9,
      "tier": "T0",
      "mean_ms": 325.95,
      "worst_ms": 325.95,
@@ -2899,7 +5260,7 @@
      "kill_cost": 29535
     },
     "近距": {
-     "rank": 4,
+     "rank": 5,
      "tier": "T0",
      "mean_ms": 325.95,
      "worst_ms": 325.95,
@@ -2908,7 +5269,7 @@
      "kill_cost": 29535
     },
     "中距": {
-     "rank": 4,
+     "rank": 5,
      "tier": "T0",
      "mean_ms": 325.95,
      "worst_ms": 325.95,
@@ -2917,8 +5278,8 @@
      "kill_cost": 29535
     },
     "远距": {
-     "rank": 7,
-     "tier": "T1",
+     "rank": 9,
+     "tier": "T0",
      "mean_ms": 386.04,
      "worst_ms": 390.19,
      "best_ms": 325.95,
@@ -2928,458 +5289,136 @@
    }
   },
   {
-   "profile_key": "18010000049:base",
-   "weapon_id": "18010000049",
-   "name": "RM277",
-   "base_name": "RM277",
-   "category": "突击步枪",
-   "is_variant": false,
-   "variant_item_name": null,
-   "equivalent_variants": [],
-   "loadout": {
-    "2": "13020000602",
-    "6": "13130000164"
-   },
+   "profile_key": "18040000004:13020000529",
+   "weapon_id": "18040000004",
+   "name": "QJB201-新式獠牙短枪管",
+   "base_name": "QJB201",
+   "category": "轻机枪",
+   "is_variant": true,
+   "variant_item_name": "QJB201新式獠牙短枪管",
+   "loadout": {},
    "tuning": {},
-   "loadout_effects": [
-    {
-     "key": "effective_range_m",
-     "label": "优势射程",
-     "unit": " m",
-     "base": 55.0,
-     "final": 84.4
-    }
-   ],
+   "loadout_effects": [],
    "stock_bands": {
     "贴脸": {
-     "min_ms": 410.71,
-     "max_ms": 410.71,
-     "mean_ms": 410.71,
-     "mean_expected_shots": 4.77
+     "min_ms": 362.17,
+     "max_ms": 362.17,
+     "mean_ms": 362.17,
+     "mean_expected_shots": 5.74
     },
     "近距": {
-     "min_ms": 410.71,
-     "max_ms": 410.71,
-     "mean_ms": 410.71,
-     "mean_expected_shots": 4.77
+     "min_ms": 362.17,
+     "max_ms": 362.17,
+     "mean_ms": 362.17,
+     "mean_expected_shots": 5.74
     },
     "中距": {
-     "min_ms": 410.71,
-     "max_ms": 410.71,
-     "mean_ms": 410.71,
-     "mean_expected_shots": 4.77
+     "min_ms": 362.17,
+     "max_ms": 433.54,
+     "mean_ms": 399.55,
+     "mean_expected_shots": 6.23
     },
     "远距": {
-     "min_ms": 410.71,
-     "max_ms": 468.33,
-     "mean_ms": 459.04,
-     "mean_expected_shots": 5.21
+     "min_ms": 433.54,
+     "max_ms": 540.77,
+     "mean_ms": 471.59,
+     "mean_expected_shots": 7.17
     }
    },
-   "overall_mean_ms": 410.71,
-   "expected_shots_0m": 4.768,
-   "rpm": 550.5,
-   "ads_ms_reference": 469.11,
-   "muzzle_velocity_mps": 997.1,
-   "effective_range_m": 84.37,
+   "overall_mean_ms": 398.87,
+   "expected_shots_0m": 5.7404,
+   "rpm": 785.3,
+   "ads_ms_reference": 408.47,
+   "muzzle_velocity_mps": 575.0,
+   "effective_range_m": 40.0,
    "ammo": {
-    "ammo_item_id": "37150500001",
-    "name": "Hybrid",
-    "caliber": "6.8x51mm",
-    "price_avg_30d": 5359
+    "ammo_item_id": "37130500001",
+    "name": "DVC12",
+    "caliber": "5.8x42mm",
+    "price_avg_30d": 5145
    },
    "bands": {
     "贴脸": {
      "rank": 30,
-     "tier": "T3",
-     "mean_ms": 410.71,
-     "worst_ms": 410.71,
-     "best_ms": 410.71,
-     "mean_expected_shots": 4.76802,
-     "kill_cost": 25552
+     "tier": "T2",
+     "mean_ms": 362.17,
+     "worst_ms": 362.17,
+     "best_ms": 362.17,
+     "mean_expected_shots": 5.740438,
+     "kill_cost": 29535
     },
     "近距": {
+     "rank": 26,
+     "tier": "T2",
+     "mean_ms": 362.17,
+     "worst_ms": 362.17,
+     "best_ms": 362.17,
+     "mean_expected_shots": 5.740438,
+     "kill_cost": 29535
+    },
+    "中距": {
      "rank": 29,
-     "tier": "T3",
-     "mean_ms": 410.71,
-     "worst_ms": 410.71,
-     "best_ms": 410.71,
-     "mean_expected_shots": 4.76802,
-     "kill_cost": 25552
-    },
-    "中距": {
-     "rank": 22,
      "tier": "T2",
-     "mean_ms": 410.71,
-     "worst_ms": 410.71,
-     "best_ms": 410.71,
-     "mean_expected_shots": 4.76802,
-     "kill_cost": 25552
+     "mean_ms": 399.55,
+     "worst_ms": 433.54,
+     "best_ms": 362.17,
+     "mean_expected_shots": 6.229759,
+     "kill_cost": 32052
     },
     "远距": {
-     "rank": 11,
-     "tier": "T1",
-     "mean_ms": 410.71,
-     "worst_ms": 410.71,
-     "best_ms": 410.71,
-     "mean_expected_shots": 4.76802,
-     "kill_cost": 25552
+     "rank": 32,
+     "tier": "T2",
+     "mean_ms": 471.59,
+     "worst_ms": 540.77,
+     "best_ms": 433.54,
+     "mean_expected_shots": 7.172619,
+     "kill_cost": 36903
     }
    }
   },
   {
-   "profile_key": "18010000021:base",
-   "weapon_id": "18010000021",
-   "name": "SCAR-H",
-   "base_name": "SCAR-H",
-   "category": "突击步枪",
+   "profile_key": "18050000003:base",
+   "weapon_id": "18050000003",
+   "name": "VSS",
+   "base_name": "VSS",
+   "category": "精确射手步枪",
    "is_variant": false,
    "variant_item_name": null,
-   "equivalent_variants": [],
-   "loadout": {
-    "2": "13020000390"
-   },
+   "loadout": {},
    "tuning": {},
-   "loadout_effects": [
-    {
-     "key": "effective_range_m",
-     "label": "优势射程",
-     "unit": " m",
-     "base": 40.0,
-     "final": 52.0
-    }
-   ],
+   "loadout_effects": [],
    "stock_bands": {
     "贴脸": {
-     "min_ms": 387.0,
-     "max_ms": 387.0,
-     "mean_ms": 387.0,
-     "mean_expected_shots": 4.77
+     "min_ms": 428.31,
+     "max_ms": 428.31,
+     "mean_ms": 428.31,
+     "mean_expected_shots": 4.43
     },
     "近距": {
-     "min_ms": 387.0,
-     "max_ms": 387.0,
-     "mean_ms": 387.0,
-     "mean_expected_shots": 4.77
+     "min_ms": 428.31,
+     "max_ms": 428.31,
+     "mean_ms": 428.31,
+     "mean_expected_shots": 4.43
     },
     "中距": {
-     "min_ms": 387.0,
-     "max_ms": 432.46,
-     "mean_ms": 410.81,
-     "mean_expected_shots": 5.0
+     "min_ms": 428.31,
+     "max_ms": 428.31,
+     "mean_ms": 428.31,
+     "mean_expected_shots": 4.43
     },
     "远距": {
-     "min_ms": 432.46,
-     "max_ms": 525.2,
-     "mean_ms": 465.37,
-     "mean_expected_shots": 5.54
+     "min_ms": 428.31,
+     "max_ms": 428.31,
+     "mean_ms": 428.31,
+     "mean_expected_shots": 4.43
     }
    },
-   "overall_mean_ms": 397.63,
-   "expected_shots_0m": 4.7719,
-   "rpm": 584.8,
-   "ads_ms_reference": 344.77,
-   "muzzle_velocity_mps": 819.0,
-   "effective_range_m": 52.0,
-   "ammo": {
-    "ammo_item_id": "37170500001",
-    "name": "M62",
-    "caliber": "7.62x51mm",
-    "price_avg_30d": 6267
-   },
-   "bands": {
-    "贴脸": {
-     "rank": 27,
-     "tier": "T2",
-     "mean_ms": 387.0,
-     "worst_ms": 387.0,
-     "best_ms": 387.0,
-     "mean_expected_shots": 4.771887,
-     "kill_cost": 29905
-    },
-    "近距": {
-     "rank": 25,
-     "tier": "T2",
-     "mean_ms": 387.0,
-     "worst_ms": 387.0,
-     "best_ms": 387.0,
-     "mean_expected_shots": 4.771887,
-     "kill_cost": 29905
-    },
-    "中距": {
-     "rank": 18,
-     "tier": "T2",
-     "mean_ms": 387.0,
-     "worst_ms": 387.0,
-     "best_ms": 387.0,
-     "mean_expected_shots": 4.771887,
-     "kill_cost": 29905
-    },
-    "远距": {
-     "rank": 17,
-     "tier": "T2",
-     "mean_ms": 429.53,
-     "worst_ms": 432.46,
-     "best_ms": 387.0,
-     "mean_expected_shots": 5.186449,
-     "kill_cost": 32503
-    }
-   }
-  },
-  {
-   "profile_key": "18010000017:base",
-   "weapon_id": "18010000017",
-   "name": "SG552",
-   "base_name": "SG552",
-   "category": "突击步枪",
-   "is_variant": false,
-   "variant_item_name": null,
-   "equivalent_variants": [],
-   "loadout": {
-    "2": "13020000320",
-    "6": "13130000164"
-   },
-   "tuning": {},
-   "loadout_effects": [
-    {
-     "key": "effective_range_m",
-     "label": "优势射程",
-     "unit": " m",
-     "base": 35.0,
-     "final": 48.7
-    }
-   ],
-   "stock_bands": {
-    "贴脸": {
-     "min_ms": 406.64,
-     "max_ms": 406.64,
-     "mean_ms": 406.64,
-     "mean_expected_shots": 7.14
-    },
-    "近距": {
-     "min_ms": 406.64,
-     "max_ms": 406.64,
-     "mean_ms": 406.64,
-     "mean_expected_shots": 7.14
-    },
-    "中距": {
-     "min_ms": 406.64,
-     "max_ms": 488.1,
-     "mean_ms": 468.71,
-     "mean_expected_shots": 8.08
-    },
-    "远距": {
-     "min_ms": 488.1,
-     "max_ms": 559.53,
-     "mean_ms": 524.97,
-     "mean_expected_shots": 8.93
-    }
-   },
-   "overall_mean_ms": 428.94,
-   "expected_shots_0m": 7.1426,
-   "rpm": 906.3,
-   "ads_ms_reference": 314.96,
-   "muzzle_velocity_mps": 800.63,
-   "effective_range_m": 48.73,
-   "ammo": {
-    "ammo_item_id": "37100500001",
-    "name": "M995",
-    "caliber": "5.56x45mm",
-    "price_avg_30d": 4992
-   },
-   "bands": {
-    "贴脸": {
-     "rank": 29,
-     "tier": "T3",
-     "mean_ms": 406.64,
-     "worst_ms": 406.64,
-     "best_ms": 406.64,
-     "mean_expected_shots": 7.142557,
-     "kill_cost": 35656
-    },
-    "近距": {
-     "rank": 28,
-     "tier": "T3",
-     "mean_ms": 406.64,
-     "worst_ms": 406.64,
-     "best_ms": 406.64,
-     "mean_expected_shots": 7.142557,
-     "kill_cost": 35656
-    },
-    "中距": {
-     "rank": 23,
-     "tier": "T2",
-     "mean_ms": 414.4,
-     "worst_ms": 488.1,
-     "best_ms": 406.64,
-     "mean_expected_shots": 7.259758,
-     "kill_cost": 36241
-    },
-    "远距": {
-     "rank": 28,
-     "tier": "T3",
-     "mean_ms": 488.1,
-     "worst_ms": 488.1,
-     "best_ms": 488.1,
-     "mean_expected_shots": 8.373166,
-     "kill_cost": 41799
-    }
-   }
-  },
-  {
-   "profile_key": "18020000006:base",
-   "weapon_id": "18020000006",
-   "name": "SMG-45",
-   "base_name": "SMG-45",
-   "category": "冲锋枪",
-   "is_variant": false,
-   "variant_item_name": null,
-   "equivalent_variants": [],
-   "loadout": {
-    "2": "13020000424",
-    "6": "13130000164"
-   },
-   "tuning": {},
-   "loadout_effects": [
-    {
-     "key": "effective_range_m",
-     "label": "优势射程",
-     "unit": " m",
-     "base": 27.0,
-     "final": 41.4
-    }
-   ],
-   "stock_bands": {
-    "贴脸": {
-     "min_ms": 489.82,
-     "max_ms": 489.82,
-     "mean_ms": 489.82,
-     "mean_expected_shots": 5.94
-    },
-    "近距": {
-     "min_ms": 489.82,
-     "max_ms": 680.64,
-     "mean_ms": 537.53,
-     "mean_expected_shots": 6.42
-    },
-    "中距": {
-     "min_ms": 680.64,
-     "max_ms": 680.64,
-     "mean_ms": 680.64,
-     "mean_expected_shots": 7.86
-    },
-    "远距": {
-     "min_ms": 680.64,
-     "max_ms": 797.57,
-     "mean_ms": 782.48,
-     "mean_expected_shots": 8.89
-    }
-   },
-   "overall_mean_ms": 557.97,
-   "expected_shots_0m": 5.9377,
-   "rpm": 604.8,
-   "ads_ms_reference": 302.35,
-   "muzzle_velocity_mps": 767.0,
-   "effective_range_m": 41.42,
-   "ammo": {
-    "ammo_item_id": "37190500001",
-    "name": "Super",
-    "caliber": ".45ACP",
-    "price_avg_30d": 5782
-   },
-   "bands": {
-    "贴脸": {
-     "rank": 36,
-     "tier": "T3",
-     "mean_ms": 489.82,
-     "worst_ms": 489.82,
-     "best_ms": 489.82,
-     "mean_expected_shots": 5.937704,
-     "kill_cost": 34332
-    },
-    "近距": {
-     "rank": 36,
-     "tier": "T3",
-     "mean_ms": 489.82,
-     "worst_ms": 489.82,
-     "best_ms": 489.82,
-     "mean_expected_shots": 5.937704,
-     "kill_cost": 34332
-    },
-    "中距": {
-     "rank": 39,
-     "tier": "T3",
-     "mean_ms": 571.6,
-     "worst_ms": 680.64,
-     "best_ms": 489.82,
-     "mean_expected_shots": 6.762112,
-     "kill_cost": 39099
-    },
-    "远距": {
-     "rank": 39,
-     "tier": "T3",
-     "mean_ms": 680.64,
-     "worst_ms": 680.64,
-     "best_ms": 680.64,
-     "mean_expected_shots": 7.861323,
-     "kill_cost": 45454
-    }
-   }
-  },
-  {
-   "profile_key": "18020000008:base",
-   "weapon_id": "18020000008",
-   "name": "SR-3M",
-   "base_name": "SR-3M",
-   "category": "冲锋枪",
-   "is_variant": false,
-   "variant_item_name": null,
-   "equivalent_variants": [],
-   "loadout": {
-    "6": "13130000172"
-   },
-   "tuning": {},
-   "loadout_effects": [
-    {
-     "key": "effective_range_m",
-     "label": "优势射程",
-     "unit": " m",
-     "base": 15.0,
-     "final": 19.5
-    }
-   ],
-   "stock_bands": {
-    "贴脸": {
-     "min_ms": 332.77,
-     "max_ms": 455.78,
-     "mean_ms": 340.46,
-     "mean_expected_shots": 5.24
-    },
-    "近距": {
-     "min_ms": 455.78,
-     "max_ms": 455.78,
-     "mean_ms": 455.78,
-     "mean_expected_shots": 6.68
-    },
-    "中距": {
-     "min_ms": 455.78,
-     "max_ms": 533.8,
-     "mean_ms": 530.09,
-     "mean_expected_shots": 7.6
-    },
-    "远距": {
-     "min_ms": 533.8,
-     "max_ms": 533.8,
-     "mean_ms": 533.8,
-     "mean_expected_shots": 7.65
-    }
-   },
-   "overall_mean_ms": 444.21,
-   "expected_shots_0m": 5.1441,
-   "rpm": 747.2,
-   "ads_ms_reference": 308.65,
-   "muzzle_velocity_mps": 429.0,
-   "effective_range_m": 19.5,
+   "overall_mean_ms": 428.31,
+   "expected_shots_0m": 4.4265,
+   "rpm": 480.0,
+   "ads_ms_reference": 327.39,
+   "muzzle_velocity_mps": 330.0,
+   "effective_range_m": 120.0,
    "ammo": {
     "ammo_item_id": "37140500001",
     "name": "BP",
@@ -3388,40 +5427,138 @@
    },
    "bands": {
     "贴脸": {
-     "rank": 10,
-     "tier": "T1",
-     "mean_ms": 332.77,
-     "worst_ms": 332.77,
-     "best_ms": 332.77,
-     "mean_expected_shots": 5.144076,
-     "kill_cost": 22732
+     "rank": 47,
+     "tier": "T3",
+     "mean_ms": 428.31,
+     "worst_ms": 428.31,
+     "best_ms": 428.31,
+     "mean_expected_shots": 4.426461,
+     "kill_cost": 19561
     },
     "近距": {
-     "rank": 30,
+     "rank": 46,
      "tier": "T3",
-     "mean_ms": 417.34,
-     "worst_ms": 455.78,
-     "best_ms": 332.77,
-     "mean_expected_shots": 6.197238,
-     "kill_cost": 27386
+     "mean_ms": 428.31,
+     "worst_ms": 428.31,
+     "best_ms": 428.31,
+     "mean_expected_shots": 4.426461,
+     "kill_cost": 19561
     },
     "中距": {
-     "rank": 35,
-     "tier": "T3",
-     "mean_ms": 492.93,
-     "worst_ms": 533.8,
-     "best_ms": 455.78,
-     "mean_expected_shots": 7.138654,
-     "kill_cost": 31546
+     "rank": 37,
+     "tier": "T2",
+     "mean_ms": 428.31,
+     "worst_ms": 428.31,
+     "best_ms": 428.31,
+     "mean_expected_shots": 4.426461,
+     "kill_cost": 19561
     },
     "远距": {
-     "rank": 31,
-     "tier": "T3",
-     "mean_ms": 533.8,
-     "worst_ms": 533.8,
-     "best_ms": 533.8,
-     "mean_expected_shots": 7.64763,
-     "kill_cost": 33795
+     "rank": 20,
+     "tier": "T1",
+     "mean_ms": 428.31,
+     "worst_ms": 428.31,
+     "best_ms": 428.31,
+     "mean_expected_shots": 4.426461,
+     "kill_cost": 19561
+    }
+   }
+  },
+  {
+   "profile_key": "18050000005:base",
+   "weapon_id": "18050000005",
+   "name": "M14",
+   "base_name": "M14",
+   "category": "精确射手步枪",
+   "is_variant": false,
+   "variant_item_name": null,
+   "loadout": {
+    "2": "13020000386"
+   },
+   "tuning": {},
+   "loadout_effects": [
+    {
+     "key": "effective_range_m",
+     "label": "优势射程",
+     "unit": " m",
+     "base": 40.0,
+     "final": 47.2
+    }
+   ],
+   "stock_bands": {
+    "贴脸": {
+     "min_ms": 334.36,
+     "max_ms": 334.36,
+     "mean_ms": 334.36,
+     "mean_expected_shots": 5.05
+    },
+    "近距": {
+     "min_ms": 334.36,
+     "max_ms": 334.36,
+     "mean_ms": 334.36,
+     "mean_expected_shots": 5.05
+    },
+    "中距": {
+     "min_ms": 334.36,
+     "max_ms": 426.5,
+     "mean_ms": 382.63,
+     "mean_expected_shots": 5.64
+    },
+    "远距": {
+     "min_ms": 426.5,
+     "max_ms": 494.02,
+     "mean_ms": 450.46,
+     "mean_expected_shots": 6.46
+    }
+   },
+   "overall_mean_ms": 360.69,
+   "expected_shots_0m": 5.0528,
+   "rpm": 727.3,
+   "ads_ms_reference": 339.22,
+   "muzzle_velocity_mps": 678.5,
+   "effective_range_m": 47.2,
+   "ammo": {
+    "ammo_item_id": "37170500001",
+    "name": "M62",
+    "caliber": "7.62x51mm",
+    "price_avg_30d": 6267
+   },
+   "bands": {
+    "贴脸": {
+     "rank": 15,
+     "tier": "T1",
+     "mean_ms": 334.36,
+     "worst_ms": 334.36,
+     "best_ms": 334.36,
+     "mean_expected_shots": 5.052826,
+     "kill_cost": 31666
+    },
+    "近距": {
+     "rank": 11,
+     "tier": "T1",
+     "mean_ms": 334.36,
+     "worst_ms": 334.36,
+     "best_ms": 334.36,
+     "mean_expected_shots": 5.052826,
+     "kill_cost": 31666
+    },
+    "中距": {
+     "rank": 9,
+     "tier": "T0",
+     "mean_ms": 347.52,
+     "worst_ms": 426.5,
+     "best_ms": 334.36,
+     "mean_expected_shots": 5.212387,
+     "kill_cost": 32666
+    },
+    "远距": {
+     "rank": 19,
+     "tier": "T1",
+     "mean_ms": 426.5,
+     "worst_ms": 426.5,
+     "best_ms": 426.5,
+     "mean_expected_shots": 6.16975,
+     "kill_cost": 38666
     }
    }
   },
@@ -3433,7 +5570,6 @@
    "category": "精确射手步枪",
    "is_variant": false,
    "variant_item_name": null,
-   "equivalent_variants": [],
    "loadout": {
     "2": "13020000599"
    },
@@ -3487,7 +5623,7 @@
    },
    "bands": {
     "贴脸": {
-     "rank": 13,
+     "rank": 18,
      "tier": "T1",
      "mean_ms": 337.32,
      "worst_ms": 337.32,
@@ -3496,7 +5632,7 @@
      "kill_cost": 26650
     },
     "近距": {
-     "rank": 11,
+     "rank": 13,
      "tier": "T1",
      "mean_ms": 337.32,
      "worst_ms": 337.32,
@@ -3505,7 +5641,7 @@
      "kill_cost": 26650
     },
     "中距": {
-     "rank": 5,
+     "rank": 6,
      "tier": "T0",
      "mean_ms": 337.32,
      "worst_ms": 337.32,
@@ -3521,500 +5657,6 @@
      "best_ms": 337.32,
      "mean_expected_shots": 4.373225,
      "kill_cost": 26650
-    }
-   }
-  },
-  {
-   "profile_key": "18050000003:base",
-   "weapon_id": "18050000003",
-   "name": "VSS",
-   "base_name": "VSS",
-   "category": "精确射手步枪",
-   "is_variant": false,
-   "variant_item_name": null,
-   "equivalent_variants": [],
-   "loadout": {},
-   "tuning": {},
-   "loadout_effects": [],
-   "stock_bands": {
-    "贴脸": {
-     "min_ms": 428.31,
-     "max_ms": 428.31,
-     "mean_ms": 428.31,
-     "mean_expected_shots": 4.43
-    },
-    "近距": {
-     "min_ms": 428.31,
-     "max_ms": 428.31,
-     "mean_ms": 428.31,
-     "mean_expected_shots": 4.43
-    },
-    "中距": {
-     "min_ms": 428.31,
-     "max_ms": 428.31,
-     "mean_ms": 428.31,
-     "mean_expected_shots": 4.43
-    },
-    "远距": {
-     "min_ms": 428.31,
-     "max_ms": 428.31,
-     "mean_ms": 428.31,
-     "mean_expected_shots": 4.43
-    }
-   },
-   "overall_mean_ms": 428.31,
-   "expected_shots_0m": 4.4265,
-   "rpm": 480.0,
-   "ads_ms_reference": 327.39,
-   "muzzle_velocity_mps": 330.0,
-   "effective_range_m": 120.0,
-   "ammo": {
-    "ammo_item_id": "37140500001",
-    "name": "BP",
-    "caliber": "9x39mm",
-    "price_avg_30d": 4419
-   },
-   "bands": {
-    "贴脸": {
-     "rank": 33,
-     "tier": "T3",
-     "mean_ms": 428.31,
-     "worst_ms": 428.31,
-     "best_ms": 428.31,
-     "mean_expected_shots": 4.426461,
-     "kill_cost": 19561
-    },
-    "近距": {
-     "rank": 33,
-     "tier": "T3",
-     "mean_ms": 428.31,
-     "worst_ms": 428.31,
-     "best_ms": 428.31,
-     "mean_expected_shots": 4.426461,
-     "kill_cost": 19561
-    },
-    "中距": {
-     "rank": 27,
-     "tier": "T2",
-     "mean_ms": 428.31,
-     "worst_ms": 428.31,
-     "best_ms": 428.31,
-     "mean_expected_shots": 4.426461,
-     "kill_cost": 19561
-    },
-    "远距": {
-     "rank": 16,
-     "tier": "T1",
-     "mean_ms": 428.31,
-     "worst_ms": 428.31,
-     "best_ms": 428.31,
-     "mean_expected_shots": 4.426461,
-     "kill_cost": 19561
-    }
-   }
-  },
-  {
-   "profile_key": "18020000003:base",
-   "weapon_id": "18020000003",
-   "name": "Vector",
-   "base_name": "Vector",
-   "category": "冲锋枪",
-   "is_variant": false,
-   "variant_item_name": null,
-   "equivalent_variants": [],
-   "loadout": {
-    "2": "13020000421",
-    "6": "13130000164"
-   },
-   "tuning": {},
-   "loadout_effects": [
-    {
-     "key": "effective_range_m",
-     "label": "优势射程",
-     "unit": " m",
-     "base": 20.0,
-     "final": 30.7
-    }
-   ],
-   "stock_bands": {
-    "贴脸": {
-     "min_ms": 334.83,
-     "max_ms": 334.83,
-     "mean_ms": 334.83,
-     "mean_expected_shots": 7.09
-    },
-    "近距": {
-     "min_ms": 334.83,
-     "max_ms": 538.49,
-     "mean_ms": 441.29,
-     "mean_expected_shots": 9.02
-    },
-    "中距": {
-     "min_ms": 538.49,
-     "max_ms": 646.73,
-     "mean_ms": 595.19,
-     "mean_expected_shots": 11.82
-    },
-    "远距": {
-     "min_ms": 646.73,
-     "max_ms": 798.85,
-     "mean_ms": 774.31,
-     "mean_expected_shots": 15.08
-    }
-   },
-   "overall_mean_ms": 440.78,
-   "expected_shots_0m": 7.0878,
-   "rpm": 1090.9,
-   "ads_ms_reference": 308.65,
-   "muzzle_velocity_mps": 767.0,
-   "effective_range_m": 30.68,
-   "ammo": {
-    "ammo_item_id": "37190500001",
-    "name": "Super",
-    "caliber": ".45ACP",
-    "price_avg_30d": 5782
-   },
-   "bands": {
-    "贴脸": {
-     "rank": 12,
-     "tier": "T1",
-     "mean_ms": 334.83,
-     "worst_ms": 334.83,
-     "best_ms": 334.83,
-     "mean_expected_shots": 7.087759,
-     "kill_cost": 40981
-    },
-    "近距": {
-     "rank": 10,
-     "tier": "T1",
-     "mean_ms": 334.83,
-     "worst_ms": 334.83,
-     "best_ms": 334.83,
-     "mean_expected_shots": 7.087759,
-     "kill_cost": 40981
-    },
-    "中距": {
-     "rank": 32,
-     "tier": "T3",
-     "mean_ms": 488.62,
-     "worst_ms": 538.49,
-     "best_ms": 334.83,
-     "mean_expected_shots": 9.883947,
-     "kill_cost": 57149
-    },
-    "远距": {
-     "rank": 34,
-     "tier": "T3",
-     "mean_ms": 604.83,
-     "worst_ms": 646.73,
-     "best_ms": 538.49,
-     "mean_expected_shots": 11.996935,
-     "kill_cost": 69366
-    }
-   }
-  },
-  {
-   "profile_key": "18020000046:base",
-   "weapon_id": "18020000046",
-   "name": "汤姆逊冲锋枪",
-   "base_name": "汤姆逊冲锋枪",
-   "category": "冲锋枪",
-   "is_variant": false,
-   "variant_item_name": null,
-   "equivalent_variants": [],
-   "loadout": {
-    "2": "13020000607"
-   },
-   "tuning": {},
-   "loadout_effects": [
-    {
-     "key": "effective_range_m",
-     "label": "优势射程",
-     "unit": " m",
-     "base": 18.0,
-     "final": 23.4
-    }
-   ],
-   "stock_bands": {
-    "贴脸": {
-     "min_ms": 360.33,
-     "max_ms": 360.33,
-     "mean_ms": 360.33,
-     "mean_expected_shots": 6.41
-    },
-    "近距": {
-     "min_ms": 360.33,
-     "max_ms": 425.1,
-     "mean_ms": 412.95,
-     "mean_expected_shots": 7.19
-    },
-    "中距": {
-     "min_ms": 425.1,
-     "max_ms": 586.79,
-     "mean_ms": 518.1,
-     "mean_expected_shots": 8.77
-    },
-    "远距": {
-     "min_ms": 586.79,
-     "max_ms": 586.79,
-     "mean_ms": 586.79,
-     "mean_expected_shots": 9.8
-    }
-   },
-   "overall_mean_ms": 442.07,
-   "expected_shots_0m": 6.4055,
-   "rpm": 900.1,
-   "ads_ms_reference": 290.0,
-   "muzzle_velocity_mps": 650.0,
-   "effective_range_m": 23.4,
-   "ammo": {
-    "ammo_item_id": "37190500001",
-    "name": "Super",
-    "caliber": ".45ACP",
-    "price_avg_30d": 5782
-   },
-   "bands": {
-    "贴脸": {
-     "rank": 20,
-     "tier": "T2",
-     "mean_ms": 360.33,
-     "worst_ms": 360.33,
-     "best_ms": 360.33,
-     "mean_expected_shots": 6.405484,
-     "kill_cost": 37037
-    },
-    "近距": {
-     "rank": 26,
-     "tier": "T2",
-     "mean_ms": 388.67,
-     "worst_ms": 425.1,
-     "best_ms": 360.33,
-     "mean_expected_shots": 6.830569,
-     "kill_cost": 39494
-    },
-    "中距": {
-     "rank": 31,
-     "tier": "T3",
-     "mean_ms": 457.5,
-     "worst_ms": 500.71,
-     "best_ms": 425.1,
-     "mean_expected_shots": 7.863211,
-     "kill_cost": 45465
-    },
-    "远距": {
-     "rank": 33,
-     "tier": "T3",
-     "mean_ms": 561.8,
-     "worst_ms": 586.79,
-     "best_ms": 500.71,
-     "mean_expected_shots": 9.427853,
-     "kill_cost": 54512
-    }
-   }
-  },
-  {
-   "profile_key": "18020000046:13050000410",
-   "weapon_id": "18020000046",
-   "name": "汤姆逊冲锋枪-汤姆逊先进枪身系统",
-   "base_name": "汤姆逊冲锋枪",
-   "category": "冲锋枪",
-   "is_variant": true,
-   "variant_item_name": "汤姆逊先进枪身系统",
-   "equivalent_variants": [],
-   "loadout": {
-    "2": "13020000607"
-   },
-   "tuning": {},
-   "loadout_effects": [
-    {
-     "key": "effective_range_m",
-     "label": "优势射程",
-     "unit": " m",
-     "base": 18.0,
-     "final": 23.4
-    }
-   ],
-   "stock_bands": {
-    "贴脸": {
-     "min_ms": 338.39,
-     "max_ms": 338.39,
-     "mean_ms": 338.39,
-     "mean_expected_shots": 6.08
-    },
-    "近距": {
-     "min_ms": 338.39,
-     "max_ms": 395.04,
-     "mean_ms": 384.42,
-     "mean_expected_shots": 6.77
-    },
-    "中距": {
-     "min_ms": 395.04,
-     "max_ms": 535.3,
-     "mean_ms": 471.09,
-     "mean_expected_shots": 8.07
-    },
-    "远距": {
-     "min_ms": 535.3,
-     "max_ms": 535.3,
-     "mean_ms": 535.3,
-     "mean_expected_shots": 9.03
-    }
-   },
-   "overall_mean_ms": 408.24,
-   "expected_shots_0m": 6.0763,
-   "rpm": 900.1,
-   "ads_ms_reference": 314.96,
-   "muzzle_velocity_mps": 650.0,
-   "effective_range_m": 23.4,
-   "ammo": {
-    "ammo_item_id": "37190500001",
-    "name": "Super",
-    "caliber": ".45ACP",
-    "price_avg_30d": 5782
-   },
-   "bands": {
-    "贴脸": {
-     "rank": 14,
-     "tier": "T1",
-     "mean_ms": 338.39,
-     "worst_ms": 338.39,
-     "best_ms": 338.39,
-     "mean_expected_shots": 6.076329,
-     "kill_cost": 35133
-    },
-    "近距": {
-     "rank": 20,
-     "tier": "T2",
-     "mean_ms": 363.17,
-     "worst_ms": 395.04,
-     "best_ms": 338.39,
-     "mean_expected_shots": 6.448168,
-     "kill_cost": 37283
-    },
-    "中距": {
-     "rank": 25,
-     "tier": "T2",
-     "mean_ms": 419.95,
-     "worst_ms": 453.16,
-     "best_ms": 395.04,
-     "mean_expected_shots": 7.299899,
-     "kill_cost": 42208
-    },
-    "远距": {
-     "rank": 30,
-     "tier": "T3",
-     "mean_ms": 511.45,
-     "worst_ms": 535.3,
-     "best_ms": 453.16,
-     "mean_expected_shots": 8.672546,
-     "kill_cost": 50145
-    }
-   }
-  },
-  {
-   "profile_key": "18010000038:base",
-   "weapon_id": "18010000038",
-   "name": "腾龙",
-   "base_name": "腾龙",
-   "category": "突击步枪",
-   "is_variant": false,
-   "variant_item_name": null,
-   "equivalent_variants": [],
-   "loadout": {
-    "2": "13020000514",
-    "47": "13390000002"
-   },
-   "tuning": {},
-   "loadout_effects": [
-    {
-     "key": "rpm",
-     "label": "射速",
-     "unit": "",
-     "base": 706.0,
-     "final": 759.0
-    },
-    {
-     "key": "effective_range_m",
-     "label": "优势射程",
-     "unit": " m",
-     "base": 35.0,
-     "final": 45.5
-    }
-   ],
-   "stock_bands": {
-    "贴脸": {
-     "min_ms": 378.86,
-     "max_ms": 378.86,
-     "mean_ms": 378.86,
-     "mean_expected_shots": 5.46
-    },
-    "近距": {
-     "min_ms": 378.86,
-     "max_ms": 378.86,
-     "mean_ms": 378.86,
-     "mean_expected_shots": 5.46
-    },
-    "中距": {
-     "min_ms": 378.86,
-     "max_ms": 415.53,
-     "mean_ms": 406.8,
-     "mean_expected_shots": 5.79
-    },
-    "远距": {
-     "min_ms": 415.53,
-     "max_ms": 556.62,
-     "mean_ms": 502.0,
-     "mean_expected_shots": 6.91
-    }
-   },
-   "overall_mean_ms": 362.89,
-   "expected_shots_0m": 5.4572,
-   "rpm": 759.0,
-   "ads_ms_reference": 350.0,
-   "muzzle_velocity_mps": 747.5,
-   "effective_range_m": 45.5,
-   "ammo": {
-    "ammo_item_id": "37130500001",
-    "name": "DVC12",
-    "caliber": "5.8x42mm",
-    "price_avg_30d": 5145
-   },
-   "bands": {
-    "贴脸": {
-     "rank": 17,
-     "tier": "T2",
-     "mean_ms": 352.34,
-     "worst_ms": 352.34,
-     "best_ms": 352.34,
-     "mean_expected_shots": 5.457222,
-     "kill_cost": 28077
-    },
-    "近距": {
-     "rank": 15,
-     "tier": "T1",
-     "mean_ms": 352.34,
-     "worst_ms": 352.34,
-     "best_ms": 352.34,
-     "mean_expected_shots": 5.457222,
-     "kill_cost": 28077
-    },
-    "中距": {
-     "rank": 9,
-     "tier": "T1",
-     "mean_ms": 360.46,
-     "worst_ms": 386.44,
-     "best_ms": 352.34,
-     "mean_expected_shots": 5.559927,
-     "kill_cost": 28606
-    },
-    "远距": {
-     "rank": 8,
-     "tier": "T1",
-     "mean_ms": 386.44,
-     "worst_ms": 386.44,
-     "best_ms": 386.44,
-     "mean_expected_shots": 5.888583,
-     "kill_cost": 30297
     }
    }
   }
