@@ -1322,8 +1322,22 @@ def test_pipeline_payload_includes_ammo_price_meta(result):
             assert "kill_cost" in data
 
 
-def test_pipeline_combat_values_are_intact(result):
-    """价格功能不得影响任何战斗数值（TTK / 排名 / 分层照常产出）。"""
+def test_pipeline_injects_price_table(result):
+    """守护本任务的核心改动：管线必须真的加载并透传了价格表。
+
+    没有这条断言时，即使 `run_pipeline` 完全不加载 `price_table` 也能通过
+    ——因为 payload 里的价格字段由 `to_export` 无条件输出。
+    """
+    assert "ammo_price_table" in result
+    assert result["ammo_price_table"].currency == "哈夫币"
+
+
+def test_pipeline_combat_fields_present_and_sane(result):
+    """战斗字段齐备且自洽。
+
+    本测试**不**声称「零漂移」——那由重新生成后的 diff 核验（见 Step 5）；
+    这里只保证字段存在且内部自洽，故按实际能力命名。
+    """
     payload = result["payloads"][DEFAULT_SCENARIOS[0]]
     for weapon in payload["weapons"]:
         assert weapon["overall_mean_ms"] > 0
