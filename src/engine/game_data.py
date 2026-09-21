@@ -99,7 +99,7 @@ class GameData:
         return list(self.ammo_by_type.get(weapon["ammo_type_id"], []))
 
     def ammo_at_level(self, weapon: Dict[str, Any], level: int) -> Optional[Dict[str, Any]]:
-        """取该武器口径下指定穿透等级的弹药（若有多种，取穿透等级数值最高者）。"""
+        """取该武器口径下指定穿透等级的弹药；同等级有多款时取 ``ammo_item_id`` 最小者。"""
         candidates = [a for a in self.ammo_for_weapon(weapon) if a["penetration_level"] == level]
         if not candidates:
             return None

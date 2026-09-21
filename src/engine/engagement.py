@@ -96,7 +96,7 @@ def scenario_armor(game_data: Any, scenario: Mapping[str, Any]) -> Dict[str, Any
 
 
 def pick_ammo(game_data: Any, profile_key: str, ammo_level: int) -> Dict[str, Any]:
-    """按情景弹药等级为该枪选弹（同级多弹取穿透等级数值最高者，规则同官方池）。"""
+    """按情景弹药等级为该枪选弹（同级多弹取 ``ammo_item_id`` 最小者，规则同官方池）。"""
     weapon = game_data.get_weapon(profile_key)
     record = game_data.ammo_at_level(weapon, int(ammo_level))
     if record is None:

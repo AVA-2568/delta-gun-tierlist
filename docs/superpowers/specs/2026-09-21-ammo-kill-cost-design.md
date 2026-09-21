@@ -15,6 +15,16 @@ v3.1 规范把经济性彻底移除（删除 `cost_model.py`、`ammo_collector.p
 
 本次增补回答第二个问题：**这次击杀要花多少钱**。两者共用同一个 `E[N]`，口径不冲突。
 
+### 1.3 与 v3.1 的关系（勘误）
+
+本规范是对 v3.1 第 7 节「删除清单」中经济性条目的**定向勘误**：
+
+- v3.1 移除的是**实时价格抓取、配件价格目录与整装成本模型**（需网络、第三方依赖、人工编造数据），
+  这些**仍然不做**。
+- 本次引入的是**手工维护的单发均价表 + 单次击杀弹药成本**，不改变 v3.1 的任何战斗口径
+  （TTK 公式、`E[N]`、射击间隔、分层规则）。
+- 已在 `2026-09-20-pure-ttk-redesign-design.md` 第 7 节加注指向本规范，避免规范漂移。
+
 ### 1.1 目标
 
 - 榜单新增三列：**弹药**（该枪该情景实际使用的弹）、**单发价**（30 天成交均价）、**击杀成本**。
@@ -110,11 +120,17 @@ v3.1 规范把经济性彻底移除（删除 `cost_model.py`、`ammo_collector.p
 
 ### 3.2 `tools/build_ammo_price_skeleton.py`（新增）
 
-从 `data/game/ammo.json` 生成 114 款弹药的骨架条目。
+从 `data/game/ammo.json` 生成弹药的骨架条目。
 
-- **幂等**：已存在于表中的 `ammo_item_id` 一律**原样保留**（含已填价格），只补充缺失行；
-  不做删除、不做覆盖。
-- 首次运行产出全部 `price_avg_30d: null` 的骨架，供人工填价。
+**幂等实现要点**：
+
+1. 以 `ammo_item_id` 为键，把现有 `ammo_prices.json` 的条目读进 `existing: dict[str, dict]`。
+2. 遍历 `ammo.json` 每款弹：若 `ammo_item_id` 已在 `existing`，**整条原样写回**（保留 `price_avg_30d`）；
+   否则新建条目并置 `price_avg_30d: null`。
+3. `caliber` / `name` / `penetration_level` 是冗余辨认字段，**每次运行都从 `ammo.json` 刷新**
+   （非用户数据，刷新无风险）；只有 `price_avg_30d` 受保护。
+4. 首次运行产出全部 `price_avg_30d: null` 的骨架；**重复运行不得改变任何已填价格**。
+5. 表头 `window` / `updated_at` 保留原值，仅在显式传参时更新。
 
 ---
 
@@ -175,7 +191,10 @@ def load_ammo_prices(path: str) -> AmmoPriceTable:
 
 1. `ammo = solver.ammo_for(profile_key)` → 取 `ammo_item_id` / `name` / `caliber`
 2. `price = price_table.price_for(ammo_item_id) if price_table else None`
-3. 每距离带：`kill_cost = round(mean_expected_shots × price) if price is not None else None`
+3. 每距离带：`kill_cost = int(mean_expected_shots × price + 0.5) if price is not None else None`
+
+   **禁用内建 `round()`**：Python 采用银行家舍入（`round(2.5) == 2`、`round(3.5) == 4`），
+   会让成本列出现反直觉数值。统一用 `int(x + 0.5)` 实现四舍五入。
 
 数据结构扩展：
 
@@ -185,6 +204,11 @@ def load_ammo_prices(path: str) -> AmmoPriceTable:
 | `GunRanking` | `ammo_item_id: str`、`ammo_name: str`、`ammo_caliber: str`、`ammo_price_avg_30d: Optional[int]` |
 
 ### 5.2 `src/engine/tiering.py` · `to_export`
+
+**签名扩展**：`to_export(rankings, thresholds, scenario_id, excluded=None, price_table=None)`。
+
+`ammo_price_meta` 由 `to_export` 从 `price_table` **直接生成**（与成本计算同源，避免两处数据不一致）；
+`rank_weapons_for_scenario` 的返回值仍为 3 元组 `(rankings, thresholds, excluded)`，签名不变。
 
 payload 新增：
 
@@ -231,7 +255,20 @@ payload 新增：
 | :-- | :-- | :-- |
 | 弹药 | `weapons[].ammo` | `caliber + " " + name`；`caliber` 为空则只输出 `name` |
 | 单发价 | `weapons[].ammo.price_avg_30d` | `4,579 哈夫币`（千分位整数）；`None` → `—` |
-| 击杀成本 | `bands[带].kill_cost` | `25,386 哈夫币`（千分位整数）；`None` → `—` |
+| 击杀成本 | `bands[带].kill_cost` | `25,381 哈夫币`（千分位整数）；`None` → `—` |
+
+千分位由**新增的** `_fmt_money(value)` 辅助函数完成（`12345` → `"12,345 哈夫币"`，`None` → `"—"`）。
+这仍属格式化，不违反「渲染层零计算」。
+
+**缺键降级**：payload 与渲染层可能版本不一致，新字段一律用 `.get()` 链式读取，
+**禁止直接下标索引**（`KeyError` 会打断整篇渲染）：
+
+| 读取点 | 降级写法 | 缺失时表现 |
+| :-- | :-- | :-- |
+| 弹药 | `w.get("ammo") or {}` | 三列均 `—` |
+| 单发价 | `(w.get("ammo") or {}).get("price_avg_30d")` | `—` |
+| 击杀成本 | `band_data.get("kill_cost")` | `—` |
+| 时效标注 | `payload.get("ammo_price_meta")` | 不输出该行 |
 
 时效标注：
 
@@ -252,6 +289,8 @@ payload 新增：
 | 价格表含未知 `ammo_item_id` | 忽略，不报错 |
 | 弹药 `caliber` 为空（12 款，含箭矢） | 弹药列只显示型号 |
 | 武器在该情景无可用弹药 | 该枪已被既有口径排除（`excluded`），不进入渲染 |
+| `price_avg_30d` ≤ 0 或非整数 | 视为无效，不入价格表（等价缺价），渲染 `—` |
+| payload 缺 `ammo_price_meta` / `weapons[].ammo` / `bands[].kill_cost` 键 | 渲染层按 §6「缺键降级」表用 `.get()` 读取，缺失处显示 `—`，**不抛异常、不中断整篇渲染** |
 
 ---
 
