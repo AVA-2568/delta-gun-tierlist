@@ -11,6 +11,49 @@ from typing import Any, Dict, List, Mapping, Optional, Sequence
 BAND_ORDER = ("贴脸", "近距", "中距", "远距")
 TIER_ORDER = ("T0", "T1", "T2", "T3")
 
+# --------------------------------------------------------------------------- #
+# 产物文件命名（展示层职责：管线层从这里取名落盘，README/文档从这里取名造链接）
+# --------------------------------------------------------------------------- #
+
+#: 主榜（官方默认情景）按距离带拆分的独立榜单文档名：``主榜-贴脸.md`` …
+MAIN_BAND_DOC_PREFIX = "主榜"
+
+#: 命中分布预设 → 中文名（未知预设回退原值，不猜测）
+PRESET_ZH = {"default": "实战", "center": "聚焦中心", "chest-only": "仅胸口"}
+
+
+def main_band_doc_name(band: str) -> str:
+    """主榜某距离带的独立榜单文档文件名（同目录互链用裸名）。"""
+    return f"{MAIN_BAND_DOC_PREFIX}-{band}.md"
+
+
+#: 距离榜文档所在目录（相对仓库根）
+DOCS_BAND_DIR = "docs/榜单"
+
+
+def main_band_doc_ref(band: str) -> str:
+    """从仓库根（README）引用距离榜文档的相对路径。"""
+    return f"{DOCS_BAND_DIR}/{main_band_doc_name(band)}"
+
+
+def scenario_doc_stem(scenario_meta: Mapping[str, Any]) -> str:
+    """情景产物文件名主干（不含扩展名）：``护甲5弹药5-实战``。
+
+    内部 ``scenario_id`` 保持英文稳定不变，仅**落盘文件名**中文化。
+    预设缺失或未收录时回退英文原值——文件名不猜测预设身份。
+    """
+    preset = scenario_meta.get("probability_preset")
+    if preset is None:
+        return (
+            f"护甲{scenario_meta.get('armor_level')}弹药{scenario_meta.get('ammo_level')}"
+            "-default"
+        )
+    preset = str(preset)
+    return (
+        f"护甲{scenario_meta.get('armor_level')}弹药{scenario_meta.get('ammo_level')}"
+        f"-{PRESET_ZH.get(preset, preset)}"
+    )
+
 
 def _fmt(value: Any, digits: int = 1, suffix: str = "") -> str:
     if value is None:
@@ -172,7 +215,7 @@ def render_scenario_markdown(
     bands = payload.get("band_definitions") or {}
 
     lines: List[str] = []
-    lines.append(f"# 纯 TTK 榜单 · {scenario_meta.get('label', scenario_id)}")
+    lines.append(f"# 纯 TTK 榜单 · {scenario_doc_stem(scenario_meta)}")
     lines.append("")
     lines.append(f"- **情景 ID**：`{scenario_id}`")
     if scenario_meta:
@@ -214,7 +257,101 @@ def render_scenario_markdown(
     lines.append("")
     lines.append("- 期望击杀发数与射击间隔均已逐位复现官方数据集（3774 / 291 个官方样本，零偏差）")
     lines.append("- 距离场锁定 0–80m（官方排行 `distanceRange`），不做外推")
-    lines.append("- 开镜时间、初速、后坐/散布等维度不计入 TTK，详见 `docs/gunsmith-guide.md`")
+    lines.append("- 开镜时间、初速、后坐/散布等维度不计入 TTK，详见 [改枪指南](../改枪指南.md)")
+    lines.append("- 距离明细：每状态的 0–80 m 每 10 m 采样 TTK 见 `data/榜单/<情景>.json` 的 `ttk_by_distance_ms`")
+    note = _price_note(payload)
+    if note:
+        lines.append(note)
+    return "\n".join(lines)
+
+
+def render_band_top_preview(
+    payload: Mapping[str, Any],
+    band: str,
+    part_names: Mapping[str, str],
+    limit: int = 5,
+) -> str:
+    """README 主榜速览：单距离带前 N 名的精简表（完整列留给距离榜文档）。"""
+    rows = [w for w in payload["weapons"] if band in (w.get("bands") or {})]
+    rows.sort(key=lambda w: w["bands"][band]["rank"])
+    rows = rows[:limit]
+
+    currency = ((payload.get("ammo_price_meta") or {}).get("currency")) or "哈夫币"
+    lines = [
+        "| # | 层级 | 武器 | 平均 TTK | 击杀成本 | 起枪配置 |",
+        "| :-- | :-- | :-- | --: | --: | :-- |",
+    ]
+    for w in rows:
+        band_data = w["bands"][band]
+        if w.get("is_variant"):
+            name = f"{w['name']}<br><sub>变体 · 出厂预装态</sub>"
+            loadout = f"出厂预装：{w.get('variant_item_name') or '—'}"
+        else:
+            name = w["name"]
+            loadout = loadout_text(w.get("loadout") or {}, part_names)
+        lines.append(
+            "| {rank} | {tier} | {name} | {mean} | {cost} | {loadout} |".format(
+                rank=band_data["rank"],
+                tier=_tier_badge(band_data.get("tier", "")),
+                name=name,
+                mean=_fmt(band_data["mean_ms"], 1, " ms"),
+                cost=_fmt_money(band_data.get("kill_cost"), currency),
+                loadout=loadout,
+            )
+        )
+    return "\n".join(lines)
+
+
+def _band_nav_line(current: Optional[str] = None) -> str:
+    """距离榜横向导航：其余三带链接 + 当前带加粗（不可自链）。"""
+    parts = []
+    for band in BAND_ORDER:
+        if band == current:
+            parts.append(f"**{band}**")
+        else:
+            parts.append(f"[{band}]({main_band_doc_name(band)})")
+    return " · ".join(parts)
+
+
+def render_band_doc(
+    payload: Mapping[str, Any],
+    band: str,
+    scenario_meta: Mapping[str, Any],
+    part_names: Mapping[str, str],
+    limit: Optional[int] = 120,
+) -> str:
+    """主榜单个距离带的独立榜单文档（完整排名，一份距离一个文件）。"""
+    band_def = (payload.get("band_definitions") or {}).get(band)
+    if band_def is None:
+        raise KeyError(f"payload 未定义距离带：{band}")
+    thresholds = (payload.get("tier_thresholds_ms") or {}).get(band) or {}
+
+    lines: List[str] = []
+    lines.append(f"# 主榜 · {band}（{band_def['from_m']:g}–{band_def['to_m']:g} m）")
+    lines.append("")
+    lines.append(
+        f"> {scenario_doc_stem(scenario_meta)}"
+        f"（护甲 {scenario_meta.get('armor_level')} 套 / 弹药 {scenario_meta.get('ammo_level')} 级，"
+        f"命中分布 `{scenario_meta.get('probability_preset')}`）"
+    )
+    lines.append(">")
+    lines.append("> - **排序键**：带内平均实战 TTK（`(期望击杀发数 − 1) × 射击间隔`），"
+                 "不含开镜时间与弹丸飞行时间")
+    lines.append("> - **层级**：带内 TTK 分位数切分（前 15% → T0，15–40% → T1，40–70% → T2，其余 → T3）")
+    if thresholds:
+        lines.append(f"> - **层级阈值**：{_thresholds_text(thresholds)}")
+    lines.append("")
+    lines.append(render_band_table(payload, band, part_names, limit=limit))
+    lines.append("")
+    lines.append("---")
+    lines.append("")
+    lines.append("其他距离榜：" + _band_nav_line(current=band))
+    lines.append("")
+    lines.append("[← 返回 README 主榜速览](../../README.md)")
+    lines.append("")
+    lines.append("- 距离明细：本情景每状态的 0–80 m 每 10 m 采样 TTK 见 `data/榜单/<情景>.json` 的 "
+                 "`ttk_by_distance_ms`")
+    lines.append("- 开镜时间、初速、后坐/散布等维度不计入 TTK，详见 [改枪指南](../改枪指南.md)")
     note = _price_note(payload)
     if note:
         lines.append(note)
@@ -227,12 +364,13 @@ def render_readme(
     provenance: Mapping[str, Any],
     part_names: Mapping[str, str],
     scenario_index: Optional[Sequence[Mapping[str, Any]]] = None,
-    limit_per_band: Optional[int] = 20,
     repo_slug: Optional[str] = None,
 ) -> str:
-    """渲染仓库首页 README（主榜 = 官方默认情景 × 4 距离带）。
+    """渲染仓库首页 README：口径 → 主榜速览（每带 Top 5）→ 距离榜/情景导航 → 方法学。
 
-    ``scenario_index`` 必须只传**实际生成了榜单文件**的情景，否则会产出死链。
+    主榜完整排名按距离带拆分为 4 份独立文档（``docs/榜单/主榜-<带>.md``），
+    README 只保留速览与导航，不再内嵌完整大表。``scenario_index`` 必须只传
+    **实际生成了榜单文件**的情景，否则会产出死链。
     """
     source = provenance.get("source") or {}
     lines: List[str] = []
@@ -255,28 +393,32 @@ def render_readme(
     lines.append("| 起枪状态 | 每行 = 一个起枪配置状态：本体裸枪、官方变体出厂预装态、束搜索枚举的改装状态（官方插槽规则 + 强制联动）；"
                  "仅 TTK 有差异的状态列出，全部一起排名分层 |")
     lines.append("| 预装收益 | 该距离带内**本体裸枪 → 本状态**的平均 TTK 缩短量与百分比（`—` 表示本体裸枪行） |")
-    lines.append("| 距离场 | 0–80 m（官方排行口径），分 4 个距离带 |")
+    lines.append("| 距离场 | 0–80 m（官方排行口径），分 4 个距离带，每带独立成榜 |")
     lines.append("| 分层 | 带内 TTK 分位数切分 T0–T3，阈值公开 |")
     lines.append(f"| 数据版本 | `{source.get('dataset_version', '未知')}`（{source.get('name', 'dfttk-v3')}） |")
     lines.append("")
-    lines.append(f"## 主榜 · {scenario_meta.get('label', main_payload['scenario_id'])}")
+
+    lines.append(f"## 主榜速览 · {scenario_doc_stem(scenario_meta)}")
     lines.append("")
     lines.append(
         f"> 护甲 {scenario_meta.get('armor_level')} 套 / 弹药 {scenario_meta.get('ammo_level')} 级，"
-        f"命中分布 `{scenario_meta.get('probability_preset')}`"
+        f"命中分布 `{scenario_meta.get('probability_preset')}`；每带只列前 5 名，"
+        f"完整排名（全部起枪状态 × 预装收益 × 最差 TTK）见各距离榜。"
     )
     lines.append("")
     for band in BAND_ORDER:
         if band not in (main_payload.get("band_definitions") or {}):
             continue
+        if not any(band in (w.get("bands") or {}) for w in main_payload["weapons"]):
+            continue
         band_def = main_payload["band_definitions"][band]
         thresholds = (main_payload.get("tier_thresholds_ms") or {}).get(band) or {}
-        lines.append(f"### {band}（{band_def['from_m']:g}–{band_def['to_m']:g} m）")
+        lines.append(f"### {band}（{band_def['from_m']:g}–{band_def['to_m']:g} m）· [完整榜 →]({main_band_doc_ref(band)})")
         lines.append("")
         if thresholds:
             lines.append("层级阈值：" + _thresholds_text(thresholds))
             lines.append("")
-        lines.append(render_band_table(main_payload, band, part_names, limit=limit_per_band))
+        lines.append(render_band_top_preview(main_payload, band, part_names, limit=5))
         lines.append("")
 
     if scenario_index:
@@ -285,17 +427,21 @@ def render_readme(
         lines.append("默认收录以下实战情景（口径：不含 3 级弹组合，命中分布只用实战 `default`）；")
         lines.append("全部 21 个官方情景（含 `center` / `chest-only` 理论聚焦预设）可用 `python -m src.pipeline --all` 生成。")
         lines.append("")
-        lines.append("| 情景 | 护甲 | 弹药 | 命中分布 | 文件 |")
+        lines.append("| 情景 | 护甲 | 弹药 | 命中分布 | 榜单 |")
         lines.append("| :-- | --: | --: | :-- | :-- |")
         for item in scenario_index:
             sid = item.get("scenario_id")
-            label = f"[{item.get('label', sid)}](docs/tierlist/{sid}.md)"
             if sid == main_payload["scenario_id"]:
-                label += "（主榜）"
+                label = f"{scenario_doc_stem(item)}（主榜）"
+                file_cell = " · ".join(f"[{band}]({main_band_doc_ref(band)})" for band in BAND_ORDER)
+            else:
+                doc_name = f"{scenario_doc_stem(item)}.md"
+                label = f"[{scenario_doc_stem(item)}](docs/榜单/{doc_name})"
+                file_cell = f"`docs/榜单/{doc_name}`"
             lines.append(
                 f"| {label} | {item.get('armor_level')} "
                 f"| {item.get('ammo_level')} | `{item.get('probability_preset')}` "
-                f"| `docs/tierlist/{sid}.md` |"
+                f"| {file_cell} |"
             )
         lines.append("")
 
@@ -307,9 +453,11 @@ def render_readme(
     lines.append("- **状态枚举**：官方插槽规则 + 强制联动，束搜索枚举合法起枪状态，"
                  "仅保留 TTK 有差异的状态；已绝版的赛季限时件（哈夫克军工改件，如 S9 链锯/格斗套件）"
                  "不参与枚举，榜单为**当前赛季可达成**的配置")
-    lines.append("- **距离明细**：每状态的 0–80 m 每 10 m 采样 TTK 见 `data/tierlist/<情景>.json` 的 "
+    lines.append("- **距离明细**：每状态的 0–80 m 每 10 m 采样 TTK 见 `data/榜单/<情景>.json` 的 "
                  "`ttk_by_distance_ms`")
-    lines.append("- **改枪指南**：开镜时间/初速/后坐等不进 TTK 的维度见 [docs/gunsmith-guide.md](docs/gunsmith-guide.md)")
+    lines.append("- **改枪指南**：开镜时间/初速/后坐等不进 TTK 的维度见 [docs/改枪指南.md](docs/改枪指南.md)")
+    lines.append("- **榜单刷新**：仓库页 **Actions → CI → Run workflow** 手动触发，"
+                 "在 GitHub 上同步官方数据、重算全部榜单并自动提交；本地无需跑任何重计算")
     note = _price_note(main_payload)
     if note:
         lines.append(note)

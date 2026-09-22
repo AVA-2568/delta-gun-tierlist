@@ -4,10 +4,13 @@ import pytest
 
 from src.renderers.ttk_report import (
     loadout_text,
+    render_band_doc,
     render_band_table,
+    render_band_top_preview,
     render_gunsmith_guide,
     render_readme,
     render_scenario_markdown,
+    scenario_doc_stem,
 )
 
 PART_NAMES = {"13020000173": "AR特勤一体消音组合", "13020000349": "AR加百列长枪管组合"}
@@ -97,7 +100,7 @@ def test_scenario_markdown_contains_definition_and_thresholds():
     assert "## 中距" not in md
 
 
-def test_readme_lists_main_bands_and_scenario_index():
+def test_readme_is_slim_overview_with_band_nav():
     md = render_readme(
         PAYLOAD,
         SCENARIO_META,
@@ -106,9 +109,79 @@ def test_readme_lists_main_bands_and_scenario_index():
         scenario_index=[SCENARIO_META],
     )
     assert "# 三角洲行动 · 纯 TTK 枪械强度榜" in md
-    assert "### 贴脸（0–15 m）" in md
-    assert "docs/tierlist/armor-5-ammo-5-default.md" in md
     assert "20260911-044903.3" in md
+    # 主榜速览：每带 Top 5 精简表 + 完整榜跳转（README 在仓库根，链接须带 docs/榜单/ 前缀）
+    assert "### 贴脸（0–15 m）· [完整榜 →](docs/榜单/主榜-贴脸.md)" in md
+    assert "| # | 层级 | 武器 | 平均 TTK | 击杀成本 | 起枪配置 |" in md
+    # 完整榜的宽表列不得回流 README
+    assert "| 最差 TTK |" not in md
+    # 情景索引：主榜行指向 4 份距离榜，不再有旧英文路径
+    assert "[贴脸](docs/榜单/主榜-贴脸.md) · [近距](docs/榜单/主榜-近距.md) · [中距](docs/榜单/主榜-中距.md) · [远距](docs/榜单/主榜-远距.md)" in md
+    assert "docs/tierlist/" not in md
+
+
+def test_readme_scenario_index_uses_chinese_doc_names():
+    other = {
+        "scenario_id": "armor-4-ammo-4-default",
+        "label": "4套 · 4弹 · 实战概率",
+        "armor_level": 4,
+        "ammo_level": 4,
+        "probability_preset": "default",
+    }
+    md = render_readme(
+        PAYLOAD,
+        SCENARIO_META,
+        {"source": {"name": "dfttk-v3", "dataset_version": "x"}},
+        PART_NAMES,
+        scenario_index=[SCENARIO_META, other],
+    )
+    assert "[护甲4弹药4-实战](docs/榜单/护甲4弹药4-实战.md)" in md
+    assert "`docs/榜单/护甲4弹药4-实战.json`" not in md  # 索引里只链文档，不链 JSON
+
+
+def test_scenario_doc_stem_naming():
+    assert scenario_doc_stem(
+        {"armor_level": 5, "ammo_level": 5, "probability_preset": "default"}
+    ) == "护甲5弹药5-实战"
+    assert scenario_doc_stem(
+        {"armor_level": "5", "ammo_level": "5", "probability_preset": "center"}
+    ) == "护甲5弹药5-聚焦中心"
+    assert scenario_doc_stem(
+        {"armor_level": 6, "ammo_level": 5, "probability_preset": "chest-only"}
+    ) == "护甲6弹药5-仅胸口"
+    # 未知预设回退原值，不猜测
+    assert scenario_doc_stem({"armor_level": 4, "ammo_level": 3}) == "护甲4弹药3-default"
+
+
+def test_band_top_preview_limits_rows():
+    table = render_band_top_preview(PAYLOAD, "贴脸", PART_NAMES, limit=1)
+    lines = table.splitlines()
+    assert lines[0] == "| # | 层级 | 武器 | 平均 TTK | 击杀成本 | 起枪配置 |"
+    assert len(lines) == 3
+    assert lines[2].startswith("| 1 | **T0** | M4A1 |")
+
+
+def test_band_doc_renders_full_list_and_nav():
+    md = render_band_doc(PAYLOAD, "贴脸", SCENARIO_META, PART_NAMES)
+    assert "# 主榜 · 贴脸（0–15 m）" in md
+    assert "armor-5-ammo-5-default" not in md  # 面向读者的文档不暴露内部情景 ID
+    assert "T0 ≤ 320.0 ms" in md
+    # 完整榜（非速览）表格
+    assert "| 最差 TTK |" in md
+    assert "| 2 | T1 | AKM |" in md
+    # 导航：其余三带可点，当前带加粗不可自链
+    assert "**贴脸**" in md
+    assert "[贴脸](主榜-贴脸.md)" not in md
+    assert "[近距](主榜-近距.md)" in md and "[远距](主榜-远距.md)" in md
+    assert "[← 返回 README 主榜速览](../../README.md)" in md
+    assert "[改枪指南](../改枪指南.md)" in md
+
+
+def test_band_doc_rejects_unknown_band():
+    import pytest
+
+    with pytest.raises(KeyError):
+        render_band_doc(PAYLOAD, "不存在", SCENARIO_META, PART_NAMES)
 
 
 def test_gunsmith_guide_generates_workbench_table():
