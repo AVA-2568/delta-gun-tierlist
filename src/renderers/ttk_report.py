@@ -94,7 +94,7 @@ def _price_note(payload: Mapping[str, Any]) -> Optional[str]:
         return "- 价格数据：未配置（data/reference/ammo_prices.json 缺失或为空），成本列显示 —"
     window = meta.get("window") or {}
     span = f"（{window.get('from')}）" if window.get("from") else ""
-    return f"- 价格数据：第三方交易行 30 日价格{span}，抓取于 {meta.get('updated_at') or '未知'}"
+    return f"- 价格数据：第三方交易行当日价{span}，每日自动抓取维护（updated_at {meta.get('updated_at') or '未知'}）"
 
 
 def loadout_text(loadout: Mapping[str, str], part_names: Mapping[str, str]) -> str:
@@ -197,7 +197,7 @@ def render_band_table(
                 gain=loadout_gain_text(stock_mean, band_data["mean_ms"]),
                 shots=_fmt(w.get("expected_shots_0m"), 2, " 发"),
                 ammo=_ammo_label(ammo),
-                price=_fmt_money(ammo.get("price_avg_30d"), currency),
+                price=_fmt_money(ammo.get("price_daily"), currency),
                 cost=_fmt_money(band_data.get("kill_cost"), currency),
                 rpm=_fmt(w.get("rpm"), 0),
                 rng=_fmt(w.get("effective_range_m"), 1, " m"),

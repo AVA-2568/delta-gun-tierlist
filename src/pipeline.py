@@ -48,7 +48,7 @@ logger = logging.getLogger(__name__)
 # 主榜情景：官方默认情景（defaultScenarioId）
 MAIN_SCENARIO = "armor-5-ammo-5-default"
 
-#: 手工维护的弹药 30 天均价表（非官方数据，与 data/game/* 物理隔离）
+#: 弹药当日价表（由 src.collectors.ammo_price_sync 每日自动抓取维护，与 data/game/* 物理隔离）
 AMMO_PRICE_TABLE = "data/reference/ammo_prices.json"
 
 # 产物目录（生成产物中文化；data/game/ 官方源数据保持上游原名，勿动）

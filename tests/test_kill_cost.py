@@ -50,7 +50,7 @@ def test_gun_ranking_new_fields_have_defaults():
     assert entry.ammo_item_id == ""
     assert entry.ammo_name == ""
     assert entry.ammo_caliber == ""
-    assert entry.ammo_price_avg_30d is None
+    assert entry.ammo_price_daily is None
 
 
 @pytest.fixture(scope="module")
@@ -84,7 +84,7 @@ def test_cost_uses_band_mean_shots(gd):
         profile_keys=["18050000003:base"], price_table=table,
     )
     entry = rankings[0]
-    assert entry.ammo_price_avg_30d is None  # 该弹未配价
+    assert entry.ammo_price_daily is None  # 该弹未配价
 
     # 用真实 id 再跑一次，确认成本公式
     real_id = entry.ammo_item_id
@@ -94,7 +94,7 @@ def test_cost_uses_band_mean_shots(gd):
         profile_keys=["18050000003:base"], price_table=table2,
     )
     entry2 = rankings2[0]
-    assert entry2.ammo_price_avg_30d == price
+    assert entry2.ammo_price_daily == price
     for band in BAND_NAMES:
         expected = compute_kill_cost(entry2.bands[band].mean_expected_shots, price)
         assert entry2.bands[band].kill_cost == expected
@@ -110,7 +110,7 @@ def test_ranking_without_price_table_still_works(gd):
     assert entry.bands["贴脸"].mean_ms > 0
     assert entry.bands["贴脸"].mean_expected_shots > 0
     assert entry.bands["贴脸"].kill_cost is None
-    assert entry.ammo_price_avg_30d is None
+    assert entry.ammo_price_daily is None
 
 
 def test_to_export_emits_ammo_and_meta(gd):
@@ -126,8 +126,8 @@ def test_to_export_emits_ammo_and_meta(gd):
 
     table = AmmoPriceTable(
         currency="哈夫币",
-        window={"from": "2026-08-23", "to": "2026-09-21", "days": 30},
-        updated_at="2026-09-21",
+        window={"from": "2026-09-22", "to": "2026-09-22", "days": 1},
+        updated_at="2026-09-22",
         prices={real_id: 4579},
     )
     rankings, thresholds, excluded = rank_weapons_for_scenario(
@@ -139,16 +139,16 @@ def test_to_export_emits_ammo_and_meta(gd):
     meta = payload["ammo_price_meta"]
     assert meta["currency"] == "哈夫币"
     assert meta["available"] is True
-    assert meta["window"]["days"] == 30
-    assert meta["updated_at"] == "2026-09-21"
+    assert meta["window"]["days"] == 1
+    assert meta["updated_at"] == "2026-09-22"
 
     entry = rankings[0]
     weapon = payload["weapons"][0]
     assert weapon["ammo"]["ammo_item_id"] == real_id
     assert weapon["ammo"]["name"] == entry.ammo_name
     assert weapon["ammo"]["caliber"] == entry.ammo_caliber
-    assert weapon["ammo"]["price_avg_30d"] == 4579
-    assert entry.ammo_price_avg_30d == 4579
+    assert weapon["ammo"]["price_daily"] == 4579
+    assert entry.ammo_price_daily == 4579
     band = weapon["bands"]["贴脸"]
     # 硬编码期望整数（真实数据：4.4264610056259 × 4579 → int(+0.5) = 20269）。
     # 这是「真值」回归断言；compute_kill_cost 本身的公式另由 test_basic_cost 覆盖。
@@ -167,5 +167,5 @@ def test_to_export_without_price_table_marks_unavailable(gd):
     )
     payload = to_export(rankings, thresholds, "armor-5-ammo-5-default", excluded)
     assert payload["ammo_price_meta"]["available"] is False
-    assert payload["weapons"][0]["ammo"]["price_avg_30d"] is None
+    assert payload["weapons"][0]["ammo"]["price_daily"] is None
     assert payload["weapons"][0]["bands"]["贴脸"]["kill_cost"] is None

@@ -68,7 +68,7 @@ def test_pipeline_payload_includes_ammo_price_meta(result):
     assert set(payload["ammo_price_meta"]) == {"currency", "window", "updated_at", "available"}
     for weapon in payload["weapons"]:
         assert "ammo" in weapon
-        assert set(weapon["ammo"]) == {"ammo_item_id", "name", "caliber", "price_avg_30d"}
+        assert set(weapon["ammo"]) == {"ammo_item_id", "name", "caliber", "price_daily"}
         for band, data in weapon["bands"].items():
             assert "mean_expected_shots" in data
             assert "kill_cost" in data
@@ -94,11 +94,11 @@ def test_pipeline_reads_prices_from_disk_and_renders_amounts(monkeypatch, tmp_pa
 
     table_path = tmp_path / "ammo_prices.json"
     table_path.write_text(_json.dumps({
-        "schema": "ammo-price-avg-30d",
+        "schema": "ammo-price-daily",
         "currency": "哈夫币",
-        "window": {"from": "2026-08-23", "to": "2026-09-21", "days": 30},
-        "updated_at": "2026-09-21",
-        "ammo": [{"ammo_item_id": target_id, "price_avg_30d": 1234}],
+        "window": {"from": "2026-09-22", "to": "2026-09-22", "days": 1},
+        "updated_at": "2026-09-22",
+        "ammo": [{"ammo_item_id": target_id, "price_daily": 1234}],
     }, ensure_ascii=False), encoding="utf-8")
 
     monkeypatch.setattr(pipeline_mod, "AMMO_PRICE_TABLE", str(table_path))
@@ -107,7 +107,7 @@ def test_pipeline_reads_prices_from_disk_and_renders_amounts(monkeypatch, tmp_pa
     payload = result["payloads"][DEFAULT_SCENARIOS[0]]
 
     assert payload["ammo_price_meta"]["available"] is True
-    assert payload["ammo_price_meta"]["updated_at"] == "2026-09-21"
+    assert payload["ammo_price_meta"]["updated_at"] == "2026-09-22"
     priced = [w for w in payload["weapons"] if w["ammo"]["ammo_item_id"] == target_id]
     assert priced, "应能找到配置了价格的那把枪"
     band = next(iter(priced[0]["bands"].values()))

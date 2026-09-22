@@ -1,4 +1,4 @@
-"""弹药均价表加载与查价测试。"""
+"""弹药价格表加载与查价测试。"""
 
 import json
 
@@ -13,15 +13,15 @@ def _write(tmp_path, payload):
 
 def _valid_payload():
     return {
-        "schema": "ammo-price-avg-30d",
+        "schema": "ammo-price-daily",
         "currency": "哈夫币",
-        "window": {"from": "2026-08-23", "to": "2026-09-21", "days": 30},
-        "updated_at": "2026-09-21",
+        "window": {"from": "2026-09-22", "to": "2026-09-22", "days": 1},
+        "updated_at": "2026-09-22",
         "ammo": [
             {"ammo_item_id": "37100500001", "caliber": "5.56x45mm", "name": "M995",
-             "penetration_level": 5, "price_avg_30d": 4579},
+             "penetration_level": 5, "price_daily": 4579},
             {"ammo_item_id": "37100400001", "caliber": "5.56x45mm", "name": "M855A1",
-             "penetration_level": 4, "price_avg_30d": None},
+             "penetration_level": 4, "price_daily": None},
         ],
     }
 
@@ -29,8 +29,8 @@ def _valid_payload():
 def test_loads_prices_and_meta(tmp_path):
     table = load_ammo_prices(_write(tmp_path, _valid_payload()))
     assert table.currency == "哈夫币"
-    assert table.window["days"] == 30
-    assert table.updated_at == "2026-09-21"
+    assert table.window["days"] == 1
+    assert table.updated_at == "2026-09-22"
     assert table.price_for("37100500001") == 4579
     assert not table.is_empty
 
@@ -61,7 +61,7 @@ def test_invalid_json_yields_empty_table(tmp_path):
 
 
 def test_gbk_encoded_file_yields_empty_table(tmp_path):
-    """价格表是含中文的手工维护文件，本机 Windows 下「记事本另存为 ANSI/GBK」是现实路径。
+    """价格表是含中文的生成文件，本机 Windows 下「记事本另存为 ANSI/GBK」是现实路径。
 
     ``UnicodeDecodeError`` 是 ``ValueError`` 子类；若 ``load_ammo_prices`` 未覆盖它，
     会直接抛异常让管线与 CI 崩溃。这里断言：GBK 编码的文件 → 返回空表且**不抛异常**。
@@ -85,12 +85,12 @@ def test_wrong_schema_yields_empty_table(tmp_path):
 def test_invalid_prices_are_dropped(tmp_path):
     payload = _valid_payload()
     payload["ammo"] = [
-        {"ammo_item_id": "a", "price_avg_30d": 0},
-        {"ammo_item_id": "b", "price_avg_30d": -5},
-        {"ammo_item_id": "c", "price_avg_30d": "123"},
-        {"ammo_item_id": "d", "price_avg_30d": 100.5},
-        {"ammo_item_id": "e", "price_avg_30d": True},
-        {"ammo_item_id": "f", "price_avg_30d": 7},
+        {"ammo_item_id": "a", "price_daily": 0},
+        {"ammo_item_id": "b", "price_daily": -5},
+        {"ammo_item_id": "c", "price_daily": "123"},
+        {"ammo_item_id": "d", "price_daily": 100.5},
+        {"ammo_item_id": "e", "price_daily": True},
+        {"ammo_item_id": "f", "price_daily": 7},
     ]
     table = load_ammo_prices(_write(tmp_path, payload))
     for bad in ("a", "b", "c", "d", "e"):

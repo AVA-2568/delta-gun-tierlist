@@ -74,7 +74,7 @@ class GunRanking:
     ammo_item_id: str = ""
     ammo_name: str = ""
     ammo_caliber: str = ""
-    ammo_price_avg_30d: Optional[int] = None
+    ammo_price_daily: Optional[int] = None
     #: 相对本体裸枪的关键 TTK 属性变化（伤害档案替换、射速、优势射程等）
     loadout_effects: List[Dict[str, Any]] = field(default_factory=list)
     #: 本体裸枪（无改装）在各距离带的 TTK 聚合，作为本行收益的参照
@@ -297,7 +297,7 @@ def rank_weapons_for_scenario(
             ammo_item_id=str(ammo.get("ammo_item_id") or ""),
             ammo_name=str(ammo.get("name") or ""),
             ammo_caliber=str(ammo.get("caliber") or ""),
-            ammo_price_avg_30d=ammo_price,
+            ammo_price_daily=ammo_price,
             loadout_effects=loadout_effects,
             stock_bands=dict(stock_bands),
             ttk_by_distance_ms=by_distance,
@@ -464,7 +464,7 @@ def to_export(
                     "ammo_item_id": entry.ammo_item_id,
                     "name": entry.ammo_name,
                     "caliber": entry.ammo_caliber,
-                    "price_avg_30d": entry.ammo_price_avg_30d,
+                    "price_daily": entry.ammo_price_daily,
                 },
                 "bands": {
                     name: {

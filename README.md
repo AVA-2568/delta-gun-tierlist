@@ -87,6 +87,6 @@
 - **距离明细**：每状态的 0–80 m 每 10 m 采样 TTK 见 `data/榜单/<情景>.json` 的 `ttk_by_distance_ms`
 - **改枪指南**：开镜时间/初速/后坐等不进 TTK 的维度见 [docs/改枪指南.md](docs/改枪指南.md)
 - **榜单刷新**：仓库页 **Actions → CI → Run workflow** 手动触发，在 GitHub 上同步官方数据、重算全部榜单并自动提交；本地无需跑任何重计算
-- 价格数据：第三方交易行 30 日价格（2026-09-21），抓取于 2026-09-21
+- 价格数据：第三方交易行当日价（2026-09-21），每日自动抓取维护（updated_at 2026-09-21）
 
 详细设计见 [`docs/superpowers/specs/2026-09-20-pure-ttk-redesign-design.md`](docs/superpowers/specs/2026-09-20-pure-ttk-redesign-design.md)，弹药击杀成本相关规范见 [`docs/superpowers/specs/2026-09-21-ammo-kill-cost-design.md`](docs/superpowers/specs/2026-09-21-ammo-kill-cost-design.md)。

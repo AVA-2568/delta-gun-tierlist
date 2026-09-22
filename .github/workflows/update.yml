@@ -4,6 +4,8 @@ on:
   push:
     branches: [ main, master ]
   pull_request:
+  schedule:
+    - cron: "30 1 * * *"     # 每日 UTC 01:30（北京 09:30）：同步当日弹药价格并重算榜单
   workflow_dispatch:        # 手动刷新榜单并提交
 
 permissions:
@@ -34,7 +36,7 @@ jobs:
   refresh-tierlist:
     name: Refresh Tier List
     needs: test
-    if: github.event_name == 'workflow_dispatch'
+    if: github.event_name == 'workflow_dispatch' || github.event_name == 'schedule'
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -56,6 +58,11 @@ jobs:
       # 数据层来自上游公开数据集（需联网）；榜单计算本身完全离线。
       - name: Sync Official Game Data
         run: python -m src.collectors.game_data_sync
+        continue-on-error: true
+
+      # 第三方行情当日价：抓取失败时沿用现有价格表，不影响榜单产出。
+      - name: Sync Ammo Prices (daily)
+        run: python -m src.collectors.ammo_price_sync
         continue-on-error: true
 
       - name: Rebuild Tier List

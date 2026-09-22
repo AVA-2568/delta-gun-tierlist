@@ -1,9 +1,10 @@
-"""弹药均价表：加载手工维护的 30 天成交均价，并按 ``ammo_item_id`` 查价。
+"""弹药价格表：加载自动维护的当日价，并按 ``ammo_item_id`` 查价。
 
 本模块只做两件事——**加载**与**查价**，不含任何计算。
 
-价格是手工维护的第三方市场均价（非官方数据），故与 ``data/game/*``（官方同步数据）
-物理隔离：来源、更新频率、可信度三者都不同，混在一起会污染 ``provenance`` 语义。
+价格由 :mod:`src.collectors.ammo_price_sync` 每日自动抓取第三方行情生成
+（非官方数据），与 ``data/game/*``（官方同步数据）物理隔离：来源、更新频率、
+可信度三者都不同，混在一起会污染 ``provenance`` 语义。
 """
 
 from __future__ import annotations
@@ -19,12 +20,12 @@ logger = logging.getLogger(__name__)
 DEFAULT_CURRENCY = "哈夫币"
 
 #: 期望的表格式标识；不符则整表忽略，避免误读别种 JSON
-EXPECTED_SCHEMA = "ammo-price-avg-30d"
+EXPECTED_SCHEMA = "ammo-price-daily"
 
 
 @dataclass(frozen=True)
 class AmmoPriceTable:
-    """弹药单发均价表（30 天成交均价，单位见 ``currency``）。"""
+    """弹药单发当日价表（第三方交易行行情，单位见 ``currency``）。"""
 
     currency: str = DEFAULT_CURRENCY
     window: Mapping[str, Any] = field(default_factory=dict)
@@ -77,7 +78,7 @@ def load_ammo_prices(path: str) -> AmmoPriceTable:
         if not isinstance(entry, dict):
             continue
         item_id = entry.get("ammo_item_id")
-        price = _coerce_price(entry.get("price_avg_30d"))
+        price = _coerce_price(entry.get("price_daily"))
         if not item_id or price is None:
             continue
         prices[str(item_id)] = price

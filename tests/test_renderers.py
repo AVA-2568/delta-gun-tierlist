@@ -216,15 +216,15 @@ PAYLOAD_WITH_COST = {
     **PAYLOAD,
     "ammo_price_meta": {
         "currency": "哈夫币",
-        "window": {"from": "2026-08-23", "to": "2026-09-21", "days": 30},
-        "updated_at": "2026-09-21",
+        "window": {"from": "2026-09-22", "to": "2026-09-22", "days": 1},
+        "updated_at": "2026-09-22",
         "available": True,
     },
     "weapons": [
         {
             **PAYLOAD["weapons"][0],
             "ammo": {"ammo_item_id": "37260500001", "name": "AP SX",
-                     "caliber": "4.6x30mm", "price_avg_30d": 4579},
+                     "caliber": "4.6x30mm", "price_daily": 4579},
             "bands": {
                 "贴脸": {"rank": 1, "tier": "T0", "mean_ms": 286.92, "worst_ms": 286.92,
                          "best_ms": 286.92, "mean_expected_shots": 5.543, "kill_cost": 25381},
@@ -258,7 +258,7 @@ def test_missing_price_renders_dash():
         "weapons": [
             {**PAYLOAD_WITH_COST["weapons"][0],
              "ammo": {"ammo_item_id": "x", "name": "AP SX", "caliber": "4.6x30mm",
-                      "price_avg_30d": None},
+                      "price_daily": None},
              "bands": {"贴脸": {"rank": 1, "tier": "T0", "mean_ms": 286.92, "worst_ms": 286.92,
                                 "best_ms": 286.92, "mean_expected_shots": 5.543,
                                 "kill_cost": None}}}
@@ -276,7 +276,7 @@ def test_empty_caliber_renders_name_only():
         "weapons": [
             {**PAYLOAD_WITH_COST["weapons"][0],
              "ammo": {"ammo_item_id": "y", "name": "碳纤维穿甲箭矢", "caliber": "",
-                      "price_avg_30d": 1000},
+                      "price_daily": 1000},
              "bands": {"贴脸": {"rank": 1, "tier": "T0", "mean_ms": 286.92, "worst_ms": 286.92,
                                 "best_ms": 286.92, "mean_expected_shots": 5.0, "kill_cost": 5000}}}
         ],
@@ -322,5 +322,6 @@ def test_readme_notes_price_source():
         {"source": {"name": "dfttk-v3", "dataset_version": "x"}},
         PART_NAMES,
     )
-    assert "2026-08-23" in md and "2026-09-21" in md
-    assert "第三方交易行" in md
+    assert "2026-09-22" in md
+    assert "第三方交易行当日价" in md
+    assert "每日自动抓取维护" in md
