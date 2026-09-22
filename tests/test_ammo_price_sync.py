@@ -12,17 +12,26 @@ from src.collectors.ammo_price_sync import (
     sync,
 )
 
-# 仿真实行情页结构：t_ 交易行块（含引号/无引号价格两种形态）、o_ 干扰块、装备 ID、弹药段外 ID
+# 仿真实行情页结构：o_ 市场全览块（真实单发价，primary_class=ammo）、t_ 制作利润干扰块、非弹药分类
 PAGE = """
 <html><body><script>
 var data = {
  "t_37100300001":{"objectID":"37100300001","itemName":"5.56x45mm M855","zzsj":"8:00:00",
    "pic":"https://img/x.png","price":"32467","price_hour":"541","type":"2"},
- "o_37100300001":{"objectID":"37100300001","itemName":"5.56x45mm M855","price":"999"},
- "t_37100500001":{"objectID":"37100500001","itemName":"5.56x45mm M995","zzsj":"8:00:00",
-   "pic":"https://img/y.png","price":206875,"type":"2"},
- "t_11050004003":{"objectID":"11050004003","itemName":"DT-AVS防弹衣","price":"72147"},
- "t_37999999999":{"objectID":"37999999999","itemName":"未知弹药","price":"6000"}
+ "o_37100300001":{"id":"1070","objectID":"37100300001","itemName":"5.56x45mm M855",
+   "grade":"3","primary_class":"ammo","secondary_class":"ammo_556x45mm",
+   "pic":"https://img/x.png","updatetime":1755261352,"bg_color":"#589FDC",
+   "price":"384","price2":"384",
+   "rank3":{"pw":3,"paixuzhi":100,"bfb":"-1.0"}},
+ "o_37100500001":{"id":"506","objectID":"37100500001","itemName":"5.56x45mm M995",
+   "grade":"5","primary_class":"ammo","secondary_class":"ammo_556x45mm",
+   "pic":"https://img/y.png","updatetime":1755261233,"bg_color":"#D1824E",
+   "price":4429,"price2":"4,429",
+   "rank7":{"pw":3,"paixuzhi":600,"bfb":"-6.0"}},
+ "o_11050004003":{"id":"500","objectID":"11050004003","itemName":"DT-AVS防弹衣",
+   "grade":"4","primary_class":"armor","price":"72147"},
+ "o_37999999999":{"id":"999","objectID":"37999999999","itemName":"未知弹药",
+   "primary_class":"ammo","price":"6000"}
 };
 </script></body></html>
 """
@@ -47,21 +56,21 @@ def _write_catalog(root):
     return path
 
 
-def test_parse_prices_only_t_block_and_ammo_ids():
+def test_parse_prices_only_market_overview_ammo():
+    """只取 o_ 块（市场全览）且 primary_class=ammo 的对象；price 即单发价。"""
     prices = parse_prices(PAGE)
-    # t_ 块组价 ÷ 60
-    assert prices["37100300001"] == 32467 // 60
-    assert prices["37100500001"] == 206875 // 60
-    # o_ 块干扰价不入
-    assert prices["37100300001"] != 999 // 60 or True  # o_ 价本身不足以覆盖断言，见下
-    # 非弹药段（装备）不入
+    assert prices["37100300001"] == 384       # 市场全览真实单发价
+    assert prices["37100500001"] == 4429      # 无引号数字形态，不换算
+    # t_ 块（制作利润口径）不得混入
+    assert prices["37100300001"] != 32467
+    # 非 ammo 分类（护甲）不入
     assert "11050004003" not in prices
-    # 未知弹药段 ID 属 37 开头 11 位 → 收入（未知即未知，目录对齐阶段再过滤）
-    assert prices["37999999999"] == 100
+    # 未知弹药但 ammo 分类 → 收入（目录对齐阶段再过滤）
+    assert prices["37999999999"] == 6000
 
 
 def test_parse_prices_yields_positive_only():
-    page = '"t_37100000001":{"price":"59"}'  # 组价不足一组 → 单发 0 → 丢弃
+    page = '"o_37100000001":{"primary_class":"ammo","price":"0"}'
     assert parse_prices(page) == {}
 
 
@@ -99,12 +108,12 @@ def test_sync_writes_and_is_idempotent(tmp_path):
     assert open(table_path, encoding="utf-8").read() == first
 
     # 价格变化 → 重写
-    changed_page = PAGE.replace('"price":"32467"', '"price":"60000"')
+    changed_page = PAGE.replace('"price":"384"', '"price":"500"')
     result3 = sync(output_dir=root, fetch=lambda timeout: changed_page)
     assert result3["changed"] is True
     updated = json.load(open(table_path, encoding="utf-8"))
     rows = {r["ammo_item_id"]: r["price_daily"] for r in updated["ammo"]}
-    assert rows["37100300001"] == 1000
+    assert rows["37100300001"] == 500
 
 
 def test_sync_rejects_empty_catalog(tmp_path):

@@ -1,12 +1,14 @@
 """弹药当日价格同步：onebiji「市场周期律」行情页 → ``data/reference/ammo_prices.json``。
 
-数据源与口径（2026-09-22 实测确认）：
+数据源与口径（2026-09-22 修正，经玩家实测价格 4429 逐位确认）：
 
 - 页面 ``https://www.onebiji.com/hykb_tools/sjz/mrmm/tqc.php?immgj=0`` 为全量静态 HTML，
-  内嵌 JS 对象以官方 objectID 键控，``t_<objectID>`` 数据块为**交易行当日报价**。
-- ``t_<id>.price`` 是 **60 发一组**的当日价，``price / 60`` = 单发当日价。
-  实测互证：M855 32467 / 60 = 541，与 2026-09-21 手工表逐条同量级一致。
-- 交易行无报价的弹药（多为 1-2 级弹）不出现在页面中 → 表内记 ``null``，渲染为 ``—``。
+  内嵌 JS 对象以官方 objectID 键控，含两类数据块：
+  - ``o_<objectID>`` = **市场全览：交易行真实单发当日价**（本表数据源），
+    且带 ``primary_class: "ammo"`` 分类与 rank3/7/14 涨跌数据；
+  - ``t_<objectID>`` = 特勤处**制作成本/利润**口径（每日 8:00 更新），
+    **不是**市场价格，禁止使用（曾误用导致价格整体错位一档）。
+- ``o_`` 块 ``price`` 即单发哈夫币价，无组价换算。
 
 设计要点：
 
@@ -14,7 +16,7 @@
 - 确定性输出：条目按 ID 排序，无时间戳漂移进数据体。
 - **幂等**：解析出的价格与现表完全一致时不重写文件——git 无 diff、Actions 无空提交。
   ``updated_at`` 语义 = 「当前表内价格的抓取时间」。
-- 缺价不猜测：解析失败、价格为 0、非弹药段 ID 一律不入价。
+- 缺价不猜测：解析失败、价格为 0、非 ``ammo`` 分类一律不入价。
 """
 
 from __future__ import annotations
@@ -31,10 +33,7 @@ from typing import Any, Dict, Optional
 logger = logging.getLogger(__name__)
 
 SOURCE_URL = "https://www.onebiji.com/hykb_tools/sjz/mrmm/tqc.php?immgj=0"
-SOURCE_NAME = "onebiji 市场周期律（好游快爆）"
-
-#: 交易行弹药一组发数（实测口径：t_ 块 price ÷ 60 = 单发价）
-AMMO_PACK_SIZE = 60
+SOURCE_NAME = "onebiji 市场周期律 · 市场全览"
 
 #: 价格表 schema 与落盘路径
 PRICE_SCHEMA = "ammo-price-daily"
@@ -46,12 +45,11 @@ _USER_AGENT = (
     "(KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
 )
 
-#: 交易行报价块：``"t_<objectID>":{ ... "price":"32467" ...}``
-#: ``[^{}]*`` 限定在同一对象内，避免跨对象误配。
-_PRICE_RE = re.compile(r'"t_(\d{11})":\{[^{}]*?"price":"?(\d+)"?')
-
-#: 弹药官方 ID 段（37xxxxxxxxx）
-AMMO_ID_RE = re.compile(r"^37\d{9}$")
+#: 市场全览块：``"o_<objectID>":{ ... "primary_class":"ammo" ... "price":"4429" ...}``
+#: ``price`` 在 rank3 嵌套对象之前出现，``[^{}]*`` 限定同一层内不跨对象。
+_PRICE_RE = re.compile(
+    r'"o_(\d{11})":\{[^{}]*?"primary_class":"ammo"[^{}]*?"price":"?(\d+)"?'
+)
 
 
 class SourceUnavailable(RuntimeError):
@@ -71,16 +69,13 @@ def fetch_page(url: str = SOURCE_URL, timeout: float = 60.0) -> str:
 
 
 def parse_prices(page_html: str) -> Dict[str, int]:
-    """从行情页解析 ``t_`` 交易行报价块，换算为单发当日价。
+    """从行情页解析 ``o_`` 市场全览块，得到单发当日价。
 
-    只收 11 位 ``37`` 开头的弹药 ID 段；组价不能被组大小整除时仍按整除换算
-    （交易行报价为整数组价，单发价为地板值），换算结果必须为正，否则丢弃。
+    只收 ``primary_class: "ammo"`` 的对象（弹药分类双保险），价格为正才入价。
     """
     prices: Dict[str, int] = {}
-    for item_id, group_price in _PRICE_RE.findall(page_html):
-        if not AMMO_ID_RE.match(item_id):
-            continue
-        per_round = int(group_price) // AMMO_PACK_SIZE
+    for item_id, price in _PRICE_RE.findall(page_html):
+        per_round = int(price)
         if per_round > 0:
             prices[item_id] = per_round
     return prices
@@ -116,7 +111,7 @@ def build_table(
         "currency": "哈夫币",
         "window": {"from": fetched_date, "to": fetched_date, "days": 1},
         "updated_at": fetched_date,
-        "source": f"{SOURCE_NAME} · 交易行 60 发组价 ÷ {AMMO_PACK_SIZE} = 单发当日价",
+        "source": f"{SOURCE_NAME} · 交易行单发当日价（primary_class=ammo）",
         "note": (
             "自动维护：每日 GitHub Actions 抓取第三方行情并换算单发当日价；"
             "交易行无报价的弹药为 null（渲染为 —），非官方数据仅供参考"
