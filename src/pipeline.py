@@ -11,8 +11,7 @@
 输出：
 
 - ``data/榜单/护甲X弹药Y-<预设>.json`` —— 机器可读榜单（含层级阈值）
-- ``docs/榜单/护甲X弹药Y-<预设>.md`` —— 情景完整榜（4 距离带合订）
-- ``docs/榜单/主榜-<距离带>.md`` —— 主榜按距离带拆分的 4 份独立榜单
+- ``docs/榜单/<情景名>-<距离带>.md`` —— 每情景 4 份独立距离榜（主榜前缀 ``主榜``）
 - ``README.md`` —— 首页：口径 + 主榜速览（每带 Top 5）+ 导航
 - ``docs/改枪指南.md`` —— 改枪指南（不进 TTK 的维度）
 
@@ -36,11 +35,11 @@ from src.engine.game_data import DEFAULT_DATA_DIR, load_game_data
 from src.engine.loadout import LoadoutSolver
 from src.renderers.ttk_report import (
     BAND_ORDER,
-    main_band_doc_name,
+    band_doc_name,
+    main_band_doc_prefix,
     render_band_doc,
     render_gunsmith_guide,
     render_readme,
-    render_scenario_markdown,
     scenario_doc_stem,
 )
 
@@ -163,12 +162,17 @@ def _render_outputs(
     game_data: Any,
     part_names: Mapping[str, str],
 ) -> List[str]:
-    """把 payload 渲染落盘：情景 JSON/榜单 + 主榜 4 份距离榜 + README + 改枪指南。"""
+    """把 payload 渲染落盘：情景 JSON + 每情景 4 份距离榜 + README + 改枪指南。
+
+    所有情景一律按距离带拆分独立榜单（主榜前缀 ``主榜``，其余用情景中文名），
+    不再产出 4 带合订版。
+    """
     scenario_meta_all = {s["scenario_id"]: s for s in _scenario_index(game_data)}
     files_written: List[str] = []
 
     for sid, payload in payloads.items():
         meta = scenario_meta_all[sid]
+        prefix = main_band_doc_prefix() if sid == MAIN_SCENARIO else scenario_doc_stem(meta)
 
         json_path = _scenario_payload_path(output_dir, meta)
         os.makedirs(os.path.dirname(json_path), exist_ok=True)
@@ -177,24 +181,16 @@ def _render_outputs(
         files_written.append(json_path)
 
         docs_dir = os.path.join(output_dir, DOCS_SCENARIO_DIR)
-        if sid == MAIN_SCENARIO:
-            # 主榜：按距离带拆成独立榜单文档，不再写 4 带合订版
-            for band in BAND_ORDER:
-                if band not in (payload.get("band_definitions") or {}):
-                    continue
-                if not any(band in (w.get("bands") or {}) for w in payload["weapons"]):
-                    continue
-                band_path = os.path.join(docs_dir, main_band_doc_name(band))
-                os.makedirs(docs_dir, exist_ok=True)
-                with open(band_path, "w", encoding="utf-8") as fh:
-                    fh.write(render_band_doc(payload, band, meta, part_names))
-                files_written.append(band_path)
-        else:
-            md_path = os.path.join(docs_dir, f"{scenario_doc_stem(meta)}.md")
-            os.makedirs(docs_dir, exist_ok=True)
-            with open(md_path, "w", encoding="utf-8") as fh:
-                fh.write(render_scenario_markdown(payload, meta, part_names))
-            files_written.append(md_path)
+        os.makedirs(docs_dir, exist_ok=True)
+        for band in BAND_ORDER:
+            if band not in (payload.get("band_definitions") or {}):
+                continue
+            if not any(band in (w.get("bands") or {}) for w in payload["weapons"]):
+                continue
+            band_path = os.path.join(docs_dir, band_doc_name(prefix, band))
+            with open(band_path, "w", encoding="utf-8") as fh:
+                fh.write(render_band_doc(payload, band, meta, part_names, prefix=prefix))
+            files_written.append(band_path)
 
     main_payload = payloads.get(MAIN_SCENARIO)
     if main_payload is not None:

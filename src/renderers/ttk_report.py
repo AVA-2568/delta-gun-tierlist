@@ -15,25 +15,29 @@ TIER_ORDER = ("T0", "T1", "T2", "T3")
 # 产物文件命名（展示层职责：管线层从这里取名落盘，README/文档从这里取名造链接）
 # --------------------------------------------------------------------------- #
 
-#: 主榜（官方默认情景）按距离带拆分的独立榜单文档名：``主榜-贴脸.md`` …
+#: 主榜（官方默认情景）距离榜文档的情景前缀：``主榜-贴脸.md`` …
 MAIN_BAND_DOC_PREFIX = "主榜"
+
+#: 距离榜文档所在目录（相对仓库根）
+DOCS_BAND_DIR = "docs/榜单"
 
 #: 命中分布预设 → 中文名（未知预设回退原值，不猜测）
 PRESET_ZH = {"default": "实战", "center": "聚焦中心", "chest-only": "仅胸口"}
 
 
-def main_band_doc_name(band: str) -> str:
-    """主榜某距离带的独立榜单文档文件名（同目录互链用裸名）。"""
-    return f"{MAIN_BAND_DOC_PREFIX}-{band}.md"
+def main_band_doc_prefix() -> str:
+    """主榜距离榜文档的情景前缀。"""
+    return MAIN_BAND_DOC_PREFIX
 
 
-#: 距离榜文档所在目录（相对仓库根）
-DOCS_BAND_DIR = "docs/榜单"
+def band_doc_name(prefix: str, band: str) -> str:
+    """某情景某距离带的独立榜单文档文件名（同目录互链用裸名）。"""
+    return f"{prefix}-{band}.md"
 
 
-def main_band_doc_ref(band: str) -> str:
+def band_doc_ref(prefix: str, band: str) -> str:
     """从仓库根（README）引用距离榜文档的相对路径。"""
-    return f"{DOCS_BAND_DIR}/{main_band_doc_name(band)}"
+    return f"{DOCS_BAND_DIR}/{band_doc_name(prefix, band)}"
 
 
 def scenario_doc_stem(scenario_meta: Mapping[str, Any]) -> str:
@@ -203,68 +207,6 @@ def render_band_table(
     return "\n".join(lines)
 
 
-def render_scenario_markdown(
-    payload: Mapping[str, Any],
-    scenario_meta: Mapping[str, Any],
-    part_names: Mapping[str, str],
-    limit_per_band: Optional[int] = 120,
-) -> str:
-    """渲染单个情景的完整榜单文档。"""
-    scenario_id = payload["scenario_id"]
-    thresholds = payload.get("tier_thresholds_ms") or {}
-    bands = payload.get("band_definitions") or {}
-
-    lines: List[str] = []
-    lines.append(f"# 纯 TTK 榜单 · {scenario_doc_stem(scenario_meta)}")
-    lines.append("")
-    lines.append(f"- **情景 ID**：`{scenario_id}`")
-    if scenario_meta:
-        lines.append(
-            f"- **护甲/弹药**：{scenario_meta.get('armor_level')} 套 · {scenario_meta.get('ammo_level')} 弹"
-            f"（头盔耐久 {scenario_meta.get('helmet_durability')} / 背心耐久 {scenario_meta.get('armor_durability')}）"
-        )
-        preset = scenario_meta.get("probability_preset")
-        if preset:
-            lines.append(f"- **命中分布预设**：`{preset}`")
-    lines.append("- **排序键**：距离带内平均实战 TTK（升序，越小越强）")
-    lines.append("- **稳健性列**：距离带内最差 TTK")
-    lines.append("- **TTK 定义**：`(期望击杀发数 − 1) × 射击间隔`，不含开镜时间与弹丸飞行时间")
-    lines.append("")
-    lines.append("> 层级由该情景该距离带内全部武器的 TTK 分布分位数切分"
-                 "（前 15% → T0，15–40% → T1，40–70% → T2，其余 → T3），阈值见下方表格。")
-    lines.append("")
-
-    for band in BAND_ORDER:
-        if band not in bands:
-            continue
-        # 该带没有任何武器成绩时不渲染（避免空表）
-        if not any(band in (w.get("bands") or {}) for w in payload["weapons"]):
-            continue
-        lo = bands[band]["from_m"]
-        hi = bands[band]["to_m"]
-        lines.append(f"## {band}（{lo:g}–{hi:g} m）")
-        lines.append("")
-        band_thresholds = thresholds.get(band) or {}
-        if band_thresholds:
-            lines.append("层级阈值：" + _thresholds_text(band_thresholds))
-            lines.append("")
-        lines.append(render_band_table(payload, band, part_names, limit=limit_per_band))
-        lines.append("")
-
-    lines.append("---")
-    lines.append("")
-    lines.append("## 数据说明")
-    lines.append("")
-    lines.append("- 期望击杀发数与射击间隔均已逐位复现官方数据集（3774 / 291 个官方样本，零偏差）")
-    lines.append("- 距离场锁定 0–80m（官方排行 `distanceRange`），不做外推")
-    lines.append("- 开镜时间、初速、后坐/散布等维度不计入 TTK，详见 [改枪指南](../改枪指南.md)")
-    lines.append("- 距离明细：每状态的 0–80 m 每 10 m 采样 TTK 见 `data/榜单/<情景>.json` 的 `ttk_by_distance_ms`")
-    note = _price_note(payload)
-    if note:
-        lines.append(note)
-    return "\n".join(lines)
-
-
 def render_band_top_preview(
     payload: Mapping[str, Any],
     band: str,
@@ -302,14 +244,14 @@ def render_band_top_preview(
     return "\n".join(lines)
 
 
-def _band_nav_line(current: Optional[str] = None) -> str:
-    """距离榜横向导航：其余三带链接 + 当前带加粗（不可自链）。"""
+def _band_nav_line(prefix: str, current: Optional[str] = None) -> str:
+    """距离榜横向导航（同情景内互链）：其余三带链接 + 当前带加粗（不可自链）。"""
     parts = []
     for band in BAND_ORDER:
         if band == current:
             parts.append(f"**{band}**")
         else:
-            parts.append(f"[{band}]({main_band_doc_name(band)})")
+            parts.append(f"[{band}]({band_doc_name(prefix, band)})")
     return " · ".join(parts)
 
 
@@ -319,15 +261,21 @@ def render_band_doc(
     scenario_meta: Mapping[str, Any],
     part_names: Mapping[str, str],
     limit: Optional[int] = 120,
+    prefix: Optional[str] = None,
 ) -> str:
-    """主榜单个距离带的独立榜单文档（完整排名，一份距离一个文件）。"""
+    """单个情景单个距离带的独立榜单文档（完整排名，一份距离一个文件）。
+
+    ``prefix`` 为文档标题与互链所用的情景名（主榜用 ``主榜``，其余情景用
+    ``scenario_doc_stem`` 的中文名）；缺省回落到主榜前缀。
+    """
+    prefix = prefix or MAIN_BAND_DOC_PREFIX
     band_def = (payload.get("band_definitions") or {}).get(band)
     if band_def is None:
         raise KeyError(f"payload 未定义距离带：{band}")
     thresholds = (payload.get("tier_thresholds_ms") or {}).get(band) or {}
 
     lines: List[str] = []
-    lines.append(f"# 主榜 · {band}（{band_def['from_m']:g}–{band_def['to_m']:g} m）")
+    lines.append(f"# {prefix} · {band}（{band_def['from_m']:g}–{band_def['to_m']:g} m）")
     lines.append("")
     lines.append(
         f"> {scenario_doc_stem(scenario_meta)}"
@@ -345,7 +293,7 @@ def render_band_doc(
     lines.append("")
     lines.append("---")
     lines.append("")
-    lines.append("其他距离榜：" + _band_nav_line(current=band))
+    lines.append("其他距离榜：" + _band_nav_line(prefix, current=band))
     lines.append("")
     lines.append("[← 返回 README 主榜速览](../../README.md)")
     lines.append("")
@@ -413,7 +361,7 @@ def render_readme(
             continue
         band_def = main_payload["band_definitions"][band]
         thresholds = (main_payload.get("tier_thresholds_ms") or {}).get(band) or {}
-        lines.append(f"### {band}（{band_def['from_m']:g}–{band_def['to_m']:g} m）· [完整榜 →]({main_band_doc_ref(band)})")
+        lines.append(f"### {band}（{band_def['from_m']:g}–{band_def['to_m']:g} m）· [完整榜 →]({band_doc_ref(MAIN_BAND_DOC_PREFIX, band)})")
         lines.append("")
         if thresholds:
             lines.append("层级阈值：" + _thresholds_text(thresholds))
@@ -431,13 +379,12 @@ def render_readme(
         lines.append("| :-- | --: | --: | :-- | :-- |")
         for item in scenario_index:
             sid = item.get("scenario_id")
-            if sid == main_payload["scenario_id"]:
-                label = f"{scenario_doc_stem(item)}（主榜）"
-                file_cell = " · ".join(f"[{band}]({main_band_doc_ref(band)})" for band in BAND_ORDER)
-            else:
-                doc_name = f"{scenario_doc_stem(item)}.md"
-                label = f"[{scenario_doc_stem(item)}](docs/榜单/{doc_name})"
-                file_cell = f"`docs/榜单/{doc_name}`"
+            is_main = sid == main_payload["scenario_id"]
+            prefix = MAIN_BAND_DOC_PREFIX if is_main else scenario_doc_stem(item)
+            label = f"{scenario_doc_stem(item)}（主榜）" if is_main else scenario_doc_stem(item)
+            file_cell = " · ".join(
+                f"[{band}]({band_doc_ref(prefix, band)})" for band in BAND_ORDER
+            )
             lines.append(
                 f"| {label} | {item.get('armor_level')} "
                 f"| {item.get('ammo_level')} | `{item.get('probability_preset')}` "

@@ -3,13 +3,15 @@
 import pytest
 
 from src.renderers.ttk_report import (
+    band_doc_name,
+    band_doc_ref,
     loadout_text,
+    main_band_doc_prefix,
     render_band_doc,
     render_band_table,
     render_band_top_preview,
     render_gunsmith_guide,
     render_readme,
-    render_scenario_markdown,
     scenario_doc_stem,
 )
 
@@ -88,18 +90,6 @@ def test_band_table_limit():
     assert len(table.splitlines()) == 3
 
 
-def test_scenario_markdown_contains_definition_and_thresholds():
-    md = render_scenario_markdown(PAYLOAD, SCENARIO_META, PART_NAMES)
-    assert "# 纯 TTK 榜单" in md
-    assert "`armor-5-ammo-5-default`" in md
-    assert "5 套 · 5 弹" in md
-    assert "(期望击杀发数 − 1) × 射击间隔" in md
-    assert "T0 ≤ 320.0 ms" in md
-    assert "## 贴脸（0–15 m）" in md
-    # 没有数据的带不渲染
-    assert "## 中距" not in md
-
-
 def test_readme_is_slim_overview_with_band_nav():
     md = render_readme(
         PAYLOAD,
@@ -120,7 +110,8 @@ def test_readme_is_slim_overview_with_band_nav():
     assert "docs/tierlist/" not in md
 
 
-def test_readme_scenario_index_uses_chinese_doc_names():
+def test_readme_scenario_index_all_bands_for_every_scenario():
+    """情景索引：所有情景（含非主榜）都列出 4 份距离榜链接。"""
     other = {
         "scenario_id": "armor-4-ammo-4-default",
         "label": "4套 · 4弹 · 实战概率",
@@ -135,8 +126,18 @@ def test_readme_scenario_index_uses_chinese_doc_names():
         PART_NAMES,
         scenario_index=[SCENARIO_META, other],
     )
-    assert "[护甲4弹药4-实战](docs/榜单/护甲4弹药4-实战.md)" in md
+    assert "[贴脸](docs/榜单/护甲4弹药4-实战-贴脸.md) · [近距](docs/榜单/护甲4弹药4-实战-近距.md) · [中距](docs/榜单/护甲4弹药4-实战-中距.md) · [远距](docs/榜单/护甲4弹药4-实战-远距.md)" in md
+    assert "护甲4弹药4-实战（主榜）" not in md  # 主榜标记只给主榜情景
     assert "`docs/榜单/护甲4弹药4-实战.json`" not in md  # 索引里只链文档，不链 JSON
+
+
+def test_band_doc_name_and_ref():
+    prefix = main_band_doc_prefix()
+    assert prefix == "主榜"
+    assert band_doc_name(prefix, "贴脸") == "主榜-贴脸.md"
+    assert band_doc_ref(prefix, "贴脸") == "docs/榜单/主榜-贴脸.md"
+    assert band_doc_name("护甲4弹药4-实战", "远距") == "护甲4弹药4-实战-远距.md"
+    assert band_doc_ref("护甲4弹药4-实战", "远距") == "docs/榜单/护甲4弹药4-实战-远距.md"
 
 
 def test_scenario_doc_stem_naming():
@@ -182,6 +183,18 @@ def test_band_doc_rejects_unknown_band():
 
     with pytest.raises(KeyError):
         render_band_doc(PAYLOAD, "不存在", SCENARIO_META, PART_NAMES)
+
+
+def test_band_doc_supports_scenario_prefix():
+    """非主榜情景的距离榜：标题/导航用情景中文名前缀。"""
+    other = {"scenario_id": "armor-4-ammo-4-default", "armor_level": 4,
+             "ammo_level": 4, "probability_preset": "default"}
+    md = render_band_doc(PAYLOAD, "贴脸", other, PART_NAMES, prefix="护甲4弹药4-实战")
+    assert "# 护甲4弹药4-实战 · 贴脸（0–15 m）" in md
+    assert "[近距](护甲4弹药4-实战-近距.md)" in md
+    assert "[贴脸](护甲4弹药4-实战-贴脸.md)" not in md
+    assert "**贴脸**" in md
+    assert "armor-4-ammo-4-default" not in md  # 不暴露内部情景 ID
 
 
 def test_gunsmith_guide_generates_workbench_table():
