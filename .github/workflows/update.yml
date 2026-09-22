@@ -11,6 +11,11 @@ on:
 permissions:
   contents: read
 
+# 榜单重算写仓库，禁止两次刷新并发执行（后到的排队等待）
+concurrency:
+  group: tierlist-refresh
+  cancel-in-progress: false
+
 jobs:
   test:
     name: Test Suite
@@ -35,7 +40,7 @@ jobs:
 
   refresh-tierlist:
     name: Refresh Tier List
-    needs: test
+    # 管线运行期零第三方依赖（标准库），无需装环境
     if: github.event_name == 'workflow_dispatch' || github.event_name == 'schedule'
     runs-on: ubuntu-latest
     permissions:
@@ -43,17 +48,6 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-          cache: 'pip'
-
-      - name: Install Dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
 
       # 数据层来自上游公开数据集（需联网）；榜单计算本身完全离线。
       - name: Sync Official Game Data
@@ -75,5 +69,7 @@ jobs:
           git add -A README.md docs/ data/
           if ! git diff --staged --quiet; then
             git commit -m "chore(auto): refresh pure TTK tier list [skip ci]"
+            # 运行期间若有人推了新提交，rebase 到远端最新再推，避免 non-fast-forward
+            git pull --rebase origin main
             git push
           fi

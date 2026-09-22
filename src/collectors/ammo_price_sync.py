@@ -171,7 +171,7 @@ def sync(
                 }
 
     os.makedirs(os.path.dirname(os.path.abspath(target)), exist_ok=True)
-    with open(target, "w", encoding="utf-8") as fh:
+    with open(target, "w", encoding="utf-8", newline="\n") as fh:
         json.dump(table, fh, ensure_ascii=False, indent=1)
         fh.write("\n")
     logger.info("价格表已更新：matched=%d / catalog=%d", matched, len(catalog))

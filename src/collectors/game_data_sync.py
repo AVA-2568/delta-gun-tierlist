@@ -1062,7 +1062,7 @@ def normalize_validation_samples(
 def _write_json(path: str, payload: Any) -> str:
     os.makedirs(os.path.dirname(os.path.abspath(path)), exist_ok=True)
     text = json.dumps(payload, ensure_ascii=False, indent=1, sort_keys=False)
-    with open(path, "w", encoding="utf-8") as fh:
+    with open(path, "w", encoding="utf-8", newline="\n") as fh:
         fh.write(text)
         fh.write("\n")
     return _sha256_bytes(text.encode("utf-8"))

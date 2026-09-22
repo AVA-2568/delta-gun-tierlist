@@ -176,7 +176,7 @@ def _render_outputs(
 
         json_path = _scenario_payload_path(output_dir, meta)
         os.makedirs(os.path.dirname(json_path), exist_ok=True)
-        with open(json_path, "w", encoding="utf-8") as fh:
+        with open(json_path, "w", encoding="utf-8", newline="\n") as fh:
             json.dump(payload, fh, ensure_ascii=False, indent=1)
         files_written.append(json_path)
 
@@ -188,14 +188,14 @@ def _render_outputs(
             if not any(band in (w.get("bands") or {}) for w in payload["weapons"]):
                 continue
             band_path = os.path.join(docs_dir, band_doc_name(prefix, band))
-            with open(band_path, "w", encoding="utf-8") as fh:
+            with open(band_path, "w", encoding="utf-8", newline="\n") as fh:
                 fh.write(render_band_doc(payload, band, meta, part_names, prefix=prefix))
             files_written.append(band_path)
 
     main_payload = payloads.get(MAIN_SCENARIO)
     if main_payload is not None:
         readme_path = os.path.join(output_dir, "README.md")
-        with open(readme_path, "w", encoding="utf-8") as fh:
+        with open(readme_path, "w", encoding="utf-8", newline="\n") as fh:
             fh.write(
                 render_readme(
                     main_payload,
@@ -213,11 +213,25 @@ def _render_outputs(
 
     guide_path = os.path.join(output_dir, GUNSMITH_GUIDE_PATH)
     os.makedirs(os.path.dirname(guide_path), exist_ok=True)
-    with open(guide_path, "w", encoding="utf-8") as fh:
+    with open(guide_path, "w", encoding="utf-8", newline="\n") as fh:
         fh.write(render_gunsmith_guide(game_data, game_data.provenance))
     files_written.append(guide_path)
 
     return files_written
+
+
+def _compute_scenario(args: tuple) -> tuple:
+    """单情景完整计算（供串行/并行两路复用；子进程内自带数据加载）。"""
+    sid, output_dir, keys, beam_width = args
+    game_data = load_game_data(os.path.join(output_dir, DEFAULT_DATA_DIR))
+    price_table = load_ammo_prices(os.path.join(output_dir, AMMO_PRICE_TABLE))
+    solver = LoadoutSolver(game_data, sid)
+    rankings, thresholds, excluded = tiering.rank_weapons_for_scenario(
+        game_data, sid, solver=solver, beam_width=beam_width,
+        profile_keys=keys, price_table=price_table,
+    )
+    payload = tiering.to_export(rankings, thresholds, sid, excluded, price_table=price_table)
+    return sid, payload, len(rankings), len(excluded)
 
 
 def run_pipeline(
@@ -241,6 +255,9 @@ def run_pipeline(
         write: 是否写盘（False 时仅返回结果，便于测试）。
         render_only: 不重算，直接从 ``data/榜单/*.json`` 读回 payload 重渲染文档
             （束搜索耗时长，重算交给 GitHub Actions；本地只做廉价渲染）。
+
+    多情景重算按情景粒度并行（每情景相互独立，worker 各自加载数据）；
+    单情景或 limit 调试模式直接串行，省去进程开销。
     """
     game_data = load_game_data(os.path.join(output_dir, DEFAULT_DATA_DIR))
     part_names = _part_names(game_data)
@@ -258,31 +275,36 @@ def run_pipeline(
 
     if render_only:
         payloads = _load_payloads_from_disk(output_dir, targets, scenario_meta_all)
+        keys_count = 0
     else:
-        price_table = load_ammo_prices(os.path.join(output_dir, AMMO_PRICE_TABLE))
         keys = [w["profile_key"] for w in game_data.weapons]
         if limit:
             keys = keys[:limit]
+        keys_count = len(keys)
 
+        jobs = [(sid, output_dir, keys, beam_width) for sid in targets]
         payloads: Dict[str, Dict[str, Any]] = {}
-        for sid in targets:
-            solver = LoadoutSolver(game_data, sid)
-            rankings, thresholds, excluded = tiering.rank_weapons_for_scenario(
-                game_data, sid, solver=solver, beam_width=beam_width,
-                profile_keys=keys, price_table=price_table,
-            )
-            payload = tiering.to_export(rankings, thresholds, sid, excluded, price_table=price_table)
+        if len(jobs) == 1:
+            results = [_compute_scenario(jobs[0])]
+        else:
+            from concurrent.futures import ProcessPoolExecutor
+
+            workers = min(len(jobs), os.cpu_count() or 1)
+            logger.info("情景并行计算：%d 个情景 × %d 进程", len(jobs), workers)
+            with ProcessPoolExecutor(max_workers=workers) as pool:
+                results = list(pool.map(_compute_scenario, jobs))
+        for sid, payload, n_ranked, n_excluded in results:
             payloads[sid] = payload
             logger.info(
                 "情景 %s 完成：可参赛 %d 把，排除 %d 把（口径无该等级弹药）",
-                sid, len(rankings), len(excluded),
+                sid, n_ranked, n_excluded,
             )
 
     files_written = _render_outputs(payloads, output_dir, game_data, part_names) if write else []
 
     return {
         "scenarios": targets,
-        "weapon_count": len(keys) if not render_only else 0,
+        "weapon_count": keys_count,
         "payloads": payloads,
         "files_written": files_written,
     }
