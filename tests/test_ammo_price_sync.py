@@ -95,7 +95,7 @@ def test_build_table_covers_catalog_and_marks_missing():
 def test_sync_writes_and_is_idempotent(tmp_path):
     root = str(tmp_path)
     _write_catalog(root)
-    result = sync(output_dir=root, fetch=lambda timeout: PAGE)
+    result = sync(output_dir=root, fetch=lambda timeout: PAGE, zxfps_fetch=lambda a, ids: {})
     assert result["changed"] is True
     assert result["matched"] == 2
 
@@ -103,17 +103,50 @@ def test_sync_writes_and_is_idempotent(tmp_path):
     first = open(table_path, encoding="utf-8").read()
 
     # 再次同步同一页面：价格一致 → 不重写（幂等）
-    result2 = sync(output_dir=root, fetch=lambda timeout: PAGE)
+    result2 = sync(output_dir=root, fetch=lambda timeout: PAGE, zxfps_fetch=lambda a, ids: {})
     assert result2["changed"] is False
     assert open(table_path, encoding="utf-8").read() == first
 
     # 价格变化 → 重写
     changed_page = PAGE.replace('"price":"384"', '"price":"500"')
-    result3 = sync(output_dir=root, fetch=lambda timeout: changed_page)
+    result3 = sync(output_dir=root, fetch=lambda timeout: changed_page, zxfps_fetch=lambda a, ids: {})
     assert result3["changed"] is True
     updated = json.load(open(table_path, encoding="utf-8"))
     rows = {r["ammo_item_id"]: r["price_daily"] for r in updated["ammo"]}
     assert rows["37100300001"] == 500
+
+
+def test_fallback_fills_missing_ammo(tmp_path):
+    """onebiji 缺价的弹药由 zxfps 回填，且标注补全来源。"""
+    root = str(tmp_path)
+    _write_catalog(root)
+    result = sync(
+        output_dir=root, fetch=lambda timeout: PAGE,
+        zxfps_fetch=lambda a, ids: {"37100400001": 1630},
+    )
+    assert result["fallback"] == 1
+    table = json.load(open(os.path.join(root, "data", "reference", "ammo_prices.json"), encoding="utf-8"))
+    rows = {r["ammo_item_id"]: r["price_daily"] for r in table["ammo"]}
+    assert rows["37100400001"] == 1630
+    assert rows["37100300001"] == 384  # 主源价格不受回填影响
+    assert "zxfps" in table["source"]
+
+
+def test_fallback_failure_is_graceful(tmp_path):
+    """回填源崩溃不得影响主源数据（缺价保持 null）。"""
+    root = str(tmp_path)
+    _write_catalog(root)
+
+    def boom(a, ids):
+        raise RuntimeError("网络炸了")
+
+    result = sync(output_dir=root, fetch=lambda timeout: PAGE, zxfps_fetch=boom)
+    assert result["fallback"] == 0
+    assert result["changed"] is True
+    table = json.load(open(os.path.join(root, "data", "reference", "ammo_prices.json"), encoding="utf-8"))
+    rows = {r["ammo_item_id"]: r["price_daily"] for r in table["ammo"]}
+    assert rows["37100400001"] is None
+    assert rows["37100300001"] == 384
 
 
 def test_sync_rejects_empty_catalog(tmp_path):

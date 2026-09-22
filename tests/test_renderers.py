@@ -102,7 +102,7 @@ def test_readme_is_slim_overview_with_band_nav():
     assert "20260911-044903.3" in md
     # 主榜速览：每带 Top 5 精简表 + 完整榜跳转（README 在仓库根，链接须带 docs/榜单/ 前缀）
     assert "### 贴脸（0–15 m）· [完整榜 →](docs/榜单/主榜-贴脸.md)" in md
-    assert "| # | 层级 | 武器 | 平均 TTK | 击杀成本 | 起枪配置 |" in md
+    assert "| # | 层级 | 武器 | 平均 TTK | 击杀成本 | 裸枪价格 | 裸枪+180发备弹 | 起枪配置 |" in md
     # 完整榜的宽表列不得回流 README
     assert "| 最差 TTK |" not in md
     # 情景索引：主榜行指向 4 份距离榜，不再有旧英文路径
@@ -157,7 +157,7 @@ def test_scenario_doc_stem_naming():
 def test_band_top_preview_limits_rows():
     table = render_band_top_preview(PAYLOAD, "贴脸", PART_NAMES, limit=1)
     lines = table.splitlines()
-    assert lines[0] == "| # | 层级 | 武器 | 平均 TTK | 击杀成本 | 起枪配置 |"
+    assert lines[0] == "| # | 层级 | 武器 | 平均 TTK | 击杀成本 | 裸枪价格 | 裸枪+180发备弹 | 起枪配置 |"
     assert len(lines) == 3
     assert lines[2].startswith("| 1 | **T0** | M4A1 |")
 
@@ -244,6 +244,66 @@ def test_band_table_has_three_new_columns():
     assert header.index("期望击杀发数@0m") < header.index("弹药") < header.index("单发价") < header.index("击杀成本")
 
 
+def test_band_table_has_gun_price_columns():
+    """裸枪价格 / 裸枪+180发备弹 两列紧跟「击杀成本」之后。"""
+    table = render_band_table(PAYLOAD_WITH_COST, "贴脸", PART_NAMES)
+    header = table.splitlines()[0]
+    assert "裸枪价格" in header
+    assert "裸枪+180发备弹" in header
+    assert header.index("击杀成本") < header.index("裸枪价格") < header.index("裸枪+180发备弹") < header.index("射速")
+
+
+def test_band_table_renders_gun_prices():
+    payload = {
+        **PAYLOAD_WITH_COST,
+        "weapon_price_meta": {
+            "currency": "哈夫币",
+            "window": {"from": "2026-09-22", "to": "2026-09-22", "days": 1},
+            "updated_at": "2026-09-22",
+            "available": True,
+            "spare_ammo_rounds": 180,
+        },
+        "weapons": [
+            {**PAYLOAD_WITH_COST["weapons"][0],
+             "gun_price_daily": 87591,
+             "full_price_180rd": 87591 + 180 * 4579},
+        ],
+    }
+    table = render_band_table(payload, "贴脸", PART_NAMES)
+    assert "87,591 哈夫币" in table
+    assert f"{87591 + 180 * 4579:,} 哈夫币" in table
+    # README 速览同列
+    preview = render_band_top_preview(payload, "贴脸", PART_NAMES)
+    assert "87,591 哈夫币" in preview
+    assert f"{87591 + 180 * 4579:,} 哈夫币" in preview
+
+
+def test_variant_row_shows_base_name_not_variant_identity():
+    """官方预装态行：武器列显示本体名（变体 = 本体 + 预装件，不是独立的枪）。"""
+    payload = {
+        **PAYLOAD_WITH_COST,
+        "weapon_price_meta": {"available": True, "spare_ammo_rounds": 180,
+                              "currency": "哈夫币", "window": {}, "updated_at": "2026-09-22"},
+        "weapons": [
+            {**PAYLOAD_WITH_COST["weapons"][0],
+             "name": "M4A1-AR特勤一体消音组合",   # 变体 display_name（payload 保留官方身份）
+             "base_name": "M4A1",
+             "is_variant": True,
+             "variant_item_name": "AR特勤一体消音组合",
+             "gun_price_daily": 87591,
+             "full_price_180rd": 87591 + 180 * 4579},
+        ],
+    }
+    table = render_band_table(payload, "贴脸", PART_NAMES)
+    assert "| 1 | **T0** | M4A1 |" in table          # 武器列 = 本体名
+    assert "M4A1-AR特勤一体消音组合" not in table   # 变体枪名不得作为武器身份出现
+    assert "变体 · 出厂预装态" not in table          # 旧「变体枪」副标签移除
+    assert "出厂预装：AR特勤一体消音组合" in table   # 预装来源在配置列标注
+    preview = render_band_top_preview(payload, "贴脸", PART_NAMES)
+    assert "| 1 | **T0** | M4A1 |" in preview
+    assert "出厂预装：AR特勤一体消音组合" in preview
+
+
 def test_band_table_renders_ammo_and_money():
     table = render_band_table(PAYLOAD_WITH_COST, "贴脸", PART_NAMES)
     assert "4.6x30mm AP SX" in table
@@ -325,3 +385,28 @@ def test_readme_notes_price_source():
     assert "2026-09-22" in md
     assert "第三方交易行当日价" in md
     assert "每日自动抓取维护" in md
+
+
+def test_readme_notes_weapon_price_source_and_cost_rule():
+    """README 必须说明枪价口径：本体裸枪当日价、配件价不计入、起枪成本公式。"""
+    payload = {
+        **PAYLOAD_WITH_COST,
+        "weapon_price_meta": {
+            "currency": "哈夫币",
+            "window": {"from": "2026-09-22", "to": "2026-09-22", "days": 1},
+            "updated_at": "2026-09-22",
+            "available": True,
+            "spare_ammo_rounds": 180,
+        },
+    }
+    md = render_readme(
+        payload,
+        SCENARIO_META,
+        {"source": {"name": "dfttk-v3", "dataset_version": "x"}},
+        PART_NAMES,
+    )
+    assert "枪械价格" in md
+    assert "本体裸枪当日价" in md
+    assert "配件价不计入" in md
+    assert "| 起枪成本 |" in md
+    assert "回答三个问题" in md

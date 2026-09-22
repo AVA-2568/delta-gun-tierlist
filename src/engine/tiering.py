@@ -20,10 +20,14 @@ from src.engine.loadout import LoadoutSolver, part_affects_ttk
 
 if TYPE_CHECKING:  # pragma: no cover - 仅类型标注
     from src.engine.ammo_pricing import AmmoPriceTable
+    from src.engine.weapon_pricing import WeaponPriceTable
 
 TIER_QUANTILES: tuple = (0.15, 0.40, 0.70)
 TIER_NAMES: tuple = ("T0", "T1", "T2", "T3")
 BAND_NAMES: tuple = ("贴脸", "近距", "中距", "远距")
+
+#: 起枪备弹数：裸枪 + N 发所配弹药的预估口径（2026-09-22 与需求方确认）
+SPARE_AMMO_ROUNDS = 180
 
 
 @dataclass
@@ -47,10 +51,11 @@ class GunRanking:
     ``entry_kind`` 区分三种单状态行：
 
     - ``"base"``：本体裸枪（官方默认配装）；
-    - ``"variant"``：官方变体枪出厂预装态（预装件生效、无其他改装）；
+    - ``"variant"``：本体+官方预装件（官方变体出厂态，预装件生效、无其他改装）；
     - ``"single_part"``：本体裸枪 + 单件装配（仅该件替换默认件，不做组合）。
 
-    每行只代表一个配置状态，全部参与排名与分层。
+    每行只代表一个配置状态，全部参与排名与分层。变体不是独立的枪——
+    只是本体预装了官方改件，故 ``gun_price_daily`` 与本体一致。
     """
 
     profile_key: str
@@ -75,6 +80,10 @@ class GunRanking:
     ammo_name: str = ""
     ammo_caliber: str = ""
     ammo_price_daily: Optional[int] = None
+    #: 本体裸枪交易行当日价（变体/改装状态与本体同价，配件价不计入）
+    gun_price_daily: Optional[int] = None
+    #: 起枪预估价：裸枪价 + N 发所配弹药（缺任一价则为 None）
+    full_price_180rd: Optional[int] = None
     #: 相对本体裸枪的关键 TTK 属性变化（伤害档案替换、射速、优势射程等）
     loadout_effects: List[Dict[str, Any]] = field(default_factory=list)
     #: 本体裸枪（无改装）在各距离带的 TTK 聚合，作为本行收益的参照
@@ -150,6 +159,25 @@ def compute_kill_cost(
     return int(mean_expected_shots * price_per_round + 0.5)
 
 
+def compute_full_price(
+    gun_price: Optional[int],
+    ammo_price_per_round: Optional[int],
+    rounds: int = SPARE_AMMO_ROUNDS,
+) -> Optional[int]:
+    """起枪预估价（哈夫币）：本体裸枪价 + N 发所配弹药。
+
+    口径（2026-09-22 与需求方确认）：
+
+    - **裸枪价按本体计**——变体/改装只是本体多装了配件（配件会改伤害/射速，
+      但那些差异体现在各行的 TTK 与击杀成本里），配件价不计入起枪价；
+    - 弹药单价用**该行实际所配弹药**的单发价，而非全枪统一价；
+    - 整数运算无舍入歧义，任一输入为 ``None``（缺价）时返回 ``None``——不猜测、不兜底。
+    """
+    if gun_price is None or ammo_price_per_round is None:
+        return None
+    return gun_price + rounds * ammo_price_per_round
+
+
 def _quantile(sorted_values: Sequence[float], q: float) -> float:
     """线性插值分位数（与 numpy.percentile 默认口径一致）。"""
     if not sorted_values:
@@ -196,15 +224,17 @@ def rank_weapons_for_scenario(
     beam_width: int = 48,
     profile_keys: Optional[Sequence[str]] = None,
     price_table: Optional["AmmoPriceTable"] = None,
+    weapon_price_table: Optional["WeaponPriceTable"] = None,
 ) -> tuple:
     """起枪状态口径榜单：每行 = 一个起枪配置状态的 TTK，聚合距离带并分层。
 
     条目构成（同一把枪会产生多个状态行）：
 
     - **base 本体**：官方默认配装（裸枪）；
+    - **本体+官方预装件**：官方变体出厂态（仅预装件影响 TTK 的才列）——
+      变体只是本体预装了官方改件，不是独立的枪，裸枪价与本体一致；
     - **改装状态**：束搜索枚举的合法配装（仅影响 TTK 的插槽参与），每个
-      TTK 互异状态一行——四带平均 TTK 相同的状态视为同一情况，不重复列；
-    - **官方变体枪（仅预装件影响 TTK 的）**：出厂预装态。
+      TTK 互异状态一行——四带平均 TTK 相同的状态视为同一情况，不重复列。
 
     全部状态行一起参与排名与 T0–T3 分层。各行的「预装收益」以同枪本体
     裸枪为参照。
@@ -268,6 +298,7 @@ def rank_weapons_for_scenario(
         stock_bands: Mapping[str, Mapping[str, float]],
         loadout_effects: List[Dict[str, Any]],
         loadout: Optional[Mapping[str, Any]] = None,
+        gun_price: Optional[int] = None,
     ) -> GunRanking:
         ammo_price = _ammo_price(ammo)
         curve0 = curve[0]
@@ -298,6 +329,8 @@ def rank_weapons_for_scenario(
             ammo_name=str(ammo.get("name") or ""),
             ammo_caliber=str(ammo.get("caliber") or ""),
             ammo_price_daily=ammo_price,
+            gun_price_daily=gun_price,
+            full_price_180rd=compute_full_price(gun_price, ammo_price),
             loadout_effects=loadout_effects,
             stock_bands=dict(stock_bands),
             ttk_by_distance_ms=by_distance,
@@ -313,6 +346,14 @@ def rank_weapons_for_scenario(
         base_key = str(base_weapon["profile_key"])
         if base_key not in keys_set:
             continue
+
+        # 本体裸枪当日价：同枪全部状态行（本体/预装态/改装态）共用——
+        # 变体 = 本体 + 预装改件，改装只换配件，裸枪价不随配置变化
+        gun_price = (
+            weapon_price_table.price_for(str(base_weapon["weapon_id"]))
+            if weapon_price_table is not None
+            else None
+        )
 
         # ---- base 本体：官方默认（裸枪）----
         try:
@@ -331,6 +372,7 @@ def rank_weapons_for_scenario(
                 ammo=ammo,
                 stock_bands=base_stock_bands,
                 loadout_effects=[],
+                gun_price=gun_price,
             )
         )
 
@@ -366,6 +408,7 @@ def rank_weapons_for_scenario(
                     ammo=variant_ammo,
                     stock_bands=base_stock_bands,
                     loadout_effects=summarize_loadout_effects(base_state, variant_state),
+                    gun_price=gun_price,
                 )
             )
 
@@ -408,6 +451,7 @@ def rank_weapons_for_scenario(
                         base_state, solver.resolver.resolve(base_key, loadout=loadout_choice, tuning=None)
                     ),
                     loadout=loadout_choice,
+                    gun_price=gun_price,
                 )
             )
 
@@ -432,6 +476,7 @@ def to_export(
     scenario_id: str,
     excluded: Optional[Sequence[Mapping[str, str]]] = None,
     price_table: Optional["AmmoPriceTable"] = None,
+    weapon_price_table: Optional["WeaponPriceTable"] = None,
 ) -> Dict[str, Any]:
     """序列化为可写入 JSON 的结构（渲染层直接消费，禁止二次计算）。"""
     payload_rankings: List[Dict[str, Any]] = []
@@ -466,6 +511,8 @@ def to_export(
                     "caliber": entry.ammo_caliber,
                     "price_daily": entry.ammo_price_daily,
                 },
+                "gun_price_daily": entry.gun_price_daily,
+                "full_price_180rd": entry.full_price_180rd,
                 "bands": {
                     name: {
                         "rank": b.rank,
@@ -491,6 +538,19 @@ def to_export(
             "window": dict(price_table.window) if price_table is not None else {},
             "updated_at": price_table.updated_at if price_table is not None else "",
             "available": bool(price_table is not None and not price_table.is_empty),
+        },
+        "weapon_price_meta": {
+            "currency": (
+                weapon_price_table.currency if weapon_price_table is not None else DEFAULT_CURRENCY
+            ),
+            "window": dict(weapon_price_table.window) if weapon_price_table is not None else {},
+            "updated_at": (
+                weapon_price_table.updated_at if weapon_price_table is not None else ""
+            ),
+            "available": bool(
+                weapon_price_table is not None and not weapon_price_table.is_empty
+            ),
+            "spare_ammo_rounds": SPARE_AMMO_ROUNDS,
         },
         "ranking_key": "band_mean_ttk_ms",
         "robustness_key": "band_worst_ttk_ms",

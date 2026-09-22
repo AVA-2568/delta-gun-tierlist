@@ -33,6 +33,7 @@ from src.engine import tiering
 from src.engine.ammo_pricing import load_ammo_prices
 from src.engine.game_data import DEFAULT_DATA_DIR, load_game_data
 from src.engine.loadout import LoadoutSolver
+from src.engine.weapon_pricing import load_weapon_prices
 from src.renderers.ttk_report import (
     BAND_ORDER,
     band_doc_name,
@@ -50,6 +51,9 @@ MAIN_SCENARIO = "armor-5-ammo-5-default"
 
 #: 弹药当日价表（由 src.collectors.ammo_price_sync 每日自动抓取维护，与 data/game/* 物理隔离）
 AMMO_PRICE_TABLE = "data/reference/ammo_prices.json"
+
+#: 枪械本体裸枪当日价表（由 src.collectors.weapon_price_sync 每日自动抓取维护，与弹药价同源同频率）
+WEAPON_PRICE_TABLE = "data/reference/weapon_prices.json"
 
 # 产物目录（生成产物中文化；data/game/ 官方源数据保持上游原名，勿动）
 DOCS_SCENARIO_DIR = os.path.join("docs", "榜单")
@@ -225,12 +229,17 @@ def _compute_scenario(args: tuple) -> tuple:
     sid, output_dir, keys, beam_width = args
     game_data = load_game_data(os.path.join(output_dir, DEFAULT_DATA_DIR))
     price_table = load_ammo_prices(os.path.join(output_dir, AMMO_PRICE_TABLE))
+    weapon_price_table = load_weapon_prices(os.path.join(output_dir, WEAPON_PRICE_TABLE))
     solver = LoadoutSolver(game_data, sid)
     rankings, thresholds, excluded = tiering.rank_weapons_for_scenario(
         game_data, sid, solver=solver, beam_width=beam_width,
         profile_keys=keys, price_table=price_table,
+        weapon_price_table=weapon_price_table,
     )
-    payload = tiering.to_export(rankings, thresholds, sid, excluded, price_table=price_table)
+    payload = tiering.to_export(
+        rankings, thresholds, sid, excluded,
+        price_table=price_table, weapon_price_table=weapon_price_table,
+    )
     return sid, payload, len(rankings), len(excluded)
 
 

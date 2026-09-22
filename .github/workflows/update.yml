@@ -59,6 +59,11 @@ jobs:
         run: python -m src.collectors.ammo_price_sync
         continue-on-error: true
 
+      # 本体裸枪当日价（变体 = 本体 + 预装件，共用本体价）；失败沿用现表。
+      - name: Sync Weapon Prices (daily)
+        run: python -m src.collectors.weapon_price_sync
+        continue-on-error: true
+
       - name: Rebuild Tier List
         run: python -m src.pipeline --beam-width 8
 

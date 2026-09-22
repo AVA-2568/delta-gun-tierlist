@@ -85,16 +85,35 @@ def _ammo_label(ammo: Mapping[str, Any]) -> str:
     return f"{caliber} {name}".strip() or "—"
 
 
-def _price_note(payload: Mapping[str, Any]) -> Optional[str]:
-    """价格数据说明行；未配置价格表时返回提示缺失的文案。"""
+def _price_notes(payload: Mapping[str, Any]) -> List[str]:
+    """价格数据说明行（弹药价 + 枪价各一条）；未配置价格表时提示缺失的文案。"""
+    notes: List[str] = []
     meta = payload.get("ammo_price_meta")
-    if not meta:
-        return None
-    if not meta.get("available"):
-        return "- 价格数据：未配置（data/reference/ammo_prices.json 缺失或为空），成本列显示 —"
-    window = meta.get("window") or {}
-    span = f"（{window.get('from')}）" if window.get("from") else ""
-    return f"- 价格数据：第三方交易行当日价{span}，每日自动抓取维护（updated_at {meta.get('updated_at') or '未知'}）"
+    if meta:
+        if not meta.get("available"):
+            notes.append("- 价格数据：未配置（data/reference/ammo_prices.json 缺失或为空），成本列显示 —")
+        else:
+            window = meta.get("window") or {}
+            span = f"（{window.get('from')}）" if window.get("from") else ""
+            notes.append(
+                f"- 价格数据：第三方交易行当日价{span}，每日自动抓取维护"
+                f"（updated_at {meta.get('updated_at') or '未知'}）"
+            )
+    weapon_meta = payload.get("weapon_price_meta")
+    if weapon_meta:
+        if not weapon_meta.get("available"):
+            notes.append(
+                "- 枪械价格：未配置（data/reference/weapon_prices.json 缺失或为空），裸枪价格列显示 —"
+            )
+        else:
+            window = weapon_meta.get("window") or {}
+            span = f"（{window.get('from')}）" if window.get("from") else ""
+            notes.append(
+                f"- 枪械价格：第三方交易行本体裸枪当日价{span}，每日自动抓取维护"
+                f"（updated_at {weapon_meta.get('updated_at') or '未知'}）；"
+                "变体/改装 = 本体 + 配件，配件价不计入"
+            )
+    return notes
 
 
 def loadout_text(loadout: Mapping[str, str], part_names: Mapping[str, str]) -> str:
@@ -167,15 +186,22 @@ def render_band_table(
     if limit:
         rows = rows[:limit]
 
+    ammo_meta = payload.get("ammo_price_meta") or {}
+    weapon_meta = payload.get("weapon_price_meta") or {}
+    currency = weapon_meta.get("currency") or ammo_meta.get("currency") or "哈夫币"
+    rounds = weapon_meta.get("spare_ammo_rounds") or 180
+    full_col = f"裸枪+{rounds}发备弹"
+
     lines = [
-        "| # | 层级 | 武器 | 平均 TTK | 最差 TTK | 预装收益 | 期望击杀发数@0m | 弹药 | 单发价 | 击杀成本 | 射速 | 优势射程 | 起枪配置 |",
-        "| :-- | :-- | :-- | --: | --: | --: | --: | :-- | --: | --: | --: | --: | :-- |",
+        f"| # | 层级 | 武器 | 平均 TTK | 最差 TTK | 预装收益 | 期望击杀发数@0m | 弹药 | 单发价 | 击杀成本 | 裸枪价格 | {full_col} | 射速 | 优势射程 | 起枪配置 |",
+        "| :-- | :-- | :-- | --: | --: | --: | --: | :-- | --: | --: | --: | --: | --: | --: | :-- |",
     ]
     for w in rows:
         band_data = w["bands"][band]
         if w.get("is_variant"):
-            # 变体枪：出厂预装态成绩，配装列显示预装件
-            name = f"{w['name']}<br><sub>变体 · 出厂预装态</sub>"
+            # 官方预装态：本体 + 官方预装件（变体不是独立的枪——武器列与本体一致，
+            # 预装来源在配置列标注；预装件会改战斗属性，但裸枪价与本体相同）
+            name = str(w.get("base_name") or w["name"])
             loadout = f"出厂预装：{w.get('variant_item_name') or '—'}" + loadout_effect_text(
                 w.get("loadout_effects") or []
             )
@@ -185,10 +211,9 @@ def render_band_table(
                 w.get("loadout_effects") or []
             )
         ammo = w.get("ammo") or {}
-        currency = ((payload.get("ammo_price_meta") or {}).get("currency")) or "哈夫币"
         stock_mean = ((w.get("stock_bands") or {}).get(band) or {}).get("mean_ms")
         lines.append(
-            "| {rank} | {tier} | {name} | {mean} | {worst} | {gain} | {shots} | {ammo} | {price} | {cost} | {rpm} | {rng} | {loadout} |".format(
+            "| {rank} | {tier} | {name} | {mean} | {worst} | {gain} | {shots} | {ammo} | {price} | {cost} | {gun} | {full} | {rpm} | {rng} | {loadout} |".format(
                 rank=band_data["rank"],
                 tier=_tier_badge(band_data.get("tier", "")),
                 name=name,
@@ -199,6 +224,8 @@ def render_band_table(
                 ammo=_ammo_label(ammo),
                 price=_fmt_money(ammo.get("price_daily"), currency),
                 cost=_fmt_money(band_data.get("kill_cost"), currency),
+                gun=_fmt_money(w.get("gun_price_daily"), currency),
+                full=_fmt_money(w.get("full_price_180rd"), currency),
                 rpm=_fmt(w.get("rpm"), 0),
                 rng=_fmt(w.get("effective_range_m"), 1, " m"),
                 loadout=loadout,
@@ -218,26 +245,34 @@ def render_band_top_preview(
     rows.sort(key=lambda w: w["bands"][band]["rank"])
     rows = rows[:limit]
 
-    currency = ((payload.get("ammo_price_meta") or {}).get("currency")) or "哈夫币"
+    weapon_meta = payload.get("weapon_price_meta") or {}
+    ammo_meta = payload.get("ammo_price_meta") or {}
+    currency = weapon_meta.get("currency") or ammo_meta.get("currency") or "哈夫币"
+    rounds = weapon_meta.get("spare_ammo_rounds") or 180
+    full_col = f"裸枪+{rounds}发备弹"
+
     lines = [
-        "| # | 层级 | 武器 | 平均 TTK | 击杀成本 | 起枪配置 |",
-        "| :-- | :-- | :-- | --: | --: | :-- |",
+        f"| # | 层级 | 武器 | 平均 TTK | 击杀成本 | 裸枪价格 | {full_col} | 起枪配置 |",
+        "| :-- | :-- | :-- | --: | --: | --: | --: | :-- |",
     ]
     for w in rows:
         band_data = w["bands"][band]
         if w.get("is_variant"):
-            name = f"{w['name']}<br><sub>变体 · 出厂预装态</sub>"
+            # 官方预装态：武器列显示本体名（变体 = 本体 + 预装件，不是独立的枪）
+            name = str(w.get("base_name") or w["name"])
             loadout = f"出厂预装：{w.get('variant_item_name') or '—'}"
         else:
             name = w["name"]
             loadout = loadout_text(w.get("loadout") or {}, part_names)
         lines.append(
-            "| {rank} | {tier} | {name} | {mean} | {cost} | {loadout} |".format(
+            "| {rank} | {tier} | {name} | {mean} | {cost} | {gun} | {full} | {loadout} |".format(
                 rank=band_data["rank"],
                 tier=_tier_badge(band_data.get("tier", "")),
                 name=name,
                 mean=_fmt(band_data["mean_ms"], 1, " ms"),
                 cost=_fmt_money(band_data.get("kill_cost"), currency),
+                gun=_fmt_money(w.get("gun_price_daily"), currency),
+                full=_fmt_money(w.get("full_price_180rd"), currency),
                 loadout=loadout,
             )
         )
@@ -300,9 +335,7 @@ def render_band_doc(
     lines.append("- 距离明细：本情景每状态的 0–80 m 每 10 m 采样 TTK 见 `data/榜单/<情景>.json` 的 "
                  "`ttk_by_distance_ms`")
     lines.append("- 开镜时间、初速、后坐/散布等维度不计入 TTK，详见 [改枪指南](../改枪指南.md)")
-    note = _price_note(payload)
-    if note:
-        lines.append(note)
+    lines.extend(_price_notes(payload))
     return "\n".join(lines)
 
 
@@ -331,16 +364,19 @@ def render_readme(
         )
         lines.insert(2, "")
     lines.append("")
-    lines.append("回答两个问题：**在给定护甲、弹药与距离下，这把枪击杀对手需要多久（毫秒）**，"
-                 "以及**这次击杀要花多少哈夫币**。")
+    lines.append("回答三个问题：**在给定护甲、弹药与距离下，这把枪击杀对手需要多久（毫秒）**、"
+                 "**这次击杀要花多少哈夫币**，以及**起一把裸枪（含 180 发备弹）要多少钱**。")
     lines.append("")
     lines.append("| 项 | 说明 |")
     lines.append("| :-- | :-- |")
     lines.append("| 排序键 | 距离带内平均实战 TTK（`(期望击杀发数 − 1) × 射击间隔`） |")
     lines.append("| 不参与 | 开镜时间、弹丸飞行时间（初速）、换弹、命中率修正 |")
-    lines.append("| 起枪状态 | 每行 = 一个起枪配置状态：本体裸枪、官方变体出厂预装态、束搜索枚举的改装状态（官方插槽规则 + 强制联动）；"
+    lines.append("| 起枪状态 | 每行 = 一个起枪配置状态：本体裸枪、本体+官方预装件（官方变体出厂态）、"
+                 "束搜索枚举的改装状态（官方插槽规则 + 强制联动）；"
                  "仅 TTK 有差异的状态列出，全部一起排名分层 |")
     lines.append("| 预装收益 | 该距离带内**本体裸枪 → 本状态**的平均 TTK 缩短量与百分比（`—` 表示本体裸枪行） |")
+    lines.append("| 起枪成本 | 裸枪价格 = 本体交易行当日价（变体/改装 = 本体 + 配件，同价，配件价不计入）；"
+                 "裸枪+180发备弹 = 裸枪价 + 180 × 该行所配弹药单发价（预估） |")
     lines.append("| 距离场 | 0–80 m（官方排行口径），分 4 个距离带，每带独立成榜 |")
     lines.append("| 分层 | 带内 TTK 分位数切分 T0–T3，阈值公开 |")
     lines.append(f"| 数据版本 | `{source.get('dataset_version', '未知')}`（{source.get('name', 'dfttk-v3')}） |")
@@ -405,9 +441,10 @@ def render_readme(
     lines.append("- **改枪指南**：开镜时间/初速/后坐等不进 TTK 的维度见 [docs/改枪指南.md](docs/改枪指南.md)")
     lines.append("- **榜单刷新**：仓库页 **Actions → CI → Run workflow** 手动触发，"
                  "在 GitHub 上同步官方数据、重算全部榜单并自动提交；本地无需跑任何重计算")
-    note = _price_note(main_payload)
-    if note:
+    notes = _price_notes(main_payload)
+    for note in notes:
         lines.append(note)
+    if notes:
         lines.append("")
     lines.append("详细设计见 [`docs/superpowers/specs/2026-09-20-pure-ttk-redesign-design.md`]"
                  "(docs/superpowers/specs/2026-09-20-pure-ttk-redesign-design.md)，"

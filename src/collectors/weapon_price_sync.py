@@ -1,23 +1,23 @@
-"""弹药当日价格同步：onebiji「市场周期律」行情页 → ``data/reference/ammo_prices.json``。
+"""枪械当日价格同步：onebiji「市场周期律」行情页 → ``data/reference/weapon_prices.json``。
 
-数据源与口径（2026-09-22 修正，经玩家实测价格 4429 逐位确认）：
+数据源与口径（2026-09-22）：
 
-- 页面 ``https://www.onebiji.com/hykb_tools/sjz/mrmm/tqc.php?immgj=0`` 为全量静态 HTML，
-  内嵌 JS 对象以官方 objectID 键控，含两类数据块：
-  - ``o_<objectID>`` = **市场全览：交易行真实单发当日价**（本表数据源），
-    且带 ``primary_class: "ammo"`` 分类与 rank3/7/14 涨跌数据；
-  - ``t_<objectID>`` = 特勤处**制作成本/利润**口径（每日 8:00 更新），
-    **不是**市场价格，禁止使用（曾误用导致价格整体错位一档）。
-- ``o_`` 块 ``price`` 即单发哈夫币价，无组价换算。
+- 与 :mod:`src.collectors.ammo_price_sync` 同一行情页：``o_<objectID>`` 块为
+  **市场全览：交易行真实当日价**；``t_`` 块为特勤处制作成本口径，禁止使用。
+- 只收 ``primary_class: "weapon"`` 的对象（枪械分类双保险），``price`` 即
+  该枪本体裸枪的当日哈夫币价。
+- **目录对齐**：表骨架来自官方武器目录 ``data/game/weapons.json`` 的
+  **本体条目**（``is_variant=false``）。官方变体只是本体预装了官方改件
+  （改件在交易行按 ``attachment`` 分类出售），**不建独立条目、不计配件价**。
 
-设计要点：
+设计要点（与弹药同步一致）：
 
-- 标准库 urllib，**零第三方依赖**（与采集层一致）。
-- 确定性输出：条目按 ID 排序，无时间戳漂移进数据体。
-- **幂等**：解析出的价格与现表完全一致时不重写文件——git 无 diff、Actions 无空提交。
-  ``updated_at`` 语义 = 「当前表内价格的抓取时间」。
-- 缺价不猜测：解析失败、价格为 0、非 ``ammo`` 分类一律不入价。
-- **缺价回填**（2026-09-22）：onebiji 未收录的弹药（APC/+P/SUB 与高等级弹等）由
+- 标准库 urllib，**零第三方依赖**。
+- 确定性输出：条目按 weapon_id 排序，无时间戳漂移进数据体。
+- **幂等**：解析出的价格与现表完全一致时不重写文件。
+- 缺价不猜测：解析失败、价格为 0、非 ``weapon`` 分类一律不入价
+  （交易行未上架的本体，如 MDR / 汤姆逊冲锋枪，落盘为 ``null``）。
+- **缺价回填**（2026-09-22）：onebiji 未收录的本体由
   :mod:`src.collectors.zxfps_price_sync`（zxfps 三角洲工具站）补全，仅补主源缺失条目。
 """
 
@@ -40,19 +40,19 @@ SOURCE_URL = "https://www.onebiji.com/hykb_tools/sjz/mrmm/tqc.php?immgj=0"
 SOURCE_NAME = "onebiji 市场周期律 · 市场全览"
 
 #: 价格表 schema 与落盘路径
-PRICE_SCHEMA = "ammo-price-daily"
-DEFAULT_TABLE_PATH = os.path.join("data", "reference", "ammo_prices.json")
-AMMO_CATALOG_PATH = os.path.join("data", "game", "ammo.json")
+PRICE_SCHEMA = "weapon-price-daily"
+DEFAULT_TABLE_PATH = os.path.join("data", "reference", "weapon_prices.json")
+WEAPON_CATALOG_PATH = os.path.join("data", "game", "weapons.json")
 
 _USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
     "(KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
 )
 
-#: 市场全览块：``"o_<objectID>":{ ... "primary_class":"ammo" ... "price":"4429" ...}``
-#: ``price`` 在 rank3 嵌套对象之前出现，``[^{}]*`` 限定同一层内不跨对象。
+#: 市场全览块：``"o_<objectID>":{ ... "primary_class":"weapon" ... "price":"87591" ...}``
+#: ``price`` 在 rank3 等嵌套对象之前出现，``[^{}]*`` 限定同一层内不跨对象。
 _PRICE_RE = re.compile(
-    r'"o_(\d{11})":\{[^{}]*?"primary_class":"ammo"[^{}]*?"price":"?(\d+)"?'
+    r'"o_(\d{11})":\{[^{}]*?"primary_class":"weapon"[^{}]*?"price":"?(\d+)"?'
 )
 
 
@@ -73,30 +73,34 @@ def fetch_page(url: str = SOURCE_URL, timeout: float = 60.0) -> str:
 
 
 def parse_prices(page_html: str) -> Dict[str, int]:
-    """从行情页解析 ``o_`` 市场全览块，得到单发当日价。
+    """从行情页解析 ``o_`` 市场全览块，得到本体裸枪当日价。
 
-    只收 ``primary_class: "ammo"`` 的对象（弹药分类双保险），价格为正才入价。
+    只收 ``primary_class: "weapon"`` 的对象（枪械分类双保险），价格为正才入价。
     """
     prices: Dict[str, int] = {}
     for item_id, price in _PRICE_RE.findall(page_html):
-        per_round = int(price)
-        if per_round > 0:
-            prices[item_id] = per_round
+        bare_price = int(price)
+        if bare_price > 0:
+            prices[item_id] = bare_price
     return prices
 
 
 def load_catalog_ids(path: str) -> Dict[str, Dict[str, Any]]:
-    """读官方弹药目录，返回 ``ammo_item_id -> 展示元数据``（供全量表骨架）。"""
+    """读官方武器目录，返回 ``weapon_id -> 展示元数据``（仅本体，供全量表骨架）。
+
+    官方变体条目（``is_variant=true``）跳过：变体 = 本体 + 预装改件，
+    改件按配件口径出售、不计入枪价表。
+    """
     with open(path, encoding="utf-8") as fh:
         catalog = json.load(fh)
     return {
-        str(record["ammo_item_id"]): {
-            "caliber": record.get("caliber") or "",
+        str(record["weapon_id"]): {
             "name": record.get("name") or "",
-            "penetration_level": record.get("penetration_level"),
+            "category": record.get("category") or "",
+            "caliber": record.get("caliber") or "",
         }
-        for record in catalog.get("ammo", [])
-        if record.get("ammo_item_id")
+        for record in catalog.get("weapons", [])
+        if record.get("weapon_id") and not record.get("is_variant")
     }
 
 
@@ -115,18 +119,19 @@ def build_table(
         "currency": "哈夫币",
         "window": {"from": fetched_date, "to": fetched_date, "days": 1},
         "updated_at": fetched_date,
-        "source": f"{SOURCE_NAME} · 交易行单发当日价（primary_class=ammo）",
+        "source": f"{SOURCE_NAME} · 交易行本体裸枪当日价（primary_class=weapon）",
         "note": (
-            "自动维护：每日 GitHub Actions 抓取第三方行情并换算单发当日价；"
-            "交易行无报价的弹药为 null（渲染为 —），非官方数据仅供参考"
+            "自动维护：每日 GitHub Actions 抓取第三方行情的本体裸枪当日价；"
+            "变体 = 本体 + 官方预装件，共用本体价（配件价不计入）；"
+            "交易行无报价的枪械为 null（渲染为 —），非官方数据仅供参考"
         ),
-        "ammo": [
+        "weapons": [
             {
-                "ammo_item_id": item_id,
+                "weapon_id": weapon_id,
                 **meta,
-                "price_daily": prices.get(item_id),
+                "price_daily": prices.get(weapon_id),
             }
-            for item_id, meta in sorted(catalog.items())
+            for weapon_id, meta in sorted(catalog.items())
         ],
     }
 
@@ -153,36 +158,37 @@ def sync(
     page = fetch(timeout=timeout)
     prices = parse_prices(page)
 
-    catalog = load_catalog_ids(os.path.join(output_dir, AMMO_CATALOG_PATH))
+    catalog = load_catalog_ids(os.path.join(output_dir, WEAPON_CATALOG_PATH))
     if not catalog:
-        raise RuntimeError(f"官方弹药目录为空或缺失：{AMMO_CATALOG_PATH}")
+        raise RuntimeError(f"官方武器目录为空或缺失：{WEAPON_CATALOG_PATH}")
 
     table = build_table(catalog, prices, _today_beijing())
 
-    # ---- 缺价回填：onebiji 未收录的弹药（APC/+P/SUB 等）由 zxfps 补全 ----
+    # ---- 缺价回填：onebiji 未收录的本体（MDR / 汤姆逊冲锋枪等）由 zxfps 补全 ----
     fallback_used = 0
     if use_fallback:
-        missing = [row["ammo_item_id"] for row in table["ammo"] if row["price_daily"] is None]
+        missing = [row["weapon_id"] for row in table["weapons"] if row["price_daily"] is None]
         if missing:
             try:
                 fetcher = zxfps_fetch or zxfps_price_sync.collect_missing_prices
-                filled = fetcher("ammo", missing) or {}
+                filled = fetcher("gun", missing) or {}
             except Exception as exc:  # noqa: BLE001 - 回填失败不致命
-                logger.warning("zxfps 弹价回填失败（%s：%s），仅用主源数据", type(exc).__name__, exc)
+                logger.warning("zxfps 枪价回填失败（%s：%s），仅用主源数据", type(exc).__name__, exc)
                 filled = {}
-            for row in table["ammo"]:
-                if row["price_daily"] is None and row["ammo_item_id"] in filled:
-                    row["price_daily"] = int(filled[row["ammo_item_id"]])
+            for row in table["weapons"]:
+                if row["price_daily"] is None and row["weapon_id"] in filled:
+                    row["price_daily"] = int(filled[row["weapon_id"]])
                     fallback_used += 1
             if fallback_used:
                 table["source"] += f"；缺价条目由 {zxfps_price_sync.SOURCE_NAME} 补全"
                 table["note"] = (
-                    "自动维护：每日 GitHub Actions 抓取第三方行情并换算单发当日价，"
+                    "自动维护：每日 GitHub Actions 抓取第三方行情的本体裸枪当日价；"
                     f"主源（onebiji）缺价条目由 {zxfps_price_sync.SOURCE_NAME} 补全；"
-                    "无任何报价的弹药为 null（渲染为 —），非官方数据仅供参考"
+                    "变体 = 本体 + 官方预装件，共用本体价（配件价不计入）；"
+                    "无任何报价的枪械为 null（渲染为 —），非官方数据仅供参考"
                 )
 
-    matched = sum(1 for row in table["ammo"] if row["price_daily"] is not None)
+    matched = sum(1 for row in table["weapons"] if row["price_daily"] is not None)
 
     target = os.path.join(output_dir, table_path)
     if os.path.exists(target):
@@ -193,10 +199,10 @@ def sync(
                 current = None
         if isinstance(current, dict) and current.get("schema") == PRICE_SCHEMA:
             current_prices = {
-                str(row.get("ammo_item_id")): row.get("price_daily")
-                for row in current.get("ammo", [])
+                str(row.get("weapon_id")): row.get("price_daily")
+                for row in current.get("weapons", [])
             }
-            new_prices = {row["ammo_item_id"]: row["price_daily"] for row in table["ammo"]}
+            new_prices = {row["weapon_id"]: row["price_daily"] for row in table["weapons"]}
             if current_prices == new_prices and current.get("currency") == table["currency"]:
                 logger.info("价格与现表一致，不重写（matched=%d）", matched)
                 return {
@@ -223,7 +229,7 @@ def sync(
 
 def main() -> None:
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
-    parser = argparse.ArgumentParser(description="弹药当日价格同步（onebiji 行情）")
+    parser = argparse.ArgumentParser(description="枪械本体裸枪当日价同步（onebiji 行情）")
     parser.add_argument("--output-dir", default=".", help="输出根目录（默认当前目录）")
     parser.add_argument("--table", default=DEFAULT_TABLE_PATH, help="价格表落盘路径")
     parser.add_argument(
@@ -238,8 +244,8 @@ def main() -> None:
     )
     state = "已更新" if result["changed"] else "无变化"
     print(
-        f"价格同步完成（{state}）：官方目录 {result['catalog']} 条，"
-        f"当日价命中 {result['matched']} 条（zxfps 回填 {result['fallback']} 条）"
+        f"枪价同步完成（{state}）：官方目录 {result['catalog']} 把本体，"
+        f"当日价命中 {result['matched']} 把（zxfps 回填 {result['fallback']} 条）"
         f" → {result['table_path']}"
     )
 
