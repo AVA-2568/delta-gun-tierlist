@@ -3,21 +3,21 @@
  "ammo_price_meta": {
   "currency": "哈夫币",
   "window": {
-   "from": "2026-09-23",
-   "to": "2026-09-23",
+   "from": "2026-09-24",
+   "to": "2026-09-24",
    "days": 1
   },
-  "updated_at": "2026-09-23",
+  "updated_at": "2026-09-24",
   "available": true
  },
  "weapon_price_meta": {
   "currency": "哈夫币",
   "window": {
-   "from": "2026-09-23",
-   "to": "2026-09-23",
+   "from": "2026-09-24",
+   "to": "2026-09-24",
    "days": 1
   },
-  "updated_at": "2026-09-23",
+  "updated_at": "2026-09-24",
   "available": true,
   "spare_ammo_rounds": 180
  },
@@ -161,8 +161,8 @@
     "caliber": "5.56x45mm",
     "price_daily": 4429
    },
-   "gun_price_daily": 75076,
-   "full_price_180rd": 872296,
+   "gun_price_daily": 75582,
+   "full_price_180rd": 872802,
    "bands": {
     "贴脸": {
      "rank": 119,
@@ -271,8 +271,8 @@
     "caliber": "5.56x45mm",
     "price_daily": 4429
    },
-   "gun_price_daily": 75076,
-   "full_price_180rd": 872296,
+   "gun_price_daily": 75582,
+   "full_price_180rd": 872802,
    "bands": {
     "贴脸": {
      "rank": 84,
@@ -384,8 +384,8 @@
     "caliber": "5.56x45mm",
     "price_daily": 4429
    },
-   "gun_price_daily": 75076,
-   "full_price_180rd": 872296,
+   "gun_price_daily": 75582,
+   "full_price_180rd": 872802,
    "bands": {
     "贴脸": {
      "rank": 120,
@@ -497,8 +497,8 @@
     "caliber": "5.56x45mm",
     "price_daily": 4429
    },
-   "gun_price_daily": 75076,
-   "full_price_180rd": 872296,
+   "gun_price_daily": 75582,
+   "full_price_180rd": 872802,
    "bands": {
     "贴脸": {
      "rank": 121,
@@ -609,8 +609,8 @@
     "caliber": "5.56x45mm",
     "price_daily": 4429
    },
-   "gun_price_daily": 75076,
-   "full_price_180rd": 872296,
+   "gun_price_daily": 75582,
+   "full_price_180rd": 872802,
    "bands": {
     "贴脸": {
      "rank": 122,
@@ -721,8 +721,8 @@
     "caliber": "5.56x45mm",
     "price_daily": 4429
    },
-   "gun_price_daily": 75076,
-   "full_price_180rd": 872296,
+   "gun_price_daily": 75582,
+   "full_price_180rd": 872802,
    "bands": {
     "贴脸": {
      "rank": 123,
@@ -821,10 +821,10 @@
     "ammo_item_id": "37110500001",
     "name": "AP",
     "caliber": "7.62x39mm",
-    "price_daily": 4900
+    "price_daily": 4872
    },
-   "gun_price_daily": 71339,
-   "full_price_180rd": 953339,
+   "gun_price_daily": 71426,
+   "full_price_180rd": 948386,
    "bands": {
     "贴脸": {
      "rank": 113,
@@ -833,7 +833,7 @@
      "worst_ms": 287.9,
      "best_ms": 287.9,
      "mean_expected_shots": 3.878963,
-     "kill_cost": 19007
+     "kill_cost": 18898
     },
     "近距": {
      "rank": 96,
@@ -842,7 +842,7 @@
      "worst_ms": 287.9,
      "best_ms": 287.9,
      "mean_expected_shots": 3.878963,
-     "kill_cost": 19007
+     "kill_cost": 18898
     },
     "中距": {
      "rank": 111,
@@ -851,7 +851,7 @@
      "worst_ms": 351.66,
      "best_ms": 287.9,
      "mean_expected_shots": 4.212964,
-     "kill_cost": 20644
+     "kill_cost": 20526
     },
     "远距": {
      "rank": 124,
@@ -860,7 +860,7 @@
      "worst_ms": 436.81,
      "best_ms": 351.66,
      "mean_expected_shots": 4.81876,
-     "kill_cost": 23612
+     "kill_cost": 23477
     }
    }
   },
@@ -931,10 +931,10 @@
     "ammo_item_id": "37110500001",
     "name": "AP",
     "caliber": "7.62x39mm",
-    "price_daily": 4900
+    "price_daily": 4872
    },
-   "gun_price_daily": 71339,
-   "full_price_180rd": 953339,
+   "gun_price_daily": 71426,
+   "full_price_180rd": 948386,
    "bands": {
     "贴脸": {
      "rank": 72,
@@ -943,7 +943,7 @@
      "worst_ms": 265.11,
      "best_ms": 265.11,
      "mean_expected_shots": 3.651073,
-     "kill_cost": 17890
+     "kill_cost": 17788
     },
     "近距": {
      "rank": 53,
@@ -952,7 +952,7 @@
      "worst_ms": 265.11,
      "best_ms": 265.11,
      "mean_expected_shots": 3.651073,
-     "kill_cost": 17890
+     "kill_cost": 17788
     },
     "中距": {
      "rank": 43,
@@ -961,7 +961,7 @@
      "worst_ms": 315.07,
      "best_ms": 265.11,
      "mean_expected_shots": 3.841401,
-     "kill_cost": 18823
+     "kill_cost": 18715
     },
     "远距": {
      "rank": 59,
@@ -970,7 +970,7 @@
      "worst_ms": 404.55,
      "best_ms": 315.07,
      "mean_expected_shots": 4.32387,
-     "kill_cost": 21187
+     "kill_cost": 21066
     }
    }
   },
@@ -1044,10 +1044,10 @@
     "ammo_item_id": "37110500001",
     "name": "AP",
     "caliber": "7.62x39mm",
-    "price_daily": 4900
+    "price_daily": 4872
    },
-   "gun_price_daily": 71339,
-   "full_price_180rd": 953339,
+   "gun_price_daily": 71426,
+   "full_price_180rd": 948386,
    "bands": {
     "贴脸": {
      "rank": 73,
@@ -1056,7 +1056,7 @@
      "worst_ms": 265.11,
      "best_ms": 265.11,
      "mean_expected_shots": 3.651073,
-     "kill_cost": 17890
+     "kill_cost": 17788
     },
     "近距": {
      "rank": 54,
@@ -1065,7 +1065,7 @@
      "worst_ms": 265.11,
      "best_ms": 265.11,
      "mean_expected_shots": 3.651073,
-     "kill_cost": 17890
+     "kill_cost": 17788
     },
     "中距": {
      "rank": 27,
@@ -1074,7 +1074,7 @@
      "worst_ms": 265.11,
      "best_ms": 265.11,
      "mean_expected_shots": 3.651073,
-     "kill_cost": 17890
+     "kill_cost": 17788
     },
     "远距": {
      "rank": 30,
@@ -1083,7 +1083,7 @@
      "worst_ms": 315.07,
      "best_ms": 265.11,
      "mean_expected_shots": 4.134568,
-     "kill_cost": 20259
+     "kill_cost": 20144
     }
    }
   },
@@ -1157,10 +1157,10 @@
     "ammo_item_id": "37110500001",
     "name": "AP",
     "caliber": "7.62x39mm",
-    "price_daily": 4900
+    "price_daily": 4872
    },
-   "gun_price_daily": 71339,
-   "full_price_180rd": 953339,
+   "gun_price_daily": 71426,
+   "full_price_180rd": 948386,
    "bands": {
     "贴脸": {
      "rank": 114,
@@ -1169,7 +1169,7 @@
      "worst_ms": 287.9,
      "best_ms": 287.9,
      "mean_expected_shots": 3.878963,
-     "kill_cost": 19007
+     "kill_cost": 18898
     },
     "近距": {
      "rank": 97,
@@ -1178,7 +1178,7 @@
      "worst_ms": 287.9,
      "best_ms": 287.9,
      "mean_expected_shots": 3.878963,
-     "kill_cost": 19007
+     "kill_cost": 18898
     },
     "中距": {
      "rank": 51,
@@ -1187,7 +1187,7 @@
      "worst_ms": 287.9,
      "best_ms": 287.9,
      "mean_expected_shots": 3.878963,
-     "kill_cost": 19007
+     "kill_cost": 18898
     },
     "远距": {
      "rank": 51,
@@ -1196,7 +1196,7 @@
      "worst_ms": 351.66,
      "best_ms": 287.9,
      "mean_expected_shots": 4.269773,
-     "kill_cost": 20922
+     "kill_cost": 20802
     }
    }
   },
@@ -1270,10 +1270,10 @@
     "ammo_item_id": "37110500001",
     "name": "AP",
     "caliber": "7.62x39mm",
-    "price_daily": 4900
+    "price_daily": 4872
    },
-   "gun_price_daily": 71339,
-   "full_price_180rd": 953339,
+   "gun_price_daily": 71426,
+   "full_price_180rd": 948386,
    "bands": {
     "贴脸": {
      "rank": 115,
@@ -1282,7 +1282,7 @@
      "worst_ms": 287.9,
      "best_ms": 287.9,
      "mean_expected_shots": 3.878963,
-     "kill_cost": 19007
+     "kill_cost": 18898
     },
     "近距": {
      "rank": 98,
@@ -1291,7 +1291,7 @@
      "worst_ms": 287.9,
      "best_ms": 287.9,
      "mean_expected_shots": 3.878963,
-     "kill_cost": 19007
+     "kill_cost": 18898
     },
     "中距": {
      "rank": 52,
@@ -1300,7 +1300,7 @@
      "worst_ms": 287.9,
      "best_ms": 287.9,
      "mean_expected_shots": 3.878963,
-     "kill_cost": 19007
+     "kill_cost": 18898
     },
     "远距": {
      "rank": 69,
@@ -1309,7 +1309,7 @@
      "worst_ms": 351.66,
      "best_ms": 287.9,
      "mean_expected_shots": 4.393187,
-     "kill_cost": 21527
+     "kill_cost": 21404
     }
    }
   },
@@ -1382,10 +1382,10 @@
     "ammo_item_id": "37110500001",
     "name": "AP",
     "caliber": "7.62x39mm",
-    "price_daily": 4900
+    "price_daily": 4872
    },
-   "gun_price_daily": 71339,
-   "full_price_180rd": 953339,
+   "gun_price_daily": 71426,
+   "full_price_180rd": 948386,
    "bands": {
     "贴脸": {
      "rank": 116,
@@ -1394,7 +1394,7 @@
      "worst_ms": 287.9,
      "best_ms": 287.9,
      "mean_expected_shots": 3.878963,
-     "kill_cost": 19007
+     "kill_cost": 18898
     },
     "近距": {
      "rank": 99,
@@ -1403,7 +1403,7 @@
      "worst_ms": 287.9,
      "best_ms": 287.9,
      "mean_expected_shots": 3.878963,
-     "kill_cost": 19007
+     "kill_cost": 18898
     },
     "中距": {
      "rank": 53,
@@ -1412,7 +1412,7 @@
      "worst_ms": 287.9,
      "best_ms": 287.9,
      "mean_expected_shots": 3.878963,
-     "kill_cost": 19007
+     "kill_cost": 18898
     },
     "远距": {
      "rank": 78,
@@ -1421,7 +1421,7 @@
      "worst_ms": 351.66,
      "best_ms": 287.9,
      "mean_expected_shots": 4.475463,
-     "kill_cost": 21930
+     "kill_cost": 21804
     }
    }
   },
@@ -1484,10 +1484,10 @@
     "ammo_item_id": "37130500001",
     "name": "DVC12",
     "caliber": "5.8x42mm",
-    "price_daily": 4834
+    "price_daily": 4895
    },
-   "gun_price_daily": 37448,
-   "full_price_180rd": 907568,
+   "gun_price_daily": 37539,
+   "full_price_180rd": 918639,
    "bands": {
     "贴脸": {
      "rank": 165,
@@ -1496,7 +1496,7 @@
      "worst_ms": 357.63,
      "best_ms": 357.63,
      "mean_expected_shots": 5.045584,
-     "kill_cost": 24390
+     "kill_cost": 24698
     },
     "近距": {
      "rank": 163,
@@ -1505,7 +1505,7 @@
      "worst_ms": 357.63,
      "best_ms": 357.63,
      "mean_expected_shots": 5.045584,
-     "kill_cost": 24390
+     "kill_cost": 24698
     },
     "中距": {
      "rank": 141,
@@ -1514,7 +1514,7 @@
      "worst_ms": 357.63,
      "best_ms": 357.63,
      "mean_expected_shots": 5.045584,
-     "kill_cost": 24390
+     "kill_cost": 24698
     },
     "远距": {
      "rank": 140,
@@ -1523,7 +1523,7 @@
      "worst_ms": 421.75,
      "best_ms": 357.63,
      "mean_expected_shots": 5.653934,
-     "kill_cost": 27331
+     "kill_cost": 27676
     }
    }
   },
@@ -1597,10 +1597,10 @@
     "ammo_item_id": "37130500001",
     "name": "DVC12",
     "caliber": "5.8x42mm",
-    "price_daily": 4834
+    "price_daily": 4895
    },
-   "gun_price_daily": 37448,
-   "full_price_180rd": 907568,
+   "gun_price_daily": 37539,
+   "full_price_180rd": 918639,
    "bands": {
     "贴脸": {
      "rank": 166,
@@ -1609,7 +1609,7 @@
      "worst_ms": 357.63,
      "best_ms": 357.63,
      "mean_expected_shots": 5.045584,
-     "kill_cost": 24390
+     "kill_cost": 24698
     },
     "近距": {
      "rank": 164,
@@ -1618,7 +1618,7 @@
      "worst_ms": 357.63,
      "best_ms": 357.63,
      "mean_expected_shots": 5.045584,
-     "kill_cost": 24390
+     "kill_cost": 24698
     },
     "中距": {
      "rank": 142,
@@ -1627,7 +1627,7 @@
      "worst_ms": 357.63,
      "best_ms": 357.63,
      "mean_expected_shots": 5.045584,
-     "kill_cost": 24390
+     "kill_cost": 24698
     },
     "远距": {
      "rank": 99,
@@ -1636,7 +1636,7 @@
      "worst_ms": 357.63,
      "best_ms": 357.63,
      "mean_expected_shots": 5.045584,
-     "kill_cost": 24390
+     "kill_cost": 24698
     }
    }
   },
@@ -1709,10 +1709,10 @@
     "ammo_item_id": "37130500001",
     "name": "DVC12",
     "caliber": "5.8x42mm",
-    "price_daily": 4834
+    "price_daily": 4895
    },
-   "gun_price_daily": 37448,
-   "full_price_180rd": 907568,
+   "gun_price_daily": 37539,
+   "full_price_180rd": 918639,
    "bands": {
     "贴脸": {
      "rank": 167,
@@ -1721,7 +1721,7 @@
      "worst_ms": 357.63,
      "best_ms": 357.63,
      "mean_expected_shots": 5.045584,
-     "kill_cost": 24390
+     "kill_cost": 24698
     },
     "近距": {
      "rank": 165,
@@ -1730,7 +1730,7 @@
      "worst_ms": 357.63,
      "best_ms": 357.63,
      "mean_expected_shots": 5.045584,
-     "kill_cost": 24390
+     "kill_cost": 24698
     },
     "中距": {
      "rank": 143,
@@ -1739,7 +1739,7 @@
      "worst_ms": 357.63,
      "best_ms": 357.63,
      "mean_expected_shots": 5.045584,
-     "kill_cost": 24390
+     "kill_cost": 24698
     },
     "远距": {
      "rank": 121,
@@ -1748,7 +1748,7 @@
      "worst_ms": 421.75,
      "best_ms": 357.63,
      "mean_expected_shots": 5.256167,
-     "kill_cost": 25408
+     "kill_cost": 25729
     }
    }
   },
@@ -1822,10 +1822,10 @@
     "ammo_item_id": "37130500001",
     "name": "DVC12",
     "caliber": "5.8x42mm",
-    "price_daily": 4834
+    "price_daily": 4895
    },
-   "gun_price_daily": 37448,
-   "full_price_180rd": 907568,
+   "gun_price_daily": 37539,
+   "full_price_180rd": 918639,
    "bands": {
     "贴脸": {
      "rank": 168,
@@ -1834,7 +1834,7 @@
      "worst_ms": 357.63,
      "best_ms": 357.63,
      "mean_expected_shots": 5.045584,
-     "kill_cost": 24390
+     "kill_cost": 24698
     },
     "近距": {
      "rank": 166,
@@ -1843,7 +1843,7 @@
      "worst_ms": 357.63,
      "best_ms": 357.63,
      "mean_expected_shots": 5.045584,
-     "kill_cost": 24390
+     "kill_cost": 24698
     },
     "中距": {
      "rank": 144,
@@ -1852,7 +1852,7 @@
      "worst_ms": 357.63,
      "best_ms": 357.63,
      "mean_expected_shots": 5.045584,
-     "kill_cost": 24390
+     "kill_cost": 24698
     },
     "远距": {
      "rank": 127,
@@ -1861,7 +1861,7 @@
      "worst_ms": 421.75,
      "best_ms": 357.63,
      "mean_expected_shots": 5.326361,
-     "kill_cost": 25748
+     "kill_cost": 26073
     }
    }
   },
@@ -1934,10 +1934,10 @@
     "ammo_item_id": "37130500001",
     "name": "DVC12",
     "caliber": "5.8x42mm",
-    "price_daily": 4834
+    "price_daily": 4895
    },
-   "gun_price_daily": 37448,
-   "full_price_180rd": 907568,
+   "gun_price_daily": 37539,
+   "full_price_180rd": 918639,
    "bands": {
     "贴脸": {
      "rank": 169,
@@ -1946,7 +1946,7 @@
      "worst_ms": 357.63,
      "best_ms": 357.63,
      "mean_expected_shots": 5.045584,
-     "kill_cost": 24390
+     "kill_cost": 24698
     },
     "近距": {
      "rank": 167,
@@ -1955,7 +1955,7 @@
      "worst_ms": 357.63,
      "best_ms": 357.63,
      "mean_expected_shots": 5.045584,
-     "kill_cost": 24390
+     "kill_cost": 24698
     },
     "中距": {
      "rank": 145,
@@ -1964,7 +1964,7 @@
      "worst_ms": 357.63,
      "best_ms": 357.63,
      "mean_expected_shots": 5.045584,
-     "kill_cost": 24390
+     "kill_cost": 24698
     },
     "远距": {
      "rank": 134,
@@ -1973,7 +1973,7 @@
      "worst_ms": 421.75,
      "best_ms": 357.63,
      "mean_expected_shots": 5.419953,
-     "kill_cost": 26200
+     "kill_cost": 26531
     }
    }
   },
@@ -2038,8 +2038,8 @@
     "caliber": "5.45x39mm",
     "price_daily": 4535
    },
-   "gun_price_daily": 11483,
-   "full_price_180rd": 827783,
+   "gun_price_daily": 11517,
+   "full_price_180rd": 827817,
    "bands": {
     "贴脸": {
      "rank": 178,
@@ -2150,8 +2150,8 @@
     "caliber": "5.45x39mm",
     "price_daily": 4535
    },
-   "gun_price_daily": 11483,
-   "full_price_180rd": 827783,
+   "gun_price_daily": 11517,
+   "full_price_180rd": 827817,
    "bands": {
     "贴脸": {
      "rank": 179,
@@ -2269,8 +2269,8 @@
     "caliber": "5.45x39mm",
     "price_daily": 4535
    },
-   "gun_price_daily": 11483,
-   "full_price_180rd": 827783,
+   "gun_price_daily": 11517,
+   "full_price_180rd": 827817,
    "bands": {
     "贴脸": {
      "rank": 192,
@@ -2369,10 +2369,10 @@
     "ammo_item_id": "37160500001",
     "name": "PS12B",
     "caliber": "12.7x55",
-    "price_daily": 4743
+    "price_daily": 4765
    },
-   "gun_price_daily": 196418,
-   "full_price_180rd": 1050158,
+   "gun_price_daily": 200082,
+   "full_price_180rd": 1057782,
    "bands": {
     "贴脸": {
      "rank": 14,
@@ -2381,7 +2381,7 @@
      "worst_ms": 240.19,
      "best_ms": 240.19,
      "mean_expected_shots": 3.001603,
-     "kill_cost": 14237
+     "kill_cost": 14303
     },
     "近距": {
      "rank": 14,
@@ -2390,7 +2390,7 @@
      "worst_ms": 240.19,
      "best_ms": 240.19,
      "mean_expected_shots": 3.001603,
-     "kill_cost": 14237
+     "kill_cost": 14303
     },
     "中距": {
      "rank": 10,
@@ -2399,7 +2399,7 @@
      "worst_ms": 240.19,
      "best_ms": 240.19,
      "mean_expected_shots": 3.001603,
-     "kill_cost": 14237
+     "kill_cost": 14303
     },
     "远距": {
      "rank": 8,
@@ -2408,7 +2408,7 @@
      "worst_ms": 278.84,
      "best_ms": 240.19,
      "mean_expected_shots": 3.271716,
-     "kill_cost": 15518
+     "kill_cost": 15590
     }
    }
   },
@@ -2493,10 +2493,10 @@
     "ammo_item_id": "37160500001",
     "name": "PS12B",
     "caliber": "12.7x55",
-    "price_daily": 4743
+    "price_daily": 4765
    },
-   "gun_price_daily": 196418,
-   "full_price_180rd": 1050158,
+   "gun_price_daily": 200082,
+   "full_price_180rd": 1057782,
    "bands": {
     "贴脸": {
      "rank": 98,
@@ -2505,7 +2505,7 @@
      "worst_ms": 281.16,
      "best_ms": 281.16,
      "mean_expected_shots": 2.874432,
-     "kill_cost": 13633
+     "kill_cost": 13697
     },
     "近距": {
      "rank": 80,
@@ -2514,7 +2514,7 @@
      "worst_ms": 281.16,
      "best_ms": 281.16,
      "mean_expected_shots": 2.874432,
-     "kill_cost": 13633
+     "kill_cost": 13697
     },
     "中距": {
      "rank": 38,
@@ -2523,7 +2523,7 @@
      "worst_ms": 281.16,
      "best_ms": 281.16,
      "mean_expected_shots": 2.874432,
-     "kill_cost": 13633
+     "kill_cost": 13697
     },
     "远距": {
      "rank": 14,
@@ -2532,7 +2532,7 @@
      "worst_ms": 281.16,
      "best_ms": 281.16,
      "mean_expected_shots": 2.874432,
-     "kill_cost": 13633
+     "kill_cost": 13697
     }
    }
   },
@@ -2624,10 +2624,10 @@
     "ammo_item_id": "37160500001",
     "name": "PS12B",
     "caliber": "12.7x55",
-    "price_daily": 4743
+    "price_daily": 4765
    },
-   "gun_price_daily": 196418,
-   "full_price_180rd": 1050158,
+   "gun_price_daily": 200082,
+   "full_price_180rd": 1057782,
    "bands": {
     "贴脸": {
      "rank": 181,
@@ -2636,7 +2636,7 @@
      "worst_ms": 423.36,
      "best_ms": 423.36,
      "mean_expected_shots": 3.822391,
-     "kill_cost": 18130
+     "kill_cost": 18214
     },
     "近距": {
      "rank": 180,
@@ -2645,7 +2645,7 @@
      "worst_ms": 423.36,
      "best_ms": 423.36,
      "mean_expected_shots": 3.822391,
-     "kill_cost": 18130
+     "kill_cost": 18214
     },
     "中距": {
      "rank": 170,
@@ -2654,7 +2654,7 @@
      "worst_ms": 423.36,
      "best_ms": 423.36,
      "mean_expected_shots": 3.822391,
-     "kill_cost": 18130
+     "kill_cost": 18214
     },
     "远距": {
      "rank": 165,
@@ -2663,7 +2663,7 @@
      "worst_ms": 474.15,
      "best_ms": 423.36,
      "mean_expected_shots": 4.106408,
-     "kill_cost": 19477
+     "kill_cost": 19567
     }
    }
   },
@@ -2736,10 +2736,10 @@
     "ammo_item_id": "37160500001",
     "name": "PS12B",
     "caliber": "12.7x55",
-    "price_daily": 4743
+    "price_daily": 4765
    },
-   "gun_price_daily": 196418,
-   "full_price_180rd": 1050158,
+   "gun_price_daily": 200082,
+   "full_price_180rd": 1057782,
    "bands": {
     "贴脸": {
      "rank": 15,
@@ -2748,7 +2748,7 @@
      "worst_ms": 240.19,
      "best_ms": 240.19,
      "mean_expected_shots": 3.001603,
-     "kill_cost": 14237
+     "kill_cost": 14303
     },
     "近距": {
      "rank": 15,
@@ -2757,7 +2757,7 @@
      "worst_ms": 240.19,
      "best_ms": 240.19,
      "mean_expected_shots": 3.001603,
-     "kill_cost": 14237
+     "kill_cost": 14303
     },
     "中距": {
      "rank": 11,
@@ -2766,7 +2766,7 @@
      "worst_ms": 240.19,
      "best_ms": 240.19,
      "mean_expected_shots": 3.001603,
-     "kill_cost": 14237
+     "kill_cost": 14303
     },
     "远距": {
      "rank": 4,
@@ -2775,7 +2775,7 @@
      "worst_ms": 278.84,
      "best_ms": 240.19,
      "mean_expected_shots": 3.095104,
-     "kill_cost": 14680
+     "kill_cost": 14748
     }
    }
   },
@@ -2840,8 +2840,8 @@
     "caliber": "5.56x45mm",
     "price_daily": 4429
    },
-   "gun_price_daily": 171779,
-   "full_price_180rd": 968999,
+   "gun_price_daily": 170358,
+   "full_price_180rd": 967578,
    "bands": {
     "贴脸": {
      "rank": 68,
@@ -2953,8 +2953,8 @@
     "caliber": "5.56x45mm",
     "price_daily": 4429
    },
-   "gun_price_daily": 171779,
-   "full_price_180rd": 968999,
+   "gun_price_daily": 170358,
+   "full_price_180rd": 967578,
    "bands": {
     "贴脸": {
      "rank": 69,
@@ -3066,8 +3066,8 @@
     "caliber": "5.56x45mm",
     "price_daily": 4429
    },
-   "gun_price_daily": 171779,
-   "full_price_180rd": 968999,
+   "gun_price_daily": 170358,
+   "full_price_180rd": 967578,
    "bands": {
     "贴脸": {
      "rank": 70,
@@ -3178,8 +3178,8 @@
     "caliber": "5.56x45mm",
     "price_daily": 4429
    },
-   "gun_price_daily": 171779,
-   "full_price_180rd": 968999,
+   "gun_price_daily": 170358,
+   "full_price_180rd": 967578,
    "bands": {
     "贴脸": {
      "rank": 71,
@@ -3298,8 +3298,8 @@
     "caliber": "5.56x45mm",
     "price_daily": 4429
    },
-   "gun_price_daily": 171779,
-   "full_price_180rd": 968999,
+   "gun_price_daily": 170358,
+   "full_price_180rd": 967578,
    "bands": {
     "贴脸": {
      "rank": 130,
@@ -3400,8 +3400,8 @@
     "caliber": "5.56x45mm",
     "price_daily": 4429
    },
-   "gun_price_daily": 10248,
-   "full_price_180rd": 807468,
+   "gun_price_daily": 10235,
+   "full_price_180rd": 807455,
    "bands": {
     "贴脸": {
      "rank": 187,
@@ -3510,8 +3510,8 @@
     "caliber": "5.56x45mm",
     "price_daily": 4429
    },
-   "gun_price_daily": 10248,
-   "full_price_180rd": 807468,
+   "gun_price_daily": 10235,
+   "full_price_180rd": 807455,
    "bands": {
     "贴脸": {
      "rank": 180,
@@ -3623,8 +3623,8 @@
     "caliber": "5.56x45mm",
     "price_daily": 4429
    },
-   "gun_price_daily": 10248,
-   "full_price_180rd": 807468,
+   "gun_price_daily": 10235,
+   "full_price_180rd": 807455,
    "bands": {
     "贴脸": {
      "rank": 188,
@@ -3736,8 +3736,8 @@
     "caliber": "5.56x45mm",
     "price_daily": 4429
    },
-   "gun_price_daily": 10248,
-   "full_price_180rd": 807468,
+   "gun_price_daily": 10235,
+   "full_price_180rd": 807455,
    "bands": {
     "贴脸": {
      "rank": 189,
@@ -3848,8 +3848,8 @@
     "caliber": "5.56x45mm",
     "price_daily": 4429
    },
-   "gun_price_daily": 10248,
-   "full_price_180rd": 807468,
+   "gun_price_daily": 10235,
+   "full_price_180rd": 807455,
    "bands": {
     "贴脸": {
      "rank": 190,
@@ -3950,8 +3950,8 @@
     "caliber": "5.56x45mm",
     "price_daily": 4429
    },
-   "gun_price_daily": 90834,
-   "full_price_180rd": 888054,
+   "gun_price_daily": 90833,
+   "full_price_180rd": 888053,
    "bands": {
     "贴脸": {
      "rank": 141,
@@ -4063,8 +4063,8 @@
     "caliber": "5.56x45mm",
     "price_daily": 4429
    },
-   "gun_price_daily": 90834,
-   "full_price_180rd": 888054,
+   "gun_price_daily": 90833,
+   "full_price_180rd": 888053,
    "bands": {
     "贴脸": {
      "rank": 142,
@@ -4176,8 +4176,8 @@
     "caliber": "5.56x45mm",
     "price_daily": 4429
    },
-   "gun_price_daily": 90834,
-   "full_price_180rd": 888054,
+   "gun_price_daily": 90833,
+   "full_price_180rd": 888053,
    "bands": {
     "贴脸": {
      "rank": 143,
@@ -4288,8 +4288,8 @@
     "caliber": "5.56x45mm",
     "price_daily": 4429
    },
-   "gun_price_daily": 90834,
-   "full_price_180rd": 888054,
+   "gun_price_daily": 90833,
+   "full_price_180rd": 888053,
    "bands": {
     "贴脸": {
      "rank": 144,
@@ -4400,8 +4400,8 @@
     "caliber": "5.56x45mm",
     "price_daily": 4429
    },
-   "gun_price_daily": 90834,
-   "full_price_180rd": 888054,
+   "gun_price_daily": 90833,
+   "full_price_180rd": 888053,
    "bands": {
     "贴脸": {
      "rank": 145,
@@ -4502,8 +4502,8 @@
     "caliber": "6.8x51mm",
     "price_daily": 4689
    },
-   "gun_price_daily": 184322,
-   "full_price_180rd": 1028342,
+   "gun_price_daily": 192456,
+   "full_price_180rd": 1036476,
    "bands": {
     "贴脸": {
      "rank": 124,
@@ -4626,8 +4626,8 @@
     "caliber": "6.8x51mm",
     "price_daily": 4689
    },
-   "gun_price_daily": 184322,
-   "full_price_180rd": 1028342,
+   "gun_price_daily": 192456,
+   "full_price_180rd": 1036476,
    "bands": {
     "贴脸": {
      "rank": 125,
@@ -4753,8 +4753,8 @@
     "caliber": "6.8x51mm",
     "price_daily": 4689
    },
-   "gun_price_daily": 184322,
-   "full_price_180rd": 1028342,
+   "gun_price_daily": 192456,
+   "full_price_180rd": 1036476,
    "bands": {
     "贴脸": {
      "rank": 126,
@@ -4866,8 +4866,8 @@
     "caliber": "6.8x51mm",
     "price_daily": 4689
    },
-   "gun_price_daily": 184322,
-   "full_price_180rd": 1028342,
+   "gun_price_daily": 192456,
+   "full_price_180rd": 1036476,
    "bands": {
     "贴脸": {
      "rank": 127,
@@ -4978,8 +4978,8 @@
     "caliber": "6.8x51mm",
     "price_daily": 4689
    },
-   "gun_price_daily": 184322,
-   "full_price_180rd": 1028342,
+   "gun_price_daily": 192456,
+   "full_price_180rd": 1036476,
    "bands": {
     "贴脸": {
      "rank": 128,
@@ -5080,8 +5080,8 @@
     "caliber": "5.56x45mm",
     "price_daily": 4429
    },
-   "gun_price_daily": 34515,
-   "full_price_180rd": 831735,
+   "gun_price_daily": 34635,
+   "full_price_180rd": 831855,
    "bands": {
     "贴脸": {
      "rank": 151,
@@ -5193,8 +5193,8 @@
     "caliber": "5.56x45mm",
     "price_daily": 4429
    },
-   "gun_price_daily": 34515,
-   "full_price_180rd": 831735,
+   "gun_price_daily": 34635,
+   "full_price_180rd": 831855,
    "bands": {
     "贴脸": {
      "rank": 152,
@@ -5305,8 +5305,8 @@
     "caliber": "5.56x45mm",
     "price_daily": 4429
    },
-   "gun_price_daily": 34515,
-   "full_price_180rd": 831735,
+   "gun_price_daily": 34635,
+   "full_price_180rd": 831855,
    "bands": {
     "贴脸": {
      "rank": 153,
@@ -5425,8 +5425,8 @@
     "caliber": "5.56x45mm",
     "price_daily": 4429
    },
-   "gun_price_daily": 34515,
-   "full_price_180rd": 831735,
+   "gun_price_daily": 34635,
+   "full_price_180rd": 831855,
    "bands": {
     "贴脸": {
      "rank": 170,
@@ -5544,8 +5544,8 @@
     "caliber": "5.56x45mm",
     "price_daily": 4429
    },
-   "gun_price_daily": 34515,
-   "full_price_180rd": 831735,
+   "gun_price_daily": 34635,
+   "full_price_180rd": 831855,
    "bands": {
     "贴脸": {
      "rank": 171,
@@ -5646,8 +5646,8 @@
     "caliber": "5.45x39mm",
     "price_daily": 4535
    },
-   "gun_price_daily": 57384,
-   "full_price_180rd": 873684,
+   "gun_price_daily": 57377,
+   "full_price_180rd": 873677,
    "bands": {
     "贴脸": {
      "rank": 154,
@@ -5759,8 +5759,8 @@
     "caliber": "5.45x39mm",
     "price_daily": 4535
    },
-   "gun_price_daily": 57384,
-   "full_price_180rd": 873684,
+   "gun_price_daily": 57377,
+   "full_price_180rd": 873677,
    "bands": {
     "贴脸": {
      "rank": 155,
@@ -5871,8 +5871,8 @@
     "caliber": "5.45x39mm",
     "price_daily": 4535
    },
-   "gun_price_daily": 57384,
-   "full_price_180rd": 873684,
+   "gun_price_daily": 57377,
+   "full_price_180rd": 873677,
    "bands": {
     "贴脸": {
      "rank": 156,
@@ -5983,8 +5983,8 @@
     "caliber": "5.45x39mm",
     "price_daily": 4535
    },
-   "gun_price_daily": 57384,
-   "full_price_180rd": 873684,
+   "gun_price_daily": 57377,
+   "full_price_180rd": 873677,
    "bands": {
     "贴脸": {
      "rank": 157,
@@ -6083,10 +6083,10 @@
     "ammo_item_id": "37170500001",
     "name": "M62",
     "caliber": "7.62x51mm",
-    "price_daily": 5646
+    "price_daily": 5591
    },
-   "gun_price_daily": 91119,
-   "full_price_180rd": 1107399,
+   "gun_price_daily": 96701,
+   "full_price_180rd": 1103081,
    "bands": {
     "贴脸": {
      "rank": 106,
@@ -6095,7 +6095,7 @@
      "worst_ms": 285.34,
      "best_ms": 285.34,
      "mean_expected_shots": 3.781137,
-     "kill_cost": 21348
+     "kill_cost": 21140
     },
     "近距": {
      "rank": 89,
@@ -6104,7 +6104,7 @@
      "worst_ms": 285.34,
      "best_ms": 285.34,
      "mean_expected_shots": 3.781137,
-     "kill_cost": 21348
+     "kill_cost": 21140
     },
     "中距": {
      "rank": 85,
@@ -6113,7 +6113,7 @@
      "worst_ms": 327.29,
      "best_ms": 285.34,
      "mean_expected_shots": 3.995282,
-     "kill_cost": 22557
+     "kill_cost": 22338
     },
     "远距": {
      "rank": 84,
@@ -6122,7 +6122,7 @@
      "worst_ms": 392.65,
      "best_ms": 327.29,
      "mean_expected_shots": 4.415993,
-     "kill_cost": 24933
+     "kill_cost": 24690
     }
    }
   },
@@ -6196,10 +6196,10 @@
     "ammo_item_id": "37170500001",
     "name": "M62",
     "caliber": "7.62x51mm",
-    "price_daily": 5646
+    "price_daily": 5591
    },
-   "gun_price_daily": 91119,
-   "full_price_180rd": 1107399,
+   "gun_price_daily": 96701,
+   "full_price_180rd": 1103081,
    "bands": {
     "贴脸": {
      "rank": 107,
@@ -6208,7 +6208,7 @@
      "worst_ms": 285.34,
      "best_ms": 285.34,
      "mean_expected_shots": 3.781137,
-     "kill_cost": 21348
+     "kill_cost": 21140
     },
     "近距": {
      "rank": 90,
@@ -6217,7 +6217,7 @@
      "worst_ms": 285.34,
      "best_ms": 285.34,
      "mean_expected_shots": 3.781137,
-     "kill_cost": 21348
+     "kill_cost": 21140
     },
     "中距": {
      "rank": 46,
@@ -6226,7 +6226,7 @@
      "worst_ms": 285.34,
      "best_ms": 285.34,
      "mean_expected_shots": 3.781137,
-     "kill_cost": 21348
+     "kill_cost": 21140
     },
     "远距": {
      "rank": 29,
@@ -6235,7 +6235,7 @@
      "worst_ms": 327.29,
      "best_ms": 285.34,
      "mean_expected_shots": 4.031706,
-     "kill_cost": 22763
+     "kill_cost": 22541
     }
    }
   },
@@ -6308,10 +6308,10 @@
     "ammo_item_id": "37170500001",
     "name": "M62",
     "caliber": "7.62x51mm",
-    "price_daily": 5646
+    "price_daily": 5591
    },
-   "gun_price_daily": 91119,
-   "full_price_180rd": 1107399,
+   "gun_price_daily": 96701,
+   "full_price_180rd": 1103081,
    "bands": {
     "贴脸": {
      "rank": 108,
@@ -6320,7 +6320,7 @@
      "worst_ms": 285.34,
      "best_ms": 285.34,
      "mean_expected_shots": 3.781137,
-     "kill_cost": 21348
+     "kill_cost": 21140
     },
     "近距": {
      "rank": 91,
@@ -6329,7 +6329,7 @@
      "worst_ms": 285.34,
      "best_ms": 285.34,
      "mean_expected_shots": 3.781137,
-     "kill_cost": 21348
+     "kill_cost": 21140
     },
     "中距": {
      "rank": 47,
@@ -6338,7 +6338,7 @@
      "worst_ms": 285.34,
      "best_ms": 285.34,
      "mean_expected_shots": 3.781137,
-     "kill_cost": 21348
+     "kill_cost": 21140
     },
     "远距": {
      "rank": 47,
@@ -6347,7 +6347,7 @@
      "worst_ms": 327.29,
      "best_ms": 285.34,
      "mean_expected_shots": 4.163584,
-     "kill_cost": 23508
+     "kill_cost": 23279
     }
    }
   },
@@ -6421,10 +6421,10 @@
     "ammo_item_id": "37170500001",
     "name": "M62",
     "caliber": "7.62x51mm",
-    "price_daily": 5646
+    "price_daily": 5591
    },
-   "gun_price_daily": 91119,
-   "full_price_180rd": 1107399,
+   "gun_price_daily": 96701,
+   "full_price_180rd": 1103081,
    "bands": {
     "贴脸": {
      "rank": 109,
@@ -6433,7 +6433,7 @@
      "worst_ms": 285.34,
      "best_ms": 285.34,
      "mean_expected_shots": 3.781137,
-     "kill_cost": 21348
+     "kill_cost": 21140
     },
     "近距": {
      "rank": 92,
@@ -6442,7 +6442,7 @@
      "worst_ms": 285.34,
      "best_ms": 285.34,
      "mean_expected_shots": 3.781137,
-     "kill_cost": 21348
+     "kill_cost": 21140
     },
     "中距": {
      "rank": 48,
@@ -6451,7 +6451,7 @@
      "worst_ms": 285.34,
      "best_ms": 285.34,
      "mean_expected_shots": 3.781137,
-     "kill_cost": 21348
+     "kill_cost": 21140
     },
     "远距": {
      "rank": 50,
@@ -6460,7 +6460,7 @@
      "worst_ms": 327.29,
      "best_ms": 285.34,
      "mean_expected_shots": 4.176771,
-     "kill_cost": 23582
+     "kill_cost": 23352
     }
    }
   },
@@ -6533,10 +6533,10 @@
     "ammo_item_id": "37170500001",
     "name": "M62",
     "caliber": "7.62x51mm",
-    "price_daily": 5646
+    "price_daily": 5591
    },
-   "gun_price_daily": 91119,
-   "full_price_180rd": 1107399,
+   "gun_price_daily": 96701,
+   "full_price_180rd": 1103081,
    "bands": {
     "贴脸": {
      "rank": 110,
@@ -6545,7 +6545,7 @@
      "worst_ms": 285.34,
      "best_ms": 285.34,
      "mean_expected_shots": 3.781137,
-     "kill_cost": 21348
+     "kill_cost": 21140
     },
     "近距": {
      "rank": 93,
@@ -6554,7 +6554,7 @@
      "worst_ms": 285.34,
      "best_ms": 285.34,
      "mean_expected_shots": 3.781137,
-     "kill_cost": 21348
+     "kill_cost": 21140
     },
     "中距": {
      "rank": 58,
@@ -6563,7 +6563,7 @@
      "worst_ms": 327.29,
      "best_ms": 285.34,
      "mean_expected_shots": 3.83954,
-     "kill_cost": 21678
+     "kill_cost": 21467
     },
     "远距": {
      "rank": 52,
@@ -6572,7 +6572,7 @@
      "worst_ms": 327.29,
      "best_ms": 327.29,
      "mean_expected_shots": 4.189959,
-     "kill_cost": 23657
+     "kill_cost": 23426
     }
    }
   },
@@ -6645,10 +6645,10 @@
     "ammo_item_id": "37170500001",
     "name": "M62",
     "caliber": "7.62x51mm",
-    "price_daily": 5646
+    "price_daily": 5591
    },
-   "gun_price_daily": 91119,
-   "full_price_180rd": 1107399,
+   "gun_price_daily": 96701,
+   "full_price_180rd": 1103081,
    "bands": {
     "贴脸": {
      "rank": 111,
@@ -6657,7 +6657,7 @@
      "worst_ms": 285.34,
      "best_ms": 285.34,
      "mean_expected_shots": 3.781137,
-     "kill_cost": 21348
+     "kill_cost": 21140
     },
     "近距": {
      "rank": 94,
@@ -6666,7 +6666,7 @@
      "worst_ms": 285.34,
      "best_ms": 285.34,
      "mean_expected_shots": 3.781137,
-     "kill_cost": 21348
+     "kill_cost": 21140
     },
     "中距": {
      "rank": 74,
@@ -6675,7 +6675,7 @@
      "worst_ms": 327.29,
      "best_ms": 285.34,
      "mean_expected_shots": 3.936879,
-     "kill_cost": 22228
+     "kill_cost": 22011
     },
     "远距": {
      "rank": 71,
@@ -6684,7 +6684,7 @@
      "worst_ms": 392.65,
      "best_ms": 327.29,
      "mean_expected_shots": 4.31325,
-     "kill_cost": 24353
+     "kill_cost": 24115
     }
    }
   },
@@ -6747,10 +6747,10 @@
     "ammo_item_id": "37170500001",
     "name": "M62",
     "caliber": "7.62x51mm",
-    "price_daily": 5646
+    "price_daily": 5591
    },
-   "gun_price_daily": 49473,
-   "full_price_180rd": 1065753,
+   "gun_price_daily": 49301,
+   "full_price_180rd": 1055681,
    "bands": {
     "贴脸": {
      "rank": 160,
@@ -6759,7 +6759,7 @@
      "worst_ms": 333.04,
      "best_ms": 333.04,
      "mean_expected_shots": 3.957689,
-     "kill_cost": 22345
+     "kill_cost": 22127
     },
     "近距": {
      "rank": 156,
@@ -6768,7 +6768,7 @@
      "worst_ms": 333.04,
      "best_ms": 333.04,
      "mean_expected_shots": 3.957689,
-     "kill_cost": 22345
+     "kill_cost": 22127
     },
     "中距": {
      "rank": 123,
@@ -6777,7 +6777,7 @@
      "worst_ms": 333.04,
      "best_ms": 333.04,
      "mean_expected_shots": 3.957689,
-     "kill_cost": 22345
+     "kill_cost": 22127
     },
     "远距": {
      "rank": 117,
@@ -6786,7 +6786,7 @@
      "worst_ms": 378.07,
      "best_ms": 333.04,
      "mean_expected_shots": 4.293151,
-     "kill_cost": 24239
+     "kill_cost": 24003
     }
    }
   },
@@ -6860,10 +6860,10 @@
     "ammo_item_id": "37170500001",
     "name": "M62",
     "caliber": "7.62x51mm",
-    "price_daily": 5646
+    "price_daily": 5591
    },
-   "gun_price_daily": 49473,
-   "full_price_180rd": 1065753,
+   "gun_price_daily": 49301,
+   "full_price_180rd": 1055681,
    "bands": {
     "贴脸": {
      "rank": 161,
@@ -6872,7 +6872,7 @@
      "worst_ms": 333.04,
      "best_ms": 333.04,
      "mean_expected_shots": 3.957689,
-     "kill_cost": 22345
+     "kill_cost": 22127
     },
     "近距": {
      "rank": 157,
@@ -6881,7 +6881,7 @@
      "worst_ms": 333.04,
      "best_ms": 333.04,
      "mean_expected_shots": 3.957689,
-     "kill_cost": 22345
+     "kill_cost": 22127
     },
     "中距": {
      "rank": 124,
@@ -6890,7 +6890,7 @@
      "worst_ms": 333.04,
      "best_ms": 333.04,
      "mean_expected_shots": 3.957689,
-     "kill_cost": 22345
+     "kill_cost": 22127
     },
     "远距": {
      "rank": 61,
@@ -6899,7 +6899,7 @@
      "worst_ms": 333.04,
      "best_ms": 333.04,
      "mean_expected_shots": 3.957689,
-     "kill_cost": 22345
+     "kill_cost": 22127
     }
    }
   },
@@ -6973,10 +6973,10 @@
     "ammo_item_id": "37170500001",
     "name": "M62",
     "caliber": "7.62x51mm",
-    "price_daily": 5646
+    "price_daily": 5591
    },
-   "gun_price_daily": 49473,
-   "full_price_180rd": 1065753,
+   "gun_price_daily": 49301,
+   "full_price_180rd": 1055681,
    "bands": {
     "贴脸": {
      "rank": 162,
@@ -6985,7 +6985,7 @@
      "worst_ms": 333.04,
      "best_ms": 333.04,
      "mean_expected_shots": 3.957689,
-     "kill_cost": 22345
+     "kill_cost": 22127
     },
     "近距": {
      "rank": 158,
@@ -6994,7 +6994,7 @@
      "worst_ms": 333.04,
      "best_ms": 333.04,
      "mean_expected_shots": 3.957689,
-     "kill_cost": 22345
+     "kill_cost": 22127
     },
     "中距": {
      "rank": 125,
@@ -7003,7 +7003,7 @@
      "worst_ms": 333.04,
      "best_ms": 333.04,
      "mean_expected_shots": 3.957689,
-     "kill_cost": 22345
+     "kill_cost": 22127
     },
     "远距": {
      "rank": 68,
@@ -7012,7 +7012,7 @@
      "worst_ms": 378.07,
      "best_ms": 333.04,
      "mean_expected_shots": 4.009299,
-     "kill_cost": 22637
+     "kill_cost": 22416
     }
    }
   },
@@ -7085,10 +7085,10 @@
     "ammo_item_id": "37170500001",
     "name": "M62",
     "caliber": "7.62x51mm",
-    "price_daily": 5646
+    "price_daily": 5591
    },
-   "gun_price_daily": 49473,
-   "full_price_180rd": 1065753,
+   "gun_price_daily": 49301,
+   "full_price_180rd": 1055681,
    "bands": {
     "贴脸": {
      "rank": 163,
@@ -7097,7 +7097,7 @@
      "worst_ms": 333.04,
      "best_ms": 333.04,
      "mean_expected_shots": 3.957689,
-     "kill_cost": 22345
+     "kill_cost": 22127
     },
     "近距": {
      "rank": 159,
@@ -7106,7 +7106,7 @@
      "worst_ms": 333.04,
      "best_ms": 333.04,
      "mean_expected_shots": 3.957689,
-     "kill_cost": 22345
+     "kill_cost": 22127
     },
     "中距": {
      "rank": 126,
@@ -7115,7 +7115,7 @@
      "worst_ms": 333.04,
      "best_ms": 333.04,
      "mean_expected_shots": 3.957689,
-     "kill_cost": 22345
+     "kill_cost": 22127
     },
     "远距": {
      "rank": 94,
@@ -7124,7 +7124,7 @@
      "worst_ms": 378.07,
      "best_ms": 333.04,
      "mean_expected_shots": 4.164127,
-     "kill_cost": 23511
+     "kill_cost": 23282
     }
    }
   },
@@ -7187,10 +7187,10 @@
     "ammo_item_id": "37110500001",
     "name": "AP",
     "caliber": "7.62x39mm",
-    "price_daily": 4900
+    "price_daily": 4872
    },
-   "gun_price_daily": 37056,
-   "full_price_180rd": 919056,
+   "gun_price_daily": 37166,
+   "full_price_180rd": 914126,
    "bands": {
     "贴脸": {
      "rank": 146,
@@ -7199,7 +7199,7 @@
      "worst_ms": 318.6,
      "best_ms": 318.6,
      "mean_expected_shots": 4.357206,
-     "kill_cost": 21350
+     "kill_cost": 21228
     },
     "近距": {
      "rank": 137,
@@ -7208,7 +7208,7 @@
      "worst_ms": 318.6,
      "best_ms": 318.6,
      "mean_expected_shots": 4.357206,
-     "kill_cost": 21350
+     "kill_cost": 21228
     },
     "中距": {
      "rank": 138,
@@ -7217,7 +7217,7 @@
      "worst_ms": 377.03,
      "best_ms": 318.6,
      "mean_expected_shots": 4.679725,
-     "kill_cost": 22931
+     "kill_cost": 22800
     },
     "远距": {
      "rank": 138,
@@ -7226,7 +7226,7 @@
      "worst_ms": 464.77,
      "best_ms": 377.03,
      "mean_expected_shots": 5.300986,
-     "kill_cost": 25975
+     "kill_cost": 25826
     }
    }
   },
@@ -7300,10 +7300,10 @@
     "ammo_item_id": "37110500001",
     "name": "AP",
     "caliber": "7.62x39mm",
-    "price_daily": 4900
+    "price_daily": 4872
    },
-   "gun_price_daily": 37056,
-   "full_price_180rd": 919056,
+   "gun_price_daily": 37166,
+   "full_price_180rd": 914126,
    "bands": {
     "贴脸": {
      "rank": 147,
@@ -7312,7 +7312,7 @@
      "worst_ms": 318.6,
      "best_ms": 318.6,
      "mean_expected_shots": 4.357206,
-     "kill_cost": 21350
+     "kill_cost": 21228
     },
     "近距": {
      "rank": 138,
@@ -7321,7 +7321,7 @@
      "worst_ms": 318.6,
      "best_ms": 318.6,
      "mean_expected_shots": 4.357206,
-     "kill_cost": 21350
+     "kill_cost": 21228
     },
     "中距": {
      "rank": 106,
@@ -7330,7 +7330,7 @@
      "worst_ms": 318.6,
      "best_ms": 318.6,
      "mean_expected_shots": 4.357206,
-     "kill_cost": 21350
+     "kill_cost": 21228
     },
     "远距": {
      "rank": 89,
@@ -7339,7 +7339,7 @@
      "worst_ms": 377.03,
      "best_ms": 318.6,
      "mean_expected_shots": 4.734581,
-     "kill_cost": 23199
+     "kill_cost": 23067
     }
    }
   },
@@ -7413,10 +7413,10 @@
     "ammo_item_id": "37110500001",
     "name": "AP",
     "caliber": "7.62x39mm",
-    "price_daily": 4900
+    "price_daily": 4872
    },
-   "gun_price_daily": 37056,
-   "full_price_180rd": 919056,
+   "gun_price_daily": 37166,
+   "full_price_180rd": 914126,
    "bands": {
     "贴脸": {
      "rank": 148,
@@ -7425,7 +7425,7 @@
      "worst_ms": 318.6,
      "best_ms": 318.6,
      "mean_expected_shots": 4.357206,
-     "kill_cost": 21350
+     "kill_cost": 21228
     },
     "近距": {
      "rank": 139,
@@ -7434,7 +7434,7 @@
      "worst_ms": 318.6,
      "best_ms": 318.6,
      "mean_expected_shots": 4.357206,
-     "kill_cost": 21350
+     "kill_cost": 21228
     },
     "中距": {
      "rank": 107,
@@ -7443,7 +7443,7 @@
      "worst_ms": 318.6,
      "best_ms": 318.6,
      "mean_expected_shots": 4.357206,
-     "kill_cost": 21350
+     "kill_cost": 21228
     },
     "远距": {
      "rank": 111,
@@ -7452,7 +7452,7 @@
      "worst_ms": 377.03,
      "best_ms": 318.6,
      "mean_expected_shots": 4.853752,
-     "kill_cost": 23783
+     "kill_cost": 23647
     }
    }
   },
@@ -7525,10 +7525,10 @@
     "ammo_item_id": "37110500001",
     "name": "AP",
     "caliber": "7.62x39mm",
-    "price_daily": 4900
+    "price_daily": 4872
    },
-   "gun_price_daily": 37056,
-   "full_price_180rd": 919056,
+   "gun_price_daily": 37166,
+   "full_price_180rd": 914126,
    "bands": {
     "贴脸": {
      "rank": 149,
@@ -7537,7 +7537,7 @@
      "worst_ms": 318.6,
      "best_ms": 318.6,
      "mean_expected_shots": 4.357206,
-     "kill_cost": 21350
+     "kill_cost": 21228
     },
     "近距": {
      "rank": 140,
@@ -7546,7 +7546,7 @@
      "worst_ms": 318.6,
      "best_ms": 318.6,
      "mean_expected_shots": 4.357206,
-     "kill_cost": 21350
+     "kill_cost": 21228
     },
     "中距": {
      "rank": 108,
@@ -7555,7 +7555,7 @@
      "worst_ms": 318.6,
      "best_ms": 318.6,
      "mean_expected_shots": 4.357206,
-     "kill_cost": 21350
+     "kill_cost": 21228
     },
     "远距": {
      "rank": 120,
@@ -7564,7 +7564,7 @@
      "worst_ms": 377.03,
      "best_ms": 318.6,
      "mean_expected_shots": 4.933199,
-     "kill_cost": 24173
+     "kill_cost": 24035
     }
    }
   },
@@ -7637,10 +7637,10 @@
     "ammo_item_id": "37110500001",
     "name": "AP",
     "caliber": "7.62x39mm",
-    "price_daily": 4900
+    "price_daily": 4872
    },
-   "gun_price_daily": 37056,
-   "full_price_180rd": 919056,
+   "gun_price_daily": 37166,
+   "full_price_180rd": 914126,
    "bands": {
     "贴脸": {
      "rank": 150,
@@ -7649,7 +7649,7 @@
      "worst_ms": 318.6,
      "best_ms": 318.6,
      "mean_expected_shots": 4.357206,
-     "kill_cost": 21350
+     "kill_cost": 21228
     },
     "近距": {
      "rank": 141,
@@ -7658,7 +7658,7 @@
      "worst_ms": 318.6,
      "best_ms": 318.6,
      "mean_expected_shots": 4.357206,
-     "kill_cost": 21350
+     "kill_cost": 21228
     },
     "中距": {
      "rank": 118,
@@ -7667,7 +7667,7 @@
      "worst_ms": 377.03,
      "best_ms": 318.6,
      "mean_expected_shots": 4.445166,
-     "kill_cost": 21781
+     "kill_cost": 21657
     },
     "远距": {
      "rank": 122,
@@ -7676,7 +7676,7 @@
      "worst_ms": 377.03,
      "best_ms": 377.03,
      "mean_expected_shots": 4.972923,
-     "kill_cost": 24367
+     "kill_cost": 24228
     }
    }
   },
@@ -7741,8 +7741,8 @@
     "caliber": "5.56x45mm",
     "price_daily": 4429
    },
-   "gun_price_daily": 9768,
-   "full_price_180rd": 806988,
+   "gun_price_daily": 9809,
+   "full_price_180rd": 807029,
    "bands": {
     "贴脸": {
      "rank": 182,
@@ -7851,8 +7851,8 @@
     "caliber": "5.56x45mm",
     "price_daily": 4429
    },
-   "gun_price_daily": 9768,
-   "full_price_180rd": 806988,
+   "gun_price_daily": 9809,
+   "full_price_180rd": 807029,
    "bands": {
     "贴脸": {
      "rank": 177,
@@ -7964,8 +7964,8 @@
     "caliber": "5.56x45mm",
     "price_daily": 4429
    },
-   "gun_price_daily": 9768,
-   "full_price_180rd": 806988,
+   "gun_price_daily": 9809,
+   "full_price_180rd": 807029,
    "bands": {
     "贴脸": {
      "rank": 183,
@@ -8077,8 +8077,8 @@
     "caliber": "5.56x45mm",
     "price_daily": 4429
    },
-   "gun_price_daily": 9768,
-   "full_price_180rd": 806988,
+   "gun_price_daily": 9809,
+   "full_price_180rd": 807029,
    "bands": {
     "贴脸": {
      "rank": 184,
@@ -8189,8 +8189,8 @@
     "caliber": "5.56x45mm",
     "price_daily": 4429
    },
-   "gun_price_daily": 9768,
-   "full_price_180rd": 806988,
+   "gun_price_daily": 9809,
+   "full_price_180rd": 807029,
    "bands": {
     "贴脸": {
      "rank": 185,
@@ -8301,8 +8301,8 @@
     "caliber": "5.56x45mm",
     "price_daily": 4429
    },
-   "gun_price_daily": 9768,
-   "full_price_180rd": 806988,
+   "gun_price_daily": 9809,
+   "full_price_180rd": 807029,
    "bands": {
     "贴脸": {
      "rank": 186,
@@ -8401,10 +8401,10 @@
     "ammo_item_id": "37140500001",
     "name": "BP",
     "caliber": "9x39mm",
-    "price_daily": 4205
+    "price_daily": 4192
    },
-   "gun_price_daily": 218243,
-   "full_price_180rd": 975143,
+   "gun_price_daily": 222952,
+   "full_price_180rd": 977512,
    "bands": {
     "贴脸": {
      "rank": 57,
@@ -8413,7 +8413,7 @@
      "worst_ms": 259.12,
      "best_ms": 259.12,
      "mean_expected_shots": 5.19971,
-     "kill_cost": 21865
+     "kill_cost": 21797
     },
     "近距": {
      "rank": 74,
@@ -8422,7 +8422,7 @@
      "worst_ms": 289.29,
      "best_ms": 259.12,
      "mean_expected_shots": 5.505339,
-     "kill_cost": 23150
+     "kill_cost": 23078
     },
     "中距": {
      "rank": 91,
@@ -8431,7 +8431,7 @@
      "worst_ms": 335.11,
      "best_ms": 289.29,
      "mean_expected_shots": 6.042341,
-     "kill_cost": 25408
+     "kill_cost": 25329
     },
     "远距": {
      "rank": 64,
@@ -8440,7 +8440,7 @@
      "worst_ms": 335.11,
      "best_ms": 335.11,
      "mean_expected_shots": 6.43133,
-     "kill_cost": 27044
+     "kill_cost": 26960
     }
    }
   },
@@ -8525,10 +8525,10 @@
     "ammo_item_id": "37140500001",
     "name": "BP",
     "caliber": "9x39mm",
-    "price_daily": 4205
+    "price_daily": 4192
    },
-   "gun_price_daily": 218243,
-   "full_price_180rd": 975143,
+   "gun_price_daily": 222952,
+   "full_price_180rd": 977512,
    "bands": {
     "贴脸": {
      "rank": 79,
@@ -8537,7 +8537,7 @@
      "worst_ms": 265.93,
      "best_ms": 265.93,
      "mean_expected_shots": 4.013396,
-     "kill_cost": 16876
+     "kill_cost": 16824
     },
     "近距": {
      "rank": 72,
@@ -8546,7 +8546,7 @@
      "worst_ms": 280.07,
      "best_ms": 265.93,
      "mean_expected_shots": 4.113524,
-     "kill_cost": 17297
+     "kill_cost": 17244
     },
     "中距": {
      "rank": 86,
@@ -8555,7 +8555,7 @@
      "worst_ms": 337.37,
      "best_ms": 280.07,
      "mean_expected_shots": 4.482785,
-     "kill_cost": 18850
+     "kill_cost": 18792
     },
     "远距": {
      "rank": 66,
@@ -8564,7 +8564,7 @@
      "worst_ms": 337.37,
      "best_ms": 337.37,
      "mean_expected_shots": 4.822889,
-     "kill_cost": 20280
+     "kill_cost": 20218
     }
    }
   },
@@ -8637,10 +8637,10 @@
     "ammo_item_id": "37140500001",
     "name": "BP",
     "caliber": "9x39mm",
-    "price_daily": 4205
+    "price_daily": 4192
    },
-   "gun_price_daily": 218243,
-   "full_price_180rd": 975143,
+   "gun_price_daily": 222952,
+   "full_price_180rd": 977512,
    "bands": {
     "贴脸": {
      "rank": 58,
@@ -8649,7 +8649,7 @@
      "worst_ms": 259.12,
      "best_ms": 259.12,
      "mean_expected_shots": 5.19971,
-     "kill_cost": 21865
+     "kill_cost": 21797
     },
     "近距": {
      "rank": 52,
@@ -8658,7 +8658,7 @@
      "worst_ms": 289.29,
      "best_ms": 259.12,
      "mean_expected_shots": 5.291399,
-     "kill_cost": 22250
+     "kill_cost": 22182
     },
     "中距": {
      "rank": 56,
@@ -8667,7 +8667,7 @@
      "worst_ms": 289.29,
      "best_ms": 289.29,
      "mean_expected_shots": 5.688715,
-     "kill_cost": 23921
+     "kill_cost": 23847
     },
     "远距": {
      "rank": 54,
@@ -8676,7 +8676,7 @@
      "worst_ms": 335.11,
      "best_ms": 289.29,
      "mean_expected_shots": 6.335509,
-     "kill_cost": 26641
+     "kill_cost": 26558
     }
    }
   },
@@ -8739,10 +8739,10 @@
     "ammo_item_id": "37130500001",
     "name": "DVC12",
     "caliber": "5.8x42mm",
-    "price_daily": 4834
+    "price_daily": 4895
    },
-   "gun_price_daily": 85700,
-   "full_price_180rd": 955820,
+   "gun_price_daily": 88618,
+   "full_price_180rd": 969718,
    "bands": {
     "贴脸": {
      "rank": 103,
@@ -8751,7 +8751,7 @@
      "worst_ms": 283.82,
      "best_ms": 283.82,
      "mean_expected_shots": 4.339051,
-     "kill_cost": 20975
+     "kill_cost": 21240
     },
     "近距": {
      "rank": 86,
@@ -8760,7 +8760,7 @@
      "worst_ms": 283.82,
      "best_ms": 283.82,
      "mean_expected_shots": 4.339051,
-     "kill_cost": 20975
+     "kill_cost": 21240
     },
     "中距": {
      "rank": 94,
@@ -8769,7 +8769,7 @@
      "worst_ms": 322.84,
      "best_ms": 283.82,
      "mean_expected_shots": 4.688852,
-     "kill_cost": 22666
+     "kill_cost": 22952
     },
     "远距": {
      "rank": 123,
@@ -8778,7 +8778,7 @@
      "worst_ms": 413.61,
      "best_ms": 322.84,
      "mean_expected_shots": 5.452628,
-     "kill_cost": 26358
+     "kill_cost": 26691
     }
    }
   },
@@ -8860,10 +8860,10 @@
     "ammo_item_id": "37130500001",
     "name": "DVC12",
     "caliber": "5.8x42mm",
-    "price_daily": 4834
+    "price_daily": 4895
    },
-   "gun_price_daily": 85700,
-   "full_price_180rd": 955820,
+   "gun_price_daily": 88618,
+   "full_price_180rd": 969718,
    "bands": {
     "贴脸": {
      "rank": 65,
@@ -8872,7 +8872,7 @@
      "worst_ms": 263.95,
      "best_ms": 263.95,
      "mean_expected_shots": 4.339051,
-     "kill_cost": 20975
+     "kill_cost": 21240
     },
     "近距": {
      "rank": 46,
@@ -8881,7 +8881,7 @@
      "worst_ms": 263.95,
      "best_ms": 263.95,
      "mean_expected_shots": 4.339051,
-     "kill_cost": 20975
+     "kill_cost": 21240
     },
     "中距": {
      "rank": 25,
@@ -8890,7 +8890,7 @@
      "worst_ms": 263.95,
      "best_ms": 263.95,
      "mean_expected_shots": 4.339051,
-     "kill_cost": 20975
+     "kill_cost": 21240
     },
     "远距": {
      "rank": 20,
@@ -8899,7 +8899,7 @@
      "worst_ms": 300.24,
      "best_ms": 263.95,
      "mean_expected_shots": 4.738925,
-     "kill_cost": 22908
+     "kill_cost": 23197
     }
    }
   },
@@ -8980,10 +8980,10 @@
     "ammo_item_id": "37130500001",
     "name": "DVC12",
     "caliber": "5.8x42mm",
-    "price_daily": 4834
+    "price_daily": 4895
    },
-   "gun_price_daily": 85700,
-   "full_price_180rd": 955820,
+   "gun_price_daily": 88618,
+   "full_price_180rd": 969718,
    "bands": {
     "贴脸": {
      "rank": 66,
@@ -8992,7 +8992,7 @@
      "worst_ms": 263.95,
      "best_ms": 263.95,
      "mean_expected_shots": 4.339051,
-     "kill_cost": 20975
+     "kill_cost": 21240
     },
     "近距": {
      "rank": 47,
@@ -9001,7 +9001,7 @@
      "worst_ms": 263.95,
      "best_ms": 263.95,
      "mean_expected_shots": 4.339051,
-     "kill_cost": 20975
+     "kill_cost": 21240
     },
     "中距": {
      "rank": 31,
@@ -9010,7 +9010,7 @@
      "worst_ms": 300.24,
      "best_ms": 263.95,
      "mean_expected_shots": 4.448364,
-     "kill_cost": 21503
+     "kill_cost": 21775
     },
     "远距": {
      "rank": 23,
@@ -9019,7 +9019,7 @@
      "worst_ms": 300.24,
      "best_ms": 300.24,
      "mean_expected_shots": 4.798165,
-     "kill_cost": 23194
+     "kill_cost": 23487
     }
    }
   },
@@ -9100,10 +9100,10 @@
     "ammo_item_id": "37130500001",
     "name": "DVC12",
     "caliber": "5.8x42mm",
-    "price_daily": 4834
+    "price_daily": 4895
    },
-   "gun_price_daily": 85700,
-   "full_price_180rd": 955820,
+   "gun_price_daily": 88618,
+   "full_price_180rd": 969718,
    "bands": {
     "贴脸": {
      "rank": 67,
@@ -9112,7 +9112,7 @@
      "worst_ms": 263.95,
      "best_ms": 263.95,
      "mean_expected_shots": 4.339051,
-     "kill_cost": 20975
+     "kill_cost": 21240
     },
     "近距": {
      "rank": 48,
@@ -9121,7 +9121,7 @@
      "worst_ms": 263.95,
      "best_ms": 263.95,
      "mean_expected_shots": 4.339051,
-     "kill_cost": 20975
+     "kill_cost": 21240
     },
     "中距": {
      "rank": 37,
@@ -9130,7 +9130,7 @@
      "worst_ms": 300.24,
      "best_ms": 263.95,
      "mean_expected_shots": 4.535814,
-     "kill_cost": 21926
+     "kill_cost": 22203
     },
     "远距": {
      "rank": 39,
@@ -9139,7 +9139,7 @@
      "worst_ms": 384.66,
      "best_ms": 300.24,
      "mean_expected_shots": 5.039283,
-     "kill_cost": 24360
+     "kill_cost": 24667
     }
    }
   },
@@ -9213,10 +9213,10 @@
     "ammo_item_id": "37130500001",
     "name": "DVC12",
     "caliber": "5.8x42mm",
-    "price_daily": 4834
+    "price_daily": 4895
    },
-   "gun_price_daily": 85700,
-   "full_price_180rd": 955820,
+   "gun_price_daily": 88618,
+   "full_price_180rd": 969718,
    "bands": {
     "贴脸": {
      "rank": 104,
@@ -9225,7 +9225,7 @@
      "worst_ms": 283.82,
      "best_ms": 283.82,
      "mean_expected_shots": 4.339051,
-     "kill_cost": 20975
+     "kill_cost": 21240
     },
     "近距": {
      "rank": 87,
@@ -9234,7 +9234,7 @@
      "worst_ms": 283.82,
      "best_ms": 283.82,
      "mean_expected_shots": 4.339051,
-     "kill_cost": 20975
+     "kill_cost": 21240
     },
     "中距": {
      "rank": 42,
@@ -9243,7 +9243,7 @@
      "worst_ms": 283.82,
      "best_ms": 283.82,
      "mean_expected_shots": 4.339051,
-     "kill_cost": 20975
+     "kill_cost": 21240
     },
     "远距": {
      "rank": 38,
@@ -9252,7 +9252,7 @@
      "worst_ms": 322.84,
      "best_ms": 283.82,
      "mean_expected_shots": 4.738925,
-     "kill_cost": 22908
+     "kill_cost": 23197
     }
    }
   },
@@ -9325,10 +9325,10 @@
     "ammo_item_id": "37130500001",
     "name": "DVC12",
     "caliber": "5.8x42mm",
-    "price_daily": 4834
+    "price_daily": 4895
    },
-   "gun_price_daily": 85700,
-   "full_price_180rd": 955820,
+   "gun_price_daily": 88618,
+   "full_price_180rd": 969718,
    "bands": {
     "贴脸": {
      "rank": 105,
@@ -9337,7 +9337,7 @@
      "worst_ms": 283.82,
      "best_ms": 283.82,
      "mean_expected_shots": 4.339051,
-     "kill_cost": 20975
+     "kill_cost": 21240
     },
     "近距": {
      "rank": 88,
@@ -9346,7 +9346,7 @@
      "worst_ms": 283.82,
      "best_ms": 283.82,
      "mean_expected_shots": 4.339051,
-     "kill_cost": 20975
+     "kill_cost": 21240
     },
     "中距": {
      "rank": 63,
@@ -9355,7 +9355,7 @@
      "worst_ms": 322.84,
      "best_ms": 283.82,
      "mean_expected_shots": 4.448364,
-     "kill_cost": 21503
+     "kill_cost": 21775
     },
     "远距": {
      "rank": 44,
@@ -9364,7 +9364,7 @@
      "worst_ms": 322.84,
      "best_ms": 322.84,
      "mean_expected_shots": 4.798165,
-     "kill_cost": 23194
+     "kill_cost": 23487
     }
    }
   },
@@ -9427,10 +9427,10 @@
     "ammo_item_id": "37280500001",
     "name": "TAC-TX",
     "caliber": ".300BLK",
-    "price_daily": 5007
+    "price_daily": 5075
    },
-   "gun_price_daily": 131555,
-   "full_price_180rd": 1032815,
+   "gun_price_daily": 126556,
+   "full_price_180rd": 1040056,
    "bands": {
     "贴脸": {
      "rank": 53,
@@ -9439,7 +9439,7 @@
      "worst_ms": 258.17,
      "best_ms": 258.17,
      "mean_expected_shots": 4.357206,
-     "kill_cost": 21817
+     "kill_cost": 22113
     },
     "近距": {
      "rank": 39,
@@ -9448,7 +9448,7 @@
      "worst_ms": 258.17,
      "best_ms": 258.17,
      "mean_expected_shots": 4.357206,
-     "kill_cost": 21817
+     "kill_cost": 22113
     },
     "中距": {
      "rank": 49,
@@ -9457,7 +9457,7 @@
      "worst_ms": 294.87,
      "best_ms": 258.17,
      "mean_expected_shots": 4.720866,
-     "kill_cost": 23637
+     "kill_cost": 23958
     },
     "远距": {
      "rank": 86,
@@ -9466,7 +9466,7 @@
      "worst_ms": 378.59,
      "best_ms": 294.87,
      "mean_expected_shots": 5.57196,
-     "kill_cost": 27899
+     "kill_cost": 28278
     }
    }
   },
@@ -9544,10 +9544,10 @@
     "ammo_item_id": "37280500001",
     "name": "TAC-TX",
     "caliber": ".300BLK",
-    "price_daily": 5007
+    "price_daily": 5075
    },
-   "gun_price_daily": 131555,
-   "full_price_180rd": 1032815,
+   "gun_price_daily": 126556,
+   "full_price_180rd": 1040056,
    "bands": {
     "贴脸": {
      "rank": 54,
@@ -9556,7 +9556,7 @@
      "worst_ms": 258.17,
      "best_ms": 258.17,
      "mean_expected_shots": 4.357206,
-     "kill_cost": 21817
+     "kill_cost": 22113
     },
     "近距": {
      "rank": 40,
@@ -9565,7 +9565,7 @@
      "worst_ms": 258.17,
      "best_ms": 258.17,
      "mean_expected_shots": 4.357206,
-     "kill_cost": 21817
+     "kill_cost": 22113
     },
     "中距": {
      "rank": 20,
@@ -9574,7 +9574,7 @@
      "worst_ms": 258.17,
      "best_ms": 258.17,
      "mean_expected_shots": 4.357206,
-     "kill_cost": 21817
+     "kill_cost": 22113
     },
     "远距": {
      "rank": 15,
@@ -9583,7 +9583,7 @@
      "worst_ms": 290.94,
      "best_ms": 258.17,
      "mean_expected_shots": 4.742105,
-     "kill_cost": 23744
+     "kill_cost": 24066
     }
    }
   },
@@ -9664,10 +9664,10 @@
     "ammo_item_id": "37280500001",
     "name": "TAC-TX",
     "caliber": ".300BLK",
-    "price_daily": 5007
+    "price_daily": 5075
    },
-   "gun_price_daily": 131555,
-   "full_price_180rd": 1032815,
+   "gun_price_daily": 126556,
+   "full_price_180rd": 1040056,
    "bands": {
     "贴脸": {
      "rank": 55,
@@ -9676,7 +9676,7 @@
      "worst_ms": 258.17,
      "best_ms": 258.17,
      "mean_expected_shots": 4.357206,
-     "kill_cost": 21817
+     "kill_cost": 22113
     },
     "近距": {
      "rank": 41,
@@ -9685,7 +9685,7 @@
      "worst_ms": 258.17,
      "best_ms": 258.17,
      "mean_expected_shots": 4.357206,
-     "kill_cost": 21817
+     "kill_cost": 22113
     },
     "中距": {
      "rank": 21,
@@ -9694,7 +9694,7 @@
      "worst_ms": 258.17,
      "best_ms": 258.17,
      "mean_expected_shots": 4.357206,
-     "kill_cost": 21817
+     "kill_cost": 22113
     },
     "远距": {
      "rank": 10,
@@ -9703,7 +9703,7 @@
      "worst_ms": 290.94,
      "best_ms": 258.17,
      "mean_expected_shots": 4.618387,
-     "kill_cost": 23124
+     "kill_cost": 23438
     }
    }
   },
@@ -9776,10 +9776,10 @@
     "ammo_item_id": "37280500001",
     "name": "TAC-TX",
     "caliber": ".300BLK",
-    "price_daily": 5007
+    "price_daily": 5075
    },
-   "gun_price_daily": 131555,
-   "full_price_180rd": 1032815,
+   "gun_price_daily": 126556,
+   "full_price_180rd": 1040056,
    "bands": {
     "贴脸": {
      "rank": 56,
@@ -9788,7 +9788,7 @@
      "worst_ms": 258.17,
      "best_ms": 258.17,
      "mean_expected_shots": 4.357206,
-     "kill_cost": 21817
+     "kill_cost": 22113
     },
     "近距": {
      "rank": 42,
@@ -9797,7 +9797,7 @@
      "worst_ms": 258.17,
      "best_ms": 258.17,
      "mean_expected_shots": 4.357206,
-     "kill_cost": 21817
+     "kill_cost": 22113
     },
     "中距": {
      "rank": 32,
@@ -9806,7 +9806,7 @@
      "worst_ms": 294.87,
      "best_ms": 258.17,
      "mean_expected_shots": 4.561765,
-     "kill_cost": 22841
+     "kill_cost": 23151
     },
     "远距": {
      "rank": 43,
@@ -9815,7 +9815,7 @@
      "worst_ms": 378.59,
      "best_ms": 294.87,
      "mean_expected_shots": 5.185677,
-     "kill_cost": 25965
+     "kill_cost": 26317
     }
    }
   },
@@ -9903,10 +9903,10 @@
     "ammo_item_id": "37280500001",
     "name": "TAC-TX",
     "caliber": ".300BLK",
-    "price_daily": 5007
+    "price_daily": 5075
    },
-   "gun_price_daily": 131555,
-   "full_price_180rd": 1032815,
+   "gun_price_daily": 126556,
+   "full_price_180rd": 1040056,
    "bands": {
     "贴脸": {
      "rank": 129,
@@ -9915,7 +9915,7 @@
      "worst_ms": 296.89,
      "best_ms": 296.89,
      "mean_expected_shots": 4.357206,
-     "kill_cost": 21817
+     "kill_cost": 22113
     },
     "近距": {
      "rank": 114,
@@ -9924,7 +9924,7 @@
      "worst_ms": 296.89,
      "best_ms": 296.89,
      "mean_expected_shots": 4.357206,
-     "kill_cost": 21817
+     "kill_cost": 22113
     },
     "中距": {
      "rank": 70,
@@ -9933,7 +9933,7 @@
      "worst_ms": 296.89,
      "best_ms": 296.89,
      "mean_expected_shots": 4.357206,
-     "kill_cost": 21817
+     "kill_cost": 22113
     },
     "远距": {
      "rank": 35,
@@ -9942,7 +9942,7 @@
      "worst_ms": 334.58,
      "best_ms": 296.89,
      "mean_expected_shots": 4.563402,
-     "kill_cost": 22849
+     "kill_cost": 23159
     }
    }
   },
@@ -10007,8 +10007,8 @@
     "caliber": "5.45x39mm",
     "price_daily": 4535
    },
-   "gun_price_daily": 190317,
-   "full_price_180rd": 1006617,
+   "gun_price_daily": 201408,
+   "full_price_180rd": 1017708,
    "bands": {
     "贴脸": {
      "rank": 133,
@@ -10120,8 +10120,8 @@
     "caliber": "5.45x39mm",
     "price_daily": 4535
    },
-   "gun_price_daily": 190317,
-   "full_price_180rd": 1006617,
+   "gun_price_daily": 201408,
+   "full_price_180rd": 1017708,
    "bands": {
     "贴脸": {
      "rank": 134,
@@ -10232,8 +10232,8 @@
     "caliber": "5.45x39mm",
     "price_daily": 4535
    },
-   "gun_price_daily": 190317,
-   "full_price_180rd": 1006617,
+   "gun_price_daily": 201408,
+   "full_price_180rd": 1017708,
    "bands": {
     "贴脸": {
      "rank": 135,
@@ -10344,8 +10344,8 @@
     "caliber": "5.45x39mm",
     "price_daily": 4535
    },
-   "gun_price_daily": 190317,
-   "full_price_180rd": 1006617,
+   "gun_price_daily": 201408,
+   "full_price_180rd": 1017708,
    "bands": {
     "贴脸": {
      "rank": 136,
@@ -10444,10 +10444,10 @@
     "ammo_item_id": "37110500001",
     "name": "AP",
     "caliber": "7.62x39mm",
-    "price_daily": 4900
+    "price_daily": 4872
    },
-   "gun_price_daily": 202534,
-   "full_price_180rd": 1084534,
+   "gun_price_daily": 206890,
+   "full_price_180rd": 1083850,
    "bands": {
     "贴脸": {
      "rank": 85,
@@ -10456,7 +10456,7 @@
      "worst_ms": 270.16,
      "best_ms": 270.16,
      "mean_expected_shots": 3.81413,
-     "kill_cost": 18689
+     "kill_cost": 18582
     },
     "近距": {
      "rank": 71,
@@ -10465,7 +10465,7 @@
      "worst_ms": 322.34,
      "best_ms": 270.16,
      "mean_expected_shots": 3.848101,
-     "kill_cost": 18856
+     "kill_cost": 18748
     },
     "中距": {
      "rank": 135,
@@ -10474,7 +10474,7 @@
      "worst_ms": 401.53,
      "best_ms": 322.34,
      "mean_expected_shots": 4.593355,
-     "kill_cost": 22507
+     "kill_cost": 22379
     },
     "远距": {
      "rank": 136,
@@ -10483,7 +10483,7 @@
      "worst_ms": 401.53,
      "best_ms": 401.53,
      "mean_expected_shots": 5.182583,
-     "kill_cost": 25395
+     "kill_cost": 25250
     }
    }
   },
@@ -10554,10 +10554,10 @@
     "ammo_item_id": "37110500001",
     "name": "AP",
     "caliber": "7.62x39mm",
-    "price_daily": 4900
+    "price_daily": 4872
    },
-   "gun_price_daily": 202534,
-   "full_price_180rd": 1084534,
+   "gun_price_daily": 206890,
+   "full_price_180rd": 1083850,
    "bands": {
     "贴脸": {
      "rank": 24,
@@ -10566,7 +10566,7 @@
      "worst_ms": 243.53,
      "best_ms": 243.53,
      "mean_expected_shots": 3.53682,
-     "kill_cost": 17330
+     "kill_cost": 17231
     },
     "近距": {
      "rank": 28,
@@ -10575,7 +10575,7 @@
      "worst_ms": 299.1,
      "best_ms": 243.53,
      "mean_expected_shots": 3.572997,
-     "kill_cost": 17508
+     "kill_cost": 17408
     },
     "中距": {
      "rank": 109,
@@ -10584,7 +10584,7 @@
      "worst_ms": 370.04,
      "best_ms": 299.1,
      "mean_expected_shots": 4.326779,
-     "kill_cost": 21201
+     "kill_cost": 21080
     },
     "远距": {
      "rank": 116,
@@ -10593,7 +10593,7 @@
      "worst_ms": 370.04,
      "best_ms": 370.04,
      "mean_expected_shots": 4.854608,
-     "kill_cost": 23788
+     "kill_cost": 23652
     }
    }
   },
@@ -10671,10 +10671,10 @@
     "ammo_item_id": "37110500001",
     "name": "AP",
     "caliber": "7.62x39mm",
-    "price_daily": 4900
+    "price_daily": 4872
    },
-   "gun_price_daily": 202534,
-   "full_price_180rd": 1084534,
+   "gun_price_daily": 206890,
+   "full_price_180rd": 1083850,
    "bands": {
     "贴脸": {
      "rank": 9,
@@ -10683,7 +10683,7 @@
      "worst_ms": 232.8,
      "best_ms": 232.8,
      "mean_expected_shots": 3.424967,
-     "kill_cost": 16782
+     "kill_cost": 16686
     },
     "近距": {
      "rank": 10,
@@ -10692,7 +10692,7 @@
      "worst_ms": 284.81,
      "best_ms": 232.8,
      "mean_expected_shots": 3.458831,
-     "kill_cost": 16948
+     "kill_cost": 16851
     },
     "中距": {
      "rank": 87,
@@ -10701,7 +10701,7 @@
      "worst_ms": 364.85,
      "best_ms": 284.81,
      "mean_expected_shots": 4.204998,
-     "kill_cost": 20604
+     "kill_cost": 20487
     },
     "远距": {
      "rank": 110,
@@ -10710,7 +10710,7 @@
      "worst_ms": 364.85,
      "best_ms": 364.85,
      "mean_expected_shots": 4.800519,
-     "kill_cost": 23523
+     "kill_cost": 23388
     }
    }
   },
@@ -10798,10 +10798,10 @@
     "ammo_item_id": "37110500001",
     "name": "AP",
     "caliber": "7.62x39mm",
-    "price_daily": 4900
+    "price_daily": 4872
    },
-   "gun_price_daily": 202534,
-   "full_price_180rd": 1084534,
+   "gun_price_daily": 206890,
+   "full_price_180rd": 1083850,
    "bands": {
     "贴脸": {
      "rank": 10,
@@ -10810,7 +10810,7 @@
      "worst_ms": 232.8,
      "best_ms": 232.8,
      "mean_expected_shots": 3.424967,
-     "kill_cost": 16782
+     "kill_cost": 16686
     },
     "近距": {
      "rank": 9,
@@ -10819,7 +10819,7 @@
      "worst_ms": 232.8,
      "best_ms": 232.8,
      "mean_expected_shots": 3.424967,
-     "kill_cost": 16782
+     "kill_cost": 16686
     },
     "中距": {
      "rank": 29,
@@ -10828,7 +10828,7 @@
      "worst_ms": 284.81,
      "best_ms": 232.8,
      "mean_expected_shots": 3.811984,
-     "kill_cost": 18679
+     "kill_cost": 18572
     },
     "远距": {
      "rank": 90,
@@ -10837,7 +10837,7 @@
      "worst_ms": 364.85,
      "best_ms": 284.81,
      "mean_expected_shots": 4.692941,
-     "kill_cost": 22995
+     "kill_cost": 22864
     }
    }
   },
@@ -10918,10 +10918,10 @@
     "ammo_item_id": "37110500001",
     "name": "AP",
     "caliber": "7.62x39mm",
-    "price_daily": 4900
+    "price_daily": 4872
    },
-   "gun_price_daily": 202534,
-   "full_price_180rd": 1084534,
+   "gun_price_daily": 206890,
+   "full_price_180rd": 1083850,
    "bands": {
     "贴脸": {
      "rank": 25,
@@ -10930,7 +10930,7 @@
      "worst_ms": 243.53,
      "best_ms": 243.53,
      "mean_expected_shots": 3.53682,
-     "kill_cost": 17330
+     "kill_cost": 17231
     },
     "近距": {
      "rank": 19,
@@ -10939,7 +10939,7 @@
      "worst_ms": 243.53,
      "best_ms": 243.53,
      "mean_expected_shots": 3.53682,
-     "kill_cost": 17330
+     "kill_cost": 17231
     },
     "中距": {
      "rank": 39,
@@ -10948,7 +10948,7 @@
      "worst_ms": 299.1,
      "best_ms": 243.53,
      "mean_expected_shots": 3.950268,
-     "kill_cost": 19356
+     "kill_cost": 19246
     },
     "远距": {
      "rank": 106,
@@ -10957,7 +10957,7 @@
      "worst_ms": 370.04,
      "best_ms": 299.1,
      "mean_expected_shots": 4.759258,
-     "kill_cost": 23320
+     "kill_cost": 23187
     }
    }
   },
@@ -11020,10 +11020,10 @@
     "ammo_item_id": "37280500001",
     "name": "TAC-TX",
     "caliber": ".300BLK",
-    "price_daily": 5007
+    "price_daily": 5075
    },
-   "gun_price_daily": 66633,
-   "full_price_180rd": 967893,
+   "gun_price_daily": 69747,
+   "full_price_180rd": 983247,
    "bands": {
     "贴脸": {
      "rank": 80,
@@ -11032,7 +11032,7 @@
      "worst_ms": 269.34,
      "best_ms": 269.34,
      "mean_expected_shots": 4.772199,
-     "kill_cost": 23894
+     "kill_cost": 24219
     },
     "近距": {
      "rank": 65,
@@ -11041,7 +11041,7 @@
      "worst_ms": 310.73,
      "best_ms": 269.34,
      "mean_expected_shots": 4.808437,
-     "kill_cost": 24076
+     "kill_cost": 24403
     },
     "中距": {
      "rank": 103,
@@ -11050,7 +11050,7 @@
      "worst_ms": 384.86,
      "best_ms": 310.73,
      "mean_expected_shots": 5.401441,
-     "kill_cost": 27045
+     "kill_cost": 27412
     },
     "远距": {
      "rank": 131,
@@ -11059,7 +11059,7 @@
      "worst_ms": 384.86,
      "best_ms": 384.86,
      "mean_expected_shots": 6.390226,
-     "kill_cost": 31996
+     "kill_cost": 32430
     }
    }
   },
@@ -11130,10 +11130,10 @@
     "ammo_item_id": "37280500001",
     "name": "TAC-TX",
     "caliber": ".300BLK",
-    "price_daily": 5007
+    "price_daily": 5075
    },
-   "gun_price_daily": 66633,
-   "full_price_180rd": 967893,
+   "gun_price_daily": 69747,
+   "full_price_180rd": 983247,
    "bands": {
     "贴脸": {
      "rank": 16,
@@ -11142,7 +11142,7 @@
      "worst_ms": 240.98,
      "best_ms": 240.98,
      "mean_expected_shots": 4.375024,
-     "kill_cost": 21906
+     "kill_cost": 22203
     },
     "近距": {
      "rank": 22,
@@ -11151,7 +11151,7 @@
      "worst_ms": 300.3,
      "best_ms": 240.98,
      "mean_expected_shots": 4.426948,
-     "kill_cost": 22166
+     "kill_cost": 22467
     },
     "中距": {
      "rank": 76,
@@ -11160,7 +11160,7 @@
      "worst_ms": 371.54,
      "best_ms": 300.3,
      "mean_expected_shots": 5.253338,
-     "kill_cost": 26303
+     "kill_cost": 26661
     },
     "远距": {
      "rank": 118,
@@ -11169,7 +11169,7 @@
      "worst_ms": 371.54,
      "best_ms": 371.54,
      "mean_expected_shots": 6.203707,
-     "kill_cost": 31062
+     "kill_cost": 31484
     }
    }
   },
@@ -11243,10 +11243,10 @@
     "ammo_item_id": "37280500001",
     "name": "TAC-TX",
     "caliber": ".300BLK",
-    "price_daily": 5007
+    "price_daily": 5075
    },
-   "gun_price_daily": 66633,
-   "full_price_180rd": 967893,
+   "gun_price_daily": 69747,
+   "full_price_180rd": 983247,
    "bands": {
     "贴脸": {
      "rank": 81,
@@ -11255,7 +11255,7 @@
      "worst_ms": 269.34,
      "best_ms": 269.34,
      "mean_expected_shots": 4.772199,
-     "kill_cost": 23894
+     "kill_cost": 24219
     },
     "近距": {
      "rank": 61,
@@ -11264,7 +11264,7 @@
      "worst_ms": 269.34,
      "best_ms": 269.34,
      "mean_expected_shots": 4.772199,
-     "kill_cost": 23894
+     "kill_cost": 24219
     },
     "中距": {
      "rank": 33,
@@ -11273,7 +11273,7 @@
      "worst_ms": 310.73,
      "best_ms": 269.34,
      "mean_expected_shots": 4.882638,
-     "kill_cost": 24447
+     "kill_cost": 24779
     },
     "远距": {
      "rank": 42,
@@ -11282,7 +11282,7 @@
      "worst_ms": 384.86,
      "best_ms": 310.73,
      "mean_expected_shots": 5.485966,
-     "kill_cost": 27468
+     "kill_cost": 27841
     }
    }
   },
@@ -11355,10 +11355,10 @@
     "ammo_item_id": "37280500001",
     "name": "TAC-TX",
     "caliber": ".300BLK",
-    "price_daily": 5007
+    "price_daily": 5075
    },
-   "gun_price_daily": 66633,
-   "full_price_180rd": 967893,
+   "gun_price_daily": 69747,
+   "full_price_180rd": 983247,
    "bands": {
     "贴脸": {
      "rank": 82,
@@ -11367,7 +11367,7 @@
      "worst_ms": 269.34,
      "best_ms": 269.34,
      "mean_expected_shots": 4.772199,
-     "kill_cost": 23894
+     "kill_cost": 24219
     },
     "近距": {
      "rank": 62,
@@ -11376,7 +11376,7 @@
      "worst_ms": 269.34,
      "best_ms": 269.34,
      "mean_expected_shots": 4.772199,
-     "kill_cost": 23894
+     "kill_cost": 24219
     },
     "中距": {
      "rank": 62,
@@ -11385,7 +11385,7 @@
      "worst_ms": 310.73,
      "best_ms": 269.34,
      "mean_expected_shots": 5.103515,
-     "kill_cost": 25553
+     "kill_cost": 25900
     },
     "远距": {
      "rank": 81,
@@ -11394,7 +11394,7 @@
      "worst_ms": 384.86,
      "best_ms": 310.73,
      "mean_expected_shots": 5.887859,
-     "kill_cost": 29481
+     "kill_cost": 29881
     }
    }
   },
@@ -11467,10 +11467,10 @@
     "ammo_item_id": "37280500001",
     "name": "TAC-TX",
     "caliber": ".300BLK",
-    "price_daily": 5007
+    "price_daily": 5075
    },
-   "gun_price_daily": 66633,
-   "full_price_180rd": 967893,
+   "gun_price_daily": 69747,
+   "full_price_180rd": 983247,
    "bands": {
     "贴脸": {
      "rank": 83,
@@ -11479,7 +11479,7 @@
      "worst_ms": 269.34,
      "best_ms": 269.34,
      "mean_expected_shots": 4.772199,
-     "kill_cost": 23894
+     "kill_cost": 24219
     },
     "近距": {
      "rank": 63,
@@ -11488,7 +11488,7 @@
      "worst_ms": 269.34,
      "best_ms": 269.34,
      "mean_expected_shots": 4.772199,
-     "kill_cost": 23894
+     "kill_cost": 24219
     },
     "中距": {
      "rank": 71,
@@ -11497,7 +11497,7 @@
      "worst_ms": 310.73,
      "best_ms": 269.34,
      "mean_expected_shots": 5.186344,
-     "kill_cost": 25968
+     "kill_cost": 26321
     },
     "远距": {
      "rank": 109,
@@ -11506,7 +11506,7 @@
      "worst_ms": 384.86,
      "best_ms": 310.73,
      "mean_expected_shots": 6.088806,
-     "kill_cost": 30487
+     "kill_cost": 30901
     }
    }
   },
@@ -11587,10 +11587,10 @@
     "ammo_item_id": "37280500001",
     "name": "TAC-TX",
     "caliber": ".300BLK",
-    "price_daily": 5007
+    "price_daily": 5075
    },
-   "gun_price_daily": 66633,
-   "full_price_180rd": 967893,
+   "gun_price_daily": 69747,
+   "full_price_180rd": 983247,
    "bands": {
     "贴脸": {
      "rank": 137,
@@ -11599,7 +11599,7 @@
      "worst_ms": 309.74,
      "best_ms": 309.74,
      "mean_expected_shots": 4.772199,
-     "kill_cost": 23894
+     "kill_cost": 24219
     },
     "近距": {
      "rank": 128,
@@ -11608,7 +11608,7 @@
      "worst_ms": 309.74,
      "best_ms": 309.74,
      "mean_expected_shots": 4.772199,
-     "kill_cost": 23894
+     "kill_cost": 24219
     },
     "中距": {
      "rank": 104,
@@ -11617,7 +11617,7 @@
      "worst_ms": 357.34,
      "best_ms": 309.74,
      "mean_expected_shots": 4.827418,
-     "kill_cost": 24171
+     "kill_cost": 24499
     },
     "远距": {
      "rank": 98,
@@ -11626,7 +11626,7 @@
      "worst_ms": 357.34,
      "best_ms": 357.34,
      "mean_expected_shots": 5.352002,
-     "kill_cost": 26797
+     "kill_cost": 27161
     }
    }
   },
@@ -11689,10 +11689,10 @@
     "ammo_item_id": "37210500001",
     "name": "SS190",
     "caliber": "5.7x28mm",
-    "price_daily": 4465
+    "price_daily": 4540
    },
-   "gun_price_daily": 168548,
-   "full_price_180rd": 972248,
+   "gun_price_daily": 171870,
+   "full_price_180rd": 989070,
    "bands": {
     "贴脸": {
      "rank": 86,
@@ -11701,7 +11701,7 @@
      "worst_ms": 272.51,
      "best_ms": 272.51,
      "mean_expected_shots": 5.087626,
-     "kill_cost": 22716
+     "kill_cost": 23098
     },
     "近距": {
      "rank": 67,
@@ -11710,7 +11710,7 @@
      "worst_ms": 272.51,
      "best_ms": 272.51,
      "mean_expected_shots": 5.087626,
-     "kill_cost": 22716
+     "kill_cost": 23098
     },
     "中距": {
      "rank": 93,
@@ -11719,7 +11719,7 @@
      "worst_ms": 372.08,
      "best_ms": 272.51,
      "mean_expected_shots": 5.702882,
-     "kill_cost": 25463
+     "kill_cost": 25891
     },
     "远距": {
      "rank": 119,
@@ -11728,7 +11728,7 @@
      "worst_ms": 372.08,
      "best_ms": 372.08,
      "mean_expected_shots": 6.581225,
-     "kill_cost": 29385
+     "kill_cost": 29879
     }
    }
   },
@@ -11802,10 +11802,10 @@
     "ammo_item_id": "37210500001",
     "name": "SS190",
     "caliber": "5.7x28mm",
-    "price_daily": 4465
+    "price_daily": 4540
    },
-   "gun_price_daily": 168548,
-   "full_price_180rd": 972248,
+   "gun_price_daily": 171870,
+   "full_price_180rd": 989070,
    "bands": {
     "贴脸": {
      "rank": 87,
@@ -11814,7 +11814,7 @@
      "worst_ms": 272.51,
      "best_ms": 272.51,
      "mean_expected_shots": 5.087626,
-     "kill_cost": 22716
+     "kill_cost": 23098
     },
     "近距": {
      "rank": 68,
@@ -11823,7 +11823,7 @@
      "worst_ms": 272.51,
      "best_ms": 272.51,
      "mean_expected_shots": 5.087626,
-     "kill_cost": 22716
+     "kill_cost": 23098
     },
     "中距": {
      "rank": 30,
@@ -11832,7 +11832,7 @@
      "worst_ms": 272.51,
      "best_ms": 272.51,
      "mean_expected_shots": 5.087626,
-     "kill_cost": 22716
+     "kill_cost": 23098
     },
     "远距": {
      "rank": 45,
@@ -11841,7 +11841,7 @@
      "worst_ms": 372.08,
      "best_ms": 272.51,
      "mean_expected_shots": 5.845544,
-     "kill_cost": 26100
+     "kill_cost": 26539
     }
    }
   },
@@ -11914,10 +11914,10 @@
     "ammo_item_id": "37210500001",
     "name": "SS190",
     "caliber": "5.7x28mm",
-    "price_daily": 4465
+    "price_daily": 4540
    },
-   "gun_price_daily": 168548,
-   "full_price_180rd": 972248,
+   "gun_price_daily": 171870,
+   "full_price_180rd": 989070,
    "bands": {
     "贴脸": {
      "rank": 88,
@@ -11926,7 +11926,7 @@
      "worst_ms": 272.51,
      "best_ms": 272.51,
      "mean_expected_shots": 5.087626,
-     "kill_cost": 22716
+     "kill_cost": 23098
     },
     "近距": {
      "rank": 69,
@@ -11935,7 +11935,7 @@
      "worst_ms": 272.51,
      "best_ms": 272.51,
      "mean_expected_shots": 5.087626,
-     "kill_cost": 22716
+     "kill_cost": 23098
     },
     "中距": {
      "rank": 45,
@@ -11944,7 +11944,7 @@
      "worst_ms": 323.29,
      "best_ms": 272.51,
      "mean_expected_shots": 5.269003,
-     "kill_cost": 23526
+     "kill_cost": 23921
     },
     "远距": {
      "rank": 79,
@@ -11953,7 +11953,7 @@
      "worst_ms": 372.08,
      "best_ms": 323.29,
      "mean_expected_shots": 6.227121,
-     "kill_cost": 27804
+     "kill_cost": 28271
     }
    }
   },
@@ -12026,10 +12026,10 @@
     "ammo_item_id": "37210500001",
     "name": "SS190",
     "caliber": "5.7x28mm",
-    "price_daily": 4465
+    "price_daily": 4540
    },
-   "gun_price_daily": 168548,
-   "full_price_180rd": 972248,
+   "gun_price_daily": 171870,
+   "full_price_180rd": 989070,
    "bands": {
     "贴脸": {
      "rank": 89,
@@ -12038,7 +12038,7 @@
      "worst_ms": 272.51,
      "best_ms": 272.51,
      "mean_expected_shots": 5.087626,
-     "kill_cost": 22716
+     "kill_cost": 23098
     },
     "近距": {
      "rank": 70,
@@ -12047,7 +12047,7 @@
      "worst_ms": 272.51,
      "best_ms": 272.51,
      "mean_expected_shots": 5.087626,
-     "kill_cost": 22716
+     "kill_cost": 23098
     },
     "中距": {
      "rank": 68,
@@ -12056,7 +12056,7 @@
      "worst_ms": 323.29,
      "best_ms": 272.51,
      "mean_expected_shots": 5.414105,
-     "kill_cost": 24174
+     "kill_cost": 24580
     },
     "远距": {
      "rank": 100,
@@ -12065,7 +12065,7 @@
      "worst_ms": 372.08,
      "best_ms": 323.29,
      "mean_expected_shots": 6.368763,
-     "kill_cost": 28437
+     "kill_cost": 28914
     }
    }
   },
@@ -12130,8 +12130,8 @@
     "caliber": "6.8x51mm",
     "price_daily": 4689
    },
-   "gun_price_daily": 77793,
-   "full_price_180rd": 921813,
+   "gun_price_daily": 85202,
+   "full_price_180rd": 929222,
    "bands": {
     "贴脸": {
      "rank": 138,
@@ -12243,8 +12243,8 @@
     "caliber": "6.8x51mm",
     "price_daily": 4689
    },
-   "gun_price_daily": 77793,
-   "full_price_180rd": 921813,
+   "gun_price_daily": 85202,
+   "full_price_180rd": 929222,
    "bands": {
     "贴脸": {
      "rank": 139,
@@ -12355,8 +12355,8 @@
     "caliber": "6.8x51mm",
     "price_daily": 4689
    },
-   "gun_price_daily": 77793,
-   "full_price_180rd": 921813,
+   "gun_price_daily": 85202,
+   "full_price_180rd": 929222,
    "bands": {
     "贴脸": {
      "rank": 140,
@@ -12455,10 +12455,10 @@
     "ammo_item_id": "37170500001",
     "name": "M62",
     "caliber": "7.62x51mm",
-    "price_daily": 5646
+    "price_daily": 5591
    },
-   "gun_price_daily": 171728,
-   "full_price_180rd": 1188008,
+   "gun_price_daily": 182138,
+   "full_price_180rd": 1188518,
    "bands": {
     "贴脸": {
      "rank": 74,
@@ -12467,7 +12467,7 @@
      "worst_ms": 265.73,
      "best_ms": 265.73,
      "mean_expected_shots": 3.878963,
-     "kill_cost": 21901
+     "kill_cost": 21687
     },
     "近距": {
      "rank": 55,
@@ -12476,7 +12476,7 @@
      "worst_ms": 265.73,
      "best_ms": 265.73,
      "mean_expected_shots": 3.878963,
-     "kill_cost": 21901
+     "kill_cost": 21687
     },
     "中距": {
      "rank": 82,
@@ -12485,7 +12485,7 @@
      "worst_ms": 366.7,
      "best_ms": 265.73,
      "mean_expected_shots": 4.315678,
-     "kill_cost": 24366
+     "kill_cost": 24129
     },
     "远距": {
      "rank": 112,
@@ -12494,7 +12494,7 @@
      "worst_ms": 366.7,
      "best_ms": 366.7,
      "mean_expected_shots": 4.972923,
-     "kill_cost": 28077
+     "kill_cost": 27804
     }
    }
   },
@@ -12568,10 +12568,10 @@
     "ammo_item_id": "37170500001",
     "name": "M62",
     "caliber": "7.62x51mm",
-    "price_daily": 5646
+    "price_daily": 5591
    },
-   "gun_price_daily": 171728,
-   "full_price_180rd": 1188008,
+   "gun_price_daily": 182138,
+   "full_price_180rd": 1188518,
    "bands": {
     "贴脸": {
      "rank": 75,
@@ -12580,7 +12580,7 @@
      "worst_ms": 265.73,
      "best_ms": 265.73,
      "mean_expected_shots": 3.878963,
-     "kill_cost": 21901
+     "kill_cost": 21687
     },
     "近距": {
      "rank": 56,
@@ -12589,7 +12589,7 @@
      "worst_ms": 265.73,
      "best_ms": 265.73,
      "mean_expected_shots": 3.878963,
-     "kill_cost": 21901
+     "kill_cost": 21687
     },
     "中距": {
      "rank": 28,
@@ -12598,7 +12598,7 @@
      "worst_ms": 265.73,
      "best_ms": 265.73,
      "mean_expected_shots": 3.878963,
-     "kill_cost": 21901
+     "kill_cost": 21687
     },
     "远距": {
      "rank": 37,
@@ -12607,7 +12607,7 @@
      "worst_ms": 366.7,
      "best_ms": 265.73,
      "mean_expected_shots": 4.41963,
-     "kill_cost": 24953
+     "kill_cost": 24710
     }
    }
   },
@@ -12680,10 +12680,10 @@
     "ammo_item_id": "37170500001",
     "name": "M62",
     "caliber": "7.62x51mm",
-    "price_daily": 5646
+    "price_daily": 5591
    },
-   "gun_price_daily": 171728,
-   "full_price_180rd": 1188008,
+   "gun_price_daily": 182138,
+   "full_price_180rd": 1188518,
    "bands": {
     "贴脸": {
      "rank": 76,
@@ -12692,7 +12692,7 @@
      "worst_ms": 265.73,
      "best_ms": 265.73,
      "mean_expected_shots": 3.878963,
-     "kill_cost": 21901
+     "kill_cost": 21687
     },
     "近距": {
      "rank": 57,
@@ -12701,7 +12701,7 @@
      "worst_ms": 265.73,
      "best_ms": 265.73,
      "mean_expected_shots": 3.878963,
-     "kill_cost": 21901
+     "kill_cost": 21687
     },
     "中距": {
      "rank": 35,
@@ -12710,7 +12710,7 @@
      "worst_ms": 315.43,
      "best_ms": 265.73,
      "mean_expected_shots": 4.00717,
-     "kill_cost": 22624
+     "kill_cost": 22404
     },
     "远距": {
      "rank": 75,
@@ -12719,7 +12719,7 @@
      "worst_ms": 366.7,
      "best_ms": 315.43,
      "mean_expected_shots": 4.704138,
-     "kill_cost": 26560
+     "kill_cost": 26301
     }
    }
   },
@@ -12792,10 +12792,10 @@
     "ammo_item_id": "37170500001",
     "name": "M62",
     "caliber": "7.62x51mm",
-    "price_daily": 5646
+    "price_daily": 5591
    },
-   "gun_price_daily": 171728,
-   "full_price_180rd": 1188008,
+   "gun_price_daily": 182138,
+   "full_price_180rd": 1188518,
    "bands": {
     "贴脸": {
      "rank": 77,
@@ -12804,7 +12804,7 @@
      "worst_ms": 265.73,
      "best_ms": 265.73,
      "mean_expected_shots": 3.878963,
-     "kill_cost": 21901
+     "kill_cost": 21687
     },
     "近距": {
      "rank": 58,
@@ -12813,7 +12813,7 @@
      "worst_ms": 265.73,
      "best_ms": 265.73,
      "mean_expected_shots": 3.878963,
-     "kill_cost": 21901
+     "kill_cost": 21687
     },
     "中距": {
      "rank": 50,
@@ -12822,7 +12822,7 @@
      "worst_ms": 315.43,
      "best_ms": 265.73,
      "mean_expected_shots": 4.109736,
-     "kill_cost": 23204
+     "kill_cost": 22978
     },
     "远距": {
      "rank": 87,
@@ -12831,7 +12831,7 @@
      "worst_ms": 366.7,
      "best_ms": 315.43,
      "mean_expected_shots": 4.811652,
-     "kill_cost": 27167
+     "kill_cost": 26902
     }
    }
   },
@@ -12912,10 +12912,10 @@
     "ammo_item_id": "37170500001",
     "name": "M62",
     "caliber": "7.62x51mm",
-    "price_daily": 5646
+    "price_daily": 5591
    },
-   "gun_price_daily": 171728,
-   "full_price_180rd": 1188008,
+   "gun_price_daily": 182138,
+   "full_price_180rd": 1188518,
    "bands": {
     "贴脸": {
      "rank": 131,
@@ -12924,7 +12924,7 @@
      "worst_ms": 305.59,
      "best_ms": 305.59,
      "mean_expected_shots": 3.878963,
-     "kill_cost": 21901
+     "kill_cost": 21687
     },
     "近距": {
      "rank": 120,
@@ -12933,7 +12933,7 @@
      "worst_ms": 305.59,
      "best_ms": 305.59,
      "mean_expected_shots": 3.878963,
-     "kill_cost": 21901
+     "kill_cost": 21687
     },
     "中距": {
      "rank": 77,
@@ -12942,7 +12942,7 @@
      "worst_ms": 305.59,
      "best_ms": 305.59,
      "mean_expected_shots": 3.878963,
-     "kill_cost": 21901
+     "kill_cost": 21687
     },
     "远距": {
      "rank": 83,
@@ -12951,7 +12951,7 @@
      "worst_ms": 362.74,
      "best_ms": 305.59,
      "mean_expected_shots": 4.295843,
-     "kill_cost": 24254
+     "kill_cost": 24018
     }
    }
   },
@@ -13031,10 +13031,10 @@
     "ammo_item_id": "37170500001",
     "name": "M62",
     "caliber": "7.62x51mm",
-    "price_daily": 5646
+    "price_daily": 5591
    },
-   "gun_price_daily": 171728,
-   "full_price_180rd": 1188008,
+   "gun_price_daily": 182138,
+   "full_price_180rd": 1188518,
    "bands": {
     "贴脸": {
      "rank": 132,
@@ -13043,7 +13043,7 @@
      "worst_ms": 305.59,
      "best_ms": 305.59,
      "mean_expected_shots": 3.878963,
-     "kill_cost": 21901
+     "kill_cost": 21687
     },
     "近距": {
      "rank": 121,
@@ -13052,7 +13052,7 @@
      "worst_ms": 305.59,
      "best_ms": 305.59,
      "mean_expected_shots": 3.878963,
-     "kill_cost": 21901
+     "kill_cost": 21687
     },
     "中距": {
      "rank": 115,
@@ -13061,7 +13061,7 @@
      "worst_ms": 362.74,
      "best_ms": 305.59,
      "mean_expected_shots": 4.058453,
-     "kill_cost": 22914
+     "kill_cost": 22691
     },
     "远距": {
      "rank": 135,
@@ -13070,7 +13070,7 @@
      "worst_ms": 421.71,
      "best_ms": 362.74,
      "mean_expected_shots": 4.757895,
-     "kill_cost": 26863
+     "kill_cost": 26601
     }
    }
   },
@@ -13133,10 +13133,10 @@
     "ammo_item_id": "37210500001",
     "name": "SS190",
     "caliber": "5.7x28mm",
-    "price_daily": 4465
+    "price_daily": 4540
    },
-   "gun_price_daily": 57660,
-   "full_price_180rd": 861360,
+   "gun_price_daily": 57801,
+   "full_price_180rd": 875001,
    "bands": {
     "贴脸": {
      "rank": 48,
@@ -13145,7 +13145,7 @@
      "worst_ms": 253.21,
      "best_ms": 253.21,
      "mean_expected_shots": 4.790502,
-     "kill_cost": 21390
+     "kill_cost": 21749
     },
     "近距": {
      "rank": 160,
@@ -13154,7 +13154,7 @@
      "worst_ms": 408.19,
      "best_ms": 253.21,
      "mean_expected_shots": 5.98814,
-     "kill_cost": 26737
+     "kill_cost": 27186
     },
     "中距": {
      "rank": 183,
@@ -13163,7 +13163,7 @@
      "worst_ms": 485.61,
      "best_ms": 408.19,
      "mean_expected_shots": 7.71772,
-     "kill_cost": 34460
+     "kill_cost": 35038
     },
     "远距": {
      "rank": 187,
@@ -13172,7 +13172,7 @@
      "worst_ms": 598.06,
      "best_ms": 485.61,
      "mean_expected_shots": 9.681542,
-     "kill_cost": 43228
+     "kill_cost": 43954
     }
    }
   },
@@ -13243,10 +13243,10 @@
     "ammo_item_id": "37210500001",
     "name": "SS190",
     "caliber": "5.7x28mm",
-    "price_daily": 4465
+    "price_daily": 4540
    },
-   "gun_price_daily": 57660,
-   "full_price_180rd": 861360,
+   "gun_price_daily": 57801,
+   "full_price_180rd": 875001,
    "bands": {
     "贴脸": {
      "rank": 117,
@@ -13255,7 +13255,7 @@
      "worst_ms": 289.64,
      "best_ms": 289.64,
      "mean_expected_shots": 4.790502,
-     "kill_cost": 21390
+     "kill_cost": 21749
     },
     "近距": {
      "rank": 171,
@@ -13264,7 +13264,7 @@
      "worst_ms": 466.93,
      "best_ms": 289.64,
      "mean_expected_shots": 5.98814,
-     "kill_cost": 26737
+     "kill_cost": 27186
     },
     "中距": {
      "rank": 190,
@@ -13273,7 +13273,7 @@
      "worst_ms": 555.49,
      "best_ms": 466.93,
      "mean_expected_shots": 7.71772,
-     "kill_cost": 34460
+     "kill_cost": 35038
     },
     "远距": {
      "rank": 192,
@@ -13282,7 +13282,7 @@
      "worst_ms": 684.13,
      "best_ms": 555.49,
      "mean_expected_shots": 9.681542,
-     "kill_cost": 43228
+     "kill_cost": 43954
     }
    }
   },
@@ -13356,10 +13356,10 @@
     "ammo_item_id": "37210500001",
     "name": "SS190",
     "caliber": "5.7x28mm",
-    "price_daily": 4465
+    "price_daily": 4540
    },
-   "gun_price_daily": 57660,
-   "full_price_180rd": 861360,
+   "gun_price_daily": 57801,
+   "full_price_180rd": 875001,
    "bands": {
     "贴脸": {
      "rank": 49,
@@ -13368,7 +13368,7 @@
      "worst_ms": 253.21,
      "best_ms": 253.21,
      "mean_expected_shots": 4.790502,
-     "kill_cost": 21390
+     "kill_cost": 21749
     },
     "近距": {
      "rank": 34,
@@ -13377,7 +13377,7 @@
      "worst_ms": 253.21,
      "best_ms": 253.21,
      "mean_expected_shots": 4.790502,
-     "kill_cost": 21390
+     "kill_cost": 21749
     },
     "中距": {
      "rank": 134,
@@ -13386,7 +13386,7 @@
      "worst_ms": 408.19,
      "best_ms": 253.21,
      "mean_expected_shots": 6.149581,
-     "kill_cost": 27458
+     "kill_cost": 27919
     },
     "远距": {
      "rank": 157,
@@ -13395,7 +13395,7 @@
      "worst_ms": 485.61,
      "best_ms": 408.19,
      "mean_expected_shots": 7.596661,
-     "kill_cost": 33919
+     "kill_cost": 34489
     }
    }
   },
@@ -13469,10 +13469,10 @@
     "ammo_item_id": "37210500001",
     "name": "SS190",
     "caliber": "5.7x28mm",
-    "price_daily": 4465
+    "price_daily": 4540
    },
-   "gun_price_daily": 57660,
-   "full_price_180rd": 861360,
+   "gun_price_daily": 57801,
+   "full_price_180rd": 875001,
    "bands": {
     "贴脸": {
      "rank": 50,
@@ -13481,7 +13481,7 @@
      "worst_ms": 253.21,
      "best_ms": 253.21,
      "mean_expected_shots": 4.790502,
-     "kill_cost": 21390
+     "kill_cost": 21749
     },
     "近距": {
      "rank": 35,
@@ -13490,7 +13490,7 @@
      "worst_ms": 253.21,
      "best_ms": 253.21,
      "mean_expected_shots": 4.790502,
-     "kill_cost": 21390
+     "kill_cost": 21749
     },
     "中距": {
      "rank": 151,
@@ -13499,7 +13499,7 @@
      "worst_ms": 408.19,
      "best_ms": 253.21,
      "mean_expected_shots": 6.524291,
-     "kill_cost": 29131
+     "kill_cost": 29620
     },
     "远距": {
      "rank": 161,
@@ -13508,7 +13508,7 @@
      "worst_ms": 485.61,
      "best_ms": 408.19,
      "mean_expected_shots": 7.820975,
-     "kill_cost": 34921
+     "kill_cost": 35507
     }
    }
   },
@@ -13581,10 +13581,10 @@
     "ammo_item_id": "37210500001",
     "name": "SS190",
     "caliber": "5.7x28mm",
-    "price_daily": 4465
+    "price_daily": 4540
    },
-   "gun_price_daily": 57660,
-   "full_price_180rd": 861360,
+   "gun_price_daily": 57801,
+   "full_price_180rd": 875001,
    "bands": {
     "贴脸": {
      "rank": 51,
@@ -13593,7 +13593,7 @@
      "worst_ms": 253.21,
      "best_ms": 253.21,
      "mean_expected_shots": 4.790502,
-     "kill_cost": 21390
+     "kill_cost": 21749
     },
     "近距": {
      "rank": 81,
@@ -13602,7 +13602,7 @@
      "worst_ms": 347.5,
      "best_ms": 253.21,
      "mean_expected_shots": 5.231646,
-     "kill_cost": 23359
+     "kill_cost": 23752
     },
     "中距": {
      "rank": 158,
@@ -13611,7 +13611,7 @@
      "worst_ms": 408.19,
      "best_ms": 347.5,
      "mean_expected_shots": 6.85108,
-     "kill_cost": 30590
+     "kill_cost": 31104
     },
     "远距": {
      "rank": 176,
@@ -13620,7 +13620,7 @@
      "worst_ms": 598.06,
      "best_ms": 408.19,
      "mean_expected_shots": 8.68358,
-     "kill_cost": 38772
+     "kill_cost": 39423
     }
    }
   },
@@ -13693,10 +13693,10 @@
     "ammo_item_id": "37210500001",
     "name": "SS190",
     "caliber": "5.7x28mm",
-    "price_daily": 4465
+    "price_daily": 4540
    },
-   "gun_price_daily": 57660,
-   "full_price_180rd": 861360,
+   "gun_price_daily": 57801,
+   "full_price_180rd": 875001,
    "bands": {
     "贴脸": {
      "rank": 52,
@@ -13705,7 +13705,7 @@
      "worst_ms": 253.21,
      "best_ms": 253.21,
      "mean_expected_shots": 4.790502,
-     "kill_cost": 21390
+     "kill_cost": 21749
     },
     "近距": {
      "rank": 112,
@@ -13714,7 +13714,7 @@
      "worst_ms": 347.5,
      "best_ms": 253.21,
      "mean_expected_shots": 5.408104,
-     "kill_cost": 24147
+     "kill_cost": 24553
     },
     "中距": {
      "rank": 167,
@@ -13723,7 +13723,7 @@
      "worst_ms": 485.61,
      "best_ms": 347.5,
      "mean_expected_shots": 7.18969,
-     "kill_cost": 32102
+     "kill_cost": 32641
     },
     "远距": {
      "rank": 181,
@@ -13732,7 +13732,7 @@
      "worst_ms": 598.06,
      "best_ms": 485.61,
      "mean_expected_shots": 9.138489,
-     "kill_cost": 40803
+     "kill_cost": 41489
     }
    }
   },
@@ -13813,10 +13813,10 @@
     "ammo_item_id": "37210500001",
     "name": "SS190",
     "caliber": "5.7x28mm",
-    "price_daily": 4465
+    "price_daily": 4540
    },
-   "gun_price_daily": 57660,
-   "full_price_180rd": 861360,
+   "gun_price_daily": 57801,
+   "full_price_180rd": 875001,
    "bands": {
     "贴脸": {
      "rank": 118,
@@ -13825,7 +13825,7 @@
      "worst_ms": 291.19,
      "best_ms": 291.19,
      "mean_expected_shots": 4.790502,
-     "kill_cost": 21390
+     "kill_cost": 21749
     },
     "近距": {
      "rank": 100,
@@ -13834,7 +13834,7 @@
      "worst_ms": 291.19,
      "best_ms": 291.19,
      "mean_expected_shots": 4.790502,
-     "kill_cost": 21390
+     "kill_cost": 21749
     },
     "中距": {
      "rank": 165,
@@ -13843,7 +13843,7 @@
      "worst_ms": 469.42,
      "best_ms": 291.19,
      "mean_expected_shots": 6.303325,
-     "kill_cost": 28144
+     "kill_cost": 28617
     },
     "远距": {
      "rank": 177,
@@ -13852,7 +13852,7 @@
      "worst_ms": 558.45,
      "best_ms": 469.42,
      "mean_expected_shots": 7.708818,
-     "kill_cost": 34420
+     "kill_cost": 34998
     }
    }
   },
@@ -13917,7 +13917,7 @@
     "caliber": ".45ACP",
     "price_daily": null
    },
-   "gun_price_daily": 152039,
+   "gun_price_daily": 153213,
    "full_price_180rd": null,
    "bands": {
     "贴脸": {
@@ -14030,7 +14030,7 @@
     "caliber": ".45ACP",
     "price_daily": null
    },
-   "gun_price_daily": 152039,
+   "gun_price_daily": 153213,
    "full_price_180rd": null,
    "bands": {
     "贴脸": {
@@ -14143,7 +14143,7 @@
     "caliber": ".45ACP",
     "price_daily": null
    },
-   "gun_price_daily": 152039,
+   "gun_price_daily": 153213,
    "full_price_180rd": null,
    "bands": {
     "贴脸": {
@@ -14256,7 +14256,7 @@
     "caliber": ".45ACP",
     "price_daily": null
    },
-   "gun_price_daily": 152039,
+   "gun_price_daily": 153213,
    "full_price_180rd": null,
    "bands": {
     "贴脸": {
@@ -14369,7 +14369,7 @@
     "caliber": ".45ACP",
     "price_daily": null
    },
-   "gun_price_daily": 152039,
+   "gun_price_daily": 153213,
    "full_price_180rd": null,
    "bands": {
     "贴脸": {
@@ -14481,7 +14481,7 @@
     "caliber": ".45ACP",
     "price_daily": null
    },
-   "gun_price_daily": 152039,
+   "gun_price_daily": 153213,
    "full_price_180rd": null,
    "bands": {
     "贴脸": {
@@ -14601,7 +14601,7 @@
     "caliber": ".45ACP",
     "price_daily": null
    },
-   "gun_price_daily": 152039,
+   "gun_price_daily": 153213,
    "full_price_180rd": null,
    "bands": {
     "贴脸": {
@@ -14703,7 +14703,7 @@
     "caliber": ".45ACP",
     "price_daily": null
    },
-   "gun_price_daily": 48483,
+   "gun_price_daily": 48549,
    "full_price_180rd": null,
    "bands": {
     "贴脸": {
@@ -14816,7 +14816,7 @@
     "caliber": ".45ACP",
     "price_daily": null
    },
-   "gun_price_daily": 48483,
+   "gun_price_daily": 48549,
    "full_price_180rd": null,
    "bands": {
     "贴脸": {
@@ -14929,7 +14929,7 @@
     "caliber": ".45ACP",
     "price_daily": null
    },
-   "gun_price_daily": 48483,
+   "gun_price_daily": 48549,
    "full_price_180rd": null,
    "bands": {
     "贴脸": {
@@ -15041,7 +15041,7 @@
     "caliber": ".45ACP",
     "price_daily": null
    },
-   "gun_price_daily": 48483,
+   "gun_price_daily": 48549,
    "full_price_180rd": null,
    "bands": {
     "贴脸": {
@@ -15153,7 +15153,7 @@
     "caliber": ".45ACP",
     "price_daily": null
    },
-   "gun_price_daily": 48483,
+   "gun_price_daily": 48549,
    "full_price_180rd": null,
    "bands": {
     "贴脸": {
@@ -15273,7 +15273,7 @@
     "caliber": ".45ACP",
     "price_daily": null
    },
-   "gun_price_daily": 48483,
+   "gun_price_daily": 48549,
    "full_price_180rd": null,
    "bands": {
     "贴脸": {
@@ -15373,10 +15373,10 @@
     "ammo_item_id": "37140500001",
     "name": "BP",
     "caliber": "9x39mm",
-    "price_daily": 4205
+    "price_daily": 4192
    },
-   "gun_price_daily": 92060,
-   "full_price_180rd": 848960,
+   "gun_price_daily": 97866,
+   "full_price_180rd": 852426,
    "bands": {
     "贴脸": {
      "rank": 78,
@@ -15385,7 +15385,7 @@
      "worst_ms": 360.74,
      "best_ms": 259.41,
      "mean_expected_shots": 4.309388,
-     "kill_cost": 18121
+     "kill_cost": 18065
     },
     "近距": {
      "rank": 168,
@@ -15394,7 +15394,7 @@
      "worst_ms": 360.74,
      "best_ms": 360.74,
      "mean_expected_shots": 5.492388,
-     "kill_cost": 23095
+     "kill_cost": 23024
     },
     "中距": {
      "rank": 168,
@@ -15403,7 +15403,7 @@
      "worst_ms": 417.76,
      "best_ms": 360.74,
      "mean_expected_shots": 6.16868,
-     "kill_cost": 25939
+     "kill_cost": 25859
     },
     "远距": {
      "rank": 143,
@@ -15412,7 +15412,7 @@
      "worst_ms": 417.76,
      "best_ms": 417.76,
      "mean_expected_shots": 6.202495,
-     "kill_cost": 26081
+     "kill_cost": 26001
     }
    }
   },
@@ -15486,10 +15486,10 @@
     "ammo_item_id": "37140500001",
     "name": "BP",
     "caliber": "9x39mm",
-    "price_daily": 4205
+    "price_daily": 4192
    },
-   "gun_price_daily": 92060,
-   "full_price_180rd": 848960,
+   "gun_price_daily": 97866,
+   "full_price_180rd": 852426,
    "bands": {
     "贴脸": {
      "rank": 59,
@@ -15498,7 +15498,7 @@
      "worst_ms": 259.41,
      "best_ms": 259.41,
      "mean_expected_shots": 4.230521,
-     "kill_cost": 17789
+     "kill_cost": 17734
     },
     "近距": {
      "rank": 118,
@@ -15507,7 +15507,7 @@
      "worst_ms": 360.74,
      "best_ms": 259.41,
      "mean_expected_shots": 4.782588,
-     "kill_cost": 20111
+     "kill_cost": 20049
     },
     "中距": {
      "rank": 150,
@@ -15516,7 +15516,7 @@
      "worst_ms": 417.76,
      "best_ms": 360.74,
      "mean_expected_shots": 5.593832,
-     "kill_cost": 23522
+     "kill_cost": 23449
     },
     "远距": {
      "rank": 144,
@@ -15525,7 +15525,7 @@
      "worst_ms": 417.76,
      "best_ms": 417.76,
      "mean_expected_shots": 6.202495,
-     "kill_cost": 26081
+     "kill_cost": 26001
     }
    }
   },
@@ -15599,10 +15599,10 @@
     "ammo_item_id": "37140500001",
     "name": "BP",
     "caliber": "9x39mm",
-    "price_daily": 4205
+    "price_daily": 4192
    },
-   "gun_price_daily": 92060,
-   "full_price_180rd": 848960,
+   "gun_price_daily": 97866,
+   "full_price_180rd": 852426,
    "bands": {
     "贴脸": {
      "rank": 60,
@@ -15611,7 +15611,7 @@
      "worst_ms": 259.41,
      "best_ms": 259.41,
      "mean_expected_shots": 4.230521,
-     "kill_cost": 17789
+     "kill_cost": 17734
     },
     "近距": {
      "rank": 150,
@@ -15620,7 +15620,7 @@
      "worst_ms": 360.74,
      "best_ms": 259.41,
      "mean_expected_shots": 5.019188,
-     "kill_cost": 21106
+     "kill_cost": 21040
     },
     "中距": {
      "rank": 155,
@@ -15629,7 +15629,7 @@
      "worst_ms": 417.76,
      "best_ms": 360.74,
      "mean_expected_shots": 5.72909,
-     "kill_cost": 24091
+     "kill_cost": 24016
     },
     "远距": {
      "rank": 145,
@@ -15638,7 +15638,7 @@
      "worst_ms": 417.76,
      "best_ms": 417.76,
      "mean_expected_shots": 6.202495,
-     "kill_cost": 26081
+     "kill_cost": 26001
     }
    }
   },
@@ -15711,10 +15711,10 @@
     "ammo_item_id": "37140500001",
     "name": "BP",
     "caliber": "9x39mm",
-    "price_daily": 4205
+    "price_daily": 4192
    },
-   "gun_price_daily": 92060,
-   "full_price_180rd": 848960,
+   "gun_price_daily": 97866,
+   "full_price_180rd": 852426,
    "bands": {
     "贴脸": {
      "rank": 61,
@@ -15723,7 +15723,7 @@
      "worst_ms": 259.41,
      "best_ms": 259.41,
      "mean_expected_shots": 4.230521,
-     "kill_cost": 17789
+     "kill_cost": 17734
     },
     "近距": {
      "rank": 155,
@@ -15732,7 +15732,7 @@
      "worst_ms": 360.74,
      "best_ms": 259.41,
      "mean_expected_shots": 5.098054,
-     "kill_cost": 21437
+     "kill_cost": 21371
     },
     "中距": {
      "rank": 156,
@@ -15741,7 +15741,7 @@
      "worst_ms": 417.76,
      "best_ms": 360.74,
      "mean_expected_shots": 5.830534,
-     "kill_cost": 24517
+     "kill_cost": 24442
     },
     "远距": {
      "rank": 146,
@@ -15750,7 +15750,7 @@
      "worst_ms": 417.76,
      "best_ms": 417.76,
      "mean_expected_shots": 6.202495,
-     "kill_cost": 26081
+     "kill_cost": 26001
     }
    }
   },
@@ -15823,10 +15823,10 @@
     "ammo_item_id": "37140500001",
     "name": "BP",
     "caliber": "9x39mm",
-    "price_daily": 4205
+    "price_daily": 4192
    },
-   "gun_price_daily": 92060,
-   "full_price_180rd": 848960,
+   "gun_price_daily": 97866,
+   "full_price_180rd": 852426,
    "bands": {
     "贴脸": {
      "rank": 62,
@@ -15835,7 +15835,7 @@
      "worst_ms": 259.41,
      "best_ms": 259.41,
      "mean_expected_shots": 4.230521,
-     "kill_cost": 17789
+     "kill_cost": 17734
     },
     "近距": {
      "rank": 162,
@@ -15844,7 +15844,7 @@
      "worst_ms": 360.74,
      "best_ms": 259.41,
      "mean_expected_shots": 5.255788,
-     "kill_cost": 22101
+     "kill_cost": 22032
     },
     "中距": {
      "rank": 161,
@@ -15853,7 +15853,7 @@
      "worst_ms": 417.76,
      "best_ms": 360.74,
      "mean_expected_shots": 5.965792,
-     "kill_cost": 25086
+     "kill_cost": 25009
     },
     "远距": {
      "rank": 147,
@@ -15862,7 +15862,7 @@
      "worst_ms": 417.76,
      "best_ms": 417.76,
      "mean_expected_shots": 6.202495,
-     "kill_cost": 26081
+     "kill_cost": 26001
     }
    }
   },
@@ -15925,10 +15925,10 @@
     "ammo_item_id": "37260500001",
     "name": "AP SX",
     "caliber": "4.6x30mm",
-    "price_daily": 3976
+    "price_daily": 3965
    },
-   "gun_price_daily": 180756,
-   "full_price_180rd": 896436,
+   "gun_price_daily": 187298,
+   "full_price_180rd": 900998,
    "bands": {
     "贴脸": {
      "rank": 26,
@@ -15937,7 +15937,7 @@
      "worst_ms": 243.8,
      "best_ms": 243.8,
      "mean_expected_shots": 4.860293,
-     "kill_cost": 19325
+     "kill_cost": 19271
     },
     "近距": {
      "rank": 142,
@@ -15946,7 +15946,7 @@
      "worst_ms": 390.49,
      "best_ms": 243.8,
      "mean_expected_shots": 6.067053,
-     "kill_cost": 24123
+     "kill_cost": 24056
     },
     "中距": {
      "rank": 172,
@@ -15955,7 +15955,7 @@
      "worst_ms": 463.07,
      "best_ms": 390.49,
      "mean_expected_shots": 7.784793,
-     "kill_cost": 30952
+     "kill_cost": 30867
     },
     "远距": {
      "rank": 163,
@@ -15964,7 +15964,7 @@
      "worst_ms": 463.07,
      "best_ms": 463.07,
      "mean_expected_shots": 8.331984,
-     "kill_cost": 33128
+     "kill_cost": 33036
     }
    }
   },
@@ -16038,10 +16038,10 @@
     "ammo_item_id": "37260500001",
     "name": "AP SX",
     "caliber": "4.6x30mm",
-    "price_daily": 3976
+    "price_daily": 3965
    },
-   "gun_price_daily": 180756,
-   "full_price_180rd": 896436,
+   "gun_price_daily": 187298,
+   "full_price_180rd": 900998,
    "bands": {
     "贴脸": {
      "rank": 27,
@@ -16050,7 +16050,7 @@
      "worst_ms": 243.8,
      "best_ms": 243.8,
      "mean_expected_shots": 4.860293,
-     "kill_cost": 19325
+     "kill_cost": 19271
     },
     "近距": {
      "rank": 20,
@@ -16059,7 +16059,7 @@
      "worst_ms": 243.8,
      "best_ms": 243.8,
      "mean_expected_shots": 4.860293,
-     "kill_cost": 19325
+     "kill_cost": 19271
     },
     "中距": {
      "rank": 122,
@@ -16068,7 +16068,7 @@
      "worst_ms": 390.49,
      "best_ms": 243.8,
      "mean_expected_shots": 6.23107,
-     "kill_cost": 24775
+     "kill_cost": 24706
     },
     "远距": {
      "rank": 148,
@@ -16077,7 +16077,7 @@
      "worst_ms": 463.07,
      "best_ms": 390.49,
      "mean_expected_shots": 7.664764,
-     "kill_cost": 30475
+     "kill_cost": 30391
     }
    }
   },
@@ -16151,10 +16151,10 @@
     "ammo_item_id": "37260500001",
     "name": "AP SX",
     "caliber": "4.6x30mm",
-    "price_daily": 3976
+    "price_daily": 3965
    },
-   "gun_price_daily": 180756,
-   "full_price_180rd": 896436,
+   "gun_price_daily": 187298,
+   "full_price_180rd": 900998,
    "bands": {
     "贴脸": {
      "rank": 28,
@@ -16163,7 +16163,7 @@
      "worst_ms": 243.8,
      "best_ms": 243.8,
      "mean_expected_shots": 4.860293,
-     "kill_cost": 19325
+     "kill_cost": 19271
     },
     "近距": {
      "rank": 21,
@@ -16172,7 +16172,7 @@
      "worst_ms": 243.8,
      "best_ms": 243.8,
      "mean_expected_shots": 4.860293,
-     "kill_cost": 19325
+     "kill_cost": 19271
     },
     "中距": {
      "rank": 139,
@@ -16181,7 +16181,7 @@
      "worst_ms": 390.49,
      "best_ms": 243.8,
      "mean_expected_shots": 6.605319,
-     "kill_cost": 26263
+     "kill_cost": 26190
     },
     "远距": {
      "rank": 153,
@@ -16190,7 +16190,7 @@
      "worst_ms": 463.07,
      "best_ms": 390.49,
      "mean_expected_shots": 7.887171,
-     "kill_cost": 31359
+     "kill_cost": 31273
     }
    }
   },
@@ -16263,10 +16263,10 @@
     "ammo_item_id": "37260500001",
     "name": "AP SX",
     "caliber": "4.6x30mm",
-    "price_daily": 3976
+    "price_daily": 3965
    },
-   "gun_price_daily": 180756,
-   "full_price_180rd": 896436,
+   "gun_price_daily": 187298,
+   "full_price_180rd": 900998,
    "bands": {
     "贴脸": {
      "rank": 29,
@@ -16275,7 +16275,7 @@
      "worst_ms": 243.8,
      "best_ms": 243.8,
      "mean_expected_shots": 4.860293,
-     "kill_cost": 19325
+     "kill_cost": 19271
     },
     "近距": {
      "rank": 66,
@@ -16284,7 +16284,7 @@
      "worst_ms": 334.19,
      "best_ms": 243.8,
      "mean_expected_shots": 5.307516,
-     "kill_cost": 21103
+     "kill_cost": 21044
     },
     "中距": {
      "rank": 153,
@@ -16293,7 +16293,7 @@
      "worst_ms": 390.49,
      "best_ms": 334.19,
      "mean_expected_shots": 6.928175,
-     "kill_cost": 27546
+     "kill_cost": 27470
     },
     "远距": {
      "rank": 162,
@@ -16302,7 +16302,7 @@
      "worst_ms": 463.07,
      "best_ms": 390.49,
      "mean_expected_shots": 8.257849,
-     "kill_cost": 32833
+     "kill_cost": 32742
     }
    }
   },
@@ -16375,10 +16375,10 @@
     "ammo_item_id": "37260500001",
     "name": "AP SX",
     "caliber": "4.6x30mm",
-    "price_daily": 3976
+    "price_daily": 3965
    },
-   "gun_price_daily": 180756,
-   "full_price_180rd": 896436,
+   "gun_price_daily": 187298,
+   "full_price_180rd": 900998,
    "bands": {
     "贴脸": {
      "rank": 30,
@@ -16387,7 +16387,7 @@
      "worst_ms": 243.8,
      "best_ms": 243.8,
      "mean_expected_shots": 4.860293,
-     "kill_cost": 19325
+     "kill_cost": 19271
     },
     "近距": {
      "rank": 116,
@@ -16396,7 +16396,7 @@
      "worst_ms": 390.49,
      "best_ms": 243.8,
      "mean_expected_shots": 5.776729,
-     "kill_cost": 22968
+     "kill_cost": 22905
     },
     "中距": {
      "rank": 169,
@@ -16405,7 +16405,7 @@
      "worst_ms": 463.07,
      "best_ms": 390.49,
      "mean_expected_shots": 7.620635,
-     "kill_cost": 30300
+     "kill_cost": 30216
     },
     "远距": {
      "rank": 164,
@@ -16414,7 +16414,7 @@
      "worst_ms": 463.07,
      "best_ms": 463.07,
      "mean_expected_shots": 8.331984,
-     "kill_cost": 33128
+     "kill_cost": 33036
     }
    }
   },
@@ -16477,10 +16477,10 @@
     "ammo_item_id": "37260500001",
     "name": "AP SX",
     "caliber": "4.6x30mm",
-    "price_daily": 3976
+    "price_daily": 3965
    },
-   "gun_price_daily": 142575,
-   "full_price_180rd": 858255,
+   "gun_price_daily": 157229,
+   "full_price_180rd": 870929,
    "bands": {
     "贴脸": {
      "rank": 18,
@@ -16489,7 +16489,7 @@
      "worst_ms": 242.82,
      "best_ms": 242.82,
      "mean_expected_shots": 4.209025,
-     "kill_cost": 16735
+     "kill_cost": 16689
     },
     "近距": {
      "rank": 73,
@@ -16498,7 +16498,7 @@
      "worst_ms": 314.48,
      "best_ms": 242.82,
      "mean_expected_shots": 4.638923,
-     "kill_cost": 18444
+     "kill_cost": 18393
     },
     "中距": {
      "rank": 129,
@@ -16507,7 +16507,7 @@
      "worst_ms": 359.83,
      "best_ms": 314.48,
      "mean_expected_shots": 5.47009,
-     "kill_cost": 21749
+     "kill_cost": 21689
     },
     "远距": {
      "rank": 103,
@@ -16516,7 +16516,7 @@
      "worst_ms": 359.83,
      "best_ms": 359.83,
      "mean_expected_shots": 5.755487,
-     "kill_cost": 22884
+     "kill_cost": 22821
     }
    }
   },
@@ -16594,10 +16594,10 @@
     "ammo_item_id": "37260500001",
     "name": "AP SX",
     "caliber": "4.6x30mm",
-    "price_daily": 3976
+    "price_daily": 3965
    },
-   "gun_price_daily": 142575,
-   "full_price_180rd": 858255,
+   "gun_price_daily": 157229,
+   "full_price_180rd": 870929,
    "bands": {
     "贴脸": {
      "rank": 19,
@@ -16606,7 +16606,7 @@
      "worst_ms": 242.82,
      "best_ms": 242.82,
      "mean_expected_shots": 4.209025,
-     "kill_cost": 16735
+     "kill_cost": 16689
     },
     "近距": {
      "rank": 36,
@@ -16615,7 +16615,7 @@
      "worst_ms": 285.45,
      "best_ms": 242.82,
      "mean_expected_shots": 4.385088,
-     "kill_cost": 17435
+     "kill_cost": 17387
     },
     "中距": {
      "rank": 73,
@@ -16624,7 +16624,7 @@
      "worst_ms": 312.23,
      "best_ms": 285.45,
      "mean_expected_shots": 4.974718,
-     "kill_cost": 19779
+     "kill_cost": 19725
     },
     "远距": {
      "rank": 95,
@@ -16633,7 +16633,7 @@
      "worst_ms": 359.83,
      "best_ms": 312.23,
      "mean_expected_shots": 5.714903,
-     "kill_cost": 22722
+     "kill_cost": 22660
     }
    }
   },
@@ -16704,10 +16704,10 @@
     "ammo_item_id": "37260500001",
     "name": "AP SX",
     "caliber": "4.6x30mm",
-    "price_daily": 3976
+    "price_daily": 3965
    },
-   "gun_price_daily": 142575,
-   "full_price_180rd": 858255,
+   "gun_price_daily": 157229,
+   "full_price_180rd": 870929,
    "bands": {
     "贴脸": {
      "rank": 36,
@@ -16716,7 +16716,7 @@
      "worst_ms": 244.97,
      "best_ms": 244.97,
      "mean_expected_shots": 4.560664,
-     "kill_cost": 18133
+     "kill_cost": 18083
     },
     "近距": {
      "rank": 60,
@@ -16725,7 +16725,7 @@
      "worst_ms": 315.29,
      "best_ms": 244.97,
      "mean_expected_shots": 4.892212,
-     "kill_cost": 19451
+     "kill_cost": 19398
     },
     "中距": {
      "rank": 133,
@@ -16734,7 +16734,7 @@
      "worst_ms": 367.21,
      "best_ms": 315.29,
      "mean_expected_shots": 5.977985,
-     "kill_cost": 23768
+     "kill_cost": 23703
     },
     "远距": {
      "rank": 113,
@@ -16743,7 +16743,7 @@
      "worst_ms": 367.21,
      "best_ms": 367.21,
      "mean_expected_shots": 6.337383,
-     "kill_cost": 25197
+     "kill_cost": 25128
     }
    }
   },
@@ -16824,10 +16824,10 @@
     "ammo_item_id": "37260500001",
     "name": "AP SX",
     "caliber": "4.6x30mm",
-    "price_daily": 3976
+    "price_daily": 3965
    },
-   "gun_price_daily": 142575,
-   "full_price_180rd": 858255,
+   "gun_price_daily": 157229,
+   "full_price_180rd": 870929,
    "bands": {
     "贴脸": {
      "rank": 20,
@@ -16836,7 +16836,7 @@
      "worst_ms": 242.82,
      "best_ms": 242.82,
      "mean_expected_shots": 4.209025,
-     "kill_cost": 16735
+     "kill_cost": 16689
     },
     "近距": {
      "rank": 17,
@@ -16845,7 +16845,7 @@
      "worst_ms": 242.82,
      "best_ms": 242.82,
      "mean_expected_shots": 4.209025,
-     "kill_cost": 16735
+     "kill_cost": 16689
     },
     "中距": {
      "rank": 34,
@@ -16854,7 +16854,7 @@
      "worst_ms": 285.45,
      "best_ms": 242.82,
      "mean_expected_shots": 4.665113,
-     "kill_cost": 18548
+     "kill_cost": 18497
     },
     "远距": {
      "rank": 58,
@@ -16863,7 +16863,7 @@
      "worst_ms": 359.83,
      "best_ms": 285.45,
      "mean_expected_shots": 5.378811,
-     "kill_cost": 21386
+     "kill_cost": 21327
     }
    }
   },
@@ -16944,10 +16944,10 @@
     "ammo_item_id": "37260500001",
     "name": "AP SX",
     "caliber": "4.6x30mm",
-    "price_daily": 3976
+    "price_daily": 3965
    },
-   "gun_price_daily": 142575,
-   "full_price_180rd": 858255,
+   "gun_price_daily": 157229,
+   "full_price_180rd": 870929,
    "bands": {
     "贴脸": {
      "rank": 21,
@@ -16956,7 +16956,7 @@
      "worst_ms": 242.82,
      "best_ms": 242.82,
      "mean_expected_shots": 4.209025,
-     "kill_cost": 16735
+     "kill_cost": 16689
     },
     "近距": {
      "rank": 18,
@@ -16965,7 +16965,7 @@
      "worst_ms": 242.82,
      "best_ms": 242.82,
      "mean_expected_shots": 4.209025,
-     "kill_cost": 16735
+     "kill_cost": 16689
     },
     "中距": {
      "rank": 55,
@@ -16974,7 +16974,7 @@
      "worst_ms": 312.23,
      "best_ms": 242.82,
      "mean_expected_shots": 4.813029,
-     "kill_cost": 19137
+     "kill_cost": 19084
     },
     "远距": {
      "rank": 74,
@@ -16983,7 +16983,7 @@
      "worst_ms": 359.83,
      "best_ms": 312.23,
      "mean_expected_shots": 5.511983,
-     "kill_cost": 21916
+     "kill_cost": 21855
     }
    }
   },
@@ -17056,10 +17056,10 @@
     "ammo_item_id": "37260500001",
     "name": "AP SX",
     "caliber": "4.6x30mm",
-    "price_daily": 3976
+    "price_daily": 3965
    },
-   "gun_price_daily": 142575,
-   "full_price_180rd": 858255,
+   "gun_price_daily": 157229,
+   "full_price_180rd": 870929,
    "bands": {
     "贴脸": {
      "rank": 22,
@@ -17068,7 +17068,7 @@
      "worst_ms": 242.82,
      "best_ms": 242.82,
      "mean_expected_shots": 4.209025,
-     "kill_cost": 16735
+     "kill_cost": 16689
     },
     "近距": {
      "rank": 37,
@@ -17077,7 +17077,7 @@
      "worst_ms": 287.7,
      "best_ms": 242.82,
      "mean_expected_shots": 4.394376,
-     "kill_cost": 17472
+     "kill_cost": 17424
     },
     "中距": {
      "rank": 75,
@@ -17086,7 +17086,7 @@
      "worst_ms": 314.48,
      "best_ms": 287.7,
      "mean_expected_shots": 5.004438,
-     "kill_cost": 19898
+     "kill_cost": 19843
     },
     "远距": {
      "rank": 96,
@@ -17095,7 +17095,7 @@
      "worst_ms": 359.83,
      "best_ms": 314.48,
      "mean_expected_shots": 5.716821,
-     "kill_cost": 22730
+     "kill_cost": 22667
     }
    }
   },
@@ -17168,10 +17168,10 @@
     "ammo_item_id": "37260500001",
     "name": "AP SX",
     "caliber": "4.6x30mm",
-    "price_daily": 3976
+    "price_daily": 3965
    },
-   "gun_price_daily": 142575,
-   "full_price_180rd": 858255,
+   "gun_price_daily": 157229,
+   "full_price_180rd": 870929,
    "bands": {
     "贴脸": {
      "rank": 23,
@@ -17180,7 +17180,7 @@
      "worst_ms": 242.82,
      "best_ms": 242.82,
      "mean_expected_shots": 4.209025,
-     "kill_cost": 16735
+     "kill_cost": 16689
     },
     "近距": {
      "rank": 45,
@@ -17189,7 +17189,7 @@
      "worst_ms": 287.7,
      "best_ms": 242.82,
      "mean_expected_shots": 4.468517,
-     "kill_cost": 17767
+     "kill_cost": 17718
     },
     "中距": {
      "rank": 92,
@@ -17198,7 +17198,7 @@
      "worst_ms": 359.83,
      "best_ms": 287.7,
      "mean_expected_shots": 5.140629,
-     "kill_cost": 20439
+     "kill_cost": 20383
     },
     "远距": {
      "rank": 104,
@@ -17207,7 +17207,7 @@
      "worst_ms": 359.83,
      "best_ms": 359.83,
      "mean_expected_shots": 5.755487,
-     "kill_cost": 22884
+     "kill_cost": 22821
     }
    }
   },
@@ -17288,10 +17288,10 @@
     "ammo_item_id": "37260500001",
     "name": "AP SX",
     "caliber": "4.6x30mm",
-    "price_daily": 3976
+    "price_daily": 3965
    },
-   "gun_price_daily": 142575,
-   "full_price_180rd": 858255,
+   "gun_price_daily": 157229,
+   "full_price_180rd": 870929,
    "bands": {
     "贴脸": {
      "rank": 37,
@@ -17300,7 +17300,7 @@
      "worst_ms": 244.97,
      "best_ms": 244.97,
      "mean_expected_shots": 4.560664,
-     "kill_cost": 18133
+     "kill_cost": 18083
     },
     "近距": {
      "rank": 38,
@@ -17309,7 +17309,7 @@
      "worst_ms": 274.44,
      "best_ms": 244.97,
      "mean_expected_shots": 4.748036,
-     "kill_cost": 18878
+     "kill_cost": 18826
     },
     "中距": {
      "rank": 90,
@@ -17318,7 +17318,7 @@
      "worst_ms": 367.21,
      "best_ms": 274.44,
      "mean_expected_shots": 5.520836,
-     "kill_cost": 21951
+     "kill_cost": 21890
     },
     "远距": {
      "rank": 114,
@@ -17327,7 +17327,7 @@
      "worst_ms": 367.21,
      "best_ms": 367.21,
      "mean_expected_shots": 6.337383,
-     "kill_cost": 25197
+     "kill_cost": 25128
     }
    }
   },
@@ -18173,10 +18173,10 @@
     "ammo_item_id": "37180500001",
     "name": "BT",
     "caliber": "7.62x54R",
-    "price_daily": 5367
+    "price_daily": 5414
    },
-   "gun_price_daily": 60610,
-   "full_price_180rd": 1026670,
+   "gun_price_daily": 57677,
+   "full_price_180rd": 1032197,
    "bands": {
     "贴脸": {
      "rank": 5,
@@ -18185,7 +18185,7 @@
      "worst_ms": 227.55,
      "best_ms": 227.55,
      "mean_expected_shots": 3.53682,
-     "kill_cost": 18982
+     "kill_cost": 19148
     },
     "近距": {
      "rank": 5,
@@ -18194,7 +18194,7 @@
      "worst_ms": 227.55,
      "best_ms": 227.55,
      "mean_expected_shots": 3.53682,
-     "kill_cost": 18982
+     "kill_cost": 19148
     },
     "中距": {
      "rank": 18,
@@ -18203,7 +18203,7 @@
      "worst_ms": 279.47,
      "best_ms": 227.55,
      "mean_expected_shots": 3.840015,
-     "kill_cost": 20609
+     "kill_cost": 20790
     },
     "远距": {
      "rank": 25,
@@ -18212,7 +18212,7 @@
      "worst_ms": 346.53,
      "best_ms": 279.47,
      "mean_expected_shots": 4.380914,
-     "kill_cost": 23512
+     "kill_cost": 23718
     }
    }
   },
@@ -18286,10 +18286,10 @@
     "ammo_item_id": "37180500001",
     "name": "BT",
     "caliber": "7.62x54R",
-    "price_daily": 5367
+    "price_daily": 5414
    },
-   "gun_price_daily": 60610,
-   "full_price_180rd": 1026670,
+   "gun_price_daily": 57677,
+   "full_price_180rd": 1032197,
    "bands": {
     "贴脸": {
      "rank": 6,
@@ -18298,7 +18298,7 @@
      "worst_ms": 227.55,
      "best_ms": 227.55,
      "mean_expected_shots": 3.53682,
-     "kill_cost": 18982
+     "kill_cost": 19148
     },
     "近距": {
      "rank": 6,
@@ -18307,7 +18307,7 @@
      "worst_ms": 227.55,
      "best_ms": 227.55,
      "mean_expected_shots": 3.53682,
-     "kill_cost": 18982
+     "kill_cost": 19148
     },
     "中距": {
      "rank": 3,
@@ -18316,7 +18316,7 @@
      "worst_ms": 227.55,
      "best_ms": 227.55,
      "mean_expected_shots": 3.53682,
-     "kill_cost": 18982
+     "kill_cost": 19148
     },
     "远距": {
      "rank": 5,
@@ -18325,7 +18325,7 @@
      "worst_ms": 279.47,
      "best_ms": 227.55,
      "mean_expected_shots": 3.891585,
-     "kill_cost": 20886
+     "kill_cost": 21069
     }
    }
   },
@@ -18398,10 +18398,10 @@
     "ammo_item_id": "37180500001",
     "name": "BT",
     "caliber": "7.62x54R",
-    "price_daily": 5367
+    "price_daily": 5414
    },
-   "gun_price_daily": 60610,
-   "full_price_180rd": 1026670,
+   "gun_price_daily": 57677,
+   "full_price_180rd": 1032197,
    "bands": {
     "贴脸": {
      "rank": 7,
@@ -18410,7 +18410,7 @@
      "worst_ms": 227.55,
      "best_ms": 227.55,
      "mean_expected_shots": 3.53682,
-     "kill_cost": 18982
+     "kill_cost": 19148
     },
     "近距": {
      "rank": 7,
@@ -18419,7 +18419,7 @@
      "worst_ms": 227.55,
      "best_ms": 227.55,
      "mean_expected_shots": 3.53682,
-     "kill_cost": 18982
+     "kill_cost": 19148
     },
     "中距": {
      "rank": 4,
@@ -18428,7 +18428,7 @@
      "worst_ms": 227.55,
      "best_ms": 227.55,
      "mean_expected_shots": 3.53682,
-     "kill_cost": 18982
+     "kill_cost": 19148
     },
     "远距": {
      "rank": 9,
@@ -18437,7 +18437,7 @@
      "worst_ms": 279.47,
      "best_ms": 227.55,
      "mean_expected_shots": 4.078303,
-     "kill_cost": 21888
+     "kill_cost": 22080
     }
    }
   },
@@ -18510,10 +18510,10 @@
     "ammo_item_id": "37180500001",
     "name": "BT",
     "caliber": "7.62x54R",
-    "price_daily": 5367
+    "price_daily": 5414
    },
-   "gun_price_daily": 60610,
-   "full_price_180rd": 1026670,
+   "gun_price_daily": 57677,
+   "full_price_180rd": 1032197,
    "bands": {
     "贴脸": {
      "rank": 8,
@@ -18522,7 +18522,7 @@
      "worst_ms": 227.55,
      "best_ms": 227.55,
      "mean_expected_shots": 3.53682,
-     "kill_cost": 18982
+     "kill_cost": 19148
     },
     "近距": {
      "rank": 8,
@@ -18531,7 +18531,7 @@
      "worst_ms": 227.55,
      "best_ms": 227.55,
      "mean_expected_shots": 3.53682,
-     "kill_cost": 18982
+     "kill_cost": 19148
     },
     "中距": {
      "rank": 5,
@@ -18540,7 +18540,7 @@
      "worst_ms": 279.47,
      "best_ms": 227.55,
      "mean_expected_shots": 3.61951,
-     "kill_cost": 19426
+     "kill_cost": 19596
     },
     "远距": {
      "rank": 11,
@@ -18549,7 +18549,7 @@
      "worst_ms": 279.47,
      "best_ms": 279.47,
      "mean_expected_shots": 4.115647,
-     "kill_cost": 22089
+     "kill_cost": 22282
     }
    }
   },
@@ -18630,10 +18630,10 @@
     "ammo_item_id": "37180500001",
     "name": "BT",
     "caliber": "7.62x54R",
-    "price_daily": 5367
+    "price_daily": 5414
    },
-   "gun_price_daily": 60610,
-   "full_price_180rd": 1026670,
+   "gun_price_daily": 57677,
+   "full_price_180rd": 1032197,
    "bands": {
     "贴脸": {
      "rank": 64,
@@ -18642,7 +18642,7 @@
      "worst_ms": 261.69,
      "best_ms": 261.69,
      "mean_expected_shots": 3.53682,
-     "kill_cost": 18982
+     "kill_cost": 19148
     },
     "近距": {
      "rank": 44,
@@ -18651,7 +18651,7 @@
      "worst_ms": 261.69,
      "best_ms": 261.69,
      "mean_expected_shots": 3.53682,
-     "kill_cost": 18982
+     "kill_cost": 19148
     },
     "中距": {
      "rank": 24,
@@ -18660,7 +18660,7 @@
      "worst_ms": 261.69,
      "best_ms": 261.69,
      "mean_expected_shots": 3.53682,
-     "kill_cost": 18982
+     "kill_cost": 19148
     },
     "远距": {
      "rank": 18,
@@ -18669,7 +18669,7 @@
      "worst_ms": 321.39,
      "best_ms": 261.69,
      "mean_expected_shots": 3.835569,
-     "kill_cost": 20586
+     "kill_cost": 20766
     }
    }
   },
@@ -18734,8 +18734,8 @@
     "caliber": "5.56x45mm",
     "price_daily": 4429
    },
-   "gun_price_daily": 43468,
-   "full_price_180rd": 840688,
+   "gun_price_daily": 43499,
+   "full_price_180rd": 840719,
    "bands": {
     "贴脸": {
      "rank": 99,
@@ -18847,8 +18847,8 @@
     "caliber": "5.56x45mm",
     "price_daily": 4429
    },
-   "gun_price_daily": 43468,
-   "full_price_180rd": 840688,
+   "gun_price_daily": 43499,
+   "full_price_180rd": 840719,
    "bands": {
     "贴脸": {
      "rank": 100,
@@ -18959,8 +18959,8 @@
     "caliber": "5.56x45mm",
     "price_daily": 4429
    },
-   "gun_price_daily": 43468,
-   "full_price_180rd": 840688,
+   "gun_price_daily": 43499,
+   "full_price_180rd": 840719,
    "bands": {
     "贴脸": {
      "rank": 101,
@@ -19071,8 +19071,8 @@
     "caliber": "5.56x45mm",
     "price_daily": 4429
    },
-   "gun_price_daily": 43468,
-   "full_price_180rd": 840688,
+   "gun_price_daily": 43499,
+   "full_price_180rd": 840719,
    "bands": {
     "贴脸": {
      "rank": 102,
@@ -19191,8 +19191,8 @@
     "caliber": "5.56x45mm",
     "price_daily": 4429
    },
-   "gun_price_daily": 43468,
-   "full_price_180rd": 840688,
+   "gun_price_daily": 43499,
+   "full_price_180rd": 840719,
    "bands": {
     "贴脸": {
      "rank": 158,
@@ -19310,8 +19310,8 @@
     "caliber": "5.56x45mm",
     "price_daily": 4429
    },
-   "gun_price_daily": 43468,
-   "full_price_180rd": 840688,
+   "gun_price_daily": 43499,
+   "full_price_180rd": 840719,
    "bands": {
     "贴脸": {
      "rank": 159,
@@ -19412,8 +19412,8 @@
     "caliber": "6.8x51mm",
     "price_daily": 4689
    },
-   "gun_price_daily": 200057,
-   "full_price_180rd": 1044077,
+   "gun_price_daily": 221184,
+   "full_price_180rd": 1065204,
    "bands": {
     "贴脸": {
      "rank": 3,
@@ -19522,8 +19522,8 @@
     "caliber": "6.8x51mm",
     "price_daily": 4689
    },
-   "gun_price_daily": 200057,
-   "full_price_180rd": 1044077,
+   "gun_price_daily": 221184,
+   "full_price_180rd": 1065204,
    "bands": {
     "贴脸": {
      "rank": 1,
@@ -19635,8 +19635,8 @@
     "caliber": "6.8x51mm",
     "price_daily": 4689
    },
-   "gun_price_daily": 200057,
-   "full_price_180rd": 1044077,
+   "gun_price_daily": 221184,
+   "full_price_180rd": 1065204,
    "bands": {
     "贴脸": {
      "rank": 2,
@@ -19747,8 +19747,8 @@
     "caliber": "6.8x51mm",
     "price_daily": 4689
    },
-   "gun_price_daily": 200057,
-   "full_price_180rd": 1044077,
+   "gun_price_daily": 221184,
+   "full_price_180rd": 1065204,
    "bands": {
     "贴脸": {
      "rank": 4,
@@ -19867,8 +19867,8 @@
     "caliber": "6.8x51mm",
     "price_daily": 4689
    },
-   "gun_price_daily": 200057,
-   "full_price_180rd": 1044077,
+   "gun_price_daily": 221184,
+   "full_price_180rd": 1065204,
    "bands": {
     "贴脸": {
      "rank": 17,
@@ -19986,8 +19986,8 @@
     "caliber": "6.8x51mm",
     "price_daily": 4689
    },
-   "gun_price_daily": 200057,
-   "full_price_180rd": 1044077,
+   "gun_price_daily": 221184,
+   "full_price_180rd": 1065204,
    "bands": {
     "贴脸": {
      "rank": 63,
@@ -20086,10 +20086,10 @@
     "ammo_item_id": "37130500001",
     "name": "DVC12",
     "caliber": "5.8x42mm",
-    "price_daily": 4834
+    "price_daily": 4895
    },
-   "gun_price_daily": 89330,
-   "full_price_180rd": 959450,
+   "gun_price_daily": 92162,
+   "full_price_180rd": 973262,
    "bands": {
     "贴脸": {
      "rank": 90,
@@ -20098,7 +20098,7 @@
      "worst_ms": 280.27,
      "best_ms": 280.27,
      "mean_expected_shots": 4.668449,
-     "kill_cost": 22567
+     "kill_cost": 22852
     },
     "近距": {
      "rank": 77,
@@ -20107,7 +20107,7 @@
      "worst_ms": 280.27,
      "best_ms": 280.27,
      "mean_expected_shots": 4.668449,
-     "kill_cost": 22567
+     "kill_cost": 22852
     },
     "中距": {
      "rank": 83,
@@ -20116,7 +20116,7 @@
      "worst_ms": 331.68,
      "best_ms": 280.27,
      "mean_expected_shots": 5.020958,
-     "kill_cost": 24271
+     "kill_cost": 24578
     },
     "远距": {
      "rank": 101,
@@ -20125,7 +20125,7 @@
      "worst_ms": 406.24,
      "best_ms": 331.68,
      "mean_expected_shots": 5.68771,
-     "kill_cost": 27494
+     "kill_cost": 27841
     }
    }
   },
@@ -20188,10 +20188,10 @@
     "ammo_item_id": "37130500001",
     "name": "DVC12",
     "caliber": "5.8x42mm",
-    "price_daily": 4834
+    "price_daily": 4895
    },
-   "gun_price_daily": 89330,
-   "full_price_180rd": 959450,
+   "gun_price_daily": 92162,
+   "full_price_180rd": 973262,
    "bands": {
     "贴脸": {
      "rank": 91,
@@ -20200,7 +20200,7 @@
      "worst_ms": 280.27,
      "best_ms": 280.27,
      "mean_expected_shots": 4.668449,
-     "kill_cost": 22567
+     "kill_cost": 22852
     },
     "近距": {
      "rank": 78,
@@ -20209,7 +20209,7 @@
      "worst_ms": 280.27,
      "best_ms": 280.27,
      "mean_expected_shots": 4.668449,
-     "kill_cost": 22567
+     "kill_cost": 22852
     },
     "中距": {
      "rank": 84,
@@ -20218,7 +20218,7 @@
      "worst_ms": 331.68,
      "best_ms": 280.27,
      "mean_expected_shots": 5.020958,
-     "kill_cost": 24271
+     "kill_cost": 24578
     },
     "远距": {
      "rank": 102,
@@ -20227,7 +20227,7 @@
      "worst_ms": 406.24,
      "best_ms": 331.68,
      "mean_expected_shots": 5.68771,
-     "kill_cost": 27494
+     "kill_cost": 27841
     }
    }
   },
@@ -20309,10 +20309,10 @@
     "ammo_item_id": "37130500001",
     "name": "DVC12",
     "caliber": "5.8x42mm",
-    "price_daily": 4834
+    "price_daily": 4895
    },
-   "gun_price_daily": 89330,
-   "full_price_180rd": 959450,
+   "gun_price_daily": 92162,
+   "full_price_180rd": 973262,
    "bands": {
     "贴脸": {
      "rank": 45,
@@ -20321,7 +20321,7 @@
      "worst_ms": 252.24,
      "best_ms": 252.24,
      "mean_expected_shots": 4.668449,
-     "kill_cost": 22567
+     "kill_cost": 22852
     },
     "近距": {
      "rank": 31,
@@ -20330,7 +20330,7 @@
      "worst_ms": 252.24,
      "best_ms": 252.24,
      "mean_expected_shots": 4.668449,
-     "kill_cost": 22567
+     "kill_cost": 22852
     },
     "中距": {
      "rank": 16,
@@ -20339,7 +20339,7 @@
      "worst_ms": 252.24,
      "best_ms": 252.24,
      "mean_expected_shots": 4.668449,
-     "kill_cost": 22567
+     "kill_cost": 22852
     },
     "远距": {
      "rank": 13,
@@ -20348,7 +20348,7 @@
      "worst_ms": 298.52,
      "best_ms": 252.24,
      "mean_expected_shots": 5.080916,
-     "kill_cost": 24561
+     "kill_cost": 24871
     }
    }
   },
@@ -20429,10 +20429,10 @@
     "ammo_item_id": "37130500001",
     "name": "DVC12",
     "caliber": "5.8x42mm",
-    "price_daily": 4834
+    "price_daily": 4895
    },
-   "gun_price_daily": 89330,
-   "full_price_180rd": 959450,
+   "gun_price_daily": 92162,
+   "full_price_180rd": 973262,
    "bands": {
     "贴脸": {
      "rank": 46,
@@ -20441,7 +20441,7 @@
      "worst_ms": 252.24,
      "best_ms": 252.24,
      "mean_expected_shots": 4.668449,
-     "kill_cost": 22567
+     "kill_cost": 22852
     },
     "近距": {
      "rank": 32,
@@ -20450,7 +20450,7 @@
      "worst_ms": 252.24,
      "best_ms": 252.24,
      "mean_expected_shots": 4.668449,
-     "kill_cost": 22567
+     "kill_cost": 22852
     },
     "中距": {
      "rank": 17,
@@ -20459,7 +20459,7 @@
      "worst_ms": 252.24,
      "best_ms": 252.24,
      "mean_expected_shots": 4.668449,
-     "kill_cost": 22567
+     "kill_cost": 22852
     },
     "远距": {
      "rank": 19,
@@ -20468,7 +20468,7 @@
      "worst_ms": 298.52,
      "best_ms": 252.24,
      "mean_expected_shots": 5.298003,
-     "kill_cost": 25611
+     "kill_cost": 25934
     }
    }
   },
@@ -20549,10 +20549,10 @@
     "ammo_item_id": "37130500001",
     "name": "DVC12",
     "caliber": "5.8x42mm",
-    "price_daily": 4834
+    "price_daily": 4895
    },
-   "gun_price_daily": 89330,
-   "full_price_180rd": 959450,
+   "gun_price_daily": 92162,
+   "full_price_180rd": 973262,
    "bands": {
     "贴脸": {
      "rank": 47,
@@ -20561,7 +20561,7 @@
      "worst_ms": 252.24,
      "best_ms": 252.24,
      "mean_expected_shots": 4.668449,
-     "kill_cost": 22567
+     "kill_cost": 22852
     },
     "近距": {
      "rank": 33,
@@ -20570,7 +20570,7 @@
      "worst_ms": 252.24,
      "best_ms": 252.24,
      "mean_expected_shots": 4.668449,
-     "kill_cost": 22567
+     "kill_cost": 22852
     },
     "中距": {
      "rank": 22,
@@ -20579,7 +20579,7 @@
      "worst_ms": 298.52,
      "best_ms": 252.24,
      "mean_expected_shots": 4.764588,
-     "kill_cost": 23032
+     "kill_cost": 23323
     },
     "远距": {
      "rank": 22,
@@ -20588,7 +20588,7 @@
      "worst_ms": 298.52,
      "best_ms": 298.52,
      "mean_expected_shots": 5.341421,
-     "kill_cost": 25820
+     "kill_cost": 26146
     }
    }
   },
@@ -20651,10 +20651,10 @@
     "ammo_item_id": "37140500001",
     "name": "BP",
     "caliber": "9x39mm",
-    "price_daily": 4205
+    "price_daily": 4192
    },
-   "gun_price_daily": 44901,
-   "full_price_180rd": 801801,
+   "gun_price_daily": 45173,
+   "full_price_180rd": 799733,
    "bands": {
     "贴脸": {
      "rank": 164,
@@ -20663,7 +20663,7 @@
      "worst_ms": 335.02,
      "best_ms": 335.02,
      "mean_expected_shots": 3.680123,
-     "kill_cost": 15475
+     "kill_cost": 15427
     },
     "近距": {
      "rank": 161,
@@ -20672,7 +20672,7 @@
      "worst_ms": 335.02,
      "best_ms": 335.02,
      "mean_expected_shots": 3.680123,
-     "kill_cost": 15475
+     "kill_cost": 15427
     },
     "中距": {
      "rank": 127,
@@ -20681,7 +20681,7 @@
      "worst_ms": 335.02,
      "best_ms": 335.02,
      "mean_expected_shots": 3.680123,
-     "kill_cost": 15475
+     "kill_cost": 15427
     },
     "远距": {
      "rank": 63,
@@ -20690,7 +20690,7 @@
      "worst_ms": 335.02,
      "best_ms": 335.02,
      "mean_expected_shots": 3.680123,
-     "kill_cost": 15475
+     "kill_cost": 15427
     }
    }
   },
@@ -20753,10 +20753,10 @@
     "ammo_item_id": "37170500001",
     "name": "M62",
     "caliber": "7.62x51mm",
-    "price_daily": 5646
+    "price_daily": 5591
    },
-   "gun_price_daily": 145731,
-   "full_price_180rd": 1162011,
+   "gun_price_daily": 145962,
+   "full_price_180rd": 1152342,
    "bands": {
     "贴脸": {
      "rank": 31,
@@ -20765,7 +20765,7 @@
      "worst_ms": 244.76,
      "best_ms": 244.76,
      "mean_expected_shots": 3.96679,
-     "kill_cost": 22396
+     "kill_cost": 22178
     },
     "近距": {
      "rank": 23,
@@ -20774,7 +20774,7 @@
      "worst_ms": 244.76,
      "best_ms": 244.76,
      "mean_expected_shots": 3.96679,
-     "kill_cost": 22396
+     "kill_cost": 22178
     },
     "中距": {
      "rank": 44,
@@ -20783,7 +20783,7 @@
      "worst_ms": 320.06,
      "best_ms": 244.76,
      "mean_expected_shots": 4.444915,
-     "kill_cost": 25096
+     "kill_cost": 24852
     },
     "远距": {
      "rank": 67,
@@ -20792,7 +20792,7 @@
      "worst_ms": 370.98,
      "best_ms": 320.06,
      "mean_expected_shots": 5.098584,
-     "kill_cost": 28787
+     "kill_cost": 28506
     }
    }
   },
@@ -20866,10 +20866,10 @@
     "ammo_item_id": "37170500001",
     "name": "M62",
     "caliber": "7.62x51mm",
-    "price_daily": 5646
+    "price_daily": 5591
    },
-   "gun_price_daily": 145731,
-   "full_price_180rd": 1162011,
+   "gun_price_daily": 145962,
+   "full_price_180rd": 1152342,
    "bands": {
     "贴脸": {
      "rank": 32,
@@ -20878,7 +20878,7 @@
      "worst_ms": 244.76,
      "best_ms": 244.76,
      "mean_expected_shots": 3.96679,
-     "kill_cost": 22396
+     "kill_cost": 22178
     },
     "近距": {
      "rank": 24,
@@ -20887,7 +20887,7 @@
      "worst_ms": 244.76,
      "best_ms": 244.76,
      "mean_expected_shots": 3.96679,
-     "kill_cost": 22396
+     "kill_cost": 22178
     },
     "中距": {
      "rank": 13,
@@ -20896,7 +20896,7 @@
      "worst_ms": 244.76,
      "best_ms": 244.76,
      "mean_expected_shots": 3.96679,
-     "kill_cost": 22396
+     "kill_cost": 22178
     },
     "远距": {
      "rank": 17,
@@ -20905,7 +20905,7 @@
      "worst_ms": 320.06,
      "best_ms": 244.76,
      "mean_expected_shots": 4.526238,
-     "kill_cost": 25555
+     "kill_cost": 25306
     }
    }
   },
@@ -20979,10 +20979,10 @@
     "ammo_item_id": "37170500001",
     "name": "M62",
     "caliber": "7.62x51mm",
-    "price_daily": 5646
+    "price_daily": 5591
    },
-   "gun_price_daily": 145731,
-   "full_price_180rd": 1162011,
+   "gun_price_daily": 145962,
+   "full_price_180rd": 1152342,
    "bands": {
     "贴脸": {
      "rank": 33,
@@ -20991,7 +20991,7 @@
      "worst_ms": 244.76,
      "best_ms": 244.76,
      "mean_expected_shots": 3.96679,
-     "kill_cost": 22396
+     "kill_cost": 22178
     },
     "近距": {
      "rank": 25,
@@ -21000,7 +21000,7 @@
      "worst_ms": 244.76,
      "best_ms": 244.76,
      "mean_expected_shots": 3.96679,
-     "kill_cost": 22396
+     "kill_cost": 22178
     },
     "中距": {
      "rank": 14,
@@ -21009,7 +21009,7 @@
      "worst_ms": 244.76,
      "best_ms": 244.76,
      "mean_expected_shots": 3.96679,
-     "kill_cost": 22396
+     "kill_cost": 22178
     },
     "远距": {
      "rank": 26,
@@ -21018,7 +21018,7 @@
      "worst_ms": 320.06,
      "best_ms": 244.76,
      "mean_expected_shots": 4.702906,
-     "kill_cost": 26553
+     "kill_cost": 26294
     }
    }
   },
@@ -21091,10 +21091,10 @@
     "ammo_item_id": "37170500001",
     "name": "M62",
     "caliber": "7.62x51mm",
-    "price_daily": 5646
+    "price_daily": 5591
    },
-   "gun_price_daily": 145731,
-   "full_price_180rd": 1162011,
+   "gun_price_daily": 145962,
+   "full_price_180rd": 1152342,
    "bands": {
     "贴脸": {
      "rank": 34,
@@ -21103,7 +21103,7 @@
      "worst_ms": 244.76,
      "best_ms": 244.76,
      "mean_expected_shots": 3.96679,
-     "kill_cost": 22396
+     "kill_cost": 22178
     },
     "近距": {
      "rank": 26,
@@ -21112,7 +21112,7 @@
      "worst_ms": 244.76,
      "best_ms": 244.76,
      "mean_expected_shots": 3.96679,
-     "kill_cost": 22396
+     "kill_cost": 22178
     },
     "中距": {
      "rank": 15,
@@ -21121,7 +21121,7 @@
      "worst_ms": 244.76,
      "best_ms": 244.76,
      "mean_expected_shots": 3.96679,
-     "kill_cost": 22396
+     "kill_cost": 22178
     },
     "远距": {
      "rank": 36,
@@ -21130,7 +21130,7 @@
      "worst_ms": 320.06,
      "best_ms": 244.76,
      "mean_expected_shots": 4.820685,
-     "kill_cost": 27218
+     "kill_cost": 26952
     }
    }
   },
@@ -21203,10 +21203,10 @@
     "ammo_item_id": "37170500001",
     "name": "M62",
     "caliber": "7.62x51mm",
-    "price_daily": 5646
+    "price_daily": 5591
    },
-   "gun_price_daily": 145731,
-   "full_price_180rd": 1162011,
+   "gun_price_daily": 145962,
+   "full_price_180rd": 1152342,
    "bands": {
     "贴脸": {
      "rank": 35,
@@ -21215,7 +21215,7 @@
      "worst_ms": 244.76,
      "best_ms": 244.76,
      "mean_expected_shots": 3.96679,
-     "kill_cost": 22396
+     "kill_cost": 22178
     },
     "近距": {
      "rank": 27,
@@ -21224,7 +21224,7 @@
      "worst_ms": 244.76,
      "best_ms": 244.76,
      "mean_expected_shots": 3.96679,
-     "kill_cost": 22396
+     "kill_cost": 22178
     },
     "中距": {
      "rank": 19,
@@ -21233,7 +21233,7 @@
      "worst_ms": 320.06,
      "best_ms": 244.76,
      "mean_expected_shots": 4.097188,
-     "kill_cost": 23133
+     "kill_cost": 22907
     },
     "远距": {
      "rank": 41,
@@ -21242,7 +21242,7 @@
      "worst_ms": 320.06,
      "best_ms": 320.06,
      "mean_expected_shots": 4.879574,
-     "kill_cost": 27550
+     "kill_cost": 27282
     }
    }
   },
@@ -21305,10 +21305,10 @@
     "ammo_item_id": "37180500001",
     "name": "BT",
     "caliber": "7.62x54R",
-    "price_daily": 5367
+    "price_daily": 5414
    },
-   "gun_price_daily": 63576,
-   "full_price_180rd": 1029636,
+   "gun_price_daily": 63687,
+   "full_price_180rd": 1038207,
    "bands": {
     "贴脸": {
      "rank": 11,
@@ -21317,7 +21317,7 @@
      "worst_ms": 240.1,
      "best_ms": 240.1,
      "mean_expected_shots": 3.400981,
-     "kill_cost": 18253
+     "kill_cost": 18413
     },
     "近距": {
      "rank": 11,
@@ -21326,7 +21326,7 @@
      "worst_ms": 240.1,
      "best_ms": 240.1,
      "mean_expected_shots": 3.400981,
-     "kill_cost": 18253
+     "kill_cost": 18413
     },
     "中距": {
      "rank": 7,
@@ -21335,7 +21335,7 @@
      "worst_ms": 240.1,
      "best_ms": 240.1,
      "mean_expected_shots": 3.400981,
-     "kill_cost": 18253
+     "kill_cost": 18413
     },
     "远距": {
      "rank": 6,
@@ -21344,7 +21344,7 @@
      "worst_ms": 284.93,
      "best_ms": 240.1,
      "mean_expected_shots": 3.632388,
-     "kill_cost": 19495
+     "kill_cost": 19666
     }
    }
   },
@@ -21417,10 +21417,10 @@
     "ammo_item_id": "37180500001",
     "name": "BT",
     "caliber": "7.62x54R",
-    "price_daily": 5367
+    "price_daily": 5414
    },
-   "gun_price_daily": 63576,
-   "full_price_180rd": 1029636,
+   "gun_price_daily": 63687,
+   "full_price_180rd": 1038207,
    "bands": {
     "贴脸": {
      "rank": 12,
@@ -21429,7 +21429,7 @@
      "worst_ms": 240.1,
      "best_ms": 240.1,
      "mean_expected_shots": 3.400981,
-     "kill_cost": 18253
+     "kill_cost": 18413
     },
     "近距": {
      "rank": 12,
@@ -21438,7 +21438,7 @@
      "worst_ms": 240.1,
      "best_ms": 240.1,
      "mean_expected_shots": 3.400981,
-     "kill_cost": 18253
+     "kill_cost": 18413
     },
     "中距": {
      "rank": 8,
@@ -21447,7 +21447,7 @@
      "worst_ms": 240.1,
      "best_ms": 240.1,
      "mean_expected_shots": 3.400981,
-     "kill_cost": 18253
+     "kill_cost": 18413
     },
     "远距": {
      "rank": 1,
@@ -21456,7 +21456,7 @@
      "worst_ms": 240.1,
      "best_ms": 240.1,
      "mean_expected_shots": 3.400981,
-     "kill_cost": 18253
+     "kill_cost": 18413
     }
    }
   },
@@ -21529,10 +21529,10 @@
     "ammo_item_id": "37180500001",
     "name": "BT",
     "caliber": "7.62x54R",
-    "price_daily": 5367
+    "price_daily": 5414
    },
-   "gun_price_daily": 63576,
-   "full_price_180rd": 1029636,
+   "gun_price_daily": 63687,
+   "full_price_180rd": 1038207,
    "bands": {
     "贴脸": {
      "rank": 13,
@@ -21541,7 +21541,7 @@
      "worst_ms": 240.1,
      "best_ms": 240.1,
      "mean_expected_shots": 3.400981,
-     "kill_cost": 18253
+     "kill_cost": 18413
     },
     "近距": {
      "rank": 13,
@@ -21550,7 +21550,7 @@
      "worst_ms": 240.1,
      "best_ms": 240.1,
      "mean_expected_shots": 3.400981,
-     "kill_cost": 18253
+     "kill_cost": 18413
     },
     "中距": {
      "rank": 9,
@@ -21559,7 +21559,7 @@
      "worst_ms": 240.1,
      "best_ms": 240.1,
      "mean_expected_shots": 3.400981,
-     "kill_cost": 18253
+     "kill_cost": 18413
     },
     "远距": {
      "rank": 2,
@@ -21568,7 +21568,7 @@
      "worst_ms": 284.93,
      "best_ms": 240.1,
      "mean_expected_shots": 3.458833,
-     "kill_cost": 18564
+     "kill_cost": 18726
     }
    }
   }
