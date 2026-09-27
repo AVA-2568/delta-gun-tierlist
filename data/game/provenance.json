@@ -4,7 +4,7 @@
   "base_url": "https://dfttk.com/data/v3/",
   "note": "该数据集为公开数据同步副本（部分文件自述权威性 DeltaForceDataEditorPublishedDataSynchronizedCopy），非腾讯官方 API。所有数值在使用前须经覆盖层或实测核验，详见 overrides 与核验状态字段。",
   "dataset_version": "20260911-044903.3",
-  "dataset_version_hash": "7ab8cefa098d10ac",
+  "dataset_version_hash": "df62541f3c6966e1",
   "schema_version": 3,
   "calculator_contracts": {
    "tuning": 1,
@@ -15,8 +15,8 @@
    "combatSimulation": 4,
    "selection": 1
   },
-  "manifest_sha256": "c1abf6e45eab5dd4411ab979239dabe946e569e26ff66b5b6633f3a4ba005c93",
-  "synced_at": "2026-09-26T06:33:59.182639+00:00"
+  "manifest_sha256": "e128b2c4cc9921d8135f0b2ef777fbab352679ef8138466d73f020a29a31ab7f",
+  "synced_at": "2026-09-27T07:02:11.984089+00:00"
  },
  "upstream_hashes": {
   "catalog/ammo.json": "121341ded4b05627e844fe17438226e1fe523b7143a9789b69c51891e68a465d",
@@ -26,12 +26,12 @@
   "rankings/firefight/index.json": "e9c9fdf9f2f29b9ac0ba366275a81f221401f061a0896861b4d9ae21d33b3702"
  },
  "outputs": {
-  "weapons.json": "254afe3a2e2608c9966b5401d8af1a906af21b54037c5fccfa7314e101eb509d",
+  "weapons.json": "cb6f36c2988f1143d3ebdcdbe39797a3c7623114727c9a94ba3b2e6ff327b5d8",
   "ammo.json": "53e2f0a90b4fcec568fdddc69af7dbe11156c27abc190e0178c8cc098b30a93f",
   "armor.json": "79e3e82f2edb0d4dd20f73de8459b4582145d2a421abd908c32086c24ccde2f2",
   "parts.json": "5ef2706c038cb3217db8614971bcacbb1153ae1a267c496e3c85d3b03cbd675e",
-  "profiles.json": "563a81c1684dd9b03de02da529eb9150f99fb259a876854a681f5fa6815a9048",
-  "mechanism.json": "dd5de5feb3503336742028d3a8a94b8e2fa5c63f7c8111fa4df1851c536c853a",
+  "profiles.json": "7464b9854f0606036b6c104cae7d170dc899214a253d8353b11fd5d5a87bfd4a",
+  "mechanism.json": "235aa8ce3cba1d4cf42dacc4377f9ece5577eb9fc4992bb4ded074122cd88fa2",
   "scenarios.json": "d68211156a89f19184b32e7b54e48a2d04e9c3b22cc2a58ea63e433c521f1d18",
   "validation_samples.json": "2cef2c99fc53713961b819f2d24daf784770c1fdaab62f3aa8ae65be2258c3da",
   "stat_labels.json": "7289b9fdfc347375ceb52a00eeb0cb2893d40f2b79fbc3caf3b688fd08c1ed48"
@@ -41,9 +41,9 @@
   "ammo": 114,
   "ammo_with_combat_profile": 85,
   "parts": 824,
-  "profiles": 564,
+  "profiles": 737,
   "armor_levels": 6,
-  "mechanism_curves": 68,
+  "mechanism_curves": 102,
   "validation_scenarios": 3
  },
  "integrity": {
