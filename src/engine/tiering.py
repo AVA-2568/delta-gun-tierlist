@@ -14,9 +14,10 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Mapping, Optional, Sequence
 
+from src.engine.engagement import BAND_NAMES
+
 TIER_QUANTILES: tuple = (0.15, 0.40, 0.70)
 TIER_NAMES: tuple = ("T0", "T1", "T2", "T3")
-BAND_NAMES: tuple = ("贴脸", "近距", "中距", "远距")
 
 #: 起枪备弹数：裸枪 + N 发所配弹药的预估口径（2026-09-22 与需求方确认）
 SPARE_AMMO_ROUNDS = 180

@@ -8,7 +8,8 @@ from __future__ import annotations
 
 from typing import Any, Dict, List, Mapping, Optional, Sequence
 
-BAND_ORDER = ("贴脸", "近距", "中距", "远距")
+from src.engine.engagement import BAND_NAMES as BAND_ORDER
+
 TIER_ORDER = ("T0", "T1", "T2", "T3")
 
 # --------------------------------------------------------------------------- #

@@ -166,6 +166,9 @@ DISTANCE_BANDS: Dict[str, tuple] = {
     "远距": (50.0, 80.0),
 }
 
+#: 距离带顺序（唯一真源；tiering 与 renderers 均从此处引用）
+BAND_NAMES: tuple = tuple(DISTANCE_BANDS)
+
 
 def band_summary(curve: Sequence[TtkResult]) -> Dict[str, Dict[str, float]]:
     """按距离带聚合：带内 TTK（毫秒）与带内平均期望击杀发数。
