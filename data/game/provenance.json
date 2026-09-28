@@ -26,15 +26,15 @@
   "rankings/firefight/index.json": "e9c9fdf9f2f29b9ac0ba366275a81f221401f061a0896861b4d9ae21d33b3702"
  },
  "outputs": {
-  "weapons.json": "61dbd012ef23562103187f60f532289fddbcc4e236404a3c11c4f43f56a55782",
-  "ammo.json": "42139f38297b164173c79cb03010a10e16eeb13a65e97604e720a43c67fc8e01",
-  "armor.json": "1c7d1f70244bb76616cca9adeb6d6dcdb00b845711f291a3349d3c01a9e59411",
-  "parts.json": "480dff1ef1017bcda28e1487dd8f0ff236864a89b1a75cb706e7b3f1973efbac",
-  "profiles.json": "6aa56eba8eccd88f32b4fefa86c389acc3a159c68df60724a45ff44bbc5589d6",
-  "mechanism.json": "c8e22c4f67011776b5f4999b914856e478637cfcc6137f8a31b71ddbfb9015d8",
-  "scenarios.json": "12b3d68e39edd6585d89d0764bafa8ab876e89d12270526a0fdca2476f4727fa",
-  "validation_samples.json": "90e4224fef44780026ff7ba7dc0c3568b7035805e95d5442a2ce0404d163dfc5",
-  "stat_labels.json": "697fe58429bb2bbbc79f1ee2ea0eb486a7ee7ccdfa4b65fd2df51b44fc52342f"
+  "weapons.json": "254afe3a2e2608c9966b5401d8af1a906af21b54037c5fccfa7314e101eb509d",
+  "ammo.json": "0083717e222fa1b31cb679b6c11f9cfb22ee091e1c0bf42df7c62c477f6024b0",
+  "armor.json": "79e3e82f2edb0d4dd20f73de8459b4582145d2a421abd908c32086c24ccde2f2",
+  "parts.json": "5ef2706c038cb3217db8614971bcacbb1153ae1a267c496e3c85d3b03cbd675e",
+  "profiles.json": "563a81c1684dd9b03de02da529eb9150f99fb259a876854a681f5fa6815a9048",
+  "mechanism.json": "dd5de5feb3503336742028d3a8a94b8e2fa5c63f7c8111fa4df1851c536c853a",
+  "scenarios.json": "d68211156a89f19184b32e7b54e48a2d04e9c3b22cc2a58ea63e433c521f1d18",
+  "validation_samples.json": "994cd91aa78be21c1fa5a966b2cab4de9a552cbb8b0c4a035579f9d950279ae0",
+  "stat_labels.json": "7289b9fdfc347375ceb52a00eeb0cb2893d40f2b79fbc3caf3b688fd08c1ed48"
  },
  "counts": {
   "weapons": 61,
@@ -104,7 +104,7 @@
      "delta": 0.020004383682795
     }
    ],
-   "conclusion": "残余 765 点全部位于 center/default 混合命中情景(chest-only 0 点超差),|Δ|≤0.02449,方向一致(官方 E 略高=官方略弱)。白盒对拍确认属上游侧伪差:用官方 rankings/firefight/dynamic 文件自声明的 weaponDamageResult.damageModel 参数(伤害/部位倍率/衰减段/穿甲修正)直接驱动本引擎 DP,765 点中 698 点与本地值逐位一致而官方 candidateMetrics 仍偏离(含全部 3 个 >1e-2 点);其余 67 点官方 dynamic 声明缺 ammo.perPart 而本地值与 candidateMetrics 吻合至 ≤1.1e-6,即官方 dynamic 声明与 candidateMetrics 互相矛盾,本地模型与 candidateMetrics 对齐。结构性偏差(本地反解缺口 R1-R4)已全部归零,该残余对 TTK 榜单排序无影响。（白盒对拍：官方参数重算与本地逐位一致而官方 E 偏离 765 点，其中官方 dynamic 未声明 perPart 698 点、声明了 perPart 67 点；未归类 0 点）"
+   "conclusion": "残余 765 点全部位于 center/default 混合命中情景(chest-only 0 点超差),|Δ|≤0.02449,方向一致(官方 E 略高=官方略弱)。白盒对拍确认属上游侧伪差:用官方 rankings/firefight/dynamic 文件自声明的 weaponDamageResult.damageModel 参数(伤害/部位倍率/衰减段/穿甲修正)直接驱动本引擎 DP,765 点中 698 点与本地值逐位一致而官方 candidateMetrics 仍偏离(含全部 3 个 >1e-2 点);其余 67 点官方 dynamic 声明了 ammo.perPart,其中仅 42/67 点本地值与 candidateMetrics 吻合至 ≤1.1e-6,即官方 dynamic 声明与 candidateMetrics 互相矛盾,本地模型与 candidateMetrics 对齐。结构性偏差(本地反解缺口 R1-R4)已全部归零,该残余对 TTK 榜单排序无影响。（白盒对拍：官方参数重算与本地逐位一致而官方 E 偏离 765 点，其中官方 dynamic 未声明 perPart 698 点、声明了 perPart 67 点；未归类 0 点）"
   }
  }
 }

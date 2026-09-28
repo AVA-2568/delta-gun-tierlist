@@ -144,8 +144,9 @@ def test_provenance_has_no_integrity_conflicts():
 def test_provenance_output_hashes_match():
     """provenance.outputs 哈希回归：按 _write_json 同款规范化口径重算 SHA256。
 
-    口径：json.dumps(payload, ensure_ascii=False, indent=1, sort_keys=False) +
-    尾部 "\\n"（见 src/collectors/game_data_sync.py 的 _write_json）。
+    口径：json.dumps(payload, ensure_ascii=False, indent=1, sort_keys=False)，
+    不带尾部换行；尾换行仅在 _write_json 写文件时追加（见
+    src/collectors/game_data_sync.py 的 _write_json）。
     任一 data/game 产出文件被改动即 fail。
     """
     import hashlib
@@ -156,7 +157,7 @@ def test_provenance_output_hashes_match():
     for name in sorted(outputs):
         expected = outputs[name]
         payload = _load(name)
-        text = json.dumps(payload, ensure_ascii=False, indent=1, sort_keys=False) + "\n"
+        text = json.dumps(payload, ensure_ascii=False, indent=1, sort_keys=False)
         actual = hashlib.sha256(text.encode("utf-8")).hexdigest()
         assert actual == expected, (
             f"{name} 哈希不匹配（内容被改动或规范化口径漂移？）："

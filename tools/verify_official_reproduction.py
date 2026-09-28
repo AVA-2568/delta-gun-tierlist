@@ -496,6 +496,7 @@ def record_residual(
 def refresh_output_hashes(
     provenance_path: str,
     data_dir: str = os.path.join(ROOT, "data", "game"),
+    confirm: bool = False,
 ) -> None:
     """按 ``_write_json`` 同款规范化口径重算并重钉 ``provenance.outputs`` 哈希。
 
@@ -503,8 +504,11 @@ def refresh_output_hashes(
     ``provenance.json`` 的 ``outputs`` 逐文件 SHA256 重钉为当前内容——
     ``tests/test_data_integrity.py::test_provenance_output_hashes_match`` 以此为
     回归基线。CLI：``python tools/verify_official_reproduction.py
-    --refresh-output-hashes``。禁止用它掩盖未审查的数据改动（改动应先经
+    --refresh-output-hashes [--confirm]``。禁止用它掩盖未审查的数据改动（改动应先经
     全量复现验证与本测试套件确认）。
+
+    护栏：不带 ``--confirm`` 时只打印将修改的文件与原因并拒绝写入——
+    重钉会改写回归基线，口径或内容有误时会把错误固化（曾因此误钉）。
     """
     import hashlib
 
@@ -513,24 +517,31 @@ def refresh_output_hashes(
     outputs = provenance.get("outputs")
     if not isinstance(outputs, dict) or not outputs:
         raise SystemExit(f"{provenance_path} 缺少 outputs 哈希记录，无从重钉")
-    changed = 0
+    pending: list = []
     for name in sorted(outputs):
         path = os.path.join(data_dir, name)
         with open(path, encoding="utf-8") as fh:
             payload = json.load(fh)
-        text = json.dumps(payload, ensure_ascii=False, indent=1, sort_keys=False) + "\n"
+        text = json.dumps(payload, ensure_ascii=False, indent=1, sort_keys=False)
         digest = hashlib.sha256(text.encode("utf-8")).hexdigest()
         if digest != outputs[name]:
-            print(f"  {name}: {outputs[name][:12]}… → {digest[:12]}…")
+            pending.append((name, outputs[name], digest))
             outputs[name] = digest
-            changed += 1
-    if not changed:
+    if not pending:
         print("  全部 outputs 哈希已与当前文件一致，无需重钉")
         return
+    if not confirm:
+        print("  拒绝重钉：缺少 --confirm。本次将修改：")
+        for name, old, new in pending:
+            print(f"    {provenance_path} :: {name}  {old[:12]}… → {new[:12]}…")
+        print("  原因：重钉会改写 provenance.outputs 回归基线；若口径或内容有误，")
+        print("  会把错误基线固化并掩盖未审查的数据改动。确认数据文件已经")
+        print("  全量复现验证与测试套件审查后，加 --confirm 重跑。")
+        raise SystemExit(2)
     with open(provenance_path, "w", encoding="utf-8", newline="\n") as fh:
         json.dump(provenance, fh, ensure_ascii=False, indent=1, sort_keys=False)
         fh.write("\n")
-    print(f"  已重钉 {changed}/{len(outputs)} 个哈希 → {provenance_path}")
+    print(f"  已重钉 {len(pending)}/{len(outputs)} 个哈希 → {provenance_path}")
 
 
 def main() -> int:
