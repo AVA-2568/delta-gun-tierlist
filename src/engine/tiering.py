@@ -91,10 +91,6 @@ class GunRanking:
     #: 本状态在整数采样距离（每 10 m）下的 TTK（毫秒）
     ttk_by_distance_ms: Dict[str, float] = field(default_factory=dict)
 
-    @property
-    def has_variant(self) -> bool:
-        return bool(self.is_variant)
-
 
 #: 参与「配装效果摘要」的状态属性：key → (展示名, 小数位, 单位)
 EFFECT_SPECS: tuple = (

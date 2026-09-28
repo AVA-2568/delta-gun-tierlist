@@ -180,11 +180,6 @@ class DamageContext:
         return table
 
     # ------------------------------------------------------------------ #
-    def shot_damage(self, part: str, helmet_hits: int, armor_hits: int) -> float:
-        """给定部位与当前护甲命中次数，返回该发的实际血量伤害（查预计算表）。"""
-        return self._table[(part, helmet_hits, armor_hits)]
-
-    # ------------------------------------------------------------------ #
     def expected_kill_shots(self, health: float = PLAYER_HEALTH) -> float:
         """期望击杀发数 ``E[N] = Σ_{n≥0} P(N > n)``（精确 DP，与官方逐位一致）。
 
@@ -221,11 +216,6 @@ class DamageContext:
             alive -= died
             steps += 1
         return total
-
-
-def expected_kill_shots(ctx: DamageContext) -> float:
-    """便捷函数：见 :meth:`DamageContext.expected_kill_shots`。"""
-    return ctx.expected_kill_shots()
 
 
 def build_context_from_state(

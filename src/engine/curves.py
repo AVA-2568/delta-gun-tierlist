@@ -58,15 +58,6 @@ class Curve:
     def input_range(self) -> Tuple[float, float]:
         return self.points[0][0], self.points[-1][0]
 
-    @property
-    def output_range(self) -> Tuple[float, float]:
-        values = [p[1] for p in self.points]
-        return min(values), max(values)
-
-    def is_identity(self) -> bool:
-        """判断曲线是否为恒等映射（输出恒等于输入）。"""
-        return all(abs(p[0] - p[1]) < 1e-9 for p in self.points)
-
     # ------------------------------------------------------------------ #
     def evaluate(self, x: float) -> float:
         """求值，区间外取端点。"""
@@ -88,17 +79,6 @@ class Curve:
                 span = x1 - x0
                 return y0 + (y1 - y0) * (x - x0) / span
         return self.points[-1][1]
-
-    def sample(self, start: float, stop: float, step: float) -> List[Tuple[float, float]]:
-        """按步长采样，用于表格化导出。"""
-        if step <= 0:
-            raise ValueError("step 必须为正数")
-        samples: List[Tuple[float, float]] = []
-        count = int(round((stop - start) / step))
-        for index in range(count + 1):
-            x = start + index * step
-            samples.append((round(x, 6), self.evaluate(x)))
-        return samples
 
     def __repr__(self) -> str:  # pragma: no cover - 调试辅助
         return f"Curve(points={len(self.points)}, range={self.input_range})"
@@ -124,12 +104,6 @@ class CurveLibrary:
         self._raw: Dict[str, Any] = dict(raw or {})
         self._cache: Dict[str, Curve] = {}
 
-    def __contains__(self, curve_id: str) -> bool:
-        return curve_id in self._raw
-
-    def ids(self) -> List[str]:
-        return sorted(self._raw.keys())
-
     def get(self, curve_id: str) -> Curve:
         cached = self._cache.get(curve_id)
         if cached is not None:
@@ -141,14 +115,6 @@ class CurveLibrary:
         curve = Curve(points)
         self._cache[curve_id] = curve
         return curve
-
-    def maybe(self, curve_id: Optional[str]) -> Optional[Curve]:
-        if not curve_id or curve_id not in self._raw:
-            return None
-        return self.get(curve_id)
-
-    def as_dict(self) -> Dict[str, Any]:
-        return dict(self._raw)
 
 
 def apply_modifier(base: float, modifier: Optional[str], value: Optional[float]) -> float:

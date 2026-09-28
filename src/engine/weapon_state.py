@@ -66,12 +66,8 @@ _DISPLAY_TARGET_PREFIX = "DisplayAttrValues."
 # --------------------------------------------------------------------------- #
 RT_ADSTime = "GAiming_ADSTime"
 RT_SPRINT_TO_FIRE = "GSprintToFireTime"
-RT_ADS_MOVE_SPEED = "GMovement_ADSSpeed"
-RT_SILENT_WALK = "GMovement_SilentWalkSpeed"
 RT_VELOCITY = "GBullet_Velocity"
 RT_RANGE = "GBullet_Range"
-RT_RANGE_ONLY = "GBullet_OnlyRange"
-RT_SPEED_ONLY = "GRange_OnlySpeed"
 RT_ADS_SPREAD = "GSpread_ADS"
 RT_HIP_SPREAD = "GSpread_Hip"
 RT_HIP_SPREAD_CONTINUOUS = "GSpread_Hip_Continuous"
@@ -80,7 +76,6 @@ RT_RECOIL_V = "GRecoil_V"
 RT_RECOIL_HIP_H = "GRecoil_Hip"
 RT_RATE_OF_FIRE = "GRateOfFire"
 RT_FIRE_INTERVAL = "FireInterval"
-RT_FIRE_CD = "FireCD"
 RT_RECOIL_H_SHAKE = "GRecoil_HShake"
 RT_RECOIL_V_SHAKE = "GRecoil_VShake"
 RT_GUNKICK_SPRING = "GGunkickSpring"
@@ -88,17 +83,6 @@ RT_GUNKICK_RANDOM = "GGunkickRandom"
 RT_MAG_CAPACITY = "GMagCapacity"
 RT_CLIP_TIME = "ChangeClipTime"
 RT_CLIP_TIME_EMPTY = "ChangeClipTimewhenEmpty"
-
-#: 效果里对规则目标的别名 → 归一到规则目标。
-#:
-#: 此处刻意**不**把 ``GRange_OnlySpeed`` / ``GBullet_OnlyRange`` 归一到初速/射程：
-#: 这两个目标与面板 attr2（优势射程）表达的是同一件事，而上游配件习惯同时声明两者。
-#: 实测 ``MCX LT猎手枪管`` 同时带 ``MainAttrValues.2 Mult_A 0.3`` 与
-#: ``GRange_OnlySpeed Mult_A 0.3``，官方候选初速为 **585 = 450 × 1.3**（只算一次）；
-#: 若叠加则为 760.5（错）。反过来 ``AR加百列长枪管组合`` 只有面板 attr2 增量、
-#: 没有显式修饰符，官方初速 747.5 = 575 × 1.3，说明**面板 attr2 的相对变化才是权威**。
-#: 因此这两类显式修饰符仅登记在 ``scales`` 中供审计，不参与取值。
-TARGET_ALIASES: Dict[str, str] = {}
 
 #: ``Initial`` 引用型效果的目标 → profile 槽位
 PROFILE_SLOT_TARGETS: Dict[str, str] = {
@@ -207,16 +191,15 @@ def _accumulate(layer: ModifierLayer, target: Optional[str], modifier: Optional[
             layer.hitbox_overrides[hitbox] = value
             return
 
-    rule_target = TARGET_ALIASES.get(target, target)
     factor = _factor(modifier, value)
     if factor is not None:
-        layer.scales[rule_target] = layer.scales.get(rule_target, 1.0) * factor
+        layer.scales[target] = layer.scales.get(target, 1.0) * factor
         return
     if modifier == "Addend" and value is not None:
-        layer.addends[rule_target] = layer.addends.get(rule_target, 0.0) + value
+        layer.addends[target] = layer.addends.get(target, 0.0) + value
         return
     if modifier == "Initial" and value is not None:
-        layer.overrides[rule_target] = value
+        layer.overrides[target] = value
 
 
 def _apply_attribute_effects(panel: Dict[str, float], part: Mapping[str, Any]) -> None:
@@ -355,30 +338,8 @@ class WeaponState:
                 break
         return rate
 
-    def damage_at(self, distance_m: float) -> float:
-        """距离衰减后的单发基础伤害（未计弹药与护甲）。"""
-        return self.base_damage * self.projectile_count * self.falloff_rate(distance_m)
-
-    def armor_damage_at(self, distance_m: float) -> float:
-        return self.base_armor_damage * self.projectile_count * self.falloff_rate(distance_m)
-
     def ads_milliseconds(self) -> float:
         return self.ads_seconds * 1000.0
-
-    def shots_per_second(self) -> float:
-        return 1.0 / self.fire_interval_seconds if self.fire_interval_seconds > 0 else 0.0
-
-    def describe_panel(self) -> str:
-        chunks = []
-        for index in PANEL_ATTR_INDEXES:
-            base = self.base_panel.get(index, 0.0)
-            current = self.panel.get(index, 0.0)
-            label = PANEL_ATTR_NAMES[index]
-            if abs(current - base) > 1e-9:
-                chunks.append(f"{label}={base:.0f}→{current:.0f}")
-            else:
-                chunks.append(f"{label}={current:.0f}")
-        return " ".join(chunks)
 
 
 # --------------------------------------------------------------------------- #
@@ -625,7 +586,7 @@ class WeaponStateResolver:
         # 3. ``GRateOfFire`` 作用于节拍：``Mult_A +0.25`` → 间隔 ×1.25，
         #    ASh-12 战斧 / HVK双发 均为 500 → 400 rpm。
         # 4. ``FireInterval`` / ``FireCD`` 与节拍量同源，属冗余声明，**不叠加**
-        #    （与 ``GRange_OnlySpeed`` 同类，理由见 ``TARGET_ALIASES`` 注释）。
+        #    （与 ``GRange_OnlySpeed`` / ``GBullet_OnlyRange`` 同类，均仅登记在 ``scales`` 中供审计）。
         sdk = weapon.get("sdk_timing") or {}
         burst_count = int(sdk.get("burst_count") or 0)
         burst_cadence = (
@@ -811,16 +772,3 @@ class WeaponStateResolver:
                             for segment in segments
                         ]
                     state.falloff_segments = segments
-
-
-def resolve_weapon_state(
-    game_data: Any,
-    profile_key: str,
-    loadout: Optional[Mapping[str, Any]] = None,
-    tuning: Optional[Mapping[str, Mapping[str, float]]] = None,
-    mode: str = DEFAULT_MODE,
-) -> WeaponState:
-    """便捷入口。"""
-    return WeaponStateResolver(game_data, mode=mode).resolve(
-        profile_key, loadout=loadout, tuning=tuning
-    )

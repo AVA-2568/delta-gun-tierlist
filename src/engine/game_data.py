@@ -59,10 +59,6 @@ class GameData:
         return payload
 
     # ------------------------------------------------------------------ #
-    @property
-    def dataset_version(self) -> Optional[str]:
-        return (self.provenance.get("source") or {}).get("dataset_version")
-
     def get_weapon(self, profile_key: str) -> Dict[str, Any]:
         try:
             return self.weapon_by_profile_key[profile_key]
@@ -82,12 +78,6 @@ class GameData:
             return None
         return self.profiles.get(str(profile_id))
 
-    def require_profile(self, profile_id: Optional[str]) -> Dict[str, Any]:
-        profile = self.get_profile(profile_id)
-        if profile is None:
-            raise KeyError(f"未收录的 profile：{profile_id}")
-        return profile
-
     def get_ammo(self, ammo_item_id: str) -> Dict[str, Any]:
         try:
             return self.ammo_by_id[str(ammo_item_id)]
@@ -106,19 +96,8 @@ class GameData:
         candidates.sort(key=lambda a: (-a["penetration_level"], a["ammo_item_id"]))
         return candidates[0]
 
-    def ammo_levels(self, weapon: Dict[str, Any]) -> List[int]:
-        return sorted({a["penetration_level"] for a in self.ammo_for_weapon(weapon)})
-
     def defense(self, level: int) -> Optional[Dict[str, Any]]:
         return (self.armor.get("levels") or {}).get(str(level))
-
-    @lru_cache(maxsize=None)
-    def scenario_ids(self) -> List[str]:  # pragma: no cover - 便捷方法
-        return [s["scenario_id"] for s in self.scenarios_raw.get("scenarios", [])]
-
-    @property
-    def distance_range(self) -> Dict[str, int]:
-        return self.scenarios_raw.get("distance_range", {"min": 0, "max": 80, "step": 1, "default_min": 15, "default_max": 40})
 
 
 def load_game_data(data_dir: str = DEFAULT_DATA_DIR) -> GameData:

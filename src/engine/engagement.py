@@ -59,20 +59,6 @@ class TtkResult:
     def ttk_milliseconds(self) -> float:
         return self.ttk_seconds * 1000.0
 
-    def as_dict(self) -> Dict[str, float]:
-        return {
-            "distance_m": self.distance_m,
-            "ttk_ms": round(self.ttk_milliseconds, 2),
-            "expected_shots": round(self.expected_shots, 4),
-            "fire_interval_ms": round(self.fire_interval_seconds * 1000.0, 3),
-            "ads_ms_reference": round(self.ads_seconds * 1000.0, 2),
-            "flight_ms_reference": round(self.flight_seconds * 1000.0, 2),
-            "rpm": round(self.rpm, 1),
-            "falloff": round(self.falloff, 4),
-            "effective_range_m": round(self.effective_range_m, 2),
-            "muzzle_velocity_mps": round(self.muzzle_velocity_mps, 2),
-        }
-
 
 # --------------------------------------------------------------------------- #
 # 情景
