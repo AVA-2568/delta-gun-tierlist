@@ -3,8 +3,8 @@
   "name": "dfttk-v3",
   "base_url": "https://dfttk.com/data/v3/",
   "note": "该数据集为公开数据同步副本（部分文件自述权威性 DeltaForceDataEditorPublishedDataSynchronizedCopy），非腾讯官方 API。所有数值在使用前须经覆盖层或实测核验，详见 overrides 与核验状态字段。",
-  "dataset_version": "20260911-044903.3",
-  "dataset_version_hash": "df62541f3c6966e1",
+  "dataset_version": "20260927-060257.3",
+  "dataset_version_hash": "9a74c0d17553f961",
   "schema_version": 3,
   "calculator_contracts": {
    "tuning": 1,
@@ -15,26 +15,26 @@
    "combatSimulation": 4,
    "selection": 1
   },
-  "manifest_sha256": "e128b2c4cc9921d8135f0b2ef777fbab352679ef8138466d73f020a29a31ab7f",
-  "synced_at": "2026-09-27T07:02:11.984089+00:00"
+  "manifest_sha256": "b21dc3e0cafb8f72b2fbab4d0e50658b0591e598d802c5b335196e33118bd705",
+  "synced_at": "2026-09-28T07:30:13.577148+00:00"
  },
  "upstream_hashes": {
   "catalog/ammo.json": "121341ded4b05627e844fe17438226e1fe523b7143a9789b69c51891e68a465d",
   "combat/defense/armors.json": "c00b592e63ae30e8b63794f016dcbfce39a09627a650acd717780b6fc04e5853",
   "combat/defense/helmets.json": "32787164b720fa0e9c03465dc08dfc5c149135596265f81a1ca976429681acdf",
-  "combat/defense/ammo-interactions.json": "0f7cccc1c2f94c464a196ff72d9e6b906580688577c3e6ac50a416664cea46af",
-  "rankings/firefight/index.json": "e9c9fdf9f2f29b9ac0ba366275a81f221401f061a0896861b4d9ae21d33b3702"
+  "combat/defense/ammo-interactions.json": "1860cc4ab29b268c9768d1f6051a24163380c80cb9a02c9e9687b30fe5a78c49",
+  "rankings/firefight/index.json": "5c96d36d16fd0db5a25d405ae86a2e0811a193edc88603ae1b0260e8b7bb4624"
  },
  "outputs": {
   "weapons.json": "cb6f36c2988f1143d3ebdcdbe39797a3c7623114727c9a94ba3b2e6ff327b5d8",
   "ammo.json": "53e2f0a90b4fcec568fdddc69af7dbe11156c27abc190e0178c8cc098b30a93f",
   "armor.json": "79e3e82f2edb0d4dd20f73de8459b4582145d2a421abd908c32086c24ccde2f2",
-  "parts.json": "5ef2706c038cb3217db8614971bcacbb1153ae1a267c496e3c85d3b03cbd675e",
+  "parts.json": "126df43e471250f405ab37af573b8bc6076c489be587bb20a1a04caf73f54861",
   "profiles.json": "7464b9854f0606036b6c104cae7d170dc899214a253d8353b11fd5d5a87bfd4a",
   "mechanism.json": "235aa8ce3cba1d4cf42dacc4377f9ece5577eb9fc4992bb4ded074122cd88fa2",
   "scenarios.json": "d68211156a89f19184b32e7b54e48a2d04e9c3b22cc2a58ea63e433c521f1d18",
   "validation_samples.json": "2cef2c99fc53713961b819f2d24daf784770c1fdaab62f3aa8ae65be2258c3da",
-  "stat_labels.json": "7289b9fdfc347375ceb52a00eeb0cb2893d40f2b79fbc3caf3b688fd08c1ed48"
+  "stat_labels.json": "b82e20787c6840907a3f8ae3cc18bd0784fd0873e7c92dbccccf5dc0999980e0"
  },
  "counts": {
   "weapons": 61,
