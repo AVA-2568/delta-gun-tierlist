@@ -256,6 +256,10 @@ def normalize_ammo(
             "wound_rate": float(combat.get("woundRate") or 0.0),
             "throw_blocking_damage_rate": float(combat.get("throwBlockingDamageRate") or 1.0),
             "penetrate_ammo_level_decrease": int(combat.get("penetrateAmmoLevelDecrease") or 0),
+            # per-part 倍率（hitbox 键 → 倍率）：仅部分弹药在 combat 包声明
+            # （如 37260400002 下胸/四肢 0.72、37260000002 头/胸 0.54），
+            # 引擎 DamageContext 的 per_part 通道按此结算部位伤害。
+            "per_part": {str(k): float(v) for k, v in (combat.get("hitboxMultipliers") or {}).items()},
             "profile_source": "combat-pack" if combat else "catalog-only",
             "penetration_matrix": matrix,
             "source_legacy_ammo_id": raw.get("sourceLegacyAmmoId"),

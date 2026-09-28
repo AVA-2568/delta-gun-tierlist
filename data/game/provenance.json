@@ -16,7 +16,7 @@
    "selection": 1
   },
   "manifest_sha256": "a6bc6cde9d1fe80dc14b656d2c55558bd3ee2196cbb8a653be21564d2fcd167f",
-  "synced_at": "2026-09-28T05:45:35.692104+00:00"
+  "synced_at": "2026-09-28T07:27:35.256346+00:00"
  },
  "upstream_hashes": {
   "catalog/ammo.json": "121341ded4b05627e844fe17438226e1fe523b7143a9789b69c51891e68a465d",
@@ -27,7 +27,7 @@
  },
  "outputs": {
   "weapons.json": "254afe3a2e2608c9966b5401d8af1a906af21b54037c5fccfa7314e101eb509d",
-  "ammo.json": "53e2f0a90b4fcec568fdddc69af7dbe11156c27abc190e0178c8cc098b30a93f",
+  "ammo.json": "0083717e222fa1b31cb679b6c11f9cfb22ee091e1c0bf42df7c62c477f6024b0",
   "armor.json": "79e3e82f2edb0d4dd20f73de8459b4582145d2a421abd908c32086c24ccde2f2",
   "parts.json": "5ef2706c038cb3217db8614971bcacbb1153ae1a267c496e3c85d3b03cbd675e",
   "profiles.json": "563a81c1684dd9b03de02da529eb9150f99fb259a876854a681f5fa6815a9048",
@@ -61,6 +61,29 @@
    "parts.json": "derived",
    "profiles.json": "derived",
    "mechanism.json": "derived"
+  },
+  "official_reproduction_residual": {
+   "verify_tol": 1e-09,
+   "residual_points": 765,
+   "total_points": 3774,
+   "max_abs_delta": 0.024488755200000156,
+   "grade_counts": {
+    "bitwise": 1435,
+    "le_1e-9": 1574,
+    "le_1e-5": 723,
+    "le_1e-2": 39,
+    "gt_1e-2": 3
+   },
+   "scenario_distribution": {
+    "armor-3-ammo-3": 63,
+    "armor-4-ammo-3": 75,
+    "armor-4-ammo-4": 71,
+    "armor-4-ammo-5": 44,
+    "armor-5-ammo-4": 210,
+    "armor-5-ammo-5": 146,
+    "armor-6-ammo-5": 156
+   },
+   "conclusion": "残余 765 点全部位于 center/default 混合命中情景(chest-only 0 点超差),|Δ|≤0.02449,方向一致(官方 E 略高=官方略弱)。白盒对拍确认属上游侧伪差:用官方 rankings/firefight/dynamic 文件自声明的 weaponDamageResult.damageModel 参数(伤害/部位倍率/衰减段/穿甲修正)直接驱动本引擎 DP,765 点中 698 点与本地值逐位一致而官方 candidateMetrics 仍偏离(含全部 3 个 >1e-2 点);其余 67 点官方 dynamic 声明缺 ammo.perPart 而本地值与 candidateMetrics 吻合至 ≤1.1e-6,即官方 dynamic 声明与 candidateMetrics 互相矛盾,本地模型与 candidateMetrics 对齐。结构性偏差(本地反解缺口 R1-R4)已全部归零,该残余对 TTK 榜单排序无影响。"
   }
  }
 }

@@ -13,6 +13,7 @@
    "wound_rate": 0.25,
    "throw_blocking_damage_rate": 0.8,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -80,6 +81,7 @@
    "wound_rate": 0.2,
    "throw_blocking_damage_rate": 0.9,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -147,6 +149,7 @@
    "wound_rate": 0.15,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -214,6 +217,7 @@
    "wound_rate": 0.1,
    "throw_blocking_damage_rate": 1.1,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -281,6 +285,7 @@
    "wound_rate": 0.1,
    "throw_blocking_damage_rate": 1.1,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -348,6 +353,7 @@
    "wound_rate": 0.1,
    "throw_blocking_damage_rate": 1.2,
    "penetrate_ammo_level_decrease": 1,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -415,6 +421,7 @@
    "wound_rate": 0.1,
    "throw_blocking_damage_rate": 1.2,
    "penetrate_ammo_level_decrease": 1,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -482,6 +489,7 @@
    "wound_rate": 0.25,
    "throw_blocking_damage_rate": 0.8,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -549,6 +557,7 @@
    "wound_rate": 0.2,
    "throw_blocking_damage_rate": 0.9,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -616,6 +625,7 @@
    "wound_rate": 0.15,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -683,6 +693,7 @@
    "wound_rate": 0.1,
    "throw_blocking_damage_rate": 1.1,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -750,6 +761,7 @@
    "wound_rate": 0.1,
    "throw_blocking_damage_rate": 1.1,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -817,6 +829,7 @@
    "wound_rate": 0.1,
    "throw_blocking_damage_rate": 1.2,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -884,6 +897,7 @@
    "wound_rate": 0.15,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -951,6 +965,7 @@
    "wound_rate": 0.25,
    "throw_blocking_damage_rate": 0.8,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -1018,6 +1033,7 @@
    "wound_rate": 0.2,
    "throw_blocking_damage_rate": 0.9,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -1085,6 +1101,7 @@
    "wound_rate": 0.15,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -1152,6 +1169,7 @@
    "wound_rate": 0.1,
    "throw_blocking_damage_rate": 1.1,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -1219,6 +1237,7 @@
    "wound_rate": 0.1,
    "throw_blocking_damage_rate": 1.2,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -1286,6 +1305,15 @@
    "wound_rate": 0.1,
    "throw_blocking_damage_rate": 1.1,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {
+    "lowerArm": 0.875,
+    "upperArm": 0.875,
+    "head": 1.158,
+    "lowerLeg": 0.875,
+    "thigh": 0.875,
+    "lowerChest": 1.0,
+    "upperChest": 1.0
+   },
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -1353,6 +1381,7 @@
    "wound_rate": 0.1,
    "throw_blocking_damage_rate": 1.2,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -1420,6 +1449,15 @@
    "wound_rate": 0.1,
    "throw_blocking_damage_rate": 1.2,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {
+    "lowerArm": 0.875,
+    "upperArm": 0.875,
+    "head": 1.158,
+    "lowerLeg": 0.875,
+    "thigh": 0.875,
+    "lowerChest": 1.105,
+    "upperChest": 1.0
+   },
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -1487,6 +1525,7 @@
    "wound_rate": 0.2,
    "throw_blocking_damage_rate": 0.9,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -1554,6 +1593,7 @@
    "wound_rate": 0.15,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -1621,6 +1661,7 @@
    "wound_rate": 0.1,
    "throw_blocking_damage_rate": 1.1,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -1688,6 +1729,7 @@
    "wound_rate": 0.1,
    "throw_blocking_damage_rate": 1.1,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -1755,6 +1797,7 @@
    "wound_rate": 0.1,
    "throw_blocking_damage_rate": 1.2,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -1822,6 +1865,7 @@
    "wound_rate": 0.15,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -1889,6 +1933,7 @@
    "wound_rate": 0.15,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -1956,6 +2001,7 @@
    "wound_rate": 0.15,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -2023,6 +2069,7 @@
    "wound_rate": 0.15,
    "throw_blocking_damage_rate": 1.1,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -2090,6 +2137,7 @@
    "wound_rate": 0.15,
    "throw_blocking_damage_rate": 1.1,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -2157,6 +2205,7 @@
    "wound_rate": 0.1,
    "throw_blocking_damage_rate": 1.2,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -2224,6 +2273,7 @@
    "wound_rate": 0.1,
    "throw_blocking_damage_rate": 1.1,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -2291,6 +2341,7 @@
    "wound_rate": 0.1,
    "throw_blocking_damage_rate": 1.1,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -2358,6 +2409,7 @@
    "wound_rate": 0.1,
    "throw_blocking_damage_rate": 1.1,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -2425,6 +2477,7 @@
    "wound_rate": 0.1,
    "throw_blocking_damage_rate": 1.2,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -2492,6 +2545,7 @@
    "wound_rate": 0.1,
    "throw_blocking_damage_rate": 1.2,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -2559,6 +2613,7 @@
    "wound_rate": 0.1,
    "throw_blocking_damage_rate": 1.6,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -2626,6 +2681,7 @@
    "wound_rate": 0.15,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -2693,6 +2749,7 @@
    "wound_rate": 0.1,
    "throw_blocking_damage_rate": 1.1,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -2760,6 +2817,7 @@
    "wound_rate": 0.3,
    "throw_blocking_damage_rate": 1.1,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -2827,6 +2885,7 @@
    "wound_rate": 0.1,
    "throw_blocking_damage_rate": 1.2,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -2894,6 +2953,7 @@
    "wound_rate": 0.2,
    "throw_blocking_damage_rate": 0.9,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -2961,6 +3021,7 @@
    "wound_rate": 0.15,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -3028,6 +3089,7 @@
    "wound_rate": 0.1,
    "throw_blocking_damage_rate": 1.1,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -3095,6 +3157,7 @@
    "wound_rate": 0.1,
    "throw_blocking_damage_rate": 1.2,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -3162,6 +3225,7 @@
    "wound_rate": 0.1,
    "throw_blocking_damage_rate": 2.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -3229,6 +3293,7 @@
    "wound_rate": 0.1,
    "throw_blocking_damage_rate": 1.6,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -3296,6 +3361,7 @@
    "wound_rate": 0.15,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -3363,6 +3429,7 @@
    "wound_rate": 0.1,
    "throw_blocking_damage_rate": 1.1,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -3430,6 +3497,7 @@
    "wound_rate": 0.1,
    "throw_blocking_damage_rate": 1.2,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -3497,6 +3565,7 @@
    "wound_rate": 0.1,
    "throw_blocking_damage_rate": 1.6,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -3564,6 +3633,7 @@
    "wound_rate": 0.3,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -3631,6 +3701,15 @@
    "wound_rate": 0.3,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {
+    "lowerArm": 1.6,
+    "upperArm": 1.6,
+    "head": 1.0,
+    "lowerLeg": 1.6,
+    "thigh": 1.6,
+    "lowerChest": 1.0,
+    "upperChest": 1.0
+   },
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -3698,6 +3777,7 @@
    "wound_rate": 0.25,
    "throw_blocking_damage_rate": 0.8,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -3765,6 +3845,7 @@
    "wound_rate": 0.2,
    "throw_blocking_damage_rate": 0.9,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -3832,6 +3913,7 @@
    "wound_rate": 0.15,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -3899,6 +3981,7 @@
    "wound_rate": 0.15,
    "throw_blocking_damage_rate": 1.1,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -3966,6 +4049,7 @@
    "wound_rate": 0.15,
    "throw_blocking_damage_rate": 1.2,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -4033,6 +4117,7 @@
    "wound_rate": 0.3,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -4100,6 +4185,15 @@
    "wound_rate": 0.3,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {
+    "lowerArm": 1.75,
+    "upperArm": 1.75,
+    "head": 1.0,
+    "lowerLeg": 1.75,
+    "thigh": 1.75,
+    "lowerChest": 1.0,
+    "upperChest": 1.0
+   },
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -4167,6 +4261,7 @@
    "wound_rate": 0.25,
    "throw_blocking_damage_rate": 0.8,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -4234,6 +4329,7 @@
    "wound_rate": 0.2,
    "throw_blocking_damage_rate": 0.9,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -4301,6 +4397,7 @@
    "wound_rate": 0.15,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -4368,6 +4465,7 @@
    "wound_rate": 0.15,
    "throw_blocking_damage_rate": 1.1,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -4435,6 +4533,7 @@
    "wound_rate": 0.3,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -4502,6 +4601,7 @@
    "wound_rate": 0.25,
    "throw_blocking_damage_rate": 0.8,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -4569,6 +4669,7 @@
    "wound_rate": 0.2,
    "throw_blocking_damage_rate": 0.9,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -4636,6 +4737,7 @@
    "wound_rate": 0.15,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -4703,6 +4805,7 @@
    "wound_rate": 0.15,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -4770,6 +4873,7 @@
    "wound_rate": 0.15,
    "throw_blocking_damage_rate": 1.1,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -4837,6 +4941,7 @@
    "wound_rate": 0.15,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -4904,6 +5009,7 @@
    "wound_rate": 0.1,
    "throw_blocking_damage_rate": 1.2,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -4971,6 +5077,7 @@
    "wound_rate": 0.0,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "catalog-only",
    "penetration_matrix": {
     "0": {
@@ -5038,6 +5145,7 @@
    "wound_rate": 0.0,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "catalog-only",
    "penetration_matrix": {
     "0": {
@@ -5105,6 +5213,7 @@
    "wound_rate": 0.0,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "catalog-only",
    "penetration_matrix": {
     "0": {
@@ -5172,6 +5281,7 @@
    "wound_rate": 0.0,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "catalog-only",
    "penetration_matrix": {
     "0": {
@@ -5239,6 +5349,7 @@
    "wound_rate": 0.0,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "catalog-only",
    "penetration_matrix": {
     "0": {
@@ -5306,6 +5417,7 @@
    "wound_rate": 0.0,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "catalog-only",
    "penetration_matrix": {
     "0": {
@@ -5373,6 +5485,7 @@
    "wound_rate": 0.0,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "catalog-only",
    "penetration_matrix": {
     "0": {
@@ -5440,6 +5553,7 @@
    "wound_rate": 0.0,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "catalog-only",
    "penetration_matrix": {
     "0": {
@@ -5507,6 +5621,7 @@
    "wound_rate": 0.0,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "catalog-only",
    "penetration_matrix": {
     "0": {
@@ -5574,6 +5689,7 @@
    "wound_rate": 0.0,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "catalog-only",
    "penetration_matrix": {
     "0": {
@@ -5641,6 +5757,7 @@
    "wound_rate": 0.0,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "catalog-only",
    "penetration_matrix": {
     "0": {
@@ -5708,6 +5825,7 @@
    "wound_rate": 0.0,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "catalog-only",
    "penetration_matrix": {
     "0": {
@@ -5775,6 +5893,7 @@
    "wound_rate": 0.0,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "catalog-only",
    "penetration_matrix": {
     "0": {
@@ -5842,6 +5961,7 @@
    "wound_rate": 0.0,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "catalog-only",
    "penetration_matrix": {
     "0": {
@@ -5909,6 +6029,7 @@
    "wound_rate": 0.0,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "catalog-only",
    "penetration_matrix": {
     "0": {
@@ -5976,6 +6097,7 @@
    "wound_rate": 0.0,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "catalog-only",
    "penetration_matrix": {
     "0": {
@@ -6043,6 +6165,7 @@
    "wound_rate": 0.0,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "catalog-only",
    "penetration_matrix": {
     "0": {
@@ -6110,6 +6233,7 @@
    "wound_rate": 0.0,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "catalog-only",
    "penetration_matrix": {
     "0": {
@@ -6177,6 +6301,7 @@
    "wound_rate": 0.0,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "catalog-only",
    "penetration_matrix": {
     "0": {
@@ -6244,6 +6369,15 @@
    "wound_rate": 0.3,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {
+    "lowerArm": 1.0,
+    "upperArm": 1.0,
+    "head": 0.54,
+    "lowerLeg": 1.0,
+    "thigh": 1.0,
+    "lowerChest": 0.54,
+    "upperChest": 0.54
+   },
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -6311,6 +6445,7 @@
    "wound_rate": 0.15,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -6378,6 +6513,7 @@
    "wound_rate": 0.1,
    "throw_blocking_damage_rate": 1.1,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -6445,6 +6581,15 @@
    "wound_rate": 0.0,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {
+    "lowerArm": 0.72,
+    "upperArm": 0.72,
+    "head": 1.0,
+    "lowerLeg": 0.72,
+    "thigh": 0.72,
+    "lowerChest": 0.72,
+    "upperChest": 1.0
+   },
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -6512,6 +6657,7 @@
    "wound_rate": 0.1,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -6579,6 +6725,15 @@
    "wound_rate": 0.0,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {
+    "lowerArm": 0.72,
+    "upperArm": 0.72,
+    "head": 1.0,
+    "lowerLeg": 0.72,
+    "thigh": 0.72,
+    "lowerChest": 0.72,
+    "upperChest": 1.0
+   },
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -6646,6 +6801,7 @@
    "wound_rate": 0.0,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "catalog-only",
    "penetration_matrix": {
     "0": {
@@ -6713,6 +6869,7 @@
    "wound_rate": 0.0,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "catalog-only",
    "penetration_matrix": {
     "0": {
@@ -6780,6 +6937,7 @@
    "wound_rate": 0.0,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "catalog-only",
    "penetration_matrix": {
     "0": {
@@ -6847,6 +7005,7 @@
    "wound_rate": 0.0,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "catalog-only",
    "penetration_matrix": {
     "0": {
@@ -6914,6 +7073,7 @@
    "wound_rate": 0.15,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -6981,6 +7141,7 @@
    "wound_rate": 0.15,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -7048,6 +7209,7 @@
    "wound_rate": 0.1,
    "throw_blocking_damage_rate": 1.1,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -7115,6 +7277,7 @@
    "wound_rate": 0.15,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -7182,6 +7345,7 @@
    "wound_rate": 0.1,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "combat-pack",
    "penetration_matrix": {
     "0": {
@@ -7249,6 +7413,7 @@
    "wound_rate": 0.0,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "catalog-only",
    "penetration_matrix": {
     "0": {
@@ -7316,6 +7481,7 @@
    "wound_rate": 0.0,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "catalog-only",
    "penetration_matrix": {
     "0": {
@@ -7383,6 +7549,7 @@
    "wound_rate": 0.0,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "catalog-only",
    "penetration_matrix": {
     "0": {
@@ -7450,6 +7617,7 @@
    "wound_rate": 0.0,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "catalog-only",
    "penetration_matrix": {
     "0": {
@@ -7517,6 +7685,7 @@
    "wound_rate": 0.0,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "catalog-only",
    "penetration_matrix": {
     "0": {
@@ -7584,6 +7753,7 @@
    "wound_rate": 0.0,
    "throw_blocking_damage_rate": 1.0,
    "penetrate_ammo_level_decrease": 0,
+   "per_part": {},
    "profile_source": "catalog-only",
    "penetration_matrix": {
     "0": {
