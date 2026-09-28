@@ -44,9 +44,9 @@
 ## 关键文件 (Key Resources)
 
 - [README.md](README.md)：主榜（官方默认情景 5套5弹·实战概率 × 4 距离带）
-- [docs/tierlist/](docs/tierlist/)：各情景完整榜单（Markdown）
-- [docs/gunsmith-guide.md](docs/gunsmith-guide.md)：改枪指南（开镜时间 ↔ 操控换算、精校维度总览）
-- [data/tierlist/](data/tierlist/)：机器可读榜单 JSON（含层级阈值与最优配装）
+- [docs/榜单/](docs/榜单/)：各情景完整榜单（Markdown）
+- [docs/改枪指南.md](docs/改枪指南.md)：改枪指南（开镜时间 ↔ 操控换算、精校维度总览）
+- [data/榜单/](data/榜单/)：机器可读榜单 JSON（含层级阈值与最优配装）
 - [data/game/provenance.json](data/game/provenance.json)：数据来源、哈希与核验状态
 
 ## 工程结构 (Architecture)
