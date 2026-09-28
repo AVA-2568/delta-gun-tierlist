@@ -73,3 +73,66 @@
 ## 审计可复跑性
 
 本地 543 点 E[N] 全量 + 291 候选射击间隔复核,标准库实现,~2 分钟可复跑(临时脚本,未入库)。3774 全量在补齐上游 18 情景文件后即可复跑。
+
+---
+
+# 附录 · 修复结果(2026-09-28 验收通过)
+
+> 修复阶段计划:`docs/superpowers/plans/2026-09-28-ttk-official-mechanism-fix.md`(8 任务,起点 d8a0351),本附录为端到端验收(Task 8)结论。
+
+## A1 · 修复前后数字对照(基线 vs 收敛)
+
+官方 `candidateMetrics` 全量复现(21 情景 / 1338 候选 / 3774 样本点,`tools/verify_official_reproduction.py`):
+
+| 分级 | 修复前(基线) | 修复后(收敛) |
+| :-- | --: | --: |
+| 逐位一致 | 1316 | **1435** |
+| \|Δ\|≤1e-9 | 1343 | **1574** |
+| \|Δ\|≤1e-5 | 573 | **723** |
+| \|Δ\|≤1e-2 | 33 | **39** |
+| \|Δ\|>1e-2 | **509** | **3**(最差 0.024488755 发 @AUG armor-4-ammo-4-center @0m) |
+
+- 结构性超差点 509 → 3,最差绝对偏差 7.83962 → 0.02449 发(收敛 320 倍)。
+- 残余 765 个非逐位点(≤0.025 发)经白盒对拍证明为**官方上游侧伪差**:698 点官方 dynamic damageModel 用其自声明参数独立重算与官方样本自相矛盾,67 点官方数据缺失 perPart 部位倍率;已记录于 `data/game/provenance.json` 的 `integrity.official_reproduction_residual`。
+- 射击间隔:291 个官方候选取整后与官方整数 rpm **291/291 全对**(取整口径,官方仅发布整数 rpm)。
+- 数据同步扩容:验证样本由 543 点扩为官方 index 全量 21 情景 / 3774 点(dataset_version 20260911-044903.3)。
+
+## A2 · 根因结论(Task 3)
+
+81 点脱节的表面现象下,全量复现暴露出 4 个引擎缺陷(R1–R4),修复于 Task 4:
+
+| # | 根因 | 修复 |
+| :-- | :-- | :-- |
+| R1 | 弹药级 per-part 部位倍率未收录(B=4 缺口) | `fix(sync)`: 1a6c12a |
+| R2 | 挂载自带弹道档案的配件时,衰减段未整体替换(5 变体错挂 base 段 + MP7 一变体记录缺失) | `fix(engine)`: 4034903 |
+| R3 | normalize_weapon 变体分支伤害档案换装未生效 | 经 R4 修复后确认为假象,无需代码改动 |
+| R4 | verify 工具 parse_candidate 不切逗号,候选解析错位 | `fix(tools)`: 52112a8 |
+
+试修验证:fail 1115 → 765,>1e-2 由 509 → 3。残余 765 点全在 center/default 混合情景(chest-only 0 超差),方向一致(官方略弱),已排除 DP round/cap/截断/float32/参数扰动,判为 A 类(上游 DP 数值伪差)。
+
+## A3 · 榜单排名变化摘要(Task 6)
+
+全量重算 26 个榜单文件(TTK 计算恰 8 条变化:P90 / P90-长弓 / MK4 / MK4-深空 / MK47×3 / AS-Val-刺客):
+
+- 主榜四带 Top5 不变(仅层级阈值微调)。
+- 护甲5/弹药4-近距:第 5 位 M250 → AS-Val。
+- 冲锋枪远距双向分化:P90 远距大幅前进(70m TTK 741.7 → 520.6 ms);MK4 系微退 1–2 位,MK4-深空镀铬远距 510 → 658 ms 显著后退。
+- 溯源说明:候选总数 ranked_entry_count 192 → 191,系 MK4 一组合在收敛后落出候选(数据修正的正常结果),非统计缺失。
+
+## A4 · 验证基础设施现状(Task 5)
+
+- `tools/verify_official_reproduction.py` 正式化:`--official-param-audit` 白盒对拍模式(698/67/0 分类)、`--refresh-output-hashes --confirm` 护栏。
+- 回归测试固化(`0aab5c9`):官方样本全量复现分级断言(逐位数 + 全部 ≤1e-2 + 残余记录校验)+ provenance outputs 哈希回归;pytest 156 passed。
+- provenance 哈希口径:`json.dumps(..., indent=1)` 无尾换行,与 `_write_json` 一致。
+- 遗留:CI(update.yml)刷新榜单后仍未自动重跑全量 E[N] 复现验证(见 B 节)。
+
+## A5 · P1 文档口径统一(Task 7)
+
+README / llms.txt / ballistics.py / engagement.py 四处可信度声明统一为全量实测口径(3774 点五档分布 + 白盒残余结论 + 291 取整口径),grep 无旧口径残留,零代码行为变更。
+
+## B · 遗留与后续建议
+
+1. **CI 全量回归缺口**(P2 遗留):update.yml 刷新榜单后仍不重跑 `tools/verify_official_reproduction.py` 全量复现与分级断言,数据与验证声明仍可能静默脱节;建议在 CI 中加入该步骤并以 >1e-2 点数与残余记录一致性为报警阈值。
+2. **engagement.py 术语微歧义**:「残余偏差点」与 765 点专指存在术语重叠,建议后续统一为「残余非逐位点」;纯措辞,无行为影响。
+3. **provenance 残余记录重跑顺序**:重跑同步器后需手动重跑 `--record-residual-conclusion` 更新结论;建议在同步器输出中加提示注释。
+4. **README 渲染幂等事件**:Task 7 曾直接手改 README.md,与渲染模板(`src/pipeline` 的 ttk_report 输出口径)漂移,Task 8 render-only 幂等检查捕获该漂移。经核实渲染模板输出口径与本次验证数字逐字一致且与 provenance residual 一致,已接受渲染产物恢复幂等。教训:**README/榜单文档均为管线渲染产物,口径修改应改渲染模板而非手改产物**;`--render-only` + `git diff --exit-code` 幂等检查应作为文档口径变更的固定验收步骤。
