@@ -168,6 +168,26 @@ def _hitbox_key(target: str) -> Optional[str]:
     return stem[0].lower() + stem[1:]
 
 
+def _falloff_from_bullet_profile(profile: Mapping[str, Any]) -> List[Dict[str, float]]:
+    """把弹道 profile 的衰减声明还原为 ``falloff_segments``（schema 同官方摘要）。
+
+    ``attenuation_distances_cm`` 为各速率段**终点**（厘米）：``[0, valid)``
+    固定 1.0，``rate[i]`` 施加于 ``[dist[i-1], dist[i])``。与 catalog
+    ``damageFalloffSegments`` 的派生关系已用 MK4/M4A1 base 全量比对确认。
+    """
+    valid = float(profile.get("valid_distance_cm") or 0.0) / 100.0
+    distances = [float(x) / 100.0 for x in profile.get("attenuation_distances_cm") or []]
+    rates = [float(x) for x in profile.get("attenuation_rates") or []]
+    if valid <= 0.0 or not distances or len(distances) != len(rates):
+        return []
+    segments: List[Dict[str, float]] = [{"from_m": 0.0, "to_m": valid, "rate": 1.0}]
+    previous = valid
+    for distance, rate in zip(distances, rates):
+        segments.append({"from_m": previous, "to_m": distance, "rate": rate})
+        previous = distance
+    return segments
+
+
 def _accumulate(layer: ModifierLayer, target: Optional[str], modifier: Optional[str],
                 value: Optional[float], value_ref: Optional[str]) -> None:
     """把一条效果累加进修饰层（面板属性与 UI 镜像除外，由调用方处理）。"""
@@ -768,6 +788,29 @@ class WeaponStateResolver:
                 valid = float(state.bullet_profile.get("valid_distance_cm") or 0.0) / 100.0
                 if valid > 0.0:
                     state.effective_range_m = valid * state.attr2_ratio
+            # 挂载带自有弹道档案的配件时，官方**整体替换**衰减段（而非在 base 段上叠加）：
+            # ``attenuationDistancesCm`` 是各速率段的**终点**——``rate[i]`` 施加于
+            # ``[dist[i-1], dist[i])`` 区间，``[0, valid)`` 固定 1.0，末段延伸到最大射程。
+            # 换档后的边界与非换档路径一致，**随面板 attr2 的相对变化等比缩放**
+            # （M4A1 动态文件锚点：40/70/1000 → 52/91/1300 = ×1.3）。
+            # 锚点：MK4 + 深空镀铬枪管 chest-only @26/36/46 → 官方 9/11/13，
+            #       恰为 [25,35)/[35,45)/[45,∞) 段的 0.85/0.65/0.55（该件 attr2 无变化）。
+            swapped_bullet_id = state.profile_refs.get("bullet")
+            base_bullet_id = (weapon.get("references") or {}).get("bullet_profile_id")
+            if swapped_bullet_id and swapped_bullet_id != base_bullet_id:
+                segments = _falloff_from_bullet_profile(state.bullet_profile)
+                if segments:
+                    ratio = state.attr2_ratio
+                    if abs(ratio - 1.0) > 1e-12:
+                        segments = [
+                            {
+                                "from_m": segment["from_m"] * ratio,
+                                "to_m": segment["to_m"] * ratio,
+                                "rate": segment["rate"],
+                            }
+                            for segment in segments
+                        ]
+                    state.falloff_segments = segments
 
 
 def resolve_weapon_state(
