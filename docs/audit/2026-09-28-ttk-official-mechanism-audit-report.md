@@ -128,11 +128,11 @@
 
 ## A5 · P1 文档口径统一(Task 7)
 
-README / llms.txt / ballistics.py / engagement.py 四处可信度声明统一为全量实测口径(3774 点五档分布 + 白盒残余结论 + 291 取整口径),grep 无旧口径残留,零代码行为变更。
+Task 7 统一了 llms.txt / ballistics.py / engagement.py 三处及当时**手改的** README 为全量实测口径(3774 点五档分布 + 白盒残余结论 + 291 取整口径),但渲染模板 `src/renderers/ttk_report.py` 未同步——后续 render-only 幂等检查将 README 还原为模板旧口径,导致 README 暂时回退到「零偏差」表述。最终审查发现后以模板修复(`src/renderers/ttk_report.py` 方法学段,`E[N]` 行改为从 `provenance.integrity.official_reproduction_residual` 动态读取五档分布)完成 README 统一,grep 无旧口径残留,零代码行为变更。
 
 ## B · 遗留与后续建议
 
-1. **CI 全量回归缺口**(P2 遗留):update.yml 刷新榜单后仍不重跑 `tools/verify_official_reproduction.py` 全量复现与分级断言,数据与验证声明仍可能静默脱节;建议在 CI 中加入该步骤并以 >1e-2 点数与残余记录一致性为报警阈值。
+1. **CI 全量回归缺口**(P2 遗留):update.yml 刷新榜单后仍不重跑 `tools/verify_official_reproduction.py` 全量复现与分级断言,数据与验证声明仍可能静默脱节;建议在 CI 中加入该步骤并以 >1e-2 点数与残余记录一致性为报警阈值。push/PR 触发的 CI test job 已含全量复现回归(156 tests),未自动重跑的缺口仅限每日 refresh job 路径。
 2. **engagement.py 术语微歧义**:「残余偏差点」与 765 点专指存在术语重叠,建议后续统一为「残余非逐位点」;纯措辞,无行为影响。
 3. **provenance 残余记录重跑顺序**:重跑同步器后需手动重跑 `--record-residual-conclusion` 更新结论;建议在同步器输出中加提示注释。
-4. **README 渲染幂等事件**:Task 7 曾直接手改 README.md,与渲染模板(`src/pipeline` 的 ttk_report 输出口径)漂移,Task 8 render-only 幂等检查捕获该漂移。经核实渲染模板输出口径与本次验证数字逐字一致且与 provenance residual 一致,已接受渲染产物恢复幂等。教训:**README/榜单文档均为管线渲染产物,口径修改应改渲染模板而非手改产物**;`--render-only` + `git diff --exit-code` 幂等检查应作为文档口径变更的固定验收步骤。
+4. **README 渲染幂等事件**:Task 7 曾直接手改 README.md,与渲染模板(`src/pipeline` 的 ttk_report 输出口径)漂移,Task 8 render-only 幂等检查捕获该漂移。当时核实后误判渲染模板输出已是新口径并接受了渲染产物;最终审查独立核实渲染模板 ttk_report.py 零改动(仍是旧「零偏差」文案),render-only 只是把 README 还原为模板旧口径。已以模板修复(`src/renderers/ttk_report.py` 方法学段动态读取 provenance 五档分布)真正完成统一,渲染产物恢复幂等。教训:**README/榜单文档均为管线渲染产物,口径修改应改渲染模板而非手改产物**;`--render-only` + `git diff --exit-code` 幂等检查应作为文档口径变更的固定验收步骤,且幂等检查通过后仍需独立核对模板内容与目标口径一致。
