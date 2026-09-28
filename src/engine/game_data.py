@@ -7,7 +7,6 @@ from __future__ import annotations
 
 import json
 import os
-from functools import lru_cache
 from typing import Any, Dict, List, Optional
 
 from src.engine.curves import CurveLibrary

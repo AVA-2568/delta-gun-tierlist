@@ -52,19 +52,6 @@ logger = logging.getLogger(__name__)
 
 SOURCE_NAME = "dfttk-v3"
 
-# 官方部件类别 ID → 中文槽位名
-SLOT_ZH: Dict[str, str] = {
-    "barrel": "枪管",
-    "muzzle": "枪口",
-    "foregrip": "前握把",
-    "rearGrip": "后握把",
-    "stock": "枪托",
-    "handguard": "护木",
-    "magazine": "弹匣",
-    "scope": "瞄具",
-    "functional": "功能件",
-}
-
 DEFAULT_CACHE_DIR = os.path.join(".cache", "dfttk")
 DEFAULT_OUTPUT_DIR = os.path.join("data", "game")
 

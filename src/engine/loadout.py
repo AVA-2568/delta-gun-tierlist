@@ -280,7 +280,8 @@ class LoadoutSolver:
             return cached
 
         beam: List[Dict[str, str]] = [{}]
-        beam_scores: List[float] = [_score({}, self._mounted(profile_key, {}))]
+        # 预打分空配装以播种 score_cache：首轮「不装任何件」分支会复用这一结果。
+        _score({}, self._mounted(profile_key, {}))
 
         for spec in specs:
             expanded: Dict[Tuple[Tuple[str, str], ...], Tuple[Dict[str, str], float]] = {}
@@ -304,6 +305,5 @@ class LoadoutSolver:
                     expanded[key] = (trial, _score(trial, actual))
             ranked = sorted(expanded.values(), key=lambda pair: pair[1])[:beam_width]
             beam = [loadout for loadout, _ in ranked]
-            beam_scores = [score for _, score in ranked]
         return beam
 
