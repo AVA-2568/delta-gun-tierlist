@@ -18,6 +18,7 @@ from dataclasses import dataclass, field
 from typing import Any, Dict, Iterable, List, Mapping, Optional, Sequence, Tuple
 
 from src.engine import engagement as eg
+from src.engine.weapon_state import WeaponStateResolver, build_loadout
 
 # --------------------------------------------------------------------------- #
 # 影响 TTK 的规则目标
@@ -219,8 +220,6 @@ class LoadoutSolver:
     """在官方插槽规则下束搜索实战 TTK 最优的候选配装。"""
 
     def __init__(self, game_data: Any, scenario_id: str, resolver: Any = None):
-        from src.engine.weapon_state import WeaponStateResolver
-
         self.gd = game_data
         self.scenario_id = scenario_id
         self.scenario = eg.resolve_scenario(game_data, scenario_id)
@@ -237,7 +236,7 @@ class LoadoutSolver:
 
     def _mounted(self, profile_key: str, loadout: Mapping[str, str]) -> Dict[str, str]:
         weapon = self.gd.get_weapon(profile_key)
-        mounted, _ = self.resolver._build_loadout(weapon, loadout)
+        mounted, _ = build_loadout(weapon, loadout)
         return mounted
 
     def _band_score(
@@ -246,8 +245,11 @@ class LoadoutSolver:
         loadout: Mapping[str, str],
         tuning: Optional[Mapping[str, Mapping[str, float]]],
         distances: Sequence[float],
+        mounted: Optional[Mapping[str, str]] = None,
     ) -> float:
-        state = self.resolver.resolve(profile_key, loadout=loadout, tuning=tuning)
+        state = self.resolver.resolve(
+            profile_key, loadout=loadout, tuning=tuning, _precomputed_mounted=mounted
+        )
         ammo = self.ammo_for(profile_key)
         total = 0.0
         for d in distances:
@@ -285,7 +287,11 @@ class LoadoutSolver:
                     key = tuple(sorted(actual.items()))
                     if key in expanded:
                         continue
-                    expanded[key] = (trial, self._band_score(profile_key, trial, None, distances))
+                    # actual 已是该 trial 的合成结果，直接透传给 resolve，避免重跑耦合求解
+                    expanded[key] = (
+                        trial,
+                        self._band_score(profile_key, trial, None, distances, mounted=actual),
+                    )
             ranked = sorted(expanded.values(), key=lambda pair: pair[1])[:beam_width]
             beam = [loadout for loadout, _ in ranked]
             beam_scores = [score for _, score in ranked]

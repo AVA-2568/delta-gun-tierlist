@@ -84,3 +84,60 @@ def test_ttk_is_shots_times_interval_only(gd):
     assert at0.ads_seconds > 0
     assert at80.flight_seconds > 0
     assert at0.ttk_seconds < at0.ttk_seconds + at0.ads_seconds
+
+
+def test_build_loadout_is_pure_and_deterministic(gd):
+    """build_loadout 是模块级纯函数：同输入必得同输出，且不依赖 resolver 实例。"""
+    from src.engine.weapon_state import build_loadout
+
+    weapon = gd.get_weapon("18010000001:base")
+    first = build_loadout(weapon, {})
+    second = build_loadout(weapon, {})
+    assert first == second, "同一输入两次调用结果不一致，说明函数不纯"
+
+
+def test_build_loadout_only_returns_legal_items(gd):
+    """返回的每个配件都必须落在该槽位的合法选项内（含官方默认件）。"""
+    from src.engine.loadout import build_socket_specs
+    from src.engine.weapon_state import build_loadout
+
+    weapon = gd.get_weapon("18010000001:base")
+    mounted, _ = build_loadout(weapon, {})
+    assert mounted, "默认配装不应为空"
+
+    legal = {}
+    # 官方根插槽（build_socket_specs 只保留影响 TTK 的插槽，弹匣等会被剪掉，
+    # 故必须直接取原始 sockets 才能覆盖 coupling 强制件的槽位）
+    for socket in weapon.get("sockets") or []:
+        legal.setdefault(str(socket["socket_id"]), set()).update(
+            str(o) for o in (socket.get("options") or [])
+        )
+    for spec in build_socket_specs(gd, weapon):
+        legal.setdefault(str(spec.socket_id), set()).update(str(o) for o in spec.options)
+    for sockets in (weapon.get("provider_sockets") or {}).values():
+        for spec in sockets:
+            legal.setdefault(str(spec["socket_id"]), set()).update(
+                str(o) for o in (spec.get("options") or [])
+            )
+    defaults = {str(v) for v in (weapon.get("default_items") or {}).values()}
+
+    for socket_id, item in mounted.items():
+        assert item in legal.get(str(socket_id), set()) | defaults, f"槽{socket_id} 配件 {item} 非法"
+
+
+def test_build_loadout_agrees_with_resolver(gd):
+    """build_loadout 的结果必须与 resolver.resolve 内部合成的一致。
+
+    这是 Task 11「结果透传」正确性的核心护栏：若两者不一致，
+    复用预计算结果就会改变 TTK。
+    """
+    from src.engine.weapon_state import WeaponStateResolver, build_loadout
+
+    weapon = gd.get_weapon("18010000001:base")
+    mounted, _ = build_loadout(weapon, {})
+    resolver = WeaponStateResolver(gd)
+    state = resolver.resolve("18010000001:base", loadout={}, tuning=None, _precomputed_mounted=mounted)
+    assert state is not None
+    # 透传路径必须与 resolver 内部自行合成的结果逐位一致，否则 TTK 会静默改变
+    internal = WeaponStateResolver(gd).resolve("18010000001:base", loadout={}, tuning=None)
+    assert mounted == internal.loadout

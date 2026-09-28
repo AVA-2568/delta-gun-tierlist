@@ -339,6 +339,86 @@ class WeaponState:
 
 
 # --------------------------------------------------------------------------- #
+# 配装合成
+# --------------------------------------------------------------------------- #
+def build_loadout(
+    weapon: Mapping[str, Any], requested: Mapping[str, str]
+) -> Tuple[Dict[str, str], List[str]]:
+    """按官方插槽规则与强制联动合成配装。
+
+    返回 ``(实际装配的 item_id 映射, notes)``。纯函数：不读实例状态。
+
+    ⚠ 内部的 ``guard`` / ``claimed`` / ``conflicts`` 仲裁（``while changed`` 循环）
+    处理真实数据中的多规则争槽（如 QJB201 rule4/rule11），**不得简化或删除**。
+
+    顺序：官方默认件 → 变体强制自带件 → 调用方显式配装 → 官方 ``coupling`` 强制联动。
+    变体（``is_variant``）必须挂载 ``variant_item_id``，因为归一化后的变体档案与基线
+    共用 ``panel_attributes``/``rpm`` 等字段，变异完全由该配件承载。
+    """
+    notes: List[str] = []
+    mounted: Dict[str, str] = {
+        str(k): str(v) for k, v in (weapon.get("default_items") or {}).items()
+    }
+
+    variant_item = weapon.get("variant_item_id")
+    if weapon.get("is_variant") and variant_item:
+        socket_id = WeaponStateResolver._socket_for_item(weapon, str(variant_item))
+        if socket_id is None:
+            notes.append(f"变体件 {variant_item} 未能定位槽位")
+        else:
+            mounted[socket_id] = str(variant_item)
+
+    # 官方候选配装是「差异集」，需要叠加在默认配装之上而非整体替换
+    for socket_id, item_id in (requested or {}).items():
+        key = str(socket_id)
+        if item_id in (None, "", 0):
+            mounted.pop(key, None)
+        else:
+            mounted[key] = str(item_id)
+
+    # coupling：condition 命中则强制把 mounted_item_id 装入 target_socket_id
+    #
+    # 必须做**槽位归属仲裁**：官方数据里存在多条 ``forced`` 规则争抢同一槽位的情况
+    # （例：QJB201 的 rule4 与 rule11 都要写 slot4，条件分别是 13020000517 与 13120000380，
+    # 而前者就在默认配装里）。若无仲裁，两条规则会互相覆盖，``while changed`` 永不收敛。
+    # 语义取「先到者胜」：某槽位被首条规则占用后，其余规则不得改写，并记入 notes。
+    changed = True
+    mounted_items = set(mounted.values())
+    claimed: Dict[str, str] = {}
+    conflicts: List[str] = []
+    guard = 0
+    guard_limit = 4 * len(weapon.get("coupling") or []) + 8
+    while changed and guard < guard_limit:
+        guard += 1
+        changed = False
+        for rule in weapon.get("coupling") or []:
+            if rule.get("mount_policy") != "forced":
+                continue
+            conditions = set(rule.get("condition_item_ids") or [])
+            if conditions and not (conditions & mounted_items):
+                continue
+            target = str(rule.get("target_socket_id"))
+            item = str(rule.get("mounted_item_id"))
+            if not item:
+                continue
+            owner = claimed.get(target)
+            if owner is not None and owner != item:
+                conflicts.append(f"槽位 {target} 被规则争用：保留 {owner}，忽略 {item}")
+                continue
+            if mounted.get(target) == item:
+                claimed.setdefault(target, item)
+                continue
+            mounted[target] = item
+            mounted_items.add(item)
+            claimed[target] = item
+            changed = True
+    if conflicts:
+        notes.extend(sorted(set(conflicts)))
+
+    return mounted, notes
+
+
+# --------------------------------------------------------------------------- #
 # 解析器
 # --------------------------------------------------------------------------- #
 class WeaponStateResolver:
@@ -368,85 +448,13 @@ class WeaponStateResolver:
                     return str(entry.get("slotPath"))
         return None
 
-    def _build_loadout(
-        self,
-        weapon: Mapping[str, Any],
-        loadout: Optional[Mapping[str, Any]],
-    ) -> Tuple[Dict[str, str], List[str]]:
-        """合成最终配装。
-
-        顺序：官方默认件 → 变体强制自带件 → 调用方显式配装 → 官方 ``coupling`` 强制联动。
-        变体（``is_variant``）必须挂载 ``variant_item_id``，因为归一化后的变体档案与基线
-        共用 ``panel_attributes``/``rpm`` 等字段，变异完全由该配件承载。
-        """
-        notes: List[str] = []
-        mounted: Dict[str, str] = {
-            str(k): str(v) for k, v in (weapon.get("default_items") or {}).items()
-        }
-
-        variant_item = weapon.get("variant_item_id")
-        if weapon.get("is_variant") and variant_item:
-            socket_id = self._socket_for_item(weapon, str(variant_item))
-            if socket_id is None:
-                notes.append(f"变体件 {variant_item} 未能定位槽位")
-            else:
-                mounted[socket_id] = str(variant_item)
-
-        # 官方候选配装是「差异集」，需要叠加在默认配装之上而非整体替换
-        for socket_id, item_id in (loadout or {}).items():
-            key = str(socket_id)
-            if item_id in (None, "", 0):
-                mounted.pop(key, None)
-            else:
-                mounted[key] = str(item_id)
-
-        # coupling：condition 命中则强制把 mounted_item_id 装入 target_socket_id
-        #
-        # 必须做**槽位归属仲裁**：官方数据里存在多条 ``forced`` 规则争抢同一槽位的情况
-        # （例：QJB201 的 rule4 与 rule11 都要写 slot4，条件分别是 13020000517 与 13120000380，
-        # 而前者就在默认配装里）。若无仲裁，两条规则会互相覆盖，``while changed`` 永不收敛。
-        # 语义取「先到者胜」：某槽位被首条规则占用后，其余规则不得改写，并记入 notes。
-        changed = True
-        mounted_items = set(mounted.values())
-        claimed: Dict[str, str] = {}
-        conflicts: List[str] = []
-        guard = 0
-        guard_limit = 4 * len(weapon.get("coupling") or []) + 8
-        while changed and guard < guard_limit:
-            guard += 1
-            changed = False
-            for rule in weapon.get("coupling") or []:
-                if rule.get("mount_policy") != "forced":
-                    continue
-                conditions = set(rule.get("condition_item_ids") or [])
-                if conditions and not (conditions & mounted_items):
-                    continue
-                target = str(rule.get("target_socket_id"))
-                item = str(rule.get("mounted_item_id"))
-                if not item:
-                    continue
-                owner = claimed.get(target)
-                if owner is not None and owner != item:
-                    conflicts.append(f"槽位 {target} 被规则争用：保留 {owner}，忽略 {item}")
-                    continue
-                if mounted.get(target) == item:
-                    claimed.setdefault(target, item)
-                    continue
-                mounted[target] = item
-                mounted_items.add(item)
-                claimed[target] = item
-                changed = True
-        if conflicts:
-            notes.extend(sorted(set(conflicts)))
-
-        return mounted, notes
-
     # ---------------------------------------------------------------- #
     def resolve(
         self,
         profile_key: str,
         loadout: Optional[Mapping[str, Any]] = None,
         tuning: Optional[Mapping[str, Mapping[str, float]]] = None,
+        _precomputed_mounted: Optional[Mapping[str, str]] = None,
     ) -> WeaponState:
         """解析一把枪的实机状态。
 
@@ -454,10 +462,15 @@ class WeaponStateResolver:
             profile_key: 形如 ``18010000001:base`` 的武器档案键。
             loadout: ``{socket_id: item_id}``；``None`` 表示使用官方默认配装。
             tuning: ``{item_id: {tune_id: 读数}}``；未给出的配件使用官方默认读数。
+            _precomputed_mounted: 已由 :func:`build_loadout` 算好的配装结果。
+                仅用于内部透传以避免重复合成；``None`` 时按 ``loadout`` 现算。
         """
         weapon = self.gd.get_weapon(profile_key)
         tuning_setting = {str(k): dict(v) for k, v in (tuning or {}).items()}
-        resolved_loadout, loadout_notes = self._build_loadout(weapon, loadout)
+        if _precomputed_mounted is None:
+            resolved_loadout, loadout_notes = build_loadout(weapon, loadout or {})
+        else:
+            resolved_loadout, loadout_notes = dict(_precomputed_mounted), []
 
         state = WeaponState(
             profile_key=profile_key,
