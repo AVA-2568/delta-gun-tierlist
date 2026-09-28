@@ -1,6 +1,6 @@
 """纯 TTK 榜单与改枪指南的 Markdown 渲染层（Task #7）。
 
-渲染层**只做格式化**：所有数值直接取自引擎输出（``tiering.to_export`` 的 payload），
+渲染层**只做格式化**：所有数值直接取自引擎输出（``tierlist_export.to_export`` 的 payload），
 禁止二次计算，保证文档与 JSON 数值一致。
 """
 

@@ -15,7 +15,8 @@ from src.engine.ballistics import DamageContext
 from src.engine.engagement import TtkResult, ttk_at, ttk_curve
 from src.engine.game_data import GameData, load_game_data
 from src.engine.loadout import LoadoutSolver
-from src.engine.tiering import GunRanking, rank_weapons_for_scenario
+from src.engine.ranking import rank_weapons_for_scenario
+from src.engine.tiering import GunRanking
 from src.engine.weapon_state import WeaponState, WeaponStateResolver
 
 __all__ = [

@@ -6,13 +6,13 @@ import pytest
 
 from src.engine.ammo_pricing import AmmoPriceTable
 from src.engine.game_data import load_game_data
+from src.engine.ranking import rank_weapons_for_scenario
 from src.engine.tiering import (
     BAND_NAMES,
     SPARE_AMMO_ROUNDS,
     compute_full_price,
-    rank_weapons_for_scenario,
-    to_export,
 )
+from src.engine.tierlist_export import to_export
 from src.engine.weapon_pricing import WeaponPriceTable
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
