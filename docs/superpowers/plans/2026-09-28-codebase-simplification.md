@@ -16,6 +16,7 @@
 - **G4 阶段门禁**：每阶段独立提交；未过门禁不得进入下一阶段。
 - **G5 保留命名**：`AmmoPriceTable` / `WeaponPriceTable` / `DEFAULT_CURRENCY` / `load_ammo_prices` / `load_weapon_prices` 必须继续可从原模块导入并保持构造签名（`tests/test_kill_cost.py`、`tests/test_gun_price.py`、`src/engine/tiering.py:18,22-23` 依赖）。
 - **G6 CLI 契约**：`python -m src.pipeline`、`python -m src.collectors.game_data_sync`、`python -m src.collectors.ammo_price_sync`、`python -m src.collectors.weapon_price_sync` 必须保持可用（`.github/workflows/update.yml` 依赖）。
+- **G7 门禁命令口径**：仓库内已提交的 `README.md` / `docs/榜单/` / `data/榜单/` 由 CI 以 **`--beam-width 8`** 产出（见 `.github/workflows/update.yml:68`）。本地门禁必须使用**同一参数**：`python -m src.pipeline --beam-width 8`。用默认 beam-width（48）重算会产出不同的束搜索剪枝结果，使零点 diff 天然非空、整套门禁失去参照意义。
 
 ### 基线（2026-09-28 实测）
 
@@ -65,7 +66,7 @@
 
 ```bash
 cd "E:/WK/日常"
-"C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m src.pipeline
+"C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m src.pipeline --beam-width 8
 ```
 
 预计耗时数分钟（束搜索 beam-width 默认 48）。等待完成，记录输出的「情景 N 个 / 武器 M 把 / 写出 K 个文件」。
@@ -1054,7 +1055,7 @@ rate_of_fire_multiplier/burst_cadence_seconds 均只写不读。"
 
 ```bash
 cd "E:/WK/日常"
-"C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m src.pipeline
+"C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m src.pipeline --beam-width 8
 ```
 
 - [ ] **Step 2: 对照零点校验**
@@ -1152,7 +1153,7 @@ Expected: 全绿
 
 ```bash
 cd "E:/WK/日常"
-"C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m src.pipeline
+"C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m src.pipeline --beam-width 8
 git diff --exit-code README.md docs/ data/ && echo "CLEAN" || echo "DIRTY"
 ```
 
@@ -1344,7 +1345,7 @@ Expected: 全绿（含 Step 2 新增的 3 个 `build_loadout` 用例）
 
 ```bash
 cd "E:/WK/日常"
-"C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m src.pipeline
+"C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m src.pipeline --beam-width 8
 git diff --exit-code README.md docs/ data/ && echo "CLEAN" || echo "DIRTY"
 ```
 
@@ -1483,7 +1484,7 @@ Expected: 测试全绿；候选**数量与 Step 1 完全一致**（缓存不得�
 
 ```bash
 cd "E:/WK/日常"
-"C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m src.pipeline
+"C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m src.pipeline --beam-width 8
 git diff --exit-code README.md docs/ data/ && echo "CLEAN" || echo "DIRTY"
 ```
 
@@ -1596,7 +1597,7 @@ from src.engine.modifiers import (
 ```bash
 cd "E:/WK/日常"
 "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m pytest -q
-"C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m src.pipeline
+"C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m src.pipeline --beam-width 8
 git diff --exit-code README.md docs/ data/ && echo "CLEAN" || echo "DIRTY"
 ```
 
@@ -1765,7 +1766,7 @@ Expected: 无输出。
 ```bash
 cd "E:/WK/日常"
 "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m pytest -q
-"C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m src.pipeline
+"C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m src.pipeline --beam-width 8
 git diff --exit-code README.md docs/ data/ && echo "CLEAN" || echo "DIRTY"
 ```
 
@@ -2001,7 +2002,7 @@ from src.engine.engagement import BAND_NAMES as BAND_ORDER
 ```bash
 cd "E:/WK/日常"
 "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m pytest -q
-"C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m src.pipeline
+"C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m src.pipeline --beam-width 8
 git diff --exit-code README.md docs/ data/ && echo "CLEAN" || echo "DIRTY"
 ```
 
@@ -2112,7 +2113,7 @@ def apply_modifier(base: float, modifier: Optional[str], value: Optional[float])
 ```bash
 cd "E:/WK/日常"
 "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m pytest -q
-"C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m src.pipeline
+"C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m src.pipeline --beam-width 8
 git diff --exit-code README.md docs/ data/ && echo "CLEAN" || echo "DIRTY"
 "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" tools/verify_official_reproduction.py
 ```
@@ -2159,7 +2160,7 @@ Expected: 与阶段 0 记录的分级分布一致（逐位一致 / |Δ|≤1e-9 /
 
 ```bash
 cd "E:/WK/日常"
-"C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m src.pipeline
+"C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m src.pipeline --beam-width 8
 git diff --exit-code README.md docs/ data/ && echo "PHASE3 GATE: CLEAN" || echo "PHASE3 GATE: DIRTY"
 ```
 
