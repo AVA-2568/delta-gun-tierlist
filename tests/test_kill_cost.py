@@ -6,12 +6,12 @@ import pytest
 
 from src.engine.ammo_pricing import AmmoPriceTable
 from src.engine.game_data import load_game_data
+from src.engine.ranking import rank_weapons_for_scenario
 from src.engine.tiering import (
     BAND_NAMES,
     BandResult,
     GunRanking,
     compute_kill_cost,
-    rank_weapons_for_scenario,
 )
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -115,7 +115,7 @@ def test_ranking_without_price_table_still_works(gd):
 
 def test_to_export_emits_ammo_and_meta(gd):
     """走真实链路：先取实际弹药主键，再用含该键的价格表跑完整装配与序列化。"""
-    from src.engine.tiering import to_export
+    from src.engine.tierlist_export import to_export
 
     probe, _t0, _e0 = rank_weapons_for_scenario(
         gd, "armor-5-ammo-5-default", beam_width=8,
@@ -159,7 +159,7 @@ def test_to_export_emits_ammo_and_meta(gd):
 
 
 def test_to_export_without_price_table_marks_unavailable(gd):
-    from src.engine.tiering import to_export
+    from src.engine.tierlist_export import to_export
 
     rankings, thresholds, excluded = rank_weapons_for_scenario(
         gd, "armor-5-ammo-5-default", beam_width=8,

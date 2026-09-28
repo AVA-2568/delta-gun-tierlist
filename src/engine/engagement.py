@@ -13,8 +13,11 @@ TTK 定义（已确认口径）：
 | 换弹 | 忽略 | 官方击杀假设 ``singleMagazineNoReload``（单弹匣不换弹） |
 | 命中率修正（后坐/散布） | 忽略 | 「打得中打不中」属另一维度，见改枪指南 |
 
-因此 TTK 只由**两个官方逐位验证的量**构成——``E[N]``（3774 样本，99.92% 精确）
-与射击间隔（291 官方候选，0 偏差）——**全链路可复现、可证伪，无自主参数**。
+因此 TTK 只由**两个官方验证过的量**构成——``E[N]``（3774 个样本点全量复现官方
+``candidateMetrics``：逐位一致 1435、|Δ|≤1e-9 1574、|Δ|>1e-2 仅 3 个残余偏差点，经白盒
+对拍证明为官方上游数据自相矛盾，详见 ``data/game/provenance.json`` 的
+``integrity.official_reproduction_residual``）与射击间隔（291 个官方候选取整后与官方
+整数 rpm 全对）——**全链路可复现、可证伪，无自主参数**。
 
 推论：官方精校的全部作用目标（开镜、后坐、散布、初速、镜距/倍率）**没有一个**改变
 ``E[N]`` 或射击间隔，故**精校不影响 TTK**，全部维度交由玩家按手感自行调校。
@@ -55,20 +58,6 @@ class TtkResult:
     @property
     def ttk_milliseconds(self) -> float:
         return self.ttk_seconds * 1000.0
-
-    def as_dict(self) -> Dict[str, float]:
-        return {
-            "distance_m": self.distance_m,
-            "ttk_ms": round(self.ttk_milliseconds, 2),
-            "expected_shots": round(self.expected_shots, 4),
-            "fire_interval_ms": round(self.fire_interval_seconds * 1000.0, 3),
-            "ads_ms_reference": round(self.ads_seconds * 1000.0, 2),
-            "flight_ms_reference": round(self.flight_seconds * 1000.0, 2),
-            "rpm": round(self.rpm, 1),
-            "falloff": round(self.falloff, 4),
-            "effective_range_m": round(self.effective_range_m, 2),
-            "muzzle_velocity_mps": round(self.muzzle_velocity_mps, 2),
-        }
 
 
 # --------------------------------------------------------------------------- #
@@ -176,6 +165,9 @@ DISTANCE_BANDS: Dict[str, tuple] = {
     "中距": (30.0, 50.0),
     "远距": (50.0, 80.0),
 }
+
+#: 距离带顺序（唯一真源；tiering 与 renderers 均从此处引用）
+BAND_NAMES: tuple = tuple(DISTANCE_BANDS)
 
 
 def band_summary(curve: Sequence[TtkResult]) -> Dict[str, Dict[str, float]]:

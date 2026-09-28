@@ -11,6 +11,7 @@
 
 from __future__ import annotations
 
+import bisect
 from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
 
 LINEAR = "RCIM_Linear"
@@ -45,60 +46,43 @@ def _to_point(raw: Any) -> CurvePoint:
 class Curve:
     """不可变的效果曲线，支持线性与三次 Hermite 插值。"""
 
-    __slots__ = ("points",)
+    __slots__ = ("points", "_xs")
 
     def __init__(self, points: Iterable[Any]):
         parsed: List[CurvePoint] = sorted((_to_point(p) for p in points), key=lambda p: p[0])
         if not parsed:
             raise ValueError("曲线至少需要一个点")
         self.points: List[CurvePoint] = parsed
+        self._xs: List[float] = [p[0] for p in parsed]
 
     # ------------------------------------------------------------------ #
     @property
     def input_range(self) -> Tuple[float, float]:
         return self.points[0][0], self.points[-1][0]
 
-    @property
-    def output_range(self) -> Tuple[float, float]:
-        values = [p[1] for p in self.points]
-        return min(values), max(values)
-
-    def is_identity(self) -> bool:
-        """判断曲线是否为恒等映射（输出恒等于输入）。"""
-        return all(abs(p[0] - p[1]) < 1e-9 for p in self.points)
-
     # ------------------------------------------------------------------ #
     def evaluate(self, x: float) -> float:
         """求值，区间外取端点。"""
-        if x <= self.points[0][0]:
+        if x <= self._xs[0]:
             return self.points[0][1]
-        if x >= self.points[-1][0]:
+        if x >= self._xs[-1]:
             return self.points[-1][1]
 
-        for index in range(len(self.points) - 1):
-            x0, y0, _, _, leave = self.points[index]
-            x1, y1, _, arrive, _ = self.points[index + 1]
-            if x0 <= x <= x1:
-                if x1 - x0 <= 1e-12:
-                    return y1
-                # 使用左端点的插值模式决定该段形状
-                mode = self.points[index][2]
-                if mode == CUBIC:
-                    return _hermite(x, x0, y0, leave, x1, y1, arrive)
-                span = x1 - x0
-                return y0 + (y1 - y0) * (x - x0) / span
-        return self.points[-1][1]
+        # 取最左满足 x0 <= x <= x1 的段：x 恰为控制点 x_k 时，bisect_left 给出首个
+        # xs[i] >= x 的下标 k，故 i = k-1，与原线性扫描的最小 i 一致。
+        index = bisect.bisect_left(self._xs, x) - 1
+        if index < 0:
+            index = 0
+        if index >= len(self.points) - 1:
+            index = len(self.points) - 2
 
-    def sample(self, start: float, stop: float, step: float) -> List[Tuple[float, float]]:
-        """按步长采样，用于表格化导出。"""
-        if step <= 0:
-            raise ValueError("step 必须为正数")
-        samples: List[Tuple[float, float]] = []
-        count = int(round((stop - start) / step))
-        for index in range(count + 1):
-            x = start + index * step
-            samples.append((round(x, 6), self.evaluate(x)))
-        return samples
+        x0, y0, mode, _, leave = self.points[index]
+        x1, y1, _, arrive, _ = self.points[index + 1]
+        if x1 - x0 <= 1e-12:
+            return y1
+        if mode == CUBIC:
+            return _hermite(x, x0, y0, leave, x1, y1, arrive)
+        return y0 + (y1 - y0) * (x - x0) / (x1 - x0)
 
     def __repr__(self) -> str:  # pragma: no cover - 调试辅助
         return f"Curve(points={len(self.points)}, range={self.input_range})"
@@ -124,12 +108,6 @@ class CurveLibrary:
         self._raw: Dict[str, Any] = dict(raw or {})
         self._cache: Dict[str, Curve] = {}
 
-    def __contains__(self, curve_id: str) -> bool:
-        return curve_id in self._raw
-
-    def ids(self) -> List[str]:
-        return sorted(self._raw.keys())
-
     def get(self, curve_id: str) -> Curve:
         cached = self._cache.get(curve_id)
         if cached is not None:
@@ -142,13 +120,20 @@ class CurveLibrary:
         self._cache[curve_id] = curve
         return curve
 
-    def maybe(self, curve_id: Optional[str]) -> Optional[Curve]:
-        if not curve_id or curve_id not in self._raw:
-            return None
-        return self.get(curve_id)
 
-    def as_dict(self) -> Dict[str, Any]:
-        return dict(self._raw)
+def modifier_factor(modifier: Optional[str], value: Optional[float]) -> Optional[float]:
+    """把 modifier 折算为**乘数**；非乘性 modifier 返回 ``None``。
+
+    ``Mult_A`` → ``1 + value``；``Mult_C`` → ``value``。
+    其余（Addend / Initial / 未知）返回 ``None``，由调用方按加法或覆盖处理。
+    """
+    if value is None:
+        return None
+    if modifier == "Mult_A":
+        return 1.0 + value
+    if modifier == "Mult_C":
+        return value
+    return None
 
 
 def apply_modifier(base: float, modifier: Optional[str], value: Optional[float]) -> float:
@@ -168,12 +153,11 @@ def apply_modifier(base: float, modifier: Optional[str], value: Optional[float])
     """
     if value is None:
         return base
+    factor = modifier_factor(modifier, value)
+    if factor is not None:
+        return base * factor
     if modifier == "Addend":
         return base + value
-    if modifier == "Mult_A":
-        return base * (1.0 + value)
-    if modifier == "Mult_C":
-        return base * value
     if modifier == "Initial":
         return value
     return base

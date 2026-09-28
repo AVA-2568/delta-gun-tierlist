@@ -16,7 +16,7 @@
    "selection": 1
   },
   "manifest_sha256": "b21dc3e0cafb8f72b2fbab4d0e50658b0591e598d802c5b335196e33118bd705",
-  "synced_at": "2026-09-28T07:30:13.577148+00:00"
+  "synced_at": "2026-09-28T14:21:26.409411+00:00"
  },
  "upstream_hashes": {
   "catalog/ammo.json": "121341ded4b05627e844fe17438226e1fe523b7143a9789b69c51891e68a465d",
@@ -27,13 +27,13 @@
  },
  "outputs": {
   "weapons.json": "cb6f36c2988f1143d3ebdcdbe39797a3c7623114727c9a94ba3b2e6ff327b5d8",
-  "ammo.json": "53e2f0a90b4fcec568fdddc69af7dbe11156c27abc190e0178c8cc098b30a93f",
+  "ammo.json": "0083717e222fa1b31cb679b6c11f9cfb22ee091e1c0bf42df7c62c477f6024b0",
   "armor.json": "79e3e82f2edb0d4dd20f73de8459b4582145d2a421abd908c32086c24ccde2f2",
   "parts.json": "126df43e471250f405ab37af573b8bc6076c489be587bb20a1a04caf73f54861",
   "profiles.json": "7464b9854f0606036b6c104cae7d170dc899214a253d8353b11fd5d5a87bfd4a",
   "mechanism.json": "235aa8ce3cba1d4cf42dacc4377f9ece5577eb9fc4992bb4ded074122cd88fa2",
   "scenarios.json": "d68211156a89f19184b32e7b54e48a2d04e9c3b22cc2a58ea63e433c521f1d18",
-  "validation_samples.json": "2cef2c99fc53713961b819f2d24daf784770c1fdaab62f3aa8ae65be2258c3da",
+  "validation_samples.json": "994cd91aa78be21c1fa5a966b2cab4de9a552cbb8b0c4a035579f9d950279ae0",
   "stat_labels.json": "b82e20787c6840907a3f8ae3cc18bd0784fd0873e7c92dbccccf5dc0999980e0"
  },
  "counts": {
@@ -44,7 +44,7 @@
   "profiles": 737,
   "armor_levels": 6,
   "mechanism_curves": 102,
-  "validation_scenarios": 3
+  "validation_scenarios": 21
  },
  "integrity": {
   "mechanism_disagreements": [],
@@ -61,6 +61,50 @@
    "parts.json": "derived",
    "profiles.json": "derived",
    "mechanism.json": "derived"
+  },
+  "official_reproduction_residual": {
+   "verify_tol": 1e-09,
+   "residual_points": 765,
+   "total_points": 3774,
+   "max_abs_delta": 0.024488755200000156,
+   "grade_counts": {
+    "bitwise": 1435,
+    "le_1e-9": 1574,
+    "le_1e-5": 723,
+    "le_1e-2": 39,
+    "gt_1e-2": 3
+   },
+   "grade_counts_note": "互斥分桶：五档之和 = total_points",
+   "scenario_distribution": {
+    "armor-3-ammo-3": 63,
+    "armor-4-ammo-3": 75,
+    "armor-4-ammo-4": 71,
+    "armor-4-ammo-5": 44,
+    "armor-5-ammo-4": 210,
+    "armor-5-ammo-5": 146,
+    "armor-6-ammo-5": 156
+   },
+   "gt_1e-2_points": [
+    {
+     "scenario": "armor-4-ammo-4-center",
+     "candidate": "18010000008:base:37130400001:2=13020000373",
+     "distance": 0.0,
+     "delta": 0.024488755200000156
+    },
+    {
+     "scenario": "armor-4-ammo-3-default",
+     "candidate": "18020000001:base:37200300001:2=13020000474",
+     "distance": 36.0,
+     "delta": 0.020902829209692442
+    },
+    {
+     "scenario": "armor-4-ammo-4-default",
+     "candidate": "18010000008:base:37130400001:2=13020000373",
+     "distance": 0.0,
+     "delta": 0.020004383682795
+    }
+   ],
+   "conclusion": "残余 765 点全部位于 center/default 混合命中情景(chest-only 0 点超差),|Δ|≤0.02449,方向一致(官方 E 略高=官方略弱)。白盒对拍确认属上游侧伪差:用官方 rankings/firefight/dynamic 文件自声明的 weaponDamageResult.damageModel 参数(伤害/部位倍率/衰减段/穿甲修正)直接驱动本引擎 DP,765 点中 698 点与本地值逐位一致而官方 candidateMetrics 仍偏离(含全部 3 个 >1e-2 点);其余 67 点官方 dynamic 声明了 ammo.perPart,其中仅 42/67 点本地值与 candidateMetrics 吻合至 ≤1.1e-6,即官方 dynamic 声明与 candidateMetrics 互相矛盾,本地模型与 candidateMetrics 对齐。结构性偏差(本地反解缺口 R1-R4)已全部归零,该残余对 TTK 榜单排序无影响。（白盒对拍：官方参数重算与本地逐位一致而官方 E 偏离 765 点，其中官方 dynamic 未声明 perPart 698 点、声明了 perPart 67 点；未归类 0 点）（本记录于数据集 20260927-060257.3 版本更新后重新固化；复现分级与前一版本 20260911-044903.3 逐位一致。）"
   }
  }
 }

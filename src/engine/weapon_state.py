@@ -42,7 +42,14 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Mapping, Optional, Tuple
 
-from src.engine.curves import Curve, CurveLibrary, apply_modifier
+from src.engine.curves import CurveLibrary
+from src.engine.modifiers import (
+    ModifierLayer,
+    apply_attribute_effects,
+    falloff_from_bullet_profile,
+    part_effect_layer,
+    part_tuning_layer,
+)
 
 DEFAULT_MODE = "sol"
 
@@ -58,20 +65,13 @@ PANEL_ATTR_NAMES: Dict[str, str] = {
     "6": "stability",
 }
 
-_ATTR_TARGET_PREFIX = "WeaponMainAttribute.MainAttrValues."
-_DISPLAY_TARGET_PREFIX = "DisplayAttrValues."
-
 # --------------------------------------------------------------------------- #
 # 规则目标常量
 # --------------------------------------------------------------------------- #
 RT_ADSTime = "GAiming_ADSTime"
 RT_SPRINT_TO_FIRE = "GSprintToFireTime"
-RT_ADS_MOVE_SPEED = "GMovement_ADSSpeed"
-RT_SILENT_WALK = "GMovement_SilentWalkSpeed"
 RT_VELOCITY = "GBullet_Velocity"
 RT_RANGE = "GBullet_Range"
-RT_RANGE_ONLY = "GBullet_OnlyRange"
-RT_SPEED_ONLY = "GRange_OnlySpeed"
 RT_ADS_SPREAD = "GSpread_ADS"
 RT_HIP_SPREAD = "GSpread_Hip"
 RT_HIP_SPREAD_CONTINUOUS = "GSpread_Hip_Continuous"
@@ -80,7 +80,6 @@ RT_RECOIL_V = "GRecoil_V"
 RT_RECOIL_HIP_H = "GRecoil_Hip"
 RT_RATE_OF_FIRE = "GRateOfFire"
 RT_FIRE_INTERVAL = "FireInterval"
-RT_FIRE_CD = "FireCD"
 RT_RECOIL_H_SHAKE = "GRecoil_HShake"
 RT_RECOIL_V_SHAKE = "GRecoil_VShake"
 RT_GUNKICK_SPRING = "GGunkickSpring"
@@ -88,170 +87,6 @@ RT_GUNKICK_RANDOM = "GGunkickRandom"
 RT_MAG_CAPACITY = "GMagCapacity"
 RT_CLIP_TIME = "ChangeClipTime"
 RT_CLIP_TIME_EMPTY = "ChangeClipTimewhenEmpty"
-
-#: 效果里对规则目标的别名 → 归一到规则目标。
-#:
-#: 此处刻意**不**把 ``GRange_OnlySpeed`` / ``GBullet_OnlyRange`` 归一到初速/射程：
-#: 这两个目标与面板 attr2（优势射程）表达的是同一件事，而上游配件习惯同时声明两者。
-#: 实测 ``MCX LT猎手枪管`` 同时带 ``MainAttrValues.2 Mult_A 0.3`` 与
-#: ``GRange_OnlySpeed Mult_A 0.3``，官方候选初速为 **585 = 450 × 1.3**（只算一次）；
-#: 若叠加则为 760.5（错）。反过来 ``AR加百列长枪管组合`` 只有面板 attr2 增量、
-#: 没有显式修饰符，官方初速 747.5 = 575 × 1.3，说明**面板 attr2 的相对变化才是权威**。
-#: 因此这两类显式修饰符仅登记在 ``scales`` 中供审计，不参与取值。
-TARGET_ALIASES: Dict[str, str] = {}
-
-#: ``Initial`` 引用型效果的目标 → profile 槽位
-PROFILE_SLOT_TARGETS: Dict[str, str] = {
-    "WaistShootSpreadId": "hip_spread",
-    "WaistShootRecoilId": "hip_recoil",
-    "AimingId.SpreadId": "ads_spread",
-    "AimingId.RecoilId": "ads_recoil",
-    "MovementSpeedId": "movement",
-    "BulletFlyingId": "bullet",
-    "AttackerValueId.DefaultDamageId": "damage",
-}
-
-_HITBOX_PREFIX = "DamagePointId."
-_HITBOX_SUFFIX = "DamageRate"
-
-
-# --------------------------------------------------------------------------- #
-# 修饰层
-# --------------------------------------------------------------------------- #
-@dataclass(frozen=True)
-class ModifierLayer:
-    """配件效果 / 精校合成的修饰层。
-
-    ``scales`` 为乘积（已按修饰符语义还原为倍率），``addends`` 为求和，
-    ``overrides`` 为绝对值覆盖（``Initial``），``profiles`` 为 profile 引用替换。
-    """
-
-    scales: Dict[str, float] = field(default_factory=dict)
-    addends: Dict[str, float] = field(default_factory=dict)
-    overrides: Dict[str, float] = field(default_factory=dict)
-    profiles: Dict[str, str] = field(default_factory=dict)
-    hitbox_overrides: Dict[str, float] = field(default_factory=dict)
-
-    def merged_with(self, other: "ModifierLayer") -> "ModifierLayer":
-        scales = dict(self.scales)
-        for key, value in other.scales.items():
-            scales[key] = scales.get(key, 1.0) * value
-        addends = dict(self.addends)
-        for key, value in other.addends.items():
-            addends[key] = addends.get(key, 0.0) + value
-        return ModifierLayer(
-            scales=scales,
-            addends=addends,
-            overrides={**self.overrides, **other.overrides},
-            profiles={**self.profiles, **other.profiles},
-            hitbox_overrides={**self.hitbox_overrides, **other.hitbox_overrides},
-        )
-
-
-def _factor(modifier: Optional[str], value: Optional[float]) -> Optional[float]:
-    """把单次乘性修饰换算成倍率。"""
-    if value is None:
-        return None
-    if modifier == "Mult_A":
-        return 1.0 + value
-    if modifier == "Mult_C":
-        return value
-    return None
-
-
-def _hitbox_key(target: str) -> Optional[str]:
-    if not target.startswith(_HITBOX_PREFIX) or not target.endswith(_HITBOX_SUFFIX):
-        return None
-    stem = target[len(_HITBOX_PREFIX) : -len(_HITBOX_SUFFIX)]
-    if not stem:
-        return None
-    return stem[0].lower() + stem[1:]
-
-
-def _accumulate(layer: ModifierLayer, target: Optional[str], modifier: Optional[str],
-                value: Optional[float], value_ref: Optional[str]) -> None:
-    """把一条效果累加进修饰层（面板属性与 UI 镜像除外，由调用方处理）。"""
-    if not target:
-        return
-    if target.startswith(_ATTR_TARGET_PREFIX) or target.startswith(_DISPLAY_TARGET_PREFIX):
-        return
-
-    if modifier == "Initial":
-        slot = PROFILE_SLOT_TARGETS.get(target)
-        if slot is not None:
-            if value_ref:
-                layer.profiles[slot] = value_ref
-            return
-        hitbox = _hitbox_key(target)
-        if hitbox is not None and value is not None:
-            layer.hitbox_overrides[hitbox] = value
-            return
-
-    rule_target = TARGET_ALIASES.get(target, target)
-    factor = _factor(modifier, value)
-    if factor is not None:
-        layer.scales[rule_target] = layer.scales.get(rule_target, 1.0) * factor
-        return
-    if modifier == "Addend" and value is not None:
-        layer.addends[rule_target] = layer.addends.get(rule_target, 0.0) + value
-        return
-    if modifier == "Initial" and value is not None:
-        layer.overrides[rule_target] = value
-
-
-def _apply_attribute_effects(panel: Dict[str, float], part: Mapping[str, Any]) -> None:
-    for effect in part.get("effects") or []:
-        target = effect.get("target") or ""
-        if not target.startswith(_ATTR_TARGET_PREFIX):
-            continue
-        index = target[len(_ATTR_TARGET_PREFIX) :]
-        if index not in panel:
-            continue
-        panel[index] = apply_modifier(panel[index], effect.get("modifier"), effect.get("value"))
-
-
-def _part_effect_layer(part: Mapping[str, Any]) -> ModifierLayer:
-    layer = ModifierLayer()
-    for effect in part.get("effects") or []:
-        _accumulate(
-            layer,
-            effect.get("target"),
-            effect.get("modifier"),
-            effect.get("value"),
-            effect.get("value_ref"),
-        )
-    return layer
-
-
-def _part_tuning_layer(part: Mapping[str, Any], setting: Mapping[str, float]) -> ModifierLayer:
-    """按给定滑块读数求一件配件的精校修饰层。``setting`` 为 ``{tune_id: 读数}``。"""
-    layer = ModifierLayer()
-    for tune in part.get("tunes") or []:
-        tune_id = tune["tune_id"]
-        raw = setting.get(tune_id)
-        if raw is None:
-            x = float(tune.get("default_value") or 0.0)
-        else:
-            x = float(raw)
-            low = float(tune.get("min_value") or 0.0)
-            high = float(tune.get("max_value") or 0.0)
-            if x < low - 1e-9 or x > high + 1e-9:
-                raise ValueError(f"精校 {tune_id} 读数 {x} 超出官方范围 [{low}, {high}]")
-        for func in tune.get("functions") or []:
-            points = func.get("curve") or []
-            if not points:
-                continue
-            value = Curve(points).evaluate(x)
-            target = func.get("target")
-            modifier = func.get("modifier")
-            factor = _factor(modifier, value)
-            if factor is not None:
-                layer.scales[target] = layer.scales.get(target, 1.0) * factor
-            elif modifier == "Addend":
-                layer.addends[target] = layer.addends.get(target, 0.0) + value
-            elif modifier == "Initial":
-                layer.overrides[target] = value
-    return layer
 
 
 # --------------------------------------------------------------------------- #
@@ -267,14 +102,12 @@ class WeaponState:
     base_name: str
     category: str
     weapon_type: str
-    mode: str = DEFAULT_MODE
 
     loadout: Dict[str, str] = field(default_factory=dict)
     tuning: Dict[str, Dict[str, float]] = field(default_factory=dict)
 
     base_panel: Dict[str, float] = field(default_factory=dict)
     panel: Dict[str, float] = field(default_factory=dict)
-    panel_named: Dict[str, float] = field(default_factory=dict)
 
     #: 绝对量：开镜秒数、射程厘米、初速 m/s 等
     absolute_rules: Dict[str, float] = field(default_factory=dict)
@@ -294,9 +127,7 @@ class WeaponState:
     fire_interval_seconds: float = 0.0
     muzzle_velocity_mps: float = 0.0
     effective_range_m: float = 0.0
-    rate_of_fire_multiplier: float = 1.0
     attr2_ratio: float = 1.0
-    burst_cadence_seconds: float = 0.0
     reload_seconds: float = 0.0
     empty_reload_seconds: float = 0.0
     clip_capacity: int = 0
@@ -335,30 +166,88 @@ class WeaponState:
                 break
         return rate
 
-    def damage_at(self, distance_m: float) -> float:
-        """距离衰减后的单发基础伤害（未计弹药与护甲）。"""
-        return self.base_damage * self.projectile_count * self.falloff_rate(distance_m)
-
-    def armor_damage_at(self, distance_m: float) -> float:
-        return self.base_armor_damage * self.projectile_count * self.falloff_rate(distance_m)
-
     def ads_milliseconds(self) -> float:
         return self.ads_seconds * 1000.0
 
-    def shots_per_second(self) -> float:
-        return 1.0 / self.fire_interval_seconds if self.fire_interval_seconds > 0 else 0.0
 
-    def describe_panel(self) -> str:
-        chunks = []
-        for index in PANEL_ATTR_INDEXES:
-            base = self.base_panel.get(index, 0.0)
-            current = self.panel.get(index, 0.0)
-            label = PANEL_ATTR_NAMES[index]
-            if abs(current - base) > 1e-9:
-                chunks.append(f"{label}={base:.0f}→{current:.0f}")
-            else:
-                chunks.append(f"{label}={current:.0f}")
-        return " ".join(chunks)
+# --------------------------------------------------------------------------- #
+# 配装合成
+# --------------------------------------------------------------------------- #
+def build_loadout(
+    weapon: Mapping[str, Any], requested: Mapping[str, str]
+) -> Tuple[Dict[str, str], List[str]]:
+    """按官方插槽规则与强制联动合成配装。
+
+    返回 ``(实际装配的 item_id 映射, notes)``。纯函数：不读实例状态。
+
+    ⚠ 内部的 ``guard`` / ``claimed`` / ``conflicts`` 仲裁（``while changed`` 循环）
+    处理真实数据中的多规则争槽（如 QJB201 rule4/rule11），**不得简化或删除**。
+
+    顺序：官方默认件 → 变体强制自带件 → 调用方显式配装 → 官方 ``coupling`` 强制联动。
+    变体（``is_variant``）必须挂载 ``variant_item_id``，因为归一化后的变体档案与基线
+    共用 ``panel_attributes``/``rpm`` 等字段，变异完全由该配件承载。
+    """
+    notes: List[str] = []
+    mounted: Dict[str, str] = {
+        str(k): str(v) for k, v in (weapon.get("default_items") or {}).items()
+    }
+
+    variant_item = weapon.get("variant_item_id")
+    if weapon.get("is_variant") and variant_item:
+        socket_id = WeaponStateResolver._socket_for_item(weapon, str(variant_item))
+        if socket_id is None:
+            notes.append(f"变体件 {variant_item} 未能定位槽位")
+        else:
+            mounted[socket_id] = str(variant_item)
+
+    # 官方候选配装是「差异集」，需要叠加在默认配装之上而非整体替换
+    for socket_id, item_id in (requested or {}).items():
+        key = str(socket_id)
+        if item_id in (None, "", 0):
+            mounted.pop(key, None)
+        else:
+            mounted[key] = str(item_id)
+
+    # coupling：condition 命中则强制把 mounted_item_id 装入 target_socket_id
+    #
+    # 必须做**槽位归属仲裁**：官方数据里存在多条 ``forced`` 规则争抢同一槽位的情况
+    # （例：QJB201 的 rule4 与 rule11 都要写 slot4，条件分别是 13020000517 与 13120000380，
+    # 而前者就在默认配装里）。若无仲裁，两条规则会互相覆盖，``while changed`` 永不收敛。
+    # 语义取「先到者胜」：某槽位被首条规则占用后，其余规则不得改写，并记入 notes。
+    changed = True
+    mounted_items = set(mounted.values())
+    claimed: Dict[str, str] = {}
+    conflicts: List[str] = []
+    guard = 0
+    guard_limit = 4 * len(weapon.get("coupling") or []) + 8
+    while changed and guard < guard_limit:
+        guard += 1
+        changed = False
+        for rule in weapon.get("coupling") or []:
+            if rule.get("mount_policy") != "forced":
+                continue
+            conditions = set(rule.get("condition_item_ids") or [])
+            if conditions and not (conditions & mounted_items):
+                continue
+            target = str(rule.get("target_socket_id"))
+            item = str(rule.get("mounted_item_id"))
+            if not item:
+                continue
+            owner = claimed.get(target)
+            if owner is not None and owner != item:
+                conflicts.append(f"槽位 {target} 被规则争用：保留 {owner}，忽略 {item}")
+                continue
+            if mounted.get(target) == item:
+                claimed.setdefault(target, item)
+                continue
+            mounted[target] = item
+            mounted_items.add(item)
+            claimed[target] = item
+            changed = True
+    if conflicts:
+        notes.extend(sorted(set(conflicts)))
+
+    return mounted, notes
 
 
 # --------------------------------------------------------------------------- #
@@ -391,85 +280,13 @@ class WeaponStateResolver:
                     return str(entry.get("slotPath"))
         return None
 
-    def _build_loadout(
-        self,
-        weapon: Mapping[str, Any],
-        loadout: Optional[Mapping[str, Any]],
-    ) -> Tuple[Dict[str, str], List[str]]:
-        """合成最终配装。
-
-        顺序：官方默认件 → 变体强制自带件 → 调用方显式配装 → 官方 ``coupling`` 强制联动。
-        变体（``is_variant``）必须挂载 ``variant_item_id``，因为归一化后的变体档案与基线
-        共用 ``panel_attributes``/``rpm`` 等字段，变异完全由该配件承载。
-        """
-        notes: List[str] = []
-        mounted: Dict[str, str] = {
-            str(k): str(v) for k, v in (weapon.get("default_items") or {}).items()
-        }
-
-        variant_item = weapon.get("variant_item_id")
-        if weapon.get("is_variant") and variant_item:
-            socket_id = self._socket_for_item(weapon, str(variant_item))
-            if socket_id is None:
-                notes.append(f"变体件 {variant_item} 未能定位槽位")
-            else:
-                mounted[socket_id] = str(variant_item)
-
-        # 官方候选配装是「差异集」，需要叠加在默认配装之上而非整体替换
-        for socket_id, item_id in (loadout or {}).items():
-            key = str(socket_id)
-            if item_id in (None, "", 0):
-                mounted.pop(key, None)
-            else:
-                mounted[key] = str(item_id)
-
-        # coupling：condition 命中则强制把 mounted_item_id 装入 target_socket_id
-        #
-        # 必须做**槽位归属仲裁**：官方数据里存在多条 ``forced`` 规则争抢同一槽位的情况
-        # （例：QJB201 的 rule4 与 rule11 都要写 slot4，条件分别是 13020000517 与 13120000380，
-        # 而前者就在默认配装里）。若无仲裁，两条规则会互相覆盖，``while changed`` 永不收敛。
-        # 语义取「先到者胜」：某槽位被首条规则占用后，其余规则不得改写，并记入 notes。
-        changed = True
-        mounted_items = set(mounted.values())
-        claimed: Dict[str, str] = {}
-        conflicts: List[str] = []
-        guard = 0
-        guard_limit = 4 * len(weapon.get("coupling") or []) + 8
-        while changed and guard < guard_limit:
-            guard += 1
-            changed = False
-            for rule in weapon.get("coupling") or []:
-                if rule.get("mount_policy") != "forced":
-                    continue
-                conditions = set(rule.get("condition_item_ids") or [])
-                if conditions and not (conditions & mounted_items):
-                    continue
-                target = str(rule.get("target_socket_id"))
-                item = str(rule.get("mounted_item_id"))
-                if not item:
-                    continue
-                owner = claimed.get(target)
-                if owner is not None and owner != item:
-                    conflicts.append(f"槽位 {target} 被规则争用：保留 {owner}，忽略 {item}")
-                    continue
-                if mounted.get(target) == item:
-                    claimed.setdefault(target, item)
-                    continue
-                mounted[target] = item
-                mounted_items.add(item)
-                claimed[target] = item
-                changed = True
-        if conflicts:
-            notes.extend(sorted(set(conflicts)))
-
-        return mounted, notes
-
     # ---------------------------------------------------------------- #
     def resolve(
         self,
         profile_key: str,
         loadout: Optional[Mapping[str, Any]] = None,
         tuning: Optional[Mapping[str, Mapping[str, float]]] = None,
+        _precomputed_mounted: Optional[Mapping[str, str]] = None,
     ) -> WeaponState:
         """解析一把枪的实机状态。
 
@@ -477,10 +294,15 @@ class WeaponStateResolver:
             profile_key: 形如 ``18010000001:base`` 的武器档案键。
             loadout: ``{socket_id: item_id}``；``None`` 表示使用官方默认配装。
             tuning: ``{item_id: {tune_id: 读数}}``；未给出的配件使用官方默认读数。
+            _precomputed_mounted: 已由 :func:`build_loadout` 算好的配装结果。
+                仅用于内部透传以避免重复合成；``None`` 时按 ``loadout`` 现算。
         """
         weapon = self.gd.get_weapon(profile_key)
         tuning_setting = {str(k): dict(v) for k, v in (tuning or {}).items()}
-        resolved_loadout, loadout_notes = self._build_loadout(weapon, loadout)
+        if _precomputed_mounted is None:
+            resolved_loadout, loadout_notes = build_loadout(weapon, loadout or {})
+        else:
+            resolved_loadout, loadout_notes = dict(_precomputed_mounted), []
 
         state = WeaponState(
             profile_key=profile_key,
@@ -489,7 +311,6 @@ class WeaponStateResolver:
             base_name=weapon["name"],
             category=weapon["category"],
             weapon_type=weapon["weapon_type"],
-            mode=self.mode,
             loadout=resolved_loadout,
             tuning=tuning_setting,
             caliber=weapon.get("caliber") or "",
@@ -512,14 +333,13 @@ class WeaponStateResolver:
             if part is None:
                 state.notes.append(f"槽位 {socket_id} 的配件 {item_id} 未收录")
                 continue
-            _apply_attribute_effects(panel, part)
-            layer = layer.merged_with(_part_effect_layer(part))
+            apply_attribute_effects(panel, part)
+            layer = layer.merged_with(part_effect_layer(part))
             setting = tuning_setting.get(str(item_id)) or {}
-            layer = layer.merged_with(_part_tuning_layer(part, setting))
+            layer = layer.merged_with(part_tuning_layer(part, setting))
 
         state.base_panel = base_panel
         state.panel = panel
-        state.panel_named = {PANEL_ATTR_NAMES[i]: panel[i] for i in PANEL_ATTR_INDEXES}
         state.scales = layer.scales
         state.addends = layer.addends
         state.overrides = layer.overrides
@@ -605,7 +425,7 @@ class WeaponStateResolver:
         # 3. ``GRateOfFire`` 作用于节拍：``Mult_A +0.25`` → 间隔 ×1.25，
         #    ASh-12 战斧 / HVK双发 均为 500 → 400 rpm。
         # 4. ``FireInterval`` / ``FireCD`` 与节拍量同源，属冗余声明，**不叠加**
-        #    （与 ``GRange_OnlySpeed`` 同类，理由见 ``TARGET_ALIASES`` 注释）。
+        #    （与 ``GRange_OnlySpeed`` / ``GBullet_OnlyRange`` 同类，均仅登记在 ``scales`` 中供审计）。
         sdk = weapon.get("sdk_timing") or {}
         burst_count = int(sdk.get("burst_count") or 0)
         burst_cadence = (
@@ -624,10 +444,8 @@ class WeaponStateResolver:
                 base_interval = float(sdk.get("fire_interval_s") or 0.0)
         interval_scale = state.scales.get(RT_RATE_OF_FIRE, 1.0)
         interval = base_interval * interval_scale
-        state.rate_of_fire_multiplier = interval_scale
         state.fire_interval_seconds = interval
         state.rpm = 60.0 / interval if interval > 0 else 0.0
-        state.burst_cadence_seconds = burst_cadence
 
         # 初速：面板 attr2（优势射程）的相对变化传播到 GBullet_Velocity。
         attr2_ratio = (
@@ -768,16 +586,26 @@ class WeaponStateResolver:
                 valid = float(state.bullet_profile.get("valid_distance_cm") or 0.0) / 100.0
                 if valid > 0.0:
                     state.effective_range_m = valid * state.attr2_ratio
-
-
-def resolve_weapon_state(
-    game_data: Any,
-    profile_key: str,
-    loadout: Optional[Mapping[str, Any]] = None,
-    tuning: Optional[Mapping[str, Mapping[str, float]]] = None,
-    mode: str = DEFAULT_MODE,
-) -> WeaponState:
-    """便捷入口。"""
-    return WeaponStateResolver(game_data, mode=mode).resolve(
-        profile_key, loadout=loadout, tuning=tuning
-    )
+            # 挂载带自有弹道档案的配件时，官方**整体替换**衰减段（而非在 base 段上叠加）：
+            # ``attenuationDistancesCm`` 是各速率段的**终点**——``rate[i]`` 施加于
+            # ``[dist[i-1], dist[i])`` 区间，``[0, valid)`` 固定 1.0，末段延伸到最大射程。
+            # 换档后的边界与非换档路径一致，**随面板 attr2 的相对变化等比缩放**
+            # （M4A1 动态文件锚点：40/70/1000 → 52/91/1300 = ×1.3）。
+            # 锚点：MK4 + 深空镀铬枪管 chest-only @26/36/46 → 官方 9/11/13，
+            #       恰为 [25,35)/[35,45)/[45,∞) 段的 0.85/0.65/0.55（该件 attr2 无变化）。
+            swapped_bullet_id = state.profile_refs.get("bullet")
+            base_bullet_id = (weapon.get("references") or {}).get("bullet_profile_id")
+            if swapped_bullet_id and swapped_bullet_id != base_bullet_id:
+                segments = falloff_from_bullet_profile(state.bullet_profile)
+                if segments:
+                    ratio = state.attr2_ratio
+                    if abs(ratio - 1.0) > 1e-12:
+                        segments = [
+                            {
+                                "from_m": segment["from_m"] * ratio,
+                                "to_m": segment["to_m"] * ratio,
+                                "rate": segment["rate"],
+                            }
+                            for segment in segments
+                        ]
+                    state.falloff_segments = segments

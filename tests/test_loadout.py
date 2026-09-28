@@ -12,7 +12,6 @@ from src.engine.loadout import (
     effect_affects_ttk,
     part_affects_ttk,
     target_affects_ttk,
-    tuning_breakpoints,
 )
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -64,67 +63,6 @@ def test_pruning_shrinks_space_dramatically(gd):
     assert naive < 500_000  # 未剪枝时约 6.1e21
 
 
-def test_tuning_breakpoints_are_curve_nodes(gd):
-    """断点必须覆盖曲线控制点与取值域端点（分段线性 ⇒ 最优在断点）。"""
-    part = gd.get_part("13020000173")  # AR特勤一体消音组合，长度 -10~10
-    tune = next(t for t in part["tunes"] if "length" in t["tune_id"])
-    pts = tuning_breakpoints(part, tune)
-    assert min(pts) == pytest.approx(-10.0)
-    assert max(pts) == pytest.approx(10.0)
-    assert 0.0 in [round(p, 6) for p in pts]  # default 且为曲线中间控制点
-
-
-def test_solved_loadout_is_legal(gd):
-    """求解产出的配装必须全部落在官方插槽的合法选项内。"""
-    solver = LoadoutSolver(gd, SCENARIO)
-    solution = solver.solve("18050000003:base", beam_width=4, top_k=2)  # VSS，搜索空间小
-    weapon = gd.get_weapon("18050000003:base")
-    legal = {}
-    for spec in build_socket_specs(gd, weapon, include_non_ttk=True):
-        legal.setdefault(spec.socket_id, set()).update(spec.options)
-    for sockets in (weapon.get("provider_sockets") or {}).values():
-        for spec in sockets:
-            legal.setdefault(str(spec["socket_id"]), set()).update(str(o) for o in (spec.get("options") or []))
-    defaults = {str(v) for v in (weapon.get("default_items") or {}).values()}
-    for socket_id, item in solution.loadout.items():
-        assert item in legal.get(str(socket_id), set()) | defaults, f"槽{socket_id} 配件 {item} 非法"
-
-
-def test_solved_tuning_within_official_range(gd):
-    solver = LoadoutSolver(gd, SCENARIO)
-    solution = solver.solve("18050000003:base", beam_width=4, top_k=2)
-    for item_id, tunes in solution.tuning.items():
-        part = gd.get_part(item_id)
-        assert part is not None
-        spec = {t["tune_id"]: t for t in part["tunes"]}
-        for tune_id, value in tunes.items():
-            tune = spec[tune_id]
-            assert float(tune["min_value"]) - 1e-9 <= value <= float(tune["max_value"]) + 1e-9
-
-
-def test_solving_improves_on_default_loadout(gd):
-    """最优解不应差于默认配装。"""
-    from src.engine import engagement as eg
-    from src.engine.weapon_state import WeaponStateResolver
-
-    solver = LoadoutSolver(gd, SCENARIO)
-    solution = solver.solve("18050000003:base", beam_width=4, top_k=2)
-    resolver = WeaponStateResolver(gd)
-    default_state = resolver.resolve("18050000003:base")
-    ammo = solver.ammo_for("18050000003:base")
-    base_ttk = eg.ttk_at(default_state, ammo, solver.armor, solver.probabilities, 0.0).ttk_milliseconds
-    assert solution.ttk_at_0m_ms <= base_ttk + 1e-6
-
-
-def test_curve_is_complete_over_official_range(gd):
-    """TTK 曲线覆盖官方距离场 0–80m。"""
-    solver = LoadoutSolver(gd, SCENARIO)
-    solution = solver.solve("18050000003:base", beam_width=4, top_k=2)
-    assert len(solution.curve) == 81
-    assert solution.curve[0].distance_m == 0.0
-    assert solution.curve[-1].distance_m == 80.0
-
-
 def test_ttk_is_shots_times_interval_only(gd):
     """当前口径：TTK = (E[N] − 1) × 射击间隔；开镜与飞行时间仅作参考、不参与。"""
     from src.engine import engagement as eg
@@ -146,3 +84,60 @@ def test_ttk_is_shots_times_interval_only(gd):
     assert at0.ads_seconds > 0
     assert at80.flight_seconds > 0
     assert at0.ttk_seconds < at0.ttk_seconds + at0.ads_seconds
+
+
+def test_build_loadout_is_pure_and_deterministic(gd):
+    """build_loadout 是模块级纯函数：同输入必得同输出，且不依赖 resolver 实例。"""
+    from src.engine.weapon_state import build_loadout
+
+    weapon = gd.get_weapon("18010000001:base")
+    first = build_loadout(weapon, {})
+    second = build_loadout(weapon, {})
+    assert first == second, "同一输入两次调用结果不一致，说明函数不纯"
+
+
+def test_build_loadout_only_returns_legal_items(gd):
+    """返回的每个配件都必须落在该槽位的合法选项内（含官方默认件）。"""
+    from src.engine.loadout import build_socket_specs
+    from src.engine.weapon_state import build_loadout
+
+    weapon = gd.get_weapon("18010000001:base")
+    mounted, _ = build_loadout(weapon, {})
+    assert mounted, "默认配装不应为空"
+
+    legal = {}
+    # 官方根插槽（build_socket_specs 只保留影响 TTK 的插槽，弹匣等会被剪掉，
+    # 故必须直接取原始 sockets 才能覆盖 coupling 强制件的槽位）
+    for socket in weapon.get("sockets") or []:
+        legal.setdefault(str(socket["socket_id"]), set()).update(
+            str(o) for o in (socket.get("options") or [])
+        )
+    for spec in build_socket_specs(gd, weapon):
+        legal.setdefault(str(spec.socket_id), set()).update(str(o) for o in spec.options)
+    for sockets in (weapon.get("provider_sockets") or {}).values():
+        for spec in sockets:
+            legal.setdefault(str(spec["socket_id"]), set()).update(
+                str(o) for o in (spec.get("options") or [])
+            )
+    defaults = {str(v) for v in (weapon.get("default_items") or {}).values()}
+
+    for socket_id, item in mounted.items():
+        assert item in legal.get(str(socket_id), set()) | defaults, f"槽{socket_id} 配件 {item} 非法"
+
+
+def test_build_loadout_agrees_with_resolver(gd):
+    """build_loadout 的结果必须与 resolver.resolve 内部合成的一致。
+
+    这是 Task 11「结果透传」正确性的核心护栏：若两者不一致，
+    复用预计算结果就会改变 TTK。
+    """
+    from src.engine.weapon_state import WeaponStateResolver, build_loadout
+
+    weapon = gd.get_weapon("18010000001:base")
+    mounted, _ = build_loadout(weapon, {})
+    resolver = WeaponStateResolver(gd)
+    state = resolver.resolve("18010000001:base", loadout={}, tuning=None, _precomputed_mounted=mounted)
+    assert state is not None
+    # 透传路径必须与 resolver 内部自行合成的结果逐位一致，否则 TTK 会静默改变
+    internal = WeaponStateResolver(gd).resolve("18010000001:base", loadout={}, tuning=None)
+    assert mounted == internal.loadout

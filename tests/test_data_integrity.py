@@ -139,3 +139,27 @@ def test_provenance_has_no_integrity_conflicts():
     counts = provenance["counts"]
     assert counts["weapons"] == 61
     assert counts["validation_scenarios"] >= 1
+
+
+def test_provenance_output_hashes_match():
+    """provenance.outputs 哈希回归：按 _write_json 同款规范化口径重算 SHA256。
+
+    口径：json.dumps(payload, ensure_ascii=False, indent=1, sort_keys=False)，
+    不带尾部换行；尾换行仅在 _write_json 写文件时追加（见
+    src/collectors/game_data_sync.py 的 _write_json）。
+    任一 data/game 产出文件被改动即 fail。
+    """
+    import hashlib
+
+    provenance = _load("provenance.json")
+    outputs = provenance.get("outputs") or {}
+    assert outputs, "provenance.json 缺少 outputs 哈希记录"
+    for name in sorted(outputs):
+        expected = outputs[name]
+        payload = _load(name)
+        text = json.dumps(payload, ensure_ascii=False, indent=1, sort_keys=False)
+        actual = hashlib.sha256(text.encode("utf-8")).hexdigest()
+        assert actual == expected, (
+            f"{name} 哈希不匹配（内容被改动或规范化口径漂移？）："
+            f"现 {actual}，记录 {expected}"
+        )

@@ -19,7 +19,7 @@
 | 换弹 | 官方击杀假设 `singleMagazineNoReload`（单弹匣不换弹） |
 | 命中率修正（后坐/散布） | 「打得中打不中」属另一维度，见改枪指南 |
 
-结论：TTK 只由**两个官方逐位验证的量**构成，全链路可复现、可证伪，无自主参数。
+结论：TTK 只由**两个官方验证过的量**构成，全链路可复现、可证伪，无自主参数。
 
 ## 数据可信度 (Data Provenance)
 
@@ -27,8 +27,8 @@
 
 | 分量 | 官方验证 |
 | :-- | :-- |
-| 期望击杀发数 `E[N]` | 逐位复现官方 `candidateMetrics`，**3774 个样本，99.92% 精确** |
-| 射击间隔 | 逐位复现官方 `reference_candidates`，**291 个候选零偏差** |
+| 期望击杀发数 `E[N]` | 全量复现官方 `candidateMetrics`（21 情景 / 1338 候选）：**3774 个样本点**，逐位一致 1435、\|Δ\|≤1e-9 1574、\|Δ\|≤1e-5 723、\|Δ\|≤1e-2 39、\|Δ\|>1e-2 3（最差 0.02449 发）；765 个残余偏差点经白盒对拍证明为**官方上游数据自相矛盾**（`data/game/provenance.json` → `integrity.official_reproduction_residual`） |
+| 射击间隔 | **291 个官方候选取整后与官方整数 rpm 全对**（官方仅发布整数 rpm，「零偏差」仅限取整口径） |
 | 配装合法性 | 官方插槽规则 + 强制联动（`forced` coupling） |
 
 第三方交叉印证：`moligod.com/gunsmith` 的官方对象 ID 与本项目武器池互证（26/26 图片 URL 逐字节一致）。
@@ -44,9 +44,9 @@
 ## 关键文件 (Key Resources)
 
 - [README.md](README.md)：主榜（官方默认情景 5套5弹·实战概率 × 4 距离带）
-- [docs/tierlist/](docs/tierlist/)：各情景完整榜单（Markdown）
-- [docs/gunsmith-guide.md](docs/gunsmith-guide.md)：改枪指南（开镜时间 ↔ 操控换算、精校维度总览）
-- [data/tierlist/](data/tierlist/)：机器可读榜单 JSON（含层级阈值与最优配装）
+- [docs/榜单/](docs/榜单/)：各情景完整榜单（Markdown）
+- [docs/改枪指南.md](docs/改枪指南.md)：改枪指南（开镜时间 ↔ 操控换算、精校维度总览）
+- [data/榜单/](data/榜单/)：机器可读榜单 JSON（含层级阈值与最优配装）
 - [data/game/provenance.json](data/game/provenance.json)：数据来源、哈希与核验状态
 
 ## 工程结构 (Architecture)

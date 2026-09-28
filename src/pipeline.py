@@ -29,7 +29,7 @@ import logging
 import os
 from typing import Any, Dict, List, Mapping, Optional, Sequence
 
-from src.engine import tiering
+from src.engine import ranking, tierlist_export
 from src.engine.ammo_pricing import load_ammo_prices
 from src.engine.game_data import DEFAULT_DATA_DIR, load_game_data
 from src.engine.loadout import LoadoutSolver
@@ -231,12 +231,12 @@ def _compute_scenario(args: tuple) -> tuple:
     price_table = load_ammo_prices(os.path.join(output_dir, AMMO_PRICE_TABLE))
     weapon_price_table = load_weapon_prices(os.path.join(output_dir, WEAPON_PRICE_TABLE))
     solver = LoadoutSolver(game_data, sid)
-    rankings, thresholds, excluded = tiering.rank_weapons_for_scenario(
+    rankings, thresholds, excluded = ranking.rank_weapons_for_scenario(
         game_data, sid, solver=solver, beam_width=beam_width,
         profile_keys=keys, price_table=price_table,
         weapon_price_table=weapon_price_table,
     )
-    payload = tiering.to_export(
+    payload = tierlist_export.to_export(
         rankings, thresholds, sid, excluded,
         price_table=price_table, weapon_price_table=weapon_price_table,
     )

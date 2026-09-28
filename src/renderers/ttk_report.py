@@ -1,6 +1,6 @@
 """纯 TTK 榜单与改枪指南的 Markdown 渲染层（Task #7）。
 
-渲染层**只做格式化**：所有数值直接取自引擎输出（``tiering.to_export`` 的 payload），
+渲染层**只做格式化**：所有数值直接取自引擎输出（``tierlist_export.to_export`` 的 payload），
 禁止二次计算，保证文档与 JSON 数值一致。
 """
 
@@ -8,7 +8,8 @@ from __future__ import annotations
 
 from typing import Any, Dict, List, Mapping, Optional, Sequence
 
-BAND_ORDER = ("贴脸", "近距", "中距", "远距")
+from src.engine.engagement import BAND_NAMES as BAND_ORDER
+
 TIER_ORDER = ("T0", "T1", "T2", "T3")
 
 # --------------------------------------------------------------------------- #
@@ -430,9 +431,25 @@ def render_readme(
 
     lines.append("## 方法学与可信度")
     lines.append("")
-    lines.append("- **期望击杀发数**：按官方伤害规则（血量 100、单弹匣不换弹、碎甲按剩余耐久比例、"
-                 "距离衰减同时作用于肉伤与护甲）逐位复现官方 `candidateMetrics`，**3774 个样本零偏差**")
-    lines.append("- **射击间隔**：由官方 `sdkTiming` 与射速模式决定，**291 个官方候选零偏差**")
+    residual = ((provenance.get("integrity") or {}).get("official_reproduction_residual") or {})
+    grades = residual.get("grade_counts") or {}
+    if residual and grades:
+        lines.append(
+            "- **期望击杀发数**：按官方伤害规则（血量 100、单弹匣不换弹、碎甲按剩余耐久比例、"
+            "距离衰减同时作用于肉伤与护甲）逐位复现官方 `candidateMetrics`："
+            f"**{residual.get('total_points')} 个样本点**中逐位一致 {grades.get('bitwise')}、"
+            f"|Δ|≤1e-9 {grades.get('le_1e-9')}、≤1e-5 {grades.get('le_1e-5')}、"
+            f"≤1e-2 {grades.get('le_1e-2')}、>1e-2 {grades.get('gt_1e-2')}"
+            f"（最差 {residual.get('max_abs_delta'):.5f} 发）；"
+            f"{residual.get('residual_points')} 个残余偏差点经白盒对拍证明为官方上游数据自相矛盾"
+            "（记录于 `provenance.integrity.official_reproduction_residual`）"
+        )
+    else:
+        lines.append("- **期望击杀发数**：按官方伤害规则（血量 100、单弹匣不换弹、碎甲按剩余耐久比例、"
+                     "距离衰减同时作用于肉伤与护甲）逐位复现官方 `candidateMetrics`，"
+                     "分档复现口径详见 `provenance.integrity.official_reproduction_residual`")
+    lines.append("- **射击间隔**：由官方 `sdkTiming` 与射速模式决定，**291 个官方候选取整后与官方整数 rpm 全对**"
+                 "（官方仅发布整数 rpm，零偏差仅限取整口径）")
     lines.append("- **状态枚举**：官方插槽规则 + 强制联动，束搜索枚举合法起枪状态，"
                  "仅保留 TTK 有差异的状态；已绝版的赛季限时件（哈夫克军工改件，如 S9 链锯/格斗套件）"
                  "不参与枚举，榜单为**当前赛季可达成**的配置")
