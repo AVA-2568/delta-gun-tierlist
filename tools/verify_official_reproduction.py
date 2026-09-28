@@ -47,12 +47,14 @@ def parse_candidate(candidate_id: str) -> Tuple[str, str, str, Dict[str, str]]:
     weapon_id, profile_key, ammo_id = parts[0], parts[1], parts[2]
     loadout: Dict[str, str] = {}
     for seg in parts[3:]:
-        if "=" not in seg:
-            if seg == "stock":
-                continue  # 原厂无改装标记
-            raise ValueError(f"候选 id 的 loadout 段缺少 '='：{seg}（{candidate_id}）")
-        slot, part = seg.split("=", 1)
-        loadout[slot] = part
+        # loadout 段可能含多个 slot=part 对（逗号分隔），如 ``2=13020000532,52=13420000002``
+        for chunk in seg.split(","):
+            if "=" not in chunk:
+                if chunk == "stock":
+                    continue  # 原厂无改装标记
+                raise ValueError(f"候选 id 的 loadout 段缺少 '='：{chunk}（{candidate_id}）")
+            slot, part = chunk.split("=", 1)
+            loadout[slot] = part
     return weapon_id, profile_key, ammo_id, loadout
 
 
