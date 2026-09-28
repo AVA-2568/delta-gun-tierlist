@@ -12,7 +12,6 @@ from src.engine.loadout import (
     effect_affects_ttk,
     part_affects_ttk,
     target_affects_ttk,
-    tuning_breakpoints,
 )
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -62,67 +61,6 @@ def test_pruning_shrinks_space_dramatically(gd):
     for spec in specs:
         naive *= len(spec.options) + 1
     assert naive < 500_000  # 未剪枝时约 6.1e21
-
-
-def test_tuning_breakpoints_are_curve_nodes(gd):
-    """断点必须覆盖曲线控制点与取值域端点（分段线性 ⇒ 最优在断点）。"""
-    part = gd.get_part("13020000173")  # AR特勤一体消音组合，长度 -10~10
-    tune = next(t for t in part["tunes"] if "length" in t["tune_id"])
-    pts = tuning_breakpoints(part, tune)
-    assert min(pts) == pytest.approx(-10.0)
-    assert max(pts) == pytest.approx(10.0)
-    assert 0.0 in [round(p, 6) for p in pts]  # default 且为曲线中间控制点
-
-
-def test_solved_loadout_is_legal(gd):
-    """求解产出的配装必须全部落在官方插槽的合法选项内。"""
-    solver = LoadoutSolver(gd, SCENARIO)
-    solution = solver.solve("18050000003:base", beam_width=4, top_k=2)  # VSS，搜索空间小
-    weapon = gd.get_weapon("18050000003:base")
-    legal = {}
-    for spec in build_socket_specs(gd, weapon, include_non_ttk=True):
-        legal.setdefault(spec.socket_id, set()).update(spec.options)
-    for sockets in (weapon.get("provider_sockets") or {}).values():
-        for spec in sockets:
-            legal.setdefault(str(spec["socket_id"]), set()).update(str(o) for o in (spec.get("options") or []))
-    defaults = {str(v) for v in (weapon.get("default_items") or {}).values()}
-    for socket_id, item in solution.loadout.items():
-        assert item in legal.get(str(socket_id), set()) | defaults, f"槽{socket_id} 配件 {item} 非法"
-
-
-def test_solved_tuning_within_official_range(gd):
-    solver = LoadoutSolver(gd, SCENARIO)
-    solution = solver.solve("18050000003:base", beam_width=4, top_k=2)
-    for item_id, tunes in solution.tuning.items():
-        part = gd.get_part(item_id)
-        assert part is not None
-        spec = {t["tune_id"]: t for t in part["tunes"]}
-        for tune_id, value in tunes.items():
-            tune = spec[tune_id]
-            assert float(tune["min_value"]) - 1e-9 <= value <= float(tune["max_value"]) + 1e-9
-
-
-def test_solving_improves_on_default_loadout(gd):
-    """最优解不应差于默认配装。"""
-    from src.engine import engagement as eg
-    from src.engine.weapon_state import WeaponStateResolver
-
-    solver = LoadoutSolver(gd, SCENARIO)
-    solution = solver.solve("18050000003:base", beam_width=4, top_k=2)
-    resolver = WeaponStateResolver(gd)
-    default_state = resolver.resolve("18050000003:base")
-    ammo = solver.ammo_for("18050000003:base")
-    base_ttk = eg.ttk_at(default_state, ammo, solver.armor, solver.probabilities, 0.0).ttk_milliseconds
-    assert solution.ttk_at_0m_ms <= base_ttk + 1e-6
-
-
-def test_curve_is_complete_over_official_range(gd):
-    """TTK 曲线覆盖官方距离场 0–80m。"""
-    solver = LoadoutSolver(gd, SCENARIO)
-    solution = solver.solve("18050000003:base", beam_width=4, top_k=2)
-    assert len(solution.curve) == 81
-    assert solution.curve[0].distance_m == 0.0
-    assert solution.curve[-1].distance_m == 80.0
 
 
 def test_ttk_is_shots_times_interval_only(gd):

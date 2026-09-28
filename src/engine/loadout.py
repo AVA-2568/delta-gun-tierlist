@@ -1,16 +1,12 @@
-"""配装枚举与最优精校求解（Task #3）。
+"""配装枚举（Task #3）。
 
-目标：在官方插槽规则下枚举**合法**配装，并对每套配装求解**最优精校**，
-使给定情景与距离口径下的实战 TTK 最小。
+目标：在官方插槽规则下枚举**合法**配装，使给定情景与距离口径下的实战 TTK 最小。
 
-两个关键事实决定本模块的设计：
+关键事实决定本模块的设计：
 
-1. **只有少数插槽影响 TTK**。瞄准镜（瞳距/缩放）、弹匣、握把等只影响与击杀时间无关的量，
-   一律固定为默认件，枚举空间因此指数级缩小。判定依据是配件的 ``effects`` / ``tunes.functions``
-   是否触及 TTK 相关规则目标（开镜时间、射速、弹道/伤害档案、优势射程等）。
-2. **精校曲线是分段线性的**（``RCIM_Linear``），每个滑块的最优取值必落在曲线控制点
-   （``min`` / ``default`` / ``max``）上，因此滑块从「101 档」降为「≤3 个断点」，
-   无需网格搜索。
+**只有少数插槽影响 TTK**。瞄准镜（瞳距/缩放）、弹匣、握把等只影响与击杀时间无关的量，
+一律固定为默认件，枚举空间因此指数级缩小。判定依据是配件的 ``effects`` / ``tunes.functions``
+是否触及 TTK 相关规则目标（开镜时间、射速、弹道/伤害档案、优势射程等）。
 
 插入式插槽（``provider_sockets``）只有在提供者配件被装载后才可选，故枚举按「根插槽 →
 暴露出的插入插槽」分层进行，并对每层做束搜索（beam search）控制规模。
@@ -148,17 +144,8 @@ def _prune_options(
     game_data: Any,
     options: List[str],
     default_item: Optional[str],
-    include_non_ttk: bool,
 ) -> List[str]:
     """只保留直接影响 TTK 的选项，并保证默认件在内（否则最优可能被剪掉）。"""
-    if include_non_ttk:
-        kept = [
-            item for item in options
-            if str(item) not in EXCLUDED_PART_IDS
-        ]
-        if default_item and str(default_item) not in EXCLUDED_PART_IDS and default_item not in kept:
-            kept.insert(0, default_item)
-        return kept
     kept: List[str] = []
     seen = set()
     for item in options:
@@ -175,9 +162,7 @@ def _prune_options(
     return kept
 
 
-def build_socket_specs(
-    game_data: Any, weapon: Mapping[str, Any], include_non_ttk: bool = False
-) -> List[SocketSpec]:
+def build_socket_specs(game_data: Any, weapon: Mapping[str, Any]) -> List[SocketSpec]:
     """构造参与枚举的插槽计划：先根插槽，后插入式插槽。
 
     选项按「直接影响 TTK」剪枝；剪枝后只剩单一选项的插槽不参与枚举（无搜索价值）。
@@ -189,9 +174,9 @@ def build_socket_specs(
     for socket in weapon.get("sockets") or []:
         socket_id = str(socket.get("socket_id"))
         options = _prune_options(
-            game_data, [str(o) for o in (socket.get("options") or [])], defaults.get(socket_id), include_non_ttk
+            game_data, [str(o) for o in (socket.get("options") or [])], defaults.get(socket_id)
         )
-        if len(options) <= 1 and not include_non_ttk:
+        if len(options) <= 1:
             continue
         root.append(SocketSpec(socket_id=socket_id, options=options))
 
@@ -206,9 +191,8 @@ def build_socket_specs(
                 game_data,
                 [str(o) for o in (socket.get("options") or [])],
                 defaults.get(socket_id),
-                include_non_ttk,
             )
-            if len(options) <= 1 and not include_non_ttk:
+            if len(options) <= 1:
                 continue
             inserts.setdefault(socket_id, {})[str(provider_id)] = options
 
@@ -226,76 +210,13 @@ def build_socket_specs(
 
 
 # --------------------------------------------------------------------------- #
-# 精校断点
-# --------------------------------------------------------------------------- #
-def tuning_breakpoints(part: Mapping[str, Any], tune: Mapping[str, Any]) -> List[float]:
-    """滑块的最优候选值：曲线控制点 ∪ {min, default, max}（分段线性 ⇒ 最优在断点）。"""
-    values = {
-        float(tune.get("min_value") or 0.0),
-        float(tune.get("max_value") or 0.0),
-        float(tune.get("default_value") or 0.0),
-    }
-    for func in tune.get("functions") or []:
-        for point in func.get("curve") or []:
-            try:
-                values.add(float(point[0]))
-            except (TypeError, ValueError, IndexError):
-                continue
-    low = float(tune.get("min_value") or 0.0)
-    high = float(tune.get("max_value") or 0.0)
-    return sorted(v for v in values if low - 1e-9 <= v <= high + 1e-9)
-
-
-def ttk_tuning_dims(game_data: Any, loadout: Mapping[str, str]) -> List[Tuple[str, str, List[float]]]:
-    """列出该配装下所有**影响 TTK** 的精校维度及其断点。"""
-    dims: List[Tuple[str, str, List[float]]] = []
-    for item_id in loadout.values():
-        part = game_data.get_part(item_id)
-        if not part:
-            continue
-        for tune in part.get("tunes") or []:
-            if not any(target_affects_ttk(f.get("target")) for f in (tune.get("functions") or [])):
-                continue
-            dims.append((str(item_id), str(tune["tune_id"]), tuning_breakpoints(part, tune)))
-    return dims
-
-
-# --------------------------------------------------------------------------- #
-# 求解
+# 配装枚举
 # --------------------------------------------------------------------------- #
 DEFAULT_COARSE_DISTANCES: Tuple[float, ...] = (0.0, 40.0, 80.0)
 
 
-@dataclass
-class LoadoutSolution:
-    profile_key: str
-    scenario_id: str
-    loadout: Dict[str, str]
-    tuning: Dict[str, Dict[str, float]]
-    curve: List[eg.TtkResult]
-    score_seconds: Optional[float] = None
-
-    @property
-    def band_ms(self) -> Dict[str, Dict[str, float]]:
-        return eg.band_summary(self.curve)
-
-    @property
-    def ttk_at_0m_ms(self) -> float:
-        return self.curve[0].ttk_milliseconds
-
-    def as_dict(self) -> Dict[str, Any]:
-        return {
-            "profile_key": self.profile_key,
-            "scenario_id": self.scenario_id,
-            "loadout": self.loadout,
-            "tuning": self.tuning,
-            "ttk_at_0m_ms": round(self.ttk_at_0m_ms, 2),
-            "bands": self.band_ms,
-        }
-
-
 class LoadoutSolver:
-    """在官方插槽规则下搜索「配装 + 精校」的最优实战 TTK。"""
+    """在官方插槽规则下束搜索实战 TTK 最优的候选配装。"""
 
     def __init__(self, game_data: Any, scenario_id: str, mode: str = "sol", resolver: Any = None):
         from src.engine.weapon_state import WeaponStateResolver
@@ -369,80 +290,4 @@ class LoadoutSolver:
             beam = [loadout for loadout, _ in ranked]
             beam_scores = [score for _, score in ranked]
         return beam
-
-    # ------------------------------------------------------------------ #
-    def solve_tuning(
-        self,
-        profile_key: str,
-        loadout: Mapping[str, str],
-        distances: Sequence[float] = DEFAULT_COARSE_DISTANCES,
-        max_rounds: int = 3,
-    ) -> Tuple[Dict[str, Dict[str, float]], float]:
-        """坐标下降求最优精校（每维只在曲线断点上取值）。"""
-        dims = ttk_tuning_dims(self.gd, self._mounted(profile_key, loadout))
-        tuning: Dict[str, Dict[str, float]] = {}
-        best = self._band_score(profile_key, loadout, tuning, distances)
-        for _ in range(max_rounds):
-            improved = False
-            for item_id, tune_id, breakpoints in dims:
-                for value in breakpoints:
-                    trial = {k: dict(v) for k, v in tuning.items()}
-                    trial.setdefault(item_id, {})[tune_id] = value
-                    score = self._band_score(profile_key, loadout, trial, distances)
-                    if score < best - 1e-9:
-                        best = score
-                        tuning = trial
-                        improved = True
-            if not improved:
-                break
-        return tuning, best
-
-    # ------------------------------------------------------------------ #
-    def solve(
-        self,
-        profile_key: str,
-        beam_width: int = 6,
-        top_k: int = 4,
-        final_distances: Optional[Sequence[float]] = None,
-    ) -> LoadoutSolution:
-        """返回该枪在当前情景下的最优解（最优配装 + 最优精校）。
-
-        两阶段评分：粗筛用少量距离点对候选排序并选优，**只对最终最优解**计算完整距离曲线
-        （81 个距离点的 DP 是本流程最重的开销，避免对每个候选重复计算）。
-        """
-        coarse = DEFAULT_COARSE_DISTANCES
-        if final_distances is None:
-            final_distances = tuple(float(d) for d in range(0, int(eg.DISTANCE_MAX) + 1))
-
-        candidates = self.enumerate_loadouts(profile_key, beam_width=beam_width, distances=coarse)
-        if not candidates:
-            candidates = [{}]
-        ranked = sorted(
-            candidates, key=lambda lo: (self._band_score(profile_key, lo, None, coarse), len(lo))
-        )[:top_k]
-
-        best_score: Optional[float] = None
-        best_loadout: Dict[str, str] = {}
-        best_tuning: Dict[str, Dict[str, float]] = {}
-        for loadout in ranked:
-            tuning, score = self.solve_tuning(profile_key, loadout, coarse)
-            # 并列时优先配件更少（更贴近默认）的方案
-            if best_score is None or score < best_score - 1e-9 or (
-                abs(score - best_score) <= 1e-9 and len(loadout) < len(best_loadout)
-            ):
-                best_score = score
-                best_loadout = loadout
-                best_tuning = tuning
-
-        state = self.resolver.resolve(profile_key, loadout=best_loadout, tuning=best_tuning)
-        ammo = self.ammo_for(profile_key)
-        curve = eg.ttk_curve(state, ammo, self.armor, self.probabilities, final_distances)
-        return LoadoutSolution(
-            profile_key=profile_key,
-            scenario_id=self.scenario_id,
-            loadout=best_loadout,
-            tuning=best_tuning,
-            curve=curve,
-            score_seconds=best_score,
-        )
 
