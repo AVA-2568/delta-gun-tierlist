@@ -567,11 +567,17 @@ def main() -> int:
         help="按 _write_json 口径重钉 provenance.outputs 哈希为当前 data/game 文件内容"
         "（数据文件经合法途径再生成后使用，用法见 refresh_output_hashes docstring）",
     )
+    ap.add_argument(
+        "--confirm",
+        action="store_true",
+        help="配合 --refresh-output-hashes：确认重钉 provenance.outputs 回归基线"
+        "（不带时仅打印将修改的文件与原因并拒绝写入）",
+    )
     ap.add_argument("--provenance", default=os.path.join(ROOT, "data", "game", "provenance.json"))
     args = ap.parse_args()
 
     if args.refresh_output_hashes:
-        refresh_output_hashes(args.provenance)
+        refresh_output_hashes(args.provenance, confirm=args.confirm)
         return 0
 
     if args.official_param_audit:
