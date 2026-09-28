@@ -42,7 +42,14 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Mapping, Optional, Tuple
 
-from src.engine.curves import Curve, CurveLibrary, apply_modifier
+from src.engine.curves import CurveLibrary
+from src.engine.modifiers import (
+    ModifierLayer,
+    apply_attribute_effects,
+    falloff_from_bullet_profile,
+    part_effect_layer,
+    part_tuning_layer,
+)
 
 DEFAULT_MODE = "sol"
 
@@ -57,9 +64,6 @@ PANEL_ATTR_NAMES: Dict[str, str] = {
     "5": "handling",
     "6": "stability",
 }
-
-_ATTR_TARGET_PREFIX = "WeaponMainAttribute.MainAttrValues."
-_DISPLAY_TARGET_PREFIX = "DisplayAttrValues."
 
 # --------------------------------------------------------------------------- #
 # 规则目标常量
@@ -83,178 +87,6 @@ RT_GUNKICK_RANDOM = "GGunkickRandom"
 RT_MAG_CAPACITY = "GMagCapacity"
 RT_CLIP_TIME = "ChangeClipTime"
 RT_CLIP_TIME_EMPTY = "ChangeClipTimewhenEmpty"
-
-#: ``Initial`` 引用型效果的目标 → profile 槽位
-PROFILE_SLOT_TARGETS: Dict[str, str] = {
-    "WaistShootSpreadId": "hip_spread",
-    "WaistShootRecoilId": "hip_recoil",
-    "AimingId.SpreadId": "ads_spread",
-    "AimingId.RecoilId": "ads_recoil",
-    "MovementSpeedId": "movement",
-    "BulletFlyingId": "bullet",
-    "AttackerValueId.DefaultDamageId": "damage",
-}
-
-_HITBOX_PREFIX = "DamagePointId."
-_HITBOX_SUFFIX = "DamageRate"
-
-
-# --------------------------------------------------------------------------- #
-# 修饰层
-# --------------------------------------------------------------------------- #
-@dataclass(frozen=True)
-class ModifierLayer:
-    """配件效果 / 精校合成的修饰层。
-
-    ``scales`` 为乘积（已按修饰符语义还原为倍率），``addends`` 为求和，
-    ``overrides`` 为绝对值覆盖（``Initial``），``profiles`` 为 profile 引用替换。
-    """
-
-    scales: Dict[str, float] = field(default_factory=dict)
-    addends: Dict[str, float] = field(default_factory=dict)
-    overrides: Dict[str, float] = field(default_factory=dict)
-    profiles: Dict[str, str] = field(default_factory=dict)
-    hitbox_overrides: Dict[str, float] = field(default_factory=dict)
-
-    def merged_with(self, other: "ModifierLayer") -> "ModifierLayer":
-        scales = dict(self.scales)
-        for key, value in other.scales.items():
-            scales[key] = scales.get(key, 1.0) * value
-        addends = dict(self.addends)
-        for key, value in other.addends.items():
-            addends[key] = addends.get(key, 0.0) + value
-        return ModifierLayer(
-            scales=scales,
-            addends=addends,
-            overrides={**self.overrides, **other.overrides},
-            profiles={**self.profiles, **other.profiles},
-            hitbox_overrides={**self.hitbox_overrides, **other.hitbox_overrides},
-        )
-
-
-def _factor(modifier: Optional[str], value: Optional[float]) -> Optional[float]:
-    """把单次乘性修饰换算成倍率。"""
-    if value is None:
-        return None
-    if modifier == "Mult_A":
-        return 1.0 + value
-    if modifier == "Mult_C":
-        return value
-    return None
-
-
-def _hitbox_key(target: str) -> Optional[str]:
-    if not target.startswith(_HITBOX_PREFIX) or not target.endswith(_HITBOX_SUFFIX):
-        return None
-    stem = target[len(_HITBOX_PREFIX) : -len(_HITBOX_SUFFIX)]
-    if not stem:
-        return None
-    return stem[0].lower() + stem[1:]
-
-
-def _falloff_from_bullet_profile(profile: Mapping[str, Any]) -> List[Dict[str, float]]:
-    """把弹道 profile 的衰减声明还原为 ``falloff_segments``（schema 同官方摘要）。
-
-    ``attenuation_distances_cm`` 为各速率段**终点**（厘米）：``[0, valid)``
-    固定 1.0，``rate[i]`` 施加于 ``[dist[i-1], dist[i])``。与 catalog
-    ``damageFalloffSegments`` 的派生关系已用 MK4/M4A1 base 全量比对确认。
-    """
-    valid = float(profile.get("valid_distance_cm") or 0.0) / 100.0
-    distances = [float(x) / 100.0 for x in profile.get("attenuation_distances_cm") or []]
-    rates = [float(x) for x in profile.get("attenuation_rates") or []]
-    if valid <= 0.0 or not distances or len(distances) != len(rates):
-        return []
-    segments: List[Dict[str, float]] = [{"from_m": 0.0, "to_m": valid, "rate": 1.0}]
-    previous = valid
-    for distance, rate in zip(distances, rates):
-        segments.append({"from_m": previous, "to_m": distance, "rate": rate})
-        previous = distance
-    return segments
-
-
-def _accumulate(layer: ModifierLayer, target: Optional[str], modifier: Optional[str],
-                value: Optional[float], value_ref: Optional[str]) -> None:
-    """把一条效果累加进修饰层（面板属性与 UI 镜像除外，由调用方处理）。"""
-    if not target:
-        return
-    if target.startswith(_ATTR_TARGET_PREFIX) or target.startswith(_DISPLAY_TARGET_PREFIX):
-        return
-
-    if modifier == "Initial":
-        slot = PROFILE_SLOT_TARGETS.get(target)
-        if slot is not None:
-            if value_ref:
-                layer.profiles[slot] = value_ref
-            return
-        hitbox = _hitbox_key(target)
-        if hitbox is not None and value is not None:
-            layer.hitbox_overrides[hitbox] = value
-            return
-
-    factor = _factor(modifier, value)
-    if factor is not None:
-        layer.scales[target] = layer.scales.get(target, 1.0) * factor
-        return
-    if modifier == "Addend" and value is not None:
-        layer.addends[target] = layer.addends.get(target, 0.0) + value
-        return
-    if modifier == "Initial" and value is not None:
-        layer.overrides[target] = value
-
-
-def _apply_attribute_effects(panel: Dict[str, float], part: Mapping[str, Any]) -> None:
-    for effect in part.get("effects") or []:
-        target = effect.get("target") or ""
-        if not target.startswith(_ATTR_TARGET_PREFIX):
-            continue
-        index = target[len(_ATTR_TARGET_PREFIX) :]
-        if index not in panel:
-            continue
-        panel[index] = apply_modifier(panel[index], effect.get("modifier"), effect.get("value"))
-
-
-def _part_effect_layer(part: Mapping[str, Any]) -> ModifierLayer:
-    layer = ModifierLayer()
-    for effect in part.get("effects") or []:
-        _accumulate(
-            layer,
-            effect.get("target"),
-            effect.get("modifier"),
-            effect.get("value"),
-            effect.get("value_ref"),
-        )
-    return layer
-
-
-def _part_tuning_layer(part: Mapping[str, Any], setting: Mapping[str, float]) -> ModifierLayer:
-    """按给定滑块读数求一件配件的精校修饰层。``setting`` 为 ``{tune_id: 读数}``。"""
-    layer = ModifierLayer()
-    for tune in part.get("tunes") or []:
-        tune_id = tune["tune_id"]
-        raw = setting.get(tune_id)
-        if raw is None:
-            x = float(tune.get("default_value") or 0.0)
-        else:
-            x = float(raw)
-            low = float(tune.get("min_value") or 0.0)
-            high = float(tune.get("max_value") or 0.0)
-            if x < low - 1e-9 or x > high + 1e-9:
-                raise ValueError(f"精校 {tune_id} 读数 {x} 超出官方范围 [{low}, {high}]")
-        for func in tune.get("functions") or []:
-            points = func.get("curve") or []
-            if not points:
-                continue
-            value = Curve(points).evaluate(x)
-            target = func.get("target")
-            modifier = func.get("modifier")
-            factor = _factor(modifier, value)
-            if factor is not None:
-                layer.scales[target] = layer.scales.get(target, 1.0) * factor
-            elif modifier == "Addend":
-                layer.addends[target] = layer.addends.get(target, 0.0) + value
-            elif modifier == "Initial":
-                layer.overrides[target] = value
-    return layer
 
 
 # --------------------------------------------------------------------------- #
@@ -501,10 +333,10 @@ class WeaponStateResolver:
             if part is None:
                 state.notes.append(f"槽位 {socket_id} 的配件 {item_id} 未收录")
                 continue
-            _apply_attribute_effects(panel, part)
-            layer = layer.merged_with(_part_effect_layer(part))
+            apply_attribute_effects(panel, part)
+            layer = layer.merged_with(part_effect_layer(part))
             setting = tuning_setting.get(str(item_id)) or {}
-            layer = layer.merged_with(_part_tuning_layer(part, setting))
+            layer = layer.merged_with(part_tuning_layer(part, setting))
 
         state.base_panel = base_panel
         state.panel = panel
@@ -764,7 +596,7 @@ class WeaponStateResolver:
             swapped_bullet_id = state.profile_refs.get("bullet")
             base_bullet_id = (weapon.get("references") or {}).get("bullet_profile_id")
             if swapped_bullet_id and swapped_bullet_id != base_bullet_id:
-                segments = _falloff_from_bullet_profile(state.bullet_profile)
+                segments = falloff_from_bullet_profile(state.bullet_profile)
                 if segments:
                     ratio = state.attr2_ratio
                     if abs(ratio - 1.0) > 1e-12:
