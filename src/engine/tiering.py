@@ -431,7 +431,7 @@ def rank_weapons_for_scenario(
             scored.append((loadout, state_mounted, state_curve, eg.band_summary(state_curve)))
         scored.sort(key=lambda item: tuple(item[3][b]["mean_ms"] for b in BAND_NAMES if b in item[3]))
 
-        for loadout_choice, _mounted, state_curve, state_summary in scored:
+        for loadout_choice, state_mounted_choice, state_curve, state_summary in scored:
             signature = _signature(state_summary)
             if signature in seen_signatures:
                 continue  # TTK 与已列状态相同 → 不属于"会影响 TTK 的情况"
@@ -444,7 +444,7 @@ def rank_weapons_for_scenario(
                     ammo=ammo,
                     stock_bands=base_stock_bands,
                     loadout_effects=summarize_loadout_effects(
-                        base_state, solver.resolver.resolve(base_key, loadout=loadout_choice, tuning=None)
+                        base_state, state_mounted_choice
                     ),
                     loadout=loadout_choice,
                     gun_price=gun_price,
