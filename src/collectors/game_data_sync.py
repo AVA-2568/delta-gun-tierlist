@@ -1068,13 +1068,6 @@ def _write_json(path: str, payload: Any) -> str:
     return _sha256_bytes(text.encode("utf-8"))
 
 
-VALIDATION_SCENARIO_IDS = (
-    "armor-4-ammo-4-default",
-    "armor-4-ammo-5-default",
-    "armor-5-ammo-5-default",
-)
-
-
 def sync_all(
     output_dir: str = DEFAULT_OUTPUT_DIR,
     cache_dir: str = DEFAULT_CACHE_DIR,
@@ -1106,14 +1099,6 @@ def sync_all(
     locale_common, _ = _download_json("locales/zh-CN/common.json", cache_dir, refresh=refresh)
     ranking_index, ranking_hash = _download_json("rankings/firefight/index.json", cache_dir, refresh=refresh)
 
-    validation_scenarios: Dict[str, Dict[str, Any]] = {}
-    for scenario_id in VALIDATION_SCENARIO_IDS:
-        try:
-            payload, _ = _download_json(f"rankings/firefight/{scenario_id}.json", cache_dir, refresh=refresh)
-            validation_scenarios[scenario_id] = payload
-        except SourceUnavailable as exc:  # pragma: no cover - 网络分支
-            logger.warning("验证情景 %s 获取失败：%s", scenario_id, exc)
-
     overrides = load_overrides(overrides_path)
     applied_overrides: List[Dict[str, Any]] = []
 
@@ -1127,6 +1112,22 @@ def sync_all(
         ammo_by_type.setdefault(type_id, []).append(ammo_id)
 
     ranking = normalize_ranking_index(ranking_index)
+
+    # 验证样本：官方 index 全量情景（不遗漏任何带 candidateMetrics 的情景）。
+    # index 的 file 字段为相对 base URL 的完整路径（如 rankings/firefight/xxx.json），
+    # 需剥离已知目录前缀；缺失时回退 {scenario_id}.json。
+    validation_scenarios: Dict[str, Dict[str, Any]] = {}
+    for scenario in ranking["scenarios"]:
+        sid = scenario["scenario_id"]
+        rel = scenario.get("file") or f"{sid}.json"
+        prefix = "rankings/firefight/"
+        if rel.startswith(prefix):
+            rel = rel[len(prefix):]
+        try:
+            payload, _ = _download_json(f"rankings/firefight/{rel}", cache_dir, refresh=refresh)
+            validation_scenarios[sid] = payload
+        except SourceUnavailable as exc:  # pragma: no cover - 网络分支
+            logger.warning("验证情景 %s 获取失败：%s", sid, exc)
 
     # 需要处理的武器 ID（去重，保持排序保证确定性）
     weapon_ids: List[str] = sorted({entry["weapon_id"] for entry in ranking["weapons"]})
@@ -1311,6 +1312,12 @@ def sync_all(
         "applied_overrides": applied_overrides,
         "disagreements": mechanism.get("disagreements", []),
         "dataset_version": manifest.get("dataVersion"),
+        "validation_scenario_count": len(samples),
+        "validation_sample_points": sum(
+            len(points)
+            for entry in samples.values()
+            for _, points in entry["candidate_metrics"]
+        ),
     }
 
 
