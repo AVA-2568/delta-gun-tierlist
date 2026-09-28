@@ -191,9 +191,16 @@ def assign_tiers(
     rankings: List[GunRanking],
     band: str,
     quantiles: tuple = TIER_QUANTILES,
+    sorted_values: Optional[Sequence[float]] = None,
 ) -> Dict[str, float]:
-    """按指定距离带内的 TTK 分布切分层级，返回各层阈值（毫秒）。"""
-    values = sorted(r.bands[band].mean_ms for r in rankings if band in r.bands)
+    """按指定距离带内的 TTK 分布切分层级，返回各层阈值（毫秒）。
+
+    ``sorted_values`` 为该带内 ``mean_ms`` 的**升序**序列；调用方若已排好可直接传入，
+    省去重复排序。缺省时本函数自行排序。
+    """
+    if sorted_values is None:
+        sorted_values = sorted(r.bands[band].mean_ms for r in rankings if band in r.bands)
+    values = sorted_values
     if not values:
         return {}
     thresholds = {TIER_NAMES[i]: _quantile(values, q) for i, q in enumerate(quantiles)}
@@ -461,7 +468,10 @@ def rank_weapons_for_scenario(
         present.sort(key=lambda r: r.bands[band].mean_ms)
         for index, entry in enumerate(present, start=1):
             entry.bands[band].rank = index
-        thresholds[band] = assign_tiers(rankings, band)
+        # 已按 mean_ms 升序排好，直接复用给 assign_tiers，避免对同一分布再排一次
+        thresholds[band] = assign_tiers(
+            rankings, band, sorted_values=[r.bands[band].mean_ms for r in present]
+        )
 
     return rankings, thresholds, excluded
 

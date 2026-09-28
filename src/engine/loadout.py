@@ -266,8 +266,21 @@ class LoadoutSolver:
         """束搜索枚举合法配装（只展开影响 TTK 的插槽）。"""
         weapon = self.gd.get_weapon(profile_key)
         specs = build_socket_specs(self.gd, weapon)
+        # 打分只由「实际装机结果」决定（``resolve`` 以 mounted 为唯一状态输入），
+        # 故按 mounted 签名记忆化：同一签名的重复打分复用，不重跑 resolve/ttk。
+        # 纯 memo——不剪枝、不新增候选，候选集合与打分值均与改动前逐位一致。
+        score_cache: Dict[Tuple[Tuple[str, str], ...], float] = {}
+
+        def _score(loadout: Mapping[str, str], mounted: Mapping[str, str]) -> float:
+            cache_key = tuple(sorted(mounted.items()))
+            cached = score_cache.get(cache_key)
+            if cached is None:
+                cached = self._band_score(profile_key, loadout, None, distances, mounted=mounted)
+                score_cache[cache_key] = cached
+            return cached
+
         beam: List[Dict[str, str]] = [{}]
-        beam_scores: List[float] = [self._band_score(profile_key, {}, None, distances)]
+        beam_scores: List[float] = [_score({}, self._mounted(profile_key, {}))]
 
         for spec in specs:
             expanded: Dict[Tuple[Tuple[str, str], ...], Tuple[Dict[str, str], float]] = {}
@@ -288,10 +301,7 @@ class LoadoutSolver:
                     if key in expanded:
                         continue
                     # actual 已是该 trial 的合成结果，直接透传给 resolve，避免重跑耦合求解
-                    expanded[key] = (
-                        trial,
-                        self._band_score(profile_key, trial, None, distances, mounted=actual),
-                    )
+                    expanded[key] = (trial, _score(trial, actual))
             ranked = sorted(expanded.values(), key=lambda pair: pair[1])[:beam_width]
             beam = [loadout for loadout, _ in ranked]
             beam_scores = [score for _, score in ranked]

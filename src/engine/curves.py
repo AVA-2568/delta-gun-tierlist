@@ -11,6 +11,7 @@
 
 from __future__ import annotations
 
+import bisect
 from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
 
 LINEAR = "RCIM_Linear"
@@ -45,13 +46,14 @@ def _to_point(raw: Any) -> CurvePoint:
 class Curve:
     """不可变的效果曲线，支持线性与三次 Hermite 插值。"""
 
-    __slots__ = ("points",)
+    __slots__ = ("points", "_xs")
 
     def __init__(self, points: Iterable[Any]):
         parsed: List[CurvePoint] = sorted((_to_point(p) for p in points), key=lambda p: p[0])
         if not parsed:
             raise ValueError("曲线至少需要一个点")
         self.points: List[CurvePoint] = parsed
+        self._xs: List[float] = [p[0] for p in parsed]
 
     # ------------------------------------------------------------------ #
     @property
@@ -61,24 +63,26 @@ class Curve:
     # ------------------------------------------------------------------ #
     def evaluate(self, x: float) -> float:
         """求值，区间外取端点。"""
-        if x <= self.points[0][0]:
+        if x <= self._xs[0]:
             return self.points[0][1]
-        if x >= self.points[-1][0]:
+        if x >= self._xs[-1]:
             return self.points[-1][1]
 
-        for index in range(len(self.points) - 1):
-            x0, y0, _, _, leave = self.points[index]
-            x1, y1, _, arrive, _ = self.points[index + 1]
-            if x0 <= x <= x1:
-                if x1 - x0 <= 1e-12:
-                    return y1
-                # 使用左端点的插值模式决定该段形状
-                mode = self.points[index][2]
-                if mode == CUBIC:
-                    return _hermite(x, x0, y0, leave, x1, y1, arrive)
-                span = x1 - x0
-                return y0 + (y1 - y0) * (x - x0) / span
-        return self.points[-1][1]
+        # 取最左满足 x0 <= x <= x1 的段：x 恰为控制点 x_k 时，bisect_left 给出首个
+        # xs[i] >= x 的下标 k，故 i = k-1，与原线性扫描的最小 i 一致。
+        index = bisect.bisect_left(self._xs, x) - 1
+        if index < 0:
+            index = 0
+        if index >= len(self.points) - 1:
+            index = len(self.points) - 2
+
+        x0, y0, mode, _, leave = self.points[index]
+        x1, y1, _, arrive, _ = self.points[index + 1]
+        if x1 - x0 <= 1e-12:
+            return y1
+        if mode == CUBIC:
+            return _hermite(x, x0, y0, leave, x1, y1, arrive)
+        return y0 + (y1 - y0) * (x - x0) / (x1 - x0)
 
     def __repr__(self) -> str:  # pragma: no cover - 调试辅助
         return f"Curve(points={len(self.points)}, range={self.input_range})"
