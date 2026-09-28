@@ -137,6 +137,8 @@
 `weapon_state.py:DEFAULT_MODE` / `WeaponStateResolver(mode=)` / `WeaponState.mode` 字段 /
 `loadout.py:LoadoutSolver(..., mode="sol")`。全仓无任何调用点显式传 `mode=`。
 
+**勘误（2026-09-28）**：原要求为「移除 `mode` 参数链」，实测发现 `mode` 是**承重**的——`weapon_state.py` 以 `.get(self.mode)` 在 `curveIds` 中选曲线，且数据中 1872 个节点同时含 `sol` 与 `mp` 两档键，照字面删除会导致静默数值变更；分支已按需求方拍板（确认日期 2026-09-28）改为**收窄方案**：保留 `mode` 参数链与 `DEFAULT_MODE`，只删 `WeaponState.mode` 等真正只写的字段，见提交 `aac6a81`。
+
 ### 3.7 收敛测试专用开关 `include_non_ttk`
 
 `loadout.py` 的 `include_non_ttk` 出现在 7 处：形参声明 L151、分支入口 L154、
