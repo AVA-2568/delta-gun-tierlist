@@ -373,3 +373,59 @@ python tools/verify_official_reproduction.py
 - §7.3 要求的新增测试实际为 **+297 行**（4 个新测试文件），而估算只按 crosscheck 一项的约 40 行计入。
 
 结构性目标则全部达成：死代码清除、双价格模块 DRY、三个巨石文件拆分、距离带静默缺陷修复、重算链路提速。原始 LOC 总额被上述**新增测试覆盖与模块化头部**抵消，故该指标已不适宜作为本次交付的门槛。后续若仍需补足行数，可执行本计划附录「范围外」已界定的三项（测试镜像合并／新增 `tests/conftest.py`／onebiji 双采集器公共层，合计约 −400~440 行）。
+
+### 10.2 后续可选项（本次不实施，已分诊）
+
+终审（whole-branch review）对执行期累积的 44 条 minor 逐条分诊：**无一条需在合并前修复**（唯一 3 条「合并前必改」项已随修复波处理）。以下按类别固化，供后续触碰相应文件时顺手处理。
+
+**A. 已随终审修复波解决（留档以免重复担心）**
+
+| 项 | 处理 |
+| :-- | :-- |
+| `game_data.py` 的 `from functools import lru_cache` 在 `scenario_ids` 删除后成为无用导入 | 已删（`a4f2bed`） |
+| `loadout.py` 的 `beam_scores` 只写不读（且白跑一次打分） | 已清（`a4f2bed`；保留其 `_score` 预热调用——实测它会播种 `score_cache` 且循环首轮即命中） |
+| `game_data_sync.py` 的 `SLOT_ZH` 全仓零读者（真死代码） | 已删（`a4f2bed`；`pipeline.py` 的同名副本有读者，未动） |
+
+**B. 已判为误报，不再跟踪**
+
+- 「`llms.txt:39` 的 `python -m src.pipeline --all` 引用了不存在的 `src/pipeline`」——不成立。`src/pipeline.py` 存在且 `--all` 是合法参数（已由 4/4 CLI `--help` 验证）。
+
+**C. 文案 / 注释漂移**（不影响行为，下次触碰这些文件时顺手改）
+
+- `src/engine/__init__.py:10` docstring 仍称「最优求解」（求解器簇已在 §3.8 删除）；同文件模块地图未列出新增的 `ranking` / `tierlist_export`。
+- `src/engine/weapon_state.py:59` 注释仍指向 `src.collectors.game_data_sync.PANEL_ATTR_KEYS`，该常量已随 §5.3 迁至 `normalize.py`。
+- `weapon_state.py` 模块 docstring 仍在描述已迁出的修饰层语义与核验锚点（§5.1）。
+- `tiering.py` 模块 docstring 仍写「Task #6」且未反映拆分后的职责边界（§5.2）。
+- `game_data_sync.py:25` docstring「三个子模块互不反向引用」措辞略松（`normalize → overrides` 是子模块之间的单向引用）。
+- `modifiers.py` 中 `accumulate` 的 docstring 称面板属性「由调用方处理」——`part_tuning_layer` 作为新调用方并不处理，该句已成承重假设（§5.5）。
+- 三处格式小瑕：`loadout.py` 顶部悬挂缩进残迹；`weapon_state.py` 一处重写注释指代略歧义；`summarize_loadout_effects` 的两实参调用被折成三行（与变体分支的单行写法不一致）。
+
+**D. 结构 / 命名小瑕**
+
+- `LoadoutSolver` 类名名不副实（§3.8 后只剩配装枚举）。
+- 2 处跨模块导入私有名：`normalize → overrides._apply_field_overrides`、`ranking → tiering._effective_loadout`。均为当下拆法的最简解；若后续做统一常量层，可提为公开名。
+- `tiering.py` 再导出的 `BAND_NAMES` 在本模块内未被使用（仅供 `ranking` / `tierlist_export` 引用），可加 `# noqa: F401` 注释说明意图。
+- `modifiers.factor` 现为 `curves.modifier_factor` 的纯转发壳（§5.5 的必然结果），仅剩命名稳定性价值；仍被调用，非死代码。
+- 两处**既存**未使用导入（非本次引入）：`curves.py:14` 的 `Sequence`、`tests/test_loadout.py:3` 的 `json`。
+- `game_data_sync.py` 拆分时丢掉了两个分节 banner 注释；新模块名 `http.py` 与标准库 `http` 同名（当前 `sys.path` 形态下不遮蔽）。
+
+**E. 健壮性 / 测试覆盖增强**
+
+- `tests/test_price_table.py` 缺一个显式 bad-JSON 用例（`ValueError` 分支目前由 GBK 用例间接覆盖）。
+- `tests/test_distance_bands.py` 的接线断言在文件内有两份副本（冗余但无害）；带名**顺序**由同文件的边界连续性用例间接锁定，而非由取值冻结用例直接钉死。
+- `resolve(..., _precomputed_mounted=...)` 存在静默分叉隐患：一旦传入该参数，`loadout` 形参即被忽略。当前唯一调用点自洽且有等价性测试守卫；可加断言或强化注释。
+- 模块级 `build_loadout` 以类名限定方式引用其后的 `WeaponStateResolver._socket_for_item`，构成模块内前向引用的隐式排序耦合（当前正确，`@staticmethod`）。
+- `curves.py` 的 `evaluate` 中两个边界 clamp 按构造不可达（计划原文如此）；`x = NaN` 时 bisect 版返回 `NaN`，而原线性扫描经 fallthrough 返回末点值——理论行为差异，输入为有限距离值故不可达。
+- `_score` 的 `loadout` 形参被转发但不影响结果（`mounted` 单独决定分数），注释可更明确。
+- 改写后的 `test_build_loadout_only_returns_legal_items` 不再校验「TTK 剪枝后的合法性」——属正确取舍（原版模型不完整），建议加注释说明覆盖范围。
+
+**F. 能力 / 覆盖取舍**（§3.4、§3.5 的既有取舍，评审已确认属授权范围）
+
+- 「不重算、直接修补既有 payload」的运维能力随 `backfill_gun_prices.py` 删除而消失（逻辑与管线同源，现存 payload 已含目标字段，git 历史可追溯）。
+- README 的「26/26 图片 URL 逐字节一致」未被直接断言，仅由 `verification_result` 的内部算术间接守护。
+- 「与 dfttk catalog 同源」的跨源比对随 `--catalog` 项移除而失去可执行守护。
+- 第三方交叉核验的冲突诊断从「累积全部并打印」退化为「首断言即短路」。
+
+**G. 行数补足（§10 豁免后的可选路径）**
+
+测试镜像合并（约 −260）／新增 `tests/conftest.py` 收敛 `ROOT` 与 `gd` fixture（约 −30）／抽取 onebiji 双采集器公共层（约 −110~150）。三者均为真实的 DRY 简化，合计约 −400~440 行。
