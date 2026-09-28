@@ -153,7 +153,27 @@ def part_effect_layer(part: Mapping[str, Any]) -> ModifierLayer:
 
 
 def part_tuning_layer(part: Mapping[str, Any], setting: Mapping[str, float]) -> ModifierLayer:
-    """按给定滑块读数求一件配件的精校修饰层。``setting`` 为 ``{tune_id: 读数}``。"""
+    """按给定滑块读数求一件配件的精校修饰层。``setting`` 为 ``{tune_id: 读数}``。
+
+    每条 function 求值后**委托** :func:`accumulate` 逐条累加，因此继承它的目标过滤与
+    路由规则：跳过 ``WeaponMainAttribute.MainAttrValues.`` / ``DisplayAttrValues.``
+    前缀目标（面板属性另由 :func:`apply_attribute_effects` 处理）与空目标；``Initial``
+    作用于 :data:`PROFILE_SLOT_TARGETS` 槽位时改指向 profile 引用。
+
+    **hitbox 路由**：``Initial`` 作用于 ``DamagePointId.<部位>DamageRate`` 时落到
+    ``hitbox_overrides``（键为 :func:`hitbox_key` 还原的部位别名，如 ``head``），
+    **而非** ``overrides``。这是正确的路由——``overrides`` 只被消费
+    ``FireRateMode`` / ``RT_MAG_CAPACITY`` / ``ProjectileNumPerShot`` 三个键，把
+    hitbox 目标写进去等于静默丢弃该效果；``hitbox_overrides`` 则会被
+    :mod:`src.engine.weapon_state` 合入伤害档案的部位倍率。
+
+    精校 function 归一化后只有 ``target`` / ``modifier`` / ``curve`` 三键（没有
+    ``value_ref``），故 ``Initial`` + profile 槽位这一支在本路径下不登记任何内容。
+
+    实测口径（2026-09-28 数据快照，``data/game/parts.json`` 全量 541 个滑块 /
+    1285 条 function）：精校 function 只携带 ``Mult_A``(1061) 与 ``Addend``(224)，
+    不含 ``Initial``；上述 hitbox 路由目前无官方数据触发，由单元测试钉死契约。
+    """
     layer = ModifierLayer()
     for tune in part.get("tunes") or []:
         tune_id = tune["tune_id"]
