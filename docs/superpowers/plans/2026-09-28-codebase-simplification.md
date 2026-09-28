@@ -65,7 +65,7 @@
 - [ ] **Step 1: 运行完整管线（默认 5 实战情景）**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m src.pipeline --beam-width 8
 ```
 
@@ -74,7 +74,7 @@ cd "E:/WK/日常"
 - [ ] **Step 2: 检查产物是否零差异**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 git diff --exit-code README.md docs/ data/ && echo "ZERO-POINT: CLEAN" || echo "ZERO-POINT: NON-EMPTY (见上方 diff)"
 ```
 
@@ -89,7 +89,7 @@ git diff --exit-code README.md docs/ data/ && echo "ZERO-POINT: CLEAN" || echo "
 - [ ] **Step 4: 确认测试基线**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m pytest -q
 ```
 
@@ -147,7 +147,7 @@ Expected: `156 passed`
 - [ ] **Step 1: 逐条验证目标符号当前调用点为 0**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 for s in output_range is_identity "\.sample(" "\.ids()" "\.maybe(" "\.as_dict()" \
          require_profile ammo_levels "def scenario_ids" distance_range \
          "resolve_weapon_state" "def damage_at" armor_damage_at shots_per_second describe_panel \
@@ -166,7 +166,7 @@ Expected: 每个符号命中数均为 1（仅定义处）或 2（定义 + `__ini
 - [ ] **Step 3: 验证删除后无残留引用**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m pytest -q
 ```
 
@@ -175,7 +175,7 @@ Expected: `156 passed`（本任务不删任何测试）
 - [ ] **Step 4: 编译与导入自检**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -c "import src.engine; import src.pipeline; print('import OK')"
 ```
 
@@ -184,7 +184,7 @@ Expected: `import OK`
 - [ ] **Step 5: Commit**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 git add src/engine/
 git commit -m "refactor(engine): 删除全仓零引用死代码(curves/game_data/ballistics/engagement/weapon_state/tiering)
 
@@ -240,7 +240,7 @@ GunRanking.has_variant"
 - [ ] **Step 1: 确认 `solve` / `solve_tuning` 在 src/ 无调用**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 echo "--- solve 在 src/ (排除 loadout.py) ---"
 grep -rn "\.solve(\|solve_tuning\|ttk_tuning_dims\|tuning_breakpoints\|LoadoutSolution" src/ --include="*.py" | grep -v "^src/engine/loadout.py" | grep -v "__pycache__"
 ```
@@ -263,7 +263,7 @@ Expected: 仅 `src/engine/__init__.py` 出现 `LoadoutSolution`（import + `__al
 - [ ] **Step 5: 运行测试**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m pytest -q
 ```
 
@@ -272,7 +272,7 @@ Expected: `151 passed`（156 − 5）
 - [ ] **Step 6: 验证 `tiering` 导出字段未被波及（G1 关键）**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 grep -n '"tuning"' src/engine/tiering.py
 ```
 
@@ -281,7 +281,7 @@ Expected: 至少命中 `tiering.py:319` 与 `:494` —— 该字段**必须保�
 - [ ] **Step 7: Commit**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 git add src/engine/loadout.py src/engine/__init__.py tests/test_loadout.py
 git commit -m "refactor(engine): 删除精校/配装求解器簇(生产链路零使用)
 
@@ -426,7 +426,7 @@ def test_invalid_prices_are_dropped(tmp_path):
 - [ ] **Step 2: 运行测试确认失败**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m pytest tests/test_price_table.py -q
 ```
 
@@ -540,7 +540,7 @@ def load_price_table(
 - [ ] **Step 4: 运行新模块测试确认通过**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m pytest tests/test_price_table.py -q
 ```
 
@@ -645,7 +645,7 @@ def load_weapon_prices(path: str) -> WeaponPriceTable:
 - [ ] **Step 7: 运行全部价格相关测试（回归护栏，不改测试文件）**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m pytest tests/test_price_table.py tests/test_ammo_pricing.py tests/test_weapon_pricing.py tests/test_kill_cost.py tests/test_gun_price.py -q
 ```
 
@@ -656,7 +656,7 @@ Expected: 全绿。若 `test_ammo_pricing.py::test_gbk_encoded_file_yields_empty
 - [ ] **Step 8: 全套测试**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m pytest -q
 ```
 
@@ -665,7 +665,7 @@ Expected: `157 passed`（151 + 6 新增）
 - [ ] **Step 9: Commit**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 git add src/engine/price_table.py src/engine/ammo_pricing.py src/engine/weapon_pricing.py tests/test_price_table.py
 git commit -m "refactor(engine): 抽取泛型 price_table, 双价格模块退化为薄封装
 
@@ -691,7 +691,7 @@ AmmoPriceTable/WeaponPriceTable 保留为 frozen 子类以维持既有构造签�
 - [ ] **Step 1: 确认目标路径存在、现路径不存在**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 for p in docs/tierlist docs/gunsmith-guide.md data/tierlist docs/榜单 docs/改枪指南.md data/榜单; do
   [ -e "$p" ] && echo "[存在] $p" || echo "[缺失] $p"
 done
@@ -702,7 +702,7 @@ Expected: 前三个 `[缺失]`，后三个 `[存在]`。
 - [ ] **Step 2: 修正三行**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 sed -i 's|docs/tierlist/|docs/榜单/|g; s|docs/gunsmith-guide.md|docs/改枪指南.md|g; s|data/tierlist/|data/榜单/|g' llms.txt
 grep -n "docs/榜单\|docs/改枪指南\|data/榜单" llms.txt
 ```
@@ -712,7 +712,7 @@ Expected: 47-49 行全部指向新路径（含链接文本与 URL 两处）。
 - [ ] **Step 3: 核对口径表述与 README 同源**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 echo "--- llms.txt 溯源段 ---"
 grep -n "3774\|3774\|291\|E\[N\]\|rpm" llms.txt
 echo "--- README 溯源段 ---"
@@ -726,7 +726,7 @@ grep -n "3774\|291\|E\[N\]\|rpm" README.md
 - [ ] **Step 4: 验证产物未受影响**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 git diff --exit-code README.md docs/ data/ && echo "ARTIFACTS: CLEAN"
 ```
 
@@ -735,7 +735,7 @@ Expected: `ARTIFACTS: CLEAN`（`llms.txt` 不在 CI 的 `git add` 范围，但�
 - [ ] **Step 5: Commit**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 git add llms.txt
 git commit -m "docs(llms): 修复 3 条失效路径并核对口径同源
 
@@ -758,7 +758,7 @@ llms.txt:47-49 指向 docs/tierlist/ | docs/gunsmith-guide.md | data/tierlist/
 - [ ] **Step 1: 确认存量榜单已含目标字段**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -c "
 import json, glob, os
 ok = True
@@ -780,7 +780,7 @@ Expected: 5 个文件全部 `meta= True`，且末行输出 `BACKFILL_OBSOLETE`�
 - [ ] **Step 2: 确认脚本无代码引用**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 grep -rn "backfill_gun_prices" . --include="*.py" --include="*.yml" --include="*.toml" --include="*.txt" 2>/dev/null | grep -v "^./.probe\|^./.cache\|__pycache__\|^./tools/backfill_gun_prices.py"
 ```
 
@@ -789,14 +789,14 @@ Expected: 无输出（仅 docs/ 的历史记录提及，不影响）。
 - [ ] **Step 3: 删除文件**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 git rm tools/backfill_gun_prices.py
 ```
 
 - [ ] **Step 4: 运行测试**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m pytest -q
 ```
 
@@ -805,7 +805,7 @@ Expected: `157 passed`
 - [ ] **Step 5: Commit**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 git commit -m "chore(tools): 删除一次性迁移脚本 backfill_gun_prices.py
 
 新增枪价列时的免重算回填工具; 已验证 5 个 data/榜单/*.json 全部含
@@ -830,7 +830,7 @@ weapon_price_meta + gun_price_daily + full_price_180rd, 管线已原生产出该
 - [ ] **Step 1: 读源码，确认比对口径**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 cat tools/crosscheck_third_party.py
 ```
 
@@ -926,7 +926,7 @@ def test_declared_verification_arithmetic_holds(reference):
 - [ ] **Step 3: 运行确认红灯**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m pytest tests/test_third_party_crosscheck.py -q
 ```
 
@@ -937,7 +937,7 @@ Expected: 此时文件刚建、内容完整，应直接 **PASS**。
 - [ ] **Step 4: 确认原脚本退出码 0（等价性）**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" tools/crosscheck_third_party.py; echo "exit=$?"
 ```
 
@@ -947,14 +947,14 @@ Expected: `exit=0` 且输出「结果：通过（无冲突）」。这与测试�
 - [ ] **Step 5: 删除脚本**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 git rm tools/crosscheck_third_party.py
 ```
 
 - [ ] **Step 6: 全套测试**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m pytest -q
 ```
 
@@ -963,7 +963,7 @@ Expected: 全绿（157 + 新增 3）
 - [ ] **Step 7: Commit**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 git add tests/test_third_party_crosscheck.py
 git commit -m "test: 第三方交叉核验从常驻脚本下沉为测试
 
@@ -985,31 +985,75 @@ crosscheck_third_party.py 无任何代码/CI 引用, 但它支撑 README 的
 - Produces: `WeaponStateResolver(game_data, scenario_id, resolver=None)`；`LoadoutSolver(game_data, scenario_id, resolver=None)`
 - **必须保留**：`WeaponStateResolver.resolve()` 的行为与返回对象的所有**被读取**字段（`base_damage` / `hitbox_multipliers` / `fire_interval_seconds` / `overrides` / `profile_refs` / `attr2_ratio` 等）。
 
-**删除清单**：
+### Task 8: 移除 `mode` 参数链中**未使用**的部分与只写字段
 
-| 位置 | 符号 |
-| :-- | :-- |
-| `weapon_state.py:47` | `DEFAULT_MODE` 常量 |
-| `weapon_state.py:290, 512` | `WeaponState.mode` 字段（定义 + 赋值） |
-| `weapon_state.py:390` | `WeaponStateResolver.__init__` 的 `mode` 形参 |
-| `weapon_state.py:297, 542` | `WeaponState.panel_named`（定义 + 赋值） |
-| `weapon_state.py:317, 647` | `WeaponState.rate_of_fire_multiplier`（定义 + 赋值） |
-| `weapon_state.py:319, 650` | `WeaponState.burst_cadence_seconds`（定义 + 赋值） |
-| `loadout.py:300` | `LoadoutSolver.__init__` 的 `mode="sol"` 形参 |
+> **范围已于 2026-09-28 按控制器自查修正**（原始版本有缺陷，见下「修正依据」）。
+> 需求方已确认采用「收窄」方案。
 
-> **动手前必查**：`weapon_state.py` 的 `_resolve_rules` 内部可能读取 `self.mode` 或 `state.mode`
-> 做分支。用 `grep -n "mode" src/engine/weapon_state.py` 逐条确认；若存在**读取点**，
-> 说明该分支恒走同一路，把分支展开为单一实现后再删参数。
+**修正依据（原始范围会破坏数值）**：原计划要求一并删除 `DEFAULT_MODE`、
+`WeaponStateResolver.__init__` 的 `mode` 形参，理由来自审计报告称「`mode` 只写不读」。
+该理由**不成立** —— `weapon_state.py:530` 存在读取点：
 
-- [ ] **Step 1: 列出 `mode` 的全部出现点**
-
-```bash
-cd "E:/WK/日常"
-grep -n "mode" src/engine/weapon_state.py src/engine/loadout.py src/pipeline.py
+```python
+curve_id = (mapping.get("curveIds") or {}).get(self.mode)
 ```
 
-Expected: 全部为定义 / 形参 / 形参透传，无任何基于 `mode` 值的**分支读取**。
-若发现分支（如 `if mode == "sol":`），记录并在 Step 2 展开为单一实现。
+且数据实测（1872 个含 `curveIds` 的节点）**同时存在 `sol` 与 `mp` 两档键**，
+同一 target 在不同 `mode` 下映射到**不同曲线**。删除 `mode` 会使曲线选择失效并静默改变数值。
+
+**修正依据（反射读取安全项已排查）**：`tiering.py:96-102` 的 `EFFECT_SPECS` 通过
+`getattr(state, key, 0.0)` 反射读取状态属性，其键集合仅为
+`base_damage` / `base_armor_damage` / `rpm` / `effective_range_m` / `projectile_count`
+—— **不含**本任务待删的任何字段，故删除不会改变「配装效果摘要」的输出。
+
+**删除清单**（仅这些）：
+
+| 位置（基线行号，会漂移） | 符号 | 为何安全 |
+| :-- | :-- | :-- |
+| `weapon_state.py:273, 473` | `WeaponState.mode` 字段（定义 + `mode=self.mode` 赋值） | 全仓仅赋值，无读取；不在 `EFFECT_SPECS` |
+| `weapon_state.py:280, 503` | `WeaponState.panel_named`（定义 + 赋值） | 全仓仅赋值，无读取；不在 `EFFECT_SPECS` |
+| `weapon_state.py:300, 608` | `WeaponState.rate_of_fire_multiplier`（定义 + 赋值） | 同上 |
+| `weapon_state.py:302, 611` | `WeaponState.burst_cadence_seconds`（定义 + 赋值） | 同上 |
+| `loadout.py` 的 `LoadoutSolver.__init__` | `mode: str = "sol"` 形参及其向 resolver 的透传 | 全仓无调用方传 `mode=`；删除后 resolver 走自身默认值 `DEFAULT_MODE`，行为等价 |
+| `loadout.py` 构造 resolver 处的 `mode=` 实参 | 形参透传 | 随上一行一并清理 |
+
+**必须保留（承重，删了会改变数值）**：
+
+| 位置 | 符号 | 原因 |
+| :-- | :-- | :-- |
+| `weapon_state.py:47` | `DEFAULT_MODE = "sol"` | `WeaponStateResolver.__init__` 的默认值 |
+| `weapon_state.py:351, 353` | `WeaponStateResolver.__init__` 的 `mode` 形参与 `self.mode` 赋值 | 供 :530 使用 |
+| `weapon_state.py:530` | `... .get(self.mode)` 读取点 | 曲线选择，**不得改动** |
+
+- [ ] **Step 1: 复核 `mode` 的读取面（确认修正依据仍成立）**
+
+```bash
+grep -n "mode" src/engine/weapon_state.py src/engine/loadout.py src/pipeline.py
+grep -rn "\.mode\b" src/ tests/ tools/ --include="*.py" | grep -v "__pycache__"
+```
+
+Expected：仅出现 `weapon_state.py` 的 4 处（47 定义 / 351 形参 / 353 赋值 / 530 读取）、
+`WeaponState.mode` 的 2 处（273 定义 / 473 赋值）、`loadout.py` 的形参与透传。
+**若发现任何新的 `self.mode` / `state.mode` 读取点，停止并报告** —— 说明修正依据需要重估。
+
+- [ ] **Step 2: 按删除清单删除**
+
+只删上表「删除清单」的行。`DEFAULT_MODE`、`WeaponStateResolver` 的 `mode` 形参与
+`self.mode`、以及 :530 的读取点**原样保留**。
+
+- [ ] **Step 3: 验证残留与保留项并存**
+
+```bash
+grep -rn "panel_named\|rate_of_fire_multiplier\|burst_cadence_seconds" src/ tests/ tools/ --include="*.py" | grep -v "__pycache__"
+```
+Expected：无输出（这三个已删干净）。
+
+```bash
+grep -n "DEFAULT_MODE\|self\.mode" src/engine/weapon_state.py
+```
+Expected：**仍有输出** —— `DEFAULT_MODE` 定义、`mode: str = DEFAULT_MODE`、
+`def __init__(..., mode: str = DEFAULT_MODE)`、`self.mode = mode`、`.get(self.mode)`。
+这是本任务修正后的预期状态，**不是残留**。
 
 - [ ] **Step 2: 删除参数链与只写字段**
 
@@ -1018,7 +1062,7 @@ Expected: 全部为定义 / 形参 / 形参透传，无任何基于 `mode` 值�
 - [ ] **Step 3: 验证无残留**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 grep -rn "DEFAULT_MODE\|panel_named\|rate_of_fire_multiplier\|burst_cadence_seconds\|mode=" src/ tests/ tools/ --include="*.py" | grep -v "__pycache__"
 ```
 
@@ -1027,7 +1071,7 @@ Expected: 无输出。
 - [ ] **Step 4: 运行测试**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m pytest -q
 ```
 
@@ -1036,7 +1080,7 @@ Expected: 全绿
 - [ ] **Step 5: Commit**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 git add src/engine/weapon_state.py src/engine/loadout.py
 git commit -m "refactor(engine): 移除恒为 sol 的 mode 参数链与 3 个只写字段
 
@@ -1054,14 +1098,14 @@ rate_of_fire_multiplier/burst_cadence_seconds 均只写不读。"
 - [ ] **Step 1: 全量重算**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m src.pipeline --beam-width 8
 ```
 
 - [ ] **Step 2: 对照零点校验**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 git diff --exit-code README.md docs/ data/ && echo "PHASE1 GATE: CLEAN" || echo "PHASE1 GATE: DIRTY"
 ```
 
@@ -1070,7 +1114,7 @@ Expected: `PHASE1 GATE: CLEAN`（若 Task 1 为零点非空情形，则改为与
 - [ ] **Step 3: 若 DIRTY，定位并修复**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 git diff --stat README.md docs/ data/
 git diff data/ | head -60
 ```
@@ -1085,7 +1129,7 @@ git diff data/ | head -60
 - [ ] **Step 4: 记录阶段 1 成果**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 echo "--- 行数 ---"
 find src tests tools -name "*.py" -exec wc -l {} + | tail -1
 echo "--- 测试数 ---"
@@ -1114,7 +1158,7 @@ Expected: 总行数 ≈ 9108 − 450；测试全绿。
 - [ ] **Step 1: 确认两处入参完全相同**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 sed -n '425,455p' src/engine/tiering.py
 ```
 
@@ -1143,7 +1187,7 @@ L451 为 `resolve(base_key, loadout=loadout_choice, tuning=None)`，
 - [ ] **Step 3: 运行 tiering 相关测试**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m pytest tests/test_tiering.py tests/test_kill_cost.py tests/test_gun_price.py tests/test_band_summary.py -q
 ```
 
@@ -1152,7 +1196,7 @@ Expected: 全绿
 - [ ] **Step 4: 全量重算 + 零差异校验**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m src.pipeline --beam-width 8
 git diff --exit-code README.md docs/ data/ && echo "CLEAN" || echo "DIRTY"
 ```
@@ -1162,7 +1206,7 @@ Expected: `CLEAN`
 - [ ] **Step 5: Commit**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 git add src/engine/tiering.py
 git commit -m "perf(engine): tiering 复用已算 state, 消除同一 loadout 的重复 resolve
 
@@ -1197,7 +1241,7 @@ L438 已持有 state_mounted 却被丢弃, L451 又用相同入参完整 resolve
 - [ ] **Step 1: 定位全部触发点**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 grep -n "_build_loadout\|def build_loadout\|_mounted(" src/engine/weapon_state.py src/engine/loadout.py
 ```
 
@@ -1260,7 +1304,7 @@ def test_build_loadout_agrees_with_resolver(gd):
 - [ ] **Step 3: 运行测试确认失败**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m pytest tests/test_loadout.py -q
 ```
 
@@ -1335,7 +1379,7 @@ def build_loadout(
 - [ ] **Step 7: 运行测试**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m pytest tests/test_loadout.py tests/test_ballistics.py tests/test_tiering.py -q
 ```
 
@@ -1344,7 +1388,7 @@ Expected: 全绿（含 Step 2 新增的 3 个 `build_loadout` 用例）
 - [ ] **Step 8: 全量重算 + 零差异校验**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m src.pipeline --beam-width 8
 git diff --exit-code README.md docs/ data/ && echo "CLEAN" || echo "DIRTY"
 ```
@@ -1356,7 +1400,7 @@ Expected: `CLEAN`。**本任务是阶段 2 风险最高的一步** —— 配装
 - [ ] **Step 9: Commit**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 git add src/engine/weapon_state.py src/engine/loadout.py tests/test_loadout.py
 git commit -m "perf(engine): build_loadout 提升为公开纯函数并透传结果
 
@@ -1383,7 +1427,7 @@ resolve L503), 每次都重跑含 while 循环的耦合求解。
 - [ ] **Step 1: 记录改动前耗时**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -c "
 import time, os
 from src.engine.game_data import load_game_data
@@ -1464,7 +1508,7 @@ class Curve:
 - [ ] **Step 5: 运行测试 + 复测耗时**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m pytest tests/test_ballistics.py tests/test_loadout.py tests/test_tiering.py -q
 "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -c "
 import time, os
@@ -1483,7 +1527,7 @@ Expected: 测试全绿；候选**数量与 Step 1 完全一致**（缓存不得�
 - [ ] **Step 6: 全量重算 + 零差异校验**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m src.pipeline --beam-width 8
 git diff --exit-code README.md docs/ data/ && echo "CLEAN" || echo "DIRTY"
 ```
@@ -1493,7 +1537,7 @@ Expected: `CLEAN`
 - [ ] **Step 7: Commit**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 git add src/engine/loadout.py src/engine/tiering.py src/engine/curves.py
 git commit -m "perf(engine): 束搜索打分缓存 + 分层排序复用 + Curve.evaluate 改 bisect
 
@@ -1538,7 +1582,7 @@ enumerate_loadouts 对同一 mounted 签名重复打分; assign_tiers 与外部 
 - [ ] **Step 1: 查清搬迁符号的外部引用面**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 grep -rn "ModifierLayer\|_factor\b\|_accumulate\|_hitbox_key\|_falloff_from_bullet_profile\|_apply_attribute_effects\|_part_effect_layer\|_part_tuning_layer" src/ tests/ tools/ --include="*.py" | grep -v "__pycache__" | grep -v "^src/engine/weapon_state.py"
 ```
 
@@ -1595,7 +1639,7 @@ from src.engine.modifiers import (
 - [ ] **Step 4: 运行测试 + 全量零差异**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m pytest -q
 "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m src.pipeline --beam-width 8
 git diff --exit-code README.md docs/ data/ && echo "CLEAN" || echo "DIRTY"
@@ -1606,7 +1650,7 @@ Expected: 全绿 + `CLEAN`
 - [ ] **Step 5: Commit**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 git add src/engine/modifiers.py src/engine/weapon_state.py
 git commit -m "refactor(engine): 从 weapon_state 抽出修饰层内核 modifiers.py
 
@@ -1645,7 +1689,7 @@ WeaponState 数据类(280-381) / WeaponStateResolver(387-813)。
 - [ ] **Step 1: 确认对外调用面**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 grep -rn "rank_weapons_for_scenario\|to_export\|from src.engine.tiering import\|from src.engine import tiering" src/ tests/ tools/ --include="*.py" | grep -v "__pycache__"
 ```
 
@@ -1755,7 +1799,7 @@ import 清单按实读校准，口径同 Step 2。
 校验命令（改完后应只剩新模块）：
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 grep -rn "tiering.rank_weapons_for_scenario\|tiering.to_export\|from src.engine.tiering import.*rank_weapons_for_scenario\|from src.engine.tiering import.*to_export" src/ tests/ tools/ --include="*.py" | grep -v "__pycache__"
 ```
 
@@ -1764,7 +1808,7 @@ Expected: 无输出。
 - [ ] **Step 5: 运行测试 + 全量零差异**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m pytest -q
 "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m src.pipeline --beam-width 8
 git diff --exit-code README.md docs/ data/ && echo "CLEAN" || echo "DIRTY"
@@ -1775,7 +1819,7 @@ Expected: 全绿 + `CLEAN`
 - [ ] **Step 6: Commit**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 git add src/engine/ranking.py src/engine/tierlist_export.py src/engine/tiering.py \
         src/engine/__init__.py src/pipeline.py \
         tests/test_tiering.py tests/test_gun_price.py tests/test_kill_cost.py
@@ -1820,7 +1864,7 @@ to_export(473-572) -> tierlist_export.py
 - [ ] **Step 1: 摸清常量与函数的依赖方向**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 sed -n '1,115p' src/collectors/game_data_sync.py
 ```
 
@@ -1848,7 +1892,7 @@ from src.collectors.overrides import load_overrides, _apply_field_overrides
 - [ ] **Step 5: 冒烟验证 CLI 契约（G6）**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -c "
 from src.collectors.game_data_sync import sync_all, main
 from src.collectors import sync_all as reexported
@@ -1863,7 +1907,7 @@ Expected: `CLI contract OK True` + argparse 帮助正常打印。
 - [ ] **Step 6: 运行测试**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m pytest -q
 ```
 
@@ -1872,7 +1916,7 @@ Expected: 全绿（`tests/test_data_integrity.py` 是本任务的真正护栏）
 - [ ] **Step 7: Commit**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 git add src/collectors/
 git commit -m "refactor(collectors): 拆分 game_data_sync.py(1360行) 为 http/overrides/normalize
 
@@ -1958,7 +2002,7 @@ def test_band_boundaries_are_contiguous():
 - [ ] **Step 2: 运行确认失败或通过**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m pytest tests/test_distance_bands.py -q
 ```
 
@@ -2000,7 +2044,7 @@ from src.engine.engagement import BAND_NAMES as BAND_ORDER
 - [ ] **Step 4: 运行测试 + 全量零差异**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m pytest -q
 "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m src.pipeline --beam-width 8
 git diff --exit-code README.md docs/ data/ && echo "CLEAN" || echo "DIRTY"
@@ -2011,7 +2055,7 @@ Expected: 全绿 + `CLEAN`
 - [ ] **Step 5: Commit**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 git add tests/test_distance_bands.py src/engine/engagement.py src/engine/tiering.py src/renderers/ttk_report.py
 git commit -m "fix(engine): 距离带收敛为单一真源并加一致性守护
 
@@ -2046,7 +2090,7 @@ tiering 与 renderers 改为引用; 新增三方一致 + 覆盖 + 边界连续�
 - [ ] **Step 1: 先做等价性验证（合并前）**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -c "
 from src.engine.curves import apply_modifier
 cases = [(100.0,'Addend',5.0),(100.0,'Mult_A',0.3),(100.0,'Mult_C',0.88),
@@ -2111,7 +2155,7 @@ def apply_modifier(base: float, modifier: Optional[str], value: Optional[float])
 - [ ] **Step 6: 运行测试 + 全量零差异 + 官方复现**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m pytest -q
 "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m src.pipeline --beam-width 8
 git diff --exit-code README.md docs/ data/ && echo "CLEAN" || echo "DIRTY"
@@ -2123,7 +2167,7 @@ Expected: 全绿 + `CLEAN` + 官方复现工具输出与改动前一致（3774 �
 - [ ] **Step 7: Commit**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 git add src/engine/modifiers.py src/engine/curves.py
 git commit -m "refactor(engine): 统一 modifier 语义实现
 
@@ -2141,7 +2185,7 @@ part_tuning_layer 内联的 factor/Addend/Initial 三分支改调 accumulate。"
 - [ ] **Step 1: 全量测试**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m pytest -q
 ```
 
@@ -2150,7 +2194,7 @@ Expected: 全绿
 - [ ] **Step 2: 官方数据复现（数值回归护栏）**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" tools/verify_official_reproduction.py
 ```
 
@@ -2159,7 +2203,7 @@ Expected: 与阶段 0 记录的分级分布一致（逐位一致 / |Δ|≤1e-9 /
 - [ ] **Step 3: 全量重算 + 零差异**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m src.pipeline --beam-width 8
 git diff --exit-code README.md docs/ data/ && echo "PHASE3 GATE: CLEAN" || echo "PHASE3 GATE: DIRTY"
 ```
@@ -2169,7 +2213,7 @@ Expected: `PHASE3 GATE: CLEAN`
 - [ ] **Step 4: CLI 契约复核（G6）**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 for m in src.pipeline src.collectors.game_data_sync src.collectors.ammo_price_sync src.collectors.weapon_price_sync; do
   "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -m $m --help > /dev/null 2>&1 \
     && echo "OK   $m" || echo "FAIL $m"
@@ -2181,7 +2225,7 @@ Expected: 四行全 `OK`
 - [ ] **Step 5: 依赖与体积核对（G3）**
 
 ```bash
-cd "E:/WK/日常"
+cd "<repo-root>"
 echo "--- src/ 是否引入第三方 import ---"
 "C:/Users/pc/AppData/Local/Programs/Python/Python314/python.exe" -c "
 import ast, pathlib, sys
