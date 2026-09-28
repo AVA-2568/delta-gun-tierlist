@@ -282,7 +282,9 @@ def test_provenance_output_hashes_match():
     prov = json.load(open(os.path.join(G, "provenance.json"), encoding="utf-8"))
     for name, expected in prov["outputs"].items():
         payload = json.load(open(os.path.join(G, name), encoding="utf-8"))
-        text = json.dumps(payload, ensure_ascii=False, indent=1, sort_keys=False) + "\n"
+        # 口径与 game_data_sync._write_json 严格一致:哈希算 json.dumps(...) 文本本身,
+        # 不带尾换行(尾换行仅在写文件时追加)。旧骨架误加 +"\n" 导致 9/9 误报,已更正。
+        text = json.dumps(payload, ensure_ascii=False, indent=1, sort_keys=False)
         assert hashlib.sha256(text.encode("utf-8")).hexdigest() == expected, f"{name} 哈希不匹配(内容被改动?)"
 ```
 
