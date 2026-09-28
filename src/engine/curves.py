@@ -121,6 +121,21 @@ class CurveLibrary:
         return curve
 
 
+def modifier_factor(modifier: Optional[str], value: Optional[float]) -> Optional[float]:
+    """把 modifier 折算为**乘数**；非乘性 modifier 返回 ``None``。
+
+    ``Mult_A`` → ``1 + value``；``Mult_C`` → ``value``。
+    其余（Addend / Initial / 未知）返回 ``None``，由调用方按加法或覆盖处理。
+    """
+    if value is None:
+        return None
+    if modifier == "Mult_A":
+        return 1.0 + value
+    if modifier == "Mult_C":
+        return value
+    return None
+
+
 def apply_modifier(base: float, modifier: Optional[str], value: Optional[float]) -> float:
     """按官方 modifier 语义把数值作用到基础量上。
 
@@ -138,12 +153,11 @@ def apply_modifier(base: float, modifier: Optional[str], value: Optional[float])
     """
     if value is None:
         return base
+    factor = modifier_factor(modifier, value)
+    if factor is not None:
+        return base * factor
     if modifier == "Addend":
         return base + value
-    if modifier == "Mult_A":
-        return base * (1.0 + value)
-    if modifier == "Mult_C":
-        return base * value
     if modifier == "Initial":
         return value
     return base

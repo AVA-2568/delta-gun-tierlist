@@ -9,7 +9,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Mapping, Optional
 
-from src.engine.curves import Curve, apply_modifier
+from src.engine.curves import Curve, apply_modifier, modifier_factor
 
 # 下列目标前缀 / profile 槽位常量只服务于本内核，故随内核一并从
 # ``weapon_state`` 迁出；``weapon_state`` 不再引用它们。
@@ -65,14 +65,8 @@ class ModifierLayer:
 
 
 def factor(modifier: Optional[str], value: Optional[float]) -> Optional[float]:
-    """把单次乘性修饰换算成倍率。"""
-    if value is None:
-        return None
-    if modifier == "Mult_A":
-        return 1.0 + value
-    if modifier == "Mult_C":
-        return value
-    return None
+    """把单次乘性修饰换算成倍率；语义真源在 :func:`curves.modifier_factor`。"""
+    return modifier_factor(modifier, value)
 
 
 def hitbox_key(target: str) -> Optional[str]:
@@ -177,13 +171,5 @@ def part_tuning_layer(part: Mapping[str, Any], setting: Mapping[str, float]) -> 
             if not points:
                 continue
             value = Curve(points).evaluate(x)
-            target = func.get("target")
-            modifier = func.get("modifier")
-            factor_value = factor(modifier, value)
-            if factor_value is not None:
-                layer.scales[target] = layer.scales.get(target, 1.0) * factor_value
-            elif modifier == "Addend":
-                layer.addends[target] = layer.addends.get(target, 0.0) + value
-            elif modifier == "Initial":
-                layer.overrides[target] = value
+            accumulate(layer, func.get("target"), func.get("modifier"), value, None)
     return layer
