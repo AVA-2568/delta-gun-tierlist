@@ -11,6 +11,10 @@
    任意字段，覆盖生效时 provenance 标记为 ``verified-in-game``。
 3. 确定性：同一份上游数据必然产出逐字节一致的本地数据（字典有序、无时间戳漂移
    写入数据体，时间戳只进 provenance）。
+4. 残余记录衔接：重跑同步器后再生成 ``data/game/*.json``，需重跑
+   ``python tools/verify_official_reproduction.py --record-residual-conclusion "<结论>"``
+   刷新 ``provenance.json`` 的 ``integrity.official_reproduction_residual``——
+   ``tests/test_official_reproduction.py`` 依赖该记录对齐，缺失或过期即 fail。
 """
 
 from __future__ import annotations
