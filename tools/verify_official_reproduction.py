@@ -194,12 +194,53 @@ def run_verification(
     }
 
 
+def _scenario_distribution(deviations: List[Dict[str, Any]]) -> Dict[str, int]:
+    counts: Counter = Counter()
+    for item in deviations:
+        # armor-4-ammo-3-center → armor-4-ammo-3（命中情景不影响伤害参数）
+        counts[item["scenario"].rsplit("-", 1)[0]] += 1
+    return dict(sorted(counts.items()))
+
+
+def record_residual(
+    provenance_path: str,
+    result: Dict[str, Any],
+    conclusion: str,
+) -> None:
+    """把复验残余写入 ``provenance.json`` 的 ``integrity.official_reproduction_residual``。
+
+    不允许静默放过无法归零的点：点数、最大 |Δ|、情景分布、结论与理由一并落盘。
+    """
+    with open(provenance_path, encoding="utf-8") as fh:
+        provenance = json.load(fh)
+    residual = {
+        "verify_tol": result["tol"],
+        "residual_points": result["fail_count"],
+        "total_points": result["total_points"],
+        "max_abs_delta": result["worst"]["delta"],
+        "grade_counts": result["grades"],
+        "scenario_distribution": _scenario_distribution(result["deviations"]),
+        "conclusion": conclusion,
+    }
+    provenance.setdefault("integrity", {})["official_reproduction_residual"] = residual
+    with open(provenance_path, "w", encoding="utf-8", newline="\n") as fh:
+        json.dump(provenance, fh, ensure_ascii=False, indent=1, sort_keys=False)
+        fh.write("\n")
+    print(f"  残余记录已写入 : {provenance_path} (integrity.official_reproduction_residual)")
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="官方 candidateMetrics 全量复现验证")
     ap.add_argument("--tol", type=float, default=DEFAULT_TOL, help="达标阈值（默认 1e-9）")
     ap.add_argument("--report", default=None, help="偏差明细 JSON 输出路径")
     ap.add_argument("--samples", default=DEFAULT_SAMPLES, help="验证样本路径")
     ap.add_argument("--scenario", default=None, help="仅验证指定情景（逗号分隔 id）")
+    ap.add_argument(
+        "--record-residual-conclusion",
+        default=None,
+        help="存在超差点时，把残余统计与该结论写入 provenance.json（需配合 --provenance）",
+    )
+    ap.add_argument("--provenance", default=os.path.join(ROOT, "data", "game", "provenance.json"))
     args = ap.parse_args()
 
     result = run_verification(
@@ -238,6 +279,9 @@ def main() -> int:
             )
         print(f"  偏差明细已写入 : {args.report}")
         print()
+
+    if args.record_residual_conclusion:
+        record_residual(args.provenance, result, args.record_residual_conclusion)
 
     if result["fail_count"] > 0:
         print("  结果：存在超差点（退出码 1）")
