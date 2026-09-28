@@ -975,7 +975,7 @@ crosscheck_third_party.py 无任何代码/CI 引用, 但它支撑 README 的
 
 ---
 
-### Task 8: 移除 `mode` 参数链与只写字段
+### Task 8: 移除 `mode` 参数链中**未使用**的部分与只写字段
 
 **Files:**
 - Modify: `src/engine/weapon_state.py`
@@ -984,8 +984,6 @@ crosscheck_third_party.py 无任何代码/CI 引用, 但它支撑 README 的
 **Interfaces:**
 - Produces: `WeaponStateResolver(game_data, scenario_id, resolver=None)`；`LoadoutSolver(game_data, scenario_id, resolver=None)`
 - **必须保留**：`WeaponStateResolver.resolve()` 的行为与返回对象的所有**被读取**字段（`base_damage` / `hitbox_multipliers` / `fire_interval_seconds` / `overrides` / `profile_refs` / `attr2_ratio` 等）。
-
-### Task 8: 移除 `mode` 参数链中**未使用**的部分与只写字段
 
 > **范围已于 2026-09-28 按控制器自查修正**（原始版本有缺陷，见下「修正依据」）。
 > 需求方已确认采用「收窄」方案。
@@ -1055,19 +1053,6 @@ Expected：**仍有输出** —— `DEFAULT_MODE` 定义、`mode: str = DEFAULT_
 `def __init__(..., mode: str = DEFAULT_MODE)`、`self.mode = mode`、`.get(self.mode)`。
 这是本任务修正后的预期状态，**不是残留**。
 
-- [ ] **Step 2: 删除参数链与只写字段**
-
-按上表删除。同时清理形参透传处（如 `LoadoutSolver` 内部构造 resolver 时传 `mode` 的位置）。
-
-- [ ] **Step 3: 验证无残留**
-
-```bash
-cd "<repo-root>"
-grep -rn "DEFAULT_MODE\|panel_named\|rate_of_fire_multiplier\|burst_cadence_seconds\|mode=" src/ tests/ tools/ --include="*.py" | grep -v "__pycache__"
-```
-
-Expected: 无输出。
-
 - [ ] **Step 4: 运行测试**
 
 ```bash
@@ -1082,10 +1067,13 @@ Expected: 全绿
 ```bash
 cd "<repo-root>"
 git add src/engine/weapon_state.py src/engine/loadout.py
-git commit -m "refactor(engine): 移除恒为 sol 的 mode 参数链与 3 个只写字段
+git commit -m "refactor(engine): 移除未使用的 mode 透传形参与 4 个只写字段
 
-全仓无任何调用点显式传 mode=; WeaponState.mode/panel_named/
-rate_of_fire_multiplier/burst_cadence_seconds 均只写不读。"
+保留承重的 mode 参数链与 DEFAULT_MODE —— weapon_state.py 的
+.get(self.mode) 在 curveIds 中选曲线, 且数据 1872 个节点均含 sol/mp 两档键。
+仅删 WeaponState.mode / panel_named / rate_of_fire_multiplier /
+burst_cadence_seconds 四个只写字段, 以及 LoadoutSolver 未被任何调用方
+传参的 mode 形参(删除后 resolver 走自身默认值, 行为等价)。"
 ```
 
 ---
