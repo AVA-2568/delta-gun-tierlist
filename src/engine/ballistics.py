@@ -1,8 +1,16 @@
-"""弹道伤害与击杀发数（STK）模型 —— 与官方 ``candidateMetrics`` 逐位对齐。
+"""弹道伤害与击杀发数（STK）模型 —— 与官方 ``candidateMetrics`` 对齐。
 
 本模块实现的是**从 dfttk 上游数据反解并验证过**的官方伤害规则。验证方式：
 用本模块重算官方 ``rankings/firefight/*.json`` 中 ``candidateMetrics`` 的期望击杀发数，
-16 个（情景 × 距离）样本全部逐位一致（|Δ| ≤ 3.6e-15）。
+21 情景 / 1338 候选全量复现 **3774 个样本点**：逐位一致 1435、|Δ|≤1e-9 1574、
+|Δ|≤1e-5 723、|Δ|≤1e-2 39、|Δ|>1e-2 3（最差 0.02449 发）。765 个残余偏差点（含上述
+3 点）经白盒对拍（用官方 dynamic damageModel 自声明参数独立重算）证明为**官方上游
+数据自相矛盾**（698 点官方参数 DP 与本地逐位一致但官方 E 值偏离；67 点官方声明了
+perPart，其中 42/67 吻合 ≤1.1e-6），记录于 ``data/game/provenance.json`` 的
+``integrity.official_reproduction_residual``。复现入口：
+``python tools/verify_official_reproduction.py``（``--official-param-audit`` 为白盒对拍）；
+回归测试 ``tests/test_official_reproduction.py`` 与数据完整性测试
+``tests/test_data_integrity.py``（哈希）已入 CI。
 
 官方规则（``combat/defense/rule-sets.json`` → ``firefight-v3-initial-1``）：
 
