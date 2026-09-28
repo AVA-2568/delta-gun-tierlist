@@ -270,14 +270,12 @@ class WeaponState:
     base_name: str
     category: str
     weapon_type: str
-    mode: str = DEFAULT_MODE
 
     loadout: Dict[str, str] = field(default_factory=dict)
     tuning: Dict[str, Dict[str, float]] = field(default_factory=dict)
 
     base_panel: Dict[str, float] = field(default_factory=dict)
     panel: Dict[str, float] = field(default_factory=dict)
-    panel_named: Dict[str, float] = field(default_factory=dict)
 
     #: 绝对量：开镜秒数、射程厘米、初速 m/s 等
     absolute_rules: Dict[str, float] = field(default_factory=dict)
@@ -297,9 +295,7 @@ class WeaponState:
     fire_interval_seconds: float = 0.0
     muzzle_velocity_mps: float = 0.0
     effective_range_m: float = 0.0
-    rate_of_fire_multiplier: float = 1.0
     attr2_ratio: float = 1.0
-    burst_cadence_seconds: float = 0.0
     reload_seconds: float = 0.0
     empty_reload_seconds: float = 0.0
     clip_capacity: int = 0
@@ -470,7 +466,6 @@ class WeaponStateResolver:
             base_name=weapon["name"],
             category=weapon["category"],
             weapon_type=weapon["weapon_type"],
-            mode=self.mode,
             loadout=resolved_loadout,
             tuning=tuning_setting,
             caliber=weapon.get("caliber") or "",
@@ -500,7 +495,6 @@ class WeaponStateResolver:
 
         state.base_panel = base_panel
         state.panel = panel
-        state.panel_named = {PANEL_ATTR_NAMES[i]: panel[i] for i in PANEL_ATTR_INDEXES}
         state.scales = layer.scales
         state.addends = layer.addends
         state.overrides = layer.overrides
@@ -605,10 +599,8 @@ class WeaponStateResolver:
                 base_interval = float(sdk.get("fire_interval_s") or 0.0)
         interval_scale = state.scales.get(RT_RATE_OF_FIRE, 1.0)
         interval = base_interval * interval_scale
-        state.rate_of_fire_multiplier = interval_scale
         state.fire_interval_seconds = interval
         state.rpm = 60.0 / interval if interval > 0 else 0.0
-        state.burst_cadence_seconds = burst_cadence
 
         # 初速：面板 attr2（优势射程）的相对变化传播到 GBullet_Velocity。
         attr2_ratio = (

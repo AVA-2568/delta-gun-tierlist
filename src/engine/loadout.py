@@ -218,7 +218,7 @@ DEFAULT_COARSE_DISTANCES: Tuple[float, ...] = (0.0, 40.0, 80.0)
 class LoadoutSolver:
     """在官方插槽规则下束搜索实战 TTK 最优的候选配装。"""
 
-    def __init__(self, game_data: Any, scenario_id: str, mode: str = "sol", resolver: Any = None):
+    def __init__(self, game_data: Any, scenario_id: str, resolver: Any = None):
         from src.engine.weapon_state import WeaponStateResolver
 
         self.gd = game_data
@@ -226,7 +226,7 @@ class LoadoutSolver:
         self.scenario = eg.resolve_scenario(game_data, scenario_id)
         self.armor = eg.scenario_armor(game_data, self.scenario)
         self.probabilities = self.scenario["hit_probabilities"]
-        self.resolver = resolver or WeaponStateResolver(game_data, mode)
+        self.resolver = resolver or WeaponStateResolver(game_data)
         self._ammo_cache: Dict[str, Mapping[str, Any]] = {}
 
     # ------------------------------------------------------------------ #
