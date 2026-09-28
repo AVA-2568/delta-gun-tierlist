@@ -1032,7 +1032,8 @@ def normalize_validation_samples(
 ) -> Dict[str, Any]:
     """抽取官方情景文件的 ``candidateMetrics`` 作为引擎交叉验证样本。
 
-    ``candidateMetrics`` 形如 ``candidateId -> [[distance, expected_shots], ...]``，
+    ``candidateMetrics`` 形如 ``[candidateId, [[distance, expected_shots], ...]]`` 的
+    键值对列表（candidateId 为 ``weapon:profile:ammo[:slot=part...]``），
     是无精校条件下的期望击杀发数基准，用于校验本系统的弹道链路。
     """
     samples: Dict[str, Any] = {}
