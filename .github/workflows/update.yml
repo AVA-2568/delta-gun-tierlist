@@ -5,7 +5,7 @@ on:
     branches: [ main, master ]
   pull_request:
   schedule:
-    - cron: "30 1 * * *"     # 每日 UTC 01:30（北京 09:30）：同步当日弹药价格并重算榜单
+    - cron: "0 12 * * *"     # 每日 UTC 12:00（北京 20:00）：同步当日价格并重算榜单（晚间黄金交易期，避免物价失真）
   workflow_dispatch:        # 手动刷新榜单并提交
 
 permissions:
