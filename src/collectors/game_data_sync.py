@@ -60,12 +60,13 @@ DEFAULT_OUTPUT_DIR = os.path.join("data", "game")
 # 主流程
 # --------------------------------------------------------------------------- #
 def _write_json(path: str, payload: Any) -> str:
-    os.makedirs(os.path.dirname(os.path.abspath(path)), exist_ok=True)
-    text = json.dumps(payload, ensure_ascii=False, indent=1, sort_keys=False)
-    with open(path, "w", encoding="utf-8", newline="\n") as fh:
-        fh.write(text)
-        fh.write("\n")
+    from pathlib import Path
+    target = Path(path).resolve()
+    target.parent.mkdir(parents=True, exist_ok=True)
+    text = json.dumps(payload, ensure_ascii=False, indent=1, sort_keys=False) + "\n"
+    target.write_text(text, encoding="utf-8", newline="\n")
     return _sha256_bytes(text.encode("utf-8"))
+
 
 
 def sync_all(

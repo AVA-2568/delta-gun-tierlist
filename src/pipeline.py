@@ -27,6 +27,7 @@ import argparse
 import json
 import logging
 import os
+from pathlib import Path
 from typing import Any, Dict, List, Mapping, Optional, Sequence
 
 from src.engine import ranking, tierlist_export
@@ -180,8 +181,7 @@ def _render_outputs(
 
         json_path = _scenario_payload_path(output_dir, meta)
         os.makedirs(os.path.dirname(json_path), exist_ok=True)
-        with open(json_path, "w", encoding="utf-8", newline="\n") as fh:
-            json.dump(payload, fh, ensure_ascii=False, indent=1)
+        Path(json_path).write_text(json.dumps(payload, ensure_ascii=False, indent=1) + "\n", encoding="utf-8", newline="\n")
         files_written.append(json_path)
 
         docs_dir = os.path.join(output_dir, DOCS_SCENARIO_DIR)
@@ -192,33 +192,32 @@ def _render_outputs(
             if not any(band in (w.get("bands") or {}) for w in payload["weapons"]):
                 continue
             band_path = os.path.join(docs_dir, band_doc_name(prefix, band))
-            with open(band_path, "w", encoding="utf-8", newline="\n") as fh:
-                fh.write(render_band_doc(payload, band, meta, part_names, prefix=prefix))
+            Path(band_path).write_text(render_band_doc(payload, band, meta, part_names, prefix=prefix), encoding="utf-8", newline="\n")
             files_written.append(band_path)
 
     main_payload = payloads.get(MAIN_SCENARIO)
     if main_payload is not None:
         readme_path = os.path.join(output_dir, "README.md")
-        with open(readme_path, "w", encoding="utf-8", newline="\n") as fh:
-            fh.write(
-                render_readme(
-                    main_payload,
-                    scenario_meta_all[MAIN_SCENARIO],
-                    game_data.provenance,
-                    part_names,
-                    # 只索引实际生成了榜单文件的情景，避免 README 出现死链
-                    scenario_index=[
-                        s for s in _scenario_index(game_data) if s["scenario_id"] in payloads
-                    ],
-                    repo_slug=_repo_slug(),
-                )
-            )
+        Path(readme_path).write_text(
+            render_readme(
+                main_payload,
+                scenario_meta_all[MAIN_SCENARIO],
+                game_data.provenance,
+                part_names,
+                # 只索引实际生成了榜单文件的情景，避免 README 出现死链
+                scenario_index=[
+                    s for s in _scenario_index(game_data) if s["scenario_id"] in payloads
+                ],
+                repo_slug=_repo_slug(),
+            ),
+            encoding="utf-8",
+            newline="\n",
+        )
         files_written.append(readme_path)
 
     guide_path = os.path.join(output_dir, GUNSMITH_GUIDE_PATH)
     os.makedirs(os.path.dirname(guide_path), exist_ok=True)
-    with open(guide_path, "w", encoding="utf-8", newline="\n") as fh:
-        fh.write(render_gunsmith_guide(game_data, game_data.provenance))
+    Path(guide_path).write_text(render_gunsmith_guide(game_data, game_data.provenance), encoding="utf-8", newline="\n")
     files_written.append(guide_path)
 
     return files_written

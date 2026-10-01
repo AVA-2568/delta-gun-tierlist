@@ -26,6 +26,7 @@ import argparse
 import ipaddress
 import json
 import os
+from pathlib import Path
 import socket
 import sys
 import urllib.parse
@@ -512,9 +513,8 @@ def record_residual(
         "conclusion": conclusion,
     }
     provenance.setdefault("integrity", {})["official_reproduction_residual"] = residual
-    with open(provenance_path, "w", encoding="utf-8", newline="\n") as fh:
-        json.dump(provenance, fh, ensure_ascii=False, indent=1, sort_keys=False)
-        fh.write("\n")
+    provenance_text = json.dumps(provenance, ensure_ascii=False, indent=1, sort_keys=False) + "\n"
+    Path(provenance_path).write_text(provenance_text, encoding="utf-8", newline="\n")
     print(f"  残余记录已写入 : {provenance_path} (integrity.official_reproduction_residual)")
 
 
@@ -563,9 +563,8 @@ def refresh_output_hashes(
         print("  会把错误基线固化并掩盖未审查的数据改动。确认数据文件已经")
         print("  全量复现验证与测试套件审查后，加 --confirm 重跑。")
         raise SystemExit(2)
-    with open(provenance_path, "w", encoding="utf-8", newline="\n") as fh:
-        json.dump(provenance, fh, ensure_ascii=False, indent=1, sort_keys=False)
-        fh.write("\n")
+    new_provenance_text = json.dumps(provenance, ensure_ascii=False, indent=1, sort_keys=False) + "\n"
+    Path(provenance_path).write_text(new_provenance_text, encoding="utf-8", newline="\n")
     print(f"  已重钉 {len(pending)}/{len(outputs)} 个哈希 → {provenance_path}")
 
 
