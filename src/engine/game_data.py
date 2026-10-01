@@ -28,7 +28,6 @@ class GameData:
         self.mechanism: Dict[str, Any] = self._load("mechanism.json")
         self.scenarios_raw: Dict[str, Any] = self._load("scenarios.json")
         self.validation_samples: Dict[str, Any] = self._load("validation_samples.json").get("samples", {})
-        self.stat_labels: Dict[str, str] = self._load("stat_labels.json").get("stats", {})
         self.provenance: Dict[str, Any] = self._load("provenance.json")
 
         self.curves = CurveLibrary(self.mechanism.get("curves", {}))

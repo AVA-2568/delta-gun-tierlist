@@ -2,7 +2,7 @@
 
 实现见 :mod:`src.engine.price_table`；本模块只绑定弹药表的 schema 与主键。
 
-价格由 :mod:`src.collectors.ammo_price_sync` 每日自动抓取第三方行情生成
+价格由 :mod:`src.collectors.orzice_price_sync` 每日自动抓取第三方行情生成
 （非官方数据），与 ``data/game/*``（官方同步数据）物理隔离。
 """
 

@@ -14,10 +14,13 @@ import，故随函数一同迁出。
 from __future__ import annotations
 
 import json
+import logging
 import re
 from typing import Any, Dict, List, Optional, Sequence, Tuple
 
 from src.collectors.overrides import _apply_field_overrides
+
+logger = logging.getLogger(__name__)
 
 # 面板属性索引 → 语义键（来自 common.json mainAttributes）
 PANEL_ATTR_KEYS: Dict[int, str] = {
@@ -64,6 +67,18 @@ RANKED_WEAPON_TYPES = {"rifle", "smg", "lmg", "marksman"}
 # 不可混用。所有归一化与求值默认锁定 sol。
 DEFAULT_MODE = "sol"
 
+# 弹药重复设计合并表（官方 id → 保留 id）：仅当两目「弹道字段」逐字段全等时才允许合并。
+# 2026-09-30 逐字段实证：37250400005 DART 与 37250300001 箭型弹全部弹道字段
+# （penetration_matrix / flesh / armor / limb / wound / per_part 等）零差异，
+# diff 仅 ammo_item_id / name / rarity / source_legacy_ammo_id 四个身份键。
+# 合并 = 被并条目从目录消失（不留重定向；L1 权威键永不复用）。
+MERGED_AMMO_IDS: Dict[str, str] = {
+    "37250400005": "37250300001",
+}
+
+# 判重时允许存在差异的身份键（非弹道字段）；其余键必须全等才可合并
+_AMMO_IDENTITY_KEYS = {"ammo_item_id", "name", "rarity", "source_legacy_ammo_id"}
+
 # 需要落盘的 profile 库：散布 / 后坐 / 机动 / 瞄具 / 弹道。
 # 配件可通过 `Initial` 修饰符替换这些引用（例如消音枪管自带更优的 hipSpread 与 recoil），
 # 因此必须保存库本体，否则求值链会在换装后断裂。
@@ -85,12 +100,17 @@ def normalize_ammo(
     applied: List[Dict[str, Any]],
     ammo_profiles: Optional[Dict[str, Dict[str, Any]]] = None,
     cross_checks: Optional[List[Dict[str, Any]]] = None,
+    merges: Optional[List[Dict[str, Any]]] = None,
 ) -> List[Dict[str, Any]]:
     """归一化弹药表，合并官方穿透矩阵与 combat 包弹药档案。
 
     ``catalog/ammo.json`` 只给出 ``fleshDamageMultiplier`` / ``armorDamageMultiplier``；
     伤害建模还需要的 ``limbDamageMultiplier`` / ``woundRate`` /
     ``penetrateAmmoLevelDecrease`` 仅存在于 combat 包的 ``ammoProfiles``，故一并合并并交叉校验。
+
+    末尾应用 :data:`MERGED_AMMO_IDS` 弹药合并：应用前运行时重验两目弹道字段全等，
+    不全等（上游后续改数值）则告警并跳过合并，防误并；成功合并的事件仿
+    ``cross_checks`` 传参模式回传 sync 层写 ``provenance.merges``。
     """
     interaction_profiles = interactions.get("profiles", {})
     profiles = ammo_profiles or {}
@@ -149,6 +169,34 @@ def normalize_ammo(
             "source_legacy_ammo_id": raw.get("sourceLegacyAmmoId"),
         }
         records.append(_apply_field_overrides(record, overrides["ammo"], ammo_id, applied))
+
+    # ---- 弹药合并（先重验后应用，防上游改数值后误并）----
+    merge_events = merges if merges is not None else []
+    by_id = {r["ammo_item_id"]: r for r in records}
+    for removed_id, target_id in MERGED_AMMO_IDS.items():
+        removed = by_id.get(removed_id)
+        target = by_id.get(target_id)
+        if removed is None or target is None:
+            continue  # 上游目录已不含被并条目 → 无需合并
+        diff_keys = sorted(
+            key
+            for key in set(removed) | set(target)
+            if key not in _AMMO_IDENTITY_KEYS and removed.get(key) != target.get(key)
+        )
+        if diff_keys:
+            logger.warning(
+                "弹药合并跳过：%s 与 %s 非身份键出现差异 %s（防上游改数值后误并）",
+                removed_id, target_id, diff_keys,
+            )
+            continue
+        records.remove(removed)
+        merge_events.append(
+            {
+                "removed": f"{removed_id} {removed['name']}",
+                "into": f"{target_id} {target['name']}",
+                "evidence": "弹道字段全等（运行时逐字段重验，非身份键零差异）",
+            }
+        )
 
     return records
 
@@ -500,21 +548,19 @@ def normalize_profiles(
 def normalize_mechanism_curves(
     build_packs: Dict[str, Dict[str, Any]],
 ) -> Dict[str, Any]:
-    """提取面板属性 → 实机规则量的官方机制曲线，并汇总逐枪 attributeRules 契约。
+    """提取面板属性 → 实机规则量的官方机制曲线，并汇总逐枪 attributeRules 分歧。
 
     机制曲线（``authoring:mechanism:*``）为全局共享，去重后取出现次数最多者以抗噪。
-    但 ``attributeRules.defaults`` **逐枪可能不同**（例如 ``recoilControlVariant5``
-    按枪选用变体曲线），因此按武器分别保留，不做全局合并。
+    ``attributeRules.defaults`` 逐枪副本不入 ``mechanism.json``（weapons.json 每枪
+    ``attribute_rules`` 同源同值，真实消费侧在武器记录上）；同一曲线多枪不一致时
+    记入 ``disagreements``（仅进 provenance 完整性记录，不落 mechanism.json）。
     """
     curve_votes: Dict[str, Dict[str, int]] = {}
     curve_payload: Dict[str, Any] = {}
     disagreements: List[Dict[str, Any]] = []
-    per_weapon_rules: Dict[str, Any] = {}
 
     for weapon_id in sorted(build_packs.keys()):
         pack = build_packs[weapon_id]
-        per_weapon_rules[weapon_id] = (pack.get("attributeRules") or {}).get("defaults") or {}
-
         curves = pack.get("curves") or {}
         for curve_id in sorted(curves.keys()):
             if not curve_id.startswith("authoring:mechanism:"):
@@ -547,7 +593,6 @@ def normalize_mechanism_curves(
 
     return {
         "curves": normalized_curves,
-        "per_weapon_attribute_rules": per_weapon_rules,
         "disagreements": disagreements,
     }
 
@@ -555,6 +600,24 @@ def normalize_mechanism_curves(
 # --------------------------------------------------------------------------- #
 # 归一化：枪械
 # --------------------------------------------------------------------------- #
+def ammo_type_to_caliber_map(ammo_records: List[Dict[str, Any]]) -> Dict[str, str]:
+    """弹药类型 → 口径：取该类型内**首个非空 caliber** 的弹药。
+
+    按 ``(penetration_level, ammo_item_id)`` 排序序遍历（与引擎 ammo_by_type 的
+    同型弹药排序一致）；不能取「类型首条」——首条可能是上游未填口径的条目
+    （如 type17 的 7.62x51mm Ultra Nosler，曾致 4 把 7.62 枪 caliber 为空）。
+    类型内全空 → 该类型不入映射（上游 null 真相，不猜口径）。
+    """
+    mapping: Dict[str, str] = {}
+    for record in sorted(
+        ammo_records, key=lambda r: (r["penetration_level"], r["ammo_item_id"])
+    ):
+        type_id = record["ammo_type_id"]
+        if record["caliber"] and type_id not in mapping:
+            mapping[type_id] = record["caliber"]
+    return mapping
+
+
 def _sol_damage_profile(combat_pack: Dict[str, Any]) -> Tuple[Optional[str], Optional[Dict[str, Any]]]:
     """定位 combat 包中该武器的 sol 伤害档案。"""
     combat = combat_pack.get("combat") or {}
@@ -642,6 +705,7 @@ def normalize_weapon(
     applied: List[Dict[str, Any]],
     combat_pack: Optional[Dict[str, Any]] = None,
     cross_checks: Optional[List[Dict[str, Any]]] = None,
+    ammo_type_to_caliber: Optional[Dict[str, str]] = None,
 ) -> Optional[Dict[str, Any]]:
     """归一化单把枪的完整战斗建模数据。"""
     weapon = pack.get("weapon") or {}
@@ -743,7 +807,11 @@ def normalize_weapon(
         "category": CATEGORY_ZH.get(str(catalog_object.get("categoryId") or ""), str(catalog_object.get("categoryId") or "")),
         "category_id": catalog_object.get("categoryId"),
         "ammo_type_id": ammo_type_id,
-        "caliber": (ammo_by_type.get(ammo_type_id) or [""])[0],
+        # 口径取该弹药类型内首个非空 caliber 的弹药（按 (penetration_level, ammo_item_id)
+        # 排序序），映射由调用方从弹药记录预计算；目录缺该类型或全空时为空串
+        # （上游 null 真相，不猜口径）。旧实现「类型首条弹药 id」是取值错误且被
+        # sync 层覆写掩盖，此处统一为口径语义。
+        "caliber": (ammo_type_to_caliber or {}).get(ammo_type_id, ""),
         "ammo_item_ids": ammo_by_type.get(ammo_type_id, []),
         "rpm": float(sol.get("fireRateRpm") or 0.0),
         "fire_interval_s": float(sol.get("shotIntervalSeconds") or 0.0),

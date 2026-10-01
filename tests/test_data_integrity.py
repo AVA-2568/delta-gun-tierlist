@@ -20,7 +20,6 @@ REQUIRED_FILES = (
     "mechanism.json",
     "scenarios.json",
     "validation_samples.json",
-    "stat_labels.json",
     "provenance.json",
 )
 
@@ -58,6 +57,34 @@ def test_variants_are_marked_and_carry_item():
     for weapon in weapons:
         if weapon.get("is_variant"):
             assert weapon.get("variant_item_id"), f"{weapon['profile_key']} 变体缺 variant_item_id"
+
+
+def test_weapons_and_weapon_prices_caliber_non_empty():
+    """武器口径全非空：type17「类型首条弹药未填口径」污染已修（首个非空 caliber 回填）。"""
+    weapons = _load("weapons.json")["weapons"]
+    for weapon in weapons:
+        assert weapon.get("caliber"), f"{weapon['profile_key']} caliber 为空"
+    with open(os.path.join(ROOT, "data", "reference", "weapon_prices.json"), encoding="utf-8") as fh:
+        rows = json.load(fh)["weapons"]
+    for row in rows:
+        assert row.get("caliber"), f"weapon_prices {row['weapon_id']} caliber 为空"
+
+
+def test_ammo_merged_dart_absent_and_arrow_intact():
+    """DART(37250400005) 并入箭型弹(37250300001)：被并 id 消失，保留者弹道字段与删除前全等。
+
+    哨兵值取自合并前实表（2026-09-30 实证 diff 仅 id/name/rarity/legacy 四身份键）；
+    弹道若被上游改动，normalize 合并护栏会跳过合并，此断言与 provenance.merges 双保险。
+    """
+    ammo = {a["ammo_item_id"]: a for a in _load("ammo.json")["ammo"]}
+    assert "37250400005" not in ammo
+    arrow = ammo["37250300001"]
+    assert arrow["name"] == "箭型弹"
+    assert arrow["flesh_damage_multiplier"] == 0.85
+    assert arrow["armor_damage_multiplier"] == 1.0
+    assert arrow["penetration_matrix"]["3"]["penetrates"] is True
+    assert arrow["penetration_matrix"]["3"]["body_health_rate"] == 0.5
+    assert arrow["source_legacy_ammo_id"] == "505"  # 保住唯一新旧 id 桥
 
 
 def test_ammo_penetration_matrix_is_complete():

@@ -2,34 +2,34 @@
  "schema": "ammo-price-daily",
  "currency": "哈夫币",
  "window": {
-  "from": "2026-09-28",
-  "to": "2026-09-28",
+  "from": "2026-09-30",
+  "to": "2026-09-30",
   "days": 1
  },
- "updated_at": "2026-09-28",
- "source": "onebiji 市场周期律 · 市场全览 · 交易行单发当日价（primary_class=ammo）",
- "note": "自动维护：每日 GitHub Actions 抓取第三方行情并换算单发当日价；交易行无报价的弹药为 null（渲染为 —），非官方数据仅供参考",
+ "updated_at": "2026-09-30",
+ "source": "orzice 三角洲小涛查 · 弹药页交易行实时价（泛口径条目按官方目录口径+名称全等唯一匹配）",
+ "note": "自动维护：每日 GitHub Actions 抓取 orzice 小涛查实时价；交易行无报价/匹配不上官方目录的弹药为 null（渲染为 —，含赛季限定弹），note 记多源价或 ambiguous 候选集（待人工确认），非官方数据仅供参考",
  "ammo": [
   {
    "ammo_item_id": "37100100001",
    "caliber": "5.56x45mm",
    "name": "RRLP",
    "penetration_level": 1,
-   "price_daily": 31
+   "price_daily": 35
   },
   {
    "ammo_item_id": "37100200001",
    "caliber": "5.56x45mm",
    "name": "FMJ",
    "penetration_level": 2,
-   "price_daily": 77
+   "price_daily": 80
   },
   {
    "ammo_item_id": "37100300001",
    "caliber": "5.56x45mm",
    "name": "M855",
    "penetration_level": 3,
-   "price_daily": 404
+   "price_daily": 541
   },
   {
    "ammo_item_id": "37100300002",
@@ -43,7 +43,7 @@
    "caliber": "5.56x45mm",
    "name": "M855A1",
    "penetration_level": 4,
-   "price_daily": 1636
+   "price_daily": 1761
   },
   {
    "ammo_item_id": "37100400002",
@@ -57,35 +57,35 @@
    "caliber": "5.56x45mm",
    "name": "M995",
    "penetration_level": 5,
-   "price_daily": 4583
+   "price_daily": 4927
   },
   {
    "ammo_item_id": "37110100001",
    "caliber": "7.62x39mm",
    "name": "LP",
    "penetration_level": 1,
-   "price_daily": 42
+   "price_daily": 43
   },
   {
    "ammo_item_id": "37110200001",
    "caliber": "7.62x39mm",
    "name": "T45M",
    "penetration_level": 2,
-   "price_daily": 110
+   "price_daily": 111
   },
   {
    "ammo_item_id": "37110300001",
    "caliber": "7.62x39mm",
    "name": "PS",
    "penetration_level": 3,
-   "price_daily": 422
+   "price_daily": 521
   },
   {
    "ammo_item_id": "37110400001",
    "caliber": "7.62x39mm",
    "name": "BP",
    "penetration_level": 4,
-   "price_daily": 1495
+   "price_daily": 1681
   },
   {
    "ammo_item_id": "37110400002",
@@ -99,7 +99,7 @@
    "caliber": "7.62x39mm",
    "name": "AP",
    "penetration_level": 5,
-   "price_daily": 4778
+   "price_daily": 4971
   },
   {
    "ammo_item_id": "37110500002",
@@ -113,28 +113,28 @@
    "caliber": "5.45x39mm",
    "name": "PRS",
    "penetration_level": 1,
-   "price_daily": 36
+   "price_daily": 40
   },
   {
    "ammo_item_id": "37120200001",
    "caliber": "5.45x39mm",
    "name": "T",
    "penetration_level": 2,
-   "price_daily": 99
+   "price_daily": 106
   },
   {
    "ammo_item_id": "37120300001",
    "caliber": "5.45x39mm",
    "name": "PS",
    "penetration_level": 3,
-   "price_daily": 454
+   "price_daily": 564
   },
   {
    "ammo_item_id": "37120400001",
    "caliber": "5.45x39mm",
    "name": "BT",
    "penetration_level": 4,
-   "price_daily": 1661
+   "price_daily": 1791
   },
   {
    "ammo_item_id": "37120400002",
@@ -155,7 +155,7 @@
    "caliber": "5.45x39mm",
    "name": "BS",
    "penetration_level": 5,
-   "price_daily": 4595
+   "price_daily": 4749
   },
   {
    "ammo_item_id": "37120500003",
@@ -169,21 +169,21 @@
    "caliber": "5.8x42mm",
    "name": "DBP87",
    "penetration_level": 2,
-   "price_daily": 97
+   "price_daily": 104
   },
   {
    "ammo_item_id": "37130300001",
    "caliber": "5.8x42mm",
    "name": "DVP88",
    "penetration_level": 3,
-   "price_daily": 433
+   "price_daily": 568
   },
   {
    "ammo_item_id": "37130400001",
    "caliber": "5.8x42mm",
    "name": "DBP10",
    "penetration_level": 4,
-   "price_daily": 1868
+   "price_daily": 1988
   },
   {
    "ammo_item_id": "37130400002",
@@ -197,7 +197,7 @@
    "caliber": "5.8x42mm",
    "name": "DVC12",
    "penetration_level": 5,
-   "price_daily": 4814
+   "price_daily": 4935
   },
   {
    "ammo_item_id": "37130500002",
@@ -211,7 +211,7 @@
    "caliber": "9x39mm",
    "name": "SP5",
    "penetration_level": 3,
-   "price_daily": 244
+   "price_daily": 304
   },
   {
    "ammo_item_id": "37140300002",
@@ -225,7 +225,7 @@
    "caliber": "9x39mm",
    "name": "SP6",
    "penetration_level": 4,
-   "price_daily": 1760
+   "price_daily": 1961
   },
   {
    "ammo_item_id": "37140400002",
@@ -239,7 +239,7 @@
    "caliber": "9x39mm",
    "name": "BP",
    "penetration_level": 5,
-   "price_daily": 4222
+   "price_daily": 4614
   },
   {
    "ammo_item_id": "37150300002",
@@ -253,7 +253,7 @@
    "caliber": "6.8x51mm",
    "name": "FMJ",
    "penetration_level": 4,
-   "price_daily": 1825
+   "price_daily": 2069
   },
   {
    "ammo_item_id": "37150400002",
@@ -267,7 +267,7 @@
    "caliber": "6.8x51mm",
    "name": "Hybrid",
    "penetration_level": 5,
-   "price_daily": 4724
+   "price_daily": 5074
   },
   {
    "ammo_item_id": "37150500002",
@@ -288,56 +288,56 @@
    "caliber": "12.7x55",
    "name": "PS12A",
    "penetration_level": 3,
-   "price_daily": 465
+   "price_daily": 554
   },
   {
    "ammo_item_id": "37160400001",
    "caliber": "12.7x55",
    "name": "PS12",
    "penetration_level": 4,
-   "price_daily": 1941
+   "price_daily": 1857
   },
   {
    "ammo_item_id": "37160400002",
    "caliber": "12.7x55",
    "name": "PD12双头弹",
    "penetration_level": 4,
-   "price_daily": 2702
+   "price_daily": 3067
   },
   {
    "ammo_item_id": "37160500001",
    "caliber": "12.7x55",
    "name": "PS12B",
    "penetration_level": 5,
-   "price_daily": 4783
+   "price_daily": 5323
   },
   {
    "ammo_item_id": "37170200001",
    "caliber": "",
    "name": "7.62x51mm Ultra Nosler",
    "penetration_level": 2,
-   "price_daily": 113
+   "price_daily": 114
   },
   {
    "ammo_item_id": "37170300001",
    "caliber": "7.62x51mm",
    "name": "BPZ",
    "penetration_level": 3,
-   "price_daily": 472
+   "price_daily": 528
   },
   {
    "ammo_item_id": "37170400001",
    "caliber": "7.62x51mm",
    "name": "M80",
    "penetration_level": 4,
-   "price_daily": 1163
+   "price_daily": 1138
   },
   {
    "ammo_item_id": "37170500001",
    "caliber": "7.62x51mm",
    "name": "M62",
    "penetration_level": 5,
-   "price_daily": 5625
+   "price_daily": 5867
   },
   {
    "ammo_item_id": "37170500002",
@@ -358,21 +358,21 @@
    "caliber": "7.62x54R",
    "name": "T46M",
    "penetration_level": 3,
-   "price_daily": 425
+   "price_daily": 522
   },
   {
    "ammo_item_id": "37180400001",
    "caliber": "7.62x54R",
    "name": "LPS",
    "penetration_level": 4,
-   "price_daily": 1750
+   "price_daily": 1890
   },
   {
    "ammo_item_id": "37180500001",
    "caliber": "7.62x54R",
    "name": "BT",
    "penetration_level": 5,
-   "price_daily": 5518
+   "price_daily": 6094
   },
   {
    "ammo_item_id": "37180600001",
@@ -386,7 +386,7 @@
    "caliber": ".45ACP",
    "name": "RIP",
    "penetration_level": 0,
-   "price_daily": 785
+   "price_daily": 935
   },
   {
    "ammo_item_id": "37190000002",
@@ -400,42 +400,42 @@
    "caliber": ".45ACP",
    "name": "HS",
    "penetration_level": 1,
-   "price_daily": 41
+   "price_daily": 43
   },
   {
    "ammo_item_id": "37190200001",
    "caliber": ".45ACP",
    "name": "JHP",
    "penetration_level": 2,
-   "price_daily": 110
+   "price_daily": 116
   },
   {
    "ammo_item_id": "37190300001",
    "caliber": ".45ACP",
    "name": "FMJ",
    "penetration_level": 3,
-   "price_daily": 467
+   "price_daily": 596
   },
   {
    "ammo_item_id": "37190400001",
    "caliber": ".45ACP",
    "name": "AP",
    "penetration_level": 4,
-   "price_daily": 1773
+   "price_daily": 1925
   },
   {
    "ammo_item_id": "37190500001",
    "caliber": ".45ACP",
    "name": "Super",
    "penetration_level": 5,
-   "price_daily": null
+   "price_daily": 5132
   },
   {
    "ammo_item_id": "37200000001",
    "caliber": "9x19mm",
    "name": "RIP",
    "penetration_level": 0,
-   "price_daily": 667
+   "price_daily": 728
   },
   {
    "ammo_item_id": "37200000002",
@@ -449,56 +449,56 @@
    "caliber": "9x19mm",
    "name": "PSO",
    "penetration_level": 1,
-   "price_daily": 26
+   "price_daily": 32
   },
   {
    "ammo_item_id": "37200200001",
    "caliber": "9x19mm",
    "name": "Pst",
    "penetration_level": 2,
-   "price_daily": 82
+   "price_daily": 85
   },
   {
    "ammo_item_id": "37200300001",
    "caliber": "9x19mm",
    "name": "AP6.3",
    "penetration_level": 3,
-   "price_daily": 382
+   "price_daily": 486
   },
   {
    "ammo_item_id": "37200400001",
    "caliber": "9x19mm",
    "name": "PBP",
    "penetration_level": 4,
-   "price_daily": 1545
+   "price_daily": 1696
   },
   {
    "ammo_item_id": "37210000001",
    "caliber": "5.7x28mm",
    "name": "R37.F",
    "penetration_level": 0,
-   "price_daily": 537
+   "price_daily": 577
   },
   {
    "ammo_item_id": "37210100001",
    "caliber": "5.7x28mm",
    "name": "SS198LF",
    "penetration_level": 1,
-   "price_daily": 37
+   "price_daily": 38
   },
   {
    "ammo_item_id": "37210200001",
    "caliber": "5.7x28mm",
    "name": "SS197SR",
    "penetration_level": 2,
-   "price_daily": 96
+   "price_daily": 103
   },
   {
    "ammo_item_id": "37210300001",
    "caliber": "5.7x28mm",
    "name": "L191",
    "penetration_level": 3,
-   "price_daily": 442
+   "price_daily": 540
   },
   {
    "ammo_item_id": "37210300002",
@@ -512,7 +512,7 @@
    "caliber": "5.7x28mm",
    "name": "SS193",
    "penetration_level": 4,
-   "price_daily": 1855
+   "price_daily": 1923
   },
   {
    "ammo_item_id": "37210400002",
@@ -526,56 +526,56 @@
    "caliber": "5.7x28mm",
    "name": "SS190",
    "penetration_level": 5,
-   "price_daily": 4652
+   "price_daily": 4897
   },
   {
    "ammo_item_id": "37220000001",
    "caliber": ".357 Magnum",
    "name": "9号霰射“鼠蛋”",
    "penetration_level": 0,
-   "price_daily": 243
+   "price_daily": 318
   },
   {
    "ammo_item_id": "37220200001",
    "caliber": ".357 Magnum",
    "name": "HP",
    "penetration_level": 2,
-   "price_daily": 150
+   "price_daily": 162
   },
   {
    "ammo_item_id": "37220300001",
    "caliber": ".357 Magnum",
    "name": "JHP",
    "penetration_level": 3,
-   "price_daily": 413
+   "price_daily": 439
   },
   {
    "ammo_item_id": "37220400001",
    "caliber": ".357 Magnum",
    "name": "FMJ",
    "penetration_level": 4,
-   "price_daily": 596
+   "price_daily": 590
   },
   {
    "ammo_item_id": "37230200001",
    "caliber": ".50AE",
    "name": "HP",
    "penetration_level": 2,
-   "price_daily": 153
+   "price_daily": 154
   },
   {
    "ammo_item_id": "37230300001",
    "caliber": ".50AE",
    "name": "JHP",
    "penetration_level": 3,
-   "price_daily": 334
+   "price_daily": 464
   },
   {
    "ammo_item_id": "37230400001",
    "caliber": ".50AE",
    "name": "FMJ",
    "penetration_level": 4,
-   "price_daily": 740
+   "price_daily": 785
   },
   {
    "ammo_item_id": "37230500001",
@@ -596,56 +596,57 @@
    "caliber": "12Gauge",
    "name": "8.5毫米鹿弹",
    "penetration_level": 0,
-   "price_daily": 363
+   "price_daily": 383
   },
   {
    "ammo_item_id": "37250000002",
    "caliber": "12Gauge",
    "name": "独头RIP",
    "penetration_level": 0,
-   "price_daily": 131
+   "price_daily": 133
   },
   {
    "ammo_item_id": "37250100001",
    "caliber": "12Gauge",
    "name": "7毫米鹿弹",
    "penetration_level": 1,
-   "price_daily": 20
+   "price_daily": 28
   },
   {
    "ammo_item_id": "37250200002",
    "caliber": "12Gauge",
    "name": "独头GT",
    "penetration_level": 2,
-   "price_daily": 63
+   "price_daily": 65
   },
   {
    "ammo_item_id": "37250300001",
    "caliber": "12Gauge",
    "name": "箭型弹",
    "penetration_level": 3,
-   "price_daily": 379
+   "price_daily": 440,
+   "note": "orzice 12 Gauge 箭形弹=538; 12 Gauge DART=440"
   },
   {
    "ammo_item_id": "37250300002",
    "caliber": "12Gauge",
    "name": "独头FTX",
    "penetration_level": 3,
-   "price_daily": 447
+   "price_daily": 519
   },
   {
    "ammo_item_id": "37250400002",
    "caliber": "12Gauge",
    "name": "独头AP-20",
    "penetration_level": 4,
-   "price_daily": 434
+   "price_daily": 591
   },
   {
    "ammo_item_id": "37250400003",
    "caliber": "",
    "name": "12 Gauge 龙息弹",
    "penetration_level": 0,
-   "price_daily": 1461
+   "price_daily": 1920
   },
   {
    "ammo_item_id": "37250400004",
@@ -655,74 +656,67 @@
    "price_daily": null
   },
   {
-   "ammo_item_id": "37250400005",
-   "caliber": "12Gauge",
-   "name": "DART",
-   "penetration_level": 3,
-   "price_daily": 399
-  },
-  {
    "ammo_item_id": "37260000002",
    "caliber": "4.6x30mm",
    "name": "CT",
    "penetration_level": 0,
-   "price_daily": 1889
+   "price_daily": 1933
   },
   {
    "ammo_item_id": "37260300001",
    "caliber": "4.6x30mm",
    "name": "Subsonic SX",
    "penetration_level": 3,
-   "price_daily": 134
+   "price_daily": 147
   },
   {
    "ammo_item_id": "37260400001",
    "caliber": "4.6x30mm",
    "name": "FMJ SX",
    "penetration_level": 4,
-   "price_daily": 990
+   "price_daily": 1170
   },
   {
    "ammo_item_id": "37260400002",
    "caliber": "4.6x30mm",
    "name": "FMJ ST",
    "penetration_level": 4,
-   "price_daily": 894
+   "price_daily": 997
   },
   {
    "ammo_item_id": "37260500001",
    "caliber": "4.6x30mm",
    "name": "AP SX",
    "penetration_level": 5,
-   "price_daily": 3962
+   "price_daily": 4162
   },
   {
    "ammo_item_id": "37260500002",
    "caliber": "4.6x30mm",
    "name": "AP ST",
    "penetration_level": 5,
-   "price_daily": 3957
+   "price_daily": 4151
   },
   {
    "ammo_item_id": "37270300001",
    "caliber": "",
    "name": "玻纤柳叶箭矢",
    "penetration_level": 3,
-   "price_daily": 644
+   "price_daily": 769
   },
   {
    "ammo_item_id": "37270400001",
    "caliber": "",
    "name": "碳纤维刺骨箭矢",
    "penetration_level": 4,
-   "price_daily": 1916
+   "price_daily": 1994
   },
   {
    "ammo_item_id": "37270500001",
    "caliber": "",
    "name": "碳纤维穿甲箭矢",
    "penetration_level": 5,
-   "price_daily": 5498
+   "price_daily": 6374
   },
   {
    "ammo_item_id": "37270500002",
@@ -736,56 +730,60 @@
    "caliber": ".300BLK",
    "name": "V-Max",
    "penetration_level": 3,
-   "price_daily": 448
+   "price_daily": null,
+   "note": "orzice .300BLK_3=587; candidates=[37280300001 V-Max, 37280300002 V-SUB]; 待人工确认"
   },
   {
    "ammo_item_id": "37280300002",
    "caliber": ".300BLK",
    "name": "V-SUB",
    "penetration_level": 3,
-   "price_daily": null
+   "price_daily": null,
+   "note": "orzice .300BLK_3=587; candidates=[37280300001 V-Max, 37280300002 V-SUB]; 待人工确认"
   },
   {
    "ammo_item_id": "37280400001",
    "caliber": ".300BLK",
    "name": "BCP-FMJ",
    "penetration_level": 4,
-   "price_daily": 1681
+   "price_daily": null,
+   "note": "orzice .300BLK_4=1792; candidates=[37280400001 BCP-FMJ, 37280400002 BCP-SUB]; 待人工确认"
   },
   {
    "ammo_item_id": "37280400002",
    "caliber": ".300BLK",
    "name": "BCP-SUB",
    "penetration_level": 4,
-   "price_daily": null
+   "price_daily": null,
+   "note": "orzice .300BLK_4=1792; candidates=[37280400001 BCP-FMJ, 37280400002 BCP-SUB]; 待人工确认"
   },
   {
    "ammo_item_id": "37280500001",
    "caliber": ".300BLK",
    "name": "TAC-TX",
    "penetration_level": 5,
-   "price_daily": 4915
+   "price_daily": 5043
   },
   {
    "ammo_item_id": "37290300001",
    "caliber": "45-70 Govt",
    "name": "RN",
    "penetration_level": 0,
-   "price_daily": 545
+   "price_daily": 764
   },
   {
    "ammo_item_id": "37290400001",
    "caliber": "45-70 Govt",
    "name": "FMJ",
    "penetration_level": 4,
-   "price_daily": 1006
+   "price_daily": 1148
   },
   {
    "ammo_item_id": "37290500001",
    "caliber": "45-70 Govt",
    "name": "FTX",
    "penetration_level": 5,
-   "price_daily": 3094
+   "price_daily": 3275
   },
   {
    "ammo_item_id": "37300600001",

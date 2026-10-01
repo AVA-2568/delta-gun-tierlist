@@ -383,7 +383,7 @@ def test_readme_notes_price_source():
         PART_NAMES,
     )
     assert "2026-09-22" in md
-    assert "第三方交易行当日价" in md
+    assert "orzice 小涛查交易行当日价" in md
     assert "每日自动抓取维护" in md
 
 

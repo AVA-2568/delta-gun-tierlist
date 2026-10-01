@@ -97,7 +97,7 @@ def _price_notes(payload: Mapping[str, Any]) -> List[str]:
             window = meta.get("window") or {}
             span = f"（{window.get('from')}）" if window.get("from") else ""
             notes.append(
-                f"- 价格数据：第三方交易行当日价{span}，每日自动抓取维护"
+                f"- 价格数据：orzice 小涛查交易行当日价{span}，每日自动抓取维护"
                 f"（updated_at {meta.get('updated_at') or '未知'}）"
             )
     weapon_meta = payload.get("weapon_price_meta")
@@ -110,7 +110,7 @@ def _price_notes(payload: Mapping[str, Any]) -> List[str]:
             window = weapon_meta.get("window") or {}
             span = f"（{window.get('from')}）" if window.get("from") else ""
             notes.append(
-                f"- 枪械价格：第三方交易行本体裸枪当日价{span}，每日自动抓取维护"
+                f"- 枪械价格：orzice 小涛查交易行本体裸枪当日价{span}，每日自动抓取维护"
                 f"（updated_at {weapon_meta.get('updated_at') or '未知'}）；"
                 "变体/改装 = 本体 + 配件，配件价不计入"
             )

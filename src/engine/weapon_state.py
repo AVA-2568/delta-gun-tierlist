@@ -147,7 +147,6 @@ class WeaponState:
     damage_profile_id: Optional[str] = None
     damage_profile_source: str = ""
 
-    caliber: str = ""
     ammo_type_id: str = ""
     falloff_segments: List[Dict[str, float]] = field(default_factory=list)
     projectile_count: int = 1
@@ -313,7 +312,6 @@ class WeaponStateResolver:
             weapon_type=weapon["weapon_type"],
             loadout=resolved_loadout,
             tuning=tuning_setting,
-            caliber=weapon.get("caliber") or "",
             ammo_type_id=str(weapon.get("ammo_type_id") or ""),
             falloff_segments=[dict(s) for s in (weapon.get("falloff_segments") or [])],
             projectile_count=int(weapon.get("projectile_count") or 1),

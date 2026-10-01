@@ -18,7 +18,7 @@
 
 模块划分为三层，本模块只保留编排与 CLI：
 
-* :mod:`src.collectors.http` —— 下载与磁盘缓存（``SOURCE_BASE`` / ``SourceUnavailable``）。
+* :mod:`src.collectors.http` —— 上游下载（``SOURCE_BASE`` / ``SourceUnavailable``）。
 * :mod:`src.collectors.overrides` —— 覆盖层（``DEFAULT_OVERRIDES_PATH`` / ``load_overrides``）。
 * :mod:`src.collectors.normalize` —— 各 schema 归一化函数。
 
@@ -37,6 +37,7 @@ from typing import Any, Dict, List, Optional
 
 from src.collectors.http import SOURCE_BASE, SourceUnavailable, _download_json, _sha256_bytes
 from src.collectors.normalize import (
+    ammo_type_to_caliber_map,
     normalize_ammo,
     normalize_armor,
     normalize_mechanism_curves,
@@ -52,7 +53,6 @@ logger = logging.getLogger(__name__)
 
 SOURCE_NAME = "dfttk-v3"
 
-DEFAULT_CACHE_DIR = os.path.join(".cache", "dfttk")
 DEFAULT_OUTPUT_DIR = os.path.join("data", "game")
 
 
@@ -70,34 +70,27 @@ def _write_json(path: str, payload: Any) -> str:
 
 def sync_all(
     output_dir: str = DEFAULT_OUTPUT_DIR,
-    cache_dir: str = DEFAULT_CACHE_DIR,
     overrides_path: str = DEFAULT_OVERRIDES_PATH,
-    refresh: bool = False,
     weapon_limit: Optional[int] = None,
 ) -> Dict[str, Any]:
     """执行完整同步：下载上游数据 → 归一化 → 落盘 → 记录溯源。
 
     Args:
         output_dir: 归一化数据输出目录（默认 ``data/game``）。
-        cache_dir: 上游原始数据缓存目录。
         overrides_path: 人工校正层路径。
-        refresh: 强制忽略缓存重新下载。
         weapon_limit: 仅处理前 N 把枪，用于快速自检。
 
     Returns:
         同步摘要，包含产出文件、条目计数、覆盖记录与交叉校验提示。
     """
-    os.makedirs(cache_dir, exist_ok=True)
-
-    manifest, manifest_hash = _download_json("manifest.json", cache_dir, refresh=refresh)
-    catalog_weapons, _ = _download_json("catalog/weapons.json", cache_dir, refresh=refresh)
-    catalog_ammo, ammo_hash = _download_json("catalog/ammo.json", cache_dir, refresh=refresh)
-    armors, armors_hash = _download_json("combat/defense/armors.json", cache_dir, refresh=refresh)
-    helmets, helmets_hash = _download_json("combat/defense/helmets.json", cache_dir, refresh=refresh)
-    interactions, interactions_hash = _download_json("combat/defense/ammo-interactions.json", cache_dir, refresh=refresh)
-    locale_items, _ = _download_json("locales/zh-CN/items.json", cache_dir, refresh=refresh)
-    locale_common, _ = _download_json("locales/zh-CN/common.json", cache_dir, refresh=refresh)
-    ranking_index, ranking_hash = _download_json("rankings/firefight/index.json", cache_dir, refresh=refresh)
+    manifest, manifest_hash = _download_json("manifest.json")
+    catalog_weapons, _ = _download_json("catalog/weapons.json")
+    catalog_ammo, ammo_hash = _download_json("catalog/ammo.json")
+    armors, armors_hash = _download_json("combat/defense/armors.json")
+    helmets, helmets_hash = _download_json("combat/defense/helmets.json")
+    interactions, interactions_hash = _download_json("combat/defense/ammo-interactions.json")
+    locale_items, _ = _download_json("locales/zh-CN/items.json")
+    ranking_index, ranking_hash = _download_json("rankings/firefight/index.json")
 
     overrides = load_overrides(overrides_path)
     applied_overrides: List[Dict[str, Any]] = []
@@ -124,7 +117,7 @@ def sync_all(
         if rel.startswith(prefix):
             rel = rel[len(prefix):]
         try:
-            payload, _ = _download_json(f"rankings/firefight/{rel}", cache_dir, refresh=refresh)
+            payload, _ = _download_json(f"rankings/firefight/{rel}")
             validation_scenarios[sid] = payload
         except SourceUnavailable as exc:  # pragma: no cover - 网络分支
             logger.warning("验证情景 %s 获取失败：%s", sid, exc)
@@ -139,9 +132,9 @@ def sync_all(
     build_packs: Dict[str, Dict[str, Any]] = {}
     combat_packs: Dict[str, Dict[str, Any]] = {}
     for weapon_id in weapon_ids:
-        payload, _ = _download_json(f"packs/build/weapons/{weapon_id}.json", cache_dir, refresh=refresh)
+        payload, _ = _download_json(f"packs/build/weapons/{weapon_id}.json")
         build_packs[weapon_id] = payload
-        combat_payload, _ = _download_json(f"packs/combat/weapons/{weapon_id}.json", cache_dir, refresh=refresh)
+        combat_payload, _ = _download_json(f"packs/combat/weapons/{weapon_id}.json")
         combat_packs[weapon_id] = combat_payload
 
     # 多把枪会重复携带同一弹药的档案；内容一致时去重，不一致则记入交叉校验。
@@ -157,6 +150,7 @@ def sync_all(
             ammo_profiles.setdefault(ammo_id, prof)
 
     cross_checks: List[Dict[str, Any]] = []
+    ammo_merges: List[Dict[str, Any]] = []
     ammo_records = normalize_ammo(
         catalog_ammo,
         interactions,
@@ -164,10 +158,10 @@ def sync_all(
         applied_overrides,
         ammo_profiles=ammo_profiles,
         cross_checks=cross_checks,
+        merges=ammo_merges,
     )
-    ammo_type_to_caliber: Dict[str, str] = {}
-    for record in ammo_records:
-        ammo_type_to_caliber.setdefault(record["ammo_type_id"], record["caliber"])
+    # 弹药类型 → 口径：取该类型内首个非空 caliber 的弹药（逻辑见 normalize 同名函数）
+    ammo_type_to_caliber = ammo_type_to_caliber_map(ammo_records)
 
     # 枪械：以官方排行武器池为准（含变体）
     weapons: List[Dict[str, Any]] = []
@@ -187,10 +181,10 @@ def sync_all(
             applied_overrides,
             combat_pack=combat_packs.get(weapon_id),
             cross_checks=cross_checks,
+            ammo_type_to_caliber=ammo_type_to_caliber,
         )
         if base_record is None:
             continue
-        base_record["caliber"] = ammo_type_to_caliber.get(base_record["ammo_type_id"], base_record["caliber"])
         profile_record = dict(base_record)
         profile_record.update(
             {
@@ -225,7 +219,9 @@ def sync_all(
         os.path.join(output_dir, "profiles.json"),
         {"profiles": profiles["profiles"], "counts_by_kind": profiles["counts_by_kind"]},
     )
-    written["mechanism.json"] = _write_json(os.path.join(output_dir, "mechanism.json"), mechanism)
+    written["mechanism.json"] = _write_json(
+        os.path.join(output_dir, "mechanism.json"), {"curves": mechanism["curves"]}
+    )
     written["scenarios.json"] = _write_json(
         os.path.join(output_dir, "scenarios.json"),
         {
@@ -241,10 +237,6 @@ def sync_all(
     written["validation_samples.json"] = _write_json(
         os.path.join(output_dir, "validation_samples.json"),
         {"samples": samples},
-    )
-    written["stat_labels.json"] = _write_json(
-        os.path.join(output_dir, "stat_labels.json"),
-        {"stats": locale_common.get("stats") or {}}, 
     )
 
     provenance = {
@@ -271,6 +263,7 @@ def sync_all(
             "rankings/firefight/index.json": ranking_hash,
         },
         "outputs": written,
+        "merges": ammo_merges,
         "counts": {
             "weapons": len(weapons),
             "ammo": len(ammo_records),
@@ -325,17 +318,13 @@ def main() -> None:
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
     parser = argparse.ArgumentParser(description="官方游戏数据同步与归一化")
     parser.add_argument("--output-dir", default=DEFAULT_OUTPUT_DIR)
-    parser.add_argument("--cache-dir", default=DEFAULT_CACHE_DIR)
     parser.add_argument("--overrides", default=DEFAULT_OVERRIDES_PATH)
-    parser.add_argument("--refresh", action="store_true", help="忽略缓存重新下载")
     parser.add_argument("--weapon-limit", type=int, default=None, help="仅处理前 N 把枪（自检用）")
     args = parser.parse_args()
 
     summary = sync_all(
         output_dir=args.output_dir,
-        cache_dir=args.cache_dir,
         overrides_path=args.overrides,
-        refresh=args.refresh,
         weapon_limit=args.weapon_limit,
     )
     print(f"数据同步完成（数据集版本 {summary['dataset_version']}）：")

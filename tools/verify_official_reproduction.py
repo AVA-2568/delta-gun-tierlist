@@ -6,7 +6,6 @@
 
 用法：
     python tools/verify_official_reproduction.py                 # 汇总到 stdout
-    python tools/verify_official_reproduction.py --tol 1e-9 --report .probe/repro.json
     python tools/verify_official_reproduction.py --scenario armor-3-ammo-3-center
 
     # 白盒对拍模式：用官方 dynamic 情景自声明的 damageModel 参数独立重算残余点，
@@ -24,9 +23,12 @@
 from __future__ import annotations
 
 import argparse
+import ipaddress
 import json
 import os
+import socket
 import sys
+import urllib.parse
 import urllib.request
 from collections import Counter
 from typing import Any, Dict, List, Mapping, Optional, Sequence, Tuple
@@ -34,6 +36,8 @@ from typing import Any, Dict, List, Mapping, Optional, Sequence, Tuple
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
+
+from src.collectors.http import assert_public_https  # noqa: E402
 
 DEFAULT_SAMPLES = os.path.join(ROOT, "data", "game", "validation_samples.json")
 DEFAULT_TOL = 1e-9
@@ -255,21 +259,43 @@ def _official_rate_at(segments: Sequence[Mapping[str, Any]], distance: float) ->
     return float(segments[-1]["rate"]) if segments else 1.0
 
 
-def _locate_official_dynamic_file(base: str, cache_dir: str) -> str:
-    """定位官方 dynamic 情景文件：缓存 → .probe 遗留产物 → 按 Task 1 下载模式联网取。"""
+def _assert_public_https(url: str) -> None:
+    """出站校验：仅 https、host 必须为 dfttk.com，且 DNS 解析结果非环回/私有/保留地址。"""
+    parsed = urllib.parse.urlsplit(url)
+    if parsed.scheme != "https":
+        raise ValueError(f"仅允许 https，拒绝：{url}")
+    host = (parsed.hostname or "").lower()
+    if host != "dfttk.com":
+        raise ValueError(f"host 不在允许名单（期望 dfttk.com），拒绝：{host}")
+    for info in socket.getaddrinfo(host, 443):
+        ip = ipaddress.ip_address(info[4][0])
+        if (
+            ip.is_loopback
+            or ip.is_private
+            or ip.is_link_local
+            or ip.is_reserved
+            or ip.is_multicast
+            or ip.is_unspecified
+        ):
+            raise ValueError(f"{host} 解析到非公网地址 {ip}，拒绝请求")
+
+
+def _load_official_dynamic(base: str, cache_dir: str) -> Dict[str, Any]:
+    """官方 dynamic 情景 JSON：缓存 → .probe 遗留产物 → 联网现取（现取不落盘）。
+
+    出站前经 :func:`_assert_public_https` 校验（仅 https、host=dfttk.com、解析
+    IP 非环回/私有/保留）。
+    """
     filename = f"rankings__firefight__dynamic__{base}.json"
     for path in (os.path.join(cache_dir, filename), os.path.join(ROOT, ".probe", filename)):
         if os.path.isfile(path) and os.path.getsize(path) > 0:
-            return path
+            with open(path, encoding="utf-8") as fh:
+                return json.load(fh)
     url = f"{SOURCE_BASE}rankings/firefight/dynamic/{base}.json"
+    _assert_public_https(url)
     request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
     with urllib.request.urlopen(request, timeout=40) as response:
-        payload = response.read()
-    os.makedirs(cache_dir, exist_ok=True)
-    target = os.path.join(cache_dir, filename)
-    with open(target, "wb") as fh:
-        fh.write(payload)
-    return target
+        return json.loads(response.read().decode("utf-8"))
 
 
 def run_official_param_audit(
@@ -326,8 +352,7 @@ def run_official_param_audit(
     contradiction_buckets = tuple(audit_value_max)
 
     for base, items in sorted(by_base.items()):
-        with open(_locate_official_dynamic_file(base, cache_dir), encoding="utf-8") as fh:
-            dyn = json.load(fh)
+        dyn = _load_official_dynamic(base, cache_dir)
         dyn_by_cand = {c["candidateId"]: c for c in dyn["candidates"]}
         for item in items:
             entry = dyn_by_cand.get(item["candidate"])
@@ -547,7 +572,6 @@ def refresh_output_hashes(
 def main() -> int:
     ap = argparse.ArgumentParser(description="官方 candidateMetrics 全量复现验证")
     ap.add_argument("--tol", type=float, default=DEFAULT_TOL, help="达标阈值（默认 1e-9）")
-    ap.add_argument("--report", default=None, help="偏差明细 JSON 输出路径")
     ap.add_argument("--samples", default=DEFAULT_SAMPLES, help="验证样本路径")
     ap.add_argument("--scenario", default=None, help="仅验证指定情景（逗号分隔 id）")
     ap.add_argument(
@@ -559,7 +583,7 @@ def main() -> int:
     ap.add_argument(
         "--record-residual-conclusion",
         default=None,
-        help="存在超差点时，把残余统计与该结论写入 provenance.json（需配合 --provenance）",
+        help="存在超差点时，把残余统计与该结论写入 data/game/provenance.json",
     )
     ap.add_argument(
         "--refresh-output-hashes",
@@ -583,12 +607,6 @@ def main() -> int:
     if args.official_param_audit:
         audit = run_official_param_audit(tol=args.tol, samples_path=args.samples)
         _print_audit_report(audit)
-        print()
-        if args.report:
-            os.makedirs(os.path.dirname(os.path.abspath(args.report)) or ".", exist_ok=True)
-            with open(args.report, "w", encoding="utf-8") as fh:
-                json.dump(audit, fh, ensure_ascii=False, indent=1)
-            print(f"  对拍明细已写入 : {args.report}")
         if args.record_residual_conclusion:
             b = audit["buckets"]
             conclusion = (
@@ -632,18 +650,6 @@ def main() -> int:
         for wid, n in sorted(result["fail_by_weapon"].items(), key=lambda kv: -kv[1]):
             print(f"    {wid}: {n}")
     print()
-
-    if args.report:
-        os.makedirs(os.path.dirname(os.path.abspath(args.report)) or ".", exist_ok=True)
-        with open(args.report, "w", encoding="utf-8") as fh:
-            json.dump(
-                {"summary": {k: v for k, v in result.items() if k != "deviations"}, "deviations": result["deviations"]},
-                fh,
-                ensure_ascii=False,
-                indent=1,
-            )
-        print(f"  偏差明细已写入 : {args.report}")
-        print()
 
     if args.record_residual_conclusion:
         record_residual(args.provenance, result, args.record_residual_conclusion)
