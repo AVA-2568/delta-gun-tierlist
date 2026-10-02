@@ -14,8 +14,7 @@
   ① objectID 命中官方目录 → 精确匹配；② 「口径+名称」归一化（剥引号/空白/连字符/mm、
   行名字级别名折叠）与官方 ``ammo.json`` 目录**全等唯一匹配**；③ 行名形如
   ``<口径>_N`` 的合并行情行（口径_N = 口径 + N 级弹）按 (归一化口径, N) 组匹配，
-  组内唯一 → 对齐，多条 → ambiguous（候选条目落 ``null`` + ``note`` 记候选集，
-  待人工确认）。撞名键弃用、匹配不上或价格 0 → ``null``
+  对齐该口径同等级所有候选弹药条目。撞名键弃用、匹配不上或价格 0 → ``null``
   （赛季限定弹市场无流通落 ``null`` 是预期正确行为，不猜价）。
   同一 ammo_item_id 命中多行情行时取**全行最小价**并 ``note`` 记全部行名与价
   （站内页序非确定性，弃「取首行」）。
@@ -368,22 +367,22 @@ def _resolve_ammo_row(
     row: Dict[str, Any],
     catalog: Dict[str, Dict[str, Any]],
     name_map: Dict[str, str],
-) -> Tuple[Optional[str], Optional[List[str]]]:
-    """行 → ``(item_id, None)`` 或 ``(None, ambiguous 候选 id 列表)`` 或 ``(None, None)``。
+) -> List[str]:
+    """行 → 命中的 ``[ammo_item_id, ...]`` 列表；未匹配返回空列表 ``[]``。
 
     三层对齐（宁漏配不错配）：
     ① objectID 命中官方目录 → 精确匹配；
     ② 归一化「口径+名称」（行名先做别名折叠）全等唯一 → 命中；
-    ③ 行名 ``<口径>_N`` 合并行 → (归一化口径, N) 组匹配：组内唯一 → 命中，
-       多条 → ambiguous（数据层永不硬指变体归属）。
+    ③ 行名 ``<口径>_N`` 合并行 → (归一化口径, N) 组匹配：
+       组内所有同口径同等级弹药对齐该合并行情行价。
     """
     object_id = row.get("object_id")
     if object_id and object_id in catalog:
-        return str(object_id), None
+        return [str(object_id)]
     row_name = fold_name_aliases(row["name"])
     item_id = name_map.get(norm_name(row_name))
     if item_id:
-        return item_id, None
+        return [item_id]
     level_row = _LEVEL_ROW_RE.match(row_name.strip())
     if level_row:
         caliber_key = norm_name(level_row.group(1))
@@ -394,11 +393,9 @@ def _resolve_ammo_row(
             if norm_name(str(meta.get("caliber") or "")) == caliber_key
             and meta.get("penetration_level") == level
         )
-        if len(candidates) == 1:
-            return candidates[0], None
-        if len(candidates) > 1:
-            return None, candidates
-    return None, None
+        if candidates:
+            return candidates
+    return []
 
 
 def match_ammo_prices(
@@ -410,29 +407,19 @@ def match_ammo_prices(
 
     返回 ``(prices, notes)``。价格确定性：同一 ammo_item_id 命中多行情行时取
     **全行最小价**（站内页序非确定性，弃「取首行」），``note`` 记全部行名与价；
-    ambiguous 行的候选条目落 ``null``，``note`` 记行情价与候选集（待人工确认）。
     匹配不上（含无候选/组为空）的有价行 WARNING 日志（积累别名清单，不静默）。
     """
     prices: Dict[str, int] = {}
     min_source_notes: Dict[str, str] = {}
-    ambiguous_notes: Dict[str, str] = {}
     hits: Dict[str, List[Tuple[str, int]]] = {}
     for row in rows:
         price = row.get("price")
         if not price:
             continue
-        item_id, ambiguous = _resolve_ammo_row(row, catalog, name_map)
-        if item_id:
-            hits.setdefault(item_id, []).append((str(row["name"]), int(price)))
-            continue
-        if ambiguous:
-            candidates_text = ", ".join(
-                f"{cid} {catalog[cid]['name']}" for cid in ambiguous
-            )
-            note = f"orzice {row['name']}={price}; candidates=[{candidates_text}]; 待人工确认"
-            for candidate_id in ambiguous:
-                existing = ambiguous_notes.get(candidate_id)
-                ambiguous_notes[candidate_id] = f"{existing} | {note}" if existing else note
+        matched_ids = _resolve_ammo_row(row, catalog, name_map)
+        if matched_ids:
+            for item_id in matched_ids:
+                hits.setdefault(item_id, []).append((str(row["name"]), int(price)))
         else:
             logger.warning(
                 "orzice 有价行无法匹配官方目录（落 null，积累别名清单）：%s=%s",
@@ -445,12 +432,8 @@ def match_ammo_prices(
             min_source_notes[item_id] = "orzice " + "; ".join(
                 f"{name}={price}" for name, price in row_hits
             )
-    # 候选条目被其他行精确命中的极端情形：以实价为准，撤掉 ambiguous note（多源 min note 不受影响）
-    notes = {
-        cid: note for cid, note in ambiguous_notes.items() if cid not in prices
-    }
-    notes.update(min_source_notes)
-    return prices, notes
+
+    return prices, min_source_notes
 
 
 # ---- 表构造与幂等写盘 ----
@@ -500,7 +483,7 @@ def build_ammo_table(
 ) -> Dict[str, Any]:
     """构造弹药价格表：官方目录全量条目，命中填价，未命中 ``null``（缺价不猜测）。
 
-    ``notes`` 为可选逐条备注（多源取 min 的全源价 / ambiguous 候选集），
+    ``notes`` 为可选逐条备注（多源取 min 的全源价），
     仅有值时输出 ``note`` 字段（向后兼容扩展：消费方只读 ``price_daily``）。
     """
     note_by_id = notes or {}
@@ -513,7 +496,7 @@ def build_ammo_table(
         "note": (
             "自动维护：每日 GitHub Actions 抓取 orzice 小涛查实时价；"
             "交易行无报价/匹配不上官方目录的弹药为 null（渲染为 —，含赛季限定弹），"
-            "note 记多源价或 ambiguous 候选集（待人工确认），"
+            "note 记多源价，"
             "非官方数据仅供参考"
         ),
         "ammo": [

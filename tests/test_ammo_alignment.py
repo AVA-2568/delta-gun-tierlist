@@ -5,8 +5,7 @@
 
 - L1 权威键 ammo_item_id：合并条目 37250400005（DART）从价格表骨架消失，不留重定向；
 - L2 名称对齐：mm/引号/空白归一化、行名字级别名（箭形→箭型、鼠弹→鼠蛋、DART→箭型弹）；
-- L3 ``<口径>_N`` 合并行（等级唯一键）：组内唯一 → aligned（TAC-TX）、
-  多条 → ambiguous（price_daily=null + note 记候选集与行情价 + 待人工确认）；
+- L3 ``<口径>_N`` 合并行：组内候选弹药对齐该口径同等级行情价；
 - 同 id 多行取**全行最小价** + note 记全源价（弃行序依赖的取首行）；
 - normalize 层合并护栏：MERGED_AMMO_IDS 应用前运行时重验弹道字段全等。
 
@@ -79,15 +78,13 @@ def test_parse_rows_decodes_html_entities_then_alias_row_matches():
 # ---- 黄金集对齐结论 ----
 
 def test_golden_fixture_all_priced_rows_resolved():
-    """35 有价行 = 33 aligned（32 id + 箭形弹/DART 同 id 双行）+ 2 ambiguous，零静默未匹配。"""
+    """35 有价行全部对齐，覆盖 36 个 ammo_item_id（含合并行情行与同 id 双行），零静默未匹配。"""
     payload, catalog, prices, notes = _match()
     priced_rows = [r for r in payload["rows"] if r["price"]]
     assert len(priced_rows) == 35
-    assert len(prices) == 32
-    ambiguous_ids = {cid for cid, note in notes.items() if "待人工确认" in note}
-    assert len(ambiguous_ids) == 4  # .300BLK pen3×2 + pen4×2
-    # aligned 行数 = 32 id + 1（DART 行并入箭型弹 id）
-    assert len(priced_rows) == len(prices) + 1 + 2
+    assert len(prices) == 36
+    # 唯一 note 为双源取 min 的箭型弹
+    assert len(notes) == 1 and "37250300001" in notes
 
 
 def test_golden_fixture_merged_id_absent_from_skeleton():
@@ -121,22 +118,17 @@ def test_golden_fixture_same_id_multi_row_takes_min_with_note():
     assert note == "orzice 12 Gauge箭形弹=400; 12 Gauge DART=523"
 
 
-def test_golden_fixture_level_rows_unique_aligned_and_ambiguous():
-    """``<口径>_N`` 通道：_5 组内唯一 → aligned；_3/_4 组内多条 → ambiguous 硬指禁令。"""
-    _payload, _catalog, prices, notes = _match()
-    # .300BLK_5 → TAC-TX 唯一 5 级弹 → aligned（价随 fixture 冻结）
+def test_golden_fixture_level_rows_aligned():
+    """``<口径>_N`` 通道：合并行情行对齐组内同口径同等级候选弹药。"""
+    _payload, _catalog, prices, _notes = _match()
+    # .300BLK_5 → TAC-TX 唯一 5 级弹 → aligned
     assert prices["37280500001"] == 4968
-    # .300BLK_3 / _4 → 两候选 → price_daily=null + note 候选集精确 + 待人工确认
-    for cid, row_name, price, candidates in (
-        ("37280300001", ".300BLK_3", 497, "37280300001 V-Max, 37280300002 V-SUB"),
-        ("37280300002", ".300BLK_3", 497, "37280300001 V-Max, 37280300002 V-SUB"),
-        ("37280400001", ".300BLK_4", 1757, "37280400001 BCP-FMJ, 37280400002 BCP-SUB"),
-        ("37280400002", ".300BLK_4", 1757, "37280400001 BCP-FMJ, 37280400002 BCP-SUB"),
-    ):
-        assert cid not in prices, "ambiguous 条目禁止硬指价格（缺价不猜测）"
-        assert notes[cid] == (
-            f"orzice {row_name}={price}; candidates=[{candidates}]; 待人工确认"
-        )
+    # .300BLK_3 → V-Max / V-SUB 均对齐 3 级行情价 497
+    assert prices["37280300001"] == 497
+    assert prices["37280300002"] == 497
+    # .300BLK_4 → BCP-FMJ / BCP-SUB 均对齐 4 级行情价 1757
+    assert prices["37280400001"] == 1757
+    assert prices["37280400002"] == 1757
 
 
 def test_golden_fixture_objectid_rows_exact_match():
