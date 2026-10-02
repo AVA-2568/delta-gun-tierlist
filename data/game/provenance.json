@@ -16,7 +16,7 @@
    "selection": 1
   },
   "manifest_sha256": "b21dc3e0cafb8f72b2fbab4d0e50658b0591e598d802c5b335196e33118bd705",
-  "synced_at": "2026-09-30T13:47:40.609225+00:00"
+  "synced_at": "2026-10-02T17:49:58.046353+00:00"
  },
  "upstream_hashes": {
   "catalog/ammo.json": "121341ded4b05627e844fe17438226e1fe523b7143a9789b69c51891e68a465d",
@@ -26,14 +26,14 @@
   "rankings/firefight/index.json": "5c96d36d16fd0db5a25d405ae86a2e0811a193edc88603ae1b0260e8b7bb4624"
  },
  "outputs": {
-  "weapons.json": "56b29348c706860c6c74e0bb0b6f2f94144aa53bde40305aefd9229708710431",
-  "ammo.json": "c15656631ec2856b0486ccb28b8aa7eea8ed415f020fcf3e81f1a827d67096b5",
-  "armor.json": "79e3e82f2edb0d4dd20f73de8459b4582145d2a421abd908c32086c24ccde2f2",
-  "parts.json": "126df43e471250f405ab37af573b8bc6076c489be587bb20a1a04caf73f54861",
-  "profiles.json": "7464b9854f0606036b6c104cae7d170dc899214a253d8353b11fd5d5a87bfd4a",
-  "mechanism.json": "ee2613d94ccff4f3aa3c13ce7e31020cb261d935960b803c77e8ca01414d8c0b",
-  "scenarios.json": "d68211156a89f19184b32e7b54e48a2d04e9c3b22cc2a58ea63e433c521f1d18",
-  "validation_samples.json": "994cd91aa78be21c1fa5a966b2cab4de9a552cbb8b0c4a035579f9d950279ae0"
+  "weapons.json": "f5e764d02c89a939d0774eb23da6b0197b1a3d1e9d0960832df032a4a2a4a7fc",
+  "ammo.json": "73d7128fde5a843b89ea443468a15ffd1fceb91438bedf40c11d86c49aae99e1",
+  "armor.json": "1c7d1f70244bb76616cca9adeb6d6dcdb00b845711f291a3349d3c01a9e59411",
+  "parts.json": "3900a212f8b9d047366d78f1ccd67f587e58f0d4a242ad7c8b7d7bdfad391bde",
+  "profiles.json": "b860a1cc860e12e0a0f24329bf9567cb2ad3c73f3b1884a9fc7679c4ac47fea1",
+  "mechanism.json": "c3fb4eaac4460cb191e78d9392a716bc8e870fe29909a8818e81568c6e380e76",
+  "scenarios.json": "12b3d68e39edd6585d89d0764bafa8ab876e89d12270526a0fdca2476f4727fa",
+  "validation_samples.json": "90e4224fef44780026ff7ba7dc0c3568b7035805e95d5442a2ce0404d163dfc5"
  },
  "merges": [
   {
@@ -67,50 +67,6 @@
    "parts.json": "derived",
    "profiles.json": "derived",
    "mechanism.json": "derived"
-  },
-  "official_reproduction_residual": {
-   "verify_tol": 1e-09,
-   "residual_points": 765,
-   "total_points": 3774,
-   "max_abs_delta": 0.024488755200000156,
-   "grade_counts": {
-    "bitwise": 1435,
-    "le_1e-9": 1574,
-    "le_1e-5": 723,
-    "le_1e-2": 39,
-    "gt_1e-2": 3
-   },
-   "grade_counts_note": "互斥分桶：五档之和 = total_points",
-   "scenario_distribution": {
-    "armor-3-ammo-3": 63,
-    "armor-4-ammo-3": 75,
-    "armor-4-ammo-4": 71,
-    "armor-4-ammo-5": 44,
-    "armor-5-ammo-4": 210,
-    "armor-5-ammo-5": 146,
-    "armor-6-ammo-5": 156
-   },
-   "gt_1e-2_points": [
-    {
-     "scenario": "armor-4-ammo-4-center",
-     "candidate": "18010000008:base:37130400001:2=13020000373",
-     "distance": 0.0,
-     "delta": 0.024488755200000156
-    },
-    {
-     "scenario": "armor-4-ammo-3-default",
-     "candidate": "18020000001:base:37200300001:2=13020000474",
-     "distance": 36.0,
-     "delta": 0.020902829209692442
-    },
-    {
-     "scenario": "armor-4-ammo-4-default",
-     "candidate": "18010000008:base:37130400001:2=13020000373",
-     "distance": 0.0,
-     "delta": 0.020004383682795
-    }
-   ],
-   "conclusion": "残余 765 点全部位于 center/default 混合命中情景(chest-only 0 点超差),|Δ|≤0.02449,方向一致(官方 E 略高=官方略弱)。白盒对拍确认属上游侧伪差:用官方 rankings/firefight/dynamic 文件自声明的 weaponDamageResult.damageModel 参数(伤害/部位倍率/衰减段/穿甲修正)直接驱动本引擎 DP,765 点中 698 点与本地值逐位一致而官方 candidateMetrics 仍偏离(含全部 3 个 >1e-2 点);其余 67 点官方 dynamic 声明了 ammo.perPart,其中仅 42/67 点本地值与 candidateMetrics 吻合至 ≤1.1e-6,即官方 dynamic 声明与 candidateMetrics 互相矛盾,本地模型与 candidateMetrics 对齐。结构性偏差(本地反解缺口 R1-R4)已全部归零,该残余对 TTK 榜单排序无影响。（白盒对拍：官方参数重算与本地逐位一致而官方 E 偏离 765 点，其中官方 dynamic 未声明 perPart 698 点、声明了 perPart 67 点；未归类 0 点）（本记录于数据集 20260927-060257.3 版本更新后重新固化；复现分级与前一版本 20260911-044903.3 逐位一致。）（2026-09-30 弹药对齐管线改动（DART 并入箭型弹、mechanism 瘦身、武器口径首个非空回填）与引擎死字段删除后重固化；复现分级与前一记录逐位一致。）"
   }
  }
 }
