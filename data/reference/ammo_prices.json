@@ -8,7 +8,7 @@
  },
  "updated_at": "2026-09-30",
  "source": "orzice 三角洲小涛查 · 弹药页交易行实时价（泛口径条目按官方目录口径+名称全等唯一匹配）",
- "note": "自动维护：每日 GitHub Actions 抓取 orzice 小涛查实时价；交易行无报价/匹配不上官方目录的弹药为 null（渲染为 —，含赛季限定弹），note 记多源价或 ambiguous 候选集（待人工确认），非官方数据仅供参考",
+ "note": "自动维护：每日 GitHub Actions 抓取 orzice 小涛查实时价；交易行无报价/匹配不上官方目录的弹药为 null（渲染为 —，含赛季限定弹），note 记多源价，非官方数据仅供参考",
  "ammo": [
   {
    "ammo_item_id": "37100100001",
@@ -730,32 +730,28 @@
    "caliber": ".300BLK",
    "name": "V-Max",
    "penetration_level": 3,
-   "price_daily": null,
-   "note": "orzice .300BLK_3=587; candidates=[37280300001 V-Max, 37280300002 V-SUB]; 待人工确认"
+   "price_daily": 587
   },
   {
    "ammo_item_id": "37280300002",
    "caliber": ".300BLK",
    "name": "V-SUB",
    "penetration_level": 3,
-   "price_daily": null,
-   "note": "orzice .300BLK_3=587; candidates=[37280300001 V-Max, 37280300002 V-SUB]; 待人工确认"
+   "price_daily": 587
   },
   {
    "ammo_item_id": "37280400001",
    "caliber": ".300BLK",
    "name": "BCP-FMJ",
    "penetration_level": 4,
-   "price_daily": null,
-   "note": "orzice .300BLK_4=1792; candidates=[37280400001 BCP-FMJ, 37280400002 BCP-SUB]; 待人工确认"
+   "price_daily": 1792
   },
   {
    "ammo_item_id": "37280400002",
    "caliber": ".300BLK",
    "name": "BCP-SUB",
    "penetration_level": 4,
-   "price_daily": null,
-   "note": "orzice .300BLK_4=1792; candidates=[37280400001 BCP-FMJ, 37280400002 BCP-SUB]; 待人工确认"
+   "price_daily": 1792
   },
   {
    "ammo_item_id": "37280500001",
