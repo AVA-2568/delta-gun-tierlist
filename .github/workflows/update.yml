@@ -63,6 +63,10 @@ jobs:
       - name: Rebuild Tier List
         run: python -m src.pipeline --beam-width 8
 
+      # 对外数据表（枪械/配件/配件×枪械对接）随每日数据刷新；消费方式见 README。
+      - name: Export Data Tables
+        run: python -m src.export
+
       # 同步器重建 provenance.json 会丢掉残余收敛记录，必须在提交前重固化，
       # 否则下次 schedule 的 test job 因缺 integrity.official_reproduction_residual 必 fail。
       - name: Record Official Reproduction Residual
