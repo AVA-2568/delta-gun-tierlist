@@ -21,6 +21,7 @@ import hashlib
 import ipaddress
 import json
 import socket
+import time
 import urllib.parse
 import urllib.request
 from typing import Any, Callable, Tuple
@@ -59,16 +60,25 @@ def _sha256_bytes(payload: bytes) -> str:
     return hashlib.sha256(payload).hexdigest()
 
 
-def _download(path: str, timeout: float = 120.0) -> bytes:
-    """下载单个上游文件，返回原始字节。出站前做 https/host/解析 IP 三重校验。"""
+def _download(path: str, timeout: float = 120.0, retries: int = 3) -> bytes:
+    """下载单个上游文件，返回原始字节。出站前做 https/host/解析 IP 三重校验。
+
+    上游 TLS 偶发中断（SSL UNEXPECTED_EOF_WHILE_READING），按 1s/2s 退避重试，
+    耗尽后抛 :class:`SourceUnavailable`。
+    """
     url = SOURCE_BASE + path
     assert_public_https(url)
     request = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (compatible; delta-gun-tierlist)"})
-    try:
-        with urllib.request.urlopen(request, timeout=timeout) as response:
-            return response.read()
-    except Exception as exc:  # pragma: no cover - 网络异常分支
-        raise SourceUnavailable(f"下载 {url} 失败：{type(exc).__name__} - {exc}") from exc
+    last_exc: Exception = RuntimeError("unreachable")
+    for attempt in range(retries):
+        try:
+            with urllib.request.urlopen(request, timeout=timeout) as response:
+                return response.read()
+        except Exception as exc:  # pragma: no cover - 网络异常分支
+            last_exc = exc
+            if attempt + 1 < retries:
+                time.sleep(2 ** attempt)
+    raise SourceUnavailable(f"下载 {url} 失败（重试 {retries} 次）：{type(last_exc).__name__} - {last_exc}") from last_exc
 
 
 def _download_json(path: str, timeout: float = 120.0) -> Tuple[Any, str]:

@@ -60,12 +60,19 @@ DEFAULT_OUTPUT_DIR = os.path.join("data", "game")
 # 主流程
 # --------------------------------------------------------------------------- #
 def _write_json(path: str, payload: Any) -> str:
+    """落盘 JSON 并返回内容 SHA256。
+
+    返回值作为 provenance.outputs 记录口径，必须与 tests/test_data_integrity.py
+    及 tools/verify_official_reproduction.py --refresh-output-hashes 一致：
+    对 json.dumps 结果（**不含尾换行**）计算；尾换行仅落盘时追加。
+    口径漂移会使 CI 哈希回归（test_provenance_output_hashes_match）fail。
+    """
     from pathlib import Path
     target = Path(path).resolve()
     target.parent.mkdir(parents=True, exist_ok=True)
-    text = json.dumps(payload, ensure_ascii=False, indent=1, sort_keys=False) + "\n"
-    target.write_text(text, encoding="utf-8", newline="\n")
-    return _sha256_bytes(text.encode("utf-8"))
+    body = json.dumps(payload, ensure_ascii=False, indent=1, sort_keys=False)
+    target.write_text(body + "\n", encoding="utf-8", newline="\n")
+    return _sha256_bytes(body.encode("utf-8"))
 
 
 

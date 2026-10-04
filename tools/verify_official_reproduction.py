@@ -485,9 +485,20 @@ def record_residual(
 
     不允许静默放过无法归零的点：点数、最大 |Δ|、情景分布、>1e-2 点清单、
     结论与理由一并落盘。注意 ``grade_counts`` 为**互斥**分桶（五档之和 = 总点数）。
+
+    既有记录的 total_points 与本次重算不一致时拒绝写入：点数漂移意味着
+    validation_samples 缩水/膨胀（如上游情景偶发下载失败），固化会洗白缩水、
+    令防缩水断言失效。样本规模变化须经人工确认后清除旧记录再固化。
     """
     with open(provenance_path, encoding="utf-8") as fh:
         provenance = json.load(fh)
+    previous = provenance.get("integrity", {}).get("official_reproduction_residual")
+    if previous and previous.get("total_points") != result["total_points"]:
+        raise RuntimeError(
+            f"validation_samples 总点数漂移：现 {result['total_points']}，"
+            f"既有记录 {previous.get('total_points')}。样本缩水/膨胀（上游情景缺失？），"
+            "拒绝固化以掩盖缩水；请先恢复完整样本再固化。"
+        )
     gt_tol_points = sorted(
         (
             {
