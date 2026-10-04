@@ -607,3 +607,8 @@ class WeaponStateResolver:
                             for segment in segments
                         ]
                     state.falloff_segments = segments
+                    # 换弹道 profile 后满伤距离以 profile 为行为真源（官方
+                    # candidateMetrics 逐位证实，如 AS-Val 刺客高级枪管 40m 满伤），
+                    # 与 falloff 第一段边界保持同一不变式；面板 attr2 的 UI 数字
+                    # 可能与 profile 冲突（上游自相矛盾），不一致时以行为为准。
+                    state.effective_range_m = segments[0]["to_m"]
