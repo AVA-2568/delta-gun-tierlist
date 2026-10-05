@@ -75,7 +75,9 @@ class GunRanking:
     ammo_price_daily: Optional[int] = None
     #: 本体裸枪交易行当日价（变体/改装状态与本体同价，配件价不计入）
     gun_price_daily: Optional[int] = None
-    #: 起枪预估价：裸枪价 + N 发所配弹药（缺任一价则为 None）
+    #: 起枪核心配件当日总价（白板无配件为 0，变体计预装件，改装计装配核心件；缺任一价则为 None）
+    parts_price_daily: Optional[int] = None
+    #: 起枪预估价：裸枪价 + N 发所配弹药 + 核心配件价（缺任一价则为 None）
     full_price_180rd: Optional[int] = None
     #: 相对本体裸枪的关键 TTK 属性变化（伤害档案替换、射速、优势射程等）
     loadout_effects: List[Dict[str, Any]] = field(default_factory=list)
@@ -152,19 +154,79 @@ def compute_full_price(
     gun_price: Optional[int],
     ammo_price_per_round: Optional[int],
     rounds: int = SPARE_AMMO_ROUNDS,
+    parts_price: Optional[int] = 0,
 ) -> Optional[int]:
-    """起枪预估价（哈夫币）：本体裸枪价 + N 发所配弹药。
+    """起枪预估价（哈夫币）：本体裸枪价 + N 发所配弹药 + 核心配件总价。
 
-    口径（2026-09-22 与需求方确认）：
+    口径：
 
-    - **裸枪价按本体计**——变体/改装只是本体多装了配件（配件会改伤害/射速，
-      但那些差异体现在各行的 TTK 与击杀成本里），配件价不计入起枪价；
+    - **裸枪价按本体计**；
     - 弹药单价用**该行实际所配弹药**的单发价，而非全枪统一价；
+    - **核心配件价**包含该行所装配的配件当日价（白板裸枪无改装件时配件价为 0）；
     - 整数运算无舍入歧义，任一输入为 ``None``（缺价）时返回 ``None``——不猜测、不兜底。
     """
-    if gun_price is None or ammo_price_per_round is None:
+    if gun_price is None or ammo_price_per_round is None or parts_price is None:
         return None
-    return gun_price + rounds * ammo_price_per_round
+    return gun_price + rounds * ammo_price_per_round + parts_price
+
+
+def extract_loadout_part_ids(entry_or_row: Any) -> List[str]:
+    """提取一个状态行或排名条目中所涉及的核心配件 item_id 列表。
+
+    - entry_kind == "base" 且无配件：返回 []
+    - entry_kind == "variant"：变体出厂预装件 [variant_item_id]（若存在）
+    - 改装状态：loadout 字典中的非默认件；若 loadout 为空但有 single_part_item_id，返回 [single_part_item_id]
+    """
+    if isinstance(entry_or_row, GunRanking):
+        if entry_or_row.entry_kind == "base" and not entry_or_row.loadout and not entry_or_row.single_part_item_id:
+            return []
+        if entry_or_row.entry_kind == "variant" or entry_or_row.is_variant:
+            return [str(entry_or_row.variant_item_id)] if entry_or_row.variant_item_id else []
+        if entry_or_row.loadout:
+            return [str(v) for v in entry_or_row.loadout.values()]
+        if entry_or_row.single_part_item_id:
+            return [str(entry_or_row.single_part_item_id)]
+        return []
+
+    if not isinstance(entry_or_row, Mapping):
+        return []
+
+    entry_kind = entry_or_row.get("entry_kind") or ("variant" if entry_or_row.get("is_variant") else "base")
+    if entry_kind == "base" and not entry_or_row.get("loadout") and not entry_or_row.get("single_part_item_id"):
+        return []
+    if entry_or_row.get("is_variant") or entry_kind == "variant":
+        vid = entry_or_row.get("variant_item_id")
+        return [str(vid)] if vid else []
+    loadout = entry_or_row.get("loadout")
+    if loadout and isinstance(loadout, Mapping):
+        return [str(v) for v in loadout.values()]
+    single_part = entry_or_row.get("single_part_item_id")
+    if single_part:
+        return [str(single_part)]
+    return []
+
+
+def compute_parts_price(
+    part_ids: Sequence[str],
+    part_price_table: Any,
+) -> Optional[int]:
+    """计算一组核心配件的当日总价。
+
+    - part_ids 为空（白板）：返回 0；
+    - part_price_table 为 None / 空表，或其中任一配件缺价：返回 None（不猜测、不兜底）；
+    - 否则返回各配件当日价之和。
+    """
+    if not part_ids:
+        return 0
+    if part_price_table is None or getattr(part_price_table, "is_empty", False):
+        return None
+    total = 0
+    for pid in part_ids:
+        price = part_price_table.price_for(str(pid))
+        if price is None:
+            return None
+        total += price
+    return total
 
 
 def _quantile(sorted_values: Sequence[float], q: float) -> float:

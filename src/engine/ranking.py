@@ -21,11 +21,13 @@ from src.engine.tiering import (
     assign_tiers,
     compute_full_price,
     compute_kill_cost,
+    compute_parts_price,
     summarize_loadout_effects,
 )
 
 if TYPE_CHECKING:  # pragma: no cover - 仅类型标注
     from src.engine.ammo_pricing import AmmoPriceTable
+    from src.engine.part_pricing import PartPriceTable
     from src.engine.weapon_pricing import WeaponPriceTable
 
 #: 当前赛季（赛季更迭时人工更新；榜单弹药候选只保留常驻与当前赛季限定弹，
@@ -88,6 +90,7 @@ def rank_weapons_for_scenario(
     profile_keys: Optional[Sequence[str]] = None,
     price_table: Optional["AmmoPriceTable"] = None,
     weapon_price_table: Optional["WeaponPriceTable"] = None,
+    part_price_table: Optional["PartPriceTable"] = None,
 ) -> tuple:
     """起枪状态口径榜单：每行 = 一个「起枪配置状态 × 一款有价弹」的 TTK，聚合距离带并分层。
 
@@ -189,6 +192,15 @@ def rank_weapons_for_scenario(
             d = point.distance_m
             if abs(d - round(d)) < 1e-9 and round(d) % 10 == 0:
                 by_distance[str(int(d))] = round(point.ttk_milliseconds, 2)
+        effective_loadout = _effective_loadout(loadout or {}, weapon)
+        if entry_kind == "base" and not effective_loadout:
+            part_ids: List[str] = []
+        elif entry_kind == "variant":
+            part_ids = [str(weapon.get("variant_item_id"))] if weapon.get("variant_item_id") else []
+        else:
+            part_ids = list(effective_loadout.values())
+        parts_price = compute_parts_price(part_ids, part_price_table)
+
         return GunRanking(
             profile_key=str(weapon["profile_key"]),
             weapon_id=str(weapon["weapon_id"]),
@@ -197,7 +209,7 @@ def rank_weapons_for_scenario(
             category=str(weapon.get("category") or ""),
             is_variant=entry_kind == "variant",
             variant_item_name=weapon.get("variant_item_name") if entry_kind == "variant" else None,
-            loadout=_effective_loadout(loadout or {}, weapon),
+            loadout=effective_loadout,
             tuning={},
             entry_kind=entry_kind,
             bands=_band_results(eg.band_summary(curve), ammo_price),
@@ -212,7 +224,8 @@ def rank_weapons_for_scenario(
             ammo_caliber=str(ammo.get("caliber") or ""),
             ammo_price_daily=ammo_price,
             gun_price_daily=gun_price,
-            full_price_180rd=compute_full_price(gun_price, ammo_price),
+            parts_price_daily=parts_price,
+            full_price_180rd=compute_full_price(gun_price, ammo_price, parts_price=parts_price),
             loadout_effects=loadout_effects,
             stock_bands=dict(stock_bands),
             ttk_by_distance_ms=by_distance,

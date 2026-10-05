@@ -13,6 +13,7 @@ from src.engine.tiering import BAND_NAMES, SPARE_AMMO_ROUNDS, TIER_QUANTILES, Gu
 
 if TYPE_CHECKING:  # pragma: no cover - 仅类型标注
     from src.engine.ammo_pricing import AmmoPriceTable
+    from src.engine.part_pricing import PartPriceTable
     from src.engine.weapon_pricing import WeaponPriceTable
 
 
@@ -23,6 +24,7 @@ def to_export(
     excluded: Optional[Sequence[Mapping[str, str]]] = None,
     price_table: Optional["AmmoPriceTable"] = None,
     weapon_price_table: Optional["WeaponPriceTable"] = None,
+    part_price_table: Optional["PartPriceTable"] = None,
 ) -> Dict[str, Any]:
     """序列化为可写入 JSON 的结构（渲染层直接消费，禁止二次计算）。"""
     payload_rankings: List[Dict[str, Any]] = []
@@ -58,6 +60,7 @@ def to_export(
                     "price_daily": entry.ammo_price_daily,
                 },
                 "gun_price_daily": entry.gun_price_daily,
+                "parts_price_daily": entry.parts_price_daily,
                 "full_price_180rd": entry.full_price_180rd,
                 "bands": {
                     name: {
@@ -97,6 +100,18 @@ def to_export(
                 weapon_price_table is not None and not weapon_price_table.is_empty
             ),
             "spare_ammo_rounds": SPARE_AMMO_ROUNDS,
+        },
+        "part_price_meta": {
+            "currency": (
+                part_price_table.currency if part_price_table is not None else DEFAULT_CURRENCY
+            ),
+            "window": dict(part_price_table.window) if part_price_table is not None else {},
+            "updated_at": (
+                part_price_table.updated_at if part_price_table is not None else ""
+            ),
+            "available": bool(
+                part_price_table is not None and not part_price_table.is_empty
+            ),
         },
         "ranking_key": "band_mean_ttk_ms",
         "robustness_key": "band_worst_ttk_ms",

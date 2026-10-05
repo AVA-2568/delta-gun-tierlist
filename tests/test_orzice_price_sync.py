@@ -483,3 +483,18 @@ def test_main_exits_zero_on_partial(monkeypatch, capsys):
     mod.main()  # 不抛 SystemExit → 退出码 0
     out = capsys.readouterr().out
     assert "部分" in out and "orzice" in out
+
+
+def test_match_part_prices_from_zhanbei_fixture():
+    """战备页夹具中包含枪管、握把等配件，验证能按 objectID 及名称正确提取价格。"""
+    rows = parse_rows(_fixture("orzice_zhanbei.html"))
+    part_catalog = mod.load_part_catalog(str(REPO_ROOT / "data" / "game" / "parts.json"))
+    assert len(part_catalog) > 0
+    name_map = mod.build_part_name_map(part_catalog)
+
+    prices = mod.match_part_prices(rows, part_catalog, name_map)
+    # 验证 fixture 中的 QJB201新式獠牙短枪管 (13020000529) 和 MK4深空镀铬枪管 (13020000564)
+    assert prices.get("13020000529") == 68035
+    assert prices.get("13020000564") == 56470
+    assert prices.get("13030000180") == 24936  # 新式尖兵轻型握把
+

@@ -171,7 +171,7 @@ def test_readme_is_slim_overview_with_band_nav():
     assert "20260911-044903.3" in md
     # 主榜速览：每带 Top 5 精简表 + 完整榜跳转（README 在仓库根，链接须带 docs/榜单/ 前缀）
     assert "### 贴脸（0–15 m）· [完整榜 →](docs/榜单/主榜-贴脸.md)" in md
-    assert "| # | 层级 | 武器 | 平均 TTK | 击杀成本 | 裸枪价格 | 裸枪+180发备弹 | 起枪配置 |" in md
+    assert "| # | 层级 | 武器 | 平均 TTK | 击杀成本 | 裸枪价格 | 整枪+180发备弹 | 起枪配置 |" in md
     # 完整榜的宽表列不得回流 README
     assert "| 最差 TTK |" not in md
     # 情景索引：主榜行指向 4 份距离榜，不再有旧英文路径
@@ -226,7 +226,7 @@ def test_scenario_doc_stem_naming():
 def test_band_top_preview_limits_rows():
     table = render_band_top_preview(PAYLOAD, "贴脸", PART_NAMES, limit=1)
     lines = table.splitlines()
-    assert lines[0] == "| # | 层级 | 武器 | 平均 TTK | 击杀成本 | 裸枪价格 | 裸枪+180发备弹 | 起枪配置 |"
+    assert lines[0] == "| # | 层级 | 武器 | 平均 TTK | 击杀成本 | 裸枪价格 | 整枪+180发备弹 | 起枪配置 |"
     assert len(lines) == 3
     assert lines[2].startswith("| 1 | **T0** | M4A1 |")
 
@@ -314,12 +314,12 @@ def test_band_table_has_three_new_columns():
 
 
 def test_band_table_has_gun_price_columns():
-    """裸枪价格 / 裸枪+180发备弹 两列紧跟「击杀成本」之后。"""
+    """裸枪价格 / 整枪+180发备弹 两列紧跟「击杀成本」之后。"""
     table = render_band_table(PAYLOAD_WITH_COST, "贴脸", PART_NAMES)
     header = table.splitlines()[0]
     assert "裸枪价格" in header
-    assert "裸枪+180发备弹" in header
-    assert header.index("击杀成本") < header.index("裸枪价格") < header.index("裸枪+180发备弹") < header.index("射速")
+    assert "整枪+180发备弹" in header
+    assert header.index("击杀成本") < header.index("裸枪价格") < header.index("整枪+180发备弹") < header.index("射速")
 
 
 def test_band_table_renders_gun_prices():
@@ -457,7 +457,7 @@ def test_readme_notes_price_source():
 
 
 def test_readme_notes_weapon_price_source_and_cost_rule():
-    """README 必须说明枪价口径：本体裸枪当日价、配件价不计入、起枪成本公式。"""
+    """README 必须说明枪价口径：本体裸枪当日价、整枪包含核心配件价、起枪成本公式。"""
     payload = {
         **PAYLOAD_WITH_COST,
         "weapon_price_meta": {
@@ -466,6 +466,12 @@ def test_readme_notes_weapon_price_source_and_cost_rule():
             "updated_at": "2026-09-22",
             "available": True,
             "spare_ammo_rounds": 180,
+        },
+        "part_price_meta": {
+            "currency": "哈夫币",
+            "window": {"from": "2026-09-22", "to": "2026-09-22", "days": 1},
+            "updated_at": "2026-09-22",
+            "available": True,
         },
     }
     md = render_readme(
@@ -476,6 +482,8 @@ def test_readme_notes_weapon_price_source_and_cost_rule():
     )
     assert "枪械价格" in md
     assert "本体裸枪当日价" in md
-    assert "配件价不计入" in md
+    assert "配件价格" in md
+    assert "整枪价格计入该行所装配的核心配件价格" in md
     assert "| 起枪成本 |" in md
+    assert "整枪+180发备弹" in md
     assert "回答三个问题" in md

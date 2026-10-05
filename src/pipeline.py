@@ -39,10 +39,13 @@ from src.engine import ranking, tierlist_export
 from src.engine.ammo_pricing import load_ammo_prices
 from src.engine.game_data import DEFAULT_DATA_DIR, load_game_data
 from src.engine.loadout import LoadoutSolver
+from src.engine.part_pricing import load_part_prices
 from src.engine.tiering import (
     SPARE_AMMO_ROUNDS,
     compute_full_price,
     compute_kill_cost,
+    compute_parts_price,
+    extract_loadout_part_ids,
 )
 from src.engine.weapon_pricing import load_weapon_prices
 from src.renderers.ttk_report import (
@@ -65,6 +68,9 @@ AMMO_PRICE_TABLE = "data/reference/ammo_prices.json"
 
 #: 枪械本体裸枪当日价表（由 src.collectors.weapon_price_sync 每日自动抓取维护，与弹药价同源同频率）
 WEAPON_PRICE_TABLE = "data/reference/weapon_prices.json"
+
+#: 配件当日价表（由 src.collectors.orzice_price_sync 每日自动抓取维护）
+PART_PRICE_TABLE = "data/reference/part_prices.json"
 
 # 产物目录（生成产物中文化；data/game/ 官方源数据保持上游原名，勿动）
 DOCS_SCENARIO_DIR = os.path.join("docs", "榜单")
@@ -322,15 +328,18 @@ def _compute_scenario(args: tuple) -> tuple:
     game_data = load_game_data(os.path.join(output_dir, DEFAULT_DATA_DIR))
     price_table = load_ammo_prices(os.path.join(output_dir, AMMO_PRICE_TABLE))
     weapon_price_table = load_weapon_prices(os.path.join(output_dir, WEAPON_PRICE_TABLE))
+    part_price_table = load_part_prices(os.path.join(output_dir, PART_PRICE_TABLE))
     solver = LoadoutSolver(game_data, sid)
     rankings, thresholds, excluded = ranking.rank_weapons_for_scenario(
         game_data, sid, solver=solver, beam_width=beam_width,
         profile_keys=keys, price_table=price_table,
         weapon_price_table=weapon_price_table,
+        part_price_table=part_price_table,
     )
     payload = tierlist_export.to_export(
         rankings, thresholds, sid, excluded,
         price_table=price_table, weapon_price_table=weapon_price_table,
+        part_price_table=part_price_table,
     )
     return sid, payload, len(rankings), len(excluded)
 
@@ -339,13 +348,14 @@ def refresh_payload_prices(
     payload: Dict[str, Any],
     ammo_table: Any,
     weapon_table: Any,
+    part_table: Optional[Any] = None,
 ) -> None:
     """就地刷新 payload 的价格相关字段（纯函数，CLI 与测试共用）；TTK 字段一律不动。
 
     刷新范围（与全量重算 ``to_export`` 的序列化形状同构）：
 
-    - 顶层 ``ammo_price_meta`` / ``weapon_price_meta``（币种 / 窗口 / 更新时间 / 可用性）；
-    - 每状态行 ``ammo.price_daily``、``gun_price_daily``、``full_price_180rd``；
+    - 顶层 ``ammo_price_meta`` / ``weapon_price_meta`` / ``part_price_meta``；
+    - 每状态行 ``ammo.price_daily``、``gun_price_daily``、``parts_price_daily``、``full_price_180rd``；
     - 每带 ``kill_cost``。
 
     计算口径与 :mod:`src.engine.tiering` 完全一致——直接复用
@@ -367,14 +377,24 @@ def refresh_payload_prices(
         "available": not weapon_table.is_empty,
         "spare_ammo_rounds": SPARE_AMMO_ROUNDS,
     }
+    if part_table is not None:
+        payload["part_price_meta"] = {
+            "currency": part_table.currency,
+            "window": dict(part_table.window),
+            "updated_at": part_table.updated_at,
+            "available": not part_table.is_empty,
+        }
     for row in payload.get("weapons") or []:
         ammo = row.get("ammo") or {}
         ammo_price = ammo_table.price_for(str(ammo.get("ammo_item_id") or ""))
         # 变体/改装状态行与本体共用裸枪价（weapon_id 即本体主键，见 ranking 层口径）
         gun_price = weapon_table.price_for(str(row.get("weapon_id") or ""))
+        part_ids = extract_loadout_part_ids(row)
+        parts_price = compute_parts_price(part_ids, part_table)
         ammo["price_daily"] = ammo_price
         row["gun_price_daily"] = gun_price
-        row["full_price_180rd"] = compute_full_price(gun_price, ammo_price)
+        row["parts_price_daily"] = parts_price
+        row["full_price_180rd"] = compute_full_price(gun_price, ammo_price, parts_price=parts_price)
         for band in (row.get("bands") or {}).values():
             band["kill_cost"] = compute_kill_cost(band.get("mean_expected_shots"), ammo_price)
 
@@ -395,6 +415,7 @@ def refresh_prices(
     """
     ammo_table = load_ammo_prices(os.path.join(output_dir, AMMO_PRICE_TABLE))
     weapon_table = load_weapon_prices(os.path.join(output_dir, WEAPON_PRICE_TABLE))
+    part_table = load_part_prices(os.path.join(output_dir, PART_PRICE_TABLE))
     index = _scan_ranking_files(output_dir)
 
     if all_scenarios:
@@ -425,7 +446,7 @@ def refresh_prices(
             )
             skipped.append(sid)
             continue
-        refresh_payload_prices(payload, ammo_table, weapon_table)
+        refresh_payload_prices(payload, ammo_table, weapon_table, part_table)
         payloads[sid] = payload
 
     files_written: List[str] = []

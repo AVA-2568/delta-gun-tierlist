@@ -115,9 +115,17 @@ def _price_notes(payload: Mapping[str, Any]) -> List[str]:
             span = f"（{window.get('from')}）" if window.get("from") else ""
             notes.append(
                 f"- 枪械价格：orzice 小涛查交易行本体裸枪当日价{span}，每日自动抓取维护"
-                f"（updated_at {weapon_meta.get('updated_at') or '未知'}）；"
-                "变体/改装 = 本体 + 配件，配件价不计入"
+                f"（updated_at {weapon_meta.get('updated_at') or '未知'}）"
             )
+    part_meta = payload.get("part_price_meta")
+    if part_meta and part_meta.get("available"):
+        window = part_meta.get("window") or {}
+        span = f"（{window.get('from')}）" if window.get("from") else ""
+        notes.append(
+            f"- 配件价格：orzice 小涛查交易行当日价{span}，每日自动抓取维护"
+            f"（updated_at {part_meta.get('updated_at') or '未知'}）；"
+            "整枪价格计入该行所装配的核心配件价格（白板裸枪配件价计 0）"
+        )
     return notes
 
 
@@ -207,7 +215,7 @@ def render_band_table(
     weapon_meta = payload.get("weapon_price_meta") or {}
     currency = weapon_meta.get("currency") or ammo_meta.get("currency") or "哈夫币"
     rounds = weapon_meta.get("spare_ammo_rounds") or 180
-    full_col = f"裸枪+{rounds}发备弹"
+    full_col = f"整枪+{rounds}发备弹"
 
     lines = [
         f"| # | 层级 | 武器 | 平均 TTK | 最差 TTK | 预装收益 | 期望击杀发数@0m | 弹药 | 单发价 | 击杀成本 | 裸枪价格 | {full_col} | 射速 | 优势射程 | 起枪配置 |",
@@ -264,7 +272,7 @@ def render_band_top_preview(
     ammo_meta = payload.get("ammo_price_meta") or {}
     currency = weapon_meta.get("currency") or ammo_meta.get("currency") or "哈夫币"
     rounds = weapon_meta.get("spare_ammo_rounds") or 180
-    full_col = f"裸枪+{rounds}发备弹"
+    full_col = f"整枪+{rounds}发备弹"
 
     lines = [
         f"| # | 层级 | 武器 | 平均 TTK | 击杀成本 | 裸枪价格 | {full_col} | 起枪配置 |",
@@ -382,7 +390,7 @@ def render_readme(
         lines.insert(2, "")
     lines.append("")
     lines.append("回答三个问题：**在给定护甲、弹药与距离下，这把枪击杀对手需要多久（毫秒）**、"
-                 "**这次击杀要花多少哈夫币**，以及**起一把裸枪（含 180 发备弹）要多少钱**。")
+                 "**这次击杀要花多少哈夫币**，以及**起一把整枪（含核心配件与 180 发备弹）要多少钱**。")
     lines.append("")
     lines.append("| 项 | 说明 |")
     lines.append("| :-- | :-- |")
@@ -392,8 +400,8 @@ def render_readme(
                  "束搜索枚举的改装状态（官方插槽规则 + 强制联动）；同口径同等级的多款有价弹各出一行，"
                  "缺价弹（市场无价）不参与枚举；仅 TTK 有差异的状态列出，全部一起排名分层 |")
     lines.append("| 预装收益 | 该距离带内**本体裸枪 → 本状态**的平均 TTK 缩短量与百分比（`—` 表示本体裸枪行） |")
-    lines.append("| 起枪成本 | 裸枪价格 = 本体交易行当日价（变体/改装 = 本体 + 配件，同价，配件价不计入）；"
-                 "裸枪+180发备弹 = 裸枪价 + 180 × 该行所配弹药单发价（预估） |")
+    lines.append("| 起枪成本 | 裸枪价格 = 本体交易行当日价（变体/改装共用本体价）；"
+                 "整枪+180发备弹 = 裸枪价 + 核心配件价 + 180 × 该行所配弹药单发价（预估；白板裸枪配件价为 0） |")
     lines.append("| 距离场 | 0–80 m（官方排行口径），分 4 个距离带，每带独立成榜 |")
     lines.append("| 分层 | 带内 TTK 分位数切分 T0–T3，阈值公开；榜单文档只列 T0 / T1"
                  "（T2 / T3 及全部状态行见 `data/榜单/*.json`） |")

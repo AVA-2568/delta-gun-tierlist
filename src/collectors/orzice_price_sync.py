@@ -69,9 +69,10 @@ ALLOWED_HOST = "orzice.com"
 ZHANBEI_PATH = "/v/zhanbei"
 AMMO_PATH = "/v/ammo"
 
-#: 两张价格表的 schema（与现行文件完全一致）
+#: 三张价格表的 schema（与现行文件完全一致）
 WEAPON_PRICE_SCHEMA = "weapon-price-daily"
 AMMO_PRICE_SCHEMA = "ammo-price-daily"
+PART_PRICE_SCHEMA = "part-price-daily"
 
 #: 当前赛季（与 ranking.CURRENT_SEASON 对齐）：非当前赛季的限定弹视为绝版，
 #: 即使有泛口径或模糊匹配也一律不上价（price_daily 恒为 null，杜绝脏价格污染 TTK 榜单）。
@@ -80,6 +81,7 @@ CURRENT_SEASON = "S11"
 #: 返回值里的表路径文案（sync 内文件系统调用一律用纯字面量相对路径，不用本常量）
 WEAPON_TABLE_RELPATH = "data/reference/weapon_prices.json"
 AMMO_TABLE_RELPATH = "data/reference/ammo_prices.json"
+PART_TABLE_RELPATH = "data/reference/part_prices.json"
 
 _USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -313,6 +315,35 @@ def load_ammo_catalog(path: str) -> Dict[str, Dict[str, Any]]:
     }
 
 
+def load_part_catalog(path: str) -> Dict[str, Dict[str, Any]]:
+    """读官方配件目录，返回 ``part_id -> 展示元数据``（供全量表骨架）。"""
+    if not os.path.exists(path):
+        return {}
+    with open(path, encoding="utf-8") as fh:
+        raw = json.load(fh)
+    parts = raw.get("parts", raw) if isinstance(raw, dict) else {}
+    return {
+        str(item_id): {
+            "name": record.get("name") or "",
+            "slot": record.get("slot") or "",
+        }
+        for item_id, record in parts.items()
+        if isinstance(record, dict) and record.get("name")
+    }
+
+
+def build_part_name_map(catalog: Dict[str, Dict[str, Any]]) -> Dict[str, str]:
+    """构建「归一化配件名称 → part_id」映射。唯一命中才收录。"""
+    keys: Dict[str, List[str]] = {}
+    for item_id, meta in catalog.items():
+        name = meta.get("name")
+        if not name:
+            continue
+        key = norm_name(name)
+        keys.setdefault(key, []).append(str(item_id))
+    return {key: ids[0] for key, ids in keys.items() if len(ids) == 1}
+
+
 def fold_name_aliases(name: Any) -> str:
     """行名字级别名折叠（站方行名 → 官方目录名写法），归一化前应用。"""
     name = str(name or "")
@@ -366,6 +397,37 @@ def match_weapon_prices(
             logger.warning("枪械 %s 多行价不一致（%d / %d），取首行", object_id, prices[object_id], price)
             continue
         prices[object_id] = price
+    return prices
+
+
+def match_part_prices(
+    rows: List[Dict[str, Any]],
+    catalog: Dict[str, Dict[str, Any]],
+    name_map: Dict[str, str],
+) -> Dict[str, int]:
+    """战备页条目 → ``part_id -> 当日价``：objectID 优先，名称全等唯一命中为辅。
+
+    同一配件多行时取全行最小价。
+    """
+    prices: Dict[str, int] = {}
+    hits: Dict[str, List[int]] = {}
+    for row in rows:
+        price = row.get("price")
+        if not price or price <= 0:
+            continue
+        oid = str(row.get("object_id") or "")
+        matched_id = None
+        if oid in catalog:
+            matched_id = oid
+        else:
+            n = norm_name(row.get("name"))
+            if n in name_map:
+                matched_id = name_map[n]
+        if matched_id:
+            hits.setdefault(matched_id, []).append(int(price))
+
+    for pid, price_list in hits.items():
+        prices[pid] = min(price_list)
     return prices
 
 
@@ -524,6 +586,27 @@ def build_ammo_table(
     }
 
 
+def build_part_table(
+    catalog: Dict[str, Dict[str, Any]], prices: Dict[str, int], fetched_date: str
+) -> Dict[str, Any]:
+    """构造配件价格表：官方目录全量条目，命中填价，未命中 ``null``（缺价不猜测）。"""
+    return {
+        "schema": PART_PRICE_SCHEMA,
+        "currency": "哈夫币",
+        "window": {"from": fetched_date, "to": fetched_date, "days": 1},
+        "updated_at": fetched_date,
+        "source": f"{SOURCE_NAME} · 战备页交易行实时价（配件当日价）",
+        "note": (
+            "自动维护：每日 GitHub Actions 抓取 orzice 小涛查实时价；"
+            "交易行无报价的配件为 null（渲染为 —），非官方数据仅供参考"
+        ),
+        "parts": [
+            {"part_id": item_id, **meta, "price_daily": prices.get(item_id)}
+            for item_id, meta in sorted(catalog.items())
+        ],
+    }
+
+
 def _load_current_table(table_path: str, schema: str) -> Optional[Dict[str, Any]]:
     """读现表（只读）：缺失/损坏/schema 不符 → ``None``。"""
     if not os.path.exists(table_path):
@@ -620,6 +703,9 @@ def sync(
             raise RuntimeError("官方弹药目录为空或缺失：data/game/ammo.json")
 
         weapon_prices = match_weapon_prices(weapon_rows, set(weapon_catalog))
+        part_catalog = load_part_catalog("data/game/parts.json")
+        part_name_map = build_part_name_map(part_catalog)
+        part_prices = match_part_prices(weapon_rows, part_catalog, part_name_map) if part_catalog else {}
         ammo_prices, ammo_notes = match_ammo_prices(
             ammo_rows, ammo_catalog, build_ammo_name_map(ammo_catalog)
         )
@@ -647,6 +733,7 @@ def sync(
         fetched_date = _today_beijing()
         weapon_table = build_weapon_table(weapon_catalog, weapon_prices, fetched_date)
         ammo_table = build_ammo_table(ammo_catalog, ammo_prices, fetched_date, notes=ammo_notes)
+        part_table = build_part_table(part_catalog, part_prices, fetched_date) if part_catalog else None
 
         # ---- 幂等写盘：价格与现表一致时不重写（git 无 diff、Actions 无空提交）----
         weapon_changed = not _table_prices_match(
@@ -677,6 +764,22 @@ def sync(
             )
         else:
             logger.info("弹药价格与现表一致，不重写（matched=%d）", len(ammo_prices))
+
+        part_changed = False
+        if part_table:
+            part_changed = not _table_prices_match(
+                "data/reference/part_prices.json", part_table,
+                schema=PART_PRICE_SCHEMA, section="parts", id_field="part_id",
+            )
+            if part_changed:
+                part_payload = json.dumps(part_table, ensure_ascii=False, indent=1) + "\n"
+                Path("data/reference/part_prices.json").write_text(part_payload, encoding="utf-8")
+                logger.info(
+                    "配件价格表已更新：matched=%d / catalog=%d",
+                    len(part_prices), len(part_catalog),
+                )
+            else:
+                logger.info("配件价格与现表一致，不重写（matched=%d）", len(part_prices))
     finally:
         os.chdir(prev_cwd)
 
@@ -700,6 +803,12 @@ def sync(
             "catalog": len(ammo_catalog),
             "table_path": AMMO_TABLE_RELPATH,
         },
+        "part": {
+            "changed": part_changed,
+            "matched": len(part_prices) if part_catalog else 0,
+            "catalog": len(part_catalog),
+            "table_path": PART_TABLE_RELPATH,
+        },
     }
 
 
@@ -713,13 +822,15 @@ def main() -> None:
     state = "完整" if result["complete"] else "部分（抓取中断，详见日志警告）"
 
     def _part(key: str, label: str) -> str:
-        r = result[key]
+        r = result.get(key)
+        if not r:
+            return f"{label} 未同步"
         return (
             f"{label} {r['matched']}/{r['catalog']} 条"
             f"（{'已更新' if r['changed'] else '无变化'} → {r['table_path']}）"
         )
 
-    print(f"orzice 价格同步完成（{state}）：{_part('weapon', '枪械')}，{_part('ammo', '弹药')}")
+    print(f"orzice 价格同步完成（{state}）：{_part('weapon', '枪械')}，{_part('ammo', '弹药')}，{_part('part', '配件')}")
 
 
 if __name__ == "__main__":
