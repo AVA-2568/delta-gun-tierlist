@@ -79,8 +79,15 @@ def test_weapons_and_weapon_prices_caliber_non_empty():
         )
     with open(os.path.join(ROOT, "data", "reference", "weapon_prices.json"), encoding="utf-8") as fh:
         rows = json.load(fh)["weapons"]
+    weapon_caliber = {w["weapon_id"]: w.get("caliber") for w in weapons}
     for row in rows:
-        assert row.get("caliber"), f"weapon_prices {row['weapon_id']} caliber 为空"
+        # 价格表骨架的 caliber 随武器表同步；武器表侧已归因的空口径（type28 箭矢
+        # → 复合弓等上游 null 真相）在价格表侧同样放行，其余空值仍视为污染。
+        if not row.get("caliber"):
+            assert weapon_caliber.get(row["weapon_id"]) == "", (
+                f"weapon_prices {row['weapon_id']} caliber 为空，"
+                "但武器表侧该枪口径非空（价格骨架取值污染？）"
+            )
 
 
 def test_ammo_merged_dart_absent_and_arrow_intact():
