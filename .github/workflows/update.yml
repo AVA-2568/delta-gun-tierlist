@@ -65,10 +65,15 @@ jobs:
 
       # 官方数据域已转 data/tables/ 独立维护（不再每日重建 provenance），此步兜底重固化
       # 残余收敛记录，防止 integrity.official_reproduction_residual 缺失令 test job fail。
+      # 工具退出码语义：0=无超差点；1=存在超差点且已固化（已裁定的上游伪差，预期常态）；
+      # 其余退出码为真错误。
       - name: Record Official Reproduction Residual
         run: |
+          set +e
           python tools/verify_official_reproduction.py \
             --record-residual-conclusion "CI 每日自动固化：残余统计由 tools/verify_official_reproduction.py 当次全量重算写入；上游伪差白盒裁定与历史结论文案见 git 历史中的 provenance.json 记录。"
+          rc=$?
+          if [ "$rc" -ne 0 ] && [ "$rc" -ne 1 ]; then exit "$rc"; fi
 
       - name: Commit and Push Changes
         run: |
