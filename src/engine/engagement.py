@@ -158,7 +158,8 @@ def ttk_curve(
     ]
 
 
-# 距离带（设计规范 6 节）
+# 距离带（设计规范 6 节）。带语义互斥：首带 [lo, hi]（含 0 m），其余 (lo, hi]——
+# 端点 15/30/50 m 只归属一个带，与衰减段 ``(from_m, to_m]`` 同一口径。
 DISTANCE_BANDS: Dict[str, tuple] = {
     "贴脸": (0.0, 15.0),
     "近距": (15.0, 30.0),
@@ -173,12 +174,16 @@ BAND_NAMES: tuple = tuple(DISTANCE_BANDS)
 def band_summary(curve: Sequence[TtkResult]) -> Dict[str, Dict[str, float]]:
     """按距离带聚合：带内 TTK（毫秒）与带内平均期望击杀发数。
 
-    ``mean_expected_shots`` 供上层计算击杀成本使用，故**不做取整**——
+    带互斥（首带 ``[lo, hi]``、其余 ``(lo, hi]``）：15/30/50 m 端点只计入一个带，
+    不重复统计。``mean_expected_shots`` 供上层计算击杀成本使用，故**不做取整**——
     它乘上单价后由成本函数统一四舍五入。
     """
     out: Dict[str, Dict[str, float]] = {}
-    for name, (lo, hi) in DISTANCE_BANDS.items():
-        points = [r for r in curve if lo <= r.distance_m <= hi]
+    for index, (name, (lo, hi)) in enumerate(DISTANCE_BANDS.items()):
+        if index == 0:
+            points = [r for r in curve if lo <= r.distance_m <= hi]
+        else:
+            points = [r for r in curve if lo < r.distance_m <= hi]
         if not points:
             continue
         ttks = [r.ttk_milliseconds for r in points]

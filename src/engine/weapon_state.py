@@ -156,10 +156,16 @@ class WeaponState:
 
     # ---------------------------------------------------------------- #
     def falloff_rate(self, distance_m: float) -> float:
-        """距离衰减系数（分段阶梯，与官方 ``damageFalloffSegments`` 一致）。"""
+        """距离衰减系数（分段阶梯，与官方 ``damageFalloffSegments`` 一致）。
+
+        段语义为 ``(from_m, to_m]``：满伤**含端点**——"有效射程 30 m"即 30 m
+        整点仍满伤，衰减自 30 m 之后起。迭代"命中即更新"的写法配合严格大于
+        判定（``>``）自动实现该语义；官方 candidateMetrics 采样点均取
+        ``from_m + 1``（31/41/51/61），与本口径一致。
+        """
         rate = 1.0
         for segment in self.falloff_segments:
-            if distance_m >= float(segment["from_m"]):
+            if distance_m > float(segment["from_m"]):
                 rate = float(segment["rate"])
             else:
                 break
@@ -586,7 +592,8 @@ class WeaponStateResolver:
                     state.effective_range_m = valid * state.attr2_ratio
             # 挂载带自有弹道档案的配件时，官方**整体替换**衰减段（而非在 base 段上叠加）：
             # ``attenuationDistancesCm`` 是各速率段的**终点**——``rate[i]`` 施加于
-            # ``[dist[i-1], dist[i])`` 区间，``[0, valid)`` 固定 1.0，末段延伸到最大射程。
+            # ``(dist[i-1], dist[i]]`` 区间，``[0, valid]`` 固定 1.0（满伤含端点），
+            # 末段延伸到最大射程。
             # 换档后的边界与非换档路径一致，**随面板 attr2 的相对变化等比缩放**
             # （M4A1 动态文件锚点：40/70/1000 → 52/91/1300 = ×1.3）。
             # 锚点：MK4 + 深空镀铬枪管 chest-only @26/36/46 → 官方 9/11/13，

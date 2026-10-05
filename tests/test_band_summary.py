@@ -52,3 +52,17 @@ def test_existing_fields_unchanged():
 
 def test_empty_band_is_skipped():
     assert band_summary([_result(60.0, 200.0, 5.0)]).get("贴脸") is None
+
+
+def test_band_endpoints_belong_to_single_band():
+    """带互斥：端点 15/30/50 m 只归属一个带（首带含 0 m），与衰减段同口径。"""
+    curve = [_result(float(d), 100.0 + d, 1.0) for d in (0, 15, 16, 30, 31, 50, 51, 80)]
+    bands = band_summary(curve)
+    assert bands["贴脸"]["min_ms"] == pytest.approx(100.0)  # 0 m 归贴脸
+    assert bands["贴脸"]["max_ms"] == pytest.approx(115.0)  # 15 m 归贴脸
+    assert bands["近距"]["min_ms"] == pytest.approx(116.0)  # 15 m 不在近距
+    assert bands["近距"]["max_ms"] == pytest.approx(130.0)  # 30 m 归近距
+    assert bands["中距"]["min_ms"] == pytest.approx(131.0)  # 30 m 不在中距
+    assert bands["中距"]["max_ms"] == pytest.approx(150.0)  # 50 m 归中距
+    assert bands["远距"]["min_ms"] == pytest.approx(151.0)  # 50 m 不在远距
+    assert bands["远距"]["max_ms"] == pytest.approx(180.0)  # 80 m 归远距

@@ -172,3 +172,26 @@ def test_end_to_end_official_candidate_reproduction():
             state, gd.get_ammo("37100400001"), armor["4"], probs, distance, armor_level=4
         )
         assert ctx.expected_kill_shots() == pytest.approx(expected, abs=TOL)
+
+
+def test_falloff_full_damage_includes_segment_start():
+    """衰减段语义 (from_m, to]：满伤**含端点**。
+
+    "有效射程 30 m"即 30 m 整点仍满伤、31 m 起衰减——MCX-LT 焰魂枪管态的官方
+    candidateMetrics @31m（7.0063 发）与本引擎逐位一致；官方采样点均取段起点
+    +1（31/41/51/61），边界归属以游戏"有效射程"语义为准。
+    """
+    from src.engine.game_data import load_game_data
+    from src.engine.engagement import ttk_at
+    from src.engine.loadout import LoadoutSolver
+
+    gd = load_game_data()
+    solver = LoadoutSolver(gd, "armor-5-ammo-5-default")
+    key = "18010000044:13020000573"
+    state = solver.resolver.resolve(key, loadout={}, tuning=None)
+    assert state.effective_range_m == 30.0
+    assert state.falloff_rate(30.0) == 1.0
+    assert state.falloff_rate(30.5) == 0.85
+    ammo = solver.ammo_for(key)
+    e31 = ttk_at(state, ammo, solver.armor, solver.probabilities, 31.0).expected_shots
+    assert e31 == pytest.approx(7.006287973239626, abs=1e-9)

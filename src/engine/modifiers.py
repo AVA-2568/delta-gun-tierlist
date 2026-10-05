@@ -81,8 +81,8 @@ def hitbox_key(target: str) -> Optional[str]:
 def falloff_from_bullet_profile(profile: Mapping[str, Any]) -> List[Dict[str, float]]:
     """把弹道 profile 的衰减声明还原为 ``falloff_segments``（schema 同官方摘要）。
 
-    ``attenuation_distances_cm`` 为各速率段**终点**（厘米）：``[0, valid)``
-    固定 1.0，``rate[i]`` 施加于 ``[dist[i-1], dist[i])``。与 catalog
+    ``attenuation_distances_cm`` 为各速率段**终点**（厘米）：``[0, valid]``
+    固定 1.0，``rate[i]`` 施加于 ``(dist[i-1], dist[i]]``。与 catalog
     ``damageFalloffSegments`` 的派生关系已用 MK4/M4A1 base 全量比对确认。
     """
     valid = float(profile.get("valid_distance_cm") or 0.0) / 100.0
