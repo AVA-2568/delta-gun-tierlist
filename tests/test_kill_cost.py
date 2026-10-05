@@ -59,34 +59,56 @@ def gd():
 
 
 def test_ranking_attaches_ammo_and_cost(gd):
-    """VSS 在 5-5 情景可用；价格表里没有该弹药的价 → 每带成本均为 ``None``。"""
-    table = AmmoPriceTable(prices={"__any__": 1000})
+    """先探针取实际弹药主键，配价后重跑：行带出弹药与成本。"""
+    probe, _t0, _e0 = rank_weapons_for_scenario(
+        gd, "armor-5-ammo-5-default", beam_width=8,
+        profile_keys=["18050000003:base"],
+    )
+    real_id = probe[0].ammo_item_id
+    table = AmmoPriceTable(prices={real_id: 1000})
     rankings, _thresholds, _excluded = rank_weapons_for_scenario(
         gd, "armor-5-ammo-5-default", beam_width=8,
         profile_keys=["18050000003:base"], price_table=table,
     )
     entry = rankings[0]
-    assert entry.ammo_item_id, "应带出实际使用的弹药主键"
+    assert entry.ammo_item_id == real_id, "应带出实际使用的弹药主键"
     assert entry.ammo_name
+    assert entry.ammo_price_daily == 1000
     for band in BAND_NAMES:
         assert band in entry.bands
         assert entry.bands[band].mean_expected_shots > 0
-    # 价格表里没有该弹药 → 缺价 → 全 None
-    assert all(entry.bands[b].kill_cost is None for b in entry.bands)
+        assert entry.bands[band].kill_cost is not None
+
+
+def test_unpriced_ammo_excludes_weapon(gd):
+    """价格表激活但该弹无价 → 该枪整支排除（缺价 = 市场不可得，不上榜）。
+
+    该等级全部弹缺价与「口径无该等级弹药」同语义：进 excluded，不产行。
+    """
+    table = AmmoPriceTable(prices={"__any__": 1000})  # 无任何真实弹药主键
+    rankings, _thresholds, excluded = rank_weapons_for_scenario(
+        gd, "armor-5-ammo-5-default", beam_width=8,
+        profile_keys=["18050000003:base"], price_table=table,
+    )
+    assert rankings == []
+    assert len(excluded) == 1
+    assert excluded[0]["profile_key"] == "18050000003:base"
+    assert "缺价" in excluded[0]["reason"]
 
 
 def test_cost_uses_band_mean_shots(gd):
     """成本必须等于该带 mean_expected_shots × 单价（四舍五入）。"""
     price = 2000
-    table = AmmoPriceTable(prices={"__any__": price})
+    # 无价格表：价格维度未激活，回退官方池单弹，成本缺位
     rankings, _t, _e = rank_weapons_for_scenario(
         gd, "armor-5-ammo-5-default", beam_width=8,
-        profile_keys=["18050000003:base"], price_table=table,
+        profile_keys=["18050000003:base"],
     )
     entry = rankings[0]
-    assert entry.ammo_price_daily is None  # 该弹未配价
+    assert entry.ammo_price_daily is None
+    assert all(entry.bands[b].kill_cost is None for b in entry.bands)
 
-    # 用真实 id 再跑一次，确认成本公式
+    # 用真实 id 配价再跑一次，确认成本公式
     real_id = entry.ammo_item_id
     table2 = AmmoPriceTable(prices={real_id: price})
     rankings2, _t2, _e2 = rank_weapons_for_scenario(

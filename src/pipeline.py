@@ -7,6 +7,8 @@
     python -m src.pipeline --scenario 5-5       # 单个甲弹组合的实战情景
     python -m src.pipeline --limit 8            # 快速冒烟（前 8 把枪）
     python -m src.pipeline --render-only        # 不重算，从已有榜单 JSON 重渲染文档
+    python -m src.pipeline --price-only         # 不重算 TTK：只刷新价格列并重渲染文档
+    python -m src.pipeline --check-stale        # 校验 TTK 输入指纹（不一致退出 1，CI 条件重算入口）
 
 输出：
 
@@ -17,23 +19,31 @@
 
 内部 ``scenario_id``（如 ``armor-5-ammo-5-default``）保持英文稳定不变，
 仅**落盘文件名**经 :func:`src.renderers.ttk_report.scenario_doc_stem` 中文化。
-重计算耗时（束搜索），推荐在 GitHub Actions 上跑（``workflow_dispatch``）；
-本地只建议 ``--render-only`` 做廉价重渲染。
+重计算耗时（束搜索），CI 按 :func:`compute_inputs_fingerprint` 条件触发：
+``--check-stale`` 新鲜时短路跳过重算，只跑 ``--price-only`` 刷新每日价格列；
+本地只建议 ``--render-only`` / ``--price-only`` 做廉价刷新。
 """
 
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import logging
 import os
+import sys
 from pathlib import Path
-from typing import Any, Dict, List, Mapping, Optional, Sequence
+from typing import Any, Dict, List, Mapping, Optional, Sequence, Tuple
 
 from src.engine import ranking, tierlist_export
 from src.engine.ammo_pricing import load_ammo_prices
 from src.engine.game_data import DEFAULT_DATA_DIR, load_game_data
 from src.engine.loadout import LoadoutSolver
+from src.engine.tiering import (
+    SPARE_AMMO_ROUNDS,
+    compute_full_price,
+    compute_kill_cost,
+)
 from src.engine.weapon_pricing import load_weapon_prices
 from src.renderers.ttk_report import (
     BAND_ORDER,
@@ -60,6 +70,16 @@ WEAPON_PRICE_TABLE = "data/reference/weapon_prices.json"
 DOCS_SCENARIO_DIR = os.path.join("docs", "榜单")
 DATA_SCENARIO_DIR = os.path.join("data", "榜单")
 GUNSMITH_GUIDE_PATH = os.path.join("docs", "改枪指南.md")
+
+# TTK 数据指纹的输入域（相对 output_dir 的 POSIX 路径段）：决定 TTK 数值的一切输入。
+# 价格表（data/reference/*）**不在**指纹内——它们每日变动，只触发价格列刷新，
+# 不应触发束搜索重算（这是 --check-stale 短路跳过重算的前提）。
+FINGERPRINT_TABLES_DIR = ("data", "tables")
+FINGERPRINT_ENGINE_DIR = ("src", "engine")
+FINGERPRINT_PIPELINE_FILE = ("src", "pipeline.py")
+
+#: 榜单 JSON 顶层记录输入指纹的键名
+INPUTS_FINGERPRINT_KEY = "inputs_fingerprint"
 
 # 默认出榜情景（口径已确认）：甲弹组合不含 3 级弹（3-3 / 4-3 不做）；
 # 命中分布只用实战预设 default（center / chest-only 为官方理论聚焦预设，需 --all 才出）。
@@ -142,12 +162,72 @@ def _scenario_payload_path(output_dir: str, scenario_meta: Mapping[str, Any]) ->
     )
 
 
+def compute_inputs_fingerprint(output_dir: str = ".") -> str:
+    """计算 TTK 榜单输入的数据指纹（SHA256 十六进制串）。
+
+    指纹覆盖 :data:`FINGERPRINT_TABLES_DIR` 下**全部文件内容**、
+    :data:`FINGERPRINT_ENGINE_DIR` 各 ``*.py`` 与 :data:`FINGERPRINT_PIPELINE_FILE`
+    的内容——即决定 TTK 数值的一切输入；每日变动的价格表不在其中。
+
+    稳定性约定：相对路径按 ``/`` 归一并参与哈希（按路径排序后拼接），文件按
+    **字节**读入；配合仓库 ``* text=auto eol=lf`` 策略，Windows 与 Linux 产物
+    指纹一致。
+    """
+    root = Path(output_dir)
+    rel_paths: List[Path] = []
+    tables_dir = root.joinpath(*FINGERPRINT_TABLES_DIR)
+    if tables_dir.is_dir():
+        rel_paths.extend(p for p in tables_dir.rglob("*") if p.is_file())
+    engine_dir = root.joinpath(*FINGERPRINT_ENGINE_DIR)
+    if engine_dir.is_dir():
+        rel_paths.extend(p for p in engine_dir.glob("*.py"))
+    pipeline_file = root.joinpath(*FINGERPRINT_PIPELINE_FILE)
+    if pipeline_file.is_file():
+        rel_paths.append(pipeline_file)
+
+    digest = hashlib.sha256()
+    for rel in sorted((p.relative_to(root) for p in rel_paths), key=lambda p: p.as_posix()):
+        digest.update(rel.as_posix().encode("utf-8"))
+        digest.update(b"\0")
+        digest.update((root / rel).read_bytes())
+        digest.update(b"\0")
+    return digest.hexdigest()
+
+
+def _scan_ranking_files(output_dir: str) -> Dict[str, Tuple[str, Dict[str, Any]]]:
+    """扫描 ``data/榜单/*.json``，按 payload 自报的 ``scenario_id`` 建索引。
+
+    返回 ``{scenario_id: (文件路径, payload)}``；目录缺失返回空表。
+    按 payload 内部 ``scenario_id``（而非文件名推导）索引，使 ``--price-only``
+    与 ``--check-stale`` 无需加载官方数据即可定位产物。
+    """
+    ranking_dir = os.path.join(output_dir, DATA_SCENARIO_DIR)
+    if not os.path.isdir(ranking_dir):
+        return {}
+    index: Dict[str, Tuple[str, Dict[str, Any]]] = {}
+    for name in sorted(os.listdir(ranking_dir)):
+        if not name.endswith(".json"):
+            continue
+        path = os.path.join(ranking_dir, name)
+        try:
+            with open(path, encoding="utf-8") as fh:
+                payload = json.load(fh)
+        except (OSError, ValueError) as exc:
+            logger.warning("榜单 JSON 无法读取（%s）：%s", path, exc)
+            continue
+        sid = payload.get("scenario_id") if isinstance(payload, dict) else None
+        if sid:
+            index[str(sid)] = (path, payload)
+    return index
+
+
 def _load_payloads_from_disk(
     output_dir: str,
     targets: Sequence[str],
     scenario_meta_all: Mapping[str, Mapping[str, Any]],
 ) -> Dict[str, Dict[str, Any]]:
     """``--render-only``：从已有榜单 JSON 读回 payload（缺文件则报错指路）。"""
+    current_fp = compute_inputs_fingerprint(output_dir)
     payloads: Dict[str, Dict[str, Any]] = {}
     for sid in targets:
         path = _scenario_payload_path(output_dir, scenario_meta_all[sid])
@@ -157,7 +237,20 @@ def _load_payloads_from_disk(
                 "请先完整跑一次管线（或在 GitHub Actions 上触发刷新）生成榜单数据"
             )
         with open(path, encoding="utf-8") as fh:
-            payloads[sid] = json.load(fh)
+            payload = json.load(fh)
+        recorded = payload.get(INPUTS_FINGERPRINT_KEY)
+        if not recorded:
+            logger.warning(
+                "情景 %s：榜单 JSON（%s）无输入指纹（旧产物），无法校验文档与数据是否同步",
+                sid, path,
+            )
+        elif recorded != current_fp:
+            logger.warning(
+                "情景 %s：榜单 JSON（%s）输入指纹与当前不一致——TTK 输入已变化，"
+                "文档可能与数据不同步，建议尽快全量重算",
+                sid, path,
+            )
+        payloads[sid] = payload
     return payloads
 
 
@@ -242,6 +335,159 @@ def _compute_scenario(args: tuple) -> tuple:
     return sid, payload, len(rankings), len(excluded)
 
 
+def refresh_payload_prices(
+    payload: Dict[str, Any],
+    ammo_table: Any,
+    weapon_table: Any,
+) -> None:
+    """就地刷新 payload 的价格相关字段（纯函数，CLI 与测试共用）；TTK 字段一律不动。
+
+    刷新范围（与全量重算 ``to_export`` 的序列化形状同构）：
+
+    - 顶层 ``ammo_price_meta`` / ``weapon_price_meta``（币种 / 窗口 / 更新时间 / 可用性）；
+    - 每状态行 ``ammo.price_daily``、``gun_price_daily``、``full_price_180rd``；
+    - 每带 ``kill_cost``。
+
+    计算口径与 :mod:`src.engine.tiering` 完全一致——直接复用
+    :func:`src.engine.tiering.compute_kill_cost` 与
+    :func:`src.engine.tiering.compute_full_price`，禁止复刻公式。
+    缺价一律置 ``None``（引擎"不猜测、不兜底"口径）；``inputs_fingerprint``
+    **不改动**——价格刷新不代表 TTK 输入新鲜，是否过期由 ``--check-stale`` 判定。
+    """
+    payload["ammo_price_meta"] = {
+        "currency": ammo_table.currency,
+        "window": dict(ammo_table.window),
+        "updated_at": ammo_table.updated_at,
+        "available": not ammo_table.is_empty,
+    }
+    payload["weapon_price_meta"] = {
+        "currency": weapon_table.currency,
+        "window": dict(weapon_table.window),
+        "updated_at": weapon_table.updated_at,
+        "available": not weapon_table.is_empty,
+        "spare_ammo_rounds": SPARE_AMMO_ROUNDS,
+    }
+    for row in payload.get("weapons") or []:
+        ammo = row.get("ammo") or {}
+        ammo_price = ammo_table.price_for(str(ammo.get("ammo_item_id") or ""))
+        # 变体/改装状态行与本体共用裸枪价（weapon_id 即本体主键，见 ranking 层口径）
+        gun_price = weapon_table.price_for(str(row.get("weapon_id") or ""))
+        ammo["price_daily"] = ammo_price
+        row["gun_price_daily"] = gun_price
+        row["full_price_180rd"] = compute_full_price(gun_price, ammo_price)
+        for band in (row.get("bands") or {}).values():
+            band["kill_cost"] = compute_kill_cost(band.get("mean_expected_shots"), ammo_price)
+
+
+def refresh_prices(
+    output_dir: str = ".",
+    scenarios: Optional[Sequence[str]] = None,
+    all_scenarios: bool = False,
+    write: bool = True,
+) -> Dict[str, Any]:
+    """轻量价格刷新（``--price-only``）：只重算价格列并重渲染文档，不重算 TTK。
+
+    读取现有 ``data/榜单/*.json``，用当前价格表刷新各状态行价格字段后重写
+    JSON，并经既有渲染层重出 ``docs/榜单/*.md`` 与 ``README.md``（与全量重算
+    产物同构）。某情景 JSON 缺失或无 ``inputs_fingerprint``（旧产物）时报错
+    跳过——需先全量重算一次；其余 TTK 字段（mean/worst/expected_shots 等）
+    一律保持原值不动。
+    """
+    ammo_table = load_ammo_prices(os.path.join(output_dir, AMMO_PRICE_TABLE))
+    weapon_table = load_weapon_prices(os.path.join(output_dir, WEAPON_PRICE_TABLE))
+    index = _scan_ranking_files(output_dir)
+
+    if all_scenarios:
+        targets = sorted(index)
+    elif scenarios:
+        targets = list(scenarios)
+    else:
+        targets = list(DEFAULT_SCENARIOS)
+
+    payloads: Dict[str, Dict[str, Any]] = {}
+    skipped: List[str] = []
+    for sid in targets:
+        found = index.get(sid)
+        if found is None:
+            logger.error(
+                "情景 %s 缺少榜单 JSON（data/榜单/）：--price-only 不重算 TTK，"
+                "请先全量重算（python -m src.pipeline）",
+                sid,
+            )
+            skipped.append(sid)
+            continue
+        path, payload = found
+        if not payload.get(INPUTS_FINGERPRINT_KEY):
+            logger.error(
+                "情景 %s 的榜单 JSON（%s）无输入指纹（旧产物）："
+                "请先全量重算一次以写入指纹，本次跳过该情景",
+                sid, path,
+            )
+            skipped.append(sid)
+            continue
+        refresh_payload_prices(payload, ammo_table, weapon_table)
+        payloads[sid] = payload
+
+    files_written: List[str] = []
+    if write and payloads:
+        game_data = load_game_data(os.path.join(output_dir, DEFAULT_DATA_DIR))
+        meta_all = {s["scenario_id"]: s for s in _scenario_index(game_data)}
+        renderable = {sid: p for sid, p in payloads.items() if sid in meta_all}
+        for sid in sorted(set(payloads) - set(renderable)):
+            logger.warning("情景 %s 不在官方情景索引中，无法渲染，跳过写盘", sid)
+        if renderable:
+            files_written = _render_outputs(
+                renderable, output_dir, game_data, _part_names(game_data),
+            )
+
+    return {
+        "scenarios": targets,
+        "refreshed": sorted(payloads),
+        "skipped": skipped,
+        "payloads": payloads,
+        "files_written": files_written,
+    }
+
+
+def check_stale(
+    output_dir: str = ".",
+    scenarios: Optional[Sequence[str]] = None,
+    all_scenarios: bool = False,
+) -> List[str]:
+    """比较当前输入指纹与榜单 JSON 记录的指纹，返回需重算的原因列表（空 = 新鲜）。
+
+    - 情景榜单 JSON 缺失 → 过期；
+    - JSON 无 ``inputs_fingerprint``（旧产物）→ 过期（首次上线触发一次全量重算，属预期）；
+    - 指纹与 :func:`compute_inputs_fingerprint` 当前值不一致 → 过期；
+    - 全部一致 → 新鲜（CI 短路跳过束搜索重算）。
+
+    检查范围与全量重算的产出范围一致：显式 ``scenarios`` 或
+    :data:`DEFAULT_SCENARIOS`；``all_scenarios=True`` 时覆盖 data/榜单/ 全部产物。
+    """
+    index = _scan_ranking_files(output_dir)
+    if all_scenarios:
+        targets = sorted(index)
+    elif scenarios:
+        targets = list(scenarios)
+    else:
+        targets = list(DEFAULT_SCENARIOS)
+
+    current_fp = compute_inputs_fingerprint(output_dir)
+    reasons: List[str] = []
+    for sid in targets:
+        found = index.get(sid)
+        if found is None:
+            reasons.append(f"{sid}: 缺少榜单 JSON（data/榜单/）")
+            continue
+        path, payload = found
+        recorded = payload.get(INPUTS_FINGERPRINT_KEY)
+        if not recorded:
+            reasons.append(f"{sid}: {path} 无输入指纹（旧产物）")
+        elif recorded != current_fp:
+            reasons.append(f"{sid}: {path} 指纹与当前输入不一致")
+    return reasons
+
+
 def run_pipeline(
     output_dir: str = ".",
     scenarios: Optional[Sequence[str]] = None,
@@ -307,6 +553,10 @@ def run_pipeline(
                 "情景 %s 完成：可参赛 %d 把，排除 %d 把（口径无该等级弹药）",
                 sid, n_ranked, n_excluded,
             )
+        # 全量重算：把当前输入指纹写入每个榜单 JSON 顶层，供 --check-stale / --price-only 判定
+        fingerprint = compute_inputs_fingerprint(output_dir)
+        for payload in payloads.values():
+            payload[INPUTS_FINGERPRINT_KEY] = fingerprint
 
     files_written = _render_outputs(payloads, output_dir, game_data, part_names) if write else []
 
@@ -331,12 +581,47 @@ def main() -> None:
         "--render-only", action="store_true",
         help="不重算：从 data/榜单/*.json 读回榜单数据，只重渲染全部文档（本地廉价刷新）",
     )
+    parser.add_argument(
+        "--price-only", action="store_true",
+        help="不重算 TTK：用当前价格表刷新榜单价格列（击杀成本/起枪价）并重出文档",
+    )
+    parser.add_argument(
+        "--check-stale", action="store_true",
+        help="只校验 TTK 输入指纹：全部一致退出 0（新鲜），任一不一致或 JSON 缺失退出 1（需重算）",
+    )
     args = parser.parse_args()
 
     scenarios = None
     if args.scenario:
         armor, ammo = args.scenario.split("-")
         scenarios = [f"armor-{armor}-ammo-{ammo}-default"]
+
+    if args.check_stale:
+        reasons = check_stale(
+            output_dir=args.output_dir, scenarios=scenarios, all_scenarios=args.all,
+        )
+        if reasons:
+            for reason in reasons:
+                print(f"需重算：{reason}")
+            sys.exit(1)
+        print("TTK 输入指纹全部一致，榜单新鲜（跳过重算）")
+        return
+
+    if args.price_only:
+        result = refresh_prices(
+            output_dir=args.output_dir,
+            scenarios=scenarios,
+            all_scenarios=args.all,
+            write=not args.dry_run,
+        )
+        print(
+            f"价格刷新完成：刷新情景 {len(result['refreshed'])} 个，"
+            f"跳过 {len(result['skipped'])} 个（缺 JSON 或无指纹，需全量重算），"
+            f"写出 {len(result['files_written'])} 个文件"
+        )
+        if not result["refreshed"]:
+            sys.exit(1)
+        return
 
     result = run_pipeline(
         output_dir=args.output_dir,

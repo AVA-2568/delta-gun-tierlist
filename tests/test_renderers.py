@@ -90,6 +90,75 @@ def test_band_table_limit():
     assert len(table.splitlines()) == 3
 
 
+PAYLOAD_WITH_T2 = {
+    **PAYLOAD,
+    "weapons": [
+        PAYLOAD["weapons"][0],  # M4A1：贴脸 T0 rank 1
+        {
+            "profile_key": "18010000099:base",
+            "name": "T2垫底枪",
+            "loadout": {},
+            "expected_shots_0m": 6.5,
+            "rpm": 700.0,
+            "effective_range_m": 30.0,
+            "bands": {
+                "贴脸": {"rank": 2, "tier": "T2", "mean_ms": 380.0,
+                         "worst_ms": 380.0, "best_ms": 380.0},
+            },
+        },
+        {
+            "profile_key": "18010000077:base",
+            "name": "T1次优枪",
+            "loadout": {},
+            "expected_shots_0m": 5.0,
+            "rpm": 750.0,
+            "effective_range_m": 40.0,
+            "bands": {
+                "贴脸": {"rank": 3, "tier": "T1", "mean_ms": 370.0,
+                         "worst_ms": 370.0, "best_ms": 370.0},
+            },
+        },
+    ],
+}
+
+
+def test_band_table_only_lists_t0_t1_and_keeps_full_rank_numbers():
+    """榜单文档只列 T0/T1：T2 行不出现；# 列保持全量排名序号（空号 = 有未列行）。"""
+    table = render_band_table(PAYLOAD_WITH_T2, "贴脸", PART_NAMES)
+    assert "T2垫底枪" not in table  # T2 行被过滤
+    assert "| 1 | **T0** | M4A1 |" in table
+    assert "| 3 | T1 | T1次优枪 |" in table  # 序号保持全量排名，不按显示行重编
+
+
+def test_band_top_preview_also_filters_t2():
+    """README 速览同口径：只列 T0/T1。"""
+    preview = render_band_top_preview(PAYLOAD_WITH_T2, "贴脸", PART_NAMES)
+    assert "T2垫底枪" not in preview
+    assert "| 3 | T1 | T1次优枪 |" in preview
+
+
+def test_band_doc_excludes_t2_rows_and_states_scope():
+    """距离榜文档：T2 行不入 md，且头部说明收录范围（T2/T3 见榜单 JSON）。"""
+    md = render_band_doc(PAYLOAD_WITH_T2, "贴脸", SCENARIO_META, PART_NAMES)
+    assert "T2垫底枪" not in md
+    assert "T1次优枪" in md
+    assert "只列 T0 / T1" in md
+
+
+def test_empty_tier_row_is_filtered():
+    """tier 缺失（异常数据）的行不进文档——只放行 T0/T1。"""
+    payload = {
+        **PAYLOAD,
+        "weapons": [
+            {**PAYLOAD["weapons"][0],
+             "bands": {"贴脸": {"rank": 1, "tier": "", "mean_ms": 362.61,
+                                "worst_ms": 362.61, "best_ms": 362.61}}},
+        ],
+    }
+    table = render_band_table(payload, "贴脸", PART_NAMES)
+    assert "M4A1" not in table
+
+
 def test_readme_is_slim_overview_with_band_nav():
     md = render_readme(
         PAYLOAD,
