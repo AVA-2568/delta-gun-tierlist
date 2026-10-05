@@ -1,0 +1,38 @@
+{
+  "slot": "tertiaryMagazine",
+  "parts": [
+    {
+      "item_id": "13120000373",
+      "name": "内部配件 13120000373",
+      "slot": "tertiaryMagazine",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000382",
+      "name": "内部配件 13120000382",
+      "slot": "tertiaryMagazine",
+      "selectable": false,
+      "effects": [
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 30.0,
+          "value_ref": null
+        },
+        {
+          "target": "GReload_Time",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.1,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    }
+  ]
+}

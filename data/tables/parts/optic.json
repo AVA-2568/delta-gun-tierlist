@@ -1,0 +1,324 @@
+{
+  "slot": "optic",
+  "parts": [
+    {
+      "item_id": "13110000023",
+      "name": "内部配件 13110000023",
+      "slot": "optic",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13110000047",
+      "name": "内部配件 13110000047",
+      "slot": "optic",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13110000048",
+      "name": "内部配件 13110000048",
+      "slot": "optic",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13110000050",
+      "name": "内部配件 13110000050",
+      "slot": "optic",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13110000054",
+      "name": "内部配件 13110000054",
+      "slot": "optic",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13110000055",
+      "name": "内部配件 13110000055",
+      "slot": "optic",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13110000071",
+      "name": "内部配件 13110000071",
+      "slot": "optic",
+      "selectable": false,
+      "effects": [
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13110000074",
+      "name": "内部配件 13110000074",
+      "slot": "optic",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13110000105",
+      "name": "APX组合瞄具",
+      "slot": "optic",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13110000105:tune:eyeRelief:0",
+          "dimension": "瞳距",
+          "unit": "毫米",
+          "min_value": -20.0,
+          "max_value": 20.0,
+          "step": 0.4,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeCameraTuneDistance",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -30.0,
+                  -2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  30.0,
+                  2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13110000105:tune:zoom:1",
+          "dimension": "缩放倍率",
+          "unit": "倍",
+          "min_value": -0.25,
+          "max_value": 0.25,
+          "step": 0.05,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeZoomTuneRate",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -0.25,
+                  -0.25,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.25,
+                  0.25,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13110000106",
+      "name": "内部配件 13110000106",
+      "slot": "optic",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    }
+  ]
+}

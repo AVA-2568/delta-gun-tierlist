@@ -1,0 +1,2530 @@
+{
+  "slot": "handguard",
+  "parts": [
+    {
+      "item_id": "13050000048",
+      "name": "内部配件 13050000048",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000055",
+      "name": "内部配件 13050000055",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000072",
+      "name": "内部配件 13050000072",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000113",
+      "name": "内部配件 13050000113",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000183",
+      "name": "M14先进枪身系统",
+      "slot": "handguard",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000184",
+      "name": "内部配件 13050000184",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000186",
+      "name": "M249导轨护木",
+      "slot": "handguard",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000192",
+      "name": "内部配件 13050000192",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000193",
+      "name": "内部配件 13050000193",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000195",
+      "name": "内部配件 13050000195",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000196",
+      "name": "内部配件 13050000196",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000197",
+      "name": "内部配件 13050000197",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000198",
+      "name": "内部配件 13050000198",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000199",
+      "name": "内部配件 13050000199",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000200",
+      "name": "内部配件 13050000200",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000201",
+      "name": "内部配件 13050000201",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000202",
+      "name": "内部配件 13050000202",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000203",
+      "name": "内部配件 13050000203",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000204",
+      "name": "内部配件 13050000204",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000205",
+      "name": "内部配件 13050000205",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000206",
+      "name": "内部配件 13050000206",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000207",
+      "name": "内部配件 13050000207",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000208",
+      "name": "内部配件 13050000208",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000209",
+      "name": "内部配件 13050000209",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000210",
+      "name": "内部配件 13050000210",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000211",
+      "name": "内部配件 13050000211",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000213",
+      "name": "内部配件 13050000213",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000214",
+      "name": "内部配件 13050000214",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000215",
+      "name": "内部配件 13050000215",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000216",
+      "name": "内部配件 13050000216",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000223",
+      "name": "内部配件 13050000223",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000227",
+      "name": "内部配件 13050000227",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000228",
+      "name": "内部配件 13050000228",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000229",
+      "name": "内部配件 13050000229",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000230",
+      "name": "内部配件 13050000230",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000231",
+      "name": "内部配件 13050000231",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000232",
+      "name": "内部配件 13050000232",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000233",
+      "name": "M14聚合物一体枪托",
+      "slot": "handguard",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000234",
+      "name": "M14导轨一体枪托",
+      "slot": "handguard",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000237",
+      "name": "内部配件 13050000237",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000238",
+      "name": "内部配件 13050000238",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000239",
+      "name": "内部配件 13050000239",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000240",
+      "name": "内部配件 13050000240",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000241",
+      "name": "内部配件 13050000241",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000242",
+      "name": "内部配件 13050000242",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000257",
+      "name": "内部配件 13050000257",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000261",
+      "name": "内部配件 13050000261",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000262",
+      "name": "内部配件 13050000262",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000263",
+      "name": "内部配件 13050000263",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000264",
+      "name": "内部配件 13050000264",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000265",
+      "name": "内部配件 13050000265",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000266",
+      "name": "内部配件 13050000266",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000267",
+      "name": "内部配件 13050000267",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000268",
+      "name": "内部配件 13050000268",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000269",
+      "name": "内部配件 13050000269",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000270",
+      "name": "内部配件 13050000270",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000271",
+      "name": "内部配件 13050000271",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000272",
+      "name": "内部配件 13050000272",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000273",
+      "name": "内部配件 13050000273",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000274",
+      "name": "内部配件 13050000274",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000275",
+      "name": "内部配件 13050000275",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000276",
+      "name": "内部配件 13050000276",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000277",
+      "name": "内部配件 13050000277",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000278",
+      "name": "内部配件 13050000278",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000279",
+      "name": "内部配件 13050000279",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000280",
+      "name": "UZI性能护木",
+      "slot": "handguard",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 8.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 8.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 3.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 3.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 8.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 8.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 3.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 3.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000281",
+      "name": "UZI导轨护木",
+      "slot": "handguard",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000284",
+      "name": "内部配件 13050000284",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000285",
+      "name": "野牛碳纤维护木",
+      "slot": "handguard",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000303",
+      "name": "内部配件 13050000303",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000304",
+      "name": "内部配件 13050000304",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000310",
+      "name": "内部配件 13050000310",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000312",
+      "name": "内部配件 13050000312",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000313",
+      "name": "内部配件 13050000313",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000314",
+      "name": "内部配件 13050000314",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000315",
+      "name": "内部配件 13050000315",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000316",
+      "name": "内部配件 13050000316",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000317",
+      "name": "内部配件 13050000317",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000318",
+      "name": "内部配件 13050000318",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000319",
+      "name": "内部配件 13050000319",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000320",
+      "name": "内部配件 13050000320",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000321",
+      "name": "内部配件 13050000321",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000324",
+      "name": "内部配件 13050000324",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000325",
+      "name": "M249脚架护木",
+      "slot": "handguard",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GGunkickRandom",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.5,
+          "value_ref": null
+        },
+        {
+          "target": "GGunkickSpring",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.5,
+          "value_ref": null
+        },
+        {
+          "target": "GRecoil_H",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.5,
+          "value_ref": null
+        },
+        {
+          "target": "GRecoil_HShake",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.75,
+          "value_ref": null
+        },
+        {
+          "target": "GRecoil_V",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.5,
+          "value_ref": null
+        },
+        {
+          "target": "GRecoil_VShake",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.75,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponAppearanceTable.HoldBreathId.CrouchBreathFactor",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.2,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponAppearanceTable.HoldBreathId.ProneBreathFactor",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.2,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponAppearanceTable.HoldBreathId.StandBreathFactor",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.2,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000326",
+      "name": "内部配件 13050000326",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000327",
+      "name": "内部配件 13050000327",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000328",
+      "name": "AKS74U导轨下护木",
+      "slot": "handguard",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 8.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 8.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000330",
+      "name": "内部配件 13050000330",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000333",
+      "name": "内部配件 13050000333",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000335",
+      "name": "内部配件 13050000335",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000336",
+      "name": "内部配件 13050000336",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000337",
+      "name": "内部配件 13050000337",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000338",
+      "name": "M249军规导轨护木",
+      "slot": "handguard",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000339",
+      "name": "内部配件 13050000339",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000340",
+      "name": "内部配件 13050000340",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000341",
+      "name": "内部配件 13050000341",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000344",
+      "name": "内部配件 13050000344",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000345",
+      "name": "内部配件 13050000345",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000346",
+      "name": "内部配件 13050000346",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000347",
+      "name": "内部配件 13050000347",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000349",
+      "name": "内部配件 13050000349",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000350",
+      "name": "内部配件 13050000350",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000351",
+      "name": "内部配件 13050000351",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000354",
+      "name": "内部配件 13050000354",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000355",
+      "name": "内部配件 13050000355",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000356",
+      "name": "内部配件 13050000356",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000357",
+      "name": "内部配件 13050000357",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000361",
+      "name": "内部配件 13050000361",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000362",
+      "name": "内部配件 13050000362",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000363",
+      "name": "内部配件 13050000363",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000364",
+      "name": "内部配件 13050000364",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000365",
+      "name": "内部配件 13050000365",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000366",
+      "name": "内部配件 13050000366",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000371",
+      "name": "内部配件 13050000371",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000372",
+      "name": "内部配件 13050000372",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000373",
+      "name": "内部配件 13050000373",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000374",
+      "name": "内部配件 13050000374",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000375",
+      "name": "内部配件 13050000375",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000376",
+      "name": "内部配件 13050000376",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000382",
+      "name": "内部配件 13050000382",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000385",
+      "name": "内部配件 13050000385",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000387",
+      "name": "内部配件 13050000387",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000389",
+      "name": "内部配件 13050000389",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000392",
+      "name": "内部配件 13050000392",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000396",
+      "name": "内部配件 13050000396",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000397",
+      "name": "内部配件 13050000397",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000398",
+      "name": "内部配件 13050000398",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000399",
+      "name": "内部配件 13050000399",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000401",
+      "name": "内部配件 13050000401",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000402",
+      "name": "SVCH短护木",
+      "slot": "handguard",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 6.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 6.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000403",
+      "name": "SVCH一体式护木",
+      "slot": "handguard",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 7.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 7.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -3.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -3.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000404",
+      "name": "内部配件 13050000404",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000405",
+      "name": "内部配件 13050000405",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000406",
+      "name": "内部配件 13050000406",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000409",
+      "name": "内部配件 13050000409",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000417",
+      "name": "内部配件 13050000417",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000418",
+      "name": "内部配件 13050000418",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000423",
+      "name": "汤姆逊拓展型护木",
+      "slot": "handguard",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13140000045",
+      "name": "内部配件 13140000045",
+      "slot": "handguard",
+      "selectable": false,
+      "effects": [],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13140000045:tune:weight:0",
+          "dimension": "配重",
+          "unit": "g",
+          "min_value": -20.0,
+          "max_value": 20.0,
+          "step": 0.4,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "GRecoil_H",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -20.0,
+                  0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  20.0,
+                  -0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "target": "GRecoil_V",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -20.0,
+                  0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  20.0,
+                  -0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "target": "GAiming_ADSTime",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -20.0,
+                  -0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  20.0,
+                  0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13140000045:tune:thickness:1",
+          "dimension": "厚度",
+          "unit": "毫米",
+          "min_value": -20.0,
+          "max_value": 20.0,
+          "step": 0.4,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "GMovement_ADSSpeed",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -20.0,
+                  0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  20.0,
+                  -0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "target": "AimMoveGunSway",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -20.0,
+                  0.16,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  20.0,
+                  -0.16,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13220000001",
+      "name": "95长弓平台套件",
+      "slot": "handguard",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 6.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 6.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13400000002",
+      "name": "AKS74U导轨上护木",
+      "slot": "handguard",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 8.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 8.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    }
+  ]
+}

@@ -1,6 +1,13 @@
-"""归一化官方游戏数据的加载与索引层。
+"""游戏数据的加载与索引层（只读，不做任何战斗推导）。
 
-只读数据访问，不做任何战斗推导。所有文件由 ``src.collectors.game_data_sync`` 产出。
+数据来源（契约：docs/superpowers/specs/2026-10-04-data-tables-design.md 第 4 节）：
+
+- 人工真源 ``data/tables/``：weapons（一枪一文件按第 2 节展开）/ parts（按槽位
+  文件合并）/ ammo / armor / scenarios。
+- 上游参考层 ``data/game/``：profiles / mechanism / validation_samples / provenance
+  （官方机制的结构性固化，冻结维护，引擎继续读取）。
+
+各域消费的字段值与旧来源逐位一致，由 ``tests/test_tables.py`` 对账钉死。
 """
 
 from __future__ import annotations
@@ -12,21 +19,29 @@ from typing import Any, Dict, List, Optional
 from src.engine.curves import CurveLibrary
 
 DEFAULT_DATA_DIR = os.path.join("data", "game")
+#: 人工维护的数据表真源（仓库根定位，不随 data_dir 变化）
+TABLES_DIR = os.path.join(
+    os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
+    "data",
+    "tables",
+)
+_TABLES_HINT = "python tools/migrate_tables.py"
+_GAME_HINT = "python -m src.collectors.game_data_sync"
 
 
 class GameData:
-    """官方对齐游戏数据集的只读视图。"""
+    """对齐游戏数据集的只读视图。"""
 
     def __init__(self, data_dir: str = DEFAULT_DATA_DIR):
         self.data_dir = data_dir
         self._cache: Dict[str, Any] = {}
-        self.weapons: List[Dict[str, Any]] = self._load("weapons.json").get("weapons", [])
-        self.ammo: List[Dict[str, Any]] = self._load("ammo.json").get("ammo", [])
-        self.armor: Dict[str, Any] = self._load("armor.json")
-        self.parts: Dict[str, Dict[str, Any]] = self._load("parts.json").get("parts", {})
+        self.weapons: List[Dict[str, Any]] = self._load_table_weapons()
+        self.ammo: List[Dict[str, Any]] = self._load("ammo.json", TABLES_DIR, hint=_TABLES_HINT).get("ammo", [])
+        self.armor: Dict[str, Any] = self._load("armor.json", TABLES_DIR, hint=_TABLES_HINT)
+        self.parts: Dict[str, Dict[str, Any]] = self._load_table_parts()
         self.profiles: Dict[str, Dict[str, Any]] = self._load("profiles.json").get("profiles", {})
         self.mechanism: Dict[str, Any] = self._load("mechanism.json")
-        self.scenarios_raw: Dict[str, Any] = self._load("scenarios.json")
+        self.scenarios_raw: Dict[str, Any] = self._load("scenarios.json", TABLES_DIR, hint=_TABLES_HINT)
         self.validation_samples: Dict[str, Any] = self._load("validation_samples.json").get("samples", {})
         self.provenance: Dict[str, Any] = self._load("provenance.json")
 
@@ -43,18 +58,82 @@ class GameData:
             records.sort(key=lambda r: (r["penetration_level"], r["ammo_item_id"]))
 
     # ------------------------------------------------------------------ #
-    def _load(self, filename: str) -> Any:
-        if filename in self._cache:
-            return self._cache[filename]
-        path = os.path.join(self.data_dir, filename)
+    def _load(self, filename: str, directory: Optional[str] = None, hint: str = _GAME_HINT) -> Any:
+        directory = self.data_dir if directory is None else directory
+        path = os.path.join(directory, filename)
+        if path in self._cache:
+            return self._cache[path]
         if not os.path.exists(path):
-            raise FileNotFoundError(
-                f"缺少归一化数据文件 {path}，请先运行 `python -m src.collectors.game_data_sync`"
-            )
+            raise FileNotFoundError(f"缺少数据文件 {path}，请先运行 `{hint}`")
         with open(path, "r", encoding="utf-8") as fh:
             payload = json.load(fh)
-        self._cache[filename] = payload
+        self._cache[path] = payload
         return payload
+
+    def _load_table_weapons(self) -> List[Dict[str, Any]]:
+        """从 data/tables/weapons/ 按契约第 2 节展开规则还原 61 条目。
+
+        base 条目   = base 块 + {profile_key: "<weapon_id>:base", is_variant: false,
+                                  variant_item_id: null, variant_item_name: null}
+        变体条目   = copy(base 块) + 变体差异块覆盖
+                    + {profile_key: "<weapon_id>:<variant_item_id>", is_variant: true}
+
+        顺序：weapon_id 升序、base 先于变体（与原 weapons.json 一致）。
+        """
+        weapons_dir = os.path.join(TABLES_DIR, "weapons")
+        if not os.path.isdir(weapons_dir):
+            raise FileNotFoundError(
+                f"缺少枪械表目录 {weapons_dir}，请先运行 `{_TABLES_HINT}`"
+            )
+        weapons: List[Dict[str, Any]] = []
+        for filename in sorted(os.listdir(weapons_dir)):
+            if not filename.endswith(".json"):
+                continue
+            table = self._load(filename, weapons_dir, hint=_TABLES_HINT)
+            base_block = table.get("base")
+            if not isinstance(base_block, dict):
+                raise ValueError(f"枪械表 {filename} 缺少 base 块")
+            weapon_id = base_block["weapon_id"]
+            base = dict(base_block)
+            base.update(
+                {
+                    "profile_key": f"{weapon_id}:base",
+                    "is_variant": False,
+                    "variant_item_id": None,
+                    "variant_item_name": None,
+                }
+            )
+            weapons.append(base)
+            for block in table.get("variants") or []:
+                entry = dict(base_block)
+                entry.update(block)
+                entry["profile_key"] = f"{weapon_id}:{block['variant_item_id']}"
+                entry["is_variant"] = True
+                weapons.append(entry)
+        if not weapons:
+            raise FileNotFoundError(f"枪械表目录 {weapons_dir} 为空，请先运行 `{_TABLES_HINT}`")
+        return weapons
+
+    def _load_table_parts(self) -> Dict[str, Dict[str, Any]]:
+        """合并 data/tables/parts/ 全部槽位文件为 {item_id: 条目}（契约第 3 节）。"""
+        parts_dir = os.path.join(TABLES_DIR, "parts")
+        if not os.path.isdir(parts_dir):
+            raise FileNotFoundError(
+                f"缺少配件表目录 {parts_dir}，请先运行 `{_TABLES_HINT}`"
+            )
+        parts: Dict[str, Dict[str, Any]] = {}
+        for filename in sorted(os.listdir(parts_dir)):
+            if not filename.endswith(".json"):
+                continue
+            table = self._load(filename, parts_dir, hint=_TABLES_HINT)
+            for entry in table.get("parts") or []:
+                item_id = entry["item_id"]
+                if item_id in parts:
+                    raise ValueError(f"配件 {item_id} 在多个槽位文件中重复")
+                parts[item_id] = entry
+        if not parts:
+            raise FileNotFoundError(f"配件表目录 {parts_dir} 为空，请先运行 `{_TABLES_HINT}`")
+        return parts
 
     # ------------------------------------------------------------------ #
     def get_weapon(self, profile_key: str) -> Dict[str, Any]:

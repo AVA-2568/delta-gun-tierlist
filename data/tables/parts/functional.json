@@ -1,0 +1,4625 @@
+{
+  "slot": "functional",
+  "parts": [
+    {
+      "item_id": "13160000005",
+      "name": "PEQ-2红色激光镭指",
+      "slot": "functional",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "TacticalEffective",
+          "value": 12.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "TacticalEffective",
+          "value": 16.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "TacticalEffective",
+          "value": 12.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "TacticalEffective",
+          "value": 16.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13160000006",
+      "name": "LA-3C绿色激光镭指",
+      "slot": "functional",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "TacticalEffective",
+          "value": 12.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "TacticalEffective",
+          "value": 16.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "TacticalEffective",
+          "value": 12.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "TacticalEffective",
+          "value": 16.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13160000007",
+      "name": "耀斑战术手电",
+      "slot": "functional",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -1.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -1.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13160000008",
+      "name": "实用枪灯",
+      "slot": "functional",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -1.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -1.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13160000009",
+      "name": "PERST-7蓝色激光镭指",
+      "slot": "functional",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "TacticalEffective",
+          "value": 12.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "TacticalEffective",
+          "value": 16.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "TacticalEffective",
+          "value": 12.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "TacticalEffective",
+          "value": 16.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13160000010",
+      "name": "DBAL-X2紫色激光镭指",
+      "slot": "functional",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "TacticalEffective",
+          "value": 12.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "TacticalEffective",
+          "value": 16.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "TacticalEffective",
+          "value": 12.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "TacticalEffective",
+          "value": 16.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13160000013",
+      "name": "CAR15绑手电",
+      "slot": "functional",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -3.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -3.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13160000014",
+      "name": "OLIGHT Baldr Pro R多功能手电",
+      "slot": "functional",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "TacticalEffective",
+          "value": 12.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -5.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "TacticalEffective",
+          "value": 16.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "TacticalEffective",
+          "value": 12.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -5.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "TacticalEffective",
+          "value": 16.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13160000016",
+      "name": "OLIGHT Odin S战术手电",
+      "slot": "functional",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -1.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -1.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13160000018",
+      "name": "OLIGHT WARRIOR 3S战术手电",
+      "slot": "functional",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13170000002",
+      "name": "PKM两脚架",
+      "slot": "functional",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GGunkickRandom",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.5,
+          "value_ref": null
+        },
+        {
+          "target": "GGunkickSpring",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.5,
+          "value_ref": null
+        },
+        {
+          "target": "GRecoil_H",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.5,
+          "value_ref": null
+        },
+        {
+          "target": "GRecoil_HShake",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.75,
+          "value_ref": null
+        },
+        {
+          "target": "GRecoil_V",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.5,
+          "value_ref": null
+        },
+        {
+          "target": "GRecoil_VShake",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.75,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponAppearanceTable.HoldBreathId.CrouchBreathFactor",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.2,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponAppearanceTable.HoldBreathId.ProneBreathFactor",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.2,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponAppearanceTable.HoldBreathId.StandBreathFactor",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.2,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13170000004",
+      "name": "实用两脚架",
+      "slot": "functional",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GGunkickRandom",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.5,
+          "value_ref": null
+        },
+        {
+          "target": "GGunkickSpring",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.5,
+          "value_ref": null
+        },
+        {
+          "target": "GRecoil_H",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.5,
+          "value_ref": null
+        },
+        {
+          "target": "GRecoil_HShake",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.75,
+          "value_ref": null
+        },
+        {
+          "target": "GRecoil_V",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.5,
+          "value_ref": null
+        },
+        {
+          "target": "GRecoil_VShake",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.75,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponAppearanceTable.HoldBreathId.CrouchBreathFactor",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.2,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponAppearanceTable.HoldBreathId.ProneBreathFactor",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.2,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponAppearanceTable.HoldBreathId.StandBreathFactor",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.2,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13170000005",
+      "name": "AUG脚架",
+      "slot": "functional",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GGunkickRandom",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.5,
+          "value_ref": null
+        },
+        {
+          "target": "GGunkickSpring",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.5,
+          "value_ref": null
+        },
+        {
+          "target": "GRecoil_H",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.5,
+          "value_ref": null
+        },
+        {
+          "target": "GRecoil_HShake",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.75,
+          "value_ref": null
+        },
+        {
+          "target": "GRecoil_V",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.5,
+          "value_ref": null
+        },
+        {
+          "target": "GRecoil_VShake",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.75,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponAppearanceTable.HoldBreathId.CrouchBreathFactor",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.2,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponAppearanceTable.HoldBreathId.ProneBreathFactor",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.2,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponAppearanceTable.HoldBreathId.StandBreathFactor",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.2,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13170000008",
+      "name": "AK12脚架",
+      "slot": "functional",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GGunkickRandom",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.5,
+          "value_ref": null
+        },
+        {
+          "target": "GGunkickSpring",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.5,
+          "value_ref": null
+        },
+        {
+          "target": "GRecoil_H",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.5,
+          "value_ref": null
+        },
+        {
+          "target": "GRecoil_HShake",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.75,
+          "value_ref": null
+        },
+        {
+          "target": "GRecoil_V",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.5,
+          "value_ref": null
+        },
+        {
+          "target": "GRecoil_VShake",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.75,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponAppearanceTable.HoldBreathId.CrouchBreathFactor",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.2,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponAppearanceTable.HoldBreathId.ProneBreathFactor",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.2,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponAppearanceTable.HoldBreathId.StandBreathFactor",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.2,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13170000011",
+      "name": "QJB201脚架",
+      "slot": "functional",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GGunkickRandom",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.5,
+          "value_ref": null
+        },
+        {
+          "target": "GGunkickSpring",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.5,
+          "value_ref": null
+        },
+        {
+          "target": "GRecoil_H",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.5,
+          "value_ref": null
+        },
+        {
+          "target": "GRecoil_HShake",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.75,
+          "value_ref": null
+        },
+        {
+          "target": "GRecoil_V",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.5,
+          "value_ref": null
+        },
+        {
+          "target": "GRecoil_VShake",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.75,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponAppearanceTable.HoldBreathId.CrouchBreathFactor",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.2,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponAppearanceTable.HoldBreathId.ProneBreathFactor",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.2,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponAppearanceTable.HoldBreathId.StandBreathFactor",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.2,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13320000001",
+      "name": "游侠护木片",
+      "slot": "functional",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 1.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 1.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13320000005",
+      "name": "KC猎犬护木片",
+      "slot": "functional",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 1.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 1.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13320000010",
+      "name": "DD蟒蛇护木片",
+      "slot": "functional",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 1.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 1.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13320000015",
+      "name": "狂蜂护木片",
+      "slot": "functional",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13320000020",
+      "name": "组合式护木片",
+      "slot": "functional",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 1.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 1.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 1.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 1.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13340000001",
+      "name": "蜜獾小口径快拔套(黑)",
+      "slot": "functional",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 1.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 1.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13340000002",
+      "name": "野蜂冲锋枪快拔套(黑)",
+      "slot": "functional",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 1.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 1.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13340000003",
+      "name": "郊狼中间威力口径快拔套(黑)",
+      "slot": "functional",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 1.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 1.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13340000004",
+      "name": "灰熊全威力口径快拔套(黑)",
+      "slot": "functional",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 1.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 1.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13340000005",
+      "name": "蜜獾小口径快拔套(绿)",
+      "slot": "functional",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 1.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 1.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13340000006",
+      "name": "野蜂冲锋枪快拔套(绿)",
+      "slot": "functional",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 1.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 1.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13340000007",
+      "name": "郊狼中间威力快拔套(绿)",
+      "slot": "functional",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 1.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 1.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13340000008",
+      "name": "灰熊全威力快拔套(绿)",
+      "slot": "functional",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 1.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 1.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13340000009",
+      "name": "蜜獾小口径快拔套(沙)",
+      "slot": "functional",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 1.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 1.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13340000010",
+      "name": "野蜂冲锋枪快拔套(沙)",
+      "slot": "functional",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 1.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 1.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13340000011",
+      "name": "郊狼中间威力快拔套(沙)",
+      "slot": "functional",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 1.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 1.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13340000012",
+      "name": "灰熊全威力快拔套(沙)",
+      "slot": "functional",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 1.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 1.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13370000001",
+      "name": "蜂网遮光罩",
+      "slot": "functional",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -3.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -3.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponAppearanceTable.ScopeZoomRateScale",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "NONE",
+          "value": 0.5,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -3.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -3.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13390000002",
+      "name": "新式腾龙高速导气箍",
+      "slot": "functional",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -3.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -3.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GRateOfFire",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": -0.07,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13390000003",
+      "name": "新式腾龙稳固导气箍",
+      "slot": "functional",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 3.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 3.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GGunkickRandom",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "NONE",
+          "value": 0.76,
+          "value_ref": null
+        },
+        {
+          "target": "GGunkickSpring",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "NONE",
+          "value": 0.76,
+          "value_ref": null
+        },
+        {
+          "target": "GRateOfFire",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.07,
+          "value_ref": null
+        },
+        {
+          "target": "GRecoil_H",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": -0.24,
+          "value_ref": null
+        },
+        {
+          "target": "GRecoil_HShake",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "NONE",
+          "value": 0.76,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13390000006",
+      "name": "QJB201新式高速导气箍",
+      "slot": "functional",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 8.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 8.0,
+          "value_ref": null
+        },
+        {
+          "target": "GRateOfFire",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": -0.1,
+          "value_ref": null
+        },
+        {
+          "target": "AimingId.SpreadId",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": null,
+          "value_ref": "authoring:part:13390000006:sol:adsSpread"
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13390000007",
+      "name": "QJB201新式稳固导气箍",
+      "slot": "functional",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.35,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GRateOfFire",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GBullet_OnlyRange",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.35,
+          "value_ref": null
+        },
+        {
+          "target": "GGunkickRandom",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "NONE",
+          "value": 0.84,
+          "value_ref": null
+        },
+        {
+          "target": "GGunkickSpring",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "NONE",
+          "value": 0.84,
+          "value_ref": null
+        },
+        {
+          "target": "GRecoil_VShake",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "NONE",
+          "value": 0.84,
+          "value_ref": null
+        },
+        {
+          "target": "GRecoil_HShake",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "NONE",
+          "value": 0.84,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "GRateOfFire",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.1,
+          "value_ref": null
+        },
+        {
+          "target": "AimingId.SpreadId",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": null,
+          "value_ref": "authoring:part:13390000007:sol:adsSpread"
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13410000002",
+      "name": "SUR隔热外罩",
+      "slot": "functional",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "GRateOfFire",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": -0.034,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13420000002",
+      "name": "QCQ171新式高射速化枪机",
+      "slot": "functional",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GRateOfFire",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": -0.1,
+          "value_ref": null
+        },
+        {
+          "target": "GGunkickRandom",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "NONE",
+          "value": 1.16,
+          "value_ref": null
+        },
+        {
+          "target": "GGunkickSpring",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "NONE",
+          "value": 1.16,
+          "value_ref": null
+        },
+        {
+          "target": "GRecoil_VShake",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "NONE",
+          "value": 1.16,
+          "value_ref": null
+        },
+        {
+          "target": "GRecoil_HShake",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "NONE",
+          "value": 1.16,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13420000003",
+      "name": "QCQ171新式稳固枪机",
+      "slot": "functional",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.35,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 6.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 6.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GRateOfFire",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.1,
+          "value_ref": null
+        },
+        {
+          "target": "GBullet_OnlyRange",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.35,
+          "value_ref": null
+        },
+        {
+          "target": "GGunkickRandom",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "NONE",
+          "value": 0.84,
+          "value_ref": null
+        },
+        {
+          "target": "GGunkickSpring",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "NONE",
+          "value": 0.84,
+          "value_ref": null
+        },
+        {
+          "target": "GRecoil_VShake",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "NONE",
+          "value": 0.84,
+          "value_ref": null
+        },
+        {
+          "target": "GRecoil_HShake",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "NONE",
+          "value": 0.84,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13420000005",
+      "name": "SVCH爆发枪机",
+      "slot": "functional",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13430000001",
+      "name": "泽宁特拉机柄帽",
+      "slot": "functional",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 1.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 1.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13540000002",
+      "name": "AR重型握把片",
+      "slot": "functional",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 8.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -6.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 8.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -6.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13540000003",
+      "name": "AR轻薄握把片",
+      "slot": "functional",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "CameraSwayBeHitScale",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.5,
+          "value_ref": null
+        },
+        {
+          "target": "GunSwayBeHitscale",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.5,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    }
+  ]
+}

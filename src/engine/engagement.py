@@ -64,7 +64,7 @@ class TtkResult:
 # 情景
 # --------------------------------------------------------------------------- #
 def resolve_scenario(game_data: Any, scenario_id: str) -> Dict[str, Any]:
-    """按 id 取情景定义（``data/game/scenarios.json`` 已含官方 21 情景）。"""
+    """按 id 取情景定义（``data/tables/scenarios.json`` 收录官方 21 情景）。"""
     for scenario in game_data.scenarios_raw.get("scenarios", []):
         if scenario["scenario_id"] == scenario_id:
             return scenario

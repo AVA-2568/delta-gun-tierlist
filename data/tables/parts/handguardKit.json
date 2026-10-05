@@ -1,0 +1,110 @@
+{
+  "slot": "handguardKit",
+  "parts": [
+    {
+      "item_id": "13050000410",
+      "name": "汤姆逊先进枪身系统",
+      "slot": "handguardKit",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -12.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -12.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "AttackerValueId.DefaultDamageId",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": null,
+          "value_ref": "authoring:part:13050000410:sol:damage"
+        }
+      ],
+      "tunes": []
+    }
+  ]
+}

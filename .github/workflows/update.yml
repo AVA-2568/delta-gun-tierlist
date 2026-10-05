@@ -49,11 +49,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      # 数据层来自上游公开数据集（需联网）；榜单计算本身完全离线。
-      - name: Sync Official Game Data
-        run: python -m src.collectors.game_data_sync
-        continue-on-error: true
-
+      # 官方游戏数据域已转 data/tables/ 独立维护（契约：docs/superpowers/specs/2026-10-04-data-tables-design.md），上游变化用 python tools/tables_diff.py 对账后人工合入。
       # 第三方行情当日价（orzice 小涛查，一次运行写出枪械+弹药两张价格表）：
       # 抓取失败时沿用现有价格表，不影响榜单产出。
       - name: Sync Market Prices (orzice)
@@ -67,8 +63,8 @@ jobs:
       - name: Export Data Tables
         run: python -m src.export
 
-      # 同步器重建 provenance.json 会丢掉残余收敛记录，必须在提交前重固化，
-      # 否则下次 schedule 的 test job 因缺 integrity.official_reproduction_residual 必 fail。
+      # 官方数据域已转 data/tables/ 独立维护（不再每日重建 provenance），此步兜底重固化
+      # 残余收敛记录，防止 integrity.official_reproduction_residual 缺失令 test job fail。
       - name: Record Official Reproduction Residual
         run: |
           python tools/verify_official_reproduction.py \

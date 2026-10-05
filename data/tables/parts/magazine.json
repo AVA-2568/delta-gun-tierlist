@@ -1,0 +1,6614 @@
+{
+  "slot": "magazine",
+  "parts": [
+    {
+      "item_id": "13120000030",
+      "name": "5.56*45 30发聚合物弹匣",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 30.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000036",
+      "name": "5.56*45 30发铝匣",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 30.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000049",
+      "name": "M14 30发弹匣",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 30.0,
+          "value_ref": null
+        },
+        {
+          "target": "GReload_Time",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.1,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000053",
+      "name": "M14 50发弹鼓",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -6.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 50.0,
+          "value_ref": null
+        },
+        {
+          "target": "GReload_Time",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.25,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -6.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000054",
+      "name": "G3 50发弹鼓",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -15.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 50.0,
+          "value_ref": null
+        },
+        {
+          "target": "GReload_Time",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.05,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -15.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000162",
+      "name": "内部配件 13120000162",
+      "slot": "magazine",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000173",
+      "name": "G3 30发弹匣",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 30.0,
+          "value_ref": null
+        },
+        {
+          "target": "GReload_Time",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.02,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000174",
+      "name": "SCARH 50发弹鼓",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -15.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 50.0,
+          "value_ref": null
+        },
+        {
+          "target": "GReload_Time",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.25,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -15.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000210",
+      "name": "内部配件 13120000210",
+      "slot": "magazine",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000230",
+      "name": "内部配件 13120000230",
+      "slot": "magazine",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000232",
+      "name": "内部配件 13120000232",
+      "slot": "magazine",
+      "selectable": false,
+      "effects": [
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 20.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000233",
+      "name": "内部配件 13120000233",
+      "slot": "magazine",
+      "selectable": false,
+      "effects": [
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 30.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000234",
+      "name": "M4扩容45发弹匣",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -9.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 45.0,
+          "value_ref": null
+        },
+        {
+          "target": "GReload_Time",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.15,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -9.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000235",
+      "name": "M4弹鼓60发",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -12.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 60.0,
+          "value_ref": null
+        },
+        {
+          "target": "GReload_Time",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.25,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -12.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000237",
+      "name": "内部配件 13120000237",
+      "slot": "magazine",
+      "selectable": false,
+      "effects": [
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 20.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000239",
+      "name": "AKM延长匣40发",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 40.0,
+          "value_ref": null
+        },
+        {
+          "target": "GReload_Time",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.15,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000240",
+      "name": "AK762弹匣30发（木色）",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 30.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000241",
+      "name": "AKM大弹鼓70发",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "ChangeClipTime",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.247,
+          "value_ref": null
+        },
+        {
+          "target": "ChangeClipTimewhenEmpty",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.186,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -15.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 70.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -15.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000242",
+      "name": "内部配件 13120000242",
+      "slot": "magazine",
+      "selectable": false,
+      "effects": [
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 20.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000243",
+      "name": "AK545口径30发弹匣",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 30.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000244",
+      "name": "内部配件 13120000244",
+      "slot": "magazine",
+      "selectable": false,
+      "effects": [
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 30.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000245",
+      "name": "AKS-74U延长弹匣45发",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "ChangeClipTime",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.1,
+          "value_ref": null
+        },
+        {
+          "target": "ChangeClipTimewhenEmpty",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.1,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -5.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 45.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -5.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000246",
+      "name": "AK12聚合物30发弹匣",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 30.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000247",
+      "name": "AKS-74U聚合物弹鼓75发",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "ChangeClipTime",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.24,
+          "value_ref": null
+        },
+        {
+          "target": "ChangeClipTimewhenEmpty",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.186,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -9.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 75.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -9.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000249",
+      "name": "M14 20发弹匣",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 20.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000250",
+      "name": "SCARH 30发弹匣",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 30.0,
+          "value_ref": null
+        },
+        {
+          "target": "GReload_Time",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.1,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000252",
+      "name": "内部配件 13120000252",
+      "slot": "magazine",
+      "selectable": false,
+      "effects": [
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 15.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000253",
+      "name": "VSS30发弹匣",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 30.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000254",
+      "name": "VSS 45发弹匣",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 45.0,
+          "value_ref": null
+        },
+        {
+          "target": "GReload_Time",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.15,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000255",
+      "name": "内部配件 13120000255",
+      "slot": "magazine",
+      "selectable": false,
+      "effects": [
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 30.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000256",
+      "name": "aug60发",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 60.0,
+          "value_ref": null
+        },
+        {
+          "target": "GReload_Time",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.25,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000257",
+      "name": "内部配件 13120000257",
+      "slot": "magazine",
+      "selectable": false,
+      "effects": [
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 30.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000258",
+      "name": "5.8新式60发弹鼓",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -9.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 60.0,
+          "value_ref": null
+        },
+        {
+          "target": "GReload_Time",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.25,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -9.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "ChangeClipTime",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 2.3,
+          "value_ref": null
+        },
+        {
+          "target": "ChangeClipTimewhenEmpty",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 2.6,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000259",
+      "name": "内部配件 13120000259",
+      "slot": "magazine",
+      "selectable": false,
+      "effects": [
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 20.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000260",
+      "name": "ASh-12扩容30发弹匣",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 30.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000261",
+      "name": "内部配件 13120000261",
+      "slot": "magazine",
+      "selectable": false,
+      "effects": [
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 20.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000262",
+      "name": "M7 30发6.8弹匣",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 30.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000263",
+      "name": "M7 45发6.8弹鼓",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -6.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 45.0,
+          "value_ref": null
+        },
+        {
+          "target": "GReload_Time",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.1,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -6.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000268",
+      "name": "内部配件 13120000268",
+      "slot": "magazine",
+      "selectable": false,
+      "effects": [
+        {
+          "target": "ChangeClipTime",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 5.8,
+          "value_ref": null
+        },
+        {
+          "target": "ChangeClipTimewhenEmpty",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 6.8,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 100.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -12.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -12.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000269",
+      "name": "内部配件 13120000269",
+      "slot": "magazine",
+      "selectable": false,
+      "effects": [
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 75.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000270",
+      "name": "内部配件 13120000270",
+      "slot": "magazine",
+      "selectable": false,
+      "effects": [
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 17.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000271",
+      "name": "Vector扩容30发弹匣",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "ChangeClipTime",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.08,
+          "value_ref": null
+        },
+        {
+          "target": "ChangeClipTimewhenEmpty",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.11,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 30.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000272",
+      "name": "Vector扩容40发弹匣",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 40.0,
+          "value_ref": null
+        },
+        {
+          "target": "GReload_Time",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.25,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000273",
+      "name": "Vector扩容CMAG70发",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -15.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 70.0,
+          "value_ref": null
+        },
+        {
+          "target": "GReload_Time",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.3,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -15.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000274",
+      "name": "内部配件 13120000274",
+      "slot": "magazine",
+      "selectable": false,
+      "effects": [
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 25.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000275",
+      "name": "内部配件 13120000275",
+      "slot": "magazine",
+      "selectable": false,
+      "effects": [
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 20.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000276",
+      "name": "内部配件 13120000276",
+      "slot": "magazine",
+      "selectable": false,
+      "effects": [
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 30.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000277",
+      "name": "MP5 50发弹鼓",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -9.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 50.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -9.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000278",
+      "name": "内部配件 13120000278",
+      "slot": "magazine",
+      "selectable": false,
+      "effects": [
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 25.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000279",
+      "name": "UZI 35发弹匣",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 35.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000280",
+      "name": "UZI 45发弹匣",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -9.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 45.0,
+          "value_ref": null
+        },
+        {
+          "target": "GReload_Time",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.1,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -9.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000281",
+      "name": "内部配件 13120000281",
+      "slot": "magazine",
+      "selectable": false,
+      "effects": [
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 32.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000282",
+      "name": "野牛 64发弹筒",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -5.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 64.0,
+          "value_ref": null
+        },
+        {
+          "target": "GReload_Time",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.15,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -5.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000301",
+      "name": "PKM扩容弹箱",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -15.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 125.0,
+          "value_ref": null
+        },
+        {
+          "target": "GReload_Time",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.1,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -15.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000302",
+      "name": "内部配件 13120000302",
+      "slot": "magazine",
+      "selectable": false,
+      "effects": [
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 30.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000303",
+      "name": "内部配件 13120000303",
+      "slot": "magazine",
+      "selectable": false,
+      "effects": [
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 50.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000304",
+      "name": "内部配件 13120000304",
+      "slot": "magazine",
+      "selectable": false,
+      "effects": [
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 50.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000305",
+      "name": "内部配件 13120000305",
+      "slot": "magazine",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000307",
+      "name": "勇士45发扩容弹匣",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -12.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 45.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -12.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000309",
+      "name": "内部配件 13120000309",
+      "slot": "magazine",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000310",
+      "name": "内部配件 13120000310",
+      "slot": "magazine",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000313",
+      "name": "AKM30发聚合物弹匣",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 30.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000315",
+      "name": "SG552 30发弹匣",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 30.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000316",
+      "name": "内部配件 13120000316",
+      "slot": "magazine",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000317",
+      "name": "SG552 45发扩容弹匣",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 45.0,
+          "value_ref": null
+        },
+        {
+          "target": "GReload_Time",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.1,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000318",
+      "name": "SMG45 40发扩容弹匣",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 40.0,
+          "value_ref": null
+        },
+        {
+          "target": "GReload_Time",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.1,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000319",
+      "name": "MP7 30发弹匣",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 30.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000320",
+      "name": "MP7 40发弹匣",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 40.0,
+          "value_ref": null
+        },
+        {
+          "target": "GReload_Time",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.1,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GReload_Time",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.15,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000321",
+      "name": "MP7 60发弹鼓",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -15.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 60.0,
+          "value_ref": null
+        },
+        {
+          "target": "GReload_Time",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.25,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -15.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GReload_Time",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.3,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000325",
+      "name": "内部配件 13120000325",
+      "slot": "magazine",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000327",
+      "name": "AKS74U 30发弹匣",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 30.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000329",
+      "name": "5.8新式30发弹匣",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 30.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000332",
+      "name": "M250 75发弹链",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 8.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 8.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 75.0,
+          "value_ref": null
+        },
+        {
+          "target": "GReload_Time",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": -0.1,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000333",
+      "name": "AR 60发扩容弹匣",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -12.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -12.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 60.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 60.0,
+          "value_ref": null
+        },
+        {
+          "target": "GReload_Time",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.25,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000335",
+      "name": "内部配件 13120000335",
+      "slot": "magazine",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000336",
+      "name": "内部配件 13120000336",
+      "slot": "magazine",
+      "selectable": false,
+      "effects": [
+        {
+          "target": "ChangeClipTime",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 5.9,
+          "value_ref": null
+        },
+        {
+          "target": "ChangeClipTimewhenEmpty",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 6.466,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -12.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -12.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000338",
+      "name": "内部配件 13120000338",
+      "slot": "magazine",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000341",
+      "name": "新式45发扩容弹匣",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 45.0,
+          "value_ref": null
+        },
+        {
+          "target": "GReload_Time",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.1,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000342",
+      "name": "AR聚合物30发 弹匣",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 30.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000343",
+      "name": "5.8新式45发 扩容弹匣",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 45.0,
+          "value_ref": null
+        },
+        {
+          "target": "GReload_Time",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.1,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000344",
+      "name": "新式75发扩容弹鼓",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -15.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -15.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 75.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000345",
+      "name": "45发 K437扩容弹匣",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "GReload_Time",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.15,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 45.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000348",
+      "name": "K437 60发弹鼓",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "GReload_Time",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.3,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 60.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -12.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -12.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000351",
+      "name": "内部配件 13120000351",
+      "slot": "magazine",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000359",
+      "name": "MK4730发弹匣",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -6.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 30.0,
+          "value_ref": null
+        },
+        {
+          "target": "GReload_Time",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.1,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -6.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000360",
+      "name": "内部配件 13120000360",
+      "slot": "magazine",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000361",
+      "name": "MK4 48发弹匣",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 48.0,
+          "value_ref": null
+        },
+        {
+          "target": "GReload_Time",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.15,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000362",
+      "name": "内部配件 13120000362",
+      "slot": "magazine",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000372",
+      "name": "AUG45发扩容弹匣",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 45.0,
+          "value_ref": null
+        },
+        {
+          "target": "GReload_Time",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.1,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000375",
+      "name": "内部配件 13120000375",
+      "slot": "magazine",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000377",
+      "name": "内部配件 13120000377",
+      "slot": "magazine",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000378",
+      "name": "SVCH扩容弹匣",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -6.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -6.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 20.0,
+          "value_ref": null
+        },
+        {
+          "target": "ChangeClipTime",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 3.02,
+          "value_ref": null
+        },
+        {
+          "target": "ChangeClipTimewhenEmpty",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 3.71,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000379",
+      "name": "SVCH凌风并联弹匣",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 40.0,
+          "value_ref": null
+        },
+        {
+          "target": "ChangeClipTime",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 1.9,
+          "value_ref": null
+        },
+        {
+          "target": "ChangeClipTimewhenEmpty",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 2.3,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000380",
+      "name": "内部配件 13120000380",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "ChangeClipTime",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 4.883,
+          "value_ref": null
+        },
+        {
+          "target": "ChangeClipTimewhenEmpty",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 6.217,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 75.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 5.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 5.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -20.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -20.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -12.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -12.0,
+          "value_ref": null
+        },
+        {
+          "target": "FireDelayTime",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000383",
+      "name": "内部配件 13120000383",
+      "slot": "magazine",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000385",
+      "name": "内部配件 13120000385",
+      "slot": "magazine",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000386",
+      "name": "内部配件 13120000386",
+      "slot": "magazine",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000389",
+      "name": "汤姆逊加长弹匣",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 35.0,
+          "value_ref": null
+        },
+        {
+          "target": "GReload_Time",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.1,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000392",
+      "name": "MDR.308扩容弹匣",
+      "slot": "magazine",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -6.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 30.0,
+          "value_ref": null
+        },
+        {
+          "target": "GReload_Time",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.15,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -6.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    }
+  ]
+}

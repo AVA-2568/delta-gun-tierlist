@@ -170,7 +170,7 @@ def part_tuning_layer(part: Mapping[str, Any], setting: Mapping[str, float]) -> 
     精校 function 归一化后只有 ``target`` / ``modifier`` / ``curve`` 三键（没有
     ``value_ref``），故 ``Initial`` + profile 槽位这一支在本路径下不登记任何内容。
 
-    实测口径（2026-09-28 数据快照，``data/game/parts.json`` 全量 541 个滑块 /
+    实测口径（2026-09-28 数据快照，配件表全量 541 个滑块 /
     1285 条 function）：精校 function 只携带 ``Mult_A``(1061) 与 ``Addend``(224)，
     不含 ``Initial``；上述 hitbox 路由目前无官方数据触发，由单元测试钉死契约。
     """

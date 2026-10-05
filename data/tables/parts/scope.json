@@ -1,0 +1,6992 @@
+{
+  "slot": "scope",
+  "parts": [
+    {
+      "item_id": "13110000040",
+      "name": "全息瞄准镜",
+      "slot": "scope",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13110000040:tune:eyeRelief:0",
+          "dimension": "瞳距",
+          "unit": "毫米",
+          "min_value": -20.0,
+          "max_value": 20.0,
+          "step": 0.4,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeCameraTuneDistance",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -30.0,
+                  -2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  30.0,
+                  2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13110000040:tune:zoom:1",
+          "dimension": "缩放倍率",
+          "unit": "倍",
+          "min_value": -0.5,
+          "max_value": 0.5,
+          "step": 0.05,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeZoomTuneRate",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -0.5,
+                  -0.5,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.5,
+                  0.49999997,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13110000042",
+      "name": "俄式准直二倍瞄准镜",
+      "slot": "scope",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13110000042:tune:eyeRelief:0",
+          "dimension": "瞳距",
+          "unit": "毫米",
+          "min_value": -20.0,
+          "max_value": 20.0,
+          "step": 0.4,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeCameraTuneDistance",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -30.0,
+                  -2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  30.0,
+                  2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13110000042:tune:zoom:1",
+          "dimension": "缩放倍率",
+          "unit": "倍",
+          "min_value": -0.25,
+          "max_value": 0.25,
+          "step": 0.05,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeZoomTuneRate",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -0.25,
+                  -0.25,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.25,
+                  0.25,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13110000043",
+      "name": "全景红点瞄准镜",
+      "slot": "scope",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13110000043:tune:eyeRelief:0",
+          "dimension": "瞳距",
+          "unit": "毫米",
+          "min_value": -20.0,
+          "max_value": 20.0,
+          "step": 0.4,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeCameraTuneDistance",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -30.0,
+                  -2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  30.0,
+                  2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13110000043:tune:zoom:1",
+          "dimension": "缩放倍率",
+          "unit": "倍",
+          "min_value": -0.25,
+          "max_value": 0.25,
+          "step": 0.05,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeZoomTuneRate",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -0.25,
+                  -0.25,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.25,
+                  0.25,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13110000044",
+      "name": "XRO快速反应瞄准镜",
+      "slot": "scope",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13110000044:tune:eyeRelief:0",
+          "dimension": "瞳距",
+          "unit": "毫米",
+          "min_value": -20.0,
+          "max_value": 20.0,
+          "step": 0.4,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeCameraTuneDistance",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -30.0,
+                  -2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  30.0,
+                  2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13110000044:tune:zoom:1",
+          "dimension": "缩放倍率",
+          "unit": "倍",
+          "min_value": -0.25,
+          "max_value": 0.25,
+          "step": 0.05,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeZoomTuneRate",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -0.25,
+                  -0.25,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.25,
+                  0.25,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13110000046",
+      "name": "反射式瞄准镜",
+      "slot": "scope",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13110000046:tune:eyeRelief:0",
+          "dimension": "瞳距",
+          "unit": "毫米",
+          "min_value": -20.0,
+          "max_value": 20.0,
+          "step": 0.4,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeCameraTuneDistance",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -30.0,
+                  -2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  30.0,
+                  2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13110000046:tune:zoom:1",
+          "dimension": "缩放倍率",
+          "unit": "倍",
+          "min_value": -0.25,
+          "max_value": 0.25,
+          "step": 0.05,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeZoomTuneRate",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -0.25,
+                  -0.25,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.25,
+                  0.25,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13110000049",
+      "name": "PSO战斗2.5倍瞄准镜",
+      "slot": "scope",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -6.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -6.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13110000049:tune:eyeRelief:0",
+          "dimension": "瞳距",
+          "unit": "毫米",
+          "min_value": -20.0,
+          "max_value": 20.0,
+          "step": 0.4,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeCameraTuneDistance",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -30.0,
+                  -2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  30.0,
+                  2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13110000049:tune:zoom:1",
+          "dimension": "缩放倍率",
+          "unit": "倍",
+          "min_value": -0.5,
+          "max_value": 0.5,
+          "step": 0.05,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeZoomTuneRate",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -0.5,
+                  -0.5,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.5,
+                  0.49999997,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13110000051",
+      "name": "HAMR组合瞄准镜",
+      "slot": "scope",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -6.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -6.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13110000051:tune:eyeRelief:0",
+          "dimension": "瞳距",
+          "unit": "毫米",
+          "min_value": -20.0,
+          "max_value": 20.0,
+          "step": 0.4,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeCameraTuneDistance",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -30.0,
+                  -2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  30.0,
+                  2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13110000051:tune:zoom:1",
+          "dimension": "缩放倍率",
+          "unit": "倍",
+          "min_value": -0.25,
+          "max_value": 0.25,
+          "step": 0.05,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeZoomTuneRate",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -0.25,
+                  -0.25,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.25,
+                  0.25,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13110000052",
+      "name": "侦察1.5/5可调瞄准镜",
+      "slot": "scope",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 6.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 6.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13110000052:tune:eyeRelief:0",
+          "dimension": "瞳距",
+          "unit": "毫米",
+          "min_value": -20.0,
+          "max_value": 20.0,
+          "step": 0.4,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeCameraTuneDistance",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -30.0,
+                  -2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  30.0,
+                  2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13110000052:tune:zoom:1",
+          "dimension": "缩放倍率",
+          "unit": "倍",
+          "min_value": -0.5,
+          "max_value": 0.5,
+          "step": 0.05,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeZoomTuneRate",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -0.5,
+                  -0.5,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.5,
+                  0.49999997,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13110000053",
+      "name": "XCOG突击3.5倍瞄准镜",
+      "slot": "scope",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13110000053:tune:eyeRelief:0",
+          "dimension": "瞳距",
+          "unit": "毫米",
+          "min_value": -20.0,
+          "max_value": 20.0,
+          "step": 0.4,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeCameraTuneDistance",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -30.0,
+                  -2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  30.0,
+                  2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13110000053:tune:zoom:1",
+          "dimension": "缩放倍率",
+          "unit": "倍",
+          "min_value": -0.5,
+          "max_value": 0.5,
+          "step": 0.05,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeZoomTuneRate",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -0.5,
+                  -0.5,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.5,
+                  0.49999997,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13110000056",
+      "name": "光学狙击8倍瞄准镜",
+      "slot": "scope",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 6.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 6.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13110000056:tune:eyeRelief:0",
+          "dimension": "瞳距",
+          "unit": "毫米",
+          "min_value": -20.0,
+          "max_value": 20.0,
+          "step": 0.4,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeCameraTuneDistance",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -30.0,
+                  -2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  30.0,
+                  2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13110000056:tune:zoom:1",
+          "dimension": "缩放倍率",
+          "unit": "倍",
+          "min_value": -0.5,
+          "max_value": 0.5,
+          "step": 0.05,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeZoomTuneRate",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -0.5,
+                  -0.5,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.5,
+                  0.49999997,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13110000057",
+      "name": "3/7可调倍率狙击镜",
+      "slot": "scope",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 6.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 6.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13110000057:tune:eyeRelief:0",
+          "dimension": "瞳距",
+          "unit": "毫米",
+          "min_value": -20.0,
+          "max_value": 20.0,
+          "step": 0.4,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeCameraTuneDistance",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -30.0,
+                  -2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  30.0,
+                  2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13110000057:tune:zoom:1",
+          "dimension": "缩放倍率",
+          "unit": "倍",
+          "min_value": -0.5,
+          "max_value": 0.5,
+          "step": 0.05,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeZoomTuneRate",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -0.5,
+                  -0.5,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.5,
+                  0.49999997,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13110000061",
+      "name": "okp-7反射瞄准镜",
+      "slot": "scope",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13110000061:tune:eyeRelief:0",
+          "dimension": "瞳距",
+          "unit": "毫米",
+          "min_value": -20.0,
+          "max_value": 20.0,
+          "step": 0.4,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeCameraTuneDistance",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -30.0,
+                  -2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  30.0,
+                  2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13110000061:tune:zoom:1",
+          "dimension": "缩放倍率",
+          "unit": "倍",
+          "min_value": -0.25,
+          "max_value": 0.25,
+          "step": 0.05,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeZoomTuneRate",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -0.25,
+                  -0.25,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.25,
+                  0.25,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13110000062",
+      "name": "微型红点瞄准镜",
+      "slot": "scope",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13110000062:tune:eyeRelief:0",
+          "dimension": "瞳距",
+          "unit": "毫米",
+          "min_value": -20.0,
+          "max_value": 20.0,
+          "step": 0.4,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeCameraTuneDistance",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -30.0,
+                  -2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  30.0,
+                  2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13110000062:tune:zoom:1",
+          "dimension": "缩放倍率",
+          "unit": "倍",
+          "min_value": -0.25,
+          "max_value": 0.25,
+          "step": 0.05,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeZoomTuneRate",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -0.25,
+                  -0.25,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.25,
+                  0.25,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13110000063",
+      "name": "战斗红点瞄准镜",
+      "slot": "scope",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13110000063:tune:eyeRelief:0",
+          "dimension": "瞳距",
+          "unit": "毫米",
+          "min_value": -20.0,
+          "max_value": 20.0,
+          "step": 0.4,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeCameraTuneDistance",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -30.0,
+                  -2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  30.0,
+                  2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13110000063:tune:zoom:1",
+          "dimension": "缩放倍率",
+          "unit": "倍",
+          "min_value": -0.25,
+          "max_value": 0.25,
+          "step": 0.05,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeZoomTuneRate",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -0.25,
+                  -0.25,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.25,
+                  0.25,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13110000064",
+      "name": "Cobra准直式瞄准镜",
+      "slot": "scope",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13110000064:tune:eyeRelief:0",
+          "dimension": "瞳距",
+          "unit": "毫米",
+          "min_value": -20.0,
+          "max_value": 20.0,
+          "step": 0.4,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeCameraTuneDistance",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -30.0,
+                  -2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  30.0,
+                  2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13110000064:tune:zoom:1",
+          "dimension": "缩放倍率",
+          "unit": "倍",
+          "min_value": -0.25,
+          "max_value": 0.25,
+          "step": 0.05,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeZoomTuneRate",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -0.25,
+                  -0.25,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.25,
+                  0.25,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13110000065",
+      "name": "全息二型瞄准镜",
+      "slot": "scope",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13110000065:tune:eyeRelief:0",
+          "dimension": "瞳距",
+          "unit": "毫米",
+          "min_value": -20.0,
+          "max_value": 20.0,
+          "step": 0.4,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeCameraTuneDistance",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -30.0,
+                  -2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  30.0,
+                  2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13110000065:tune:zoom:1",
+          "dimension": "缩放倍率",
+          "unit": "倍",
+          "min_value": -0.5,
+          "max_value": 0.5,
+          "step": 0.05,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeZoomTuneRate",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -0.5,
+                  -0.5,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.5,
+                  0.49999997,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13110000066",
+      "name": "先进热融合全息瞄准镜",
+      "slot": "scope",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13110000066:tune:eyeRelief:0",
+          "dimension": "瞳距",
+          "unit": "毫米",
+          "min_value": -20.0,
+          "max_value": 20.0,
+          "step": 0.4,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeCameraTuneDistance",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -30.0,
+                  -2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  30.0,
+                  2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13110000066:tune:zoom:1",
+          "dimension": "缩放倍率",
+          "unit": "倍",
+          "min_value": -0.5,
+          "max_value": 0.5,
+          "step": 0.05,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeZoomTuneRate",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -0.5,
+                  -0.5,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.5,
+                  0.49999997,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13110000067",
+      "name": "先进白热成像战斗瞄准镜",
+      "slot": "scope",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13110000067:tune:eyeRelief:0",
+          "dimension": "瞳距",
+          "unit": "毫米",
+          "min_value": -20.0,
+          "max_value": 20.0,
+          "step": 0.4,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeCameraTuneDistance",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -30.0,
+                  -2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  30.0,
+                  2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13110000067:tune:zoom:1",
+          "dimension": "缩放倍率",
+          "unit": "倍",
+          "min_value": -0.5,
+          "max_value": 0.5,
+          "step": 0.05,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeZoomTuneRate",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -0.5,
+                  -0.5,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.5,
+                  0.49999997,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13110000068",
+      "name": "八倍先进热成像狙击镜",
+      "slot": "scope",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13110000068:tune:eyeRelief:0",
+          "dimension": "瞳距",
+          "unit": "毫米",
+          "min_value": -20.0,
+          "max_value": 20.0,
+          "step": 0.4,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeCameraTuneDistance",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -30.0,
+                  -2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  30.0,
+                  2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13110000068:tune:zoom:1",
+          "dimension": "缩放倍率",
+          "unit": "倍",
+          "min_value": -0.5,
+          "max_value": 0.5,
+          "step": 0.05,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeZoomTuneRate",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -0.5,
+                  -0.5,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.5,
+                  0.49999997,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13110000069",
+      "name": "LPVO多倍率战斗瞄具",
+      "slot": "scope",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -6.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -6.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13110000069:tune:eyeRelief:0",
+          "dimension": "瞳距",
+          "unit": "毫米",
+          "min_value": -20.0,
+          "max_value": 20.0,
+          "step": 0.4,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeCameraTuneDistance",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -30.0,
+                  -2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  30.0,
+                  2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13110000069:tune:zoom:1",
+          "dimension": "缩放倍率",
+          "unit": "倍",
+          "min_value": -0.25,
+          "max_value": 0.25,
+          "step": 0.05,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeZoomTuneRate",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -0.25,
+                  -0.25,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.25,
+                  0.25,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13110000070",
+      "name": "6/12神射手变倍狙击镜",
+      "slot": "scope",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 6.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 6.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13110000070:tune:eyeRelief:0",
+          "dimension": "瞳距",
+          "unit": "毫米",
+          "min_value": -20.0,
+          "max_value": 20.0,
+          "step": 0.4,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeCameraTuneDistance",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -30.0,
+                  -2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  30.0,
+                  2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13110000070:tune:zoom:1",
+          "dimension": "缩放倍率",
+          "unit": "倍",
+          "min_value": -0.5,
+          "max_value": 0.5,
+          "step": 0.05,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeZoomTuneRate",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -0.5,
+                  -0.5,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.5,
+                  0.49999997,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13110000072",
+      "name": "1p-29俄制3倍瞄准镜",
+      "slot": "scope",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13110000072:tune:eyeRelief:0",
+          "dimension": "瞳距",
+          "unit": "毫米",
+          "min_value": -20.0,
+          "max_value": 20.0,
+          "step": 0.4,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeCameraTuneDistance",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -30.0,
+                  -2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  30.0,
+                  2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13110000072:tune:zoom:1",
+          "dimension": "缩放倍率",
+          "unit": "倍",
+          "min_value": -0.5,
+          "max_value": 0.5,
+          "step": 0.05,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeZoomTuneRate",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -0.5,
+                  -0.5,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.5,
+                  0.49999997,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13110000073",
+      "name": "视点3倍瞄准镜",
+      "slot": "scope",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13110000073:tune:eyeRelief:0",
+          "dimension": "瞳距",
+          "unit": "毫米",
+          "min_value": -20.0,
+          "max_value": 20.0,
+          "step": 0.4,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeCameraTuneDistance",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -30.0,
+                  -2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  30.0,
+                  2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13110000073:tune:zoom:1",
+          "dimension": "缩放倍率",
+          "unit": "倍",
+          "min_value": -0.25,
+          "max_value": 0.25,
+          "step": 0.05,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeZoomTuneRate",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -0.25,
+                  -0.25,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.25,
+                  0.25,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13110000076",
+      "name": "侧置全景红点瞄准镜",
+      "slot": "scope",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13110000076:tune:eyeRelief:0",
+          "dimension": "瞳距",
+          "unit": "毫米",
+          "min_value": -20.0,
+          "max_value": 20.0,
+          "step": 0.4,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeCameraTuneDistance",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -30.0,
+                  -2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  30.0,
+                  2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13110000076:tune:zoom:1",
+          "dimension": "缩放倍率",
+          "unit": "倍",
+          "min_value": -0.25,
+          "max_value": 0.25,
+          "step": 0.05,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeZoomTuneRate",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -0.25,
+                  -0.25,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.25,
+                  0.25,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13110000077",
+      "name": "侧置XRO快速反应瞄准镜",
+      "slot": "scope",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13110000077:tune:eyeRelief:0",
+          "dimension": "瞳距",
+          "unit": "毫米",
+          "min_value": -20.0,
+          "max_value": 20.0,
+          "step": 0.4,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeCameraTuneDistance",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -30.0,
+                  -2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  30.0,
+                  2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13110000077:tune:zoom:1",
+          "dimension": "缩放倍率",
+          "unit": "倍",
+          "min_value": -0.25,
+          "max_value": 0.25,
+          "step": 0.05,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeZoomTuneRate",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -0.25,
+                  -0.25,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.25,
+                  0.25,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13110000078",
+      "name": "侧置微型红点瞄准镜",
+      "slot": "scope",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13110000078:tune:eyeRelief:0",
+          "dimension": "瞳距",
+          "unit": "毫米",
+          "min_value": -20.0,
+          "max_value": 20.0,
+          "step": 0.4,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeCameraTuneDistance",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -30.0,
+                  -2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  30.0,
+                  2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13110000078:tune:zoom:1",
+          "dimension": "缩放倍率",
+          "unit": "倍",
+          "min_value": -0.25,
+          "max_value": 0.25,
+          "step": 0.05,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeZoomTuneRate",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -0.25,
+                  -0.25,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.25,
+                  0.25,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13110000079",
+      "name": "侧置战斗红点瞄准镜",
+      "slot": "scope",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13110000079:tune:eyeRelief:0",
+          "dimension": "瞳距",
+          "unit": "毫米",
+          "min_value": -20.0,
+          "max_value": 20.0,
+          "step": 0.4,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeCameraTuneDistance",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -30.0,
+                  -2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  30.0,
+                  2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13110000079:tune:zoom:1",
+          "dimension": "缩放倍率",
+          "unit": "倍",
+          "min_value": -0.25,
+          "max_value": 0.25,
+          "step": 0.05,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeZoomTuneRate",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -0.25,
+                  -0.25,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.25,
+                  0.25,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13110000081",
+      "name": "PSO狙击8倍瞄准镜",
+      "slot": "scope",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13110000081:tune:eyeRelief:0",
+          "dimension": "瞳距",
+          "unit": "毫米",
+          "min_value": -20.0,
+          "max_value": 20.0,
+          "step": 0.4,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeCameraTuneDistance",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -30.0,
+                  -2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  30.0,
+                  2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13110000081:tune:zoom:1",
+          "dimension": "缩放倍率",
+          "unit": "倍",
+          "min_value": -0.25,
+          "max_value": 0.25,
+          "step": 0.05,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeZoomTuneRate",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -0.25,
+                  -0.25,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.25,
+                  0.25,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13110000082",
+      "name": "M157火控光学系统",
+      "slot": "scope",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -6.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -6.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13110000082:tune:eyeRelief:0",
+          "dimension": "瞳距",
+          "unit": "毫米",
+          "min_value": -20.0,
+          "max_value": 20.0,
+          "step": 0.4,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeCameraTuneDistance",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -30.0,
+                  -2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  30.0,
+                  2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13110000082:tune:zoom:1",
+          "dimension": "缩放倍率",
+          "unit": "倍",
+          "min_value": -0.5,
+          "max_value": 0.5,
+          "step": 0.05,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeZoomTuneRate",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -0.5,
+                  -0.5,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.5,
+                  0.49999997,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13110000085",
+      "name": "AP5000反射式瞄准镜",
+      "slot": "scope",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13110000085:tune:eyeRelief:0",
+          "dimension": "瞳距",
+          "unit": "毫米",
+          "min_value": -20.0,
+          "max_value": 20.0,
+          "step": 0.4,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeCameraTuneDistance",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -30.0,
+                  -2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  30.0,
+                  2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13110000085:tune:zoom:1",
+          "dimension": "缩放倍率",
+          "unit": "倍",
+          "min_value": -0.25,
+          "max_value": 0.25,
+          "step": 0.05,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeZoomTuneRate",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -0.25,
+                  -0.25,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.25,
+                  0.25,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13110000087",
+      "name": "Osight微型瞄准镜",
+      "slot": "scope",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13110000087:tune:eyeRelief:0",
+          "dimension": "瞳距",
+          "unit": "毫米",
+          "min_value": -20.0,
+          "max_value": 20.0,
+          "step": 0.4,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeCameraTuneDistance",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -30.0,
+                  -2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  30.0,
+                  2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13110000087:tune:zoom:1",
+          "dimension": "缩放倍率",
+          "unit": "倍",
+          "min_value": -0.25,
+          "max_value": 0.25,
+          "step": 0.05,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeZoomTuneRate",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -0.25,
+                  -0.25,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.25,
+                  0.25,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13110000088",
+      "name": "侧置Osight微型瞄准镜",
+      "slot": "scope",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13110000088:tune:eyeRelief:0",
+          "dimension": "瞳距",
+          "unit": "毫米",
+          "min_value": -20.0,
+          "max_value": 20.0,
+          "step": 0.4,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeCameraTuneDistance",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -30.0,
+                  -2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  30.0,
+                  2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13110000088:tune:zoom:1",
+          "dimension": "缩放倍率",
+          "unit": "倍",
+          "min_value": -0.25,
+          "max_value": 0.25,
+          "step": 0.05,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeZoomTuneRate",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -0.25,
+                  -0.25,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.25,
+                  0.25,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13110000089",
+      "name": "ACOG精准六倍镜",
+      "slot": "scope",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13110000089:tune:eyeRelief:0",
+          "dimension": "瞳距",
+          "unit": "毫米",
+          "min_value": -20.0,
+          "max_value": 20.0,
+          "step": 0.4,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeCameraTuneDistance",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -30.0,
+                  -2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  30.0,
+                  2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13110000089:tune:zoom:1",
+          "dimension": "缩放倍率",
+          "unit": "倍",
+          "min_value": -0.5,
+          "max_value": 0.5,
+          "step": 0.05,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeZoomTuneRate",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -0.5,
+                  -0.5,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.5,
+                  0.49999997,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13110000090",
+      "name": "M3狙击镜",
+      "slot": "scope",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 6.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 6.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13110000090:tune:eyeRelief:0",
+          "dimension": "瞳距",
+          "unit": "毫米",
+          "min_value": -20.0,
+          "max_value": 20.0,
+          "step": 0.4,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeCameraTuneDistance",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -30.0,
+                  -2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  30.0,
+                  2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13110000090:tune:zoom:1",
+          "dimension": "缩放倍率",
+          "unit": "倍",
+          "min_value": -0.5,
+          "max_value": 0.5,
+          "step": 0.05,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeZoomTuneRate",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -0.5,
+                  -0.5,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.5,
+                  0.49999997,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13110000091",
+      "name": "灵眼3/7测距狙击瞄准镜",
+      "slot": "scope",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 6.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 6.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13110000091:tune:eyeRelief:0",
+          "dimension": "瞳距",
+          "unit": "毫米",
+          "min_value": -20.0,
+          "max_value": 20.0,
+          "step": 0.4,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeCameraTuneDistance",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -30.0,
+                  -2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  30.0,
+                  2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13110000091:tune:zoom:1",
+          "dimension": "缩放倍率",
+          "unit": "倍",
+          "min_value": -0.5,
+          "max_value": 0.5,
+          "step": 0.05,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeZoomTuneRate",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -0.5,
+                  -0.5,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.5,
+                  0.49999997,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13110000092",
+      "name": "灵眼6/12测距狙击瞄准镜",
+      "slot": "scope",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 6.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 6.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13110000092:tune:eyeRelief:0",
+          "dimension": "瞳距",
+          "unit": "毫米",
+          "min_value": -20.0,
+          "max_value": 20.0,
+          "step": 0.4,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeCameraTuneDistance",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -30.0,
+                  -2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  30.0,
+                  2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13110000092:tune:zoom:1",
+          "dimension": "缩放倍率",
+          "unit": "倍",
+          "min_value": -0.5,
+          "max_value": 0.5,
+          "step": 0.05,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeZoomTuneRate",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -0.5,
+                  -0.5,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.5,
+                  0.49999997,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13110000093",
+      "name": "棱镜通用二倍光学瞄具",
+      "slot": "scope",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 3.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 3.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13110000093:tune:eyeRelief:0",
+          "dimension": "瞳距",
+          "unit": "毫米",
+          "min_value": -20.0,
+          "max_value": 20.0,
+          "step": 0.4,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeCameraTuneDistance",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -30.0,
+                  -2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  30.0,
+                  2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13110000093:tune:zoom:1",
+          "dimension": "缩放倍率",
+          "unit": "倍",
+          "min_value": -0.25,
+          "max_value": 0.25,
+          "step": 0.05,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeZoomTuneRate",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -0.25,
+                  -0.25,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.25,
+                  0.25,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13110000098",
+      "name": "UHX全息瞄准镜",
+      "slot": "scope",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13110000098:tune:eyeRelief:0",
+          "dimension": "瞳距",
+          "unit": "毫米",
+          "min_value": -20.0,
+          "max_value": 20.0,
+          "step": 0.4,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeCameraTuneDistance",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -30.0,
+                  -2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  30.0,
+                  2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13110000098:tune:zoom:1",
+          "dimension": "缩放倍率",
+          "unit": "倍",
+          "min_value": -0.25,
+          "max_value": 0.25,
+          "step": 0.05,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeZoomTuneRate",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -0.25,
+                  -0.25,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.25,
+                  0.25,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13110000099",
+      "name": "1p33 2/4倍望远镜",
+      "slot": "scope",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -6.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -6.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13110000099:tune:eyeRelief:0",
+          "dimension": "瞳距",
+          "unit": "毫米",
+          "min_value": -20.0,
+          "max_value": 20.0,
+          "step": 0.4,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeCameraTuneDistance",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -30.0,
+                  -2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  30.0,
+                  2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13110000099:tune:zoom:1",
+          "dimension": "缩放倍率",
+          "unit": "倍",
+          "min_value": -0.5,
+          "max_value": 0.5,
+          "step": 0.05,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeZoomTuneRate",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -0.5,
+                  -0.5,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.5,
+                  0.49999997,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13110000102",
+      "name": "VMX无框瞄具",
+      "slot": "scope",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13110000102:tune:eyeRelief:0",
+          "dimension": "瞳距",
+          "unit": "毫米",
+          "min_value": -20.0,
+          "max_value": 20.0,
+          "step": 0.4,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeCameraTuneDistance",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -30.0,
+                  -2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  30.0,
+                  2.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13110000102:tune:zoom:1",
+          "dimension": "缩放倍率",
+          "unit": "倍",
+          "min_value": -0.25,
+          "max_value": 0.25,
+          "step": 0.05,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "ScopeZoomTuneRate",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  -0.25,
+                  -0.25,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.25,
+                  0.25,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13210000012",
+      "name": "微型瞄具增高架",
+      "slot": "scope",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -1.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GGunkickRandom",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "NONE",
+          "value": 1.04,
+          "value_ref": null
+        },
+        {
+          "target": "GGunkickSpring",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "NONE",
+          "value": 1.04,
+          "value_ref": null
+        },
+        {
+          "target": "GRecoil_HShake",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "NONE",
+          "value": 1.04,
+          "value_ref": null
+        },
+        {
+          "target": "GRecoil_VShake",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "NONE",
+          "value": 1.04,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13210000013",
+      "name": "多用途战术增高架",
+      "slot": "scope",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -1.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GGunkickRandom",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "NONE",
+          "value": 1.04,
+          "value_ref": null
+        },
+        {
+          "target": "GGunkickSpring",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "NONE",
+          "value": 1.04,
+          "value_ref": null
+        },
+        {
+          "target": "GRecoil_HShake",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "NONE",
+          "value": 1.04,
+          "value_ref": null
+        },
+        {
+          "target": "GRecoil_VShake",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "NONE",
+          "value": 1.04,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13210000014",
+      "name": "MEO微型瞄具增高架",
+      "slot": "scope",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -1.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -1.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    }
+  ]
+}

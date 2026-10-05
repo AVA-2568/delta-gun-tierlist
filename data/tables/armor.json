@@ -1,0 +1,745 @@
+{
+ "levels": {
+  "1": {
+   "level": 1,
+   "armor": {
+    "item_id": "11050001004",
+    "name": "轻型防弹衣",
+    "level": 1,
+    "max_durability": 30,
+    "covered_hit_areas": [
+     "upperChest"
+    ],
+    "source_legacy_id": "1004"
+   },
+   "helmet": {
+    "item_id": "11010001004",
+    "name": "户外棒球帽",
+    "level": 1,
+    "max_durability": 12,
+    "covered_hit_areas": [
+     "head"
+    ],
+    "source_legacy_id": "1004"
+   },
+   "armor_options": [
+    {
+     "item_id": "11050001004",
+     "name": "轻型防弹衣",
+     "level": 1,
+     "max_durability": 30,
+     "covered_hit_areas": [
+      "upperChest"
+     ],
+     "source_legacy_id": "1004"
+    },
+    {
+     "item_id": "11050001003",
+     "name": "尼龙防弹衣",
+     "level": 1,
+     "max_durability": 25,
+     "covered_hit_areas": [
+      "upperChest"
+     ],
+     "source_legacy_id": "1003"
+    },
+    {
+     "item_id": "11050001001",
+     "name": "摩托马甲",
+     "level": 1,
+     "max_durability": 20,
+     "covered_hit_areas": [
+      "upperChest"
+     ],
+     "source_legacy_id": "1001"
+    },
+    {
+     "item_id": "11050001002",
+     "name": "安保防弹衣",
+     "level": 1,
+     "max_durability": 20,
+     "covered_hit_areas": [
+      "upperChest"
+     ],
+     "source_legacy_id": "1002"
+    }
+   ],
+   "helmet_options": [
+    {
+     "item_id": "11010001004",
+     "name": "户外棒球帽",
+     "level": 1,
+     "max_durability": 12,
+     "covered_hit_areas": [
+      "head"
+     ],
+     "source_legacy_id": "1004"
+    },
+    {
+     "item_id": "11010001001",
+     "name": "老式钢盔",
+     "level": 1,
+     "max_durability": 10,
+     "covered_hit_areas": [
+      "head"
+     ],
+     "source_legacy_id": "1001"
+    },
+    {
+     "item_id": "11010001002",
+     "name": "安保头盔",
+     "level": 1,
+     "max_durability": 10,
+     "covered_hit_areas": [
+      "head"
+     ],
+     "source_legacy_id": "1002"
+    },
+    {
+     "item_id": "11010001003",
+     "name": "奔尼帽",
+     "level": 1,
+     "max_durability": 10,
+     "covered_hit_areas": [
+      "head"
+     ],
+     "source_legacy_id": "1003"
+    }
+   ],
+   "preset_source": "derived-from-max-durability"
+  },
+  "2": {
+   "level": 2,
+   "armor": {
+    "item_id": "11050002004",
+    "name": "通用战术背心",
+    "level": 2,
+    "max_durability": 50,
+    "covered_hit_areas": [
+     "upperChest"
+    ],
+    "source_legacy_id": "2004"
+   },
+   "helmet": {
+    "item_id": "11010002004",
+    "name": "MC 防弹头盔",
+    "level": 2,
+    "max_durability": 20,
+    "covered_hit_areas": [
+     "head"
+    ],
+    "source_legacy_id": "2004"
+   },
+   "armor_options": [
+    {
+     "item_id": "11050002004",
+     "name": "通用战术背心",
+     "level": 2,
+     "max_durability": 50,
+     "covered_hit_areas": [
+      "upperChest"
+     ],
+     "source_legacy_id": "2004"
+    },
+    {
+     "item_id": "11050002003",
+     "name": "TG战术防弹衣",
+     "level": 2,
+     "max_durability": 40,
+     "covered_hit_areas": [
+      "upperChest"
+     ],
+     "source_legacy_id": "2003"
+    },
+    {
+     "item_id": "11050002002",
+     "name": "HT战术背心",
+     "level": 2,
+     "max_durability": 35,
+     "covered_hit_areas": [
+      "upperChest"
+     ],
+     "source_legacy_id": "2002"
+    },
+    {
+     "item_id": "11050002001",
+     "name": "简易防刺服",
+     "level": 2,
+     "max_durability": 30,
+     "covered_hit_areas": [
+      "upperChest"
+     ],
+     "source_legacy_id": "2001"
+    }
+   ],
+   "helmet_options": [
+    {
+     "item_id": "11010002004",
+     "name": "MC 防弹头盔",
+     "level": 2,
+     "max_durability": 20,
+     "covered_hit_areas": [
+      "head"
+     ],
+     "source_legacy_id": "2004"
+    },
+    {
+     "item_id": "11010002001",
+     "name": "复古摩托头盔",
+     "level": 2,
+     "max_durability": 18,
+     "covered_hit_areas": [
+      "head"
+     ],
+     "source_legacy_id": "2001"
+    },
+    {
+     "item_id": "11010002003",
+     "name": "DRO 战术头盔",
+     "level": 2,
+     "max_durability": 15,
+     "covered_hit_areas": [
+      "head"
+     ],
+     "source_legacy_id": "2003"
+    },
+    {
+     "item_id": "11010002002",
+     "name": "H01 战术头盔",
+     "level": 2,
+     "max_durability": 12,
+     "covered_hit_areas": [
+      "head"
+     ],
+     "source_legacy_id": "2002"
+    }
+   ],
+   "preset_source": "derived-from-max-durability"
+  },
+  "3": {
+   "level": 3,
+   "armor": {
+    "item_id": "11050003004",
+    "name": "射手战术背心",
+    "level": 3,
+    "max_durability": 85,
+    "covered_hit_areas": [
+     "upperChest",
+     "lowerChest"
+    ],
+    "source_legacy_id": "3004"
+   },
+   "helmet": {
+    "item_id": "11010003003",
+    "name": "DAS 防弹头盔",
+    "level": 3,
+    "max_durability": 40,
+    "covered_hit_areas": [
+     "head"
+    ],
+    "source_legacy_id": "3003"
+   },
+   "armor_options": [
+    {
+     "item_id": "11050003004",
+     "name": "射手战术背心",
+     "level": 3,
+     "max_durability": 85,
+     "covered_hit_areas": [
+      "upperChest",
+      "lowerChest"
+     ],
+     "source_legacy_id": "3004"
+    },
+    {
+     "item_id": "11050003003",
+     "name": "TG-H防弹衣",
+     "level": 3,
+     "max_durability": 75,
+     "covered_hit_areas": [
+      "upperChest",
+      "lowerChest"
+     ],
+     "source_legacy_id": "3003"
+    },
+    {
+     "item_id": "11050003002",
+     "name": "Hvk快拆防弹衣",
+     "level": 3,
+     "max_durability": 60,
+     "covered_hit_areas": [
+      "upperChest"
+     ],
+     "source_legacy_id": "3002"
+    },
+    {
+     "item_id": "11050003001",
+     "name": "制式防弹背心",
+     "level": 3,
+     "max_durability": 50,
+     "covered_hit_areas": [
+      "upperChest"
+     ],
+     "source_legacy_id": "3001"
+    }
+   ],
+   "helmet_options": [
+    {
+     "item_id": "11010003003",
+     "name": "DAS 防弹头盔",
+     "level": 3,
+     "max_durability": 40,
+     "covered_hit_areas": [
+      "head"
+     ],
+     "source_legacy_id": "3003"
+    },
+    {
+     "item_id": "11010003004",
+     "name": "MC201 防弹头盔",
+     "level": 3,
+     "max_durability": 34,
+     "covered_hit_areas": [
+      "head"
+     ],
+     "source_legacy_id": "3004"
+    },
+    {
+     "item_id": "11010003001",
+     "name": "防暴头盔",
+     "level": 3,
+     "max_durability": 28,
+     "covered_hit_areas": [
+      "head"
+     ],
+     "source_legacy_id": "3001"
+    },
+    {
+     "item_id": "11010003002",
+     "name": "H07 战术头盔",
+     "level": 3,
+     "max_durability": 20,
+     "covered_hit_areas": [
+      "head"
+     ],
+     "source_legacy_id": "3002"
+    }
+   ],
+   "preset_source": "official-firefight-ranking"
+  },
+  "4": {
+   "level": 4,
+   "armor": {
+    "item_id": "11050004004",
+    "name": "MK-2战术背心",
+    "level": 4,
+    "max_durability": 110,
+    "covered_hit_areas": [
+     "upperChest",
+     "lowerChest"
+    ],
+    "source_legacy_id": "4005"
+   },
+   "helmet": {
+    "item_id": "11010004004",
+    "name": "GT1 战术头盔",
+    "level": 4,
+    "max_durability": 48,
+    "covered_hit_areas": [
+     "head"
+    ],
+    "source_legacy_id": "4004"
+   },
+   "armor_options": [
+    {
+     "item_id": "11050004004",
+     "name": "MK-2战术背心",
+     "level": 4,
+     "max_durability": 110,
+     "covered_hit_areas": [
+      "upperChest",
+      "lowerChest"
+     ],
+     "source_legacy_id": "4005"
+    },
+    {
+     "item_id": "11050004003",
+     "name": "DT-AVS防弹衣",
+     "level": 4,
+     "max_durability": 100,
+     "covered_hit_areas": [
+      "upperChest",
+      "lowerChest"
+     ],
+     "source_legacy_id": "4004"
+    },
+    {
+     "item_id": "11050004002",
+     "name": "突击手防弹背心",
+     "level": 4,
+     "max_durability": 90,
+     "covered_hit_areas": [
+      "upperChest",
+      "lowerChest"
+     ],
+     "source_legacy_id": "4003"
+    },
+    {
+     "item_id": "11050004001",
+     "name": "武士防弹背心",
+     "level": 4,
+     "max_durability": 80,
+     "covered_hit_areas": [
+      "upperChest"
+     ],
+     "source_legacy_id": "4001"
+    },
+    {
+     "item_id": "11050004007",
+     "name": "HMP特勤防弹衣",
+     "level": 4,
+     "max_durability": 80,
+     "covered_hit_areas": [
+      "upperChest"
+     ],
+     "source_legacy_id": "4002"
+    }
+   ],
+   "helmet_options": [
+    {
+     "item_id": "11010004001",
+     "name": "D6 战术头盔",
+     "level": 4,
+     "max_durability": 55,
+     "covered_hit_areas": [
+      "head"
+     ],
+     "source_legacy_id": "4001"
+    },
+    {
+     "item_id": "11010004004",
+     "name": "GT1 战术头盔",
+     "level": 4,
+     "max_durability": 48,
+     "covered_hit_areas": [
+      "head"
+     ],
+     "source_legacy_id": "4004"
+    },
+    {
+     "item_id": "11010004003",
+     "name": "DICH 训练头盔",
+     "level": 4,
+     "max_durability": 35,
+     "covered_hit_areas": [
+      "head"
+     ],
+     "source_legacy_id": "4003"
+    },
+    {
+     "item_id": "11010004002",
+     "name": "MHS 战术头盔",
+     "level": 4,
+     "max_durability": 30,
+     "covered_hit_areas": [
+      "head"
+     ],
+     "source_legacy_id": "4002"
+    }
+   ],
+   "preset_source": "official-firefight-ranking"
+  },
+  "5": {
+   "level": 5,
+   "armor": {
+    "item_id": "11050005004",
+    "name": "重型突击背心",
+    "level": 5,
+    "max_durability": 125,
+    "covered_hit_areas": [
+     "upperChest",
+     "lowerChest",
+     "upperArm"
+    ],
+    "source_legacy_id": "5004"
+   },
+   "helmet": {
+    "item_id": "11010005004",
+    "name": "GN 重型头盔",
+    "level": 5,
+    "max_durability": 50,
+    "covered_hit_areas": [
+     "head"
+    ],
+    "source_legacy_id": "5004"
+   },
+   "armor_options": [
+    {
+     "item_id": "11050005004",
+     "name": "重型突击背心",
+     "level": 5,
+     "max_durability": 125,
+     "covered_hit_areas": [
+      "upperChest",
+      "lowerChest",
+      "upperArm"
+     ],
+     "source_legacy_id": "5004"
+    },
+    {
+     "item_id": "11050005002",
+     "name": "Hvk-2防弹衣",
+     "level": 5,
+     "max_durability": 115,
+     "covered_hit_areas": [
+      "upperChest",
+      "lowerChest",
+      "upperArm"
+     ],
+     "source_legacy_id": "5003"
+    },
+    {
+     "item_id": "11050005003",
+     "name": "FS复合防弹衣",
+     "level": 5,
+     "max_durability": 105,
+     "covered_hit_areas": [
+      "upperChest",
+      "lowerChest"
+     ],
+     "source_legacy_id": "5002"
+    },
+    {
+     "item_id": "11050005001",
+     "name": "精英防弹背心",
+     "level": 5,
+     "max_durability": 95,
+     "covered_hit_areas": [
+      "upperChest",
+      "lowerChest"
+     ],
+     "source_legacy_id": "5001"
+    }
+   ],
+   "helmet_options": [
+    {
+     "item_id": "11010005001",
+     "name": "Mask-1铁壁头盔",
+     "level": 5,
+     "max_durability": 75,
+     "covered_hit_areas": [
+      "head"
+     ],
+     "source_legacy_id": "5001"
+    },
+    {
+     "item_id": "11010005004",
+     "name": "GN 重型头盔",
+     "level": 5,
+     "max_durability": 50,
+     "covered_hit_areas": [
+      "head"
+     ],
+     "source_legacy_id": "5004"
+    },
+    {
+     "item_id": "11010005009",
+     "name": "GN 重型夜视头盔",
+     "level": 5,
+     "max_durability": 50,
+     "covered_hit_areas": [
+      "head"
+     ],
+     "source_legacy_id": "5006"
+    },
+    {
+     "item_id": "11010005002",
+     "name": "H09 防暴头盔",
+     "level": 5,
+     "max_durability": 45,
+     "covered_hit_areas": [
+      "head"
+     ],
+     "source_legacy_id": "5002"
+    },
+    {
+     "item_id": "11010005003",
+     "name": "DICH-1战术头盔",
+     "level": 5,
+     "max_durability": 40,
+     "covered_hit_areas": [
+      "head"
+     ],
+     "source_legacy_id": "5003"
+    },
+    {
+     "item_id": "11010005010",
+     "name": "GN 久战重型夜视头盔",
+     "level": 5,
+     "max_durability": 20,
+     "covered_hit_areas": [
+      "head"
+     ],
+     "source_legacy_id": "5005"
+    }
+   ],
+   "preset_source": "official-firefight-ranking"
+  },
+  "6": {
+   "level": 6,
+   "armor": {
+    "item_id": "11050006004",
+    "name": "泰坦防弹装甲",
+    "level": 6,
+    "max_durability": 150,
+    "covered_hit_areas": [
+     "upperChest",
+     "lowerChest",
+     "upperArm"
+    ],
+    "source_legacy_id": "6004"
+   },
+   "helmet": {
+    "item_id": "11010006003",
+    "name": "DICH-9重型头盔",
+    "level": 6,
+    "max_durability": 50,
+    "covered_hit_areas": [
+     "head"
+    ],
+    "source_legacy_id": "6001"
+   },
+   "armor_options": [
+    {
+     "item_id": "11050006004",
+     "name": "泰坦防弹装甲",
+     "level": 6,
+     "max_durability": 150,
+     "covered_hit_areas": [
+      "upperChest",
+      "lowerChest",
+      "upperArm"
+     ],
+     "source_legacy_id": "6004"
+    },
+    {
+     "item_id": "11050006001",
+     "name": "金刚防弹衣",
+     "level": 6,
+     "max_durability": 140,
+     "covered_hit_areas": [
+      "upperChest",
+      "lowerChest",
+      "upperArm"
+     ],
+     "source_legacy_id": "6003"
+    },
+    {
+     "item_id": "11050006003",
+     "name": "特里克MAS2.0装甲",
+     "level": 6,
+     "max_durability": 125,
+     "covered_hit_areas": [
+      "upperChest",
+      "lowerChest",
+      "upperArm"
+     ],
+     "source_legacy_id": "6002"
+    },
+    {
+     "item_id": "11050006002",
+     "name": "HA-2重型防弹衣",
+     "level": 6,
+     "max_durability": 115,
+     "covered_hit_areas": [
+      "upperChest",
+      "lowerChest",
+      "upperArm"
+     ],
+     "source_legacy_id": "6001"
+    }
+   ],
+   "helmet_options": [
+    {
+     "item_id": "11010006004",
+     "name": "GT5 指挥官头盔",
+     "level": 6,
+     "max_durability": 60,
+     "covered_hit_areas": [
+      "head"
+     ],
+     "source_legacy_id": "6004"
+    },
+    {
+     "item_id": "11010006002",
+     "name": "H70 精英头盔",
+     "level": 6,
+     "max_durability": 55,
+     "covered_hit_areas": [
+      "head"
+     ],
+     "source_legacy_id": "6002"
+    },
+    {
+     "item_id": "11010006007",
+     "name": "H70 夜视精英头盔",
+     "level": 6,
+     "max_durability": 55,
+     "covered_hit_areas": [
+      "head"
+     ],
+     "source_legacy_id": "6003"
+    },
+    {
+     "item_id": "11010006003",
+     "name": "DICH-9重型头盔",
+     "level": 6,
+     "max_durability": 50,
+     "covered_hit_areas": [
+      "head"
+     ],
+     "source_legacy_id": "6001"
+    }
+   ],
+   "preset_source": "official-firefight-ranking"
+  }
+ },
+ "source_presets": {
+  "3": {
+   "level": 3,
+   "helmet_source_legacy_id": "3003",
+   "helmet_level": 3,
+   "helmet_durability": 40,
+   "armor_source_legacy_id": "3004",
+   "armor_level": 3,
+   "armor_durability": 85
+  },
+  "4": {
+   "level": 4,
+   "helmet_source_legacy_id": "4004",
+   "helmet_level": 4,
+   "helmet_durability": 48,
+   "armor_source_legacy_id": "4005",
+   "armor_level": 4,
+   "armor_durability": 110
+  },
+  "5": {
+   "level": 5,
+   "helmet_source_legacy_id": "5004",
+   "helmet_level": 5,
+   "helmet_durability": 50,
+   "armor_source_legacy_id": "5004",
+   "armor_level": 5,
+   "armor_durability": 125
+  },
+  "6": {
+   "level": 6,
+   "helmet_source_legacy_id": "6001",
+   "helmet_level": 6,
+   "helmet_durability": 50,
+   "armor_source_legacy_id": "6004",
+   "armor_level": 6,
+   "armor_durability": 150
+  }
+ }
+}

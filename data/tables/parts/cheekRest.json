@@ -1,0 +1,302 @@
+{
+  "slot": "cheekRest",
+  "parts": [
+    {
+      "item_id": "13290000007",
+      "name": "内部配件 13290000007",
+      "slot": "cheekRest",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13290000010",
+      "name": "内部配件 13290000010",
+      "slot": "cheekRest",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13290000014",
+      "name": "MDR.308托腮板",
+      "slot": "cheekRest",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 16.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 16.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13290000014:tune:thickness:0",
+          "dimension": "厚度",
+          "unit": "毫米",
+          "min_value": -50.0,
+          "max_value": 50.0,
+          "step": 1.0,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "GGunkickRandom",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  -0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "target": "GGunkickSpring",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  -0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "target": "GAiming_ADSTime",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  -0.05,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  0.05,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13290000014:tune:weight:1",
+          "dimension": "配重",
+          "unit": "g",
+          "min_value": -50.0,
+          "max_value": 50.0,
+          "step": 1.0,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "GRecoil_V",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  0.06,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  -0.06,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "target": "GRecoil_H",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  0.06,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  -0.06,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "target": "GBreathScale",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  -0.18,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  0.18,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  0.18,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
