@@ -28,6 +28,17 @@ if TYPE_CHECKING:  # pragma: no cover - 仅类型标注
     from src.engine.ammo_pricing import AmmoPriceTable
     from src.engine.weapon_pricing import WeaponPriceTable
 
+#: 当前赛季（赛季更迭时人工更新；榜单弹药候选只保留常驻与当前赛季限定弹，
+#: 过期赛季限定弹视为实际无价值——持有者之外无法获取，数据仍保留在弹药表）。
+CURRENT_SEASON = "S11"
+
+
+def _ammo_in_season(record: Mapping[str, Any]) -> bool:
+    """常驻弹恒有效；赛季限定弹仅当前赛季有效（``season_note`` 如 "S8赛季限定子弹"）。"""
+    if not record.get("is_season_limited"):
+        return True
+    return CURRENT_SEASON in (record.get("season_note") or "")
+
 
 def pick_priced_ammos(
     game_data: Any,
@@ -63,6 +74,7 @@ def pick_priced_ammos(
             record
             for record in candidates
             if price_table.price_for(str(record["ammo_item_id"])) is not None
+            and _ammo_in_season(record)
         ),
         key=lambda record: str(record["ammo_item_id"]),
     )

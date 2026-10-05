@@ -93,8 +93,11 @@ MERGED_AMMO_IDS: Dict[str, str] = {
     "37250400005": "37250300001",
 }
 
-# 判重时允许存在差异的身份键（非弹道字段）；其余键必须全等才可合并
-_AMMO_IDENTITY_KEYS = {"ammo_item_id", "name", "rarity", "source_legacy_ammo_id"}
+# 判重时允许存在差异的身份与元数据键（非弹道字段）；其余键必须全等才可合并
+_AMMO_IDENTITY_KEYS = {
+    "ammo_item_id", "name", "rarity", "source_legacy_ammo_id",
+    "is_season_limited", "season_note",
+}
 
 # 需要落盘的 profile 库：散布 / 后坐 / 机动 / 瞄具 / 弹道。
 # 配件可通过 `Initial` 修饰符替换这些引用（例如消音枪管自带更优的 hipSpread 与 recoil），
@@ -171,6 +174,10 @@ def normalize_ammo(
             "ammo_type_id": str(raw.get("ammoTypeId") or ""),
             "rarity": raw.get("rarity"),
             "penetration_level": int(raw.get("penetrationLevel") or 0),
+            # 赛季限定标注（如 BCP-SUB「S8赛季限定子弹」）：结构性获取性信息，
+            # 赛季内市场可得、赛季末绝版——与每日行情价格解耦。
+            "is_season_limited": bool(raw.get("isSeasonLimited")),
+            "season_note": raw.get("description"),
             "flesh_damage_multiplier": flesh_cat,
             "armor_damage_multiplier": armor_cat,
             "limb_damage_multiplier": float(combat.get("limbDamageMultiplier") or 1.0),

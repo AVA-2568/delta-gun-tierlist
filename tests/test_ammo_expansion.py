@@ -1,14 +1,18 @@
-"""弹维度展开测试：同枪多款有价弹各出一行；缺价弹不上榜。
+"""弹维度展开测试：同枪多款有效弹各出一行；缺价弹与过期赛季限定弹不上榜。
 
 口径（2026-10-05 榜单改造）：
 
-- 候选弹 = 该口径该等级全部弹药中 ``price_daily`` 非 null 者（有价 = 玩家市场可得）；
-- 每款有价弹独立束搜索、独立出状态行（行自带弹药名 / 单发价 / 成本）；
-- 该等级全部弹缺价 → 该枪排除（与「口径无该等级弹药」同语义）；
+- 候选弹 = 该口径该等级全部弹药中 ``price_daily`` 非 null（有价 = 玩家市场可得）
+  **且非过期赛季限定**（常驻恒有效；赛季限定仅当前赛季有效，见
+  ranking.CURRENT_SEASON 常量）；
+- 每款有效弹独立束搜索、独立出状态行（行自带弹药名 / 单发价 / 成本）；
+- 该等级全部弹无效 → 该枪排除（与「口径无该等级弹药」同语义）；
 - 价格表未配置（``None`` / 空表）→ 价格维度不激活，回退官方池单弹。
 
-数据锚点：5.56x45mm 4 级 = M855A1（``37100400001``）+ M855A1 APC+
-（``37100400002``）；4.6x30mm 4 级 = FMJ SX + FMJ ST（真实价格表两款均有价）。
+数据锚点：5.56x45mm 4 级 = M855A1（``37100400001``，常驻）+ M855A1 APC+
+（``37100400002``，S9 赛季限定——即使配价也被赛季过滤排除）；4.6x30mm 4 级 =
+FMJ SX + FMJ ST（真实价格表两款均有价）。多弹展开测试用 monkeypatch 将
+APC+ 模拟为常驻弹（隔离赛季维度，专注展开逻辑）。
 """
 
 import os
@@ -35,6 +39,15 @@ def gd():
     return load_game_data(os.path.join(ROOT, "data", "game"))
 
 
+def _force_regular(gd, ammo_item_id):
+    """把指定弹模拟为常驻（剥除赛季限定标注），隔离赛季维度测展开逻辑。"""
+    for record in gd.ammo:
+        if record["ammo_item_id"] == ammo_item_id:
+            record["is_season_limited"] = False
+            record["season_note"] = None
+            return
+
+
 def _run(gd, price_table, key=M4A1, scenario=SCENARIO_44, beam_width=8):
     return rank_weapons_for_scenario(
         gd, scenario, beam_width=beam_width, profile_keys=[key],
@@ -54,10 +67,25 @@ def test_pick_priced_ammos_filters_unpriced(gd):
 
 
 def test_pick_priced_ammos_all_priced_sorted_by_item_id(gd):
-    """多款有价弹全部返回，按 ammo_item_id 升序（确定性枚举顺序）。"""
+    """多款有效弹全部返回，按 ammo_item_id 升序（确定性枚举顺序）。"""
+    _force_regular(gd, M855A1_APC)
     table = AmmoPriceTable(prices={M855A1_APC: 2000, M855A1: 1641})
     ammos = pick_priced_ammos(gd, M4A1, 4, table)
     assert [a["ammo_item_id"] for a in ammos] == [M855A1, M855A1_APC]
+
+
+def test_pick_priced_ammos_filters_expired_season(gd):
+    """过期赛季限定弹即使配价也被过滤（当前 S11，S9 赛季限定子弹排除）。"""
+    for record in gd.ammo:
+        if record["ammo_item_id"] == M855A1_APC:
+            record["is_season_limited"] = True
+            record["season_note"] = "S9赛季限定子弹"
+            break
+    table = AmmoPriceTable(prices={M855A1_APC: 2000, M855A1: 1641})
+    ammos = pick_priced_ammos(gd, M4A1, 4, table)
+    assert [a["ammo_item_id"] for a in ammos] == [M855A1]
+    # 恢复常驻模拟供后续多弹展开测试使用
+    _force_regular(gd, M855A1_APC)
 
 
 def test_pick_priced_ammos_no_level_ammo_raises(gd):
@@ -79,6 +107,7 @@ def test_pick_priced_ammos_inactive_price_dimension_returns_empty(gd):
 
 def test_multi_ammo_expands_base_rows(gd):
     """两款有价弹 → 本体两行，各带自己的弹药名与单价。"""
+    _force_regular(gd, M855A1_APC)
     table = AmmoPriceTable(prices={M855A1: 1641, M855A1_APC: 2000})
     rankings, _thresholds, excluded = _run(gd, table)
     assert excluded == []
@@ -94,6 +123,7 @@ def test_multi_ammo_expands_base_rows(gd):
 
 def test_multi_ammo_expands_beam_states_per_ammo(gd):
     """每款弹独立束搜索：改装状态行按弹各成一套，行自带所属弹。"""
+    _force_regular(gd, M855A1_APC)
     table = AmmoPriceTable(prices={M855A1: 1641, M855A1_APC: 2000})
     rankings, _thresholds, _excluded = _run(gd, table)
     state_rows = [r for r in rankings if r.entry_kind == "state"]
@@ -111,6 +141,7 @@ def test_multi_ammo_expands_beam_states_per_ammo(gd):
 
 def test_multi_ammo_rows_carry_own_cost(gd):
     """击杀成本 / 起枪预估价按该行所配弹药的单发价计。"""
+    _force_regular(gd, M855A1_APC)
     table = AmmoPriceTable(prices={M855A1: 1000, M855A1_APC: 2000})
     rankings, _thresholds, _excluded = _run(gd, table, beam_width=8)
     for entry in rankings:
@@ -122,6 +153,7 @@ def test_multi_ammo_rows_carry_own_cost(gd):
 
 def test_all_ammos_ranked_and_tiered_together(gd):
     """同枪多弹的行合并统一排名与 T0–T3 分层（同弹内 TTK 互异行全都有层级）。"""
+    _force_regular(gd, M855A1_APC)
     table = AmmoPriceTable(prices={M855A1: 1641, M855A1_APC: 2000})
     rankings, thresholds, _excluded = _run(gd, table)
     assert rankings
