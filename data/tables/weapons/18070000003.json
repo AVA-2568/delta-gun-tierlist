@@ -1,0 +1,879 @@
+{
+  "base": {
+    "weapon_id": "18070000003",
+    "slug": "357左轮",
+    "name": ".357左轮",
+    "category": "手枪",
+    "category_id": "pistol",
+    "ammo_type_id": "22",
+    "caliber": ".357 Magnum",
+    "ammo_item_ids": [
+      "37220000001",
+      "37220200001",
+      "37220300001",
+      "37220400001"
+    ],
+    "rpm": 181.8181818181818,
+    "fire_interval_s": 0.33,
+    "sdk_timing": {
+      "fire_interval_s": 0.33,
+      "fire_cd_s": 0.33,
+      "fire_delay_s": 0.1,
+      "chamber_time_s": 0.0,
+      "fire_rate_mode": "Auto",
+      "burst_count": 3,
+      "burst_fire_cd_s": 0.05,
+      "burst_fire_interval_s": 0.05,
+      "burst_interval_s": 0.05,
+      "auto_fire_single_interval_s": 1.5,
+      "auto_fire_burst_interval_s": 0.0,
+      "single_fire_tolerant_s": 0.2
+    },
+    "fire_modes": [
+      "Single"
+    ],
+    "selected_fire_mode": "Single",
+    "burst_count": 3,
+    "muzzle_velocity_mps": 340.0,
+    "projectile_count": 1,
+    "flesh_damage": 56.0,
+    "armor_damage": 39.0,
+    "hitbox_multipliers": {
+      "head": 2.2,
+      "upperChest": 1.0,
+      "lowerChest": 0.9,
+      "upperArm": 0.4,
+      "lowerArm": 0.4,
+      "thigh": 0.4,
+      "lowerLeg": 0.4
+    },
+    "damage_profile": {
+      "profile_id": "authoring:weapon:18070000003:sol:damage",
+      "base_damage": 56.0,
+      "base_armor_damage": 39.0,
+      "base_penetration_level": 1,
+      "hitbox_multipliers": {
+        "head": 2.2,
+        "upperChest": 1.0,
+        "lowerChest": 0.9,
+        "upperArm": 0.4,
+        "lowerArm": 0.4,
+        "thigh": 0.4,
+        "lowerLeg": 0.4
+      },
+      "hitbox_multiplier_overrides": {}
+    },
+    "damage_profile_source": "combat-pack",
+    "acoustics": {
+      "shot_distance_m": 300.0
+    },
+    "falloff_segments": [
+      {
+        "from_m": 0.0,
+        "to_m": 35.0,
+        "rate": 1.0
+      },
+      {
+        "from_m": 35.0,
+        "to_m": 1000.0,
+        "rate": 0.8
+      }
+    ],
+    "valid_range_m": 35.0,
+    "max_distance_m": 500.0,
+    "clip_capacity": 6,
+    "max_carried_ammo": 36,
+    "timings": {
+      "reload_s": 3.5,
+      "empty_reload_s": 3.5,
+      "equip_s": 0.33,
+      "holster_s": 0.36,
+      "sprint_to_fire_s": 0.08
+    },
+    "panel_attributes": {
+      "effective_range": 35.0,
+      "recoil_control": 34.0,
+      "waist_accuracy": 65.0,
+      "handling": 62.0,
+      "stability": 43.0
+    },
+    "aiming": {
+      "ads_on_s": 0.299,
+      "ads_off_s": 0.299,
+      "zoom_rate": 1.25
+    },
+    "references": {
+      "waist_spread_profile_id": "authoring:weapon:18070000003:hipSpread",
+      "waist_recoil_profile_id": "authoring:weapon:18070000003:hipRecoil",
+      "aiming_profile_id": "authoring:weapon:18070000003:aiming",
+      "bullet_profile_id": "authoring:weapon:18070000003:sol:bullet",
+      "movement_profile_id": "authoring:weapon:18070000003:sol:movement",
+      "attacker_profile_id": "authoring:weapon:18070000003:sol:attacker"
+    },
+    "sway": {
+      "base_breath_range_degrees": 0.33,
+      "gun_sway_be_hit_scale": 0.8,
+      "camera_sway_be_hit_scale": 0.8
+    },
+    "spread": {
+      "hip": {
+        "base_degrees": {
+          "horizontal": 3.0576,
+          "vertical": 3.0576
+        },
+        "max_degrees": {
+          "horizontal": 7.5,
+          "vertical": 7.5
+        },
+        "runtime_scale": 1.25
+      },
+      "ads": {
+        "base_degrees": {
+          "horizontal": 0,
+          "vertical": 0
+        },
+        "max_degrees": {
+          "horizontal": 180,
+          "vertical": 180
+        },
+        "runtime_scale": 1.25
+      }
+    },
+    "recoil": {
+      "hip": {
+        "loop": {
+          "horizontal_values": [
+            0.0
+          ],
+          "vertical_values": [
+            0.0
+          ],
+          "horizontal_scale": 1.0,
+          "vertical_scale": 1.0
+        }
+      },
+      "ads": {
+        "loop": {
+          "horizontal_values": [
+            0.0
+          ],
+          "vertical_values": [
+            0.0
+          ],
+          "horizontal_scale": 1.0,
+          "vertical_scale": 1.0
+        }
+      }
+    },
+    "sockets": [
+      {
+        "socket_id": 1,
+        "options": [
+          "13030000060",
+          "13030000156",
+          "13030000174"
+        ]
+      },
+      {
+        "socket_id": 2,
+        "options": [
+          "13020000167",
+          "13020000457",
+          "13020000458",
+          "13020000459",
+          "13020000484",
+          "13020000485"
+        ]
+      },
+      {
+        "socket_id": 11,
+        "options": [
+          "13110000040",
+          "13110000042",
+          "13110000043",
+          "13110000044",
+          "13110000046",
+          "13110000047",
+          "13110000048",
+          "13110000050",
+          "13110000051",
+          "13110000052",
+          "13110000053",
+          "13110000057",
+          "13110000061",
+          "13110000062",
+          "13110000063",
+          "13110000064",
+          "13110000065",
+          "13110000066",
+          "13110000067",
+          "13110000069",
+          "13110000072",
+          "13110000073",
+          "13110000074",
+          "13110000082",
+          "13110000085",
+          "13110000087",
+          "13110000089",
+          "13110000091",
+          "13110000093",
+          "13110000098",
+          "13110000099",
+          "13110000102",
+          "13110000105",
+          "13210000014"
+        ]
+      }
+    ],
+    "provider_sockets": {
+      "13020000167": [
+        {
+          "socket_id": 6,
+          "options": [
+            "13130000172",
+            "13130000192",
+            "13130000193",
+            "13130000194",
+            "13130000195"
+          ]
+        }
+      ],
+      "13020000457": [
+        {
+          "socket_id": 6,
+          "options": [
+            "13130000172",
+            "13130000192",
+            "13130000193",
+            "13130000194",
+            "13130000195"
+          ]
+        }
+      ],
+      "13020000458": [
+        {
+          "socket_id": 6,
+          "options": [
+            "13130000172",
+            "13130000192",
+            "13130000193",
+            "13130000194",
+            "13130000195",
+            "13130000224"
+          ]
+        }
+      ],
+      "13020000459": [
+        {
+          "socket_id": 6,
+          "options": [
+            "13130000172",
+            "13130000192",
+            "13130000193",
+            "13130000194",
+            "13130000195",
+            "13130000224"
+          ]
+        }
+      ],
+      "13020000484": [
+        {
+          "socket_id": 6,
+          "options": [
+            "13130000172",
+            "13130000192",
+            "13130000193",
+            "13130000194",
+            "13130000195"
+          ]
+        },
+        {
+          "socket_id": 8,
+          "options": [
+            "13140000021",
+            "13140000022",
+            "13140000023",
+            "13140000024",
+            "13140000025",
+            "13140000026",
+            "13140000027",
+            "13140000028",
+            "13140000029",
+            "13140000030",
+            "13140000031",
+            "13140000032",
+            "13140000033",
+            "13140000034",
+            "13140000035",
+            "13140000036",
+            "13140000037",
+            "13140000038",
+            "13140000039",
+            "13140000040",
+            "13140000041",
+            "13140000042",
+            "13140000043",
+            "13140000044"
+          ]
+        },
+        {
+          "socket_id": 10,
+          "options": [
+            "13170000004"
+          ]
+        },
+        {
+          "socket_id": 17,
+          "options": [
+            "13160000005",
+            "13160000006",
+            "13160000007",
+            "13160000009",
+            "13160000010",
+            "13160000018",
+            "13320000001",
+            "13320000005",
+            "13320000010",
+            "13320000015",
+            "13320000020"
+          ]
+        },
+        {
+          "socket_id": 19,
+          "options": [
+            "13150000003",
+            "13160000005",
+            "13160000006",
+            "13160000007",
+            "13160000008",
+            "13160000009",
+            "13160000010",
+            "13160000014",
+            "13160000016",
+            "13160000020"
+          ]
+        },
+        {
+          "socket_id": 20,
+          "options": [
+            "13150000003",
+            "13160000005",
+            "13160000006",
+            "13160000007",
+            "13160000008",
+            "13160000009",
+            "13160000010",
+            "13160000014",
+            "13160000016",
+            "13160000018",
+            "13160000020"
+          ]
+        },
+        {
+          "socket_id": 32,
+          "options": [
+            "13320000001",
+            "13320000005",
+            "13320000010",
+            "13320000015",
+            "13320000020"
+          ]
+        },
+        {
+          "socket_id": 34,
+          "options": [
+            "13320000001",
+            "13320000005",
+            "13320000010",
+            "13320000015",
+            "13320000020"
+          ]
+        },
+        {
+          "socket_id": 35,
+          "options": [
+            "13320000001",
+            "13320000005",
+            "13320000010",
+            "13320000015",
+            "13320000020"
+          ]
+        }
+      ],
+      "13020000485": [
+        {
+          "socket_id": 6,
+          "options": [
+            "13130000172",
+            "13130000192",
+            "13130000193",
+            "13130000194",
+            "13130000195"
+          ]
+        },
+        {
+          "socket_id": 8,
+          "options": [
+            "13140000021",
+            "13140000022",
+            "13140000023",
+            "13140000024",
+            "13140000025",
+            "13140000026",
+            "13140000027",
+            "13140000028",
+            "13140000029",
+            "13140000030",
+            "13140000031",
+            "13140000032",
+            "13140000033",
+            "13140000034",
+            "13140000035",
+            "13140000036",
+            "13140000037",
+            "13140000038",
+            "13140000039",
+            "13140000040",
+            "13140000041",
+            "13140000042",
+            "13140000043",
+            "13140000044"
+          ]
+        },
+        {
+          "socket_id": 10,
+          "options": [
+            "13170000004"
+          ]
+        },
+        {
+          "socket_id": 17,
+          "options": [
+            "13160000005",
+            "13160000006",
+            "13160000007",
+            "13160000009",
+            "13160000010",
+            "13160000018",
+            "13320000001",
+            "13320000005",
+            "13320000010",
+            "13320000015",
+            "13320000020"
+          ]
+        },
+        {
+          "socket_id": 19,
+          "options": [
+            "13160000005",
+            "13160000006",
+            "13160000007",
+            "13160000008",
+            "13160000009",
+            "13160000010",
+            "13160000014",
+            "13160000016",
+            "13160000020"
+          ]
+        },
+        {
+          "socket_id": 20,
+          "options": [
+            "13160000005",
+            "13160000006",
+            "13160000007",
+            "13160000008",
+            "13160000009",
+            "13160000010",
+            "13160000014",
+            "13160000016",
+            "13160000018",
+            "13160000020"
+          ]
+        },
+        {
+          "socket_id": 32,
+          "options": [
+            "13320000001",
+            "13320000005",
+            "13320000010",
+            "13320000015",
+            "13320000020"
+          ]
+        },
+        {
+          "socket_id": 34,
+          "options": [
+            "13320000001",
+            "13320000005",
+            "13320000010",
+            "13320000015",
+            "13320000020"
+          ]
+        },
+        {
+          "socket_id": 35,
+          "options": [
+            "13320000001",
+            "13320000005",
+            "13320000010",
+            "13320000015",
+            "13320000020"
+          ]
+        }
+      ],
+      "13030000174": [
+        {
+          "socket_id": 3,
+          "options": [
+            "13040000178"
+          ]
+        }
+      ],
+      "13110000051": [
+        {
+          "socket_id": 40,
+          "options": [
+            "13110000060"
+          ]
+        }
+      ],
+      "13110000052": [
+        {
+          "socket_id": 45,
+          "options": [
+            "13370000001"
+          ]
+        }
+      ],
+      "13110000057": [
+        {
+          "socket_id": 40,
+          "options": [
+            "13110000043",
+            "13110000044",
+            "13110000062",
+            "13110000063",
+            "13110000087",
+            "13110000102",
+            "13200000008"
+          ]
+        },
+        {
+          "socket_id": 45,
+          "options": [
+            "13370000001"
+          ]
+        }
+      ],
+      "13110000069": [
+        {
+          "socket_id": 45,
+          "options": [
+            "13370000001"
+          ]
+        }
+      ],
+      "13110000082": [
+        {
+          "socket_id": 45,
+          "options": [
+            "13370000001"
+          ]
+        }
+      ],
+      "13110000091": [
+        {
+          "socket_id": 45,
+          "options": [
+            "13370000001"
+          ]
+        }
+      ],
+      "13110000105": [
+        {
+          "socket_id": 40,
+          "options": [
+            "13110000043",
+            "13110000044",
+            "13110000062",
+            "13110000063",
+            "13110000087",
+            "13110000102"
+          ]
+        }
+      ],
+      "13210000014": [
+        {
+          "socket_id": 11,
+          "options": [
+            "13110000043",
+            "13110000044",
+            "13110000062",
+            "13110000063",
+            "13110000087",
+            "13110000102"
+          ]
+        }
+      ]
+    },
+    "coupling": [
+      {
+        "condition_type": "always",
+        "condition_item_ids": [],
+        "target_socket_id": 1,
+        "mounted_item_id": "13030000156",
+        "mount_policy": "default"
+      },
+      {
+        "condition_type": "always",
+        "condition_item_ids": [],
+        "target_socket_id": 2,
+        "mounted_item_id": "13020000457",
+        "mount_policy": "default"
+      },
+      {
+        "condition_type": "anyMounted",
+        "condition_item_ids": [
+          "13110000051"
+        ],
+        "target_socket_id": 40,
+        "mounted_item_id": "13110000060",
+        "mount_policy": "default"
+      }
+    ],
+    "default_items": {
+      "1": "13030000156",
+      "2": "13020000457",
+      "40": "13110000060"
+    },
+    "extra_occupancy": {
+      "13140000031": [
+        10,
+        36
+      ],
+      "13140000038": [
+        10,
+        36
+      ],
+      "13170000004": [
+        18
+      ],
+      "13200000008": [
+        31
+      ]
+    },
+    "combat_variant_item_ids": [],
+    "attribute_rules": {
+      "2": {
+        "directRuleTargets": [
+          "GBullet_Velocity",
+          "GBullet_Range",
+          "GSpread_ADS"
+        ],
+        "curveMappings": [
+          {
+            "target": "GBullet_Range",
+            "mappingType": "AbsoluteMappingThenScale",
+            "curveIds": {
+              "sol": "authoring:mechanism:effectiveRangeDefault:0:sol",
+              "mp": "authoring:mechanism:effectiveRangeDefault:0:mp",
+              "bd": "authoring:mechanism:effectiveRangeDefault:0:bd"
+            }
+          }
+        ]
+      },
+      "3": {
+        "directRuleTargets": [
+          "GRecoil_V",
+          "GGunkick_ADSRecoilH",
+          "GRecoilRecovery"
+        ],
+        "curveMappings": [
+          {
+            "target": "GRecoil_H",
+            "mappingType": "DeltaMappingThenScale",
+            "curveIds": {
+              "sol": "authoring:mechanism:recoilControlDefault:0:sol",
+              "mp": "authoring:mechanism:recoilControlDefault:0:mp",
+              "bd": "authoring:mechanism:recoilControlDefault:0:bd"
+            }
+          },
+          {
+            "target": "GRecoil_V",
+            "mappingType": "DeltaMappingThenScale",
+            "curveIds": {
+              "sol": "authoring:mechanism:recoilControlDefault:0:sol",
+              "mp": "authoring:mechanism:recoilControlDefault:0:mp",
+              "bd": "authoring:mechanism:recoilControlDefault:0:bd"
+            }
+          },
+          {
+            "target": "GGunkickSpring",
+            "mappingType": "DeltaMappingThenScale",
+            "curveIds": {
+              "sol": "authoring:mechanism:recoilControlDefault:1:sol",
+              "mp": "authoring:mechanism:recoilControlDefault:1:mp",
+              "bd": "authoring:mechanism:recoilControlDefault:1:bd"
+            }
+          },
+          {
+            "target": "GGunkickRandom",
+            "mappingType": "DeltaMappingThenScale",
+            "curveIds": {
+              "sol": "authoring:mechanism:recoilControlDefault:1:sol",
+              "mp": "authoring:mechanism:recoilControlDefault:1:mp",
+              "bd": "authoring:mechanism:recoilControlDefault:1:bd"
+            }
+          }
+        ]
+      },
+      "4": {
+        "directRuleTargets": [
+          "GRecoil_Hip",
+          "GSpread_Hip",
+          "GSpread_Hip_Continuous"
+        ],
+        "curveMappings": [
+          {
+            "target": "GSpread_Hip",
+            "mappingType": "DeltaMappingThenScale",
+            "curveIds": {
+              "sol": "authoring:mechanism:hipFireAccuracyDefault:0:sol",
+              "mp": "authoring:mechanism:hipFireAccuracyDefault:0:mp",
+              "bd": "authoring:mechanism:hipFireAccuracyDefault:0:bd"
+            }
+          },
+          {
+            "target": "GSpread_Hip_Continuous",
+            "mappingType": "DeltaMappingThenScale",
+            "curveIds": {
+              "sol": "authoring:mechanism:hipFireAccuracyDefault:0:sol",
+              "mp": "authoring:mechanism:hipFireAccuracyDefault:0:mp",
+              "bd": "authoring:mechanism:hipFireAccuracyDefault:0:bd"
+            }
+          }
+        ]
+      },
+      "5": {
+        "directRuleTargets": [
+          "GAiming_ADSTime",
+          "GSprintToFireTime",
+          "GMovement_ADSSpeed"
+        ],
+        "curveMappings": [
+          {
+            "target": "GAiming_ADSTime",
+            "mappingType": "AbsoluteMapping",
+            "curveIds": {
+              "sol": "authoring:mechanism:handlingDefault:0:sol",
+              "mp": "authoring:mechanism:handlingDefault:0:mp",
+              "bd": "authoring:mechanism:handlingDefault:0:bd"
+            }
+          },
+          {
+            "target": "GSprintToFireTime",
+            "mappingType": "DeltaMappingThenScale",
+            "curveIds": {
+              "sol": "authoring:mechanism:handlingDefault:1:sol",
+              "mp": "authoring:mechanism:handlingDefault:1:mp",
+              "bd": "authoring:mechanism:handlingDefault:1:bd"
+            }
+          },
+          {
+            "target": "GMovement_ADSSpeed",
+            "mappingType": "DeltaMapping",
+            "curveIds": {
+              "sol": "authoring:mechanism:handlingDefault:2:sol",
+              "mp": "authoring:mechanism:handlingDefault:2:mp",
+              "bd": "authoring:mechanism:handlingDefault:2:bd"
+            }
+          },
+          {
+            "target": "GMovement_SilentWalkSpeed",
+            "mappingType": "DeltaMapping",
+            "curveIds": {
+              "sol": "authoring:mechanism:handlingDefault:2:sol",
+              "mp": "authoring:mechanism:handlingDefault:2:mp",
+              "bd": "authoring:mechanism:handlingDefault:2:bd"
+            }
+          }
+        ]
+      },
+      "6": {
+        "directRuleTargets": [],
+        "curveMappings": [
+          {
+            "target": "GBreathScale",
+            "mappingType": "DeltaMappingThenScale",
+            "curveIds": {
+              "sol": "authoring:mechanism:stabilityDefault:0:sol",
+              "mp": "authoring:mechanism:stabilityDefault:0:mp",
+              "bd": "authoring:mechanism:stabilityDefault:0:bd"
+            }
+          },
+          {
+            "target": "GBreathTime",
+            "mappingType": "DeltaMappingThenScale",
+            "curveIds": {
+              "sol": "authoring:mechanism:stabilityDefault:1:sol",
+              "mp": "authoring:mechanism:stabilityDefault:1:mp",
+              "bd": "authoring:mechanism:stabilityDefault:1:bd"
+            }
+          },
+          {
+            "target": "GBreathRecoil",
+            "mappingType": "DeltaMappingThenScale",
+            "curveIds": {
+              "sol": "authoring:mechanism:stabilityDefault:2:sol",
+              "mp": "authoring:mechanism:stabilityDefault:2:mp",
+              "bd": "authoring:mechanism:stabilityDefault:2:bd"
+            }
+          },
+          {
+            "target": "BehitGunSway",
+            "mappingType": "DeltaMappingThenScale",
+            "curveIds": {
+              "sol": "authoring:mechanism:stabilityDefault:3:sol",
+              "mp": "authoring:mechanism:stabilityDefault:3:mp",
+              "bd": "authoring:mechanism:stabilityDefault:3:bd"
+            }
+          },
+          {
+            "target": "AimMoveGunSway",
+            "mappingType": "DeltaMappingThenScale",
+            "curveIds": {
+              "sol": "authoring:mechanism:stabilityDefault:4:sol",
+              "mp": "authoring:mechanism:stabilityDefault:4:mp",
+              "bd": "authoring:mechanism:stabilityDefault:4:bd"
+            }
+          },
+          {
+            "target": "GRecoil_HShake",
+            "mappingType": "DeltaMappingThenScale",
+            "curveIds": {
+              "sol": "authoring:mechanism:stabilityDefault:5:sol",
+              "mp": "authoring:mechanism:stabilityDefault:5:mp",
+              "bd": "authoring:mechanism:stabilityDefault:5:bd"
+            }
+          },
+          {
+            "target": "GRecoil_VShake",
+            "mappingType": "DeltaMappingThenScale",
+            "curveIds": {
+              "sol": "authoring:mechanism:stabilityDefault:5:sol",
+              "mp": "authoring:mechanism:stabilityDefault:5:mp",
+              "bd": "authoring:mechanism:stabilityDefault:5:bd"
+            }
+          }
+        ]
+      }
+    },
+    "attribute_rule_overrides": {},
+    "display_name": ".357左轮",
+    "reference_candidates": [],
+    "configuration_count": 0,
+    "weapon_type": "pistol"
+  },
+  "variants": []
+}

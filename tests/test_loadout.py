@@ -63,8 +63,14 @@ def test_pruning_shrinks_space_dramatically(gd):
     assert naive < 500_000  # 未剪枝时约 6.1e21
 
 
-def test_ttk_is_shots_times_interval_only(gd):
-    """当前口径：TTK = (E[N] − 1) × 射击间隔；开镜与飞行时间仅作参考、不参与。"""
+def test_ttk_is_delay_plus_timeline_plus_flight(gd):
+    """新口径（与 dfttk 前端默认一致）：TTK = 首发扳机延迟 + 第 E 发击发时刻
+    + 弹丸飞行时间（不含精校修正的原始初速）。
+
+    M4A1 base 为全自动、零扳机延迟、无精校 → 原始初速等于合成初速：
+    0 m 处 TTK = (E0 − 1) × 间隔（飞行时间为 0）；80 m 处比 (E80 − 1) × 间隔
+    恰多出 80 m / 原始初速的弹丸飞行时间。
+    """
     from src.engine import engagement as eg
     from src.engine.weapon_state import WeaponStateResolver
 
@@ -73,17 +79,26 @@ def test_ttk_is_shots_times_interval_only(gd):
     ammo = solver.ammo_for("18010000001:base")
     kwargs = (state, ammo, solver.armor, solver.probabilities)
 
+    # M4A1 base：全自动、无首发扳机延迟；无精校时原始初速 = 合成初速
+    assert state.fire_delay_seconds == 0.0
+    assert state.original_muzzle_velocity_mps == state.muzzle_velocity_mps
+
     at0 = eg.ttk_at(*kwargs, 0.0)
     at80 = eg.ttk_at(*kwargs, 80.0)
 
-    for result in (at0, at80):
-        expected = max(0.0, result.expected_shots - 1.0) * result.fire_interval_seconds
-        assert result.ttk_seconds == pytest.approx(expected, rel=1e-9)
+    # 0 m：TTK = (E0 − 1) × 射击间隔 + 0（飞行时间为 0）
+    expected0 = (at0.expected_shots - 1.0) * at0.fire_interval_seconds
+    assert at0.ttk_seconds == pytest.approx(expected0, rel=1e-9)
 
-    # 开镜与飞行时间作为参考量给出，但不叠加进 TTK
-    assert at0.ads_seconds > 0
+    # 80 m：TTK = (E80 − 1) × 射击间隔 + 80 m / 原始初速
+    flight80 = 80.0 / state.original_muzzle_velocity_mps
+    expected80 = (at80.expected_shots - 1.0) * at80.fire_interval_seconds + flight80
+    assert at80.ttk_seconds == pytest.approx(expected80, rel=1e-9)
+    assert at80.flight_seconds == pytest.approx(flight80, rel=1e-9)
     assert at80.flight_seconds > 0
-    assert at0.ttk_seconds < at0.ttk_seconds + at0.ads_seconds
+
+    # 开镜时间仍仅作参考量给出，不叠加进 TTK
+    assert at0.ads_seconds > 0
 
 
 def test_build_loadout_is_pure_and_deterministic(gd):

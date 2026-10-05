@@ -33,6 +33,56 @@
         }
       ],
       "tunes": []
+    },
+    {
+      "item_id": "13120000387",
+      "name": "内部配件 13120000387",
+      "slot": "tertiaryMagazine",
+      "selectable": false,
+      "effects": [
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 54.0,
+          "value_ref": null
+        },
+        {
+          "target": "ChangeClipTime",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 1.6,
+          "value_ref": null
+        },
+        {
+          "target": "ChangeClipTimewhenEmpty",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 1.7,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000393",
+      "name": "内部配件 13120000393",
+      "slot": "tertiaryMagazine",
+      "selectable": false,
+      "effects": [
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 20.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
     }
   ]
 }

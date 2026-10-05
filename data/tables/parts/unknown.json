@@ -1,0 +1,70 @@
+{
+  "slot": "unknown",
+  "parts": [
+    {
+      "item_id": "18030000001",
+      "name": "M1014霰弹枪",
+      "slot": "unknown",
+      "selectable": true,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "18030000002",
+      "name": "S12K霰弹枪",
+      "slot": "unknown",
+      "selectable": true,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "18030000004",
+      "name": "M870霰弹枪",
+      "slot": "unknown",
+      "selectable": true,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "18030000005",
+      "name": "725双管霰弹枪",
+      "slot": "unknown",
+      "selectable": true,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "18030000006",
+      "name": "FS-12霰弹枪",
+      "slot": "unknown",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "ChamberTime",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "TacticalEffective",
+          "value": 0.45,
+          "value_ref": null
+        },
+        {
+          "target": "FireInterval",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "TacticalEffective",
+          "value": 0.85,
+          "value_ref": null
+        },
+        {
+          "target": "FireCD",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "TacticalEffective",
+          "value": 0.85,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    }
+  ]
+}

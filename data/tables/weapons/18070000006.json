@@ -1,0 +1,751 @@
+{
+  "base": {
+    "weapon_id": "18070000006",
+    "slug": "93r",
+    "name": "93R",
+    "category": "手枪",
+    "category_id": "pistol",
+    "ammo_type_id": "20",
+    "caliber": "9x19mm",
+    "ammo_item_ids": [
+      "37200000001",
+      "37200000002",
+      "37200100001",
+      "37200200001",
+      "37200300001",
+      "37200400001"
+    ],
+    "rpm": 508.4745762711865,
+    "fire_interval_s": 0.118,
+    "sdk_timing": {
+      "fire_interval_s": 0.16,
+      "fire_cd_s": 0.16,
+      "fire_delay_s": 0.0,
+      "chamber_time_s": 0.0,
+      "fire_rate_mode": "Burst",
+      "burst_count": 3,
+      "burst_fire_cd_s": 0.22,
+      "burst_fire_interval_s": 0.067,
+      "burst_interval_s": 0.067,
+      "auto_fire_single_interval_s": 0.6,
+      "auto_fire_burst_interval_s": 0.0,
+      "single_fire_tolerant_s": 0.2
+    },
+    "fire_modes": [
+      "Burst"
+    ],
+    "selected_fire_mode": "Burst",
+    "burst_count": 3,
+    "muzzle_velocity_mps": 400.0,
+    "projectile_count": 1,
+    "flesh_damage": 34.0,
+    "armor_damage": 32.0,
+    "hitbox_multipliers": {
+      "head": 1.9,
+      "upperChest": 1.0,
+      "lowerChest": 0.9,
+      "upperArm": 0.4,
+      "lowerArm": 0.4,
+      "thigh": 0.4,
+      "lowerLeg": 0.4
+    },
+    "damage_profile": {
+      "profile_id": "authoring:weapon:18070000006:sol:damage",
+      "base_damage": 34.0,
+      "base_armor_damage": 32.0,
+      "base_penetration_level": 1,
+      "hitbox_multipliers": {
+        "head": 1.9,
+        "upperChest": 1.0,
+        "lowerChest": 0.9,
+        "upperArm": 0.4,
+        "lowerArm": 0.4,
+        "thigh": 0.4,
+        "lowerLeg": 0.4
+      },
+      "hitbox_multiplier_overrides": {}
+    },
+    "damage_profile_source": "combat-pack",
+    "acoustics": {
+      "shot_distance_m": 300.0
+    },
+    "falloff_segments": [
+      {
+        "from_m": 0.0,
+        "to_m": 22.0,
+        "rate": 1.0
+      },
+      {
+        "from_m": 22.0,
+        "to_m": 44.0,
+        "rate": 0.8
+      },
+      {
+        "from_m": 44.0,
+        "to_m": 600.0,
+        "rate": 0.65
+      }
+    ],
+    "valid_range_m": 22.0,
+    "max_distance_m": 500.0,
+    "clip_capacity": 15,
+    "max_carried_ammo": 75,
+    "timings": {
+      "reload_s": 2.1,
+      "empty_reload_s": 2.3,
+      "equip_s": 0.2,
+      "holster_s": 0.3,
+      "sprint_to_fire_s": 0.08
+    },
+    "panel_attributes": {
+      "effective_range": 22.0,
+      "recoil_control": 44.0,
+      "waist_accuracy": 78.0,
+      "handling": 67.0,
+      "stability": 38.0
+    },
+    "aiming": {
+      "ads_on_s": 0.242,
+      "ads_off_s": 0.242,
+      "zoom_rate": 1.25
+    },
+    "references": {
+      "waist_spread_profile_id": "authoring:weapon:18070000006:hipSpread",
+      "waist_recoil_profile_id": "authoring:weapon:18070000006:hipRecoil",
+      "aiming_profile_id": "authoring:weapon:18070000006:aiming",
+      "bullet_profile_id": "authoring:weapon:18070000006:sol:bullet",
+      "movement_profile_id": "authoring:weapon:18070000006:sol:movement",
+      "attacker_profile_id": "authoring:weapon:18070000006:sol:attacker"
+    },
+    "sway": {
+      "base_breath_range_degrees": 0.42,
+      "gun_sway_be_hit_scale": 1.0,
+      "camera_sway_be_hit_scale": 1.3
+    },
+    "spread": {
+      "hip": {
+        "base_degrees": {
+          "horizontal": 1.9292,
+          "vertical": 1.9292
+        },
+        "max_degrees": {
+          "horizontal": 4.8,
+          "vertical": 4.8
+        },
+        "runtime_scale": 1.25
+      },
+      "ads": {
+        "base_degrees": {
+          "horizontal": 0,
+          "vertical": 0
+        },
+        "max_degrees": {
+          "horizontal": 180,
+          "vertical": 180
+        },
+        "runtime_scale": 1.25
+      }
+    },
+    "recoil": {
+      "hip": {
+        "continuousFire": {
+          "horizontal_values": [
+            0.0
+          ],
+          "vertical_values": [
+            0.0
+          ],
+          "horizontal_scale": 1.0,
+          "vertical_scale": 1.5
+        },
+        "loop": {
+          "horizontal_values": [
+            0.0
+          ],
+          "vertical_values": [
+            0.0
+          ],
+          "horizontal_scale": 1.0,
+          "vertical_scale": 1.0
+        }
+      },
+      "ads": {
+        "continuousFire": {
+          "horizontal_values": [
+            0.0
+          ],
+          "vertical_values": [
+            0.0
+          ],
+          "horizontal_scale": 1.0,
+          "vertical_scale": 1.5
+        },
+        "loop": {
+          "horizontal_values": [
+            0.0
+          ],
+          "vertical_values": [
+            0.0
+          ],
+          "horizontal_scale": 1.0,
+          "vertical_scale": 1.0
+        }
+      }
+    },
+    "sockets": [
+      {
+        "socket_id": 1,
+        "options": [
+          "13030000131",
+          "13030000132",
+          "13030000133",
+          "13030000152"
+        ]
+      },
+      {
+        "socket_id": 2,
+        "options": [
+          "13020000463",
+          "13020000464",
+          "13020000465",
+          "13020000466",
+          "13020000467",
+          "13020000508"
+        ]
+      },
+      {
+        "socket_id": 4,
+        "options": [
+          "13050000427"
+        ]
+      },
+      {
+        "socket_id": 5,
+        "options": [
+          "13120000297",
+          "13120000298",
+          "13120000299"
+        ]
+      },
+      {
+        "socket_id": 11,
+        "options": [
+          "13110000043",
+          "13110000044",
+          "13110000062",
+          "13110000063",
+          "13110000087",
+          "13110000102"
+        ]
+      },
+      {
+        "socket_id": 18,
+        "options": [
+          "13160000008",
+          "13160000014",
+          "13160000015",
+          "13160000020"
+        ]
+      },
+      {
+        "socket_id": 22,
+        "options": [
+          "13200000011"
+        ]
+      },
+      {
+        "socket_id": 66,
+        "options": [
+          "13120000387"
+        ]
+      },
+      {
+        "socket_id": 72,
+        "options": [
+          "13020000617"
+        ]
+      }
+    ],
+    "provider_sockets": {
+      "13020000463": [
+        {
+          "socket_id": 6,
+          "options": [
+            "13130000172",
+            "13130000192",
+            "13130000193",
+            "13130000194",
+            "13130000195"
+          ]
+        }
+      ],
+      "13020000464": [
+        {
+          "socket_id": 6,
+          "options": [
+            "13130000172",
+            "13130000192",
+            "13130000193",
+            "13130000194",
+            "13130000195"
+          ]
+        }
+      ],
+      "13020000465": [
+        {
+          "socket_id": 6,
+          "options": [
+            "13130000172",
+            "13130000192",
+            "13130000193",
+            "13130000194",
+            "13130000195"
+          ]
+        }
+      ],
+      "13020000466": [
+        {
+          "socket_id": 6,
+          "options": [
+            "13130000172",
+            "13130000192",
+            "13130000193",
+            "13130000194",
+            "13130000195"
+          ]
+        }
+      ],
+      "13020000467": [
+        {
+          "socket_id": 6,
+          "options": [
+            "13130000172",
+            "13130000192",
+            "13130000193",
+            "13130000194",
+            "13130000195"
+          ]
+        }
+      ],
+      "13020000508": [
+        {
+          "socket_id": 6,
+          "options": [
+            "13130000172",
+            "13130000192",
+            "13130000193",
+            "13130000194",
+            "13130000195"
+          ]
+        }
+      ],
+      "13050000427": [
+        {
+          "socket_id": 11,
+          "options": [
+            "13110000040",
+            "13110000042",
+            "13110000043",
+            "13110000044",
+            "13110000046",
+            "13110000051",
+            "13110000053",
+            "13110000061",
+            "13110000062",
+            "13110000063",
+            "13110000064",
+            "13110000065",
+            "13110000066",
+            "13110000067",
+            "13110000072",
+            "13110000073",
+            "13110000085",
+            "13110000087",
+            "13110000093",
+            "13110000098",
+            "13210000012",
+            "13210000013",
+            "13210000014"
+          ]
+        },
+        {
+          "socket_id": 77,
+          "options": [
+            "13130000236"
+          ]
+        }
+      ],
+      "13110000051": [
+        {
+          "socket_id": 40,
+          "options": [
+            "13110000060"
+          ]
+        }
+      ],
+      "13130000236": [
+        {
+          "socket_id": 18,
+          "options": [
+            "13160000005",
+            "13160000006",
+            "13160000007",
+            "13160000008",
+            "13160000009",
+            "13160000010",
+            "13160000014",
+            "13160000018",
+            "13160000020"
+          ]
+        }
+      ],
+      "13210000012": [
+        {
+          "socket_id": 41,
+          "options": [
+            "13110000043",
+            "13110000044",
+            "13110000062",
+            "13110000063",
+            "13110000087",
+            "13110000102"
+          ]
+        }
+      ],
+      "13210000013": [
+        {
+          "socket_id": 14,
+          "options": [
+            "13160000005",
+            "13160000006",
+            "13160000009",
+            "13160000010"
+          ]
+        },
+        {
+          "socket_id": 50,
+          "options": [
+            "13110000040",
+            "13110000042",
+            "13110000043",
+            "13110000044",
+            "13110000046",
+            "13110000061",
+            "13110000062",
+            "13110000063",
+            "13110000064",
+            "13110000065",
+            "13110000066",
+            "13110000087",
+            "13110000098",
+            "13110000102",
+            "13210000012",
+            "13210000014"
+          ]
+        }
+      ],
+      "13210000014": [
+        {
+          "socket_id": 11,
+          "options": [
+            "13110000043",
+            "13110000044",
+            "13110000062",
+            "13110000063",
+            "13110000087",
+            "13110000102"
+          ]
+        }
+      ]
+    },
+    "coupling": [
+      {
+        "condition_type": "always",
+        "condition_item_ids": [],
+        "target_socket_id": 1,
+        "mounted_item_id": "13030000152",
+        "mount_policy": "default"
+      },
+      {
+        "condition_type": "always",
+        "condition_item_ids": [],
+        "target_socket_id": 2,
+        "mounted_item_id": "13020000463",
+        "mount_policy": "default"
+      },
+      {
+        "condition_type": "always",
+        "condition_item_ids": [],
+        "target_socket_id": 5,
+        "mounted_item_id": "13120000297",
+        "mount_policy": "default"
+      },
+      {
+        "condition_type": "anyMounted",
+        "condition_item_ids": [
+          "13050000427"
+        ],
+        "target_socket_id": 77,
+        "mounted_item_id": "13130000236",
+        "mount_policy": "default"
+      },
+      {
+        "condition_type": "anyMounted",
+        "condition_item_ids": [
+          "13050000427"
+        ],
+        "target_socket_id": 66,
+        "mounted_item_id": "13120000387",
+        "mount_policy": "forced"
+      },
+      {
+        "condition_type": "anyMounted",
+        "condition_item_ids": [
+          "13050000427"
+        ],
+        "target_socket_id": 72,
+        "mounted_item_id": "13020000617",
+        "mount_policy": "forced"
+      },
+      {
+        "condition_type": "anyMounted",
+        "condition_item_ids": [
+          "13110000051"
+        ],
+        "target_socket_id": 40,
+        "mounted_item_id": "13110000060",
+        "mount_policy": "default"
+      }
+    ],
+    "default_items": {
+      "1": "13030000152",
+      "2": "13020000463",
+      "5": "13120000297",
+      "77": "13130000236",
+      "40": "13110000060"
+    },
+    "extra_occupancy": {
+      "13050000427": [
+        2,
+        6,
+        11,
+        18,
+        5
+      ]
+    },
+    "combat_variant_item_ids": [
+      "13050000427"
+    ],
+    "attribute_rules": {
+      "2": {
+        "directRuleTargets": [
+          "GBullet_Velocity",
+          "GBullet_Range",
+          "GSpread_ADS"
+        ],
+        "curveMappings": [
+          {
+            "target": "GBullet_Range",
+            "mappingType": "AbsoluteMappingThenScale",
+            "curveIds": {
+              "sol": "authoring:mechanism:effectiveRangeDefault:0:sol",
+              "mp": "authoring:mechanism:effectiveRangeDefault:0:mp",
+              "bd": "authoring:mechanism:effectiveRangeDefault:0:bd"
+            }
+          }
+        ]
+      },
+      "3": {
+        "directRuleTargets": [
+          "GRecoil_V",
+          "GGunkick_ADSRecoilH",
+          "GRecoilRecovery"
+        ],
+        "curveMappings": [
+          {
+            "target": "GRecoil_H",
+            "mappingType": "DeltaMappingThenScale",
+            "curveIds": {
+              "sol": "authoring:mechanism:recoilControlDefault:0:sol",
+              "mp": "authoring:mechanism:recoilControlDefault:0:mp",
+              "bd": "authoring:mechanism:recoilControlDefault:0:bd"
+            }
+          },
+          {
+            "target": "GRecoil_V",
+            "mappingType": "DeltaMappingThenScale",
+            "curveIds": {
+              "sol": "authoring:mechanism:recoilControlDefault:0:sol",
+              "mp": "authoring:mechanism:recoilControlDefault:0:mp",
+              "bd": "authoring:mechanism:recoilControlDefault:0:bd"
+            }
+          },
+          {
+            "target": "GGunkickSpring",
+            "mappingType": "DeltaMappingThenScale",
+            "curveIds": {
+              "sol": "authoring:mechanism:recoilControlDefault:1:sol",
+              "mp": "authoring:mechanism:recoilControlDefault:1:mp",
+              "bd": "authoring:mechanism:recoilControlDefault:1:bd"
+            }
+          },
+          {
+            "target": "GGunkickRandom",
+            "mappingType": "DeltaMappingThenScale",
+            "curveIds": {
+              "sol": "authoring:mechanism:recoilControlDefault:1:sol",
+              "mp": "authoring:mechanism:recoilControlDefault:1:mp",
+              "bd": "authoring:mechanism:recoilControlDefault:1:bd"
+            }
+          }
+        ]
+      },
+      "4": {
+        "directRuleTargets": [
+          "GRecoil_Hip",
+          "GSpread_Hip",
+          "GSpread_Hip_Continuous"
+        ],
+        "curveMappings": [
+          {
+            "target": "GSpread_Hip",
+            "mappingType": "DeltaMappingThenScale",
+            "curveIds": {
+              "sol": "authoring:mechanism:hipFireAccuracyDefault:0:sol",
+              "mp": "authoring:mechanism:hipFireAccuracyDefault:0:mp",
+              "bd": "authoring:mechanism:hipFireAccuracyDefault:0:bd"
+            }
+          },
+          {
+            "target": "GSpread_Hip_Continuous",
+            "mappingType": "DeltaMappingThenScale",
+            "curveIds": {
+              "sol": "authoring:mechanism:hipFireAccuracyDefault:0:sol",
+              "mp": "authoring:mechanism:hipFireAccuracyDefault:0:mp",
+              "bd": "authoring:mechanism:hipFireAccuracyDefault:0:bd"
+            }
+          }
+        ]
+      },
+      "5": {
+        "directRuleTargets": [
+          "GAiming_ADSTime",
+          "GSprintToFireTime",
+          "GMovement_ADSSpeed"
+        ],
+        "curveMappings": [
+          {
+            "target": "GAiming_ADSTime",
+            "mappingType": "AbsoluteMapping",
+            "curveIds": {
+              "sol": "authoring:mechanism:handlingDefault:0:sol",
+              "mp": "authoring:mechanism:handlingDefault:0:mp",
+              "bd": "authoring:mechanism:handlingDefault:0:bd"
+            }
+          },
+          {
+            "target": "GSprintToFireTime",
+            "mappingType": "DeltaMappingThenScale",
+            "curveIds": {
+              "sol": "authoring:mechanism:handlingDefault:1:sol",
+              "mp": "authoring:mechanism:handlingDefault:1:mp",
+              "bd": "authoring:mechanism:handlingDefault:1:bd"
+            }
+          },
+          {
+            "target": "GMovement_ADSSpeed",
+            "mappingType": "DeltaMapping",
+            "curveIds": {
+              "sol": "authoring:mechanism:handlingDefault:2:sol",
+              "mp": "authoring:mechanism:handlingDefault:2:mp",
+              "bd": "authoring:mechanism:handlingDefault:2:bd"
+            }
+          },
+          {
+            "target": "GMovement_SilentWalkSpeed",
+            "mappingType": "DeltaMapping",
+            "curveIds": {
+              "sol": "authoring:mechanism:handlingDefault:2:sol",
+              "mp": "authoring:mechanism:handlingDefault:2:mp",
+              "bd": "authoring:mechanism:handlingDefault:2:bd"
+            }
+          }
+        ]
+      },
+      "6": {
+        "directRuleTargets": [],
+        "curveMappings": [
+          {
+            "target": "GBreathScale",
+            "mappingType": "DeltaMappingThenScale",
+            "curveIds": {
+              "sol": "authoring:mechanism:stabilityDefault:0:sol",
+              "mp": "authoring:mechanism:stabilityDefault:0:mp",
+              "bd": "authoring:mechanism:stabilityDefault:0:bd"
+            }
+          },
+          {
+            "target": "GBreathTime",
+            "mappingType": "DeltaMappingThenScale",
+            "curveIds": {
+              "sol": "authoring:mechanism:stabilityDefault:1:sol",
+              "mp": "authoring:mechanism:stabilityDefault:1:mp",
+              "bd": "authoring:mechanism:stabilityDefault:1:bd"
+            }
+          },
+          {
+            "target": "GBreathRecoil",
+            "mappingType": "DeltaMappingThenScale",
+            "curveIds": {
+              "sol": "authoring:mechanism:stabilityDefault:2:sol",
+              "mp": "authoring:mechanism:stabilityDefault:2:mp",
+              "bd": "authoring:mechanism:stabilityDefault:2:bd"
+            }
+          },
+          {
+            "target": "BehitGunSway",
+            "mappingType": "DeltaMappingThenScale",
+            "curveIds": {
+              "sol": "authoring:mechanism:stabilityDefault:3:sol",
+              "mp": "authoring:mechanism:stabilityDefault:3:mp",
+              "bd": "authoring:mechanism:stabilityDefault:3:bd"
+            }
+          },
+          {
+            "target": "AimMoveGunSway",
+            "mappingType": "DeltaMappingThenScale",
+            "curveIds": {
+              "sol": "authoring:mechanism:stabilityDefault:4:sol",
+              "mp": "authoring:mechanism:stabilityDefault:4:mp",
+              "bd": "authoring:mechanism:stabilityDefault:4:bd"
+            }
+          },
+          {
+            "target": "GRecoil_HShake",
+            "mappingType": "DeltaMappingThenScale",
+            "curveIds": {
+              "sol": "authoring:mechanism:stabilityDefault:5:sol",
+              "mp": "authoring:mechanism:stabilityDefault:5:mp",
+              "bd": "authoring:mechanism:stabilityDefault:5:bd"
+            }
+          },
+          {
+            "target": "GRecoil_VShake",
+            "mappingType": "DeltaMappingThenScale",
+            "curveIds": {
+              "sol": "authoring:mechanism:stabilityDefault:5:sol",
+              "mp": "authoring:mechanism:stabilityDefault:5:mp",
+              "bd": "authoring:mechanism:stabilityDefault:5:bd"
+            }
+          }
+        ]
+      }
+    },
+    "attribute_rule_overrides": {},
+    "display_name": "93R",
+    "reference_candidates": [],
+    "configuration_count": 0,
+    "weapon_type": "pistol"
+  },
+  "variants": []
+}

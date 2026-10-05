@@ -1,7 +1,8 @@
 """对外数据表导出回归（python -m src.export → data/export/）。
 
 锁三件事：
-- 规模契约：61 枪械条目（43 本体 + 18 变体）/ 824 配件 / 3340 对接记录；
+- 规模契约：86 枪械条目（68 本体 + 18 变体）/ 1141 配件 / 4548 对接记录
+  （收录 = 上游 manifest.weaponPacks 全量 68 把，官方 TTK 榜仅覆盖其中 43 把）；
 - 同源锚点：link 表与 TTK 榜单同一解析口径——AS-Val 刺客高级枪管
   （换弹道 profile → 满伤 40m、680 rpm）与 M4A1 长枪管（attr2 缩放 → 52m）；
 - 确定性：同一份上游数据两次导出逐字节一致（无时间戳漂移）。
@@ -31,10 +32,10 @@ def test_tables_scale_contract():
     weapons = _load("weapons.json")
     parts = _load("parts.json")
     links = _load("links.json")
-    assert len(weapons["weapons"]) == 61
+    assert len(weapons["weapons"]) == 86
     assert sum(1 for w in weapons["weapons"] if w["is_variant"]) == 18
-    assert len(parts["parts"]) == 824
-    assert len(links["links"]) == 3340
+    assert len(parts["parts"]) == 1141
+    assert len(links["links"]) == 4548
     assert weapons["dataset_version_ref"], "数据集版本引用缺失"
     assert weapons["dataset_version_ref"] == links["dataset_version_ref"]
 

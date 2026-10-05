@@ -1,0 +1,527 @@
+{
+  "base": {
+    "weapon_id": "18150000001",
+    "slug": "复合弓",
+    "name": "复合弓",
+    "category": "特殊武器",
+    "category_id": "specialWeapon",
+    "ammo_type_id": "28",
+    "caliber": "",
+    "ammo_item_ids": [
+      "37270300001",
+      "37270400001",
+      "37270500001",
+      "37270500002"
+    ],
+    "rpm": 181.8181818181818,
+    "fire_interval_s": 0.33,
+    "sdk_timing": {
+      "fire_interval_s": 0.33,
+      "fire_cd_s": 0.33,
+      "fire_delay_s": 0.0,
+      "chamber_time_s": 0.0,
+      "fire_rate_mode": "Auto",
+      "burst_count": 3,
+      "burst_fire_cd_s": 0.05,
+      "burst_fire_interval_s": 0.0,
+      "burst_interval_s": 0.0,
+      "auto_fire_single_interval_s": 0.75,
+      "auto_fire_burst_interval_s": 0.0,
+      "single_fire_tolerant_s": 0.2
+    },
+    "fire_modes": [
+      "Single"
+    ],
+    "selected_fire_mode": "Single",
+    "burst_count": 3,
+    "muzzle_velocity_mps": 300.0,
+    "projectile_count": 1,
+    "flesh_damage": 90.0,
+    "armor_damage": 65.0,
+    "hitbox_multipliers": {
+      "head": 1.7,
+      "upperChest": 1.0,
+      "lowerChest": 0.9,
+      "upperArm": 0.56,
+      "lowerArm": 0.56,
+      "thigh": 0.56,
+      "lowerLeg": 0.56
+    },
+    "damage_profile": {
+      "profile_id": "authoring:weapon:18150000001:sol:damage",
+      "base_damage": 90.0,
+      "base_armor_damage": 65.0,
+      "base_penetration_level": 1,
+      "hitbox_multipliers": {
+        "head": 1.7,
+        "upperChest": 1.0,
+        "lowerChest": 0.9,
+        "upperArm": 0.56,
+        "lowerArm": 0.56,
+        "thigh": 0.56,
+        "lowerLeg": 0.56
+      },
+      "hitbox_multiplier_overrides": {}
+    },
+    "damage_profile_source": "combat-pack",
+    "acoustics": {
+      "shot_distance_m": 30.0
+    },
+    "falloff_segments": [
+      {
+        "from_m": 0.0,
+        "to_m": 65.0,
+        "rate": 1.0
+      },
+      {
+        "from_m": 65.0,
+        "to_m": 1000.0,
+        "rate": 0.9
+      }
+    ],
+    "valid_range_m": 65.0,
+    "max_distance_m": 1000.0,
+    "clip_capacity": 1,
+    "max_carried_ammo": 30,
+    "timings": {
+      "reload_s": 0.5,
+      "empty_reload_s": 0.5,
+      "equip_s": 0.4,
+      "holster_s": 0.3,
+      "sprint_to_fire_s": 0.15
+    },
+    "panel_attributes": {
+      "effective_range": 65.0,
+      "recoil_control": 32.0,
+      "waist_accuracy": 57.0,
+      "handling": 66.0,
+      "stability": 55.0
+    },
+    "aiming": {
+      "ads_on_s": 0.25,
+      "ads_off_s": 0.25,
+      "zoom_rate": 1.25
+    },
+    "references": {
+      "waist_spread_profile_id": "authoring:weapon:18150000001:hipSpread",
+      "waist_recoil_profile_id": "authoring:weapon:18150000001:hipRecoil",
+      "aiming_profile_id": "authoring:weapon:18150000001:aiming",
+      "bullet_profile_id": "authoring:weapon:18150000001:sol:bullet",
+      "movement_profile_id": "authoring:weapon:18150000001:sol:movement",
+      "attacker_profile_id": "authoring:weapon:18150000001:sol:attacker"
+    },
+    "sway": {
+      "base_breath_range_degrees": 0.28,
+      "gun_sway_be_hit_scale": 0.8,
+      "camera_sway_be_hit_scale": 0.8
+    },
+    "spread": {
+      "hip": {
+        "base_degrees": {
+          "horizontal": 1.2,
+          "vertical": 1.2
+        },
+        "max_degrees": {
+          "horizontal": 1.5,
+          "vertical": 1.5
+        },
+        "runtime_scale": 1.25
+      },
+      "ads": {
+        "base_degrees": {
+          "horizontal": 0.1,
+          "vertical": 0.1
+        },
+        "max_degrees": {
+          "horizontal": 180,
+          "vertical": 180
+        },
+        "runtime_scale": 1.25
+      }
+    },
+    "recoil": {
+      "hip": {
+        "loop": {
+          "horizontal_values": [
+            0.0
+          ],
+          "vertical_values": [
+            0.0
+          ],
+          "horizontal_scale": 1.0,
+          "vertical_scale": 1.0
+        }
+      },
+      "ads": {
+        "loop": {
+          "horizontal_values": [
+            0.0
+          ],
+          "vertical_values": [
+            0.0
+          ],
+          "horizontal_scale": 1.0,
+          "vertical_scale": 1.0
+        }
+      }
+    },
+    "sockets": [
+      {
+        "socket_id": 5,
+        "options": [
+          "13120000381"
+        ]
+      },
+      {
+        "socket_id": 22,
+        "options": [
+          "13500000003"
+        ]
+      },
+      {
+        "socket_id": 55,
+        "options": [
+          "13470000001",
+          "13470000002"
+        ]
+      },
+      {
+        "socket_id": 56,
+        "options": [
+          "13450000001",
+          "13450000002",
+          "13450000003"
+        ]
+      },
+      {
+        "socket_id": 57,
+        "options": [
+          "13440000001",
+          "13440000002",
+          "13440000003"
+        ]
+      },
+      {
+        "socket_id": 58,
+        "options": [
+          "13110000094",
+          "13110000095",
+          "13110000104"
+        ]
+      },
+      {
+        "socket_id": 59,
+        "options": [
+          "13500000001",
+          "13500000002",
+          "13500000003"
+        ]
+      },
+      {
+        "socket_id": 60,
+        "options": [
+          "13510000001",
+          "13510000002"
+        ]
+      },
+      {
+        "socket_id": 61,
+        "options": [
+          "13480000001",
+          "13480000002"
+        ]
+      },
+      {
+        "socket_id": 74,
+        "options": [
+          "13470000003"
+        ]
+      }
+    ],
+    "provider_sockets": {},
+    "coupling": [
+      {
+        "condition_type": "always",
+        "condition_item_ids": [],
+        "target_socket_id": 55,
+        "mounted_item_id": "13470000001",
+        "mount_policy": "default"
+      },
+      {
+        "condition_type": "always",
+        "condition_item_ids": [],
+        "target_socket_id": 56,
+        "mounted_item_id": "13450000001",
+        "mount_policy": "default"
+      },
+      {
+        "condition_type": "always",
+        "condition_item_ids": [],
+        "target_socket_id": 57,
+        "mounted_item_id": "13440000001",
+        "mount_policy": "default"
+      },
+      {
+        "condition_type": "always",
+        "condition_item_ids": [],
+        "target_socket_id": 59,
+        "mounted_item_id": "13500000001",
+        "mount_policy": "default"
+      },
+      {
+        "condition_type": "always",
+        "condition_item_ids": [],
+        "target_socket_id": 61,
+        "mounted_item_id": "13480000001",
+        "mount_policy": "default"
+      },
+      {
+        "condition_type": "anyMounted",
+        "condition_item_ids": [
+          "13120000381"
+        ],
+        "target_socket_id": 22,
+        "mounted_item_id": "13500000003",
+        "mount_policy": "forced"
+      },
+      {
+        "condition_type": "anyMounted",
+        "condition_item_ids": [
+          "13120000381"
+        ],
+        "target_socket_id": 74,
+        "mounted_item_id": "13470000003",
+        "mount_policy": "forced"
+      }
+    ],
+    "default_items": {
+      "55": "13470000001",
+      "56": "13450000001",
+      "57": "13440000001",
+      "59": "13500000001",
+      "61": "13480000001"
+    },
+    "extra_occupancy": {
+      "13120000381": [
+        55,
+        59,
+        61
+      ]
+    },
+    "combat_variant_item_ids": [
+      "13120000381",
+      "13470000002"
+    ],
+    "attribute_rules": {
+      "2": {
+        "directRuleTargets": [
+          "GBullet_Velocity",
+          "GBullet_Range",
+          "GSpread_ADS"
+        ],
+        "curveMappings": [
+          {
+            "target": "GBullet_Range",
+            "mappingType": "AbsoluteMappingThenScale",
+            "curveIds": {
+              "sol": "authoring:mechanism:effectiveRangeDefault:0:sol",
+              "mp": "authoring:mechanism:effectiveRangeDefault:0:mp",
+              "bd": "authoring:mechanism:effectiveRangeDefault:0:bd"
+            }
+          }
+        ]
+      },
+      "3": {
+        "directRuleTargets": [
+          "GRecoil_V",
+          "GGunkick_ADSRecoilH",
+          "GRecoilRecovery"
+        ],
+        "curveMappings": [
+          {
+            "target": "GRecoil_H",
+            "mappingType": "DeltaMappingThenScale",
+            "curveIds": {
+              "sol": "authoring:mechanism:recoilControlDefault:0:sol",
+              "mp": "authoring:mechanism:recoilControlDefault:0:mp",
+              "bd": "authoring:mechanism:recoilControlDefault:0:bd"
+            }
+          },
+          {
+            "target": "GRecoil_V",
+            "mappingType": "DeltaMappingThenScale",
+            "curveIds": {
+              "sol": "authoring:mechanism:recoilControlDefault:0:sol",
+              "mp": "authoring:mechanism:recoilControlDefault:0:mp",
+              "bd": "authoring:mechanism:recoilControlDefault:0:bd"
+            }
+          },
+          {
+            "target": "GGunkickSpring",
+            "mappingType": "DeltaMappingThenScale",
+            "curveIds": {
+              "sol": "authoring:mechanism:recoilControlDefault:1:sol",
+              "mp": "authoring:mechanism:recoilControlDefault:1:mp",
+              "bd": "authoring:mechanism:recoilControlDefault:1:bd"
+            }
+          },
+          {
+            "target": "GGunkickRandom",
+            "mappingType": "DeltaMappingThenScale",
+            "curveIds": {
+              "sol": "authoring:mechanism:recoilControlDefault:1:sol",
+              "mp": "authoring:mechanism:recoilControlDefault:1:mp",
+              "bd": "authoring:mechanism:recoilControlDefault:1:bd"
+            }
+          }
+        ]
+      },
+      "4": {
+        "directRuleTargets": [
+          "GRecoil_Hip",
+          "GSpread_Hip",
+          "GSpread_Hip_Continuous"
+        ],
+        "curveMappings": [
+          {
+            "target": "GSpread_Hip",
+            "mappingType": "DeltaMappingThenScale",
+            "curveIds": {
+              "sol": "authoring:mechanism:hipFireAccuracyDefault:0:sol",
+              "mp": "authoring:mechanism:hipFireAccuracyDefault:0:mp",
+              "bd": "authoring:mechanism:hipFireAccuracyDefault:0:bd"
+            }
+          },
+          {
+            "target": "GSpread_Hip_Continuous",
+            "mappingType": "DeltaMappingThenScale",
+            "curveIds": {
+              "sol": "authoring:mechanism:hipFireAccuracyDefault:0:sol",
+              "mp": "authoring:mechanism:hipFireAccuracyDefault:0:mp",
+              "bd": "authoring:mechanism:hipFireAccuracyDefault:0:bd"
+            }
+          }
+        ]
+      },
+      "5": {
+        "directRuleTargets": [
+          "GAiming_ADSTime",
+          "GSprintToFireTime",
+          "GMovement_ADSSpeed"
+        ],
+        "curveMappings": [
+          {
+            "target": "GAiming_ADSTime",
+            "mappingType": "AbsoluteMapping",
+            "curveIds": {
+              "sol": "authoring:mechanism:handlingDefault:0:sol",
+              "mp": "authoring:mechanism:handlingDefault:0:mp",
+              "bd": "authoring:mechanism:handlingDefault:0:bd"
+            }
+          },
+          {
+            "target": "GSprintToFireTime",
+            "mappingType": "DeltaMappingThenScale",
+            "curveIds": {
+              "sol": "authoring:mechanism:handlingDefault:1:sol",
+              "mp": "authoring:mechanism:handlingDefault:1:mp",
+              "bd": "authoring:mechanism:handlingDefault:1:bd"
+            }
+          },
+          {
+            "target": "GMovement_ADSSpeed",
+            "mappingType": "DeltaMapping",
+            "curveIds": {
+              "sol": "authoring:mechanism:handlingDefault:2:sol",
+              "mp": "authoring:mechanism:handlingDefault:2:mp",
+              "bd": "authoring:mechanism:handlingDefault:2:bd"
+            }
+          },
+          {
+            "target": "GMovement_SilentWalkSpeed",
+            "mappingType": "DeltaMapping",
+            "curveIds": {
+              "sol": "authoring:mechanism:handlingDefault:2:sol",
+              "mp": "authoring:mechanism:handlingDefault:2:mp",
+              "bd": "authoring:mechanism:handlingDefault:2:bd"
+            }
+          }
+        ]
+      },
+      "6": {
+        "directRuleTargets": [],
+        "curveMappings": [
+          {
+            "target": "GBreathScale",
+            "mappingType": "DeltaMappingThenScale",
+            "curveIds": {
+              "sol": "authoring:mechanism:stabilityDefault:0:sol",
+              "mp": "authoring:mechanism:stabilityDefault:0:mp",
+              "bd": "authoring:mechanism:stabilityDefault:0:bd"
+            }
+          },
+          {
+            "target": "GBreathTime",
+            "mappingType": "DeltaMappingThenScale",
+            "curveIds": {
+              "sol": "authoring:mechanism:stabilityDefault:1:sol",
+              "mp": "authoring:mechanism:stabilityDefault:1:mp",
+              "bd": "authoring:mechanism:stabilityDefault:1:bd"
+            }
+          },
+          {
+            "target": "GBreathRecoil",
+            "mappingType": "DeltaMappingThenScale",
+            "curveIds": {
+              "sol": "authoring:mechanism:stabilityDefault:2:sol",
+              "mp": "authoring:mechanism:stabilityDefault:2:mp",
+              "bd": "authoring:mechanism:stabilityDefault:2:bd"
+            }
+          },
+          {
+            "target": "BehitGunSway",
+            "mappingType": "DeltaMappingThenScale",
+            "curveIds": {
+              "sol": "authoring:mechanism:stabilityDefault:3:sol",
+              "mp": "authoring:mechanism:stabilityDefault:3:mp",
+              "bd": "authoring:mechanism:stabilityDefault:3:bd"
+            }
+          },
+          {
+            "target": "AimMoveGunSway",
+            "mappingType": "DeltaMappingThenScale",
+            "curveIds": {
+              "sol": "authoring:mechanism:stabilityDefault:4:sol",
+              "mp": "authoring:mechanism:stabilityDefault:4:mp",
+              "bd": "authoring:mechanism:stabilityDefault:4:bd"
+            }
+          },
+          {
+            "target": "GRecoil_HShake",
+            "mappingType": "DeltaMappingThenScale",
+            "curveIds": {
+              "sol": "authoring:mechanism:stabilityDefault:5:sol",
+              "mp": "authoring:mechanism:stabilityDefault:5:mp",
+              "bd": "authoring:mechanism:stabilityDefault:5:bd"
+            }
+          },
+          {
+            "target": "GRecoil_VShake",
+            "mappingType": "DeltaMappingThenScale",
+            "curveIds": {
+              "sol": "authoring:mechanism:stabilityDefault:5:sol",
+              "mp": "authoring:mechanism:stabilityDefault:5:mp",
+              "bd": "authoring:mechanism:stabilityDefault:5:bd"
+            }
+          }
+        ]
+      }
+    },
+    "attribute_rule_overrides": {},
+    "display_name": "复合弓",
+    "reference_candidates": [],
+    "configuration_count": 0,
+    "weapon_type": "special"
+  },
+  "variants": []
+}

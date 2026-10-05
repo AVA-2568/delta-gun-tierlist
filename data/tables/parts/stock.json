@@ -417,6 +417,327 @@
       ]
     },
     {
+      "item_id": "13030000124",
+      "name": "svd聚合物一体枪托",
+      "slot": "stock",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 8.0,
+          "value_ref": null
+        },
+        {
+          "target": "GRecoil_H_singleorburst",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": -0.16,
+          "value_ref": null
+        },
+        {
+          "target": "GRecoil_V_singleorburst",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": -0.16,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 8.0,
+          "value_ref": null
+        },
+        {
+          "target": "GGunkickSpring",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "NONE",
+          "value": 0.88,
+          "value_ref": null
+        },
+        {
+          "target": "GGunkickRandom",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "NONE",
+          "value": 0.92,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13030000124:tune:thickness:0",
+          "dimension": "厚度",
+          "unit": "毫米",
+          "min_value": -50.0,
+          "max_value": 50.0,
+          "step": 1.0,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "GGunkickRandom",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  -0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "target": "GGunkickSpring",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  -0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "target": "GAiming_ADSTime",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  -0.05,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  0.05,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13030000124:tune:weight:1",
+          "dimension": "配重",
+          "unit": "g",
+          "min_value": -50.0,
+          "max_value": 50.0,
+          "step": 1.0,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "GRecoil_V",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  0.06,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  -0.06,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "target": "GRecoil_H",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  0.06,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  -0.06,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "target": "GBreathScale",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  -0.18,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  0.18,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  0.18,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "item_id": "13030000125",
       "name": "VSS精英一体枪托",
       "slot": "stock",
@@ -1013,6 +1334,14 @@
           ]
         }
       ]
+    },
+    {
+      "item_id": "13040000005",
+      "name": "内部配件 13040000005",
+      "slot": "stock",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
     },
     {
       "item_id": "13040000006",
@@ -2339,6 +2668,287 @@
         },
         {
           "tune_id": "authoring:part:13040000092:tune:weight:1",
+          "dimension": "配重",
+          "unit": "g",
+          "min_value": -50.0,
+          "max_value": 50.0,
+          "step": 1.0,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "GRecoil_V",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  0.06,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  -0.06,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "target": "GRecoil_H",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  0.06,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  -0.06,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "target": "GBreathScale",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  -0.18,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  0.18,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  0.18,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13040000100",
+      "name": "G3枪托",
+      "slot": "stock",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13040000100:tune:thickness:0",
+          "dimension": "厚度",
+          "unit": "毫米",
+          "min_value": -50.0,
+          "max_value": 50.0,
+          "step": 1.0,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "GGunkickRandom",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  -0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "target": "GGunkickSpring",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  -0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "target": "GAiming_ADSTime",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  -0.05,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  0.05,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13040000100:tune:weight:1",
           "dimension": "配重",
           "unit": "g",
           "min_value": -50.0,
@@ -8737,6 +9347,1138 @@
       ]
     },
     {
+      "item_id": "13040000132",
+      "name": "1014伸缩托（展开）",
+      "slot": "stock",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 15.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 15.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13040000132:tune:thickness:0",
+          "dimension": "厚度",
+          "unit": "毫米",
+          "min_value": -50.0,
+          "max_value": 50.0,
+          "step": 1.0,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "GGunkickRandom",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  -0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "target": "GGunkickSpring",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  -0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "target": "GAiming_ADSTime",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  -0.05,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  0.05,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13040000132:tune:weight:1",
+          "dimension": "配重",
+          "unit": "g",
+          "min_value": -50.0,
+          "max_value": 50.0,
+          "step": 1.0,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "GRecoil_V",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  0.06,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  -0.06,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "target": "GRecoil_H",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  0.06,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  -0.06,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "target": "GBreathScale",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  -0.18,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  0.18,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  0.18,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13040000133",
+      "name": "1014伸缩托（折叠）",
+      "slot": "stock",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 5.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 12.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 8.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 5.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 12.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 8.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13040000133:tune:thickness:0",
+          "dimension": "厚度",
+          "unit": "毫米",
+          "min_value": -50.0,
+          "max_value": 50.0,
+          "step": 1.0,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "GGunkickRandom",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  -0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "target": "GGunkickSpring",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  -0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "target": "GAiming_ADSTime",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  -0.05,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  0.05,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13040000133:tune:weight:1",
+          "dimension": "配重",
+          "unit": "g",
+          "min_value": -50.0,
+          "max_value": 50.0,
+          "step": 1.0,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "GRecoil_V",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  0.06,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  -0.06,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "target": "GRecoil_H",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  0.06,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  -0.06,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "target": "GBreathScale",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  -0.18,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  0.18,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  0.18,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13040000134",
+      "name": "1014固定枪托",
+      "slot": "stock",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 8.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 8.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13040000134:tune:thickness:0",
+          "dimension": "厚度",
+          "unit": "毫米",
+          "min_value": -50.0,
+          "max_value": 50.0,
+          "step": 1.0,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "GGunkickRandom",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  -0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "target": "GGunkickSpring",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  -0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "target": "GAiming_ADSTime",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  -0.05,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  0.05,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13040000134:tune:weight:1",
+          "dimension": "配重",
+          "unit": "g",
+          "min_value": -50.0,
+          "max_value": 50.0,
+          "step": 1.0,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "GRecoil_V",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  0.06,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  -0.06,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "target": "GRecoil_H",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  0.06,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  -0.06,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "target": "GBreathScale",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  -0.18,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  0.18,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  0.18,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13040000135",
+      "name": "S12K撞火枪托",
+      "slot": "stock",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 16.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "GSpread_ADS",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.05,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 16.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13040000135:tune:thickness:0",
+          "dimension": "厚度",
+          "unit": "毫米",
+          "min_value": -50.0,
+          "max_value": 50.0,
+          "step": 1.0,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "GGunkickRandom",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  -0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "target": "GGunkickSpring",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  -0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "target": "GAiming_ADSTime",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  -0.05,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  0.05,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13040000135:tune:weight:1",
+          "dimension": "配重",
+          "unit": "g",
+          "min_value": -50.0,
+          "max_value": 50.0,
+          "step": 1.0,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "GRecoil_V",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  0.06,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  -0.06,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "target": "GRecoil_H",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  0.06,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  -0.06,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "target": "GBreathScale",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  -0.18,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  0.18,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  0.18,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "item_id": "13040000137",
       "name": "M249精英骨架枪托",
       "slot": "stock",
@@ -9644,6 +11386,14 @@
       "tunes": []
     },
     {
+      "item_id": "13040000144",
+      "name": "内部配件 13040000144",
+      "slot": "stock",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
       "item_id": "13040000145",
       "name": "内部配件 13040000145",
       "slot": "stock",
@@ -9700,6 +11450,22 @@
       "tunes": []
     },
     {
+      "item_id": "13040000156",
+      "name": "内部配件 13040000156",
+      "slot": "stock",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13040000158",
+      "name": "内部配件 13040000158",
+      "slot": "stock",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
       "item_id": "13040000159",
       "name": "内部配件 13040000159",
       "slot": "stock",
@@ -9726,6 +11492,22 @@
     {
       "item_id": "13040000162",
       "name": "内部配件 13040000162",
+      "slot": "stock",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13040000163",
+      "name": "内部配件 13040000163",
+      "slot": "stock",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13040000164",
+      "name": "内部配件 13040000164",
       "slot": "stock",
       "selectable": false,
       "effects": [],
@@ -10023,6 +11805,14 @@
           ]
         }
       ]
+    },
+    {
+      "item_id": "13040000170",
+      "name": "内部配件 13040000170",
+      "slot": "stock",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
     },
     {
       "item_id": "13040000171",
@@ -10796,6 +12586,267 @@
         {
           "tune_id": "authoring:part:13040000176:tune:tune2:1",
           "dimension": "枪托伸缩位置",
+          "unit": "格",
+          "min_value": 0.0,
+          "max_value": 100.0,
+          "step": 1.0,
+          "default_value": 50.0,
+          "functions": [
+            {
+              "target": "GGunkickRandom",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  0.0,
+                  0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  100.0,
+                  -0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "target": "GGunkickSpring",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  0.0,
+                  0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  100.0,
+                  -0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "target": "GAiming_ADSTime",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  0.0,
+                  -0.05,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  100.0,
+                  0.05,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13040000178",
+      "name": ".357左轮逐风者枪托",
+      "slot": "stock",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 8.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 8.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13040000178:tune:cheekRestPosition:0",
+          "dimension": "托腮板安装位置",
+          "unit": "格",
+          "min_value": 0.0,
+          "max_value": 100.0,
+          "step": 1.0,
+          "default_value": 50.0,
+          "functions": [
+            {
+              "target": "GBreathScale",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  0.0,
+                  0.16,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  100.0,
+                  -0.16,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  100.0,
+                  -0.16,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "target": "GMovement_ADSSpeed",
+              "modifier": "Addend",
+              "curve": [
+                [
+                  0.0,
+                  0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  100.0,
+                  -0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  100.0,
+                  -0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13040000178:tune:stockPadPosition:1",
+          "dimension": "托垫安装位置",
           "unit": "格",
           "min_value": 0.0,
           "max_value": 100.0,
@@ -12595,6 +14646,14 @@
     {
       "item_id": "13040000187",
       "name": "内部配件 13040000187",
+      "slot": "stock",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13040000188",
+      "name": "内部配件 13040000188",
       "slot": "stock",
       "selectable": false,
       "effects": [],
@@ -14873,11 +16932,1074 @@
       "tunes": []
     },
     {
+      "item_id": "13040000200",
+      "name": "内部配件 13040000200",
+      "slot": "stock",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13040000201",
+      "name": "725双管霰弹枪州长短枪托",
+      "slot": "stock",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 10.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 10.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 16.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 16.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13040000201:tune:thickness:0",
+          "dimension": "厚度",
+          "unit": "毫米",
+          "min_value": -50.0,
+          "max_value": 50.0,
+          "step": 1.0,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "GGunkickRandom",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  -0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "target": "GGunkickSpring",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  -0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "target": "GAiming_ADSTime",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  -0.05,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  0.05,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13040000201:tune:weight:1",
+          "dimension": "配重",
+          "unit": "g",
+          "min_value": -50.0,
+          "max_value": 50.0,
+          "step": 1.0,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "GRecoil_V",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  0.06,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  -0.06,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "target": "GRecoil_H",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  0.06,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  -0.06,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "target": "GBreathScale",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  -0.18,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  0.18,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  0.18,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13040000202",
+      "name": "725双管霰弹枪守望者枪托",
+      "slot": "stock",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 12.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 16.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -6.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -6.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 6.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 6.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "GGunkickRandom",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "NONE",
+          "value": 0.76,
+          "value_ref": null
+        },
+        {
+          "target": "GGunkickSpring",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "NONE",
+          "value": 0.76,
+          "value_ref": null
+        },
+        {
+          "target": "GRecoil_VShake",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "NONE",
+          "value": 0.76,
+          "value_ref": null
+        },
+        {
+          "target": "GRecoil_HShake",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "NONE",
+          "value": 0.76,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13040000202:tune:thickness:0",
+          "dimension": "厚度",
+          "unit": "毫米",
+          "min_value": -50.0,
+          "max_value": 50.0,
+          "step": 1.0,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "GGunkickRandom",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  -0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "target": "GGunkickSpring",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  -0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "target": "GAiming_ADSTime",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  -0.05,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  0.05,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13040000202:tune:weight:1",
+          "dimension": "配重",
+          "unit": "g",
+          "min_value": -50.0,
+          "max_value": 50.0,
+          "step": 1.0,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "GRecoil_V",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  0.06,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  -0.06,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "target": "GRecoil_H",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  0.06,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  -0.06,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "target": "GBreathScale",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  -0.18,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  0.18,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  0.18,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "item_id": "13040000203",
       "name": "内部配件 13040000203",
       "slot": "stock",
       "selectable": false,
       "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13040000204",
+      "name": "内部配件 13040000204",
+      "slot": "stock",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13040000205",
+      "name": "杠杆式步枪骨架枪托",
+      "slot": "stock",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 8.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -8.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 6.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "GMovement_ADSSpeed",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.08,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13040000206",
+      "name": "杠杆式步枪稳固狙击枪托",
+      "slot": "stock",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 6.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 6.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13040000207",
+      "name": "杠杆式步枪无托后握把",
+      "slot": "stock",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 32.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 32.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13040000208",
+      "name": "杠杆式步枪运动枪托",
+      "slot": "stock",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 16.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 3.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 16.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 3.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
+      "item_id": "13040000209",
+      "name": "杠杆式步枪战锤战术枪托",
+      "slot": "stock",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        }
+      ],
       "tunes": []
     },
     {
@@ -16061,11 +19183,116 @@
       "tunes": []
     },
     {
+      "item_id": "13040000230",
+      "name": "内部配件 13040000230",
+      "slot": "stock",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
       "item_id": "13040000231",
       "name": "内部配件 13040000231",
       "slot": "stock",
       "selectable": false,
       "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13040000232",
+      "name": "内部配件 13040000232",
+      "slot": "stock",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13040000233",
+      "name": "AMR-HT镂空枪托",
+      "slot": "stock",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 8.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 8.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -2.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 8.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 8.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 4.0,
+          "value_ref": null
+        }
+      ],
       "tunes": []
     },
     {
@@ -17744,6 +20971,287 @@
         },
         {
           "tune_id": "authoring:part:13290000001:tune:weight:1",
+          "dimension": "配重",
+          "unit": "g",
+          "min_value": -50.0,
+          "max_value": 50.0,
+          "step": 1.0,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "GRecoil_V",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  0.06,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  -0.06,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "target": "GRecoil_H",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  0.06,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  -0.06,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "target": "GBreathScale",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  -0.18,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  0.18,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  0.18,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "13290000002",
+      "name": "M700托腮板",
+      "slot": "stock",
+      "selectable": true,
+      "effects": [
+        {
+          "target": "DisplayAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 1.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 3.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.2",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.3",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.4",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 1.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.6",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": 3.0,
+          "value_ref": null
+        }
+      ],
+      "tunes": [
+        {
+          "tune_id": "authoring:part:13290000002:tune:thickness:0",
+          "dimension": "厚度",
+          "unit": "毫米",
+          "min_value": -50.0,
+          "max_value": 50.0,
+          "step": 1.0,
+          "default_value": 0.0,
+          "functions": [
+            {
+              "target": "GGunkickRandom",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  -0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "target": "GGunkickSpring",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  -0.04,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "target": "GAiming_ADSTime",
+              "modifier": "Mult_A",
+              "curve": [
+                [
+                  -50.0,
+                  -0.05,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ],
+                [
+                  50.0,
+                  0.05,
+                  "RCIM_Linear",
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "tune_id": "authoring:part:13290000002:tune:weight:1",
           "dimension": "配重",
           "unit": "g",
           "min_value": -50.0,

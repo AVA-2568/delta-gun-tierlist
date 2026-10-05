@@ -151,8 +151,47 @@ class WeaponState:
     falloff_segments: List[Dict[str, float]] = field(default_factory=list)
     projectile_count: int = 1
     burst_count: Optional[int] = None
+    #: 连发精确节拍（组内发间隔 / 组周期）；仅当生效射击模式为 Burst 时非零。
+    #: TTK 按射击时间线计算（组内 burst_fire_interval_seconds、组间 burst_fire_cycle_seconds），
+    #: 与 dfttk 前端口径一致（MK4-击剑 E=5.3362 → 295ms，非平均间隔近似 328ms）。
+    burst_fire_interval_seconds: float = 0.0
+    burst_fire_cycle_seconds: float = 0.0
+    #: 首发扳机延迟（sdkTiming.fireDelayTime，机枪普遍 0.05/0.1s，多数枪为 0）。
+    fire_delay_seconds: float = 0.0
+    #: 精校对初速的总倍率；original_muzzle_velocity_mps = 初速合成值 / 该倍率，
+    #: 即飞行时间使用**不含精校修正**的原始初速（口径：精校不影响 TTK 维度）。
+    tuning_velocity_scale: float = 1.0
+    original_muzzle_velocity_mps: float = 0.0
 
     notes: List[str] = field(default_factory=list)
+
+    # ---------------------------------------------------------------- #
+    def shots_to_fire_seconds(self, shots: float) -> float:
+        """第 ``shots`` 发的击发时刻（首发 0 秒）——即 TTK。
+
+        全自动 / 单发武器时间线等价 ``(shots-1)×间隔``；连发（Burst）按官方
+        ``sdkTiming`` 节拍精确计：组内 ``burst_fire_interval_seconds``、
+        组间 ``burst_fire_cycle_seconds``，小数发在相邻两发时刻间线性插值。
+        """
+        if shots <= 0.0:
+            return 0.0
+        intra = self.burst_fire_interval_seconds
+        cycle = self.burst_fire_cycle_seconds
+        bc = self.burst_count or 0
+        if bc <= 1 or intra <= 0.0 or cycle <= 0.0:
+            return (shots - 1.0) * self.fire_interval_seconds
+
+        def _t(n: int) -> float:
+            group = (n - 1) // bc
+            k_in_group = n - group * bc
+            return group * cycle + (k_in_group - 1) * intra
+
+        whole = int(shots)
+        t_lo = _t(whole)
+        frac = shots - whole
+        if frac <= 0.0:
+            return t_lo
+        return t_lo + frac * (_t(whole + 1) - t_lo)
 
     # ---------------------------------------------------------------- #
     def falloff_rate(self, distance_m: float) -> float:
@@ -331,6 +370,7 @@ class WeaponStateResolver:
         }
         panel = dict(base_panel)
         layer = ModifierLayer()
+        tuning_velocity_scale = 1.0
 
         for socket_id, item_id in sorted(resolved_loadout.items()):
             part = self.gd.get_part(item_id)
@@ -340,7 +380,9 @@ class WeaponStateResolver:
             apply_attribute_effects(panel, part)
             layer = layer.merged_with(part_effect_layer(part))
             setting = tuning_setting.get(str(item_id)) or {}
-            layer = layer.merged_with(part_tuning_layer(part, setting))
+            tuning_layer = part_tuning_layer(part, setting)
+            tuning_velocity_scale *= tuning_layer.scales.get(RT_VELOCITY, 1.0)
+            layer = layer.merged_with(tuning_layer)
 
         state.base_panel = base_panel
         state.panel = panel
@@ -349,10 +391,17 @@ class WeaponStateResolver:
         state.overrides = layer.overrides
         state.profile_refs = dict(layer.profiles)
         state.hitbox_overrides = layer.hitbox_overrides
+        state.tuning_velocity_scale = tuning_velocity_scale
 
         self._resolve_rules(weapon, state)
         self._resolve_profiles(weapon, state)
         self._resolve_damage(weapon, state)
+        # 原始初速：剔除精校对初速的修正（口径：精校不影响飞行时间维度）。
+        state.original_muzzle_velocity_mps = (
+            state.muzzle_velocity_mps / tuning_velocity_scale
+            if tuning_velocity_scale > 1e-12
+            else state.muzzle_velocity_mps
+        )
         return state
 
     # ---------------------------------------------------------------- #
@@ -450,6 +499,20 @@ class WeaponStateResolver:
         interval = base_interval * interval_scale
         state.fire_interval_seconds = interval
         state.rpm = 60.0 / interval if interval > 0 else 0.0
+
+        # 连发精确节拍：生效模式为 Burst 时记录组内/组间间隔（随射速倍率缩放），
+        # 供 shots_to_fire_seconds 按射击时间线计算 TTK。
+        effective_burst = (
+            float(mode_override) >= 1.0 if mode_override is not None else base_mode_burst
+        )
+        if effective_burst and burst_count > 1:
+            burst_intra = float(sdk.get("burst_fire_interval_s") or 0.0)
+            state.burst_fire_interval_seconds = burst_intra * interval_scale
+            state.burst_fire_cycle_seconds = (
+                (burst_count - 1) * burst_intra + float(sdk.get("burst_fire_cd_s") or 0.0)
+            ) * interval_scale
+        # 首发扳机延迟（独立机构属性，不随射速倍率缩放）
+        state.fire_delay_seconds = float(sdk.get("fire_delay_s") or 0.0)
 
         # 初速：面板 attr2（优势射程）的相对变化传播到 GBullet_Velocity。
         attr2_ratio = (

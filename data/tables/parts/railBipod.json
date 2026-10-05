@@ -164,6 +164,87 @@
       "tunes": []
     },
     {
+      "item_id": "13170000012",
+      "name": "内部配件 13170000012",
+      "slot": "railBipod",
+      "selectable": false,
+      "effects": [
+        {
+          "target": "GGunkickRandom",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.5,
+          "value_ref": null
+        },
+        {
+          "target": "GGunkickSpring",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.5,
+          "value_ref": null
+        },
+        {
+          "target": "GRecoil_H",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.5,
+          "value_ref": null
+        },
+        {
+          "target": "GRecoil_HShake",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.75,
+          "value_ref": null
+        },
+        {
+          "target": "GRecoil_V",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.5,
+          "value_ref": null
+        },
+        {
+          "target": "GRecoil_VShake",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.75,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponAppearanceTable.HoldBreathId.CrouchBreathFactor",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.2,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponAppearanceTable.HoldBreathId.ProneBreathFactor",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.2,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponAppearanceTable.HoldBreathId.StandBreathFactor",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_C",
+          "scope": "TacticalEffective",
+          "value": 0.2,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
       "item_id": "13170000015",
       "name": "内部配件 13170000015",
       "slot": "railBipod",

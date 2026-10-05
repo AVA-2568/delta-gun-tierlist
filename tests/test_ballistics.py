@@ -195,3 +195,39 @@ def test_falloff_full_damage_includes_segment_start():
     ammo = solver.ammo_for(key)
     e31 = ttk_at(state, ammo, solver.armor, solver.probabilities, 31.0).expected_shots
     assert e31 == pytest.approx(7.006287973239626, abs=1e-9)
+
+
+def test_burst_timeline_matches_dfttk():
+    """连发精确节拍与首发扳机延迟的对拍锚点（dfttk 前端默认口径）。
+
+    MK4-击剑手枪管态（Burst 3 连发）：官方 ``sdkTiming`` 节拍 = 组内
+    0.051 s、组周期 0.227 s（= 2×0.051 + 0.125）。E@0m = 5.3362 与官方
+    ``candidateMetrics`` 一致；ttk@0m = 0.29515 s——dfttk 前端显示 294 ms，
+    1 ms 之差来自其 E 值显示舍入（按显示的整数发反推即得 295 ms）；若按
+    平均节拍近似 ((3−1)×0.051+0.125)/3 = 0.0757 s 计会得 328 ms，与前端
+    明显不符，证明前端采用精确射击时间线。
+
+    回归锚点：机枪 M250 在 dfttk 排行实测「钛金 297 → 397 ms」，差恰为
+    100 ms 首发扳机延迟（``sdkTiming.fireDelayTime``），交叉验证
+    fire_delay 计入 TTK。
+    """
+    from src.engine.game_data import load_game_data
+    from src.engine.engagement import ttk_at
+    from src.engine.loadout import LoadoutSolver
+
+    gd = load_game_data()
+    solver = LoadoutSolver(gd, "armor-5-ammo-5-default")
+    key = "18020000012:13020000563"
+    state = solver.resolver.resolve(key, loadout={}, tuning=None)
+    assert state.burst_count == 3
+    assert state.burst_fire_interval_seconds == pytest.approx(0.051, abs=1e-9)
+    assert state.burst_fire_cycle_seconds == pytest.approx(0.227, abs=1e-9)
+    ammo = solver.ammo_for(key)
+    kwargs = (state, ammo, solver.armor, solver.probabilities)
+    e0 = ttk_at(*kwargs, 0.0).expected_shots
+    assert e0 == pytest.approx(5.3362, abs=1e-3)
+    ttk0 = ttk_at(*kwargs, 0.0).ttk_seconds
+    assert ttk0 == pytest.approx(0.29515, abs=0.002)
+
+    m250 = solver.resolver.resolve("18040000003:base", loadout={}, tuning=None)
+    assert m250.fire_delay_seconds == 0.1

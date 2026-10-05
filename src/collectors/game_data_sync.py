@@ -37,6 +37,7 @@ from typing import Any, Dict, List, Optional
 
 from src.collectors.http import SOURCE_BASE, SourceUnavailable, _download_json, _sha256_bytes
 from src.collectors.normalize import (
+    WEAPON_TYPE_BY_CATEGORY,
     ammo_type_to_caliber_map,
     normalize_ammo,
     normalize_armor,
@@ -130,8 +131,12 @@ def sync_all(
         except SourceUnavailable as exc:  # pragma: no cover - 网络分支
             logger.warning("验证情景 %s 获取失败：%s", sid, exc)
 
-    # 需要处理的武器 ID（去重，保持排序保证确定性）
-    weapon_ids: List[str] = sorted({entry["weapon_id"] for entry in ranking["weapons"]})
+    # 需要处理的武器 ID：上游 manifest.weaponPacks **全量收录**（68 把，按 id 升序
+    # 保证确定性），而非仅官方 TTK 榜武器池。官方 TTK 榜
+    # （rankings/firefight/index.json）只覆盖其中 43 把（步枪/冲锋枪/机枪/精确射手
+    # 步枪），其余 25 把（狙击/霰弹/手枪/特殊武器等）无 candidateMetrics 官方逐位
+    # 锚点，仍独立归一化收录以支撑全量 TTK 计算；weapon_limit 截断语义不变。
+    weapon_ids: List[str] = sorted(manifest.get("weaponPacks", {}).keys())
     if weapon_limit is not None:
         weapon_ids = weapon_ids[:weapon_limit]
 
@@ -171,19 +176,17 @@ def sync_all(
     # 弹药类型 → 口径：取该类型内首个非空 caliber 的弹药（逻辑见 normalize 同名函数）
     ammo_type_to_caliber = ammo_type_to_caliber_map(ammo_records)
 
-    # 枪械：以官方排行武器池为准（含变体）
-    weapons: List[Dict[str, Any]] = []
-    seen_profiles: set = set()
-    for entry in ranking["weapons"]:
-        weapon_id = entry["weapon_id"]
-        if weapon_id not in build_packs:
-            continue
-        catalog_object = (catalog_weapons.get("objects") or {}).get(weapon_id) or {}
+    # 枪械：官方 TTK 榜武器池（含官方变体，逐位保留榜内标注）+ 榜外武器 base 条目
+    # （manifest 全量收录的其余武器；无官方变体/candidates，weapon_type 按 catalog
+    # 类别推导）。输出统一按 weapon_id 升序、base 先于变体排序，与 data/tables 的
+    # 一枪一文件展开序一致。
+    def _append_profile(weapon_id: str, catalog_object: Dict[str, Any], weapon_name: str,
+                        profile: Dict[str, Any]) -> None:
         base_record = normalize_weapon(
             weapon_id,
             build_packs[weapon_id],
             catalog_object,
-            entry["base_weapon_name"] or item_names.get(weapon_id, weapon_id),
+            weapon_name,
             ammo_by_type,
             overrides,
             applied_overrides,
@@ -192,9 +195,25 @@ def sync_all(
             ammo_type_to_caliber=ammo_type_to_caliber,
         )
         if base_record is None:
-            continue
+            return
         profile_record = dict(base_record)
-        profile_record.update(
+        profile_record.update(profile)
+        if profile_record["profile_key"] in seen_profiles:
+            return
+        seen_profiles.add(profile_record["profile_key"])
+        weapons.append(profile_record)
+
+    weapons: List[Dict[str, Any]] = []
+    seen_profiles: set = set()
+    for entry in ranking["weapons"]:
+        weapon_id = entry["weapon_id"]
+        if weapon_id not in build_packs:
+            continue
+        catalog_object = (catalog_weapons.get("objects") or {}).get(weapon_id) or {}
+        _append_profile(
+            weapon_id,
+            catalog_object,
+            entry["base_weapon_name"] or item_names.get(weapon_id, weapon_id),
             {
                 "profile_key": entry["profile_key"],
                 "is_variant": entry["is_variant"],
@@ -204,12 +223,34 @@ def sync_all(
                 "reference_candidates": entry["candidates"],
                 "configuration_count": entry["configuration_count"],
                 "weapon_type": entry["weapon_type"],
-            }
+            },
         )
-        if entry["profile_key"] in seen_profiles:
+
+    ranked_weapon_ids = {entry["weapon_id"] for entry in ranking["weapons"]}
+    for weapon_id in weapon_ids:
+        if weapon_id in ranked_weapon_ids or weapon_id not in build_packs:
             continue
-        seen_profiles.add(entry["profile_key"])
-        weapons.append(profile_record)
+        catalog_object = (catalog_weapons.get("objects") or {}).get(weapon_id) or {}
+        weapon_name = item_names.get(weapon_id, weapon_id)
+        _append_profile(
+            weapon_id,
+            catalog_object,
+            weapon_name,
+            {
+                "profile_key": f"{weapon_id}:base",
+                "is_variant": False,
+                "variant_item_id": None,
+                "variant_item_name": None,
+                "display_name": weapon_name,
+                "reference_candidates": [],
+                "configuration_count": 0,
+                "weapon_type": WEAPON_TYPE_BY_CATEGORY.get(
+                    str(catalog_object.get("categoryId") or ""), ""
+                ),
+            },
+        )
+
+    weapons.sort(key=lambda w: (w["weapon_id"], w["is_variant"], w["variant_item_id"] or ""))
 
     parts = normalize_parts(build_packs, item_names)
     profiles = normalize_profiles(build_packs, combat_packs)

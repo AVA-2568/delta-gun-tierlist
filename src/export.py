@@ -3,10 +3,14 @@
 三张表与 TTK 榜单**同源同真**：枪械状态全部经 :class:`WeaponStateResolver`
 实测产出（官方默认配装口径，与榜单 base/变体行一致），不引入第二套口径。
 
-- ``weapons.json`` —— 61 个枪械条目（43 本体 + 18 官方变体出厂态）的完整状态
-- ``parts.json``   —— 824 个配件的属性加成 / profile 换挡 / 精校声明（target 附语义化键）
-- ``links.json``   —— 3340 条「单配件 × 本体枪」对接记录：在本体官方默认态上
+- ``weapons.json`` —— 全部收录枪械（68 本体 + 18 官方变体出厂态）的完整状态
+- ``parts.json``   —— 全部配件的属性加成 / profile 换挡 / 精校声明（target 附语义化键）
+- ``links.json``   —— 全部「单配件 × 本体枪」对接记录：在本体官方默认态上
   单装一件配件后的关键状态，外部工具据此即可对接两表计算任意配装
+
+收录范围 = 上游 manifest.weaponPacks 全量（官方 TTK 榜仅覆盖其中 43 把）；
+精确条目数以 ``data/game/provenance.json`` 的 ``counts`` 与
+``tests/test_export.py`` 规模契约为准。
 
 确定性：不写时间戳（同一份上游数据逐字节一致的产出）；数据集版本取自
 ``data/game/provenance.json``。用法：``python -m src.export``。

@@ -15829,6 +15829,825 @@
     0.65
    ]
   },
+  "authoring:weapon:18030000001:hipSpread": {
+   "profile_id": "authoring:weapon:18030000001:hipSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 1.8,
+    "vertical": 1.8
+   },
+   "max_degrees": {
+    "horizontal": 3.2,
+    "vertical": 3.2
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18030000001:adsSpread": {
+   "profile_id": "authoring:weapon:18030000001:adsSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 0.45,
+    "vertical": 0.45
+   },
+   "max_degrees": {
+    "horizontal": 1,
+    "vertical": 1
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:ammo:37250000002:hipSpread": {
+   "profile_id": "authoring:ammo:37250000002:hipSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 2,
+    "vertical": 2
+   },
+   "max_degrees": {
+    "horizontal": 3.6,
+    "vertical": 3.6
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:ammo:37250000002:adsSpread": {
+   "profile_id": "authoring:ammo:37250000002:adsSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 0.25,
+    "vertical": 0.25
+   },
+   "max_degrees": {
+    "horizontal": 1,
+    "vertical": 1
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:ammo:37250200002:hipSpread": {
+   "profile_id": "authoring:ammo:37250200002:hipSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 2,
+    "vertical": 2
+   },
+   "max_degrees": {
+    "horizontal": 3.6,
+    "vertical": 3.6
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:ammo:37250200002:adsSpread": {
+   "profile_id": "authoring:ammo:37250200002:adsSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 0.25,
+    "vertical": 0.25
+   },
+   "max_degrees": {
+    "horizontal": 1,
+    "vertical": 1
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:ammo:37250300002:hipSpread": {
+   "profile_id": "authoring:ammo:37250300002:hipSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 2,
+    "vertical": 2
+   },
+   "max_degrees": {
+    "horizontal": 3.6,
+    "vertical": 3.6
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:ammo:37250300002:adsSpread": {
+   "profile_id": "authoring:ammo:37250300002:adsSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 0.25,
+    "vertical": 0.25
+   },
+   "max_degrees": {
+    "horizontal": 1,
+    "vertical": 1
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:ammo:37250400002:hipSpread": {
+   "profile_id": "authoring:ammo:37250400002:hipSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 2,
+    "vertical": 2
+   },
+   "max_degrees": {
+    "horizontal": 3.6,
+    "vertical": 3.6
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:ammo:37250400002:adsSpread": {
+   "profile_id": "authoring:ammo:37250400002:adsSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 0.25,
+    "vertical": 0.25
+   },
+   "max_degrees": {
+    "horizontal": 1,
+    "vertical": 1
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:ammo:37250400004:hipSpread": {
+   "profile_id": "authoring:ammo:37250400004:hipSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 2,
+    "vertical": 2
+   },
+   "max_degrees": {
+    "horizontal": 3.6,
+    "vertical": 3.6
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:ammo:37250400004:adsSpread": {
+   "profile_id": "authoring:ammo:37250400004:adsSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 0,
+    "vertical": 0
+   },
+   "max_degrees": {
+    "horizontal": 180,
+    "vertical": 180
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18030000001:hipRecoil": {
+   "profile_id": "authoring:weapon:18030000001:hipRecoil",
+   "kind": "recoil",
+   "loop": {
+    "horizontal_values": [
+     0.0
+    ],
+    "vertical_values": [
+     0.0
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.0
+   }
+  },
+  "authoring:weapon:18030000001:adsRecoil": {
+   "profile_id": "authoring:weapon:18030000001:adsRecoil",
+   "kind": "recoil",
+   "loop": {
+    "horizontal_values": [
+     0.0
+    ],
+    "vertical_values": [
+     0.0
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.0
+   }
+  },
+  "authoring:weapon:18030000001:sol:movement": {
+   "profile_id": "authoring:weapon:18030000001:sol:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 352.0,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 134.81,
+   "ads_movement_modifier": -0.3617
+  },
+  "authoring:weapon:18030000001:mp:movement": {
+   "profile_id": "authoring:weapon:18030000001:mp:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 352.0,
+   "sprint_speed_cm_s": 610.0,
+   "silent_move_speed_cm_s": 134.81,
+   "ads_movement_modifier": -0.2681
+  },
+  "authoring:weapon:18030000001:bd:movement": {
+   "profile_id": "authoring:weapon:18030000001:bd:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 352.0,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 250.0,
+   "ads_movement_modifier": -0.1
+  },
+  "authoring:weapon:18030000001:aiming": {
+   "profile_id": "authoring:weapon:18030000001:aiming",
+   "kind": "aiming",
+   "ads_on_s": 0.352,
+   "ads_off_s": 0.352,
+   "zoom_rate": 1.25,
+   "ads_spread_profile_id": "authoring:weapon:18030000001:adsSpread",
+   "ads_recoil_profile_id": "authoring:weapon:18030000001:adsRecoil"
+  },
+  "authoring:weapon:18030000001:sol:bullet": {
+   "profile_id": "authoring:weapon:18030000001:sol:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 45000.0,
+   "max_distance_cm": 50000.0,
+   "valid_distance_cm": 5000.0,
+   "attenuation_distances_cm": [
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.8
+   ]
+  },
+  "authoring:weapon:18030000001:mp:bullet": {
+   "profile_id": "authoring:weapon:18030000001:mp:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 40000.0,
+   "max_distance_cm": 10000.0,
+   "valid_distance_cm": 400.0,
+   "attenuation_distances_cm": [
+    800.0,
+    1200.0,
+    2000.0,
+    10000.0
+   ],
+   "attenuation_rates": [
+    0.8,
+    0.6,
+    0.2,
+    0.1
+   ]
+  },
+  "authoring:weapon:18030000001:bd:bullet": {
+   "profile_id": "authoring:weapon:18030000001:bd:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 45000.0,
+   "max_distance_cm": 50000.0,
+   "valid_distance_cm": 1000.0,
+   "attenuation_distances_cm": [
+    1500.0,
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.8,
+    0.7
+   ]
+  },
+  "authoring:ammo:37250300001:bullet": {
+   "profile_id": "authoring:ammo:37250300001:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 30000.0,
+   "max_distance_cm": 50000.0,
+   "valid_distance_cm": 2000.0,
+   "attenuation_distances_cm": [
+    4000.0,
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.9,
+    0.8
+   ]
+  },
+  "authoring:ammo:37250400005:bullet": {
+   "profile_id": "authoring:ammo:37250400005:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 30000.0,
+   "max_distance_cm": 50000.0,
+   "valid_distance_cm": 2000.0,
+   "attenuation_distances_cm": [
+    4000.0,
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.9,
+    0.8
+   ]
+  },
+  "authoring:weapon:18030000002:hipSpread": {
+   "profile_id": "authoring:weapon:18030000002:hipSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 2,
+    "vertical": 2
+   },
+   "max_degrees": {
+    "horizontal": 3.6,
+    "vertical": 3.6
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18030000002:adsSpread": {
+   "profile_id": "authoring:weapon:18030000002:adsSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 0.5,
+    "vertical": 0.5
+   },
+   "max_degrees": {
+    "horizontal": 1,
+    "vertical": 1
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18030000002:hipRecoil": {
+   "profile_id": "authoring:weapon:18030000002:hipRecoil",
+   "kind": "recoil",
+   "loop": {
+    "horizontal_values": [
+     2.0
+    ],
+    "vertical_values": [
+     10.0
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.0
+   }
+  },
+  "authoring:weapon:18030000002:adsRecoil": {
+   "profile_id": "authoring:weapon:18030000002:adsRecoil",
+   "kind": "recoil",
+   "loop": {
+    "horizontal_values": [
+     2.0
+    ],
+    "vertical_values": [
+     10.0
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.0
+   }
+  },
+  "authoring:weapon:18030000002:sol:movement": {
+   "profile_id": "authoring:weapon:18030000002:sol:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 352.0,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 134.81,
+   "ads_movement_modifier": -0.4017
+  },
+  "authoring:weapon:18030000002:mp:movement": {
+   "profile_id": "authoring:weapon:18030000002:mp:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 352.0,
+   "sprint_speed_cm_s": 610.0,
+   "silent_move_speed_cm_s": 134.81,
+   "ads_movement_modifier": -0.3081
+  },
+  "authoring:weapon:18030000002:bd:movement": {
+   "profile_id": "authoring:weapon:18030000002:bd:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 352.0,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 250.0,
+   "ads_movement_modifier": -0.1
+  },
+  "authoring:weapon:18030000002:aiming": {
+   "profile_id": "authoring:weapon:18030000002:aiming",
+   "kind": "aiming",
+   "ads_on_s": 0.389,
+   "ads_off_s": 0.389,
+   "zoom_rate": 1.25,
+   "ads_spread_profile_id": "authoring:weapon:18030000002:adsSpread",
+   "ads_recoil_profile_id": "authoring:weapon:18030000002:adsRecoil"
+  },
+  "authoring:weapon:18030000002:sol:bullet": {
+   "profile_id": "authoring:weapon:18030000002:sol:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 30000.0,
+   "max_distance_cm": 50000.0,
+   "valid_distance_cm": 5000.0,
+   "attenuation_distances_cm": [
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.8
+   ]
+  },
+  "authoring:weapon:18030000002:mp:bullet": {
+   "profile_id": "authoring:weapon:18030000002:mp:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 40000.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 400.0,
+   "attenuation_distances_cm": [
+    800.0,
+    1200.0,
+    2000.0,
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.8,
+    0.6,
+    0.2,
+    0.1
+   ]
+  },
+  "authoring:weapon:18030000002:bd:bullet": {
+   "profile_id": "authoring:weapon:18030000002:bd:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 30000.0,
+   "max_distance_cm": 50000.0,
+   "valid_distance_cm": 800.0,
+   "attenuation_distances_cm": [
+    1200.0,
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.8,
+    0.7
+   ]
+  },
+  "authoring:weapon:18030000004:hipSpread": {
+   "profile_id": "authoring:weapon:18030000004:hipSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 1.6,
+    "vertical": 1.6
+   },
+   "max_degrees": {
+    "horizontal": 3,
+    "vertical": 3
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18030000004:adsSpread": {
+   "profile_id": "authoring:weapon:18030000004:adsSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 0.4,
+    "vertical": 0.4
+   },
+   "max_degrees": {
+    "horizontal": 1,
+    "vertical": 1
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18030000004:hipRecoil": {
+   "profile_id": "authoring:weapon:18030000004:hipRecoil",
+   "kind": "recoil",
+   "loop": {
+    "horizontal_values": [
+     0.0
+    ],
+    "vertical_values": [
+     0.0
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.0
+   }
+  },
+  "authoring:weapon:18030000004:adsRecoil": {
+   "profile_id": "authoring:weapon:18030000004:adsRecoil",
+   "kind": "recoil",
+   "loop": {
+    "horizontal_values": [
+     0.0
+    ],
+    "vertical_values": [
+     0.0
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.0
+   }
+  },
+  "authoring:weapon:18030000004:sol:movement": {
+   "profile_id": "authoring:weapon:18030000004:sol:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 346.8,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 132.82,
+   "ads_movement_modifier": -0.3217
+  },
+  "authoring:weapon:18030000004:mp:movement": {
+   "profile_id": "authoring:weapon:18030000004:mp:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 346.8,
+   "sprint_speed_cm_s": 610.0,
+   "silent_move_speed_cm_s": 132.82,
+   "ads_movement_modifier": -0.2281
+  },
+  "authoring:weapon:18030000004:bd:movement": {
+   "profile_id": "authoring:weapon:18030000004:bd:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 346.8,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 250.0,
+   "ads_movement_modifier": -0.1
+  },
+  "authoring:weapon:18030000004:aiming": {
+   "profile_id": "authoring:weapon:18030000004:aiming",
+   "kind": "aiming",
+   "ads_on_s": 0.37,
+   "ads_off_s": 0.37,
+   "zoom_rate": 1.25,
+   "ads_spread_profile_id": "authoring:weapon:18030000004:adsSpread",
+   "ads_recoil_profile_id": "authoring:weapon:18030000004:adsRecoil"
+  },
+  "authoring:weapon:18030000004:sol:bullet": {
+   "profile_id": "authoring:weapon:18030000004:sol:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 40000.0,
+   "max_distance_cm": 50000.0,
+   "valid_distance_cm": 5000.0,
+   "attenuation_distances_cm": [
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.8
+   ]
+  },
+  "authoring:weapon:18030000004:mp:bullet": {
+   "profile_id": "authoring:weapon:18030000004:mp:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 40000.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 1000.0,
+   "attenuation_distances_cm": [
+    1500.0,
+    2000.0,
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.6,
+    0.4,
+    0.2
+   ]
+  },
+  "authoring:weapon:18030000004:bd:bullet": {
+   "profile_id": "authoring:weapon:18030000004:bd:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 40000.0,
+   "max_distance_cm": 50000.0,
+   "valid_distance_cm": 1000.0,
+   "attenuation_distances_cm": [
+    1500.0,
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.9,
+    0.8
+   ]
+  },
+  "authoring:weapon:18030000005:hipSpread": {
+   "profile_id": "authoring:weapon:18030000005:hipSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 2,
+    "vertical": 2
+   },
+   "max_degrees": {
+    "horizontal": 2.5,
+    "vertical": 2.5
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18030000005:adsSpread": {
+   "profile_id": "authoring:weapon:18030000005:adsSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 0.6,
+    "vertical": 0.6
+   },
+   "max_degrees": {
+    "horizontal": 1,
+    "vertical": 1
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18030000005:hipRecoil": {
+   "profile_id": "authoring:weapon:18030000005:hipRecoil",
+   "kind": "recoil"
+  },
+  "authoring:weapon:18030000005:adsRecoil": {
+   "profile_id": "authoring:weapon:18030000005:adsRecoil",
+   "kind": "recoil"
+  },
+  "authoring:weapon:18030000005:sol:movement": {
+   "profile_id": "authoring:weapon:18030000005:sol:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 352.0,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 134.81,
+   "ads_movement_modifier": -0.3217
+  },
+  "authoring:weapon:18030000005:mp:movement": {
+   "profile_id": "authoring:weapon:18030000005:mp:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 352.0,
+   "sprint_speed_cm_s": 610.0,
+   "silent_move_speed_cm_s": 134.81,
+   "ads_movement_modifier": -0.2681
+  },
+  "authoring:weapon:18030000005:bd:movement": {
+   "profile_id": "authoring:weapon:18030000005:bd:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 352.0,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 250.0,
+   "ads_movement_modifier": -0.1
+  },
+  "authoring:weapon:18030000005:aiming": {
+   "profile_id": "authoring:weapon:18030000005:aiming",
+   "kind": "aiming",
+   "ads_on_s": 0.4,
+   "ads_off_s": 0.4,
+   "zoom_rate": 1.25,
+   "ads_spread_profile_id": "authoring:weapon:18030000005:adsSpread",
+   "ads_recoil_profile_id": "authoring:weapon:18030000005:adsRecoil"
+  },
+  "authoring:weapon:18030000005:sol:bullet": {
+   "profile_id": "authoring:weapon:18030000005:sol:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 40000.0,
+   "max_distance_cm": 50000.0,
+   "valid_distance_cm": 5000.0,
+   "attenuation_distances_cm": [
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.8
+   ]
+  },
+  "authoring:weapon:18030000005:mp:bullet": {
+   "profile_id": "authoring:weapon:18030000005:mp:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 40000.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 800.0,
+   "attenuation_distances_cm": [
+    1200.0,
+    1800.0,
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.75,
+    0.6,
+    0.2
+   ]
+  },
+  "authoring:weapon:18030000005:bd:bullet": {
+   "profile_id": "authoring:weapon:18030000005:bd:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 40000.0,
+   "max_distance_cm": 50000.0,
+   "valid_distance_cm": 1000.0,
+   "attenuation_distances_cm": [
+    1500.0,
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.9,
+    0.8
+   ]
+  },
+  "authoring:weapon:18030000006:hipSpread": {
+   "profile_id": "authoring:weapon:18030000006:hipSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 2.5,
+    "vertical": 2.5
+   },
+   "max_degrees": {
+    "horizontal": 3.8,
+    "vertical": 3.8
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18030000006:adsSpread": {
+   "profile_id": "authoring:weapon:18030000006:adsSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 0.5,
+    "vertical": 0.5
+   },
+   "max_degrees": {
+    "horizontal": 1,
+    "vertical": 1
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:part:18030000006:mp:hipSpread": {
+   "profile_id": "authoring:part:18030000006:mp:hipSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 4,
+    "vertical": 4
+   },
+   "max_degrees": {
+    "horizontal": 6,
+    "vertical": 6
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18030000006:hipRecoil": {
+   "profile_id": "authoring:weapon:18030000006:hipRecoil",
+   "kind": "recoil",
+   "loop": {
+    "horizontal_values": [
+     2.0
+    ],
+    "vertical_values": [
+     10.0
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.0
+   }
+  },
+  "authoring:weapon:18030000006:adsRecoil": {
+   "profile_id": "authoring:weapon:18030000006:adsRecoil",
+   "kind": "recoil",
+   "loop": {
+    "horizontal_values": [
+     2.0
+    ],
+    "vertical_values": [
+     10.0
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.0
+   }
+  },
+  "authoring:weapon:18030000006:sol:movement": {
+   "profile_id": "authoring:weapon:18030000006:sol:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 352.0,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 134.81,
+   "ads_movement_modifier": -0.3617
+  },
+  "authoring:weapon:18030000006:mp:movement": {
+   "profile_id": "authoring:weapon:18030000006:mp:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 352.0,
+   "sprint_speed_cm_s": 610.0,
+   "silent_move_speed_cm_s": 134.81,
+   "ads_movement_modifier": -0.2681
+  },
+  "authoring:weapon:18030000006:bd:movement": {
+   "profile_id": "authoring:weapon:18030000006:bd:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 352.0,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 250.0,
+   "ads_movement_modifier": -0.1
+  },
+  "authoring:weapon:18030000006:aiming": {
+   "profile_id": "authoring:weapon:18030000006:aiming",
+   "kind": "aiming",
+   "ads_on_s": 0.389,
+   "ads_off_s": 0.389,
+   "zoom_rate": 1.25,
+   "ads_spread_profile_id": "authoring:weapon:18030000006:adsSpread",
+   "ads_recoil_profile_id": "authoring:weapon:18030000006:adsRecoil"
+  },
+  "authoring:weapon:18030000006:sol:bullet": {
+   "profile_id": "authoring:weapon:18030000006:sol:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 45000.0,
+   "max_distance_cm": 50000.0,
+   "valid_distance_cm": 5000.0,
+   "attenuation_distances_cm": [
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.8
+   ]
+  },
+  "authoring:weapon:18030000006:mp:bullet": {
+   "profile_id": "authoring:weapon:18030000006:mp:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 40000.0,
+   "max_distance_cm": 10000.0,
+   "valid_distance_cm": 300.0,
+   "attenuation_distances_cm": [
+    600.0,
+    1000.0,
+    2000.0,
+    10000.0
+   ],
+   "attenuation_rates": [
+    0.75,
+    0.6,
+    0.2,
+    0.1
+   ]
+  },
+  "authoring:weapon:18030000006:bd:bullet": {
+   "profile_id": "authoring:weapon:18030000006:bd:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 45000.0,
+   "max_distance_cm": 50000.0,
+   "valid_distance_cm": 1000.0,
+   "attenuation_distances_cm": [
+    1500.0,
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.9,
+    0.8
+   ]
+  },
   "authoring:weapon:18040000001:hipSpread": {
    "profile_id": "authoring:weapon:18040000001:hipSpread",
    "kind": "spread",
@@ -17594,6 +18413,148 @@
     0.8
    ]
   },
+  "authoring:weapon:18050000002:hipSpread": {
+   "profile_id": "authoring:weapon:18050000002:hipSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 3.3,
+    "vertical": 3.3
+   },
+   "max_degrees": {
+    "horizontal": 8,
+    "vertical": 8
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18050000002:adsSpread": {
+   "profile_id": "authoring:weapon:18050000002:adsSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 0,
+    "vertical": 0
+   },
+   "max_degrees": {
+    "horizontal": 180,
+    "vertical": 180
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18050000002:hipRecoil": {
+   "profile_id": "authoring:weapon:18050000002:hipRecoil",
+   "kind": "recoil",
+   "loop": {
+    "horizontal_values": [
+     0.2,
+     0.4,
+     -0.2,
+     0.0,
+     0.2
+    ],
+    "vertical_values": [
+     2.5,
+     3.0,
+     2.8,
+     4.0,
+     3.5,
+     2.1,
+     2.4
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.0
+   }
+  },
+  "authoring:weapon:18050000002:adsRecoil": {
+   "profile_id": "authoring:weapon:18050000002:adsRecoil",
+   "kind": "recoil",
+   "loop": {
+    "horizontal_values": [
+     0.2,
+     0.4,
+     -0.2,
+     0.0,
+     0.2
+    ],
+    "vertical_values": [
+     2.5,
+     3.0,
+     2.8,
+     4.0,
+     3.5,
+     2.1,
+     2.4
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.0
+   }
+  },
+  "authoring:weapon:18050000002:sol:movement": {
+   "profile_id": "authoring:weapon:18050000002:sol:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 318.17,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 124.37,
+   "ads_movement_modifier": -0.4886
+  },
+  "authoring:weapon:18050000002:mp:movement": {
+   "profile_id": "authoring:weapon:18050000002:mp:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 318.17,
+   "sprint_speed_cm_s": 610.0,
+   "silent_move_speed_cm_s": 124.37,
+   "ads_movement_modifier": -0.4136
+  },
+  "authoring:weapon:18050000002:bd:movement": {
+   "profile_id": "authoring:weapon:18050000002:bd:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 318.17,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 250.0,
+   "ads_movement_modifier": -0.1
+  },
+  "authoring:weapon:18050000002:aiming": {
+   "profile_id": "authoring:weapon:18050000002:aiming",
+   "kind": "aiming",
+   "ads_on_s": 0.357,
+   "ads_off_s": 0.357,
+   "zoom_rate": 1.25,
+   "ads_spread_profile_id": "authoring:weapon:18050000002:adsSpread",
+   "ads_recoil_profile_id": "authoring:weapon:18050000002:adsRecoil"
+  },
+  "authoring:weapon:18050000002:sol:bullet": {
+   "profile_id": "authoring:weapon:18050000002:sol:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 65000.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 9000.0,
+   "attenuation_distances_cm": [
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.85
+   ]
+  },
+  "authoring:weapon:18050000002:mp:bullet": {
+   "profile_id": "authoring:weapon:18050000002:mp:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 65000.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 9000.0,
+   "attenuation_distances_cm": [
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.85
+   ]
+  },
+  "authoring:weapon:18050000002:bd:bullet": {
+   "profile_id": "authoring:weapon:18050000002:bd:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 65000.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 9000.0,
+   "attenuation_distances_cm": [],
+   "attenuation_rates": []
+  },
   "authoring:weapon:18050000003:hipSpread": {
    "profile_id": "authoring:weapon:18050000003:hipSpread",
    "kind": "spread",
@@ -17825,6 +18786,116 @@
    "valid_distance_cm": 12000.0,
    "attenuation_distances_cm": [],
    "attenuation_rates": []
+  },
+  "authoring:weapon:18050000004:hipSpread": {
+   "profile_id": "authoring:weapon:18050000004:hipSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 3.5,
+    "vertical": 3.5
+   },
+   "max_degrees": {
+    "horizontal": 8,
+    "vertical": 8
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18050000004:adsSpread": {
+   "profile_id": "authoring:weapon:18050000004:adsSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 0,
+    "vertical": 0
+   },
+   "max_degrees": {
+    "horizontal": 180,
+    "vertical": 180
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18050000004:hipRecoil": {
+   "profile_id": "authoring:weapon:18050000004:hipRecoil",
+   "kind": "recoil"
+  },
+  "authoring:weapon:18050000004:adsRecoil": {
+   "profile_id": "authoring:weapon:18050000004:adsRecoil",
+   "kind": "recoil"
+  },
+  "authoring:weapon:18050000004:sol:movement": {
+   "profile_id": "authoring:weapon:18050000004:sol:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 311.67,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 121.83999999999999,
+   "ads_movement_modifier": -0.5286
+  },
+  "authoring:weapon:18050000004:mp:movement": {
+   "profile_id": "authoring:weapon:18050000004:mp:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 311.67,
+   "sprint_speed_cm_s": 610.0,
+   "silent_move_speed_cm_s": 121.83999999999999,
+   "ads_movement_modifier": -0.4136
+  },
+  "authoring:weapon:18050000004:bd:movement": {
+   "profile_id": "authoring:weapon:18050000004:bd:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 311.67,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 250.0,
+   "ads_movement_modifier": -0.1
+  },
+  "authoring:weapon:18050000004:aiming": {
+   "profile_id": "authoring:weapon:18050000004:aiming",
+   "kind": "aiming",
+   "ads_on_s": 0.374,
+   "ads_off_s": 0.374,
+   "zoom_rate": 1.25,
+   "ads_spread_profile_id": "authoring:weapon:18050000004:adsSpread",
+   "ads_recoil_profile_id": "authoring:weapon:18050000004:adsRecoil"
+  },
+  "authoring:weapon:18050000004:sol:bullet": {
+   "profile_id": "authoring:weapon:18050000004:sol:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 50000.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 7000.0,
+   "attenuation_distances_cm": [
+    9000.0,
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.9,
+    0.625
+   ]
+  },
+  "authoring:weapon:18050000004:mp:bullet": {
+   "profile_id": "authoring:weapon:18050000004:mp:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 50000.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 7000.0,
+   "attenuation_distances_cm": [
+    9000.0,
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.9,
+    0.625
+   ]
+  },
+  "authoring:weapon:18050000004:bd:bullet": {
+   "profile_id": "authoring:weapon:18050000004:bd:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 50000.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 7000.0,
+   "attenuation_distances_cm": [
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.9
+   ]
   },
   "authoring:weapon:18050000005:hipSpread": {
    "profile_id": "authoring:weapon:18050000005:hipSpread",
@@ -18066,6 +19137,650 @@
     0.8
    ]
   },
+  "authoring:weapon:18050000006:hipSpread": {
+   "profile_id": "authoring:weapon:18050000006:hipSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 3.25,
+    "vertical": 3.25
+   },
+   "max_degrees": {
+    "horizontal": 8.75,
+    "vertical": 8.75
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18050000006:adsSpread": {
+   "profile_id": "authoring:weapon:18050000006:adsSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 0,
+    "vertical": 0
+   },
+   "max_degrees": {
+    "horizontal": 180,
+    "vertical": 180
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18050000006:hipRecoil": {
+   "profile_id": "authoring:weapon:18050000006:hipRecoil",
+   "kind": "recoil"
+  },
+  "authoring:weapon:18050000006:adsRecoil": {
+   "profile_id": "authoring:weapon:18050000006:adsRecoil",
+   "kind": "recoil"
+  },
+  "authoring:weapon:18050000006:sol:movement": {
+   "profile_id": "authoring:weapon:18050000006:sol:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 324.66,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 126.91,
+   "ads_movement_modifier": -0.4586
+  },
+  "authoring:weapon:18050000006:mp:movement": {
+   "profile_id": "authoring:weapon:18050000006:mp:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 324.66,
+   "sprint_speed_cm_s": 610.0,
+   "silent_move_speed_cm_s": 126.91,
+   "ads_movement_modifier": -0.4136
+  },
+  "authoring:weapon:18050000006:bd:movement": {
+   "profile_id": "authoring:weapon:18050000006:bd:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 324.66,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 250.0,
+   "ads_movement_modifier": -0.1
+  },
+  "authoring:weapon:18050000006:aiming": {
+   "profile_id": "authoring:weapon:18050000006:aiming",
+   "kind": "aiming",
+   "ads_on_s": 0.323,
+   "ads_off_s": 0.323,
+   "zoom_rate": 1.25,
+   "ads_spread_profile_id": "authoring:weapon:18050000006:adsSpread",
+   "ads_recoil_profile_id": "authoring:weapon:18050000006:adsRecoil"
+  },
+  "authoring:weapon:18050000006:sol:bullet": {
+   "profile_id": "authoring:weapon:18050000006:sol:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 57500.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 5500.0,
+   "attenuation_distances_cm": [
+    9000.0,
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.85,
+    0.7
+   ]
+  },
+  "authoring:weapon:18050000006:mp:bullet": {
+   "profile_id": "authoring:weapon:18050000006:mp:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 57500.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 5500.0,
+   "attenuation_distances_cm": [
+    9000.0,
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.85,
+    0.7
+   ]
+  },
+  "authoring:weapon:18050000006:bd:bullet": {
+   "profile_id": "authoring:weapon:18050000006:bd:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 57500.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 4000.0,
+   "attenuation_distances_cm": [
+    10000.0
+   ],
+   "attenuation_rates": [
+    0.9
+   ]
+  },
+  "authoring:weapon:18050000007:hipSpread": {
+   "profile_id": "authoring:weapon:18050000007:hipSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 3.1,
+    "vertical": 3.1
+   },
+   "max_degrees": {
+    "horizontal": 8,
+    "vertical": 8
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18050000007:adsSpread": {
+   "profile_id": "authoring:weapon:18050000007:adsSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 0,
+    "vertical": 0
+   },
+   "max_degrees": {
+    "horizontal": 180,
+    "vertical": 180
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18050000007:hipRecoil": {
+   "profile_id": "authoring:weapon:18050000007:hipRecoil",
+   "kind": "recoil"
+  },
+  "authoring:weapon:18050000007:adsRecoil": {
+   "profile_id": "authoring:weapon:18050000007:adsRecoil",
+   "kind": "recoil"
+  },
+  "authoring:weapon:18050000007:sol:movement": {
+   "profile_id": "authoring:weapon:18050000007:sol:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 327.91,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 128.18,
+   "ads_movement_modifier": -0.4486
+  },
+  "authoring:weapon:18050000007:mp:movement": {
+   "profile_id": "authoring:weapon:18050000007:mp:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 327.91,
+   "sprint_speed_cm_s": 610.0,
+   "silent_move_speed_cm_s": 128.18,
+   "ads_movement_modifier": -0.4136
+  },
+  "authoring:weapon:18050000007:bd:movement": {
+   "profile_id": "authoring:weapon:18050000007:bd:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 327.91,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 250.0,
+   "ads_movement_modifier": -0.1
+  },
+  "authoring:weapon:18050000007:aiming": {
+   "profile_id": "authoring:weapon:18050000007:aiming",
+   "kind": "aiming",
+   "ads_on_s": 0.304,
+   "ads_off_s": 0.304,
+   "zoom_rate": 1.25,
+   "ads_spread_profile_id": "authoring:weapon:18050000007:adsSpread",
+   "ads_recoil_profile_id": "authoring:weapon:18050000007:adsRecoil"
+  },
+  "authoring:weapon:18050000007:sol:bullet": {
+   "profile_id": "authoring:weapon:18050000007:sol:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 55000.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 6000.0,
+   "attenuation_distances_cm": [
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.85
+   ]
+  },
+  "authoring:weapon:18050000007:mp:bullet": {
+   "profile_id": "authoring:weapon:18050000007:mp:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 55000.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 9000.0,
+   "attenuation_distances_cm": [
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.85
+   ]
+  },
+  "authoring:weapon:18050000007:bd:bullet": {
+   "profile_id": "authoring:weapon:18050000007:bd:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 55000.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 6000.0,
+   "attenuation_distances_cm": [
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.9
+   ]
+  },
+  "authoring:part:13020000396:sol:bullet": {
+   "profile_id": "authoring:part:13020000396:sol:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 90000.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 11700.0,
+   "attenuation_distances_cm": [
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.85
+   ]
+  },
+  "authoring:part:13020000397:sol:bullet": {
+   "profile_id": "authoring:part:13020000397:sol:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 75000.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 10600.0,
+   "attenuation_distances_cm": [
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.85
+   ]
+  },
+  "authoring:part:13020000398:sol:bullet": {
+   "profile_id": "authoring:part:13020000398:sol:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 62500.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 5000.0,
+   "attenuation_distances_cm": [
+    8000.0,
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.85,
+    0.7
+   ]
+  },
+  "authoring:part:13020000398:mp:bullet": {
+   "profile_id": "authoring:part:13020000398:mp:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 55000.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 3000.0,
+   "attenuation_distances_cm": [
+    5000.0,
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.7,
+    0.6
+   ]
+  },
+  "authoring:part:13020000398:bd:bullet": {
+   "profile_id": "authoring:part:13020000398:bd:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 62500.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 4000.0,
+   "attenuation_distances_cm": [
+    8000.0,
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.8,
+    0.7
+   ]
+  },
+  "authoring:weapon:18050000008:hipSpread": {
+   "profile_id": "authoring:weapon:18050000008:hipSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 3.8,
+    "vertical": 3.8
+   },
+   "max_degrees": {
+    "horizontal": 8.75,
+    "vertical": 8.75
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18050000008:adsSpread": {
+   "profile_id": "authoring:weapon:18050000008:adsSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 0,
+    "vertical": 0
+   },
+   "max_degrees": {
+    "horizontal": 180,
+    "vertical": 180
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18050000008:hipRecoil": {
+   "profile_id": "authoring:weapon:18050000008:hipRecoil",
+   "kind": "recoil"
+  },
+  "authoring:weapon:18050000008:adsRecoil": {
+   "profile_id": "authoring:weapon:18050000008:adsRecoil",
+   "kind": "recoil"
+  },
+  "authoring:weapon:18050000008:sol:movement": {
+   "profile_id": "authoring:weapon:18050000008:sol:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 318.17,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 124.37,
+   "ads_movement_modifier": -0.4886
+  },
+  "authoring:weapon:18050000008:mp:movement": {
+   "profile_id": "authoring:weapon:18050000008:mp:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 318.17,
+   "sprint_speed_cm_s": 610.0,
+   "silent_move_speed_cm_s": 124.37,
+   "ads_movement_modifier": -0.4136
+  },
+  "authoring:weapon:18050000008:bd:movement": {
+   "profile_id": "authoring:weapon:18050000008:bd:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 318.17,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 250.0,
+   "ads_movement_modifier": -0.1
+  },
+  "authoring:weapon:18050000008:aiming": {
+   "profile_id": "authoring:weapon:18050000008:aiming",
+   "kind": "aiming",
+   "ads_on_s": 0.374,
+   "ads_off_s": 0.374,
+   "zoom_rate": 1.25,
+   "ads_spread_profile_id": "authoring:weapon:18050000008:adsSpread",
+   "ads_recoil_profile_id": "authoring:weapon:18050000008:adsRecoil"
+  },
+  "authoring:weapon:18050000008:sol:bullet": {
+   "profile_id": "authoring:weapon:18050000008:sol:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 55000.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 9000.0,
+   "attenuation_distances_cm": [
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.85
+   ]
+  },
+  "authoring:weapon:18050000008:mp:bullet": {
+   "profile_id": "authoring:weapon:18050000008:mp:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 55000.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 9000.0,
+   "attenuation_distances_cm": [
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.85
+   ]
+  },
+  "authoring:weapon:18050000008:bd:bullet": {
+   "profile_id": "authoring:weapon:18050000008:bd:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 55000.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 9000.0,
+   "attenuation_distances_cm": [],
+   "attenuation_rates": []
+  },
+  "authoring:weapon:18050000031:hipSpread": {
+   "profile_id": "authoring:weapon:18050000031:hipSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 3.1,
+    "vertical": 3.1
+   },
+   "max_degrees": {
+    "horizontal": 8,
+    "vertical": 8
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18050000031:adsSpread": {
+   "profile_id": "authoring:weapon:18050000031:adsSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 0,
+    "vertical": 0
+   },
+   "max_degrees": {
+    "horizontal": 180,
+    "vertical": 180
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18050000031:hipRecoil": {
+   "profile_id": "authoring:weapon:18050000031:hipRecoil",
+   "kind": "recoil"
+  },
+  "authoring:weapon:18050000031:adsRecoil": {
+   "profile_id": "authoring:weapon:18050000031:adsRecoil",
+   "kind": "recoil"
+  },
+  "authoring:weapon:18050000031:sol:movement": {
+   "profile_id": "authoring:weapon:18050000031:sol:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 311.67,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 121.83999999999999,
+   "ads_movement_modifier": -0.5286
+  },
+  "authoring:weapon:18050000031:mp:movement": {
+   "profile_id": "authoring:weapon:18050000031:mp:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 311.67,
+   "sprint_speed_cm_s": 610.0,
+   "silent_move_speed_cm_s": 121.83999999999999,
+   "ads_movement_modifier": -0.4136
+  },
+  "authoring:weapon:18050000031:bd:movement": {
+   "profile_id": "authoring:weapon:18050000031:bd:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 311.67,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 250.0,
+   "ads_movement_modifier": -0.1
+  },
+  "authoring:weapon:18050000031:aiming": {
+   "profile_id": "authoring:weapon:18050000031:aiming",
+   "kind": "aiming",
+   "ads_on_s": 0.374,
+   "ads_off_s": 0.374,
+   "zoom_rate": 1.25,
+   "ads_spread_profile_id": "authoring:weapon:18050000031:adsSpread",
+   "ads_recoil_profile_id": "authoring:weapon:18050000031:adsRecoil"
+  },
+  "authoring:weapon:18050000031:sol:bullet": {
+   "profile_id": "authoring:weapon:18050000031:sol:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 55000.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 9000.0,
+   "attenuation_distances_cm": [
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.85
+   ]
+  },
+  "authoring:weapon:18050000031:mp:bullet": {
+   "profile_id": "authoring:weapon:18050000031:mp:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 55000.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 9000.0,
+   "attenuation_distances_cm": [
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.85
+   ]
+  },
+  "authoring:weapon:18050000031:bd:bullet": {
+   "profile_id": "authoring:weapon:18050000031:bd:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 55000.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 9000.0,
+   "attenuation_distances_cm": [],
+   "attenuation_rates": []
+  },
+  "authoring:weapon:18050000032:hipSpread": {
+   "profile_id": "authoring:weapon:18050000032:hipSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 2,
+    "vertical": 2
+   },
+   "max_degrees": {
+    "horizontal": 3.5,
+    "vertical": 3.5
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18050000032:adsSpread": {
+   "profile_id": "authoring:weapon:18050000032:adsSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 0,
+    "vertical": 0
+   },
+   "max_degrees": {
+    "horizontal": 180,
+    "vertical": 180
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18050000032:hipRecoil": {
+   "profile_id": "authoring:weapon:18050000032:hipRecoil",
+   "kind": "recoil"
+  },
+  "authoring:weapon:18050000032:adsRecoil": {
+   "profile_id": "authoring:weapon:18050000032:adsRecoil",
+   "kind": "recoil"
+  },
+  "authoring:weapon:18050000032:sol:movement": {
+   "profile_id": "authoring:weapon:18050000032:sol:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 318.17,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 124.37,
+   "ads_movement_modifier": -0.4886
+  },
+  "authoring:weapon:18050000032:mp:movement": {
+   "profile_id": "authoring:weapon:18050000032:mp:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 318.17,
+   "sprint_speed_cm_s": 610.0,
+   "silent_move_speed_cm_s": 124.37,
+   "ads_movement_modifier": -0.4136
+  },
+  "authoring:weapon:18050000032:bd:movement": {
+   "profile_id": "authoring:weapon:18050000032:bd:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 318.17,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 250.0,
+   "ads_movement_modifier": -0.1
+  },
+  "authoring:weapon:18050000032:aiming": {
+   "profile_id": "authoring:weapon:18050000032:aiming",
+   "kind": "aiming",
+   "ads_on_s": 0.3,
+   "ads_off_s": 0.3,
+   "zoom_rate": 1.25,
+   "ads_spread_profile_id": "authoring:weapon:18050000032:adsSpread",
+   "ads_recoil_profile_id": "authoring:weapon:18050000032:adsRecoil"
+  },
+  "authoring:weapon:18050000032:sol:bullet": {
+   "profile_id": "authoring:weapon:18050000032:sol:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 75000.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 3000.0,
+   "attenuation_distances_cm": [
+    5000.0,
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.9,
+    0.75
+   ]
+  },
+  "authoring:weapon:18050000032:mp:bullet": {
+   "profile_id": "authoring:weapon:18050000032:mp:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 75000.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 3000.0,
+   "attenuation_distances_cm": [
+    6000.0,
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.9,
+    0.8
+   ]
+  },
+  "authoring:weapon:18050000032:bd:bullet": {
+   "profile_id": "authoring:weapon:18050000032:bd:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 75000.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 3000.0,
+   "attenuation_distances_cm": [
+    10000.0
+   ],
+   "attenuation_rates": [
+    0.9
+   ]
+  },
+  "authoring:part:13520000003:sol:bullet": {
+   "profile_id": "authoring:part:13520000003:sol:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 75000.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 2000.0,
+   "attenuation_distances_cm": [
+    4000.0,
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.9,
+    0.75
+   ]
+  },
+  "authoring:part:13520000003:mp:bullet": {
+   "profile_id": "authoring:part:13520000003:mp:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 75000.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 2300.0,
+   "attenuation_distances_cm": [
+    5000.0,
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.9,
+    0.5
+   ]
+  },
+  "authoring:part:13520000003:bd:bullet": {
+   "profile_id": "authoring:part:13520000003:bd:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 75000.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 5000.0,
+   "attenuation_distances_cm": [
+    10000.0
+   ],
+   "attenuation_rates": [
+    0.9
+   ]
+  },
   "authoring:weapon:18050000033:hipSpread": {
    "profile_id": "authoring:weapon:18050000033:hipSpread",
    "kind": "spread",
@@ -18207,6 +19922,3106 @@
     0.9,
     0.8
    ]
+  },
+  "authoring:weapon:18060000007:hipSpread": {
+   "profile_id": "authoring:weapon:18060000007:hipSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 4.2,
+    "vertical": 4.2
+   },
+   "max_degrees": {
+    "horizontal": 10,
+    "vertical": 10
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18060000007:adsSpread": {
+   "profile_id": "authoring:weapon:18060000007:adsSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 0,
+    "vertical": 0
+   },
+   "max_degrees": {
+    "horizontal": 180,
+    "vertical": 180
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18060000007:hipRecoil": {
+   "profile_id": "authoring:weapon:18060000007:hipRecoil",
+   "kind": "recoil",
+   "loop": {
+    "horizontal_values": [
+     0.0
+    ],
+    "vertical_values": [
+     0.0
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.0
+   }
+  },
+  "authoring:weapon:18060000007:adsRecoil": {
+   "profile_id": "authoring:weapon:18060000007:adsRecoil",
+   "kind": "recoil",
+   "loop": {
+    "horizontal_values": [
+     0.0
+    ],
+    "vertical_values": [
+     30.0
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.0
+   }
+  },
+  "authoring:weapon:18060000007:sol:movement": {
+   "profile_id": "authoring:weapon:18060000007:sol:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 304.59,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 117.58999999999999,
+   "ads_movement_modifier": -0.5489
+  },
+  "authoring:weapon:18060000007:mp:movement": {
+   "profile_id": "authoring:weapon:18060000007:mp:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 304.59,
+   "sprint_speed_cm_s": 610.0,
+   "silent_move_speed_cm_s": 117.58999999999999,
+   "ads_movement_modifier": -0.5325
+  },
+  "authoring:weapon:18060000007:bd:movement": {
+   "profile_id": "authoring:weapon:18060000007:bd:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 304.59,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 250.0,
+   "ads_movement_modifier": -0.1
+  },
+  "authoring:weapon:18060000007:aiming": {
+   "profile_id": "authoring:weapon:18060000007:aiming",
+   "kind": "aiming",
+   "ads_on_s": 0.472,
+   "ads_off_s": 0.472,
+   "zoom_rate": 1.25,
+   "ads_spread_profile_id": "authoring:weapon:18060000007:adsSpread",
+   "ads_recoil_profile_id": "authoring:weapon:18060000007:adsRecoil"
+  },
+  "authoring:weapon:18060000007:sol:bullet": {
+   "profile_id": "authoring:weapon:18060000007:sol:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 65000.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 50000.0,
+   "attenuation_distances_cm": [],
+   "attenuation_rates": []
+  },
+  "authoring:weapon:18060000007:mp:bullet": {
+   "profile_id": "authoring:weapon:18060000007:mp:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 72000.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 5500.0,
+   "attenuation_distances_cm": [
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.7
+   ]
+  },
+  "authoring:weapon:18060000007:bd:bullet": {
+   "profile_id": "authoring:weapon:18060000007:bd:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 65000.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 50000.0,
+   "attenuation_distances_cm": [],
+   "attenuation_rates": []
+  },
+  "authoring:weapon:18060000008:hipSpread": {
+   "profile_id": "authoring:weapon:18060000008:hipSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 4,
+    "vertical": 4
+   },
+   "max_degrees": {
+    "horizontal": 10,
+    "vertical": 10
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18060000008:adsSpread": {
+   "profile_id": "authoring:weapon:18060000008:adsSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 0,
+    "vertical": 0
+   },
+   "max_degrees": {
+    "horizontal": 180,
+    "vertical": 180
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18060000008:hipRecoil": {
+   "profile_id": "authoring:weapon:18060000008:hipRecoil",
+   "kind": "recoil",
+   "loop": {
+    "horizontal_values": [
+     -5.0,
+     -2.0,
+     -4.0,
+     0.0,
+     -2.0
+    ],
+    "vertical_values": [
+     6.0,
+     4.0,
+     9.0,
+     4.0,
+     7.0
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.0
+   }
+  },
+  "authoring:weapon:18060000008:adsRecoil": {
+   "profile_id": "authoring:weapon:18060000008:adsRecoil",
+   "kind": "recoil",
+   "loop": {
+    "horizontal_values": [
+     -3.5,
+     -1.4
+    ],
+    "vertical_values": [
+     4.2,
+     2.8
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.0
+   }
+  },
+  "authoring:weapon:18060000008:sol:movement": {
+   "profile_id": "authoring:weapon:18060000008:sol:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 333.15,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 128.61,
+   "ads_movement_modifier": -0.4689
+  },
+  "authoring:weapon:18060000008:mp:movement": {
+   "profile_id": "authoring:weapon:18060000008:mp:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 333.15,
+   "sprint_speed_cm_s": 610.0,
+   "silent_move_speed_cm_s": 128.61,
+   "ads_movement_modifier": -0.4525
+  },
+  "authoring:weapon:18060000008:bd:movement": {
+   "profile_id": "authoring:weapon:18060000008:bd:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 333.15,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 250.0,
+   "ads_movement_modifier": -0.1
+  },
+  "authoring:weapon:18060000008:aiming": {
+   "profile_id": "authoring:weapon:18060000008:aiming",
+   "kind": "aiming",
+   "ads_on_s": 0.32,
+   "ads_off_s": 0.32,
+   "zoom_rate": 1.25,
+   "ads_spread_profile_id": "authoring:weapon:18060000008:adsSpread",
+   "ads_recoil_profile_id": "authoring:weapon:18060000008:adsRecoil"
+  },
+  "authoring:weapon:18060000008:sol:bullet": {
+   "profile_id": "authoring:weapon:18060000008:sol:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 55000.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 50000.0,
+   "attenuation_distances_cm": [],
+   "attenuation_rates": []
+  },
+  "authoring:weapon:18060000008:mp:bullet": {
+   "profile_id": "authoring:weapon:18060000008:mp:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 65000.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 0.0,
+   "attenuation_distances_cm": [
+    3000.0,
+    6000.0,
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.8,
+    1.0,
+    0.6
+   ]
+  },
+  "authoring:weapon:18060000008:bd:bullet": {
+   "profile_id": "authoring:weapon:18060000008:bd:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 55000.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 50000.0,
+   "attenuation_distances_cm": [],
+   "attenuation_rates": []
+  },
+  "authoring:weapon:18060000009:hipSpread": {
+   "profile_id": "authoring:weapon:18060000009:hipSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 4.1,
+    "vertical": 4.1
+   },
+   "max_degrees": {
+    "horizontal": 10,
+    "vertical": 10
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18060000009:adsSpread": {
+   "profile_id": "authoring:weapon:18060000009:adsSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 0,
+    "vertical": 0
+   },
+   "max_degrees": {
+    "horizontal": 180,
+    "vertical": 180
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18060000009:hipRecoil": {
+   "profile_id": "authoring:weapon:18060000009:hipRecoil",
+   "kind": "recoil",
+   "loop": {
+    "horizontal_values": [
+     1.98,
+     1.98,
+     1.98,
+     1.98
+    ],
+    "vertical_values": [
+     4.5,
+     3.96,
+     4.5,
+     3.96
+    ],
+    "horizontal_scale": 1.05,
+    "vertical_scale": 1.65
+   }
+  },
+  "authoring:weapon:18060000009:adsRecoil": {
+   "profile_id": "authoring:weapon:18060000009:adsRecoil",
+   "kind": "recoil",
+   "loop": {
+    "horizontal_values": [
+     1.98,
+     1.98,
+     1.98,
+     1.98
+    ],
+    "vertical_values": [
+     4.5,
+     3.96,
+     4.5,
+     3.96
+    ],
+    "horizontal_scale": 1.05,
+    "vertical_scale": 1.65
+   }
+  },
+  "authoring:part:13560000002:sol:hipRecoil": {
+   "profile_id": "authoring:part:13560000002:sol:hipRecoil",
+   "kind": "recoil",
+   "continuousFire": {
+    "horizontal_values": [
+     1.38,
+     1.37,
+     -2.67,
+     -2.27,
+     -1.78,
+     -1.78,
+     -1.78,
+     2.26,
+     2.27,
+     1.62,
+     1.62,
+     -1.62,
+     -1.62,
+     1.62,
+     -1.62,
+     -1.62,
+     -1.62,
+     1.62,
+     1.62
+    ],
+    "vertical_values": [
+     6.24,
+     7.13,
+     9.23,
+     7.13,
+     5.34,
+     5.35,
+     5.34,
+     7.46,
+     5.67,
+     4.05,
+     4.05,
+     4.05,
+     4.05,
+     5.67,
+     4.05,
+     4.05,
+     4.05,
+     5.67,
+     4.05
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.7
+   },
+   "loop": {
+    "horizontal_values": [
+     5.67,
+     4.05,
+     4.05,
+     4.05,
+     5.67,
+     4.05
+    ],
+    "vertical_values": [
+     6.0,
+     4.0,
+     9.0,
+     4.0,
+     7.0
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.7
+   }
+  },
+  "authoring:part:13560000002:sol:adsRecoil": {
+   "profile_id": "authoring:part:13560000002:sol:adsRecoil",
+   "kind": "recoil",
+   "continuousFire": {
+    "horizontal_values": [
+     1.38,
+     1.37,
+     -2.67,
+     -2.27,
+     -1.78,
+     -1.78,
+     -1.78,
+     2.26,
+     2.27,
+     1.62,
+     1.62,
+     -1.62,
+     -1.62,
+     1.62,
+     -1.62,
+     -1.62,
+     -1.62,
+     1.62,
+     1.62
+    ],
+    "vertical_values": [
+     6.24,
+     7.13,
+     9.23,
+     7.13,
+     5.34,
+     5.35,
+     5.34,
+     7.46,
+     5.67,
+     4.05,
+     4.05,
+     4.05,
+     4.05,
+     5.67,
+     4.05,
+     4.05,
+     4.05,
+     5.67,
+     4.05
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.7
+   },
+   "loop": {
+    "horizontal_values": [
+     5.67,
+     4.05,
+     4.05,
+     4.05,
+     5.67,
+     4.05
+    ],
+    "vertical_values": [
+     6.0,
+     4.0,
+     9.0,
+     4.0,
+     7.0
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.7
+   }
+  },
+  "authoring:part:13560000002:mp:hipRecoil": {
+   "profile_id": "authoring:part:13560000002:mp:hipRecoil",
+   "kind": "recoil",
+   "continuousFire": {
+    "horizontal_values": [
+     1.38,
+     1.37,
+     -2.67,
+     -2.27,
+     -1.78,
+     -1.78,
+     -1.78,
+     2.26,
+     2.27,
+     1.62,
+     1.62,
+     -1.62,
+     -1.62,
+     1.62,
+     -1.62,
+     -1.62,
+     -1.62,
+     1.62,
+     1.62
+    ],
+    "vertical_values": [
+     6.24,
+     7.13,
+     9.23,
+     7.13,
+     5.34,
+     5.35,
+     5.34,
+     7.46,
+     5.67,
+     4.05,
+     4.05,
+     4.05,
+     4.05,
+     5.67,
+     4.05,
+     4.05,
+     4.05,
+     5.67,
+     4.05
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.7
+   },
+   "loop": {
+    "horizontal_values": [
+     5.67,
+     4.05,
+     4.05,
+     4.05,
+     5.67,
+     4.05
+    ],
+    "vertical_values": [
+     6.0,
+     4.0,
+     9.0,
+     4.0,
+     7.0
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.7
+   }
+  },
+  "authoring:part:13560000002:mp:adsRecoil": {
+   "profile_id": "authoring:part:13560000002:mp:adsRecoil",
+   "kind": "recoil",
+   "continuousFire": {
+    "horizontal_values": [
+     1.38,
+     1.37,
+     -2.67,
+     -2.27,
+     -1.78,
+     -1.78,
+     -1.78,
+     2.26,
+     2.27,
+     1.62,
+     1.62,
+     -1.62,
+     -1.62,
+     1.62,
+     -1.62,
+     -1.62,
+     -1.62,
+     1.62,
+     1.62
+    ],
+    "vertical_values": [
+     6.24,
+     7.13,
+     9.23,
+     7.13,
+     5.34,
+     5.35,
+     5.34,
+     7.46,
+     5.67,
+     4.05,
+     4.05,
+     4.05,
+     4.05,
+     5.67,
+     4.05,
+     4.05,
+     4.05,
+     5.67,
+     4.05
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.7
+   },
+   "loop": {
+    "horizontal_values": [
+     5.67,
+     4.05,
+     4.05,
+     4.05,
+     5.67,
+     4.05
+    ],
+    "vertical_values": [
+     6.0,
+     4.0,
+     9.0,
+     4.0,
+     7.0
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.7
+   }
+  },
+  "authoring:part:13560000002:bd:hipRecoil": {
+   "profile_id": "authoring:part:13560000002:bd:hipRecoil",
+   "kind": "recoil",
+   "continuousFire": {
+    "horizontal_values": [
+     1.38,
+     1.37,
+     -2.67,
+     -2.27,
+     -1.78,
+     -1.78,
+     -1.78,
+     2.26,
+     2.27,
+     1.62,
+     1.62,
+     -1.62,
+     -1.62,
+     1.62,
+     -1.62,
+     -1.62,
+     -1.62,
+     1.62,
+     1.62
+    ],
+    "vertical_values": [
+     6.24,
+     7.13,
+     9.23,
+     7.13,
+     5.34,
+     5.35,
+     5.34,
+     7.46,
+     5.67,
+     4.05,
+     4.05,
+     4.05,
+     4.05,
+     5.67,
+     4.05,
+     4.05,
+     4.05,
+     5.67,
+     4.05
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.7
+   },
+   "loop": {
+    "horizontal_values": [
+     5.67,
+     4.05,
+     4.05,
+     4.05,
+     5.67,
+     4.05
+    ],
+    "vertical_values": [
+     6.0,
+     4.0,
+     9.0,
+     4.0,
+     7.0
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.7
+   }
+  },
+  "authoring:part:13560000002:bd:adsRecoil": {
+   "profile_id": "authoring:part:13560000002:bd:adsRecoil",
+   "kind": "recoil",
+   "continuousFire": {
+    "horizontal_values": [
+     1.38,
+     1.37,
+     -2.67,
+     -2.27,
+     -1.78,
+     -1.78,
+     -1.78,
+     2.26,
+     2.27,
+     1.62,
+     1.62,
+     -1.62,
+     -1.62,
+     1.62,
+     -1.62,
+     -1.62,
+     -1.62,
+     1.62,
+     1.62
+    ],
+    "vertical_values": [
+     6.24,
+     7.13,
+     9.23,
+     7.13,
+     5.34,
+     5.35,
+     5.34,
+     7.46,
+     5.67,
+     4.05,
+     4.05,
+     4.05,
+     4.05,
+     5.67,
+     4.05,
+     4.05,
+     4.05,
+     5.67,
+     4.05
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.7
+   },
+   "loop": {
+    "horizontal_values": [
+     5.67,
+     4.05,
+     4.05,
+     4.05,
+     5.67,
+     4.05
+    ],
+    "vertical_values": [
+     6.0,
+     4.0,
+     9.0,
+     4.0,
+     7.0
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.7
+   }
+  },
+  "authoring:weapon:18060000009:sol:movement": {
+   "profile_id": "authoring:weapon:18060000009:sol:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 326.8,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 126.16000000000001,
+   "ads_movement_modifier": -0.5089
+  },
+  "authoring:weapon:18060000009:mp:movement": {
+   "profile_id": "authoring:weapon:18060000009:mp:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 326.8,
+   "sprint_speed_cm_s": 610.0,
+   "silent_move_speed_cm_s": 126.16000000000001,
+   "ads_movement_modifier": -0.4925
+  },
+  "authoring:weapon:18060000009:bd:movement": {
+   "profile_id": "authoring:weapon:18060000009:bd:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 326.8,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 250.0,
+   "ads_movement_modifier": -0.1
+  },
+  "authoring:weapon:18060000009:aiming": {
+   "profile_id": "authoring:weapon:18060000009:aiming",
+   "kind": "aiming",
+   "ads_on_s": 0.38,
+   "ads_off_s": 0.38,
+   "zoom_rate": 1.25,
+   "ads_spread_profile_id": "authoring:weapon:18060000009:adsSpread",
+   "ads_recoil_profile_id": "authoring:weapon:18060000009:adsRecoil"
+  },
+  "authoring:weapon:18060000009:sol:bullet": {
+   "profile_id": "authoring:weapon:18060000009:sol:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 65000.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 50000.0,
+   "attenuation_distances_cm": [],
+   "attenuation_rates": []
+  },
+  "authoring:weapon:18060000009:mp:bullet": {
+   "profile_id": "authoring:weapon:18060000009:mp:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 65000.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 5500.0,
+   "attenuation_distances_cm": [
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.7
+   ]
+  },
+  "authoring:weapon:18060000009:bd:bullet": {
+   "profile_id": "authoring:weapon:18060000009:bd:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 65000.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 50000.0,
+   "attenuation_distances_cm": [],
+   "attenuation_rates": []
+  },
+  "authoring:part:13560000002:mp:bullet": {
+   "profile_id": "authoring:part:13560000002:mp:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 65000.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 5500.0,
+   "attenuation_distances_cm": [
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.7
+   ]
+  },
+  "authoring:weapon:18060000011:hipSpread": {
+   "profile_id": "authoring:weapon:18060000011:hipSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 5,
+    "vertical": 5
+   },
+   "max_degrees": {
+    "horizontal": 10,
+    "vertical": 10
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18060000011:adsSpread": {
+   "profile_id": "authoring:weapon:18060000011:adsSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 0,
+    "vertical": 0
+   },
+   "max_degrees": {
+    "horizontal": 180,
+    "vertical": 180
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18060000011:hipRecoil": {
+   "profile_id": "authoring:weapon:18060000011:hipRecoil",
+   "kind": "recoil",
+   "loop": {
+    "horizontal_values": [
+     0.0
+    ],
+    "vertical_values": [
+     30.0
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.0
+   }
+  },
+  "authoring:weapon:18060000011:adsRecoil": {
+   "profile_id": "authoring:weapon:18060000011:adsRecoil",
+   "kind": "recoil",
+   "loop": {
+    "horizontal_values": [
+     0.0
+    ],
+    "vertical_values": [
+     30.0
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.0
+   }
+  },
+  "authoring:weapon:18060000011:sol:movement": {
+   "profile_id": "authoring:weapon:18060000011:sol:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 307.76,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 118.80999999999999,
+   "ads_movement_modifier": -0.5489
+  },
+  "authoring:weapon:18060000011:mp:movement": {
+   "profile_id": "authoring:weapon:18060000011:mp:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 307.76,
+   "sprint_speed_cm_s": 610.0,
+   "silent_move_speed_cm_s": 118.80999999999999,
+   "ads_movement_modifier": -0.5325
+  },
+  "authoring:weapon:18060000011:bd:movement": {
+   "profile_id": "authoring:weapon:18060000011:bd:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 307.76,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 250.0,
+   "ads_movement_modifier": -0.1
+  },
+  "authoring:weapon:18060000011:aiming": {
+   "profile_id": "authoring:weapon:18060000011:aiming",
+   "kind": "aiming",
+   "ads_on_s": 0.46,
+   "ads_off_s": 0.46,
+   "zoom_rate": 1.25,
+   "ads_spread_profile_id": "authoring:weapon:18060000011:adsSpread",
+   "ads_recoil_profile_id": "authoring:weapon:18060000011:adsRecoil"
+  },
+  "authoring:weapon:18060000011:sol:bullet": {
+   "profile_id": "authoring:weapon:18060000011:sol:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 75000.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 60000.0,
+   "attenuation_distances_cm": [],
+   "attenuation_rates": []
+  },
+  "authoring:weapon:18060000011:mp:bullet": {
+   "profile_id": "authoring:weapon:18060000011:mp:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 75000.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 3000.0,
+   "attenuation_distances_cm": [
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.7
+   ]
+  },
+  "authoring:weapon:18060000011:bd:bullet": {
+   "profile_id": "authoring:weapon:18060000011:bd:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 75000.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 60000.0,
+   "attenuation_distances_cm": [],
+   "attenuation_rates": []
+  },
+  "authoring:weapon:18060000033:hipSpread": {
+   "profile_id": "authoring:weapon:18060000033:hipSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 5,
+    "vertical": 5
+   },
+   "max_degrees": {
+    "horizontal": 10,
+    "vertical": 10
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18060000033:adsSpread": {
+   "profile_id": "authoring:weapon:18060000033:adsSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 0,
+    "vertical": 0
+   },
+   "max_degrees": {
+    "horizontal": 180,
+    "vertical": 180
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18060000033:hipRecoil": {
+   "profile_id": "authoring:weapon:18060000033:hipRecoil",
+   "kind": "recoil",
+   "loop": {
+    "horizontal_values": [
+     0.0
+    ],
+    "vertical_values": [
+     30.0
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.0
+   }
+  },
+  "authoring:weapon:18060000033:adsRecoil": {
+   "profile_id": "authoring:weapon:18060000033:adsRecoil",
+   "kind": "recoil",
+   "loop": {
+    "horizontal_values": [
+     0.0
+    ],
+    "vertical_values": [
+     30.0
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.0
+   }
+  },
+  "authoring:weapon:18060000033:sol:movement": {
+   "profile_id": "authoring:weapon:18060000033:sol:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 300.0,
+   "sprint_speed_cm_s": 575.0,
+   "silent_move_speed_cm_s": 114.99999999999999,
+   "ads_movement_modifier": -0.5489
+  },
+  "authoring:weapon:18060000033:mp:movement": {
+   "profile_id": "authoring:weapon:18060000033:mp:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 307.76,
+   "sprint_speed_cm_s": 610.0,
+   "silent_move_speed_cm_s": 118.80999999999999,
+   "ads_movement_modifier": -0.5325
+  },
+  "authoring:weapon:18060000033:bd:movement": {
+   "profile_id": "authoring:weapon:18060000033:bd:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 300.0,
+   "sprint_speed_cm_s": 575.0,
+   "silent_move_speed_cm_s": 250.0,
+   "ads_movement_modifier": -0.1
+  },
+  "authoring:weapon:18060000033:aiming": {
+   "profile_id": "authoring:weapon:18060000033:aiming",
+   "kind": "aiming",
+   "ads_on_s": 0.46,
+   "ads_off_s": 0.46,
+   "zoom_rate": 1.25,
+   "ads_spread_profile_id": "authoring:weapon:18060000033:adsSpread",
+   "ads_recoil_profile_id": "authoring:weapon:18060000033:adsRecoil"
+  },
+  "authoring:weapon:18060000033:sol:bullet": {
+   "profile_id": "authoring:weapon:18060000033:sol:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 52500.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 60000.0,
+   "attenuation_distances_cm": [],
+   "attenuation_rates": []
+  },
+  "authoring:weapon:18060000033:mp:bullet": {
+   "profile_id": "authoring:weapon:18060000033:mp:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 52500.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 5000.0,
+   "attenuation_distances_cm": [
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.7
+   ]
+  },
+  "authoring:weapon:18060000033:bd:bullet": {
+   "profile_id": "authoring:weapon:18060000033:bd:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 52500.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 60000.0,
+   "attenuation_distances_cm": [],
+   "attenuation_rates": []
+  },
+  "authoring:weapon:18070000002:hipSpread": {
+   "profile_id": "authoring:weapon:18070000002:hipSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 2.0384,
+    "vertical": 2.0384
+   },
+   "max_degrees": {
+    "horizontal": 5,
+    "vertical": 5
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18070000002:adsSpread": {
+   "profile_id": "authoring:weapon:18070000002:adsSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 0.1,
+    "vertical": 0.1
+   },
+   "max_degrees": {
+    "horizontal": 180,
+    "vertical": 180
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18070000002:hipRecoil": {
+   "profile_id": "authoring:weapon:18070000002:hipRecoil",
+   "kind": "recoil"
+  },
+  "authoring:weapon:18070000002:adsRecoil": {
+   "profile_id": "authoring:weapon:18070000002:adsRecoil",
+   "kind": "recoil"
+  },
+  "authoring:weapon:18070000002:sol:movement": {
+   "profile_id": "authoring:weapon:18070000002:sol:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 365.24,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 146.1,
+   "ads_movement_modifier": -0.27
+  },
+  "authoring:weapon:18070000002:mp:movement": {
+   "profile_id": "authoring:weapon:18070000002:mp:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 365.24,
+   "sprint_speed_cm_s": 610.0,
+   "silent_move_speed_cm_s": 146.1,
+   "ads_movement_modifier": -0.16
+  },
+  "authoring:weapon:18070000002:bd:movement": {
+   "profile_id": "authoring:weapon:18070000002:bd:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 365.24,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 250.0,
+   "ads_movement_modifier": 0.0
+  },
+  "authoring:weapon:18070000002:aiming": {
+   "profile_id": "authoring:weapon:18070000002:aiming",
+   "kind": "aiming",
+   "ads_on_s": 0.248,
+   "ads_off_s": 0.248,
+   "zoom_rate": 1.25,
+   "ads_spread_profile_id": "authoring:weapon:18070000002:adsSpread",
+   "ads_recoil_profile_id": "authoring:weapon:18070000002:adsRecoil"
+  },
+  "authoring:weapon:18070000002:sol:bullet": {
+   "profile_id": "authoring:weapon:18070000002:sol:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 40000.0,
+   "max_distance_cm": 50000.0,
+   "valid_distance_cm": 2700.0,
+   "attenuation_distances_cm": [
+    5400.0,
+    60000.0
+   ],
+   "attenuation_rates": [
+    0.75,
+    0.6
+   ]
+  },
+  "authoring:weapon:18070000002:mp:bullet": {
+   "profile_id": "authoring:weapon:18070000002:mp:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 40000.0,
+   "max_distance_cm": 50000.0,
+   "valid_distance_cm": 1500.0,
+   "attenuation_distances_cm": [
+    2500.0,
+    3500.0,
+    60000.0
+   ],
+   "attenuation_rates": [
+    0.8,
+    0.7,
+    0.55
+   ]
+  },
+  "authoring:weapon:18070000002:bd:bullet": {
+   "profile_id": "authoring:weapon:18070000002:bd:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 40000.0,
+   "max_distance_cm": 50000.0,
+   "valid_distance_cm": 2500.0,
+   "attenuation_distances_cm": [
+    4000.0,
+    60000.0
+   ],
+   "attenuation_rates": [
+    0.9,
+    0.8
+   ]
+  },
+  "authoring:weapon:18070000003:hipSpread": {
+   "profile_id": "authoring:weapon:18070000003:hipSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 3.0576,
+    "vertical": 3.0576
+   },
+   "max_degrees": {
+    "horizontal": 7.5,
+    "vertical": 7.5
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18070000003:adsSpread": {
+   "profile_id": "authoring:weapon:18070000003:adsSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 0,
+    "vertical": 0
+   },
+   "max_degrees": {
+    "horizontal": 180,
+    "vertical": 180
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:ammo:37220000001:hipSpread": {
+   "profile_id": "authoring:ammo:37220000001:hipSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 1.8,
+    "vertical": 1.8
+   },
+   "max_degrees": {
+    "horizontal": 3.2,
+    "vertical": 3.2
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:ammo:37220000001:adsSpread": {
+   "profile_id": "authoring:ammo:37220000001:adsSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 0.45,
+    "vertical": 0.45
+   },
+   "max_degrees": {
+    "horizontal": 1,
+    "vertical": 1
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18070000003:hipRecoil": {
+   "profile_id": "authoring:weapon:18070000003:hipRecoil",
+   "kind": "recoil",
+   "loop": {
+    "horizontal_values": [
+     0.0
+    ],
+    "vertical_values": [
+     0.0
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.0
+   }
+  },
+  "authoring:weapon:18070000003:adsRecoil": {
+   "profile_id": "authoring:weapon:18070000003:adsRecoil",
+   "kind": "recoil",
+   "loop": {
+    "horizontal_values": [
+     0.0
+    ],
+    "vertical_values": [
+     0.0
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.0
+   }
+  },
+  "authoring:weapon:18070000003:sol:movement": {
+   "profile_id": "authoring:weapon:18070000003:sol:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 346.8,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 138.72,
+   "ads_movement_modifier": -0.29
+  },
+  "authoring:weapon:18070000003:mp:movement": {
+   "profile_id": "authoring:weapon:18070000003:mp:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 346.8,
+   "sprint_speed_cm_s": 610.0,
+   "silent_move_speed_cm_s": 138.72,
+   "ads_movement_modifier": -0.18
+  },
+  "authoring:weapon:18070000003:bd:movement": {
+   "profile_id": "authoring:weapon:18070000003:bd:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 346.8,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 250.0,
+   "ads_movement_modifier": 0.0
+  },
+  "authoring:weapon:18070000003:aiming": {
+   "profile_id": "authoring:weapon:18070000003:aiming",
+   "kind": "aiming",
+   "ads_on_s": 0.299,
+   "ads_off_s": 0.299,
+   "zoom_rate": 1.25,
+   "ads_spread_profile_id": "authoring:weapon:18070000003:adsSpread",
+   "ads_recoil_profile_id": "authoring:weapon:18070000003:adsRecoil"
+  },
+  "authoring:weapon:18070000003:sol:bullet": {
+   "profile_id": "authoring:weapon:18070000003:sol:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 34000.0,
+   "max_distance_cm": 50000.0,
+   "valid_distance_cm": 3500.0,
+   "attenuation_distances_cm": [
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.8
+   ]
+  },
+  "authoring:weapon:18070000003:mp:bullet": {
+   "profile_id": "authoring:weapon:18070000003:mp:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 34000.0,
+   "max_distance_cm": 50000.0,
+   "valid_distance_cm": 3500.0,
+   "attenuation_distances_cm": [
+    7000.0,
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.8,
+    0.7
+   ]
+  },
+  "authoring:weapon:18070000003:bd:bullet": {
+   "profile_id": "authoring:weapon:18070000003:bd:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 34000.0,
+   "max_distance_cm": 50000.0,
+   "valid_distance_cm": 4000.0,
+   "attenuation_distances_cm": [
+    10000.0
+   ],
+   "attenuation_rates": [
+    0.9
+   ]
+  },
+  "authoring:ammo:37220000001:bullet": {
+   "profile_id": "authoring:ammo:37220000001:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 30000.0,
+   "max_distance_cm": 50000.0,
+   "valid_distance_cm": 1000.0,
+   "attenuation_distances_cm": [
+    2500.0,
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.8,
+    0.6
+   ]
+  },
+  "authoring:weapon:18070000004:hipSpread": {
+   "profile_id": "authoring:weapon:18070000004:hipSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 2.548,
+    "vertical": 2.548
+   },
+   "max_degrees": {
+    "horizontal": 6.25,
+    "vertical": 6.25
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18070000004:adsSpread": {
+   "profile_id": "authoring:weapon:18070000004:adsSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 0,
+    "vertical": 0
+   },
+   "max_degrees": {
+    "horizontal": 180,
+    "vertical": 180
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:part:13020000594:sol:hipSpread": {
+   "profile_id": "authoring:part:13020000594:sol:hipSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 0.2,
+    "vertical": 0.2
+   },
+   "max_degrees": {
+    "horizontal": 4,
+    "vertical": 4
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:part:13020000594:mp:hipSpread": {
+   "profile_id": "authoring:part:13020000594:mp:hipSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 0.2,
+    "vertical": 0.2
+   },
+   "max_degrees": {
+    "horizontal": 4,
+    "vertical": 4
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:part:13020000594:bd:hipSpread": {
+   "profile_id": "authoring:part:13020000594:bd:hipSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 0.2,
+    "vertical": 0.2
+   },
+   "max_degrees": {
+    "horizontal": 4,
+    "vertical": 4
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18070000004:hipRecoil": {
+   "profile_id": "authoring:weapon:18070000004:hipRecoil",
+   "kind": "recoil",
+   "loop": {
+    "horizontal_values": [
+     0.0
+    ],
+    "vertical_values": [
+     0.0
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.0
+   }
+  },
+  "authoring:weapon:18070000004:adsRecoil": {
+   "profile_id": "authoring:weapon:18070000004:adsRecoil",
+   "kind": "recoil",
+   "loop": {
+    "horizontal_values": [
+     0.0
+    ],
+    "vertical_values": [
+     0.0
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.0
+   }
+  },
+  "authoring:weapon:18070000004:sol:movement": {
+   "profile_id": "authoring:weapon:18070000004:sol:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 350.49,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 140.19,
+   "ads_movement_modifier": -0.25
+  },
+  "authoring:weapon:18070000004:mp:movement": {
+   "profile_id": "authoring:weapon:18070000004:mp:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 350.49,
+   "sprint_speed_cm_s": 610.0,
+   "silent_move_speed_cm_s": 140.19,
+   "ads_movement_modifier": -0.14
+  },
+  "authoring:weapon:18070000004:bd:movement": {
+   "profile_id": "authoring:weapon:18070000004:bd:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 350.49,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 250.0,
+   "ads_movement_modifier": 0.0
+  },
+  "authoring:part:13020000594:sol:movement": {
+   "profile_id": "authoring:part:13020000594:sol:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 385.0,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 140.19,
+   "ads_movement_modifier": -0.25
+  },
+  "authoring:part:13020000594:mp:movement": {
+   "profile_id": "authoring:part:13020000594:mp:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 390.0,
+   "sprint_speed_cm_s": 610.0,
+   "silent_move_speed_cm_s": 140.19,
+   "ads_movement_modifier": -0.14
+  },
+  "authoring:part:13020000594:bd:movement": {
+   "profile_id": "authoring:part:13020000594:bd:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 420.0,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 250.0,
+   "ads_movement_modifier": -0.1
+  },
+  "authoring:weapon:18070000004:aiming": {
+   "profile_id": "authoring:weapon:18070000004:aiming",
+   "kind": "aiming",
+   "ads_on_s": 0.288,
+   "ads_off_s": 0.288,
+   "zoom_rate": 1.25,
+   "ads_spread_profile_id": "authoring:weapon:18070000004:adsSpread",
+   "ads_recoil_profile_id": "authoring:weapon:18070000004:adsRecoil"
+  },
+  "authoring:weapon:18070000004:sol:bullet": {
+   "profile_id": "authoring:weapon:18070000004:sol:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 34000.0,
+   "max_distance_cm": 50000.0,
+   "valid_distance_cm": 1500.0,
+   "attenuation_distances_cm": [
+    3000.0,
+    60000.0
+   ],
+   "attenuation_rates": [
+    0.85,
+    0.6
+   ]
+  },
+  "authoring:weapon:18070000004:mp:bullet": {
+   "profile_id": "authoring:weapon:18070000004:mp:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 34000.0,
+   "max_distance_cm": 50000.0,
+   "valid_distance_cm": 2000.0,
+   "attenuation_distances_cm": [
+    3500.0,
+    5000.0,
+    60000.0
+   ],
+   "attenuation_rates": [
+    0.9,
+    0.8,
+    0.6
+   ]
+  },
+  "authoring:weapon:18070000004:bd:bullet": {
+   "profile_id": "authoring:weapon:18070000004:bd:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 34000.0,
+   "max_distance_cm": 50000.0,
+   "valid_distance_cm": 4000.0,
+   "attenuation_distances_cm": [
+    10000.0
+   ],
+   "attenuation_rates": [
+    0.9
+   ]
+  },
+  "authoring:part:13020000461:sol:bullet": {
+   "profile_id": "authoring:part:13020000461:sol:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 34000.0,
+   "max_distance_cm": 50000.0,
+   "valid_distance_cm": 2300.0,
+   "attenuation_distances_cm": [
+    4000.0,
+    60000.0
+   ],
+   "attenuation_rates": [
+    0.85,
+    0.6
+   ]
+  },
+  "authoring:part:13020000461:bd:bullet": {
+   "profile_id": "authoring:part:13020000461:bd:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 34000.0,
+   "max_distance_cm": 50000.0,
+   "valid_distance_cm": 4000.0,
+   "attenuation_distances_cm": [
+    10000.0
+   ],
+   "attenuation_rates": [
+    0.9
+   ]
+  },
+  "authoring:weapon:18070000005:hipSpread": {
+   "profile_id": "authoring:weapon:18070000005:hipSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 1.8,
+    "vertical": 1.8
+   },
+   "max_degrees": {
+    "horizontal": 4.5,
+    "vertical": 4.5
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18070000005:adsSpread": {
+   "profile_id": "authoring:weapon:18070000005:adsSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 0,
+    "vertical": 0
+   },
+   "max_degrees": {
+    "horizontal": 180,
+    "vertical": 180
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18070000005:hipRecoil": {
+   "profile_id": "authoring:weapon:18070000005:hipRecoil",
+   "kind": "recoil",
+   "continuousFire": {
+    "horizontal_values": [
+     2.4,
+     -1.8,
+     -1.8,
+     -2.4,
+     1.8,
+     1.2,
+     1.2,
+     -1.2,
+     -1.2,
+     -1.2,
+     -0.9,
+     -2.1,
+     1.2,
+     0.9,
+     2.22,
+     1.08,
+     1.5,
+     -1.2,
+     1.2,
+     -1.2,
+     1.8,
+     1.2,
+     1.8,
+     1.2,
+     1.8,
+     1.2,
+     1.8,
+     1.2,
+     1.8,
+     1.2,
+     1.8,
+     1.2
+    ],
+    "vertical_values": [
+     3.0,
+     4.8,
+     3.0,
+     3.0,
+     3.0,
+     4.8,
+     3.0,
+     3.0,
+     3.0,
+     3.0,
+     4.8,
+     3.0,
+     3.0,
+     4.08,
+     3.06,
+     3.18,
+     3.0,
+     3.0,
+     3.0,
+     3.0,
+     2.4,
+     3.0,
+     2.4,
+     3.0,
+     2.4,
+     3.0,
+     2.4,
+     3.0,
+     2.4,
+     3.0,
+     2.4,
+     3.0
+    ],
+    "horizontal_scale": 1.25,
+    "vertical_scale": 1.5
+   },
+   "loop": {
+    "horizontal_values": [
+     1.8,
+     1.2,
+     1.8,
+     1.2,
+     1.8,
+     1.2
+    ],
+    "vertical_values": [
+     2.4,
+     3.0,
+     2.4,
+     3.0,
+     2.4,
+     3.0
+    ],
+    "horizontal_scale": 1.25,
+    "vertical_scale": 1.25
+   }
+  },
+  "authoring:weapon:18070000005:adsRecoil": {
+   "profile_id": "authoring:weapon:18070000005:adsRecoil",
+   "kind": "recoil",
+   "continuousFire": {
+    "horizontal_values": [
+     2.4,
+     -1.8,
+     -1.8,
+     -2.4,
+     1.8,
+     1.2,
+     1.2,
+     -1.2,
+     -1.2,
+     -1.2,
+     -0.9,
+     -2.1,
+     1.2,
+     0.9,
+     2.22,
+     1.08,
+     1.5,
+     -1.2,
+     1.2,
+     -1.2,
+     1.8,
+     1.2,
+     1.8,
+     1.2,
+     1.8,
+     1.2,
+     1.8,
+     1.2,
+     1.8,
+     1.2,
+     1.8,
+     1.2
+    ],
+    "vertical_values": [
+     3.0,
+     4.8,
+     3.0,
+     3.0,
+     3.0,
+     4.8,
+     3.0,
+     3.0,
+     3.0,
+     3.0,
+     4.8,
+     3.0,
+     3.0,
+     4.08,
+     3.06,
+     3.18,
+     3.0,
+     3.0,
+     3.0,
+     3.0,
+     2.4,
+     3.0,
+     2.4,
+     3.0,
+     2.4,
+     3.0,
+     2.4,
+     3.0,
+     2.4,
+     3.0,
+     2.4,
+     3.0
+    ],
+    "horizontal_scale": 1.25,
+    "vertical_scale": 1.5
+   },
+   "loop": {
+    "horizontal_values": [
+     1.8,
+     1.2,
+     1.8,
+     1.2,
+     1.8,
+     1.2
+    ],
+    "vertical_values": [
+     2.4,
+     3.0,
+     2.4,
+     3.0,
+     2.4,
+     3.0
+    ],
+    "horizontal_scale": 1.25,
+    "vertical_scale": 1.25
+   }
+  },
+  "authoring:weapon:18070000005:sol:movement": {
+   "profile_id": "authoring:weapon:18070000005:sol:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 368.93,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 147.57,
+   "ads_movement_modifier": -0.29
+  },
+  "authoring:weapon:18070000005:mp:movement": {
+   "profile_id": "authoring:weapon:18070000005:mp:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 368.93,
+   "sprint_speed_cm_s": 610.0,
+   "silent_move_speed_cm_s": 147.57,
+   "ads_movement_modifier": -0.18
+  },
+  "authoring:weapon:18070000005:bd:movement": {
+   "profile_id": "authoring:weapon:18070000005:bd:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 368.93,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 250.0,
+   "ads_movement_modifier": 0.0
+  },
+  "authoring:weapon:18070000005:aiming": {
+   "profile_id": "authoring:weapon:18070000005:aiming",
+   "kind": "aiming",
+   "ads_on_s": 0.23,
+   "ads_off_s": 0.23,
+   "zoom_rate": 1.25,
+   "ads_spread_profile_id": "authoring:weapon:18070000005:adsSpread",
+   "ads_recoil_profile_id": "authoring:weapon:18070000005:adsRecoil"
+  },
+  "authoring:weapon:18070000005:sol:bullet": {
+   "profile_id": "authoring:weapon:18070000005:sol:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 40000.0,
+   "max_distance_cm": 50000.0,
+   "valid_distance_cm": 1000.0,
+   "attenuation_distances_cm": [
+    2000.0,
+    3000.0,
+    60000.0
+   ],
+   "attenuation_rates": [
+    0.85,
+    0.7,
+    0.6
+   ]
+  },
+  "authoring:weapon:18070000005:mp:bullet": {
+   "profile_id": "authoring:weapon:18070000005:mp:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 40000.0,
+   "max_distance_cm": 50000.0,
+   "valid_distance_cm": 1000.0,
+   "attenuation_distances_cm": [
+    2000.0,
+    3000.0,
+    60000.0
+   ],
+   "attenuation_rates": [
+    0.85,
+    0.7,
+    0.6
+   ]
+  },
+  "authoring:weapon:18070000005:bd:bullet": {
+   "profile_id": "authoring:weapon:18070000005:bd:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 40000.0,
+   "max_distance_cm": 50000.0,
+   "valid_distance_cm": 500.0,
+   "attenuation_distances_cm": [
+    1000.0,
+    60000.0
+   ],
+   "attenuation_rates": [
+    0.8,
+    0.6
+   ]
+  },
+  "authoring:weapon:18070000006:hipSpread": {
+   "profile_id": "authoring:weapon:18070000006:hipSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 1.9292,
+    "vertical": 1.9292
+   },
+   "max_degrees": {
+    "horizontal": 4.8,
+    "vertical": 4.8
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18070000006:adsSpread": {
+   "profile_id": "authoring:weapon:18070000006:adsSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 0,
+    "vertical": 0
+   },
+   "max_degrees": {
+    "horizontal": 180,
+    "vertical": 180
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18070000006:hipRecoil": {
+   "profile_id": "authoring:weapon:18070000006:hipRecoil",
+   "kind": "recoil",
+   "continuousFire": {
+    "horizontal_values": [
+     0.0
+    ],
+    "vertical_values": [
+     0.0
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.5
+   },
+   "loop": {
+    "horizontal_values": [
+     0.0
+    ],
+    "vertical_values": [
+     0.0
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.0
+   }
+  },
+  "authoring:weapon:18070000006:adsRecoil": {
+   "profile_id": "authoring:weapon:18070000006:adsRecoil",
+   "kind": "recoil",
+   "continuousFire": {
+    "horizontal_values": [
+     0.0
+    ],
+    "vertical_values": [
+     0.0
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.5
+   },
+   "loop": {
+    "horizontal_values": [
+     0.0
+    ],
+    "vertical_values": [
+     0.0
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.0
+   }
+  },
+  "authoring:part:13050000427:sol:hipRecoil": {
+   "profile_id": "authoring:part:13050000427:sol:hipRecoil",
+   "kind": "recoil",
+   "continuousFire": {
+    "horizontal_values": [
+     0.6,
+     0.7,
+     0.5,
+     -0.8,
+     -1.1,
+     -1.2,
+     -0.3,
+     1.2,
+     0.8,
+     1.2,
+     1.0,
+     0.8,
+     0.8,
+     1.6,
+     0.8,
+     0.5,
+     1.3,
+     -0.7,
+     0.75,
+     -0.7,
+     0.8,
+     -0.7,
+     0.9,
+     -0.6,
+     0.9,
+     1.5,
+     1.0,
+     0.7,
+     0.8
+    ],
+    "vertical_values": [
+     1.2,
+     2.4,
+     2.2,
+     1.0,
+     2.0,
+     2.2,
+     3.0,
+     2.1,
+     2.2,
+     1.2,
+     2.1,
+     2.3,
+     2.2,
+     1.0,
+     2.1,
+     2.1,
+     3.1,
+     2.2,
+     2.1,
+     3.2,
+     2.3,
+     2.3,
+     2.4,
+     2.3,
+     3.2,
+     3.1,
+     3.0,
+     2.0,
+     2.9
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.5
+   },
+   "loop": {
+    "horizontal_values": [
+     1.22,
+     1.1,
+     1.71,
+     1.13,
+     1.28
+    ],
+    "vertical_values": [
+     3.35,
+     3.65,
+     3.13,
+     3.99,
+     3.84
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.0
+   }
+  },
+  "authoring:part:13050000427:sol:adsRecoil": {
+   "profile_id": "authoring:part:13050000427:sol:adsRecoil",
+   "kind": "recoil",
+   "continuousFire": {
+    "horizontal_values": [
+     0.6,
+     0.7,
+     0.5,
+     -0.8,
+     -1.1,
+     -1.2,
+     -0.3,
+     1.2,
+     0.8,
+     1.2,
+     1.0,
+     0.8,
+     0.8,
+     1.6,
+     0.8,
+     0.5,
+     1.3,
+     -0.7,
+     0.75,
+     -0.7,
+     0.8,
+     -0.7,
+     0.9,
+     -0.6,
+     0.9,
+     1.5,
+     1.0,
+     0.7,
+     0.8
+    ],
+    "vertical_values": [
+     1.2,
+     2.4,
+     2.2,
+     1.0,
+     2.0,
+     2.2,
+     3.0,
+     2.1,
+     2.2,
+     1.2,
+     2.1,
+     2.3,
+     2.2,
+     1.0,
+     2.1,
+     2.1,
+     3.1,
+     2.2,
+     2.1,
+     3.2,
+     2.3,
+     2.3,
+     2.4,
+     2.3,
+     3.2,
+     3.1,
+     3.0,
+     2.0,
+     2.9
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.5
+   },
+   "loop": {
+    "horizontal_values": [
+     1.22,
+     1.1,
+     1.71,
+     1.13,
+     1.28
+    ],
+    "vertical_values": [
+     3.35,
+     3.65,
+     3.13,
+     3.99,
+     3.84
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.0
+   }
+  },
+  "authoring:part:13050000427:mp:hipRecoil": {
+   "profile_id": "authoring:part:13050000427:mp:hipRecoil",
+   "kind": "recoil",
+   "continuousFire": {
+    "horizontal_values": [
+     0.6,
+     0.7,
+     0.5,
+     -0.8,
+     -1.1,
+     -1.2,
+     -0.3,
+     1.2,
+     0.8,
+     1.2,
+     1.0,
+     0.8,
+     0.8,
+     1.6,
+     0.8,
+     0.5,
+     1.3,
+     -0.7,
+     0.75,
+     -0.7,
+     0.8,
+     -0.7,
+     0.9,
+     -0.6,
+     0.9,
+     1.5,
+     1.0,
+     0.7,
+     0.8
+    ],
+    "vertical_values": [
+     1.2,
+     2.4,
+     2.2,
+     1.0,
+     2.0,
+     2.2,
+     3.0,
+     2.1,
+     2.2,
+     1.2,
+     2.1,
+     2.3,
+     2.2,
+     1.0,
+     2.1,
+     2.1,
+     3.1,
+     2.2,
+     2.1,
+     3.2,
+     2.3,
+     2.3,
+     2.4,
+     2.3,
+     3.2,
+     3.1,
+     3.0,
+     2.0,
+     2.9
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.5
+   },
+   "loop": {
+    "horizontal_values": [
+     1.22,
+     1.1,
+     1.71,
+     1.13,
+     1.28
+    ],
+    "vertical_values": [
+     3.35,
+     3.65,
+     3.13,
+     3.99,
+     3.84
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.0
+   }
+  },
+  "authoring:part:13050000427:mp:adsRecoil": {
+   "profile_id": "authoring:part:13050000427:mp:adsRecoil",
+   "kind": "recoil",
+   "continuousFire": {
+    "horizontal_values": [
+     0.6,
+     0.7,
+     0.5,
+     -0.8,
+     -1.1,
+     -1.2,
+     -0.3,
+     1.2,
+     0.8,
+     1.2,
+     1.0,
+     0.8,
+     0.8,
+     1.6,
+     0.8,
+     0.5,
+     1.3,
+     -0.7,
+     0.75,
+     -0.7,
+     0.8,
+     -0.7,
+     0.9,
+     -0.6,
+     0.9,
+     1.5,
+     1.0,
+     0.7,
+     0.8
+    ],
+    "vertical_values": [
+     1.2,
+     2.4,
+     2.2,
+     1.0,
+     2.0,
+     2.2,
+     3.0,
+     2.1,
+     2.2,
+     1.2,
+     2.1,
+     2.3,
+     2.2,
+     1.0,
+     2.1,
+     2.1,
+     3.1,
+     2.2,
+     2.1,
+     3.2,
+     2.3,
+     2.3,
+     2.4,
+     2.3,
+     3.2,
+     3.1,
+     3.0,
+     2.0,
+     2.9
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.5
+   },
+   "loop": {
+    "horizontal_values": [
+     1.22,
+     1.1,
+     1.71,
+     1.13,
+     1.28
+    ],
+    "vertical_values": [
+     3.35,
+     3.65,
+     3.13,
+     3.99,
+     3.84
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.0
+   }
+  },
+  "authoring:part:13050000427:bd:hipRecoil": {
+   "profile_id": "authoring:part:13050000427:bd:hipRecoil",
+   "kind": "recoil",
+   "continuousFire": {
+    "horizontal_values": [
+     0.6,
+     0.7,
+     0.5,
+     -0.8,
+     -1.1,
+     -1.2,
+     -0.3,
+     1.2,
+     0.8,
+     1.2,
+     1.0,
+     0.8,
+     0.8,
+     1.6,
+     0.8,
+     0.5,
+     1.3,
+     -0.7,
+     0.75,
+     -0.7,
+     0.8,
+     -0.7,
+     0.9,
+     -0.6,
+     0.9,
+     1.5,
+     1.0,
+     0.7,
+     0.8
+    ],
+    "vertical_values": [
+     1.2,
+     2.4,
+     2.2,
+     1.0,
+     2.0,
+     2.2,
+     3.0,
+     2.1,
+     2.2,
+     1.2,
+     2.1,
+     2.3,
+     2.2,
+     1.0,
+     2.1,
+     2.1,
+     3.1,
+     2.2,
+     2.1,
+     3.2,
+     2.3,
+     2.3,
+     2.4,
+     2.3,
+     3.2,
+     3.1,
+     3.0,
+     2.0,
+     2.9
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.5
+   },
+   "loop": {
+    "horizontal_values": [
+     1.22,
+     1.1,
+     1.71,
+     1.13,
+     1.28
+    ],
+    "vertical_values": [
+     3.35,
+     3.65,
+     3.13,
+     3.99,
+     3.84
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.0
+   }
+  },
+  "authoring:part:13050000427:bd:adsRecoil": {
+   "profile_id": "authoring:part:13050000427:bd:adsRecoil",
+   "kind": "recoil",
+   "continuousFire": {
+    "horizontal_values": [
+     0.6,
+     0.7,
+     0.5,
+     -0.8,
+     -1.1,
+     -1.2,
+     -0.3,
+     1.2,
+     0.8,
+     1.2,
+     1.0,
+     0.8,
+     0.8,
+     1.6,
+     0.8,
+     0.5,
+     1.3,
+     -0.7,
+     0.75,
+     -0.7,
+     0.8,
+     -0.7,
+     0.9,
+     -0.6,
+     0.9,
+     1.5,
+     1.0,
+     0.7,
+     0.8
+    ],
+    "vertical_values": [
+     1.2,
+     2.4,
+     2.2,
+     1.0,
+     2.0,
+     2.2,
+     3.0,
+     2.1,
+     2.2,
+     1.2,
+     2.1,
+     2.3,
+     2.2,
+     1.0,
+     2.1,
+     2.1,
+     3.1,
+     2.2,
+     2.1,
+     3.2,
+     2.3,
+     2.3,
+     2.4,
+     2.3,
+     3.2,
+     3.1,
+     3.0,
+     2.0,
+     2.9
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.5
+   },
+   "loop": {
+    "horizontal_values": [
+     1.22,
+     1.1,
+     1.71,
+     1.13,
+     1.28
+    ],
+    "vertical_values": [
+     3.35,
+     3.65,
+     3.13,
+     3.99,
+     3.84
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.0
+   }
+  },
+  "authoring:weapon:18070000006:sol:movement": {
+   "profile_id": "authoring:weapon:18070000006:sol:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 365.24,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 146.1,
+   "ads_movement_modifier": -0.24
+  },
+  "authoring:weapon:18070000006:mp:movement": {
+   "profile_id": "authoring:weapon:18070000006:mp:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 365.24,
+   "sprint_speed_cm_s": 610.0,
+   "silent_move_speed_cm_s": 146.1,
+   "ads_movement_modifier": -0.13
+  },
+  "authoring:weapon:18070000006:bd:movement": {
+   "profile_id": "authoring:weapon:18070000006:bd:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 365.24,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 250.0,
+   "ads_movement_modifier": 0.0
+  },
+  "authoring:weapon:18070000006:aiming": {
+   "profile_id": "authoring:weapon:18070000006:aiming",
+   "kind": "aiming",
+   "ads_on_s": 0.242,
+   "ads_off_s": 0.242,
+   "zoom_rate": 1.25,
+   "ads_spread_profile_id": "authoring:weapon:18070000006:adsSpread",
+   "ads_recoil_profile_id": "authoring:weapon:18070000006:adsRecoil"
+  },
+  "authoring:weapon:18070000006:sol:bullet": {
+   "profile_id": "authoring:weapon:18070000006:sol:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 40000.0,
+   "max_distance_cm": 50000.0,
+   "valid_distance_cm": 2200.0,
+   "attenuation_distances_cm": [
+    4400.0,
+    60000.0
+   ],
+   "attenuation_rates": [
+    0.8,
+    0.65
+   ]
+  },
+  "authoring:weapon:18070000006:mp:bullet": {
+   "profile_id": "authoring:weapon:18070000006:mp:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 40000.0,
+   "max_distance_cm": 50000.0,
+   "valid_distance_cm": 1500.0,
+   "attenuation_distances_cm": [
+    2500.0,
+    3500.0,
+    60000.0
+   ],
+   "attenuation_rates": [
+    0.8,
+    0.7,
+    0.6
+   ]
+  },
+  "authoring:weapon:18070000006:bd:bullet": {
+   "profile_id": "authoring:weapon:18070000006:bd:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 40000.0,
+   "max_distance_cm": 50000.0,
+   "valid_distance_cm": 2500.0,
+   "attenuation_distances_cm": [
+    4000.0,
+    60000.0
+   ],
+   "attenuation_rates": [
+    0.9,
+    0.8
+   ]
+  },
+  "authoring:weapon:18070000010:hipSpread": {
+   "profile_id": "authoring:weapon:18070000010:hipSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 2.184,
+    "vertical": 2.184
+   },
+   "max_degrees": {
+    "horizontal": 5,
+    "vertical": 5
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18070000010:adsSpread": {
+   "profile_id": "authoring:weapon:18070000010:adsSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 0,
+    "vertical": 0
+   },
+   "max_degrees": {
+    "horizontal": 180,
+    "vertical": 180
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18070000010:hipRecoil": {
+   "profile_id": "authoring:weapon:18070000010:hipRecoil",
+   "kind": "recoil",
+   "loop": {
+    "horizontal_values": [
+     1.8,
+     1.2,
+     1.8,
+     1.2,
+     1.8,
+     1.2
+    ],
+    "vertical_values": [
+     2.4,
+     3.0,
+     2.4,
+     3.0,
+     2.4,
+     3.0
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.0
+   }
+  },
+  "authoring:weapon:18070000010:adsRecoil": {
+   "profile_id": "authoring:weapon:18070000010:adsRecoil",
+   "kind": "recoil",
+   "loop": {
+    "horizontal_values": [
+     1.8,
+     1.2,
+     1.8,
+     1.2,
+     1.8,
+     1.2
+    ],
+    "vertical_values": [
+     2.4,
+     3.0,
+     2.4,
+     3.0,
+     2.4,
+     3.0
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.0
+   }
+  },
+  "authoring:weapon:18070000010:sol:movement": {
+   "profile_id": "authoring:weapon:18070000010:sol:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 365.24,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 146.1,
+   "ads_movement_modifier": -0.24
+  },
+  "authoring:weapon:18070000010:mp:movement": {
+   "profile_id": "authoring:weapon:18070000010:mp:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 365.24,
+   "sprint_speed_cm_s": 610.0,
+   "silent_move_speed_cm_s": 146.1,
+   "ads_movement_modifier": -0.13
+  },
+  "authoring:weapon:18070000010:bd:movement": {
+   "profile_id": "authoring:weapon:18070000010:bd:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 365.24,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 250.0,
+   "ads_movement_modifier": 0.0
+  },
+  "authoring:weapon:18070000010:aiming": {
+   "profile_id": "authoring:weapon:18070000010:aiming",
+   "kind": "aiming",
+   "ads_on_s": 0.245,
+   "ads_off_s": 0.245,
+   "zoom_rate": 1.25,
+   "ads_spread_profile_id": "authoring:weapon:18070000010:adsSpread",
+   "ads_recoil_profile_id": "authoring:weapon:18070000010:adsRecoil"
+  },
+  "authoring:weapon:18070000010:sol:bullet": {
+   "profile_id": "authoring:weapon:18070000010:sol:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 40000.0,
+   "max_distance_cm": 50000.0,
+   "valid_distance_cm": 2700.0,
+   "attenuation_distances_cm": [
+    5400.0,
+    60000.0
+   ],
+   "attenuation_rates": [
+    0.75,
+    0.6
+   ]
+  },
+  "authoring:weapon:18070000010:mp:bullet": {
+   "profile_id": "authoring:weapon:18070000010:mp:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 40000.0,
+   "max_distance_cm": 50000.0,
+   "valid_distance_cm": 1500.0,
+   "attenuation_distances_cm": [
+    2500.0,
+    3500.0,
+    60000.0
+   ],
+   "attenuation_rates": [
+    0.8,
+    0.7,
+    0.6
+   ]
+  },
+  "authoring:weapon:18070000010:bd:bullet": {
+   "profile_id": "authoring:weapon:18070000010:bd:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 40000.0,
+   "max_distance_cm": 50000.0,
+   "valid_distance_cm": 2500.0,
+   "attenuation_distances_cm": [
+    4000.0,
+    60000.0
+   ],
+   "attenuation_rates": [
+    0.9,
+    0.8
+   ]
+  },
+  "authoring:weapon:18070000033:hipSpread": {
+   "profile_id": "authoring:weapon:18070000033:hipSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 2.11,
+    "vertical": 2.11
+   },
+   "max_degrees": {
+    "horizontal": 5.275,
+    "vertical": 5.275
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18070000033:adsSpread": {
+   "profile_id": "authoring:weapon:18070000033:adsSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 0.1,
+    "vertical": 0.1
+   },
+   "max_degrees": {
+    "horizontal": 180,
+    "vertical": 180
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18070000033:hipRecoil": {
+   "profile_id": "authoring:weapon:18070000033:hipRecoil",
+   "kind": "recoil",
+   "loop": {
+    "horizontal_values": [
+     -5.0,
+     -2.0,
+     -4.0,
+     0.0,
+     -2.0
+    ],
+    "vertical_values": [
+     6.0,
+     4.0,
+     9.0,
+     4.0,
+     7.0
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.0
+   }
+  },
+  "authoring:weapon:18070000033:adsRecoil": {
+   "profile_id": "authoring:weapon:18070000033:adsRecoil",
+   "kind": "recoil",
+   "loop": {
+    "horizontal_values": [
+     -3.5,
+     -1.4
+    ],
+    "vertical_values": [
+     4.2,
+     2.8
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.0
+   }
+  },
+  "authoring:weapon:18070000033:sol:movement": {
+   "profile_id": "authoring:weapon:18070000033:sol:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 365.0,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 146.1,
+   "ads_movement_modifier": -0.24
+  },
+  "authoring:weapon:18070000033:mp:movement": {
+   "profile_id": "authoring:weapon:18070000033:mp:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 365.24,
+   "sprint_speed_cm_s": 610.0,
+   "silent_move_speed_cm_s": 146.1,
+   "ads_movement_modifier": -0.15
+  },
+  "authoring:weapon:18070000033:bd:movement": {
+   "profile_id": "authoring:weapon:18070000033:bd:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 365.0,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 250.0,
+   "ads_movement_modifier": 0.0
+  },
+  "authoring:weapon:18070000033:aiming": {
+   "profile_id": "authoring:weapon:18070000033:aiming",
+   "kind": "aiming",
+   "ads_on_s": 0.23,
+   "ads_off_s": 0.23,
+   "zoom_rate": 1.25,
+   "ads_spread_profile_id": "authoring:weapon:18070000033:adsSpread",
+   "ads_recoil_profile_id": "authoring:weapon:18070000033:adsRecoil"
+  },
+  "authoring:weapon:18070000033:sol:bullet": {
+   "profile_id": "authoring:weapon:18070000033:sol:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 40000.0,
+   "max_distance_cm": 50000.0,
+   "valid_distance_cm": 1500.0,
+   "attenuation_distances_cm": [
+    2500.0,
+    3500.0,
+    300000.0
+   ],
+   "attenuation_rates": [
+    0.75,
+    0.6,
+    0.5
+   ]
+  },
+  "authoring:weapon:18070000033:mp:bullet": {
+   "profile_id": "authoring:weapon:18070000033:mp:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 40000.0,
+   "max_distance_cm": 50000.0,
+   "valid_distance_cm": 2000.0,
+   "attenuation_distances_cm": [
+    3000.0,
+    4000.0,
+    60000.0
+   ],
+   "attenuation_rates": [
+    0.9,
+    0.7,
+    0.55
+   ]
+  },
+  "authoring:weapon:18070000033:bd:bullet": {
+   "profile_id": "authoring:weapon:18070000033:bd:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 40000.0,
+   "max_distance_cm": 50000.0,
+   "valid_distance_cm": 1500.0,
+   "attenuation_distances_cm": [
+    4000.0,
+    300000.0
+   ],
+   "attenuation_rates": [
+    0.9,
+    0.8
+   ]
+  },
+  "authoring:weapon:18150000001:hipSpread": {
+   "profile_id": "authoring:weapon:18150000001:hipSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 1.2,
+    "vertical": 1.2
+   },
+   "max_degrees": {
+    "horizontal": 1.5,
+    "vertical": 1.5
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18150000001:adsSpread": {
+   "profile_id": "authoring:weapon:18150000001:adsSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 0.1,
+    "vertical": 0.1
+   },
+   "max_degrees": {
+    "horizontal": 180,
+    "vertical": 180
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:part:13440000002:sol:hipSpread": {
+   "profile_id": "authoring:part:13440000002:sol:hipSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 0.2,
+    "vertical": 0.2
+   },
+   "max_degrees": {
+    "horizontal": 1.5,
+    "vertical": 1.5
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:part:13440000002:sol:adsSpread": {
+   "profile_id": "authoring:part:13440000002:sol:adsSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 0,
+    "vertical": 0
+   },
+   "max_degrees": {
+    "horizontal": 180,
+    "vertical": 180
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:part:13440000002:mp:hipSpread": {
+   "profile_id": "authoring:part:13440000002:mp:hipSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 0.2,
+    "vertical": 0.2
+   },
+   "max_degrees": {
+    "horizontal": 1.5,
+    "vertical": 1.5
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:part:13440000002:mp:adsSpread": {
+   "profile_id": "authoring:part:13440000002:mp:adsSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 0,
+    "vertical": 0
+   },
+   "max_degrees": {
+    "horizontal": 180,
+    "vertical": 180
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:part:13440000002:bd:hipSpread": {
+   "profile_id": "authoring:part:13440000002:bd:hipSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 0.2,
+    "vertical": 0.2
+   },
+   "max_degrees": {
+    "horizontal": 1.5,
+    "vertical": 1.5
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:part:13440000002:bd:adsSpread": {
+   "profile_id": "authoring:part:13440000002:bd:adsSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 0,
+    "vertical": 0
+   },
+   "max_degrees": {
+    "horizontal": 180,
+    "vertical": 180
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:part:13440000003:sol:adsSpread": {
+   "profile_id": "authoring:part:13440000003:sol:adsSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 0,
+    "vertical": 0
+   },
+   "max_degrees": {
+    "horizontal": 180,
+    "vertical": 180
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:part:13440000003:mp:adsSpread": {
+   "profile_id": "authoring:part:13440000003:mp:adsSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 0,
+    "vertical": 0
+   },
+   "max_degrees": {
+    "horizontal": 180,
+    "vertical": 180
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:part:13440000003:bd:adsSpread": {
+   "profile_id": "authoring:part:13440000003:bd:adsSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 0,
+    "vertical": 0
+   },
+   "max_degrees": {
+    "horizontal": 180,
+    "vertical": 180
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:ammo:37270500002:hipSpread": {
+   "profile_id": "authoring:ammo:37270500002:hipSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 5,
+    "vertical": 5
+   },
+   "max_degrees": {
+    "horizontal": 10,
+    "vertical": 10
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:ammo:37270500002:adsSpread": {
+   "profile_id": "authoring:ammo:37270500002:adsSpread",
+   "kind": "spread",
+   "base_degrees": {
+    "horizontal": 3,
+    "vertical": 3
+   },
+   "max_degrees": {
+    "horizontal": 5,
+    "vertical": 5
+   },
+   "runtime_scale": 1.25
+  },
+  "authoring:weapon:18150000001:hipRecoil": {
+   "profile_id": "authoring:weapon:18150000001:hipRecoil",
+   "kind": "recoil",
+   "loop": {
+    "horizontal_values": [
+     0.0
+    ],
+    "vertical_values": [
+     0.0
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.0
+   }
+  },
+  "authoring:weapon:18150000001:adsRecoil": {
+   "profile_id": "authoring:weapon:18150000001:adsRecoil",
+   "kind": "recoil",
+   "loop": {
+    "horizontal_values": [
+     0.0
+    ],
+    "vertical_values": [
+     0.0
+    ],
+    "horizontal_scale": 1.0,
+    "vertical_scale": 1.0
+   }
+  },
+  "authoring:weapon:18150000001:sol:movement": {
+   "profile_id": "authoring:weapon:18150000001:sol:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 360.23,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 141.3,
+   "ads_movement_modifier": -0.2541
+  },
+  "authoring:weapon:18150000001:mp:movement": {
+   "profile_id": "authoring:weapon:18150000001:mp:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 363.23,
+   "sprint_speed_cm_s": 610.0,
+   "silent_move_speed_cm_s": 142.3,
+   "ads_movement_modifier": -0.2
+  },
+  "authoring:weapon:18150000001:bd:movement": {
+   "profile_id": "authoring:weapon:18150000001:bd:movement",
+   "kind": "movement",
+   "walk_speed_cm_s": 360.23,
+   "sprint_speed_cm_s": 590.0,
+   "silent_move_speed_cm_s": 250.0,
+   "ads_movement_modifier": -0.1
+  },
+  "authoring:weapon:18150000001:aiming": {
+   "profile_id": "authoring:weapon:18150000001:aiming",
+   "kind": "aiming",
+   "ads_on_s": 0.25,
+   "ads_off_s": 0.25,
+   "zoom_rate": 1.25,
+   "ads_spread_profile_id": "authoring:weapon:18150000001:adsSpread",
+   "ads_recoil_profile_id": "authoring:weapon:18150000001:adsRecoil"
+  },
+  "authoring:weapon:18150000001:sol:bullet": {
+   "profile_id": "authoring:weapon:18150000001:sol:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 30000.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 6500.0,
+   "attenuation_distances_cm": [
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.9
+   ]
+  },
+  "authoring:weapon:18150000001:mp:bullet": {
+   "profile_id": "authoring:weapon:18150000001:mp:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 30000.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 1000.0,
+   "attenuation_distances_cm": [
+    3000.0,
+    5000.0,
+    100000.0
+   ],
+   "attenuation_rates": [
+    0.9,
+    0.8,
+    0.7
+   ]
+  },
+  "authoring:weapon:18150000001:bd:bullet": {
+   "profile_id": "authoring:weapon:18150000001:bd:bullet",
+   "kind": "bullet",
+   "initial_speed_cm_s": 30000.0,
+   "max_distance_cm": 100000.0,
+   "valid_distance_cm": 6500.0,
+   "attenuation_distances_cm": [],
+   "attenuation_rates": []
   },
   "authoring:weapon:18010000001:sol:damage": {
    "profile_id": "authoring:weapon:18010000001:sol:damage",
@@ -20464,6 +25279,246 @@
     "lowerLeg": 0.35
    }
   },
+  "authoring:weapon:18030000001:sol:damage": {
+   "profile_id": "authoring:weapon:18030000001:sol:damage",
+   "kind": "damage",
+   "base_damage": 14.0,
+   "base_armor_damage": 16.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.9,
+    "upperChest": 1.0,
+    "lowerChest": 0.9,
+    "upperArm": 0.4,
+    "lowerArm": 0.4,
+    "thigh": 0.4,
+    "lowerLeg": 0.4
+   }
+  },
+  "authoring:weapon:18030000001:mp:damage": {
+   "profile_id": "authoring:weapon:18030000001:mp:damage",
+   "kind": "damage",
+   "base_damage": 20.0,
+   "base_armor_damage": 20.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.25,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 1.0,
+    "lowerArm": 1.0,
+    "thigh": 1.0,
+    "lowerLeg": 1.0
+   }
+  },
+  "authoring:weapon:18030000001:bd:damage": {
+   "profile_id": "authoring:weapon:18030000001:bd:damage",
+   "kind": "damage",
+   "base_damage": 15.0,
+   "base_armor_damage": 16.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.9,
+    "upperChest": 1.0,
+    "lowerChest": 0.9,
+    "upperArm": 0.4,
+    "lowerArm": 0.4,
+    "thigh": 0.4,
+    "lowerLeg": 0.4
+   }
+  },
+  "authoring:weapon:18030000002:sol:damage": {
+   "profile_id": "authoring:weapon:18030000002:sol:damage",
+   "kind": "damage",
+   "base_damage": 13.0,
+   "base_armor_damage": 16.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.9,
+    "upperChest": 1.0,
+    "lowerChest": 0.9,
+    "upperArm": 0.4,
+    "lowerArm": 0.4,
+    "thigh": 0.4,
+    "lowerLeg": 0.4
+   }
+  },
+  "authoring:weapon:18030000002:mp:damage": {
+   "profile_id": "authoring:weapon:18030000002:mp:damage",
+   "kind": "damage",
+   "base_damage": 17.0,
+   "base_armor_damage": 17.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.25,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 1.0,
+    "lowerArm": 1.0,
+    "thigh": 1.0,
+    "lowerLeg": 1.0
+   }
+  },
+  "authoring:weapon:18030000002:bd:damage": {
+   "profile_id": "authoring:weapon:18030000002:bd:damage",
+   "kind": "damage",
+   "base_damage": 14.0,
+   "base_armor_damage": 16.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.9,
+    "upperChest": 1.0,
+    "lowerChest": 0.9,
+    "upperArm": 0.4,
+    "lowerArm": 0.4,
+    "thigh": 0.4,
+    "lowerLeg": 0.4
+   }
+  },
+  "authoring:weapon:18030000004:sol:damage": {
+   "profile_id": "authoring:weapon:18030000004:sol:damage",
+   "kind": "damage",
+   "base_damage": 17.0,
+   "base_armor_damage": 16.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.9,
+    "upperChest": 1.0,
+    "lowerChest": 0.9,
+    "upperArm": 0.4,
+    "lowerArm": 0.4,
+    "thigh": 0.4,
+    "lowerLeg": 0.4
+   }
+  },
+  "authoring:weapon:18030000004:mp:damage": {
+   "profile_id": "authoring:weapon:18030000004:mp:damage",
+   "kind": "damage",
+   "base_damage": 30.0,
+   "base_armor_damage": 30.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.25,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 1.0,
+    "lowerArm": 1.0,
+    "thigh": 1.0,
+    "lowerLeg": 1.0
+   }
+  },
+  "authoring:weapon:18030000004:bd:damage": {
+   "profile_id": "authoring:weapon:18030000004:bd:damage",
+   "kind": "damage",
+   "base_damage": 18.0,
+   "base_armor_damage": 16.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.9,
+    "upperChest": 1.0,
+    "lowerChest": 0.9,
+    "upperArm": 0.4,
+    "lowerArm": 0.4,
+    "thigh": 0.4,
+    "lowerLeg": 0.4
+   }
+  },
+  "authoring:weapon:18030000005:sol:damage": {
+   "profile_id": "authoring:weapon:18030000005:sol:damage",
+   "kind": "damage",
+   "base_damage": 17.0,
+   "base_armor_damage": 18.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.9,
+    "upperChest": 1.0,
+    "lowerChest": 0.9,
+    "upperArm": 0.4,
+    "lowerArm": 0.4,
+    "thigh": 0.4,
+    "lowerLeg": 0.4
+   }
+  },
+  "authoring:weapon:18030000005:mp:damage": {
+   "profile_id": "authoring:weapon:18030000005:mp:damage",
+   "kind": "damage",
+   "base_damage": 34.0,
+   "base_armor_damage": 16.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.25,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 1.0,
+    "lowerArm": 1.0,
+    "thigh": 1.0,
+    "lowerLeg": 1.0
+   }
+  },
+  "authoring:weapon:18030000005:bd:damage": {
+   "profile_id": "authoring:weapon:18030000005:bd:damage",
+   "kind": "damage",
+   "base_damage": 18.0,
+   "base_armor_damage": 18.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.9,
+    "upperChest": 1.0,
+    "lowerChest": 0.9,
+    "upperArm": 0.4,
+    "lowerArm": 0.4,
+    "thigh": 0.4,
+    "lowerLeg": 0.4
+   }
+  },
+  "authoring:weapon:18030000006:sol:damage": {
+   "profile_id": "authoring:weapon:18030000006:sol:damage",
+   "kind": "damage",
+   "base_damage": 14.0,
+   "base_armor_damage": 16.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.9,
+    "upperChest": 1.0,
+    "lowerChest": 0.9,
+    "upperArm": 0.4,
+    "lowerArm": 0.4,
+    "thigh": 0.4,
+    "lowerLeg": 0.4
+   }
+  },
+  "authoring:weapon:18030000006:mp:damage": {
+   "profile_id": "authoring:weapon:18030000006:mp:damage",
+   "kind": "damage",
+   "base_damage": 18.0,
+   "base_armor_damage": 18.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.25,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 1.0,
+    "lowerArm": 1.0,
+    "thigh": 1.0,
+    "lowerLeg": 1.0
+   }
+  },
+  "authoring:weapon:18030000006:bd:damage": {
+   "profile_id": "authoring:weapon:18030000006:bd:damage",
+   "kind": "damage",
+   "base_damage": 16.0,
+   "base_armor_damage": 16.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.9,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 0.6,
+    "lowerArm": 0.6,
+    "thigh": 0.6,
+    "lowerLeg": 0.6
+   }
+  },
   "authoring:weapon:18040000001:sol:damage": {
    "profile_id": "authoring:weapon:18040000001:sol:damage",
    "kind": "damage",
@@ -20688,6 +25743,54 @@
     "lowerLeg": 0.4
    }
   },
+  "authoring:weapon:18050000002:sol:damage": {
+   "profile_id": "authoring:weapon:18050000002:sol:damage",
+   "kind": "damage",
+   "base_damage": 34.0,
+   "base_armor_damage": 38.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.9,
+    "upperChest": 1.0,
+    "lowerChest": 0.9,
+    "upperArm": 0.5,
+    "lowerArm": 0.5,
+    "thigh": 0.5,
+    "lowerLeg": 0.5
+   }
+  },
+  "authoring:weapon:18050000002:mp:damage": {
+   "profile_id": "authoring:weapon:18050000002:mp:damage",
+   "kind": "damage",
+   "base_damage": 25.0,
+   "base_armor_damage": 0.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.9,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 1.0,
+    "lowerArm": 1.0,
+    "thigh": 1.0,
+    "lowerLeg": 1.0
+   }
+  },
+  "authoring:weapon:18050000002:bd:damage": {
+   "profile_id": "authoring:weapon:18050000002:bd:damage",
+   "kind": "damage",
+   "base_damage": 34.0,
+   "base_armor_damage": 38.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 2.5,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 0.6,
+    "lowerArm": 0.6,
+    "thigh": 0.6,
+    "lowerLeg": 0.6
+   }
+  },
   "authoring:weapon:18050000003:sol:damage": {
    "profile_id": "authoring:weapon:18050000003:sol:damage",
    "kind": "damage",
@@ -20734,6 +25837,54 @@
     "lowerArm": 0.4,
     "thigh": 0.4,
     "lowerLeg": 0.4
+   }
+  },
+  "authoring:weapon:18050000004:sol:damage": {
+   "profile_id": "authoring:weapon:18050000004:sol:damage",
+   "kind": "damage",
+   "base_damage": 56.0,
+   "base_armor_damage": 56.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 2.32,
+    "upperChest": 1.0,
+    "lowerChest": 0.9,
+    "upperArm": 0.4,
+    "lowerArm": 0.4,
+    "thigh": 0.4,
+    "lowerLeg": 0.4
+   }
+  },
+  "authoring:weapon:18050000004:mp:damage": {
+   "profile_id": "authoring:weapon:18050000004:mp:damage",
+   "kind": "damage",
+   "base_damage": 40.0,
+   "base_armor_damage": 0.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.5,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 0.7,
+    "lowerArm": 0.7,
+    "thigh": 0.7,
+    "lowerLeg": 0.7
+   }
+  },
+  "authoring:weapon:18050000004:bd:damage": {
+   "profile_id": "authoring:weapon:18050000004:bd:damage",
+   "kind": "damage",
+   "base_damage": 56.0,
+   "base_armor_damage": 56.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 2.2,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 0.6,
+    "lowerArm": 0.6,
+    "thigh": 0.6,
+    "lowerLeg": 0.6
    }
   },
   "authoring:weapon:18050000005:sol:damage": {
@@ -20784,6 +25935,390 @@
     "lowerLeg": 0.5
    }
   },
+  "authoring:weapon:18050000006:sol:damage": {
+   "profile_id": "authoring:weapon:18050000006:sol:damage",
+   "kind": "damage",
+   "base_damage": 48.0,
+   "base_armor_damage": 49.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.9,
+    "upperChest": 1.0,
+    "lowerChest": 0.9,
+    "upperArm": 0.4,
+    "lowerArm": 0.4,
+    "thigh": 0.4,
+    "lowerLeg": 0.4
+   }
+  },
+  "authoring:weapon:18050000006:mp:damage": {
+   "profile_id": "authoring:weapon:18050000006:mp:damage",
+   "kind": "damage",
+   "base_damage": 27.0,
+   "base_armor_damage": 0.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.9,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 1.0,
+    "lowerArm": 1.0,
+    "thigh": 1.0,
+    "lowerLeg": 1.0
+   }
+  },
+  "authoring:weapon:18050000006:bd:damage": {
+   "profile_id": "authoring:weapon:18050000006:bd:damage",
+   "kind": "damage",
+   "base_damage": 48.0,
+   "base_armor_damage": 49.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 2.0,
+    "upperChest": 1.0,
+    "lowerChest": 0.9,
+    "upperArm": 0.5,
+    "lowerArm": 0.5,
+    "thigh": 0.5,
+    "lowerLeg": 0.5
+   }
+  },
+  "authoring:weapon:18050000007:sol:damage": {
+   "profile_id": "authoring:weapon:18050000007:sol:damage",
+   "kind": "damage",
+   "base_damage": 50.0,
+   "base_armor_damage": 55.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 2.1,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 0.5,
+    "lowerArm": 0.5,
+    "thigh": 0.5,
+    "lowerLeg": 0.5
+   }
+  },
+  "authoring:weapon:18050000007:mp:damage": {
+   "profile_id": "authoring:weapon:18050000007:mp:damage",
+   "kind": "damage",
+   "base_damage": 35.0,
+   "base_armor_damage": 0.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.5,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 0.9,
+    "lowerArm": 0.9,
+    "thigh": 0.9,
+    "lowerLeg": 0.9
+   }
+  },
+  "authoring:weapon:18050000007:bd:damage": {
+   "profile_id": "authoring:weapon:18050000007:bd:damage",
+   "kind": "damage",
+   "base_damage": 50.0,
+   "base_armor_damage": 55.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 3.5,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 0.6,
+    "lowerArm": 0.6,
+    "thigh": 0.6,
+    "lowerLeg": 0.6
+   }
+  },
+  "authoring:part:13020000398:sol:damage": {
+   "profile_id": "authoring:part:13020000398:sol:damage",
+   "kind": "damage",
+   "base_damage": 55.0,
+   "base_armor_damage": 55.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 2.1,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 0.5,
+    "lowerArm": 0.5,
+    "thigh": 0.5,
+    "lowerLeg": 0.5
+   }
+  },
+  "authoring:part:13020000398:mp:damage": {
+   "profile_id": "authoring:part:13020000398:mp:damage",
+   "kind": "damage",
+   "base_damage": 50.0,
+   "base_armor_damage": 0.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.5,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 0.9,
+    "lowerArm": 0.9,
+    "thigh": 0.9,
+    "lowerLeg": 0.9
+   }
+  },
+  "authoring:part:13020000398:bd:damage": {
+   "profile_id": "authoring:part:13020000398:bd:damage",
+   "kind": "damage",
+   "base_damage": 55.0,
+   "base_armor_damage": 55.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 2.5,
+    "upperChest": 1.0,
+    "lowerChest": 0.9,
+    "upperArm": 0.5,
+    "lowerArm": 0.5,
+    "thigh": 0.5,
+    "lowerLeg": 0.5
+   }
+  },
+  "authoring:weapon:18050000008:sol:damage": {
+   "profile_id": "authoring:weapon:18050000008:sol:damage",
+   "kind": "damage",
+   "base_damage": 50.0,
+   "base_armor_damage": 55.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.9,
+    "upperChest": 1.0,
+    "lowerChest": 0.9,
+    "upperArm": 0.4,
+    "lowerArm": 0.4,
+    "thigh": 0.4,
+    "lowerLeg": 0.4
+   }
+  },
+  "authoring:weapon:18050000008:mp:damage": {
+   "profile_id": "authoring:weapon:18050000008:mp:damage",
+   "kind": "damage",
+   "base_damage": 35.0,
+   "base_armor_damage": 0.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.5,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 0.9,
+    "lowerArm": 0.9,
+    "thigh": 0.9,
+    "lowerLeg": 0.9
+   }
+  },
+  "authoring:weapon:18050000008:bd:damage": {
+   "profile_id": "authoring:weapon:18050000008:bd:damage",
+   "kind": "damage",
+   "base_damage": 50.0,
+   "base_armor_damage": 55.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 2.0,
+    "upperChest": 1.0,
+    "lowerChest": 0.9,
+    "upperArm": 0.4,
+    "lowerArm": 0.4,
+    "thigh": 0.4,
+    "lowerLeg": 0.4
+   }
+  },
+  "authoring:weapon:18050000031:sol:damage": {
+   "profile_id": "authoring:weapon:18050000031:sol:damage",
+   "kind": "damage",
+   "base_damage": 50.0,
+   "base_armor_damage": 55.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 2.1,
+    "upperChest": 1.0,
+    "lowerChest": 0.9,
+    "upperArm": 0.4,
+    "lowerArm": 0.4,
+    "thigh": 0.4,
+    "lowerLeg": 0.4
+   }
+  },
+  "authoring:weapon:18050000031:mp:damage": {
+   "profile_id": "authoring:weapon:18050000031:mp:damage",
+   "kind": "damage",
+   "base_damage": 35.0,
+   "base_armor_damage": 0.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.5,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 0.9,
+    "lowerArm": 0.9,
+    "thigh": 0.9,
+    "lowerLeg": 0.9
+   }
+  },
+  "authoring:weapon:18050000031:bd:damage": {
+   "profile_id": "authoring:weapon:18050000031:bd:damage",
+   "kind": "damage",
+   "base_damage": 50.0,
+   "base_armor_damage": 55.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 2.0,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 0.6,
+    "lowerArm": 0.6,
+    "thigh": 0.6,
+    "lowerLeg": 0.6
+   }
+  },
+  "authoring:weapon:18050000032:sol:damage": {
+   "profile_id": "authoring:weapon:18050000032:sol:damage",
+   "kind": "damage",
+   "base_damage": 70.0,
+   "base_armor_damage": 25.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.9,
+    "upperChest": 1.0,
+    "lowerChest": 0.9,
+    "upperArm": 0.45,
+    "lowerArm": 0.45,
+    "thigh": 0.45,
+    "lowerLeg": 0.45
+   }
+  },
+  "authoring:weapon:18050000032:mp:damage": {
+   "profile_id": "authoring:weapon:18050000032:mp:damage",
+   "kind": "damage",
+   "base_damage": 54.0,
+   "base_armor_damage": 0.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 2.5,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 1.0,
+    "lowerArm": 1.0,
+    "thigh": 1.0,
+    "lowerLeg": 1.0
+   }
+  },
+  "authoring:weapon:18050000032:bd:damage": {
+   "profile_id": "authoring:weapon:18050000032:bd:damage",
+   "kind": "damage",
+   "base_damage": 50.0,
+   "base_armor_damage": 25.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 2.0,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 0.4,
+    "lowerArm": 0.4,
+    "thigh": 0.4,
+    "lowerLeg": 0.4
+   }
+  },
+  "authoring:part:13520000002:sol:damage": {
+   "profile_id": "authoring:part:13520000002:sol:damage",
+   "kind": "damage",
+   "base_damage": 75.0,
+   "base_armor_damage": 59.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.5,
+    "upperChest": 1.0,
+    "lowerChest": 0.9,
+    "upperArm": 0.45,
+    "lowerArm": 0.45,
+    "thigh": 0.45,
+    "lowerLeg": 0.45
+   }
+  },
+  "authoring:part:13520000002:mp:damage": {
+   "profile_id": "authoring:part:13520000002:mp:damage",
+   "kind": "damage",
+   "base_damage": 54.0,
+   "base_armor_damage": 0.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.9,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 1.0,
+    "lowerArm": 1.0,
+    "thigh": 0.9,
+    "lowerLeg": 0.9
+   }
+  },
+  "authoring:part:13520000002:bd:damage": {
+   "profile_id": "authoring:part:13520000002:bd:damage",
+   "kind": "damage",
+   "base_damage": 55.0,
+   "base_armor_damage": 59.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 2.0,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 0.4,
+    "lowerArm": 0.4,
+    "thigh": 0.4,
+    "lowerLeg": 0.4
+   }
+  },
+  "authoring:part:13520000003:sol:damage": {
+   "profile_id": "authoring:part:13520000003:sol:damage",
+   "kind": "damage",
+   "base_damage": 100.0,
+   "base_armor_damage": 25.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.41,
+    "upperChest": 1.0,
+    "lowerChest": 0.67,
+    "upperArm": 0.34,
+    "lowerArm": 0.34,
+    "thigh": 0.34,
+    "lowerLeg": 0.34
+   }
+  },
+  "authoring:part:13520000003:mp:damage": {
+   "profile_id": "authoring:part:13520000003:mp:damage",
+   "kind": "damage",
+   "base_damage": 100.0,
+   "base_armor_damage": 0.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.9,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 0.6,
+    "lowerArm": 0.6,
+    "thigh": 0.6,
+    "lowerLeg": 0.6
+   }
+  },
+  "authoring:part:13520000003:bd:damage": {
+   "profile_id": "authoring:part:13520000003:bd:damage",
+   "kind": "damage",
+   "base_damage": 100.0,
+   "base_armor_damage": 25.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 2.5,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 0.4,
+    "lowerArm": 0.4,
+    "thigh": 0.4,
+    "lowerLeg": 0.4
+   }
+  },
   "authoring:weapon:18050000033:sol:damage": {
    "profile_id": "authoring:weapon:18050000033:sol:damage",
    "kind": "damage",
@@ -20831,14 +26366,750 @@
     "thigh": 0.4,
     "lowerLeg": 0.4
    }
+  },
+  "authoring:weapon:18060000007:sol:damage": {
+   "profile_id": "authoring:weapon:18060000007:sol:damage",
+   "kind": "damage",
+   "base_damage": 60.0,
+   "base_armor_damage": 58.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 2.5,
+    "upperChest": 1.0,
+    "lowerChest": 0.9,
+    "upperArm": 0.4,
+    "lowerArm": 0.4,
+    "thigh": 0.4,
+    "lowerLeg": 0.4
+   }
+  },
+  "authoring:weapon:18060000007:mp:damage": {
+   "profile_id": "authoring:weapon:18060000007:mp:damage",
+   "kind": "damage",
+   "base_damage": 76.0,
+   "base_armor_damage": 76.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 2.4,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 1.0,
+    "lowerArm": 1.0,
+    "thigh": 1.0,
+    "lowerLeg": 1.0
+   }
+  },
+  "authoring:weapon:18060000007:bd:damage": {
+   "profile_id": "authoring:weapon:18060000007:bd:damage",
+   "kind": "damage",
+   "base_damage": 100.0,
+   "base_armor_damage": 58.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 2.5,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 0.6,
+    "lowerArm": 0.6,
+    "thigh": 0.6,
+    "lowerLeg": 0.6
+   }
+  },
+  "authoring:weapon:18060000008:sol:damage": {
+   "profile_id": "authoring:weapon:18060000008:sol:damage",
+   "kind": "damage",
+   "base_damage": 61.0,
+   "base_armor_damage": 58.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 2.5,
+    "upperChest": 1.0,
+    "lowerChest": 0.9,
+    "upperArm": 0.4,
+    "lowerArm": 0.4,
+    "thigh": 0.4,
+    "lowerLeg": 0.4
+   }
+  },
+  "authoring:weapon:18060000008:mp:damage": {
+   "profile_id": "authoring:weapon:18060000008:mp:damage",
+   "kind": "damage",
+   "base_damage": 100.0,
+   "base_armor_damage": 100.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 2.4,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 0.9,
+    "lowerArm": 0.9,
+    "thigh": 0.9,
+    "lowerLeg": 0.9
+   }
+  },
+  "authoring:weapon:18060000008:bd:damage": {
+   "profile_id": "authoring:weapon:18060000008:bd:damage",
+   "kind": "damage",
+   "base_damage": 100.0,
+   "base_armor_damage": 58.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 2.5,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 0.6,
+    "lowerArm": 0.6,
+    "thigh": 0.6,
+    "lowerLeg": 0.6
+   }
+  },
+  "authoring:weapon:18060000009:sol:damage": {
+   "profile_id": "authoring:weapon:18060000009:sol:damage",
+   "kind": "damage",
+   "base_damage": 61.0,
+   "base_armor_damage": 58.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 2.5,
+    "upperChest": 1.0,
+    "lowerChest": 0.9,
+    "upperArm": 0.4,
+    "lowerArm": 0.4,
+    "thigh": 0.4,
+    "lowerLeg": 0.4
+   }
+  },
+  "authoring:weapon:18060000009:mp:damage": {
+   "profile_id": "authoring:weapon:18060000009:mp:damage",
+   "kind": "damage",
+   "base_damage": 72.0,
+   "base_armor_damage": 72.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 2.4,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 0.93,
+    "lowerArm": 0.93,
+    "thigh": 0.93,
+    "lowerLeg": 0.93
+   }
+  },
+  "authoring:weapon:18060000009:bd:damage": {
+   "profile_id": "authoring:weapon:18060000009:bd:damage",
+   "kind": "damage",
+   "base_damage": 100.0,
+   "base_armor_damage": 58.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 2.5,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 0.6,
+    "lowerArm": 0.6,
+    "thigh": 0.6,
+    "lowerLeg": 0.6
+   }
+  },
+  "authoring:part:13560000002:sol:damage": {
+   "profile_id": "authoring:part:13560000002:sol:damage",
+   "kind": "damage",
+   "base_damage": 61.0,
+   "base_armor_damage": 58.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 2.5,
+    "upperChest": 1.0,
+    "lowerChest": 0.5,
+    "upperArm": 0.25,
+    "lowerArm": 0.25,
+    "thigh": 0.25,
+    "lowerLeg": 0.25
+   }
+  },
+  "authoring:part:13560000002:mp:damage": {
+   "profile_id": "authoring:part:13560000002:mp:damage",
+   "kind": "damage",
+   "base_damage": 72.0,
+   "base_armor_damage": 72.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 2.4,
+    "upperChest": 0.6,
+    "lowerChest": 0.45,
+    "upperArm": 0.35,
+    "lowerArm": 0.35,
+    "thigh": 0.35,
+    "lowerLeg": 0.35
+   }
+  },
+  "authoring:part:13560000002:bd:damage": {
+   "profile_id": "authoring:part:13560000002:bd:damage",
+   "kind": "damage",
+   "base_damage": 61.0,
+   "base_armor_damage": 58.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 2.5,
+    "upperChest": 1.0,
+    "lowerChest": 0.5,
+    "upperArm": 0.25,
+    "lowerArm": 0.25,
+    "thigh": 0.25,
+    "lowerLeg": 0.25
+   }
+  },
+  "authoring:weapon:18060000011:sol:damage": {
+   "profile_id": "authoring:weapon:18060000011:sol:damage",
+   "kind": "damage",
+   "base_damage": 100.0,
+   "base_armor_damage": 10.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.9,
+    "upperChest": 1.0,
+    "lowerChest": 0.9,
+    "upperArm": 0.4,
+    "lowerArm": 0.4,
+    "thigh": 0.4,
+    "lowerLeg": 0.4
+   }
+  },
+  "authoring:weapon:18060000011:mp:damage": {
+   "profile_id": "authoring:weapon:18060000011:mp:damage",
+   "kind": "damage",
+   "base_damage": 100.0,
+   "base_armor_damage": 100.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 2.4,
+    "upperChest": 1.0,
+    "lowerChest": 0.85,
+    "upperArm": 0.85,
+    "lowerArm": 0.85,
+    "thigh": 0.85,
+    "lowerLeg": 0.85
+   }
+  },
+  "authoring:weapon:18060000011:bd:damage": {
+   "profile_id": "authoring:weapon:18060000011:bd:damage",
+   "kind": "damage",
+   "base_damage": 100.0,
+   "base_armor_damage": 10.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 2.5,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 0.8,
+    "lowerArm": 0.8,
+    "thigh": 0.6,
+    "lowerLeg": 0.6
+   }
+  },
+  "authoring:weapon:18060000033:sol:damage": {
+   "profile_id": "authoring:weapon:18060000033:sol:damage",
+   "kind": "damage",
+   "base_damage": 100.0,
+   "base_armor_damage": 20.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.9,
+    "upperChest": 1.0,
+    "lowerChest": 0.9,
+    "upperArm": 0.4,
+    "lowerArm": 0.4,
+    "thigh": 0.4,
+    "lowerLeg": 0.4
+   }
+  },
+  "authoring:weapon:18060000033:mp:damage": {
+   "profile_id": "authoring:weapon:18060000033:mp:damage",
+   "kind": "damage",
+   "base_damage": 100.0,
+   "base_armor_damage": 100.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 2.4,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 0.8,
+    "lowerArm": 0.8,
+    "thigh": 0.8,
+    "lowerLeg": 0.8
+   }
+  },
+  "authoring:weapon:18060000033:bd:damage": {
+   "profile_id": "authoring:weapon:18060000033:bd:damage",
+   "kind": "damage",
+   "base_damage": 100.0,
+   "base_armor_damage": 20.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 2.5,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 0.8,
+    "lowerArm": 0.8,
+    "thigh": 0.6,
+    "lowerLeg": 0.6
+   }
+  },
+  "authoring:weapon:18070000002:sol:damage": {
+   "profile_id": "authoring:weapon:18070000002:sol:damage",
+   "kind": "damage",
+   "base_damage": 34.0,
+   "base_armor_damage": 32.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.9,
+    "upperChest": 1.0,
+    "lowerChest": 0.9,
+    "upperArm": 0.4,
+    "lowerArm": 0.4,
+    "thigh": 0.4,
+    "lowerLeg": 0.4
+   }
+  },
+  "authoring:weapon:18070000002:mp:damage": {
+   "profile_id": "authoring:weapon:18070000002:mp:damage",
+   "kind": "damage",
+   "base_damage": 34.0,
+   "base_armor_damage": 0.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.25,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 1.0,
+    "lowerArm": 1.0,
+    "thigh": 0.8,
+    "lowerLeg": 0.8
+   }
+  },
+  "authoring:weapon:18070000002:bd:damage": {
+   "profile_id": "authoring:weapon:18070000002:bd:damage",
+   "kind": "damage",
+   "base_damage": 34.0,
+   "base_armor_damage": 32.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 2.5,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 0.6,
+    "lowerArm": 0.6,
+    "thigh": 0.6,
+    "lowerLeg": 0.6
+   }
+  },
+  "authoring:weapon:18070000003:sol:damage": {
+   "profile_id": "authoring:weapon:18070000003:sol:damage",
+   "kind": "damage",
+   "base_damage": 56.0,
+   "base_armor_damage": 39.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 2.2,
+    "upperChest": 1.0,
+    "lowerChest": 0.9,
+    "upperArm": 0.4,
+    "lowerArm": 0.4,
+    "thigh": 0.4,
+    "lowerLeg": 0.4
+   }
+  },
+  "authoring:weapon:18070000003:mp:damage": {
+   "profile_id": "authoring:weapon:18070000003:mp:damage",
+   "kind": "damage",
+   "base_damage": 52.0,
+   "base_armor_damage": 0.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 2.4,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 1.0,
+    "lowerArm": 1.0,
+    "thigh": 1.0,
+    "lowerLeg": 1.0
+   }
+  },
+  "authoring:weapon:18070000003:bd:damage": {
+   "profile_id": "authoring:weapon:18070000003:bd:damage",
+   "kind": "damage",
+   "base_damage": 56.0,
+   "base_armor_damage": 39.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 2.5,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 0.6,
+    "lowerArm": 0.6,
+    "thigh": 0.6,
+    "lowerLeg": 0.6
+   }
+  },
+  "authoring:weapon:18070000004:sol:damage": {
+   "profile_id": "authoring:weapon:18070000004:sol:damage",
+   "kind": "damage",
+   "base_damage": 56.0,
+   "base_armor_damage": 53.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 2.8,
+    "upperChest": 1.0,
+    "lowerChest": 0.9,
+    "upperArm": 0.4,
+    "lowerArm": 0.4,
+    "thigh": 0.4,
+    "lowerLeg": 0.4
+   }
+  },
+  "authoring:weapon:18070000004:mp:damage": {
+   "profile_id": "authoring:weapon:18070000004:mp:damage",
+   "kind": "damage",
+   "base_damage": 50.0,
+   "base_armor_damage": 0.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 2.4,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 1.0,
+    "lowerArm": 1.0,
+    "thigh": 1.0,
+    "lowerLeg": 1.0
+   }
+  },
+  "authoring:weapon:18070000004:bd:damage": {
+   "profile_id": "authoring:weapon:18070000004:bd:damage",
+   "kind": "damage",
+   "base_damage": 56.0,
+   "base_armor_damage": 53.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 2.5,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 0.6,
+    "lowerArm": 0.6,
+    "thigh": 0.6,
+    "lowerLeg": 0.6
+   }
+  },
+  "authoring:weapon:18070000005:sol:damage": {
+   "profile_id": "authoring:weapon:18070000005:sol:damage",
+   "kind": "damage",
+   "base_damage": 23.0,
+   "base_armor_damage": 16.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.9,
+    "upperChest": 1.0,
+    "lowerChest": 0.9,
+    "upperArm": 0.4,
+    "lowerArm": 0.4,
+    "thigh": 0.4,
+    "lowerLeg": 0.4
+   }
+  },
+  "authoring:weapon:18070000005:mp:damage": {
+   "profile_id": "authoring:weapon:18070000005:mp:damage",
+   "kind": "damage",
+   "base_damage": 14.0,
+   "base_armor_damage": 0.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.25,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 1.0,
+    "lowerArm": 1.0,
+    "thigh": 1.0,
+    "lowerLeg": 1.0
+   }
+  },
+  "authoring:weapon:18070000005:bd:damage": {
+   "profile_id": "authoring:weapon:18070000005:bd:damage",
+   "kind": "damage",
+   "base_damage": 23.0,
+   "base_armor_damage": 16.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.9,
+    "upperChest": 1.0,
+    "lowerChest": 0.9,
+    "upperArm": 0.4,
+    "lowerArm": 0.4,
+    "thigh": 0.4,
+    "lowerLeg": 0.4
+   }
+  },
+  "authoring:weapon:18070000006:sol:damage": {
+   "profile_id": "authoring:weapon:18070000006:sol:damage",
+   "kind": "damage",
+   "base_damage": 34.0,
+   "base_armor_damage": 32.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.9,
+    "upperChest": 1.0,
+    "lowerChest": 0.9,
+    "upperArm": 0.4,
+    "lowerArm": 0.4,
+    "thigh": 0.4,
+    "lowerLeg": 0.4
+   }
+  },
+  "authoring:weapon:18070000006:mp:damage": {
+   "profile_id": "authoring:weapon:18070000006:mp:damage",
+   "kind": "damage",
+   "base_damage": 25.0,
+   "base_armor_damage": 0.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.25,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 0.8,
+    "lowerArm": 0.8,
+    "thigh": 0.8,
+    "lowerLeg": 0.8
+   }
+  },
+  "authoring:weapon:18070000006:bd:damage": {
+   "profile_id": "authoring:weapon:18070000006:bd:damage",
+   "kind": "damage",
+   "base_damage": 34.0,
+   "base_armor_damage": 32.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.9,
+    "upperChest": 1.0,
+    "lowerChest": 0.9,
+    "upperArm": 0.4,
+    "lowerArm": 0.4,
+    "thigh": 0.4,
+    "lowerLeg": 0.4
+   }
+  },
+  "authoring:weapon:18070000010:sol:damage": {
+   "profile_id": "authoring:weapon:18070000010:sol:damage",
+   "kind": "damage",
+   "base_damage": 27.0,
+   "base_armor_damage": 25.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.9,
+    "upperChest": 1.0,
+    "lowerChest": 0.9,
+    "upperArm": 0.4,
+    "lowerArm": 0.4,
+    "thigh": 0.4,
+    "lowerLeg": 0.4
+   }
+  },
+  "authoring:weapon:18070000010:mp:damage": {
+   "profile_id": "authoring:weapon:18070000010:mp:damage",
+   "kind": "damage",
+   "base_damage": 33.0,
+   "base_armor_damage": 0.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.9,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 1.0,
+    "lowerArm": 1.0,
+    "thigh": 1.0,
+    "lowerLeg": 1.0
+   }
+  },
+  "authoring:weapon:18070000010:bd:damage": {
+   "profile_id": "authoring:weapon:18070000010:bd:damage",
+   "kind": "damage",
+   "base_damage": 27.0,
+   "base_armor_damage": 25.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 2.5,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 0.6,
+    "lowerArm": 0.6,
+    "thigh": 0.6,
+    "lowerLeg": 0.6
+   }
+  },
+  "authoring:weapon:18070000033:sol:damage": {
+   "profile_id": "authoring:weapon:18070000033:sol:damage",
+   "kind": "damage",
+   "base_damage": 40.0,
+   "base_armor_damage": 30.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.9,
+    "upperChest": 1.0,
+    "lowerChest": 0.9,
+    "upperArm": 0.4,
+    "lowerArm": 0.4,
+    "thigh": 0.4,
+    "lowerLeg": 0.4
+   }
+  },
+  "authoring:weapon:18070000033:mp:damage": {
+   "profile_id": "authoring:weapon:18070000033:mp:damage",
+   "kind": "damage",
+   "base_damage": 35.0,
+   "base_armor_damage": 0.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.6,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 0.8,
+    "lowerArm": 0.8,
+    "thigh": 0.8,
+    "lowerLeg": 0.8
+   }
+  },
+  "authoring:weapon:18070000033:bd:damage": {
+   "profile_id": "authoring:weapon:18070000033:bd:damage",
+   "kind": "damage",
+   "base_damage": 40.0,
+   "base_armor_damage": 30.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 2.5,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 0.5,
+    "lowerArm": 0.5,
+    "thigh": 0.5,
+    "lowerLeg": 0.5
+   }
+  },
+  "authoring:weapon:18150000001:sol:damage": {
+   "profile_id": "authoring:weapon:18150000001:sol:damage",
+   "kind": "damage",
+   "base_damage": 90.0,
+   "base_armor_damage": 65.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.7,
+    "upperChest": 1.0,
+    "lowerChest": 0.9,
+    "upperArm": 0.56,
+    "lowerArm": 0.56,
+    "thigh": 0.56,
+    "lowerLeg": 0.56
+   }
+  },
+  "authoring:weapon:18150000001:mp:damage": {
+   "profile_id": "authoring:weapon:18150000001:mp:damage",
+   "kind": "damage",
+   "base_damage": 112.0,
+   "base_armor_damage": 50.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.9,
+    "upperChest": 1.125,
+    "lowerChest": 1.0,
+    "upperArm": 1.0,
+    "lowerArm": 1.0,
+    "thigh": 0.9,
+    "lowerLeg": 0.9
+   }
+  },
+  "authoring:weapon:18150000001:bd:damage": {
+   "profile_id": "authoring:weapon:18150000001:bd:damage",
+   "kind": "damage",
+   "base_damage": 90.0,
+   "base_armor_damage": 65.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 2.5,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 0.6,
+    "lowerArm": 0.6,
+    "thigh": 0.6,
+    "lowerLeg": 0.6
+   }
+  },
+  "authoring:part:13120000381:sol:damage": {
+   "profile_id": "authoring:part:13120000381:sol:damage",
+   "kind": "damage",
+   "base_damage": 90.0,
+   "base_armor_damage": 65.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 2.0,
+    "upperChest": 1.0,
+    "lowerChest": 0.9,
+    "upperArm": 0.56,
+    "lowerArm": 0.56,
+    "thigh": 0.56,
+    "lowerLeg": 0.56
+   }
+  },
+  "authoring:part:13120000381:mp:damage": {
+   "profile_id": "authoring:part:13120000381:mp:damage",
+   "kind": "damage",
+   "base_damage": 100.0,
+   "base_armor_damage": 50.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 1.9,
+    "upperChest": 1.0,
+    "lowerChest": 1.0,
+    "upperArm": 1.0,
+    "lowerArm": 1.0,
+    "thigh": 0.9,
+    "lowerLeg": 0.9
+   }
+  },
+  "authoring:part:13120000381:bd:damage": {
+   "profile_id": "authoring:part:13120000381:bd:damage",
+   "kind": "damage",
+   "base_damage": 90.0,
+   "base_armor_damage": 65.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 2.0,
+    "upperChest": 1.0,
+    "lowerChest": 0.9,
+    "upperArm": 0.56,
+    "lowerArm": 0.56,
+    "thigh": 0.56,
+    "lowerLeg": 0.56
+   }
+  },
+  "authoring:part:13470000002:sol:damage": {
+   "profile_id": "authoring:part:13470000002:sol:damage",
+   "kind": "damage",
+   "base_damage": 90.0,
+   "base_armor_damage": 65.0,
+   "base_penetration_level": 1,
+   "hitbox_multipliers": {
+    "head": 2.0,
+    "upperChest": 1.0,
+    "lowerChest": 0.9,
+    "upperArm": 0.56,
+    "lowerArm": 0.56,
+    "thigh": 0.56,
+    "lowerLeg": 0.56
+   }
   }
  },
  "counts_by_kind": {
-  "spread": 116,
-  "recoil": 122,
-  "movement": 144,
-  "aiming": 43,
-  "bullet": 148,
-  "damage": 164
+  "spread": 193,
+  "recoil": 184,
+  "movement": 222,
+  "aiming": 68,
+  "bullet": 237,
+  "damage": 255
  }
 }

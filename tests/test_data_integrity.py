@@ -60,10 +60,23 @@ def test_variants_are_marked_and_carry_item():
 
 
 def test_weapons_and_weapon_prices_caliber_non_empty():
-    """武器口径全非空：type17「类型首条弹药未填口径」污染已修（首个非空 caliber 回填）。"""
+    """武器口径非空（type17「类型首条弹药未填口径」污染已修，首个非空 caliber 回填）。
+
+    唯一例外：弹药类型内全部弹药在上游均无 caliber（如 type28 箭矢 → 复合弓
+    18150000001），归一化按「类型内全空不入映射」契约返回空串——上游 null 真相，
+    不猜口径。空 caliber 必须可归因为该真相，否则视为污染。
+    """
     weapons = _load("weapons.json")["weapons"]
+    ammo_by_type: dict = {}
+    for record in _load("ammo.json")["ammo"]:
+        ammo_by_type.setdefault(record["ammo_type_id"], []).append(record)
     for weapon in weapons:
-        assert weapon.get("caliber"), f"{weapon['profile_key']} caliber 为空"
+        if weapon.get("caliber"):
+            continue
+        type_ammo = ammo_by_type.get(weapon.get("ammo_type_id") or "", [])
+        assert type_ammo and all(not record["caliber"] for record in type_ammo), (
+            f"{weapon['profile_key']} caliber 为空，但其弹药类型存在已知口径（取值污染？）"
+        )
     with open(os.path.join(ROOT, "data", "reference", "weapon_prices.json"), encoding="utf-8") as fh:
         rows = json.load(fh)["weapons"]
     for row in rows:
@@ -135,7 +148,7 @@ def test_scenarios_match_official_index():
     assert len(set(ids)) == 21
     distance = scenarios["distance_range"]
     assert distance == {"min": 0, "max": 80, "step": 1, "default_min": 15, "default_max": 40}
-    assert len(scenarios["weapon_pool"]) == 61
+    assert len(scenarios["weapon_pool"]) == 86
     for scenario in scenarios["scenarios"]:
         probs = scenario["hit_probabilities"]
         assert abs(sum(probs.values()) - 1.0) < 1e-6, f"{scenario['scenario_id']} 命中分布和不为 1"
@@ -164,7 +177,7 @@ def test_provenance_has_no_integrity_conflicts():
                 "ammo_profile_conflicts", "source_cross_checks"):
         assert integrity[key] == [], f"provenance.{key} 非空：{integrity[key]}"
     counts = provenance["counts"]
-    assert counts["weapons"] == 61
+    assert counts["weapons"] == 86
     assert counts["validation_scenarios"] >= 1
 
 

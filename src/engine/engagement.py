@@ -127,8 +127,12 @@ def ttk_at(
     ctx = damage_context(state, ammo_record, armor_definition, hit_probabilities, distance_m)
     shots = ctx.expected_kill_shots()
     interval = float(state.fire_interval_seconds)
-    velocity = float(state.muzzle_velocity_mps)
-    ttk = max(0.0, shots - 1.0) * interval
+    velocity = float(state.original_muzzle_velocity_mps)
+    # TTK = 首发扳机延迟 + 第 E 发击发时刻 + 弹丸飞行时间，与 dfttk 默认口径一致：
+    # 击发时刻全自动/单发等价 (E-1)×间隔，连发按官方 sdkTiming 节拍的精确射击时间线；
+    # 飞行时间用**不含精校修正**的原始初速。
+    flight = (float(distance_m) / velocity) if velocity > 0 else 0.0
+    ttk = max(0.0, state.fire_delay_seconds + state.shots_to_fire_seconds(shots) + flight)
     return TtkResult(
         distance_m=float(distance_m),
         ttk_seconds=ttk,

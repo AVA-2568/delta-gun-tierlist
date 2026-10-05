@@ -63,6 +63,23 @@ SLOT_BY_PREFIX: Dict[str, str] = {
 # 参与排行榜的武器类别（与官方 firefight 排行武器池一致：步枪/冲锋枪/机枪/精确射手步枪）
 RANKED_WEAPON_TYPES = {"rifle", "smg", "lmg", "marksman"}
 
+# catalog 类别 ID → 排行 weaponType 短名。榜内四类为官方榜实测同构（rifle/smg/lmg/
+# marksman ↔ assaultRifle/submachineGun/lightMachineGun/marksmanRifle）；榜外武器
+# （狙击/霰弹/手枪/特殊武器等）官方榜不给 weaponType，按 catalog 类别推导
+# （battleRifle→rifle 为同构外推）。catalog 未给类别的条目不入映射 → weapon_type
+# 回退空串（上游真相，不猜）。该字段仅展示/导出用途，不参与榜内过滤。
+WEAPON_TYPE_BY_CATEGORY: Dict[str, str] = {
+    "assaultRifle": "rifle",
+    "battleRifle": "rifle",
+    "submachineGun": "smg",
+    "lightMachineGun": "lmg",
+    "marksmanRifle": "marksman",
+    "sniperRifle": "sniper",
+    "shotgun": "shotgun",
+    "pistol": "pistol",
+    "specialWeapon": "special",
+}
+
 # 作战模式：烽火地带采用 sol（soldier）。sol/mp 在初速、后坐机制曲线等条目上确有差异，
 # 不可混用。所有归一化与求值默认锁定 sol。
 DEFAULT_MODE = "sol"
@@ -721,6 +738,15 @@ def normalize_weapon(
     ammo_type_id = str(weapon.get("ammoTypeId") or catalog_object.get("ammoTypeId") or "")
     sdk_timing = (weapon.get("fireControl") or {}).get("sdkTiming") or {}
 
+    # 上游个别武器（如 FS-12 霰弹枪 18030000006）sol 摘要缺 shotIntervalSeconds，
+    # 但 fireRateRpm 在且 sdkTiming.fireInterval 交叉一致；全量实测
+    # shotIntervalSeconds == 60 / fireRateRpm 逐位成立，缺该字段时按同式回退推导，
+    # 避免 0 间隔流入 TTK 建模。
+    rpm = float(sol.get("fireRateRpm") or 0.0)
+    shot_interval = float(sol.get("shotIntervalSeconds") or 0.0)
+    if not shot_interval and rpm:
+        shot_interval = 60.0 / rpm
+
     falloff_segments = [
         {"from_m": float(seg.get("fromM", 0.0)), "to_m": float(seg.get("toM", 0.0)), "rate": float(seg.get("rate", 1.0))}
         for seg in sol.get("damageFalloffSegments", [])
@@ -813,8 +839,8 @@ def normalize_weapon(
         # sync 层覆写掩盖，此处统一为口径语义。
         "caliber": (ammo_type_to_caliber or {}).get(ammo_type_id, ""),
         "ammo_item_ids": ammo_by_type.get(ammo_type_id, []),
-        "rpm": float(sol.get("fireRateRpm") or 0.0),
-        "fire_interval_s": float(sol.get("shotIntervalSeconds") or 0.0),
+        "rpm": rpm,
+        "fire_interval_s": shot_interval,
         "sdk_timing": {
             "fire_interval_s": float(sdk_timing.get("fireInterval") or 0.0),
             "fire_cd_s": float(sdk_timing.get("fireCd") or 0.0),

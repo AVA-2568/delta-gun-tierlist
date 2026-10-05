@@ -344,7 +344,7 @@ def test_sync_writes_both_tables(tmp_path):
     assert result["complete"] is True
     assert result["weapon"]["changed"] is True
     assert result["weapon"]["matched"] == 2
-    assert result["weapon"]["catalog"] == 43
+    assert result["weapon"]["catalog"] == 68  # manifest.weaponPacks 全量收录
     assert result["ammo"]["changed"] is True
     assert result["ammo"]["matched"] == 11  # 弹药夹具第 1 页 10 条，.300BLK_3 对齐 2 条
 
@@ -355,7 +355,7 @@ def test_sync_writes_both_tables(tmp_path):
     assert weapon_table["window"]["from"] == weapon_table["updated_at"] == weapon_table["window"]["to"]
     assert "orzice" in weapon_table["source"] and "小涛查" in weapon_table["source"]
     ids = [row["weapon_id"] for row in weapon_table["weapons"]]
-    assert ids == sorted(ids) and len(ids) == 43
+    assert ids == sorted(ids) and len(ids) == 68
     by_id = {row["weapon_id"]: row["price_daily"] for row in weapon_table["weapons"]}
     assert by_id["18010000001"] == 69535
     assert by_id["18010000006"] == 71286  # 模板形态

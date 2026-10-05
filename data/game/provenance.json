@@ -16,7 +16,7 @@
    "selection": 1
   },
   "manifest_sha256": "b21dc3e0cafb8f72b2fbab4d0e50658b0591e598d802c5b335196e33118bd705",
-  "synced_at": "2026-10-04T03:46:57.964148+00:00"
+  "synced_at": "2026-10-05T06:58:08.815330+00:00"
  },
  "upstream_hashes": {
   "catalog/ammo.json": "121341ded4b05627e844fe17438226e1fe523b7143a9789b69c51891e68a465d",
@@ -26,13 +26,13 @@
   "rankings/firefight/index.json": "5c96d36d16fd0db5a25d405ae86a2e0811a193edc88603ae1b0260e8b7bb4624"
  },
  "outputs": {
-  "weapons.json": "56b29348c706860c6c74e0bb0b6f2f94144aa53bde40305aefd9229708710431",
-  "ammo.json": "c15656631ec2856b0486ccb28b8aa7eea8ed415f020fcf3e81f1a827d67096b5",
+  "weapons.json": "e68cbeafbf6b9f82a2664ddd2a8f65e4587f6b0ea8ec9b6960876a23e884f52f",
+  "ammo.json": "34b222685e3449b53de1b8e259d25702dd11a601a1ec8883cd5176561693e525",
   "armor.json": "79e3e82f2edb0d4dd20f73de8459b4582145d2a421abd908c32086c24ccde2f2",
-  "parts.json": "126df43e471250f405ab37af573b8bc6076c489be587bb20a1a04caf73f54861",
-  "profiles.json": "7464b9854f0606036b6c104cae7d170dc899214a253d8353b11fd5d5a87bfd4a",
+  "parts.json": "738878ed353c6f7be5b19db67e341a17855e18bc178bda8a4c57065c8784c67d",
+  "profiles.json": "dcd7fe4029cc08c0abd2b11e9bd6d686033daab10df8da97ab721842945c98f5",
   "mechanism.json": "ee2613d94ccff4f3aa3c13ce7e31020cb261d935960b803c77e8ca01414d8c0b",
-  "scenarios.json": "d68211156a89f19184b32e7b54e48a2d04e9c3b22cc2a58ea63e433c521f1d18",
+  "scenarios.json": "85a578bfcd18bd5ea2605b3eff453b94d4661e72f89d63ccac3e506dfac7c43b",
   "validation_samples.json": "994cd91aa78be21c1fa5a966b2cab4de9a552cbb8b0c4a035579f9d950279ae0"
  },
  "merges": [
@@ -43,11 +43,11 @@
   }
  ],
  "counts": {
-  "weapons": 61,
+  "weapons": 86,
   "ammo": 113,
-  "ammo_with_combat_profile": 85,
-  "parts": 824,
-  "profiles": 737,
+  "ammo_with_combat_profile": 113,
+  "parts": 1141,
+  "profiles": 1159,
   "armor_levels": 6,
   "mechanism_curves": 102,
   "validation_scenarios": 21
@@ -110,7 +110,7 @@
      "delta": 0.020004383682795
     }
    ],
-   "conclusion": "CI 每日自动固化：残余统计由 tools/verify_official_reproduction.py 当次全量重算写入；上游伪差白盒裁定与历史结论文案见 git 历史中的 provenance.json 记录。"
+   "conclusion": "收录扩全 68 把后重固化：残余统计为当次全量重算"
   }
  }
 }

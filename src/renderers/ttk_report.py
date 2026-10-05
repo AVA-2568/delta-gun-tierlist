@@ -457,8 +457,8 @@ def render_readme(
                  "`ttk_by_distance_ms`")
     lines.append("- **改枪指南**：开镜时间/初速/后坐等不进 TTK 的维度见 [docs/改枪指南.md](docs/改枪指南.md)")
     lines.append("- **对外数据表**（`python -m src.export` → `data/export/`，每日随榜单自动刷新）："
-                 "`weapons.json`（61 枪械条目完整状态）· `parts.json`（824 配件的属性加成/弹道与伤害 "
-                 "profile 换挡/精校，target 附语义化键）· `links.json`（3340 条「单配件 × 本体枪」对接记录："
+                 "`weapons.json`（全部收录枪械条目完整状态）· `parts.json`（全部配件的属性加成/弹道与伤害 "
+                 "profile 换挡/精校，target 附语义化键）· `links.json`（全部「单配件 × 本体枪」对接记录："
                  "在官方默认态上单装一件配件后的关键状态）。三表与 TTK 引擎**同源同真**"
                  "（同一 `WeaponStateResolver` 实测口径），外部工具可据此对接两表推算任意配装")
     lines.append("- **榜单刷新**：仓库页 **Actions → CI → Run workflow** 手动触发，"
