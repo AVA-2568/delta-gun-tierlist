@@ -155,7 +155,7 @@
    "caliber": "5.45x39mm",
    "name": "BS",
    "penetration_level": 5,
-   "price_daily": 4749
+   "price_daily": 4804
   },
   {
    "ammo_item_id": "37120500003",
@@ -225,7 +225,8 @@
    "caliber": "9x39mm",
    "name": "SP6",
    "penetration_level": 4,
-   "price_daily": 2081
+   "price_daily": 2081,
+   "note": "orzice 9x39mm SP6=2081; 9x39mm SP6=2081"
   },
   {
    "ammo_item_id": "37140400002",
@@ -253,7 +254,7 @@
    "caliber": "6.8x51mm",
    "name": "FMJ",
    "penetration_level": 4,
-   "price_daily": 1889
+   "price_daily": 1844
   },
   {
    "ammo_item_id": "37150400002",
@@ -309,7 +310,7 @@
    "caliber": "12.7x55",
    "name": "PS12B",
    "penetration_level": 5,
-   "price_daily": 5143
+   "price_daily": 4963
   },
   {
    "ammo_item_id": "37170200001",
@@ -372,7 +373,7 @@
    "caliber": "7.62x54R",
    "name": "BT",
    "penetration_level": 5,
-   "price_daily": 6214
+   "price_daily": null
   },
   {
    "ammo_item_id": "37180600001",
@@ -554,7 +555,7 @@
    "caliber": ".357 Magnum",
    "name": "FMJ",
    "penetration_level": 4,
-   "price_daily": 590
+   "price_daily": 545
   },
   {
    "ammo_item_id": "37230200001",
@@ -568,7 +569,8 @@
    "caliber": ".50AE",
    "name": "JHP",
    "penetration_level": 3,
-   "price_daily": 584
+   "price_daily": 564,
+   "note": "orzice .50 AE JHP=584; .50 AE JHP=564"
   },
   {
    "ammo_item_id": "37230400001",
@@ -596,7 +598,7 @@
    "caliber": "12Gauge",
    "name": "8.5毫米鹿弹",
    "penetration_level": 0,
-   "price_daily": 373
+   "price_daily": 368
   },
   {
    "ammo_item_id": "37250000002",
@@ -624,15 +626,14 @@
    "caliber": "12Gauge",
    "name": "箭型弹",
    "penetration_level": 3,
-   "price_daily": 480,
-   "note": "orzice 12 Gauge DART=480; 12 Gauge 箭形弹=553"
+   "price_daily": 480
   },
   {
    "ammo_item_id": "37250300002",
    "caliber": "12Gauge",
    "name": "独头FTX",
    "penetration_level": 3,
-   "price_daily": 759
+   "price_daily": 779
   },
   {
    "ammo_item_id": "37250400002",
