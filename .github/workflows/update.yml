@@ -5,7 +5,9 @@ on:
     branches: [ main, master ]
   pull_request:
   schedule:
-    - cron: "0 12 * * *"     # 每日 UTC 12:00（北京 20:00）：同步当日价格并刷新榜单（榜单重算按输入指纹条件触发；晚间黄金交易期，避免物价失真）
+    - cron: "0 9 * * *"      # 每日 UTC 09:00（北京 17:00）触发：GitHub schedule 高峰延迟可达数小时，
+                             # 抓价前由 "Align to Beijing 20:00" 步骤等待到北京时间 20:00 整，
+                             # 确保拿到晚间黄金时段行情（避免延迟后抓到午夜价）
   workflow_dispatch:        # 手动刷新榜单并提交
 
 permissions:
@@ -50,6 +52,20 @@ jobs:
         uses: actions/checkout@v4
 
       # 官方游戏数据域已转 data/tables/ 独立维护（契约：docs/superpowers/specs/2026-10-04-data-tables-design.md），上游变化用 python tools/tables_diff.py 对账后人工合入。
+      # 定时触发时对齐到北京时间 20:00 整再抓价（GA schedule 高峰延迟数小时，早到则等待）；
+      # 手动触发立即执行。Rebuild/price-only 紧随其后，价格列随当日 20:00 行情刷新。
+      - name: Align to Beijing 20:00 (schedule only)
+        if: github.event_name == 'schedule'
+        run: |
+          target=$(date -d '20:00 +0800' +%s)
+          now=$(date +%s)
+          if [ "$now" -lt "$target" ]; then
+            echo "等待至北京时间 20:00 抓取行情（$((target - now)) 秒）"
+            sleep $((target - now))
+          else
+            echo "已过北京时间 20:00（延迟触发），直接抓取当前行情"
+          fi
+
       # 第三方行情当日价（orzice 小涛查，一次运行写出枪械+弹药两张价格表）：
       # 抓取失败时沿用现有价格表，不影响榜单产出。
       - name: Sync Market Prices (orzice)
