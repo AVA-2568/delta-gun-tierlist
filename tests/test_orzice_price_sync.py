@@ -233,15 +233,15 @@ def test_match_ammo_prices_on_fixtures():
         rows.extend(parse_rows(_fixture(name)))
     prices, notes = match_ammo_prices(rows, catalog, name_map)
 
-    assert len(prices) == 31  # 30 个条目名：.300BLK_3 对齐 2 个 3 级弹，_5 对齐 5 级弹
+    assert len(prices) == 30  # 30 个条目名：.300BLK_3 仅对齐常驻 V-Max（V-SUB 作为 S8 限定排除），_5 对齐 5 级弹
     # 名称全等匹配（含 mm 归一化桥接）
     assert prices["37160400001"] == 1942  # 12.7x55mm PS12
     assert all(p > 0 for p in prices.values())  # 有正价才入价
     # objectID 精确匹配（45-70 系 / 箭矢）
     assert "37290400001" in prices and "37290500001" in prices and "37290300001" in prices
     assert "37270300001" in prices  # 玻纤柳叶箭矢
-    # .300BLK_3 合并行对齐 V-Max / V-SUB 两支 3 级弹
-    assert prices["37280300001"] == 497 and prices["37280300002"] == 497
+    # .300BLK_3 合并行仅对齐常驻 3 级弹 V-Max，过往赛季限定弹 V-SUB（S8）被排除
+    assert prices["37280300001"] == 497 and "37280300002" not in prices
     # .300BLK_5 → TAC-TX 组内唯一 → ``<口径>_N`` 等级键入价
     assert prices["37280500001"] == 4968
 
@@ -346,7 +346,7 @@ def test_sync_writes_both_tables(tmp_path):
     assert result["weapon"]["matched"] == 2
     assert result["weapon"]["catalog"] == 68  # manifest.weaponPacks 全量收录
     assert result["ammo"]["changed"] is True
-    assert result["ammo"]["matched"] == 11  # 弹药夹具第 1 页 10 条，.300BLK_3 对齐 2 条
+    assert result["ammo"]["matched"] == 10  # 弹药夹具第 1 页 10 条，.300BLK_3 仅对齐常驻 V-Max（V-SUB 为 S8 排除）
 
     weapon_table = json.loads((root / "data" / "reference" / "weapon_prices.json").read_text(encoding="utf-8"))
     assert weapon_table["schema"] == "weapon-price-daily"

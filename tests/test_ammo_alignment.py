@@ -78,11 +78,11 @@ def test_parse_rows_decodes_html_entities_then_alias_row_matches():
 # ---- 黄金集对齐结论 ----
 
 def test_golden_fixture_all_priced_rows_resolved():
-    """35 有价行全部对齐，覆盖 36 个 ammo_item_id（含合并行情行与同 id 双行），零静默未匹配。"""
+    """35 有价行全部对齐，覆盖 34 个有效 ammo_item_id（过往赛季限定弹如 S8 V-SUB/BCP-SUB 排除），零静默未匹配。"""
     payload, catalog, prices, notes = _match()
     priced_rows = [r for r in payload["rows"] if r["price"]]
     assert len(priced_rows) == 35
-    assert len(prices) == 36
+    assert len(prices) == 34
     # 唯一 note 为双源取 min 的箭型弹
     assert len(notes) == 1 and "37250300001" in notes
 
@@ -119,16 +119,16 @@ def test_golden_fixture_same_id_multi_row_takes_min_with_note():
 
 
 def test_golden_fixture_level_rows_aligned():
-    """``<口径>_N`` 通道：合并行情行对齐组内同口径同等级候选弹药。"""
+    """``<口径>_N`` 通道：合并行情行对齐组内同口径同等级候选弹药（过往赛季限定弹安全排除）。"""
     _payload, _catalog, prices, _notes = _match()
     # .300BLK_5 → TAC-TX 唯一 5 级弹 → aligned
     assert prices["37280500001"] == 4968
-    # .300BLK_3 → V-Max / V-SUB 均对齐 3 级行情价 497
+    # .300BLK_3 → 仅对齐常驻 3 级弹 V-Max；V-SUB（S8赛季限定）安全排除
     assert prices["37280300001"] == 497
-    assert prices["37280300002"] == 497
-    # .300BLK_4 → BCP-FMJ / BCP-SUB 均对齐 4 级行情价 1757
+    assert "37280300002" not in prices
+    # .300BLK_4 → 仅对齐常驻 4 级弹 BCP-FMJ；BCP-SUB（S8赛季限定）安全排除
     assert prices["37280400001"] == 1757
-    assert prices["37280400002"] == 1757
+    assert "37280400002" not in prices
 
 
 def test_golden_fixture_objectid_rows_exact_match():

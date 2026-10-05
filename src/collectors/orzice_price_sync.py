@@ -73,6 +73,10 @@ AMMO_PATH = "/v/ammo"
 WEAPON_PRICE_SCHEMA = "weapon-price-daily"
 AMMO_PRICE_SCHEMA = "ammo-price-daily"
 
+#: 当前赛季（与 ranking.CURRENT_SEASON 对齐）：非当前赛季的限定弹视为绝版，
+#: 即使有泛口径或模糊匹配也一律不上价（price_daily 恒为 null，杜绝脏价格污染 TTK 榜单）。
+CURRENT_SEASON = "S11"
+
 #: 返回值里的表路径文案（sync 内文件系统调用一律用纯字面量相对路径，不用本常量）
 WEAPON_TABLE_RELPATH = "data/reference/weapon_prices.json"
 AMMO_TABLE_RELPATH = "data/reference/ammo_prices.json"
@@ -301,6 +305,8 @@ def load_ammo_catalog(path: str) -> Dict[str, Dict[str, Any]]:
             "caliber": record.get("caliber") or "",
             "name": record.get("name") or "",
             "penetration_level": record.get("penetration_level"),
+            "is_season_limited": bool(record.get("is_season_limited")),
+            "season_note": record.get("season_note"),
         }
         for record in catalog.get("ammo", [])
         if record.get("ammo_item_id") and str(record["ammo_item_id"]) not in MERGED_AMMO_IDS
@@ -392,6 +398,7 @@ def _resolve_ammo_row(
             for item_id, meta in catalog.items()
             if norm_name(str(meta.get("caliber") or "")) == caliber_key
             and meta.get("penetration_level") == level
+            and (not meta.get("is_season_limited") or CURRENT_SEASON in (meta.get("season_note") or ""))
         )
         if candidates:
             return candidates
@@ -419,6 +426,10 @@ def match_ammo_prices(
         matched_ids = _resolve_ammo_row(row, catalog, name_map)
         if matched_ids:
             for item_id in matched_ids:
+                meta = catalog.get(item_id) or {}
+                # 赛季限定弹安全护栏：非当前赛季限定弹绝不上价（市场无流通/绝版，置为 null）
+                if meta.get("is_season_limited") and CURRENT_SEASON not in (meta.get("season_note") or ""):
+                    continue
                 hits.setdefault(item_id, []).append((str(row["name"]), int(price)))
         else:
             logger.warning(
@@ -502,7 +513,9 @@ def build_ammo_table(
         "ammo": [
             {
                 "ammo_item_id": item_id,
-                **meta,
+                "caliber": meta.get("caliber") or "",
+                "name": meta.get("name") or "",
+                "penetration_level": meta.get("penetration_level"),
                 "price_daily": prices.get(item_id),
                 **({"note": note_by_id[item_id]} if item_id in note_by_id else {}),
             }

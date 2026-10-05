@@ -230,3 +230,18 @@ def test_single_priced_non_official_ammo_scores_beam_with_it(gd):
     base_rows = [r for r in rankings if r.entry_kind == "base"]
     assert len(base_rows) == 1
     assert base_rows[0].ammo_name == "M855A1 APC+"
+
+
+def test_real_price_table_excludes_bcp_sub_even_if_priced(gd):
+    """S8 赛季限定弹 BCP-SUB（37280400002）即使在价格表中有价，也被赛季过滤排除。
+
+    K437（.300BLK 4级）只能选用常驻弹 BCP-FMJ（37280400001）。
+    """
+    table = AmmoPriceTable(prices={"37280400001": 1897, "37280400002": 2500})
+    rankings, _thresholds, excluded = _run(gd, table, key="18010000040:base", beam_width=8)
+    assert excluded == []
+    ammo_ids = {r.ammo_item_id for r in rankings}
+    assert "37280400002" not in ammo_ids
+    assert "37280400001" in ammo_ids
+    assert all(r.ammo_name == "BCP-FMJ" for r in rankings)
+
