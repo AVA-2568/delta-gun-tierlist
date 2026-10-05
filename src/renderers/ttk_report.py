@@ -456,6 +456,11 @@ def render_readme(
     lines.append("- **距离明细**：每状态的 0–80 m 每 10 m 采样 TTK 见 `data/榜单/<情景>.json` 的 "
                  "`ttk_by_distance_ms`")
     lines.append("- **改枪指南**：开镜时间/初速/后坐等不进 TTK 的维度见 [docs/改枪指南.md](docs/改枪指南.md)")
+    lines.append("- **对外数据表**（`python -m src.export` → `data/export/`，每日随榜单自动刷新）："
+                 "`weapons.json`（61 枪械条目完整状态）· `parts.json`（824 配件的属性加成/弹道与伤害 "
+                 "profile 换挡/精校，target 附语义化键）· `links.json`（3340 条「单配件 × 本体枪」对接记录："
+                 "在官方默认态上单装一件配件后的关键状态）。三表与 TTK 引擎**同源同真**"
+                 "（同一 `WeaponStateResolver` 实测口径），外部工具可据此对接两表推算任意配装")
     lines.append("- **榜单刷新**：仓库页 **Actions → CI → Run workflow** 手动触发，"
                  "在 GitHub 上同步官方数据、重算全部榜单并自动提交；本地无需跑任何重计算")
     notes = _price_notes(main_payload)
