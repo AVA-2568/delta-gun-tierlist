@@ -110,7 +110,7 @@
      "delta": 0.020004383682795
     }
    ],
-   "conclusion": "收录扩全 68 把后重固化：残余统计为当次全量重算"
+   "conclusion": "CI 每日自动固化：残余统计由 tools/verify_official_reproduction.py 当次全量重算写入；上游伪差白盒裁定与历史结论文案见 git 历史中的 provenance.json 记录。"
   }
  }
 }
