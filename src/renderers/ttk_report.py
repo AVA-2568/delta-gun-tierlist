@@ -91,7 +91,7 @@ def _ammo_label(ammo: Mapping[str, Any]) -> str:
 
 
 def _price_notes(payload: Mapping[str, Any]) -> List[str]:
-    """价格数据说明行（弹药价 + 枪价各一条）；未配置价格表时提示缺失的文案。"""
+    """价格数据说明行（弹药/枪械/配件各一条）；未配置价格表时提示缺失的文案。"""
     notes: List[str] = []
     meta = payload.get("ammo_price_meta")
     if meta:
@@ -124,7 +124,7 @@ def _price_notes(payload: Mapping[str, Any]) -> List[str]:
         notes.append(
             f"- 配件价格：orzice 小涛查交易行当日价{span}，每日自动抓取维护"
             f"（updated_at {part_meta.get('updated_at') or '未知'}）；"
-            "整枪价格计入该行所装配的核心配件价格（白板裸枪配件价计 0）"
+            "整枪价格包含该行所装配的核心配件价格（白板裸枪配件价计 0）"
         )
     return notes
 
@@ -180,7 +180,7 @@ def _tier_badge(tier: str) -> str:
 def _thresholds_text(thresholds: Mapping[str, float]) -> str:
     """层级阈值说明：T0–T2 为分位切点，T3 为其余。"""
     parts = [f"{tier} ≤ {_fmt(thresholds.get(tier), 1, ' ms')}" for tier in TIER_ORDER if tier in thresholds]
-    parts.append("T3：其余")
+    parts.append("T3 = 其余")
     return " / ".join(parts)
 
 
@@ -215,7 +215,7 @@ def render_band_table(
     weapon_meta = payload.get("weapon_price_meta") or {}
     currency = weapon_meta.get("currency") or ammo_meta.get("currency") or "哈夫币"
     rounds = weapon_meta.get("spare_ammo_rounds") or 180
-    full_col = f"整枪+{rounds}发备弹"
+    full_col = f"整枪+{rounds} 发备弹"
 
     lines = [
         f"| # | 层级 | 武器 | 平均 TTK | 最差 TTK | 预装收益 | 期望击杀发数@0m | 弹药 | 单发价 | 击杀成本 | 裸枪价格 | {full_col} | 射速 | 优势射程 | 起枪配置 |",
@@ -272,7 +272,7 @@ def render_band_top_preview(
     ammo_meta = payload.get("ammo_price_meta") or {}
     currency = weapon_meta.get("currency") or ammo_meta.get("currency") or "哈夫币"
     rounds = weapon_meta.get("spare_ammo_rounds") or 180
-    full_col = f"整枪+{rounds}发备弹"
+    full_col = f"整枪+{rounds} 发备弹"
 
     lines = [
         f"| # | 层级 | 武器 | 平均 TTK | 击杀成本 | 裸枪价格 | {full_col} | 起枪配置 |",
@@ -388,8 +388,9 @@ def render_readme(
             f"(https://github.com/{repo_slug}/actions/workflows/update.yml)",
         )
         lines.insert(2, "")
-    lines.append("")
-    lines.append("回答三个问题：**在给定护甲、弹药与距离下，这把枪击杀对手需要多久（毫秒）**、"
+    else:
+        lines.append("")
+    lines.append("本榜单回答三个问题：**在给定护甲、弹药与距离下，这把枪击杀对手需要多久（毫秒）**、"
                  "**这次击杀要花多少哈夫币**，以及**起一把整枪（含核心配件与 180 发备弹）要多少钱**。")
     lines.append("")
     lines.append("| 项 | 说明 |")
@@ -398,10 +399,10 @@ def render_readme(
     lines.append("| 不参与 | 开镜时间、弹丸飞行时间（初速）、换弹、命中率修正 |")
     lines.append("| 起枪状态 | 每行 = 一个「起枪配置状态 × 一款有价弹」：本体裸枪、本体+官方预装件（官方变体出厂态）、"
                  "束搜索枚举的改装状态（官方插槽规则 + 强制联动）；同口径同等级的多款有价弹各出一行，"
-                 "缺价弹（市场无价）不参与枚举；仅 TTK 有差异的状态列出，全部一起排名分层 |")
+                 "缺价弹（市场无价）不参与枚举；仅列出 TTK 有差异的状态，全部一起排名分层 |")
     lines.append("| 预装收益 | 该距离带内**本体裸枪 → 本状态**的平均 TTK 缩短量与百分比（`—` 表示本体裸枪行） |")
     lines.append("| 起枪成本 | 裸枪价格 = 本体交易行当日价（变体/改装共用本体价）；"
-                 "整枪+180发备弹 = 裸枪价 + 核心配件价 + 180 × 该行所配弹药单发价（预估；白板裸枪配件价为 0） |")
+                 "整枪+180 发备弹 = 裸枪价 + 核心配件价 + 180 × 该行所配弹药单发价（预估；白板裸枪配件价为 0） |")
     lines.append("| 距离场 | 0–80 m（官方排行口径），分 4 个距离带，每带独立成榜 |")
     lines.append("| 分层 | 带内 TTK 分位数切分 T0–T3，阈值公开；榜单文档只列 T0 / T1"
                  "（T2 / T3 及全部状态行见 `data/榜单/*.json`） |")
@@ -412,7 +413,7 @@ def render_readme(
     lines.append("")
     lines.append(
         f"> 护甲 {scenario_meta.get('armor_level')} 套 / 弹药 {scenario_meta.get('ammo_level')} 级，"
-        f"命中分布 `{scenario_meta.get('probability_preset')}`；每带只列 T0 / T1 的前 5 名，"
+        f"命中分布 `{scenario_meta.get('probability_preset')}`；每带只列 T0 / T1 层级的前 5 名，"
         f"完整排名（全部起枪状态 × 预装收益 × 最差 TTK）见各距离榜。"
     )
     lines.append("")
@@ -434,8 +435,8 @@ def render_readme(
     if scenario_index:
         lines.append("## 情景索引")
         lines.append("")
-        lines.append("默认收录以下实战情景（口径：不含 3 级弹组合，命中分布只用实战 `default`）；")
-        lines.append("全部 21 个官方情景（含 `center` / `chest-only` 理论聚焦预设）可用 `python -m src.pipeline --all` 生成。")
+        lines.append("默认收录以下实战情景（口径：不含 3 级弹组合，命中分布只用实战 `default`）。")
+        lines.append("用 `python -m src.pipeline --all` 可生成全部 21 个官方情景（含 `center` / `chest-only` 理论聚焦预设）。")
         lines.append("")
         lines.append("| 情景 | 护甲 | 弹药 | 命中分布 | 榜单 |")
         lines.append("| :-- | --: | --: | :-- | :-- |")
@@ -461,33 +462,34 @@ def render_readme(
     if residual and grades:
         lines.append(
             "- **期望击杀发数**：按官方伤害规则（血量 100、单弹匣不换弹、碎甲按剩余耐久比例、"
-            "距离衰减同时作用于肉伤与护甲）逐位复现官方 `candidateMetrics`："
-            f"**{residual.get('total_points')} 个样本点**中逐位一致 {grades.get('bitwise')}、"
+            "距离衰减同时作用于肉伤与护甲）逐位复现官方 `candidateMetrics`，"
+            f"**{residual.get('total_points')} 个样本点**中，逐位一致 {grades.get('bitwise')}、"
             f"|Δ|≤1e-9 {grades.get('le_1e-9')}、≤1e-5 {grades.get('le_1e-5')}、"
             f"≤1e-2 {grades.get('le_1e-2')}、>1e-2 {grades.get('gt_1e-2')}"
             f"（最差 {residual.get('max_abs_delta'):.5f} 发）；"
-            f"{residual.get('residual_points')} 个残余偏差点经白盒对拍证明为官方上游数据自相矛盾"
+            f"{residual.get('residual_points')} 个残余偏差点经白盒对拍证实为官方上游数据自相矛盾所致"
             "（记录于 `provenance.integrity.official_reproduction_residual`）"
         )
     else:
         lines.append("- **期望击杀发数**：按官方伤害规则（血量 100、单弹匣不换弹、碎甲按剩余耐久比例、"
                      "距离衰减同时作用于肉伤与护甲）逐位复现官方 `candidateMetrics`，"
                      "分档复现口径详见 `provenance.integrity.official_reproduction_residual`")
-    lines.append("- **射击间隔**：由官方 `sdkTiming` 与射速模式决定，**291 个官方候选取整后与官方整数 rpm 全对**"
-                 "（官方仅发布整数 rpm，零偏差仅限取整口径）")
+    lines.append("- **射击间隔**：由官方 `sdkTiming` 与射速模式决定，**291 个官方候选值取整后与官方整数 rpm 全部一致**"
+                 "（官方仅发布整数 rpm，零偏差仅在取整口径下成立）")
     lines.append("- **状态枚举**：官方插槽规则 + 强制联动，束搜索枚举合法起枪状态，"
                  "仅保留 TTK 有差异的状态；已绝版的赛季限时件（哈夫克军工改件，如 S9 链锯/格斗套件）"
                  "不参与枚举，榜单为**当前赛季可达成**的配置")
     lines.append("- **距离明细**：每状态的 0–80 m 每 10 m 采样 TTK 见 `data/榜单/<情景>.json` 的 "
                  "`ttk_by_distance_ms`")
     lines.append("- **改枪指南**：开镜时间/初速/后坐等不进 TTK 的维度见 [docs/改枪指南.md](docs/改枪指南.md)")
-    lines.append("- **对外数据表**（`python -m src.export` → `data/export/`，每日随榜单自动刷新）："
-                 "`weapons.json`（全部收录枪械条目完整状态）· `parts.json`（全部配件的属性加成/弹道与伤害 "
-                 "profile 换挡/精校，target 附语义化键）· `links.json`（全部「单配件 × 本体枪」对接记录："
-                 "在官方默认态上单装一件配件后的关键状态）。三表与 TTK 引擎**同源同真**"
-                 "（同一 `WeaponStateResolver` 实测口径），外部工具可据此对接两表推算任意配装")
-    lines.append("- **榜单刷新**：仓库页 **Actions → CI → Run workflow** 手动触发，"
-                 "在 GitHub 上同步官方数据、重算全部榜单并自动提交；本地无需跑任何重计算")
+    lines.append("- **对外数据表**：`python -m src.export` 导出至 `data/export/`，每日随榜单自动刷新；"
+                 "三表与 TTK 引擎**同源同真**（同一 `WeaponStateResolver` 实测口径），"
+                 "外部工具可据此对接两表推算任意配装")
+    lines.append("  - `weapons.json`：全部收录枪械条目完整状态")
+    lines.append("  - `parts.json`：全部配件的属性加成、弹道与伤害 profile 换挡、精校，target 附语义化键")
+    lines.append("  - `links.json`：全部「单配件 × 本体枪」对接记录，即在官方默认态上单装一件配件后的关键状态")
+    lines.append("- **榜单刷新**：仓库页 **Actions → CI → Run workflow** 手动触发，即可在 GitHub 上"
+                 "同步官方数据、重算全部榜单并自动提交；本地无需跑任何重计算")
     notes = _price_notes(main_payload)
     for note in notes:
         lines.append(note)
