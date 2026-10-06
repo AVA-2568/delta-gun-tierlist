@@ -56,7 +56,7 @@ def test_extract_loadout_part_ids() -> None:
     base_row = {"entry_kind": "base", "loadout": {}, "is_variant": False}
     assert extract_loadout_part_ids(base_row) == []
 
-    # 2. 变体出厂态
+    # 2. 变体出厂态（显式包含 variant_item_id）
     variant_row = {
         "entry_kind": "variant",
         "is_variant": True,
@@ -64,6 +64,16 @@ def test_extract_loadout_part_ids() -> None:
         "loadout": {},
     }
     assert extract_loadout_part_ids(variant_row) == ["13020000563"]
+
+    # 2b. 变体出厂态（variant_item_id 为 None，但 profile_key 包含配件 ID 如 "18010000040:13020000543"）
+    variant_fallback_row = {
+        "entry_kind": "variant",
+        "is_variant": True,
+        "profile_key": "18010000040:13020000543",
+        "variant_item_id": None,
+        "loadout": {},
+    }
+    assert extract_loadout_part_ids(variant_fallback_row) == ["13020000543"]
 
     # 3. 改装态（MK4 击剑手枪管 + 回声消音器）
     mod_row = {

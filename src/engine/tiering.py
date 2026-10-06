@@ -61,6 +61,7 @@ class GunRanking:
     loadout: Dict[str, str]
     tuning: Dict[str, Dict[str, float]]
     entry_kind: str = "base"
+    variant_item_id: Optional[str] = None
     single_part_item_id: Optional[str] = None
     bands: Dict[str, BandResult] = field(default_factory=dict)
     overall_mean_ms: float = 0.0
@@ -174,14 +175,24 @@ def extract_loadout_part_ids(entry_or_row: Any) -> List[str]:
     """提取一个状态行或排名条目中所涉及的核心配件 item_id 列表。
 
     - entry_kind == "base" 且无配件：返回 []
-    - entry_kind == "variant"：变体出厂预装件 [variant_item_id]（若存在）
+    - entry_kind == "variant" / is_variant 为 True：提取出厂预装改件（优先 variant_item_id，
+      若缺失则从 profile_key "weapon_id:part_id" 解析）
     - 改装状态：loadout 字典中的非默认件；若 loadout 为空但有 single_part_item_id，返回 [single_part_item_id]
     """
     if isinstance(entry_or_row, GunRanking):
         if entry_or_row.entry_kind == "base" and not entry_or_row.loadout and not entry_or_row.single_part_item_id:
             return []
         if entry_or_row.entry_kind == "variant" or entry_or_row.is_variant:
-            return [str(entry_or_row.variant_item_id)] if entry_or_row.variant_item_id else []
+            part_ids: List[str] = []
+            if entry_or_row.variant_item_id:
+                part_ids.append(str(entry_or_row.variant_item_id))
+            elif ":" in (entry_or_row.profile_key or ""):
+                suffix = entry_or_row.profile_key.split(":", 1)[1]
+                if suffix and suffix != "base":
+                    part_ids.append(suffix)
+            if entry_or_row.loadout:
+                part_ids.extend(str(v) for v in entry_or_row.loadout.values())
+            return part_ids
         if entry_or_row.loadout:
             return [str(v) for v in entry_or_row.loadout.values()]
         if entry_or_row.single_part_item_id:
@@ -195,8 +206,20 @@ def extract_loadout_part_ids(entry_or_row: Any) -> List[str]:
     if entry_kind == "base" and not entry_or_row.get("loadout") and not entry_or_row.get("single_part_item_id"):
         return []
     if entry_or_row.get("is_variant") or entry_kind == "variant":
+        part_ids = []
         vid = entry_or_row.get("variant_item_id")
-        return [str(vid)] if vid else []
+        if vid:
+            part_ids.append(str(vid))
+        else:
+            profile_key = str(entry_or_row.get("profile_key") or "")
+            if ":" in profile_key:
+                suffix = profile_key.split(":", 1)[1]
+                if suffix and suffix != "base":
+                    part_ids.append(suffix)
+        loadout = entry_or_row.get("loadout")
+        if loadout and isinstance(loadout, Mapping):
+            part_ids.extend(str(v) for v in loadout.values())
+        return part_ids
     loadout = entry_or_row.get("loadout")
     if loadout and isinstance(loadout, Mapping):
         return [str(v) for v in loadout.values()]

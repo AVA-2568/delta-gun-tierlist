@@ -37,6 +37,7 @@ def to_export(
                 "base_name": entry.base_name,
                 "category": entry.category,
                 "is_variant": entry.is_variant,
+                "variant_item_id": entry.variant_item_id,
                 "variant_item_name": entry.variant_item_name,
                 "loadout": entry.loadout,
                 "tuning": entry.tuning,

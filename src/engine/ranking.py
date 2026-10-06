@@ -193,10 +193,11 @@ def rank_weapons_for_scenario(
             if abs(d - round(d)) < 1e-9 and round(d) % 10 == 0:
                 by_distance[str(int(d))] = round(point.ttk_milliseconds, 2)
         effective_loadout = _effective_loadout(loadout or {}, weapon)
+        variant_item_id = str(weapon.get("variant_item_id")) if (entry_kind == "variant" and weapon.get("variant_item_id")) else None
         if entry_kind == "base" and not effective_loadout:
             part_ids: List[str] = []
         elif entry_kind == "variant":
-            part_ids = [str(weapon.get("variant_item_id"))] if weapon.get("variant_item_id") else []
+            part_ids = [variant_item_id] if variant_item_id else []
         else:
             part_ids = list(effective_loadout.values())
         parts_price = compute_parts_price(part_ids, part_price_table)
@@ -208,6 +209,7 @@ def rank_weapons_for_scenario(
             base_name=str(weapon.get("name") or weapon["profile_key"]),
             category=str(weapon.get("category") or ""),
             is_variant=entry_kind == "variant",
+            variant_item_id=variant_item_id,
             variant_item_name=weapon.get("variant_item_name") if entry_kind == "variant" else None,
             loadout=effective_loadout,
             tuning={},
