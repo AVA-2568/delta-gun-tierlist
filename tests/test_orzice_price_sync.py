@@ -498,3 +498,43 @@ def test_match_part_prices_from_zhanbei_fixture():
     assert prices.get("13020000564") == 56470
     assert prices.get("13030000180") == 24936  # 新式尖兵轻型握把
 
+
+def test_match_part_prices_prefers_name_map_on_oid_mismatch():
+    """当站方图片配错 objectID（如蜂鸟杠杆错配成犀牛杠杆的 13520000003）时，信任名称映射。"""
+    catalog = {
+        "13520000002": {"name": "杠杆式步枪蜂鸟杠杆"},
+        "13520000003": {"name": "杠杆式步枪犀牛杠杆"},
+    }
+    name_map = mod.build_part_name_map(catalog)
+    rows = [
+        # 行名称是蜂鸟杠杆，但 oid 是 13520000003（犀牛杠杆）
+        {"name": "杠杆式步枪蜂鸟杠杆", "price": 20421, "object_id": "13520000003"},
+    ]
+    prices = mod.match_part_prices(rows, catalog, name_map)
+    # 应正确映射到蜂鸟杠杆 13520000002，而不是被错配的 13520000003 误导
+    assert prices.get("13520000002") == 20421
+    assert "13520000003" not in prices
+
+
+def test_search_backfill_items_fetches_and_parses():
+    """验证定向搜索回填能够正确组装 query 并收集条目行。"""
+    def mock_fetch(path: str, page: int) -> str:
+        if "共鸣狙击枪消音器" in urllib.parse.unquote(path):
+            return (
+                '<tr><td><div class="ui-tname">共鸣狙击枪消音器</div></td>'
+                '<td><span class="icon-gold ui-num">118,100</span></td>'
+                '<td><img src=".../object/13130000181.png"></td></tr>'
+            )
+        return ""
+
+    rows = mod.search_backfill_items(
+        ["共鸣狙击枪消音器", "不存在的改件"],
+        mock_fetch,
+        interval=0.0,
+        sleep=_noop_sleep,
+    )
+    assert len(rows) == 1
+    assert rows[0]["name"] == "共鸣狙击枪消音器"
+    assert rows[0]["price"] == 118100
+    assert rows[0]["object_id"] == "13130000181"
+

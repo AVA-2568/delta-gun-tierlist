@@ -196,9 +196,10 @@ def assert_public_https(url: str, resolve: Callable = socket.getaddrinfo) -> Non
             raise ValueError(f"{host} 解析到非公网地址 {ip}，拒绝请求")
 
 
-def fetch_page(path: str, page: int, timeout: float = DEFAULT_TIMEOUT_S) -> str:
+def fetch_page(path: str, page: int = 1, timeout: float = DEFAULT_TIMEOUT_S) -> str:
     """抓取一个分页页面的 HTML（自带 host 校验与浏览器 UA）。"""
-    url = f"{SOURCE_BASE}{path}?p={page}"
+    delimiter = "&" if "?" in path else "?"
+    url = f"{SOURCE_BASE}{path}{delimiter}p={page}"
     assert_public_https(url)
     request = urllib.request.Request(
         url,
@@ -332,6 +333,97 @@ def load_part_catalog(path: str) -> Dict[str, Dict[str, Any]]:
     }
 
 
+#: 武器搜索回填别名（站方在战备页搜索框与官方简名写法差异的已知条目）
+WEAPON_SEARCH_ALIASES: Dict[str, List[str]] = {
+    "AK12": ["AK-12"],
+    "G3": ["G3战斗步枪"],
+    "SR25": ["SR-25"],
+    "SV98": ["SV-98"],
+}
+
+
+def load_priority_part_ids(root_dir: str = ".") -> Set[str]:
+    """收集已有榜单与官方变体涉及的核心配件 ID 集合（优先保证其有价）。"""
+    part_ids: Set[str] = set()
+    ranking_dir = os.path.join(root_dir, "data", "榜单")
+    if os.path.isdir(ranking_dir):
+        for fname in os.listdir(ranking_dir):
+            if not fname.endswith(".json"):
+                continue
+            fpath = os.path.join(ranking_dir, fname)
+            try:
+                with open(fpath, encoding="utf-8") as fh:
+                    data = json.load(fh)
+                for w in data.get("weapons", []):
+                    loadout = w.get("loadout") or {}
+                    if isinstance(loadout, dict):
+                        part_ids.update(str(pid) for pid in loadout.values())
+                    if w.get("single_part_item_id"):
+                        part_ids.add(str(w["single_part_item_id"]))
+                    if w.get("variant_item_id"):
+                        part_ids.add(str(w["variant_item_id"]))
+            except Exception:
+                continue
+
+    weapons_path = os.path.join(root_dir, "data", "game", "weapons.json")
+    if os.path.exists(weapons_path):
+        try:
+            with open(weapons_path, encoding="utf-8") as fh:
+                wdata = json.load(fh)
+            for w in wdata.get("weapons", []):
+                if w.get("is_variant") and w.get("variant_item_id"):
+                    part_ids.add(str(w["variant_item_id"]))
+        except Exception:
+            pass
+
+    return part_ids
+
+
+def search_backfill_items(
+    queries: Sequence[str],
+    fetch: Callable[..., str],
+    *,
+    interval: float = REQUEST_INTERVAL_S,
+    backoff_403_s: float = BACKOFF_403_S,
+    sleep: Callable[[float], None] = time.sleep,
+) -> List[Dict[str, Any]]:
+    """针对未命中的重点条目，按名称向战备页搜索接口发起定向回填。
+
+    每条目抓第 1 页结果，遵守请求间隔与 403 退避策略，返回匹配到的条目行列表。
+    """
+    backfill_rows: List[Dict[str, Any]] = []
+    seen_queries: Set[str] = set()
+    for query in queries:
+        query_str = str(query or "").strip()
+        if not query_str or query_str in seen_queries:
+            continue
+        seen_queries.add(query_str)
+        sleep(interval)
+        path = f"{ZHANBEI_PATH}?n={urllib.parse.quote(query_str)}"
+        html: Optional[str] = None
+        for attempt in (1, 2):
+            try:
+                html = fetch(path, 1)
+                break
+            except urllib.error.HTTPError as exc:
+                if exc.code == 404:
+                    break
+                if exc.code == 403 and attempt == 1:
+                    logger.warning("orzice 搜索 403，退避 %gs 后重试一次：%s", backoff_403_s, query_str)
+                    sleep(backoff_403_s)
+                    continue
+                logger.warning("orzice 搜索失败（HTTP %s）：%s", exc.code, query_str)
+                break
+            except Exception as exc:
+                logger.warning("orzice 搜索异常（%s）：%s", type(exc).__name__, query_str)
+                break
+        if html:
+            rows = parse_rows(html)
+            if rows:
+                backfill_rows.extend(rows)
+    return backfill_rows
+
+
 def build_part_name_map(catalog: Dict[str, Dict[str, Any]]) -> Dict[str, str]:
     """构建「归一化配件名称 → part_id」映射。唯一命中才收录。"""
     keys: Dict[str, List[str]] = {}
@@ -405,7 +497,7 @@ def match_part_prices(
     catalog: Dict[str, Dict[str, Any]],
     name_map: Dict[str, str],
 ) -> Dict[str, int]:
-    """战备页条目 → ``part_id -> 当日价``：objectID 优先，名称全等唯一命中为辅。
+    """战备页条目 → ``part_id -> 当日价``：objectID 与名称交叉校验，防站方错配 objectID。
 
     同一配件多行时取全行最小价。
     """
@@ -415,14 +507,21 @@ def match_part_prices(
         price = row.get("price")
         if not price or price <= 0:
             continue
+        row_name = str(row.get("name") or "")
+        norm_rname = norm_name(row_name)
         oid = str(row.get("object_id") or "")
         matched_id = None
-        if oid in catalog:
+
+        # 1. 若 object_id 在目录内，且目录名称与行名称归一化一致 → 精确信任 objectID
+        if oid in catalog and norm_name(catalog[oid].get("name")) == norm_rname:
             matched_id = oid
-        else:
-            n = norm_name(row.get("name"))
-            if n in name_map:
-                matched_id = name_map[n]
+        # 2. 否则通过行名称从 name_map 匹配（防站方图片 object_id 挂错到同枪别件）
+        elif norm_rname in name_map:
+            matched_id = name_map[norm_rname]
+        # 3. 兜底：若 name_map 无法唯一定位但 oid 在目录中
+        elif oid in catalog:
+            matched_id = oid
+
         if matched_id:
             hits.setdefault(matched_id, []).append(int(price))
 
@@ -706,6 +805,35 @@ def sync(
         part_catalog = load_part_catalog("data/game/parts.json")
         part_name_map = build_part_name_map(part_catalog)
         part_prices = match_part_prices(weapon_rows, part_catalog, part_name_map) if part_catalog else {}
+
+        # ---- 针对未命中的武器和优先核心配件发起定向搜索回填 ----
+        priority_part_ids = load_priority_part_ids(".")
+        missing_wids = [wid for wid in weapon_catalog if wid not in weapon_prices]
+        missing_pids = [pid for pid in priority_part_ids if pid not in part_prices and pid in part_catalog]
+
+        backfill_queries: List[str] = []
+        for wid in missing_wids:
+            wname = weapon_catalog[wid].get("name")
+            if wname:
+                backfill_queries.append(wname)
+                for alias in WEAPON_SEARCH_ALIASES.get(wname, []):
+                    backfill_queries.append(alias)
+        for pid in missing_pids:
+            pname = part_catalog[pid].get("name")
+            if pname:
+                backfill_queries.append(pname)
+
+        if backfill_queries:
+            logger.info("对未命中条目启动搜索回填（%d 个查询）：%s", len(backfill_queries), backfill_queries)
+            backfilled_rows = search_backfill_items(
+                backfill_queries, fetcher, interval=interval, backoff_403_s=backoff_403_s, sleep=sleep
+            )
+            if backfilled_rows:
+                weapon_rows.extend(backfilled_rows)
+                weapon_prices = match_weapon_prices(weapon_rows, set(weapon_catalog))
+                if part_catalog:
+                    part_prices = match_part_prices(weapon_rows, part_catalog, part_name_map)
+
         ammo_prices, ammo_notes = match_ammo_prices(
             ammo_rows, ammo_catalog, build_ammo_name_map(ammo_catalog)
         )
