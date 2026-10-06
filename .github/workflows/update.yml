@@ -5,7 +5,7 @@ on:
     branches: [ main, master ]
   pull_request:
   schedule:
-    - cron: "0 9 * * *"      # 每日 UTC 09:00（北京 17:00）触发：GitHub schedule 高峰延迟可达数小时，
+    - cron: "55 10 * * *"    # 每日 UTC 10:55（北京 18:55）触发，避开整点档（整点调度最拥挤，最易被 GitHub 丢弃）；
                              # 抓价前由 "Align to Beijing 20:00" 步骤等待到北京时间 20:00 整，
                              # 确保拿到晚间黄金时段行情（避免延迟后抓到午夜价）
   workflow_dispatch:        # 手动刷新榜单并提交
