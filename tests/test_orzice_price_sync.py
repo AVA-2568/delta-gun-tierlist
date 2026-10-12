@@ -538,3 +538,42 @@ def test_search_backfill_items_fetches_and_parses():
     assert rows[0]["price"] == 118100
     assert rows[0]["object_id"] == "13130000181"
 
+
+def test_sync_ammo_backfill_fetches_missing_in_season_ammo(tmp_path):
+    """验证当当前赛季限定弹初次未命中时，可通过口径搜索回填补充行情。"""
+    weapons_data = {"weapons": [{"weapon_id": "18010000001", "name": "M4A1", "is_variant": False}]}
+    ammo_data = {
+        "ammo": [
+            {
+                "ammo_item_id": "37170500002",
+                "caliber": "7.62x51mm",
+                "name": "LS",
+                "penetration_level": 5,
+                "is_season_limited": True,
+                "season_note": "S11赛季限定子弹",
+            }
+        ]
+    }
+    (tmp_path / "data" / "game").mkdir(parents=True)
+    (tmp_path / "data" / "game" / "weapons.json").write_text(json.dumps(weapons_data), encoding="utf-8")
+    (tmp_path / "data" / "game" / "ammo.json").write_text(json.dumps(ammo_data), encoding="utf-8")
+    (tmp_path / "data" / "reference").mkdir(parents=True)
+
+    def mock_fetch(path: str, page: int) -> str:
+        if path == mod.AMMO_PATH and page == 1:
+            return '<tr><td><div class="ui-tname">7.62x51mm M62</div></td><td><span class="icon-gold ui-num">5,467</span></td></tr>'
+        if path.startswith(f"{mod.AMMO_PATH}?n=7.62x51mm"):
+            return '<tr><td><div class="ui-tname">7.62x51mm LS</div></td><td><span class="icon-gold ui-num">6,245</span></td></tr>'
+        return ""
+
+    result = mod.sync(
+        output_dir=str(tmp_path),
+        fetch=mock_fetch,
+        sleep=_noop_sleep,
+    )
+    with open(tmp_path / "data" / "reference" / "ammo_prices.json", encoding="utf-8") as fh:
+        ammo_table = json.load(fh)
+    ls_row = next(r for r in ammo_table["ammo"] if r["ammo_item_id"] == "37170500002")
+    assert ls_row["price_daily"] == 6245
+
+

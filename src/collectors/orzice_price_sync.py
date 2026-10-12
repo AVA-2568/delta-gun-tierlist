@@ -383,11 +383,12 @@ def search_backfill_items(
     queries: Sequence[str],
     fetch: Callable[..., str],
     *,
+    base_path: str = ZHANBEI_PATH,
     interval: float = REQUEST_INTERVAL_S,
     backoff_403_s: float = BACKOFF_403_S,
     sleep: Callable[[float], None] = time.sleep,
 ) -> List[Dict[str, Any]]:
-    """针对未命中的重点条目，按名称向战备页搜索接口发起定向回填。
+    """针对未命中的重点条目，按名称向搜索接口发起定向回填。
 
     每条目抓第 1 页结果，遵守请求间隔与 403 退避策略，返回匹配到的条目行列表。
     """
@@ -399,7 +400,7 @@ def search_backfill_items(
             continue
         seen_queries.add(query_str)
         sleep(interval)
-        path = f"{ZHANBEI_PATH}?n={urllib.parse.quote(query_str)}"
+        path = f"{base_path}?n={urllib.parse.quote(query_str)}"
         html: Optional[str] = None
         for attempt in (1, 2):
             try:
@@ -834,9 +835,32 @@ def sync(
                 if part_catalog:
                     part_prices = match_part_prices(weapon_rows, part_catalog, part_name_map)
 
+        ammo_name_map = build_ammo_name_map(ammo_catalog)
         ammo_prices, ammo_notes = match_ammo_prices(
-            ammo_rows, ammo_catalog, build_ammo_name_map(ammo_catalog)
+            ammo_rows, ammo_catalog, ammo_name_map
         )
+
+        # ---- 针对未命中的当前赛季有效弹药按口径发起定向搜索回填 ----
+        missing_ammo_calibers: List[str] = sorted(
+            {
+                str(meta.get("caliber") or "").strip()
+                for item_id, meta in ammo_catalog.items()
+                if item_id not in ammo_prices
+                and (not meta.get("is_season_limited") or CURRENT_SEASON in (meta.get("season_note") or ""))
+                and meta.get("caliber")
+            }
+        )
+        if missing_ammo_calibers:
+            logger.info("对未命中弹药启动口径搜索回填（%d 个查询）：%s", len(missing_ammo_calibers), missing_ammo_calibers)
+            backfilled_ammo_rows = search_backfill_items(
+                missing_ammo_calibers, fetcher, base_path=AMMO_PATH,
+                interval=interval, backoff_403_s=backoff_403_s, sleep=sleep
+            )
+            if backfilled_ammo_rows:
+                ammo_rows.extend(backfilled_ammo_rows)
+                ammo_prices, ammo_notes = match_ammo_prices(
+                    ammo_rows, ammo_catalog, ammo_name_map
+                )
 
         # ---- 抓取完整性护栏：有价条数较现表骤降 ≥10% 告警（部分结果仍落盘）----
         prev_weapon_priced = _table_priced_count(
