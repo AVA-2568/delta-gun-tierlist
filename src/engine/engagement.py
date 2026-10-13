@@ -2,25 +2,29 @@
 
 TTK 定义（已确认口径）：
 
-    实战 TTK = (E[N] − 1) × 射击间隔
+    实战 TTK = 首发扳机延迟 + 第 E 发击发时刻 + 弹丸飞行时间
 
-口径边界——以下四项**均不计入** TTK，其中前两项作为参考列单独输出：
+与官方 dfttk 默认口径完全对齐：
+- 首发扳机延迟：``fire_delay_seconds``（大部分武器为 0，个别蓄力/转管武器存在开火延迟）。
+- 击发时刻：单发/全自动等价于 ``(E - 1) × 射击间隔``；连发武器按官方 ``sdkTiming`` 节拍的精确射击时间线计算。对于多弹丸武器（霰弹枪），E 为实际扣动扳机发数（``trigger_pulls = shots / effective_projectiles``，独头弹有效弹丸为 1，鹿弹/箭形弹按武器弹丸数计算）。
+- 弹丸飞行时间：``距离 / 原始初速``，使用**不含精校修正**的原始初速。
+
+口径边界：
 
 | 项 | 处理 | 理由 |
 | :-- | :-- | :-- |
+| 弹丸飞行时间（初速） | 计入 TTK | 对齐官方 dfttk 默认口径（采用不含精校修正的原始初速） |
 | 开镜时间 | 参考列输出 | 开镜由玩家操作/据枪状态决定，不计入击杀耗时 |
-| 弹丸飞行时间（初速） | 参考列输出 | 初速与「长度」精校交由玩家自行权衡，不进 TTK 优化 |
 | 换弹 | 忽略 | 官方击杀假设 ``singleMagazineNoReload``（单弹匣不换弹） |
 | 命中率修正（后坐/散布） | 忽略 | 「打得中打不中」属另一维度，见改枪指南 |
 
-因此 TTK 只由**两个官方验证过的量**构成——``E[N]``（3774 个样本点全量复现官方
+因此 TTK 只由官方验证过的量构成——``E[N]``（3774 个样本点全量复现官方
 ``candidateMetrics``：逐位一致 1435、|Δ|≤1e-9 1574、|Δ|>1e-2 仅 3 个残余偏差点，经白盒
 对拍证明为官方上游数据自相矛盾，详见 ``data/game/provenance.json`` 的
-``integrity.official_reproduction_residual``）与射击间隔（291 个官方候选取整后与官方
-整数 rpm 全对）——**全链路可复现、可证伪，无自主参数**。
+``integrity.official_reproduction_residual``）、精确射击时间线（291 个官方候选取整后与官方
+整数 rpm 全对）与武器原始初速——**全链路可复现、可证伪，无自主参数**。
 
-推论：官方精校的全部作用目标（开镜、后坐、散布、初速、镜距/倍率）**没有一个**改变
-``E[N]`` 或射击间隔，故**精校不影响 TTK**，全部维度交由玩家按手感自行调校。
+推论：官方精校的全部作用目标（开镜、后坐、散布、初速、镜距/倍率）均不改变命中发数或射击节拍，初速精校不影响官方 TTK 原始初速口径，全部维度交由玩家按手感自行调校。
 
 距离场锁定 **0–80m**（官方排行 `distanceRange`），不做外推。
 """
@@ -120,23 +124,32 @@ def ttk_at(
     hit_probabilities: Mapping[str, float],
     distance_m: float,
 ) -> TtkResult:
-    """单点实战 TTK（秒）：``(E[N] − 1) × 射击间隔``。
+    """单点实战 TTK（秒）：``首发扳机延迟 + 第 E 发击发时刻 + 弹丸飞行时间``。
 
-    开镜时间与弹丸飞行时间作为参考量返回，但**不叠加进 TTK**。
+    对齐官方 dfttk 默认口径：
+    - 击发时刻：单发/全自动为 ``(E - 1) × 间隔``，连发武器按官方 sdkTiming 节拍的精确射击时间线；
+      多弹丸武器按扣动扳机发数（弹丸数 / 有效弹丸数）计算。
+    - 飞行时间：使用不含精校修正的原始初速。
+    - 开镜时间作为参考量返回，不叠加进 TTK。
     """
     ctx = damage_context(state, ammo_record, armor_definition, hit_probabilities, distance_m)
     shots = ctx.expected_kill_shots()
+    ammo_name = str(ammo_record.get("name") or "")
+    projectile_count = int(getattr(state, "projectile_count", 1) or 1)
+    effective_projectiles = 1 if "独头" in ammo_name else max(1, projectile_count)
+    trigger_pulls = shots / effective_projectiles
+
     interval = float(state.fire_interval_seconds)
     velocity = float(state.original_muzzle_velocity_mps)
     # TTK = 首发扳机延迟 + 第 E 发击发时刻 + 弹丸飞行时间，与 dfttk 默认口径一致：
     # 击发时刻全自动/单发等价 (E-1)×间隔，连发按官方 sdkTiming 节拍的精确射击时间线；
     # 飞行时间用**不含精校修正**的原始初速。
     flight = (float(distance_m) / velocity) if velocity > 0 else 0.0
-    ttk = max(0.0, state.fire_delay_seconds + state.shots_to_fire_seconds(shots) + flight)
+    ttk = max(0.0, state.fire_delay_seconds + state.shots_to_fire_seconds(trigger_pulls) + flight)
     return TtkResult(
         distance_m=float(distance_m),
         ttk_seconds=ttk,
-        expected_shots=shots,
+        expected_shots=trigger_pulls,
         ads_seconds=float(state.ads_milliseconds()) / 1000.0,
         flight_seconds=(float(distance_m) / velocity) if velocity > 0 else 0.0,
         fire_interval_seconds=interval,

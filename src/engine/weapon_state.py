@@ -179,7 +179,9 @@ class WeaponState:
         cycle = self.burst_fire_cycle_seconds
         bc = self.burst_count or 0
         if bc <= 1 or intra <= 0.0 or cycle <= 0.0:
-            return (shots - 1.0) * self.fire_interval_seconds
+            return max(0.0, shots - 1.0) * self.fire_interval_seconds
+        if shots <= 1.0:
+            return 0.0
 
         def _t(n: int) -> float:
             group = (n - 1) // bc

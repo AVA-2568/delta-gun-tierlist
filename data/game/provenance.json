@@ -74,8 +74,8 @@
    "total_points": 3774,
    "max_abs_delta": 0.024488755200000156,
    "grade_counts": {
-    "bitwise": 1428,
-    "le_1e-9": 1561,
+    "bitwise": 1443,
+    "le_1e-9": 1546,
     "le_1e-5": 743,
     "le_1e-2": 39,
     "gt_1e-2": 3
@@ -110,7 +110,7 @@
      "delta": 0.020004383682795
     }
    ],
-   "conclusion": "CI 每日自动固化：残余统计由 tools/verify_official_reproduction.py 当次全量重算写入；上游伪差白盒裁定与历史结论文案见 git 历史中的 provenance.json 记录。"
+   "conclusion": "核心引擎动态自适应 Cap 与伤害减免边界修复后全量复核收敛，逐位一致由 1428 提升至 1443 点"
   }
  }
 }

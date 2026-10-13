@@ -33,6 +33,7 @@ perPart，其中 42/67 吻合 ≤1.1e-6），记录于 ``data/game/provenance.js
 
 from __future__ import annotations
 
+import math
 from collections import defaultdict
 from typing import Any, Dict, Mapping, Sequence, Tuple
 
@@ -60,9 +61,6 @@ PART_TO_ARMOR_SLOT: Dict[str, str] = {
 
 PLAYER_HEALTH = 100.0
 
-# 护甲耐久被打光后，命中次数超过该上限即视为永久失效（防止状态无限增长）
-_HELMET_HIT_CAP = 8
-_ARMOR_HIT_CAP = 12
 
 
 class DamageContext:
@@ -71,7 +69,7 @@ class DamageContext:
     __slots__ = (
         "base_flesh", "base_armor", "hitbox_multipliers", "ammo", "armor_level",
         "helmet_durability", "armor_durability", "helmet_covered", "armor_covered",
-        "hit_probabilities", "falloff", "_pen", "_need_by_slot", "_slot_by_part", "_table",
+        "hit_probabilities", "falloff", "helmet_cap", "armor_cap", "_pen", "_need_by_slot", "_slot_by_part", "_table",
     )
 
     def __init__(
@@ -116,6 +114,10 @@ class DamageContext:
             * float(self._pen["body_durability_rate"])
             * self.falloff,
         }
+        h_need = self._need_by_slot["helmet"]
+        a_need = self._need_by_slot["armor"]
+        self.helmet_cap = max(1, math.ceil(self.helmet_durability / h_need)) if h_need > 0 else 0
+        self.armor_cap = max(1, math.ceil(self.armor_durability / a_need)) if a_need > 0 else 0
         self._slot_by_part = {part: self._resolve_slot(part) for part in self.hit_probabilities}
         self._table = self._build_damage_table(float(ammo["flesh_damage_multiplier"]), per_part)
 
@@ -156,8 +158,8 @@ class DamageContext:
             )
             slot = self._slot_by_part[part]
             if slot is None:
-                for hh in range(_HELMET_HIT_CAP + 1):
-                    for hb in range(_ARMOR_HIT_CAP + 1):
+                for hh in range(self.helmet_cap + 1):
+                    for hb in range(self.armor_cap + 1):
                         table[(part, hh, hb)] = base
                 continue
             if slot == "helmet":
@@ -168,12 +170,14 @@ class DamageContext:
                 need = self._need_by_slot["armor"]
                 health_rate = float(pen["body_health_rate"])
                 initial = self.armor_durability
-            for hh in range(_HELMET_HIT_CAP + 1):
-                for hb in range(_ARMOR_HIT_CAP + 1):
+            for hh in range(self.helmet_cap + 1):
+                for hb in range(self.armor_cap + 1):
                     hits = hh if slot == "helmet" else hb
                     remaining = initial - hits * need
-                    if remaining <= 0.0 or need <= 0.0:
+                    if remaining <= 0.0:
                         table[(part, hh, hb)] = base
+                    elif need <= 0.0:
+                        table[(part, hh, hb)] = base * health_rate
                     else:
                         ratio = min(1.0, remaining / need)
                         table[(part, hh, hb)] = base * (ratio * health_rate + (1.0 - ratio) * 1.0)
@@ -207,10 +211,10 @@ class DamageContext:
                             continue
                         nhh = hh + 1 if slot == "helmet" else hh
                         nhb = hb + 1 if slot == "armor" else hb
-                        if nhh > _HELMET_HIT_CAP:
-                            nhh = _HELMET_HIT_CAP
-                        if nhb > _ARMOR_HIT_CAP:
-                            nhb = _ARMOR_HIT_CAP
+                        if nhh > self.helmet_cap:
+                            nhh = self.helmet_cap
+                        if nhb > self.armor_cap:
+                            nhb = self.armor_cap
                         nxt[(nhh, nhb)][round(new_hp, 8)] += joint
             states = nxt
             alive -= died
