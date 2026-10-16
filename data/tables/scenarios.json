@@ -377,6 +377,23 @@
     "calf": 0.0
    },
    "file": "rankings/firefight/armor-6-ammo-5-chest-only.json"
+  },
+  {
+   "scenario_id": "legs-only",
+   "armor_level": "5",
+   "ammo_levels": [3, 4, 5],
+   "probability_preset": "legs-only",
+   "helmet_durability": 50,
+   "armor_durability": 125,
+   "hit_probabilities": {
+    "head": 0.0,
+    "chest": 0.0,
+    "abdomen": 0.0,
+    "upperArm": 0.0,
+    "lowerArm": 0.0,
+    "thigh": 0.5,
+    "calf": 0.5
+   }
   }
  ],
  "distance_range": {

@@ -27,7 +27,11 @@ MAIN_BAND_DOC_PREFIX = "主榜"
 DOCS_BAND_DIR = "docs/榜单"
 
 #: 命中分布预设 → 中文名（未知预设回退原值，不猜测）
-PRESET_ZH = {"default": "实战", "center": "聚焦中心", "chest-only": "仅胸口"}
+PRESET_ZH = {"default": "实战", "center": "聚焦中心", "chest-only": "仅胸口", "legs-only": "修脚"}
+
+#: 修脚预设：全腿部命中、跨弹药等级同榜——不经护甲结算，故不以「护甲X弹药Y」命名
+LEGS_ONLY_PRESET = "legs-only"
+LEGS_ONLY_STEM = "修脚"
 
 
 def main_band_doc_prefix() -> str:
@@ -46,10 +50,12 @@ def band_doc_ref(prefix: str, band: str) -> str:
 
 
 def scenario_doc_stem(scenario_meta: Mapping[str, Any]) -> str:
-    """情景产物文件名主干（不含扩展名）：``护甲5弹药5-实战``。
+    """情景产物文件名主干（不含扩展名）：``护甲5弹药5-实战``／``修脚``。
 
     内部 ``scenario_id`` 保持英文稳定不变，仅**落盘文件名**中文化。
-    预设缺失或未收录时回退英文原值——文件名不猜测预设身份。
+    修脚情景（``legs-only``）不经护甲结算且跨越弹药等级同榜，故不用
+    「护甲X弹药Y」命名，直接用「修脚」；其余预设缺失或未收录时回退英文原值——
+    文件名不猜测预设身份。
     """
     preset = scenario_meta.get("probability_preset")
     if preset is None:
@@ -58,10 +64,45 @@ def scenario_doc_stem(scenario_meta: Mapping[str, Any]) -> str:
             "-default"
         )
     preset = str(preset)
+    if preset == LEGS_ONLY_PRESET:
+        return LEGS_ONLY_STEM
     return (
         f"护甲{scenario_meta.get('armor_level')}弹药{scenario_meta.get('ammo_level')}"
         f"-{PRESET_ZH.get(preset, preset)}"
     )
+
+
+def scenario_caption(scenario_meta: Mapping[str, Any]) -> str:
+    """情景口径摘要（距离榜头部）：名称 + 护甲 / 弹药 / 命中分布。
+
+    修脚情景（``legs-only``）使用专用文案：全腿部命中、腿部位不经护甲结算、
+    弹药候选等级同榜。
+    """
+    preset = str(scenario_meta.get("probability_preset") or "")
+    if preset == LEGS_ONLY_PRESET:
+        levels = "/".join(str(level) for level in (scenario_meta.get("ammo_levels") or []))
+        return (
+            f"{scenario_doc_stem(scenario_meta)}"
+            f"（命中分布 `{preset}`：全腿部命中，大腿 50% / 小腿 50%；"
+            f"弹药 {levels} 级有价弹同榜；腿部位不经护甲结算，护甲等级不影响结果）"
+        )
+    return (
+        f"{scenario_doc_stem(scenario_meta)}"
+        f"（护甲 {scenario_meta.get('armor_level')} 套 / 弹药 {scenario_meta.get('ammo_level')} 级，"
+        f"命中分布 `{scenario_meta.get('probability_preset')}`）"
+    )
+
+
+def _scenario_armor_ammo_cells(item: Mapping[str, Any]) -> tuple:
+    """情景索引的「护甲 / 弹药」两列取值。
+
+    修脚情景不经护甲结算 → 护甲列输出 ``—``，弹药列列出同榜的候选等级
+    （如 ``3/4/5``）；其余情景照旧读 ``armor_level`` / ``ammo_level``。
+    """
+    if str(item.get("probability_preset") or "") == LEGS_ONLY_PRESET:
+        levels = "/".join(str(level) for level in (item.get("ammo_levels") or []))
+        return "—", levels or "—"
+    return item.get("armor_level"), item.get("ammo_level")
 
 
 def _fmt(value: Any, digits: int = 1, suffix: str = "") -> str:
@@ -335,17 +376,19 @@ def render_band_doc(
     lines: List[str] = []
     lines.append(f"# {prefix} · {band}（{band_def['from_m']:g}–{band_def['to_m']:g} m）")
     lines.append("")
-    lines.append(
-        f"> {scenario_doc_stem(scenario_meta)}"
-        f"（护甲 {scenario_meta.get('armor_level')} 套 / 弹药 {scenario_meta.get('ammo_level')} 级，"
-        f"命中分布 `{scenario_meta.get('probability_preset')}`）"
-    )
+    lines.append("> " + scenario_caption(scenario_meta))
     lines.append(">")
     lines.append("> - **排序键**：带内平均实战 TTK（`(期望击杀发数 − 1) × 射击间隔`），"
                  "不含开镜时间与弹丸飞行时间")
     lines.append("> - **层级**：带内 TTK 分位数切分（前 15% → T0，15–40% → T1，40–70% → T2，其余 → T3）")
     lines.append("> - **收录范围**：只列 T0 / T1（T2 / T3 不入文档）；序号为全量排名，"
                  "空号即其间存在未列出行，完整数据见 `data/榜单/` 同名 JSON")
+    if str(scenario_meta.get("probability_preset") or "") == LEGS_ONLY_PRESET:
+        levels = "/".join(str(level) for level in (scenario_meta.get("ammo_levels") or []))
+        lines.append(
+            f"> - **弹药口径**：{levels} 级有价弹同榜，每行自带所配弹药与单发价；"
+            "穿深不影响腿部伤害，跨等级按 TTK 与击杀成本直接比较"
+        )
     if thresholds:
         lines.append(f"> - **层级阈值**：{_thresholds_text(thresholds)}")
     lines.append("")
@@ -435,8 +478,11 @@ def render_readme(
     if scenario_index:
         lines.append("## 情景索引")
         lines.append("")
-        lines.append("默认收录以下实战情景（口径：不含 3 级弹组合，命中分布只用实战 `default`）。")
-        lines.append("用 `python -m src.pipeline --all` 可生成全部 21 个官方情景（含 `center` / `chest-only` 理论聚焦预设）。")
+        lines.append("默认收录以下情景：5 个实战甲弹组合（口径：不含 3 级弹组合），"
+                     "以及 1 个 **修脚** 情景（命中分布 `legs-only`：全腿部命中；"
+                     "腿部位不经护甲结算，弹药 3/4/5 级有价弹同榜）。")
+        lines.append("用 `python -m src.pipeline --all` 可生成全部情景"
+                     "（21 个官方情景，含 `center` / `chest-only` 理论聚焦预设，加上修脚情景）。")
         lines.append("")
         lines.append("| 情景 | 护甲 | 弹药 | 命中分布 | 榜单 |")
         lines.append("| :-- | --: | --: | :-- | :-- |")
@@ -445,12 +491,13 @@ def render_readme(
             is_main = sid == main_payload["scenario_id"]
             prefix = MAIN_BAND_DOC_PREFIX if is_main else scenario_doc_stem(item)
             label = f"{scenario_doc_stem(item)}（主榜）" if is_main else scenario_doc_stem(item)
+            armor_cell, ammo_cell = _scenario_armor_ammo_cells(item)
             file_cell = " · ".join(
                 f"[{band}]({band_doc_ref(prefix, band)})" for band in BAND_ORDER
             )
             lines.append(
-                f"| {label} | {item.get('armor_level')} "
-                f"| {item.get('ammo_level')} | `{item.get('probability_preset')}` "
+                f"| {label} | {armor_cell} "
+                f"| {ammo_cell} | `{item.get('probability_preset')}` "
                 f"| {file_cell} |"
             )
         lines.append("")

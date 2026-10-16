@@ -42,33 +42,44 @@ def _ammo_in_season(record: Mapping[str, Any]) -> bool:
     return CURRENT_SEASON in (record.get("season_note") or "")
 
 
+def _levels_text(levels: Sequence[int]) -> str:
+    """弹药等级集合的展示文案（如 ``3/4/5``）。"""
+    return "/".join(str(level) for level in levels)
+
+
 def pick_priced_ammos(
     game_data: Any,
     profile_key: str,
-    ammo_level: int,
+    ammo_levels: Any,
     price_table: Optional["AmmoPriceTable"],
 ) -> List[Dict[str, Any]]:
-    """该口径该等级的**全部有价弹**（市场可得），按 ``ammo_item_id`` 升序。
+    """该口径**候选等级集合**内全部有价弹（市场可得），按 ``ammo_item_id`` 升序。
 
     弹维度展开的候选集口径：
 
+    - ``ammo_levels`` 为单等级（int）或多等级集合：官方情景为单等级，取该等级；
+      多等级情景（如修脚，3/4/5 同榜）取集合内全部等级——同口径同款弹只出现一次；
     - 有价（``price_daily`` 非 null）= 玩家市场可得 = 有效候选。缺价弹不参与
       枚举、不上榜——其数据仍保留在 ``data/tables/ammo.json``（语义：数据有效
       但市场暂不可得，赛季更新人工改表）；
-    - 口径无该等级弹药 → :class:`src.engine.engagement.ScenarioError`（与
-      :func:`src.engine.engagement.pick_ammo` 同语义，调用方排除该枪）；
+    - 口径在集合内无任一级弹药 → :class:`src.engine.engagement.ScenarioError`
+      （与 :func:`src.engine.engagement.pick_ammo` 同语义，调用方排除该枪）；
     - 价格表未配置（``None`` 或空表）→ 返回 ``[]``：价格维度未激活，调用方
       回退官方池单弹，榜单保持可用（成本列显示 ``—``）。
     """
+    if isinstance(ammo_levels, int):
+        levels: tuple = (int(ammo_levels),)
+    else:
+        levels = tuple(sorted({int(level) for level in ammo_levels}))
     weapon = game_data.get_weapon(profile_key)
-    level = int(ammo_level)
+    level_set = set(levels)
     candidates = [
         record
         for record in game_data.ammo_for_weapon(weapon)
-        if record["penetration_level"] == level
+        if record["penetration_level"] in level_set
     ]
     if not candidates:
-        raise eg.ScenarioError(f"{profile_key} 无 {level} 级弹药")
+        raise eg.ScenarioError(f"{profile_key} 无 {_levels_text(levels)} 级弹药")
     if price_table is None or price_table.is_empty:
         return []
     return sorted(
@@ -106,13 +117,14 @@ def rank_weapons_for_scenario(
     裸枪为参照。
 
     **弹维度展开**：价格表激活（传入非空 ``price_table``）时，该枪在情景弹药
-    等级下的候选弹 = 该口径该等级全部弹药中**当日有价**（``price_daily`` 非
-    null，有价 = 玩家市场可得）的每一款（:func:`pick_priced_ammos`）——每款弹
-    独立束搜索、独立出状态行，行自带该弹的名称 / 单发价 / 击杀成本。同枪不同
-    弹排名不同是预期行为；该等级全部弹缺价 → 该枪该情景无行（排除，与「口径
-    无该等级弹药」同语义）。价格表未配置（``None`` 或空表）时价格维度不激活，
-    回退官方池单弹（:func:`src.engine.engagement.pick_ammo`，同等级取
-    ``ammo_item_id`` 最小者）。
+    **候选等级集合**下（官方情景为单等级；多等级情景如修脚为 3/4/5 同榜）的候选弹
+    = 该口径集合内全部弹药中**当日有价**（``price_daily`` 非 null，有价 = 玩家
+    市场可得）的每一款（:func:`pick_priced_ammos`）——每款弹独立束搜索、独立出
+    状态行，行自带该弹的名称 / 单发价 / 击杀成本。同枪不同弹排名不同是预期行为；
+    集合内全部弹缺价 → 该枪该情景无行（排除，与「口径无任一级弹药」同语义）。
+    价格表未配置（``None`` 或空表）时价格维度不激活，回退官方池单弹
+    （:func:`src.engine.engagement.pick_ammo`，每候选等级取 ``ammo_item_id``
+    最小者）；官方情景即原「单弹」口径，逐位不变。
 
     **每日轻量刷新语义**：某弹从有价变缺价（下架）→ 已算出的行保留，成本列经
     每日刷新变为 ``—``；从缺价变有价（重新上架）→ 该弹的行要等下次全量重算
@@ -252,18 +264,31 @@ def rank_weapons_for_scenario(
             else None
         )
 
-        # ---- 情景弹药枚举：价格维度激活 → 全部有价弹逐款成行；未激活 → 官方池单弹 ----
-        ammo_level = int(solver.scenario["ammo_level"])
+        # ---- 情景弹药枚举：价格维度激活 → 候选等级全部有价弹逐款成行；
+        #      未激活 → 各候选等级官方池单弹 ----
+        levels = eg.scenario_ammo_levels(solver.scenario)
         price_dimension_active = price_table is not None and not price_table.is_empty
         try:
             if price_dimension_active:
-                ammos = pick_priced_ammos(game_data, base_key, ammo_level, price_table)
+                ammos = pick_priced_ammos(game_data, base_key, levels, price_table)
                 if not ammos:
                     raise eg.ScenarioError(
-                        f"{base_key} 的 {ammo_level} 级弹药在市场全部缺价（不上榜）"
+                        f"{base_key} 的 {_levels_text(levels)} 级弹药在市场全部缺价（不上榜）"
                     )
             else:
-                ammos = [solver.ammo_for(base_key)]
+                ammos = []
+                seen_ids: set = set()
+                for level in levels:
+                    try:
+                        record = eg.pick_ammo(game_data, base_key, level)
+                    except eg.ScenarioError:
+                        continue
+                    ammo_id = str(record.get("ammo_item_id") or "")
+                    if ammo_id not in seen_ids:
+                        seen_ids.add(ammo_id)
+                        ammos.append(record)
+                if not ammos:
+                    raise eg.ScenarioError(f"{base_key} 无 {_levels_text(levels)} 级弹药")
             base_state = solver.resolver.resolve(base_key, loadout={}, tuning=None)
         except eg.ScenarioError as exc:
             excluded.append(_exclude(base_key, base_weapon, exc))

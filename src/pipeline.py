@@ -2,9 +2,10 @@
 
 用法::
 
-    python -m src.pipeline                      # 默认 5 个情景（见 DEFAULT_SCENARIOS）
-    python -m src.pipeline --all                # 全部 21 个官方情景（含理论聚焦预设）
+    python -m src.pipeline                      # 默认情景（5 个实战甲弹组合 + 修脚，见 DEFAULT_SCENARIOS）
+    python -m src.pipeline --all                # 全部情景（21 个官方情景 + 修脚情景）
     python -m src.pipeline --scenario 5-5       # 单个甲弹组合的实战情景
+    python -m src.pipeline --scenario legs-only # 也可传完整情景 ID（如修脚）
     python -m src.pipeline --limit 8            # 快速冒烟（前 8 把枪）
     python -m src.pipeline --render-only        # 不重算，从已有榜单 JSON 重渲染文档
     python -m src.pipeline --price-only         # 不重算 TTK：只刷新价格列并重渲染文档
@@ -12,7 +13,7 @@
 
 输出：
 
-- ``data/榜单/护甲X弹药Y-<预设>.json`` —— 机器可读榜单（含层级阈值）
+- ``data/榜单/<情景名>.json`` —— 机器可读榜单（含层级阈值）
 - ``docs/榜单/<情景名>-<距离带>.md`` —— 每情景 4 份独立距离榜（主榜前缀 ``主榜``）
 - ``README.md`` —— 首页：口径 + 主榜速览（每带 Top 5）+ 导航
 - ``docs/改枪指南.md`` —— 改枪指南（不进 TTK 的维度）
@@ -88,13 +89,15 @@ FINGERPRINT_PIPELINE_FILE = ("src", "pipeline.py")
 INPUTS_FINGERPRINT_KEY = "inputs_fingerprint"
 
 # 默认出榜情景（口径已确认）：甲弹组合不含 3 级弹（3-3 / 4-3 不做）；
-# 命中分布只用实战预设 default（center / chest-only 为官方理论聚焦预设，需 --all 才出）。
+# 命中分布只用实战预设 default（center / chest-only 为官方理论聚焦预设，需 --all 才出）；
+# 修脚情景（legs-only）为全腿部命中、弹药 3/4/5 级有价弹同榜的自定义情景，默认一并出榜。
 DEFAULT_SCENARIOS: tuple = (
     "armor-4-ammo-4-default",
     "armor-4-ammo-5-default",
     "armor-5-ammo-4-default",
     "armor-5-ammo-5-default",
     "armor-6-ammo-5-default",
+    "legs-only",
 )
 
 
@@ -137,6 +140,7 @@ def _scenario_index(game_data: Any) -> List[Dict[str, Any]]:
             "label": s.get("label") or s["scenario_id"],
             "armor_level": s.get("armor_level"),
             "ammo_level": s.get("ammo_level"),
+            "ammo_levels": s.get("ammo_levels"),
             "probability_preset": s.get("probability_preset"),
             "helmet_durability": s.get("helmet_durability"),
             "armor_durability": s.get("armor_durability"),
@@ -524,7 +528,8 @@ def run_pipeline(
         output_dir: 输出根目录。
         scenarios: 指定情景 ID 列表（完整 ID，如 ``armor-5-ammo-5-default``）；
             ``None`` 且 ``all_scenarios=False`` 时用 :data:`DEFAULT_SCENARIOS`。
-        all_scenarios: 为全部官方情景（含 center / chest-only 理论聚焦预设）各出一份榜单。
+        all_scenarios: 为全部情景（21 个官方情景，含 center / chest-only 理论聚焦预设，
+            加修脚自定义情景）各出一份榜单。
         limit: 仅处理前 N 把枪（调试用）。
         beam_width: 起枪状态束搜索宽度（决定每枪枚举的状态数上限）。
         write: 是否写盘（False 时仅返回结果，便于测试）。
@@ -593,8 +598,11 @@ def main() -> None:
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
     parser = argparse.ArgumentParser(description="纯 TTK 枪械强度榜管线")
     parser.add_argument("--output-dir", default=".", help="输出根目录（默认当前目录）")
-    parser.add_argument("--all", action="store_true", help="全部 21 个官方情景（含理论聚焦预设）")
-    parser.add_argument("--scenario", default=None, help="单甲弹组合，如 5-5（用其 default 实战情景）")
+    parser.add_argument("--all", action="store_true", help="全部情景（21 个官方情景 + 修脚情景）")
+    parser.add_argument(
+        "--scenario", default=None,
+        help="单情景：甲弹组合简写（如 5-5 → 其 default 实战情景）或完整情景 ID（如 legs-only）",
+    )
     parser.add_argument("--limit", type=int, default=None, help="仅处理前 N 把枪（调试）")
     parser.add_argument("--beam-width", type=int, default=48, help="起枪状态束搜索宽度")
     parser.add_argument("--dry-run", action="store_true", help="只计算不写盘")
@@ -614,8 +622,12 @@ def main() -> None:
 
     scenarios = None
     if args.scenario:
-        armor, ammo = args.scenario.split("-")
-        scenarios = [f"armor-{armor}-ammo-{ammo}-default"]
+        # 「A-B」（如 5-5）为甲弹组合简写；其余视为完整情景 ID（如 legs-only）
+        parts = args.scenario.split("-")
+        if len(parts) == 2 and all(part.isdigit() for part in parts):
+            scenarios = [f"armor-{parts[0]}-ammo-{parts[1]}-default"]
+        else:
+            scenarios = [args.scenario]
 
     if args.check_stale:
         reasons = check_stale(

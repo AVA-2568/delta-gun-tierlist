@@ -8,7 +8,9 @@
   base 块 = 原条目剔除 profile_key/is_variant/variant_item_id/variant_item_name 四键；
   变体块 = 逐字段 diff 实测差异（以数据为准，不止契约所列两字段则全部写入并报告）。
 - parts/：按 slot 分文件 <slot>.json，{"slot": ..., "parts": [按 item_id 排序的条目]}。
-- ammo.json / armor.json / scenarios.json：字节级原样复制。
+- ammo.json / armor.json：字节级原样复制；scenarios.json：生成时整体复制，校验
+  时对官方情景按 scenario_id 与参考层逐键逐值配对——表侧允许人工新增自定义情景
+  （如修脚 ``legs-only``），属预期差异，不判失败。
 """
 
 from __future__ import annotations
@@ -30,7 +32,10 @@ STRIP_KEYS = ("profile_key", "is_variant", "variant_item_id", "variant_item_name
 EXPANSION_KEYS = ("profile_key", "is_variant")
 # 契约实测结论：变体与本体仅此两数据字段不同；其余差异字段属意外发现，必须打印报告
 KNOWN_VARIANT_DIFF_FIELDS = ("display_name", "reference_candidates")
+# 生成域：scenarios.json 整体复制（表侧人工新增的自定义情景会被覆盖，generate 会警告）
 BYTE_COPY_FILES = ("ammo.json", "armor.json", "scenarios.json")
+# --check 判定「逐字节一致」的域（scenarios 按 scenario_id 配对校验，见 check()）
+BYTE_IDENTICAL_FILES = ("ammo.json", "armor.json")
 
 _SAFE_COMPONENT = re.compile(r"[A-Za-z0-9_\-]+")
 
@@ -145,6 +150,11 @@ def print_slot_report(files: dict) -> None:
 
 # ------------------------------------------------------------------ write ----
 
+def _scenario_ids(payload: dict) -> list[str]:
+    """情景清单里的 scenario_id 有序列表（容错取 str）。"""
+    return [str(s.get("scenario_id")) for s in (payload.get("scenarios") or [])]
+
+
 def generate() -> None:
     (TABLES_DIR / "weapons").mkdir(parents=True, exist_ok=True)
     (TABLES_DIR / "parts").mkdir(parents=True, exist_ok=True)
@@ -162,7 +172,14 @@ def generate() -> None:
         write_json(TABLES_DIR / "parts" / f"{slot}.json", obj)
 
     for name in BYTE_COPY_FILES:
-        shutil.copyfile(GAME_DIR / name, TABLES_DIR / name)
+        target = TABLES_DIR / name
+        if name == "scenarios.json" and target.is_file():
+            game_ids = set(_scenario_ids(load_json(GAME_DIR / name)))
+            custom = sorted(set(_scenario_ids(load_json(target))) - game_ids)
+            if custom:
+                print(f"警告：现有 data/tables/scenarios.json 含自定义情景 {custom}，"
+                      f"本次将按 data/game/{name} 整体覆盖（自定义情景会被移除，如非有意请中止）")
+        shutil.copyfile(GAME_DIR / name, target)
 
     n_weapons = len(weapon_files)
     n_variants = sum(len(f["variants"]) for f in weapon_files.values())
@@ -277,8 +294,8 @@ def check() -> int:
     elif not failed:
         print(f"[OK] parts：{len(table_parts)} 条合并还原后逐键逐值相等")
 
-    # ammo / armor / scenarios：逐字节一致
-    for name in BYTE_COPY_FILES:
+    # ammo / armor：逐字节一致（scenarios 改为按 scenario_id 配对校验，见下）
+    for name in BYTE_IDENTICAL_FILES:
         game_bytes = (GAME_DIR / name).read_bytes()
         table_path = TABLES_DIR / name
         if not table_path.is_file():
@@ -289,6 +306,34 @@ def check() -> int:
             print(f"[FAIL] {name}: 与 data/game/{name} 逐字节不一致")
         else:
             print(f"[OK] {name}: 逐字节一致")
+
+    # scenarios：官方情景按 scenario_id 配对逐键逐值一致；表侧允许人工新增自定义情景
+    game_scen = load_json(GAME_DIR / "scenarios.json")
+    table_scen = load_json(TABLES_DIR / "scenarios.json")
+    scen_errors: list[str] = []
+    deep_equal(
+        {k: v for k, v in game_scen.items() if k != "scenarios"},
+        {k: v for k, v in table_scen.items() if k != "scenarios"},
+        "scenarios", scen_errors,
+    )
+    game_by_id = {s["scenario_id"]: s for s in game_scen.get("scenarios", [])}
+    table_by_id = {s["scenario_id"]: s for s in table_scen.get("scenarios", [])}
+    missing = sorted(set(game_by_id) - set(table_by_id))
+    if missing:
+        scen_errors.append(f"表侧缺失官方情景：{missing}")
+    for sid in sorted(set(game_by_id) & set(table_by_id)):
+        deep_equal(game_by_id[sid], table_by_id[sid], f"scenarios[{sid}]", scen_errors)
+    custom = sorted(set(table_by_id) - set(game_by_id))
+    if scen_errors:
+        failed = True
+        print(f"[FAIL] scenarios 对账失败（{len(scen_errors)} 处）：")
+        for err in scen_errors[:20]:
+            print(f"  {err}")
+    else:
+        custom_note = (
+            f"；表侧自定义情景 {len(custom)} 个（{', '.join(custom)}）" if custom else ""
+        )
+        print(f"[OK] scenarios：官方 {len(game_by_id)} 情景逐键逐值一致{custom_note}")
 
     if failed:
         print("--check 失败", file=sys.stderr)

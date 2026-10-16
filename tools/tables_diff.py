@@ -8,7 +8,8 @@
   profile_key 配对，逐字段 diff（输出哪把枪的哪个字段、两侧各是什么值）；
 - parts：parts/*.json 合并回 {item_id: 条目} 后与 data/game/parts.json 按 item_id 配对逐字段 diff；
 - ammo / armor / scenarios：条目级 diff——ammo 按 ammo_item_id、armor 按等级键（候选清单
-  按 item_id）、scenarios 按 scenario_id（weapon_pool 按 profile_key）配对；
+  按 item_id）、scenarios 按 scenario_id（weapon_pool 按 profile_key）配对；表侧新增的
+  自定义情景（参考层无此 id，如修脚 ``legs-only``）为预期差异，单独列出、不判失败；
 - 有差异退出码 1，零差异退出码 0。复用 tools/migrate_tables.py 的展开规则与加载函数，
   保证对账口径与迁移校验（migrate_tables.py --check）永远一致。
 """
@@ -26,6 +27,9 @@ import migrate_tables as mt  # noqa: E402  (复用同一套展开规则，禁止
 MAX_PRINT_PER_DOMAIN = 40
 # 单个值打印的最大字符数
 MAX_VALUE_CHARS = 160
+
+#: 表侧自定义情景（参考层无此 scenario_id）——由 domain_scenarios 填充，报告用
+CUSTOM_SCENARIO_IDS: list = []
 
 # 带键清单的条目配对键：路径模式（* 通配一段）→ 条目键字段。
 # 其余 dict 按键配对、无键 list 按下标配对。
@@ -159,9 +163,29 @@ def domain_armor():
 
 
 def domain_scenarios():
-    return (mt.load_json(mt.TABLES_DIR / "scenarios.json"),
-            mt.load_json(mt.GAME_DIR / "scenarios.json"),
-            "scenarios 按 scenario_id 配对，weapon_pool 按 profile_key 配对")
+    table = mt.load_json(mt.TABLES_DIR / "scenarios.json")
+    game = mt.load_json(mt.GAME_DIR / "scenarios.json")
+    game_ids = {str(s.get("scenario_id")) for s in (game.get("scenarios") or [])}
+    custom = [
+        s for s in (table.get("scenarios") or [])
+        if str(s.get("scenario_id")) not in game_ids
+    ]
+    CUSTOM_SCENARIO_IDS.clear()
+    CUSTOM_SCENARIO_IDS.extend(str(s.get("scenario_id")) for s in custom)
+    if custom:
+        print("== scenarios 自定义情景（表侧新增，预期差异，不参与对账）==")
+        for s in custom:
+            print(
+                f"  {s.get('scenario_id')}（命中分布 {s.get('probability_preset')}，"
+                f"弹药等级 {s.get('ammo_levels') or s.get('ammo_level')}）"
+            )
+    filtered = dict(table)
+    filtered["scenarios"] = [
+        s for s in (table.get("scenarios") or [])
+        if str(s.get("scenario_id")) in game_ids
+    ]
+    return (filtered, game,
+            "scenarios 按 scenario_id 配对；表侧自定义情景单独列出、不计差异")
 
 
 DOMAINS = (
@@ -208,11 +232,16 @@ def run() -> int:
         if len(diffs) > MAX_PRINT_PER_DOMAIN:
             print(f"  …另有 {len(diffs) - MAX_PRINT_PER_DOMAIN} 处差异未逐条展开")
 
+    custom_note = (
+        f"；表侧自定义情景 {len(CUSTOM_SCENARIO_IDS)} 个（{'、'.join(CUSTOM_SCENARIO_IDS)}），"
+        "为预期新增，不计差异"
+        if CUSTOM_SCENARIO_IDS else ""
+    )
     if total:
         print(f"对账结论：共 {total} 处差异（表侧=data/tables 真源，参考层=data/game 上游）。"
-              f"审阅上游变化后人工合入表侧。")
+              f"审阅上游变化后人工合入表侧{custom_note}。")
         return 1
-    print("对账结论：零差异——人工表与 data/game 参考层完全一致。")
+    print(f"对账结论：零差异——人工表与 data/game 参考层完全一致{custom_note}。")
     return 0
 
 

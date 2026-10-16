@@ -12,6 +12,7 @@ from src.renderers.ttk_report import (
     render_band_top_preview,
     render_gunsmith_guide,
     render_readme,
+    scenario_caption,
     scenario_doc_stem,
 )
 
@@ -221,6 +222,51 @@ def test_scenario_doc_stem_naming():
     ) == "护甲6弹药5-仅胸口"
     # 未知预设回退原值，不猜测
     assert scenario_doc_stem({"armor_level": 4, "ammo_level": 3}) == "护甲4弹药3-default"
+
+
+LEGS_META = {
+    "scenario_id": "legs-only",
+    "label": "修脚",
+    "armor_level": "5",
+    "ammo_levels": [3, 4, 5],
+    "probability_preset": "legs-only",
+}
+
+
+def test_scenario_doc_stem_legs_only():
+    """修脚情景（全腿部、跨弹药等级、不经护甲）不用「护甲X弹药Y」命名。"""
+    assert scenario_doc_stem(LEGS_META) == "修脚"
+
+
+def test_scenario_caption_legs_only():
+    caption = scenario_caption(LEGS_META)
+    assert caption.startswith("修脚（")
+    assert "全腿部命中，大腿 50% / 小腿 50%" in caption
+    assert "弹药 3/4/5 级有价弹同榜" in caption
+    assert "不经护甲结算" in caption
+
+
+def test_band_doc_legs_only_prefix_and_caption():
+    md = render_band_doc(PAYLOAD, "贴脸", LEGS_META, PART_NAMES, prefix="修脚")
+    assert "# 修脚 · 贴脸（0–15 m）" in md
+    assert "全腿部命中，大腿 50% / 小腿 50%" in md
+    assert "[近距](修脚-近距.md)" in md
+    assert "[贴脸](修脚-贴脸.md)" not in md
+
+
+def test_readme_scenario_index_legs_row():
+    """情景索引：修脚行护甲列为 —、弹药列为 3/4/5、四带链接齐全。"""
+    md = render_readme(
+        PAYLOAD,
+        SCENARIO_META,
+        {"source": {"name": "dfttk-v3", "dataset_version": "x"}},
+        PART_NAMES,
+        scenario_index=[SCENARIO_META, LEGS_META],
+    )
+    assert "| 修脚 | — | 3/4/5 | `legs-only` | " in md
+    assert "[贴脸](docs/榜单/修脚-贴脸.md)" in md
+    assert "[远距](docs/榜单/修脚-远距.md)" in md
+    assert "1 个 **修脚** 情景" in md
 
 
 def test_band_top_preview_limits_rows():

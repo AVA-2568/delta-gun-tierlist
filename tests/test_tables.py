@@ -8,8 +8,10 @@
   标量类型严格一致——复用 tools/migrate_tables.deep_equal 同一口径）；
 - parts：data/tables/parts/ 合并回 {item_id: 条目} 后与 data/game/parts.json
   的 1141 条逐键逐值相等；
-- ammo/armor/scenarios：与 data/game 同名文件值级相等（字节级由
+- ammo/armor：与 data/game 同名文件值级相等（字节级由
   ``python tools/migrate_tables.py --check`` 兜底）；
+- scenarios：官方 21 情景按 scenario_id 与 data/game 参考层逐键逐值相等；
+  表侧允许人工新增自定义情景（修脚 ``legs-only``），为预期差异；
 - profiles/mechanism/validation_samples/provenance：仍读 data/game，逐值相等；
 - 来源断言：用迷你表 fixture + monkeypatch TABLES_DIR 证明表域确实读
   data/tables/，参考层确实读 data_dir。
@@ -129,8 +131,37 @@ def test_armor_from_tables_matches_game(gd):
 
 
 def test_scenarios_from_tables_matches_game(gd):
-    assert gd.scenarios_raw == _load(os.path.join(TABLES_DIR, "scenarios.json")) == _load(os.path.join(GAME_DIR, "scenarios.json"))
-    assert len(gd.scenarios_raw["scenarios"]) == 21
+    """scenarios：官方 21 情景与参考层逐键逐值一致；表侧允许人工新增自定义情景。
+
+    契约扩展（2026-10-16）：修脚情景（``legs-only``）为表侧自定义新增，
+    ``data/game/scenarios.json``（上游参考层）不含该条目；除此之外必须零差异。
+    """
+    table = _load(os.path.join(TABLES_DIR, "scenarios.json"))
+    game = _load(os.path.join(GAME_DIR, "scenarios.json"))
+    assert gd.scenarios_raw == table
+
+    # scenarios 之外的顶层字段与参考层一致
+    for key in game:
+        if key != "scenarios":
+            assert table[key] == game[key], f"scenarios.json 顶层字段 {key} 与参考层不一致"
+
+    game_by_id = {s["scenario_id"]: s for s in game["scenarios"]}
+    table_by_id = {s["scenario_id"]: s for s in table["scenarios"]}
+    assert len(game_by_id) == 21
+    assert set(game_by_id) <= set(table_by_id), "官方情景不得在表侧缺失"
+
+    errors = []
+    deep_equal(game_by_id, {sid: table_by_id[sid] for sid in game_by_id}, "scenarios", errors)
+    assert not errors, f"官方情景逐键逐值对账失败（前 10 处）：\n" + "\n".join(errors[:10])
+
+    custom = sorted(set(table_by_id) - set(game_by_id))
+    assert custom == ["legs-only"], f"表侧自定义情景应为修脚，实际 {custom}"
+    legs = table_by_id["legs-only"]
+    assert legs["probability_preset"] == "legs-only"
+    assert legs["ammo_levels"] == [3, 4, 5]
+    assert legs["hit_probabilities"]["thigh"] == 0.5
+    assert legs["hit_probabilities"]["calf"] == 0.5
+    assert sum(legs["hit_probabilities"].values()) == pytest.approx(1.0)
 
 
 def test_reference_domains_still_from_game(gd):

@@ -225,13 +225,29 @@ class LoadoutSolver:
         self.scenario = eg.resolve_scenario(game_data, scenario_id)
         self.armor = eg.scenario_armor(game_data, self.scenario)
         self.probabilities = self.scenario["hit_probabilities"]
+        # 候选弹药等级集合（官方情景为单等级；自定义情景可多等级同榜，如修脚 3/4/5）
+        self.ammo_levels = eg.scenario_ammo_levels(self.scenario)
         self.resolver = resolver or WeaponStateResolver(game_data)
         self._ammo_cache: Dict[str, Mapping[str, Any]] = {}
 
     # ------------------------------------------------------------------ #
     def ammo_for(self, profile_key: str) -> Mapping[str, Any]:
+        """主弹：候选中该口径**存在**的最低等级官方池单弹（束搜索打分的默认弹）。
+
+        多等级情景下各弹行由调用方注入对应弹（见 :func:`src.engine.ranking.rank_weapons_for_scenario`），
+        本弹仅作主求解器的打分默认；该口径全部候选等级都无弹时抛 :class:`ScenarioError`。
+        """
         if profile_key not in self._ammo_cache:
-            self._ammo_cache[profile_key] = eg.pick_ammo(self.gd, profile_key, self.scenario["ammo_level"])
+            last_error: Optional[eg.ScenarioError] = None
+            for level in self.ammo_levels:
+                try:
+                    self._ammo_cache[profile_key] = eg.pick_ammo(self.gd, profile_key, level)
+                except eg.ScenarioError as exc:
+                    last_error = exc
+                    continue
+                break
+            else:
+                raise last_error  # type: ignore[misc]
         return self._ammo_cache[profile_key]
 
     def _mounted(self, profile_key: str, loadout: Mapping[str, str]) -> Dict[str, str]:

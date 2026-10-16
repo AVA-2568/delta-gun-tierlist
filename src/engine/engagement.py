@@ -32,7 +32,7 @@ TTK 定义（已确认口径）：
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Any, Dict, List, Mapping, Optional, Sequence
+from typing import Any, Dict, List, Mapping, Optional, Sequence, Tuple
 
 from src.engine.ballistics import DamageContext, build_context_from_state
 
@@ -68,7 +68,7 @@ class TtkResult:
 # 情景
 # --------------------------------------------------------------------------- #
 def resolve_scenario(game_data: Any, scenario_id: str) -> Dict[str, Any]:
-    """按 id 取情景定义（``data/tables/scenarios.json`` 收录官方 21 情景）。"""
+    """按 id 取情景定义（``data/tables/scenarios.json`` 收录官方 21 情景与自定义情景）。"""
     for scenario in game_data.scenarios_raw.get("scenarios", []):
         if scenario["scenario_id"] == scenario_id:
             return scenario
@@ -95,6 +95,18 @@ def pick_ammo(game_data: Any, profile_key: str, ammo_level: int) -> Dict[str, An
     if record is None:
         raise ScenarioError(f"{profile_key} 无 {ammo_level} 级弹药")
     return record
+
+
+def scenario_ammo_levels(scenario: Mapping[str, Any]) -> Tuple[int, ...]:
+    """情景的弹药候选等级集合（升序去重）。
+
+    官方情景为单等级（``ammo_level``）；自定义情景可用 ``ammo_levels`` 声明
+    **多等级同榜**（如修脚：腿部不经护甲结算，穿深无关，3/4/5 级弹同台比较）。
+    """
+    levels = scenario.get("ammo_levels")
+    if levels is None:
+        return (int(scenario["ammo_level"]),)
+    return tuple(sorted({int(level) for level in levels}))
 
 
 # --------------------------------------------------------------------------- #
