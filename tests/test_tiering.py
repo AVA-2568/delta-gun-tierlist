@@ -9,15 +9,16 @@ import os
 import pytest
 
 from src.engine import engagement as eg
+from src.engine.engagement import BAND_NAMES
 from src.engine.game_data import load_game_data
 from src.engine.ranking import rank_weapons_for_scenario
 from src.engine.tiering import (
-    BAND_NAMES,
     TIER_QUANTILES,
     BandResult,
     GunRanking,
     _quantile,
     assign_tiers,
+    extract_loadout_part_ids,
 )
 from src.engine.tierlist_export import to_export
 
@@ -76,9 +77,7 @@ def test_tier_quantiles_are_declared():
 
 
 def test_band_definitions_match_engine():
-    from src.engine.tiering import BAND_NAMES as names
-
-    assert list(names) == ["贴脸", "近距", "中距", "远距"]
+    assert list(BAND_NAMES) == ["贴脸", "近距", "中距", "远距"]
     assert eg.DISTANCE_BANDS["远距"] == (50.0, 80.0)
 
 
@@ -221,3 +220,61 @@ def test_real_qjb201_states_have_no_internal_parts(gd):
     for entry in rankings:
         for item_id in entry.loadout.values():
             assert item_id not in defaults, f"配装里出现了默认件 {item_id}"
+
+
+def test_expired_official_variant_is_not_ranked(gd):
+    """官方变体也受赛季限时件约束：ASh-12 HVK 双发枪管（S10）不得出榜。"""
+    rankings, _thresholds, _excluded = rank_weapons_for_scenario(
+        gd, "armor-5-ammo-5-default", beam_width=8, profile_keys=["18010000012:base"]
+    )
+    assert not any(e.variant_item_id == "13020000603" for e in rankings)
+
+
+def test_extract_loadout_part_ids_covers_base_variant_state():
+    """配件提取口径：base→[]；variant→出厂预装件（+改装件）；state→loadout 件。
+
+    三种 entry_kind 即 ranking 层实际写入值（base/variant/state），无第四种单件状态。
+    """
+
+    def entry(kind, **overrides):
+        kwargs = dict(
+            profile_key="w1:base",
+            weapon_id="w1",
+            display_name="w1",
+            base_name="w1",
+            category="突击步枪",
+            is_variant=False,
+            variant_item_name=None,
+            loadout={},
+            tuning={},
+            entry_kind=kind,
+        )
+        kwargs.update(overrides)
+        return GunRanking(**kwargs)
+
+    assert extract_loadout_part_ids(entry("base")) == []
+    assert extract_loadout_part_ids(
+        entry("state", loadout={"2": "p1", "6": "p2"})
+    ) == ["p1", "p2"]
+
+    variant = entry("variant", is_variant=True, variant_item_id="v1")
+    assert extract_loadout_part_ids(variant) == ["v1"]
+    # 变体 + 玩家改装：出厂件在前，改装件并入
+    variant_mod = entry(
+        "variant", is_variant=True, variant_item_id="v1", loadout={"6": "p2"}
+    )
+    assert extract_loadout_part_ids(variant_mod) == ["v1", "p2"]
+    # 缺 variant_item_id 时从 profile_key 的 "weapon_id:part_id" 后缀解析
+    assert extract_loadout_part_ids(
+        entry("variant", is_variant=True, profile_key="w1:v9")
+    ) == ["v9"]
+
+    # Mapping 路径（榜单 JSON 行）同口径
+    assert extract_loadout_part_ids({"entry_kind": "base", "loadout": {}}) == []
+    assert extract_loadout_part_ids(
+        {"entry_kind": "state", "loadout": {"2": "p1"}}
+    ) == ["p1"]
+    assert extract_loadout_part_ids(
+        {"entry_kind": "variant", "variant_item_id": "v1", "loadout": {}}
+    ) == ["v1"]
+    assert extract_loadout_part_ids({"profile_key": "w1:v9", "is_variant": True}) == ["v9"]

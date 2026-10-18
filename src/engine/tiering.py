@@ -14,8 +14,6 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Mapping, Optional, Sequence
 
-from src.engine.engagement import BAND_NAMES
-
 TIER_QUANTILES: tuple = (0.15, 0.40, 0.70)
 TIER_NAMES: tuple = ("T0", "T1", "T2", "T3")
 
@@ -45,7 +43,7 @@ class GunRanking:
 
     - ``"base"``：本体裸枪（官方默认配装）；
     - ``"variant"``：本体+官方预装件（官方变体出厂态，预装件生效、无其他改装）；
-    - ``"single_part"``：本体裸枪 + 单件装配（仅该件替换默认件，不做组合）。
+    - ``"state"``：束搜索枚举出的改装状态（玩家装配的核心件组合）。
 
     每行只代表一个配置状态，全部参与排名与分层。变体不是独立的枪——
     只是本体预装了官方改件，故 ``gun_price_daily`` 与本体一致。
@@ -62,7 +60,6 @@ class GunRanking:
     tuning: Dict[str, Dict[str, float]]
     entry_kind: str = "base"
     variant_item_id: Optional[str] = None
-    single_part_item_id: Optional[str] = None
     bands: Dict[str, BandResult] = field(default_factory=dict)
     overall_mean_ms: float = 0.0
     expected_shots_0m: float = 0.0
@@ -174,13 +171,13 @@ def compute_full_price(
 def extract_loadout_part_ids(entry_or_row: Any) -> List[str]:
     """提取一个状态行或排名条目中所涉及的核心配件 item_id 列表。
 
-    - entry_kind == "base" 且无配件：返回 []
-    - entry_kind == "variant" / is_variant 为 True：提取出厂预装改件（优先 variant_item_id，
-      若缺失则从 profile_key "weapon_id:part_id" 解析）
-    - 改装状态：loadout 字典中的非默认件；若 loadout 为空但有 single_part_item_id，返回 [single_part_item_id]
+    - ``entry_kind == "base"``（本体裸枪、无改装）：返回 []
+    - ``entry_kind == "variant"``：提取出厂预装改件（优先 variant_item_id，
+      若缺失则从 profile_key "weapon_id:part_id" 解析），并并入玩家改装件
+    - ``entry_kind == "state"``（改装态）：loadout 字典中的非默认件
     """
     if isinstance(entry_or_row, GunRanking):
-        if entry_or_row.entry_kind == "base" and not entry_or_row.loadout and not entry_or_row.single_part_item_id:
+        if entry_or_row.entry_kind == "base" and not entry_or_row.loadout:
             return []
         if entry_or_row.entry_kind == "variant" or entry_or_row.is_variant:
             part_ids: List[str] = []
@@ -193,17 +190,13 @@ def extract_loadout_part_ids(entry_or_row: Any) -> List[str]:
             if entry_or_row.loadout:
                 part_ids.extend(str(v) for v in entry_or_row.loadout.values())
             return part_ids
-        if entry_or_row.loadout:
-            return [str(v) for v in entry_or_row.loadout.values()]
-        if entry_or_row.single_part_item_id:
-            return [str(entry_or_row.single_part_item_id)]
-        return []
+        return [str(v) for v in entry_or_row.loadout.values()]
 
     if not isinstance(entry_or_row, Mapping):
         return []
 
     entry_kind = entry_or_row.get("entry_kind") or ("variant" if entry_or_row.get("is_variant") else "base")
-    if entry_kind == "base" and not entry_or_row.get("loadout") and not entry_or_row.get("single_part_item_id"):
+    if entry_kind == "base" and not entry_or_row.get("loadout"):
         return []
     if entry_or_row.get("is_variant") or entry_kind == "variant":
         part_ids = []
@@ -223,9 +216,6 @@ def extract_loadout_part_ids(entry_or_row: Any) -> List[str]:
     loadout = entry_or_row.get("loadout")
     if loadout and isinstance(loadout, Mapping):
         return [str(v) for v in loadout.values()]
-    single_part = entry_or_row.get("single_part_item_id")
-    if single_part:
-        return [str(single_part)]
     return []
 
 

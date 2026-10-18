@@ -3,7 +3,6 @@
 用法::
 
     python -m src.pipeline                      # 默认情景（5 个实战甲弹组合 + 修脚，见 DEFAULT_SCENARIOS）
-    python -m src.pipeline --all                # 全部情景（21 个官方情景 + 修脚情景）
     python -m src.pipeline --scenario 5-5       # 单个甲弹组合的实战情景
     python -m src.pipeline --scenario legs-only # 也可传完整情景 ID（如修脚）
     python -m src.pipeline --limit 8            # 快速冒烟（前 8 把枪）
@@ -89,8 +88,9 @@ FINGERPRINT_PIPELINE_FILE = ("src", "pipeline.py")
 INPUTS_FINGERPRINT_KEY = "inputs_fingerprint"
 
 # 默认出榜情景（口径已确认）：甲弹组合不含 3 级弹（3-3 / 4-3 不做）；
-# 命中分布只用实战预设 default（center / chest-only 为官方理论聚焦预设，需 --all 才出）；
+# 命中分布只用实战预设 default（center / chest-only 为官方理论聚焦预设，不发布）；
 # 修脚情景（legs-only）为全腿部命中、弹药 3/4/5 级有价弹同榜的自定义情景，默认一并出榜。
+# 这是仓库唯一的发布集合：--all 模式已删除（见 docs/adr/0005-drop-all-scenarios.md）。
 DEFAULT_SCENARIOS: tuple = (
     "armor-4-ammo-4-default",
     "armor-4-ammo-5-default",
@@ -406,14 +406,14 @@ def refresh_payload_prices(
 def refresh_prices(
     output_dir: str = ".",
     scenarios: Optional[Sequence[str]] = None,
-    all_scenarios: bool = False,
     write: bool = True,
 ) -> Dict[str, Any]:
     """轻量价格刷新（``--price-only``）：只重算价格列并重渲染文档，不重算 TTK。
 
     读取现有 ``data/榜单/*.json``，用当前价格表刷新各状态行价格字段后重写
     JSON，并经既有渲染层重出 ``docs/榜单/*.md`` 与 ``README.md``（与全量重算
-    产物同构）。某情景 JSON 缺失或无 ``inputs_fingerprint``（旧产物）时报错
+    产物同构）。刷新范围为显式 ``scenarios`` 或 :data:`DEFAULT_SCENARIOS`。
+    某情景 JSON 缺失或无 ``inputs_fingerprint``（旧产物）时报错
     跳过——需先全量重算一次；其余 TTK 字段（mean/worst/expected_shots 等）
     一律保持原值不动。
     """
@@ -422,9 +422,7 @@ def refresh_prices(
     part_table = load_part_prices(os.path.join(output_dir, PART_PRICE_TABLE))
     index = _scan_ranking_files(output_dir)
 
-    if all_scenarios:
-        targets = sorted(index)
-    elif scenarios:
+    if scenarios:
         targets = list(scenarios)
     else:
         targets = list(DEFAULT_SCENARIOS)
@@ -477,7 +475,6 @@ def refresh_prices(
 def check_stale(
     output_dir: str = ".",
     scenarios: Optional[Sequence[str]] = None,
-    all_scenarios: bool = False,
 ) -> List[str]:
     """比较当前输入指纹与榜单 JSON 记录的指纹，返回需重算的原因列表（空 = 新鲜）。
 
@@ -487,12 +484,10 @@ def check_stale(
     - 全部一致 → 新鲜（CI 短路跳过束搜索重算）。
 
     检查范围与全量重算的产出范围一致：显式 ``scenarios`` 或
-    :data:`DEFAULT_SCENARIOS`；``all_scenarios=True`` 时覆盖 data/榜单/ 全部产物。
+    :data:`DEFAULT_SCENARIOS`。
     """
     index = _scan_ranking_files(output_dir)
-    if all_scenarios:
-        targets = sorted(index)
-    elif scenarios:
+    if scenarios:
         targets = list(scenarios)
     else:
         targets = list(DEFAULT_SCENARIOS)
@@ -516,7 +511,6 @@ def check_stale(
 def run_pipeline(
     output_dir: str = ".",
     scenarios: Optional[Sequence[str]] = None,
-    all_scenarios: bool = False,
     limit: Optional[int] = None,
     beam_width: int = 48,
     write: bool = True,
@@ -527,9 +521,7 @@ def run_pipeline(
     Args:
         output_dir: 输出根目录。
         scenarios: 指定情景 ID 列表（完整 ID，如 ``armor-5-ammo-5-default``）；
-            ``None`` 且 ``all_scenarios=False`` 时用 :data:`DEFAULT_SCENARIOS`。
-        all_scenarios: 为全部情景（21 个官方情景，含 center / chest-only 理论聚焦预设，
-            加修脚自定义情景）各出一份榜单。
+            ``None`` 时用 :data:`DEFAULT_SCENARIOS`。
         limit: 仅处理前 N 把枪（调试用）。
         beam_width: 起枪状态束搜索宽度（决定每枪枚举的状态数上限）。
         write: 是否写盘（False 时仅返回结果，便于测试）。
@@ -543,9 +535,7 @@ def run_pipeline(
     part_names = _part_names(game_data)
     scenario_meta_all = {s["scenario_id"]: s for s in _scenario_index(game_data)}
 
-    if all_scenarios:
-        targets = list(scenario_meta_all.keys())
-    elif scenarios:
+    if scenarios:
         targets = list(scenarios)
     else:
         targets = list(DEFAULT_SCENARIOS)
@@ -598,7 +588,6 @@ def main() -> None:
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
     parser = argparse.ArgumentParser(description="纯 TTK 枪械强度榜管线")
     parser.add_argument("--output-dir", default=".", help="输出根目录（默认当前目录）")
-    parser.add_argument("--all", action="store_true", help="全部情景（21 个官方情景 + 修脚情景）")
     parser.add_argument(
         "--scenario", default=None,
         help="单情景：甲弹组合简写（如 5-5 → 其 default 实战情景）或完整情景 ID（如 legs-only）",
@@ -630,9 +619,7 @@ def main() -> None:
             scenarios = [args.scenario]
 
     if args.check_stale:
-        reasons = check_stale(
-            output_dir=args.output_dir, scenarios=scenarios, all_scenarios=args.all,
-        )
+        reasons = check_stale(output_dir=args.output_dir, scenarios=scenarios)
         if reasons:
             for reason in reasons:
                 print(f"需重算：{reason}")
@@ -644,7 +631,6 @@ def main() -> None:
         result = refresh_prices(
             output_dir=args.output_dir,
             scenarios=scenarios,
-            all_scenarios=args.all,
             write=not args.dry_run,
         )
         print(
@@ -659,7 +645,6 @@ def main() -> None:
     result = run_pipeline(
         output_dir=args.output_dir,
         scenarios=scenarios,
-        all_scenarios=args.all,
         limit=args.limit,
         beam_width=args.beam_width,
         write=not args.dry_run,

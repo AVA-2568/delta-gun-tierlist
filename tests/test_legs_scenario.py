@@ -15,9 +15,9 @@ import pytest
 
 from src.engine import engagement as eg
 from src.engine.ammo_pricing import AmmoPriceTable
+from src.engine.engagement import BAND_NAMES
 from src.engine.game_data import load_game_data
 from src.engine.ranking import pick_priced_ammos, rank_weapons_for_scenario
-from src.engine.tiering import BAND_NAMES
 from src.engine.weapon_state import WeaponStateResolver
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

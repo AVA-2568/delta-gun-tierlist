@@ -33,7 +33,7 @@ def _load_fixture():
 
 def _match():
     payload = _load_fixture()
-    catalog = mod.load_ammo_catalog(str(ROOT / "data" / "game" / "ammo.json"))
+    catalog = mod.load_ammo_catalog(str(ROOT / "data" / "tables"))
     prices, notes = mod.match_ammo_prices(
         payload["rows"], catalog, mod.build_ammo_name_map(catalog)
     )
@@ -70,7 +70,7 @@ def test_parse_rows_decodes_html_entities_then_alias_row_matches():
     )
     rows = mod.parse_rows(page)
     assert rows[0]["name"] == '.357 Magnum 9号霰射"鼠弹"'
-    catalog = mod.load_ammo_catalog(str(ROOT / "data" / "game" / "ammo.json"))
+    catalog = mod.load_ammo_catalog(str(ROOT / "data" / "tables"))
     prices, _notes = mod.match_ammo_prices(rows, catalog, mod.build_ammo_name_map(catalog))
     assert prices["37220000001"] == 318  # 不再落 null（缺价不猜测≠漏配缺陷）
 

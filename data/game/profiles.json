@@ -15824,9 +15824,9 @@
     100000.0
    ],
    "attenuation_rates": [
-    0.85,
-    0.75,
-    0.65
+    0.8,
+    0.7,
+    0.6
    ]
   },
   "authoring:weapon:18030000001:hipSpread": {
@@ -21224,14 +21224,14 @@
   "authoring:weapon:18070000003:bd:bullet": {
    "profile_id": "authoring:weapon:18070000003:bd:bullet",
    "kind": "bullet",
-   "initial_speed_cm_s": 34000.0,
+   "initial_speed_cm_s": 65000.0,
    "max_distance_cm": 50000.0,
    "valid_distance_cm": 4000.0,
    "attenuation_distances_cm": [
     10000.0
    ],
    "attenuation_rates": [
-    0.9
+    1.0
    ]
   },
   "authoring:ammo:37220000001:bullet": {
@@ -21434,7 +21434,7 @@
   "authoring:weapon:18070000004:bd:bullet": {
    "profile_id": "authoring:weapon:18070000004:bd:bullet",
    "kind": "bullet",
-   "initial_speed_cm_s": 34000.0,
+   "initial_speed_cm_s": 45000.0,
    "max_distance_cm": 50000.0,
    "valid_distance_cm": 4000.0,
    "attenuation_distances_cm": [
@@ -25129,10 +25129,10 @@
     "head": 2.0,
     "upperChest": 1.0,
     "lowerChest": 1.0,
-    "upperArm": 0.6,
-    "lowerArm": 0.6,
-    "thigh": 0.6,
-    "lowerLeg": 0.6
+    "upperArm": 0.5,
+    "lowerArm": 0.5,
+    "thigh": 0.5,
+    "lowerLeg": 0.5
    }
   },
   "authoring:part:13020000563:sol:damage": {
@@ -25270,9 +25270,9 @@
    "base_armor_damage": 37.0,
    "base_penetration_level": 1,
    "hitbox_multipliers": {
-    "head": 1.9,
+    "head": 1.6,
     "upperChest": 1.0,
-    "lowerChest": 1.0,
+    "lowerChest": 0.9,
     "upperArm": 0.35,
     "lowerArm": 0.35,
     "thigh": 0.35,
@@ -25506,7 +25506,7 @@
   "authoring:weapon:18030000006:bd:damage": {
    "profile_id": "authoring:weapon:18030000006:bd:damage",
    "kind": "damage",
-   "base_damage": 16.0,
+   "base_damage": 15.0,
    "base_armor_damage": 16.0,
    "base_penetration_level": 1,
    "hitbox_multipliers": {
@@ -26498,13 +26498,13 @@
   "authoring:weapon:18060000009:bd:damage": {
    "profile_id": "authoring:weapon:18060000009:bd:damage",
    "kind": "damage",
-   "base_damage": 100.0,
+   "base_damage": 77.0,
    "base_armor_damage": 58.0,
    "base_penetration_level": 1,
    "hitbox_multipliers": {
     "head": 2.5,
     "upperChest": 1.0,
-    "lowerChest": 1.0,
+    "lowerChest": 0.9,
     "upperArm": 0.6,
     "lowerArm": 0.6,
     "thigh": 0.6,
@@ -26550,7 +26550,7 @@
    "base_armor_damage": 58.0,
    "base_penetration_level": 1,
    "hitbox_multipliers": {
-    "head": 2.5,
+    "head": 2.2,
     "upperChest": 1.0,
     "lowerChest": 0.5,
     "upperArm": 0.25,
@@ -26791,7 +26791,7 @@
    "base_penetration_level": 1,
    "hitbox_multipliers": {
     "head": 2.5,
-    "upperChest": 1.0,
+    "upperChest": 1.375,
     "lowerChest": 1.0,
     "upperArm": 0.6,
     "lowerArm": 0.6,

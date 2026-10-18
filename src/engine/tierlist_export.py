@@ -9,7 +9,8 @@ from typing import TYPE_CHECKING, Any, Dict, List, Mapping, Optional, Sequence
 
 from src.engine import engagement as eg
 from src.engine.ammo_pricing import DEFAULT_CURRENCY
-from src.engine.tiering import BAND_NAMES, SPARE_AMMO_ROUNDS, TIER_QUANTILES, GunRanking
+from src.engine.engagement import BAND_NAMES
+from src.engine.tiering import SPARE_AMMO_ROUNDS, TIER_QUANTILES, GunRanking
 
 if TYPE_CHECKING:  # pragma: no cover - 仅类型标注
     from src.engine.ammo_pricing import AmmoPriceTable

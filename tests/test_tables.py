@@ -1,24 +1,20 @@
-"""数据表化引擎切换的对账与来源断言（契约：docs/superpowers/specs/2026-10-04-data-tables-design.md 第 2/3/4 节）。
+"""数据真源的结构与来源契约（ADR-0004：``data/tables/`` 是唯一运行期真源）。
 
-对账口径（TTK 零变化铁律的加载侧钉子）：
+本套件是**常驻**门槛，只钉两件事：
 
-- weapons：data/tables/weapons/ 按第 2 节展开规则还原后，86 条目（68 本体 + 18 官方
-  变体；收录 = 上游 manifest.weaponPacks 全量 68 把，官方 TTK 榜仅覆盖其中 43 把）
-  与 data/game/weapons.json 按 profile_key 配对**逐键逐值相等**（含嵌套结构与浮点，
-  标量类型严格一致——复用 tools/migrate_tables.deep_equal 同一口径）；
-- parts：data/tables/parts/ 合并回 {item_id: 条目} 后与 data/game/parts.json
-  的 1141 条逐键逐值相等；
-- ammo/armor：与 data/game 同名文件值级相等（字节级由
-  ``python tools/migrate_tables.py --check`` 兜底）；
-- scenarios：官方 21 情景按 scenario_id 与 data/game 参考层逐键逐值相等；
-  表侧允许人工新增自定义情景（修脚 ``legs-only``），为预期差异；
-- profiles/mechanism/validation_samples/provenance：仍读 data/game，逐值相等；
-- 来源断言：用迷你表 fixture + monkeypatch TABLES_DIR 证明表域确实读
-  data/tables/，参考层确实读 data_dir。
+1. **来源**：表域（weapons/parts/ammo/armor/scenarios）确实读 ``tables_dir``
+   （默认 :data:`src.engine.game_data.TABLES_DIR`），参考层
+   （profiles/mechanism/validation_samples/provenance）确实读 ``data_dir``；
+2. **结构**：条目规模、展开规则、槽位文件覆盖、情景集合。
 
-计数断言取**精确值**而非下限式：本套件是对账钉子，数据侧任何规模变化都必须
-升级为一次有意的测试更新（migrate --check 的 profile_key/条目集合断言会先
-报出具体差异），下限式断言会让意外缩水静默通过。
+``data/game/`` 已降为只读审计快照：与它的逐键逐值相等**不再**由常驻测试承担
+（那是 ``python tools/migrate_tables.py --check`` 的职责），这里只比
+``profile_key`` / ``item_id`` 集合以捕获集合级漂移。字段值正确性的硬门槛是
+3774 点官方复现测试（``tools/verify_official_reproduction.py``）。
+
+计数断言取**精确值**而非下限式：数据侧任何规模变化都必须升级为一次有意的
+测试更新（``migrate --check`` 会先报出具体差异），下限式断言会让意外缩水
+静默通过。
 """
 
 import json
@@ -28,7 +24,6 @@ import pytest
 
 from src.engine import game_data as game_data_module
 from src.engine.game_data import TABLES_DIR, load_game_data
-from tools.migrate_tables import deep_equal
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 GAME_DIR = os.path.join(ROOT, "data", "game")
@@ -44,25 +39,18 @@ def gd():
     return load_game_data()
 
 
-# ----------------------------------------------------- 第 2 节：weapons 对账 ----
+# ------------------------------------------------- 第 2 节：weapons 结构与集合 ----
 
-def test_weapons_expansion_matches_game(gd):
-    game_weapons = {e["profile_key"]: e for e in _load(os.path.join(GAME_DIR, "weapons.json"))["weapons"]}
-    table_weapons = {e["profile_key"]: e for e in gd.weapons}
+def test_weapons_expansion_profile_keys_match_snapshot(gd):
+    """展开后 86 条目（68 本体 + 18 变体），profile_key 集合与审计快照一致。"""
+    snapshot_keys = {
+        e["profile_key"] for e in _load(os.path.join(GAME_DIR, "weapons.json"))["weapons"]
+    }
+    table_keys = {e["profile_key"] for e in gd.weapons}
 
     assert len(gd.weapons) == 86, f"展开后应为 86 条目，实际 {len(gd.weapons)}"
-    assert len(game_weapons) == 86 and len(table_weapons) == 86
-    assert set(game_weapons) == set(table_weapons), "profile_key 集合不一致"
-
-    errors = []
-    deep_equal(game_weapons, table_weapons, "weapons", errors)
-    assert not errors, f"逐键逐值对账失败（前 10 处）：\n" + "\n".join(errors[:10])
-
-
-def test_weapons_order_matches_game(gd):
-    """契约第 4 节：顺序 weapon_id 升序、base 先于变体（与原文件一致）。"""
-    game_keys = [e["profile_key"] for e in _load(os.path.join(GAME_DIR, "weapons.json"))["weapons"]]
-    assert [e["profile_key"] for e in gd.weapons] == game_keys
+    assert len(table_keys) == 86, "profile_key 重复"
+    assert table_keys == snapshot_keys, "profile_key 集合与审计快照不一致"
 
 
 def test_weapons_base_and_variant_counts(gd):
@@ -70,6 +58,17 @@ def test_weapons_base_and_variant_counts(gd):
     bases = [e for e in gd.weapons if not e["is_variant"]]
     variants = [e for e in gd.weapons if e["is_variant"]]
     assert len(bases) == 68 and len(variants) == 18
+
+
+def test_weapons_order_base_before_variant(gd):
+    """契约第 4 节：weapon_id 升序、base 先于其变体。"""
+    weapon_ids = [e["weapon_id"] for e in gd.weapons]
+    assert weapon_ids == sorted(weapon_ids)
+
+    position = {e["profile_key"]: i for i, e in enumerate(gd.weapons)}
+    for entry in gd.weapons:
+        if entry["is_variant"]:
+            assert position[f"{entry['weapon_id']}:base"] < position[entry["profile_key"]]
 
 
 def test_weapons_expansion_rule_keys(gd):
@@ -98,17 +97,12 @@ def test_unranked_weapons_are_independent_base_entries(gd):
     assert gd.get_weapon("18150000001:base")["weapon_type"] == "special"
 
 
-# ----------------------------------------------------- 第 3 节：parts 对账 ----
+# --------------------------------------------------- 第 3 节：parts 结构与集合 ----
 
-def test_parts_merge_matches_game(gd):
-    game_parts = _load(os.path.join(GAME_DIR, "parts.json"))["parts"]
-
+def test_parts_merge_item_ids_match_snapshot(gd):
+    snapshot_ids = set(_load(os.path.join(GAME_DIR, "parts.json"))["parts"])
     assert len(gd.parts) == 1141, f"合并后应为 1141 条，实际 {len(gd.parts)}"
-    assert set(gd.parts) == set(game_parts), "item_id 集合不一致"
-
-    errors = []
-    deep_equal(game_parts, gd.parts, "parts", errors)
-    assert not errors, f"逐键逐值对账失败（前 10 处）：\n" + "\n".join(errors[:10])
+    assert set(gd.parts) == snapshot_ids, "item_id 集合与审计快照不一致"
 
 
 def test_parts_slot_files_cover_all_slots(gd):
@@ -117,46 +111,41 @@ def test_parts_slot_files_cover_all_slots(gd):
     assert slots == files, f"槽位集合与 parts/ 文件名集合不一致：仅数据 {sorted(slots - files)}，仅文件 {sorted(files - slots)}"
 
 
-# --------------------------------------------- 第 4 节：其余各域来源与对账 ----
+# --------------------------------------------- 第 4 节：其余各域来源与集合 ----
 
-def test_ammo_from_tables_matches_game(gd):
-    game_ammo = _load(os.path.join(GAME_DIR, "ammo.json"))["ammo"]
+def test_ammo_from_tables(gd):
     table_ammo = _load(os.path.join(TABLES_DIR, "ammo.json"))["ammo"]
-    assert len(gd.ammo) == 113 == len(game_ammo)
-    assert gd.ammo == game_ammo == table_ammo
+    snapshot_ids = {a["ammo_item_id"] for a in _load(os.path.join(GAME_DIR, "ammo.json"))["ammo"]}
+    assert len(gd.ammo) == 113
+    assert {a["ammo_item_id"] for a in gd.ammo} == snapshot_ids
+    assert {a["ammo_item_id"] for a in gd.ammo} == {a["ammo_item_id"] for a in table_ammo}
 
 
-def test_armor_from_tables_matches_game(gd):
-    assert gd.armor == _load(os.path.join(TABLES_DIR, "armor.json")) == _load(os.path.join(GAME_DIR, "armor.json"))
+def test_armor_from_tables(gd):
+    table_armor = _load(os.path.join(TABLES_DIR, "armor.json"))
+    assert gd.armor == table_armor
+    assert sorted(table_armor["levels"]) == sorted(str(level) for level in range(1, 7))
 
 
-def test_scenarios_from_tables_matches_game(gd):
-    """scenarios：官方 21 情景与参考层逐键逐值一致；表侧允许人工新增自定义情景。
-
-    契约扩展（2026-10-16）：修脚情景（``legs-only``）为表侧自定义新增，
-    ``data/game/scenarios.json``（上游参考层）不含该条目；除此之外必须零差异。
-    """
+def test_scenarios_official_set_and_custom_entry(gd):
+    """scenarios：官方 21 情景均在表侧；表侧唯一自定义情景为修脚 ``legs-only``。"""
     table = _load(os.path.join(TABLES_DIR, "scenarios.json"))
-    game = _load(os.path.join(GAME_DIR, "scenarios.json"))
+    snapshot = _load(os.path.join(GAME_DIR, "scenarios.json"))
     assert gd.scenarios_raw == table
 
-    # scenarios 之外的顶层字段与参考层一致
-    for key in game:
+    # scenarios 之外的顶层字段与审计快照一致
+    for key in snapshot:
         if key != "scenarios":
-            assert table[key] == game[key], f"scenarios.json 顶层字段 {key} 与参考层不一致"
+            assert table[key] == snapshot[key], f"scenarios.json 顶层字段 {key} 与快照不一致"
 
-    game_by_id = {s["scenario_id"]: s for s in game["scenarios"]}
-    table_by_id = {s["scenario_id"]: s for s in table["scenarios"]}
-    assert len(game_by_id) == 21
-    assert set(game_by_id) <= set(table_by_id), "官方情景不得在表侧缺失"
+    snapshot_ids = {s["scenario_id"] for s in snapshot["scenarios"]}
+    table_ids = {s["scenario_id"] for s in table["scenarios"]}
+    assert len(snapshot_ids) == 21
+    assert snapshot_ids <= table_ids, f"官方情景在表侧缺失：{sorted(snapshot_ids - table_ids)}"
 
-    errors = []
-    deep_equal(game_by_id, {sid: table_by_id[sid] for sid in game_by_id}, "scenarios", errors)
-    assert not errors, f"官方情景逐键逐值对账失败（前 10 处）：\n" + "\n".join(errors[:10])
-
-    custom = sorted(set(table_by_id) - set(game_by_id))
+    custom = sorted(table_ids - snapshot_ids)
     assert custom == ["legs-only"], f"表侧自定义情景应为修脚，实际 {custom}"
-    legs = table_by_id["legs-only"]
+    legs = next(s for s in table["scenarios"] if s["scenario_id"] == "legs-only")
     assert legs["probability_preset"] == "legs-only"
     assert legs["ammo_levels"] == [3, 4, 5]
     assert legs["hit_probabilities"]["thigh"] == 0.5
@@ -205,6 +194,7 @@ def test_table_domains_read_from_tables_dir(tmp_path, monkeypatch):
 
     gd = load_game_data()  # 参考层仍用默认 data/game
 
+    assert gd.tables_dir == str(tables)
     assert gd.weapons[0]["marker"] == "from-table"
     assert gd.get_weapon("W1:base")["profile_key"] == "W1:base"
     variant = gd.get_weapon("W1:P1")
@@ -215,6 +205,16 @@ def test_table_domains_read_from_tables_dir(tmp_path, monkeypatch):
     assert gd.scenarios_raw["marker"] == "from-table"
     # 参考层不受影响：仍读 data/game
     assert gd.profiles == _load(os.path.join(GAME_DIR, "profiles.json"))["profiles"]
+
+
+def test_tables_dir_argument_overrides_module_default(tmp_path, monkeypatch):
+    """显式 tables_dir 优先于模块级默认值（默认值在运行时读取，非定义时固化）。"""
+    tables = _write_table_fixture(tmp_path)
+    monkeypatch.setattr(game_data_module, "TABLES_DIR", str(tmp_path / "no-such-tables"))
+
+    gd = load_game_data(tables_dir=str(tables))
+    assert gd.tables_dir == str(tables)
+    assert gd.weapons[0]["marker"] == "from-table"
 
 
 def test_data_dir_controls_reference_layer(tmp_path, monkeypatch):

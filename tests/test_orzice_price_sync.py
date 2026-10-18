@@ -55,9 +55,9 @@ def _page_fetcher(pages: dict, calls: list, fail: dict = None):
 
 
 def _make_output_dir(tmp_path: Path) -> Path:
-    """临时输出根：拷贝官方目录 data/game（含 weapons.json 与 ammo.json）。"""
+    """临时输出根：拷贝运行期真源 data/tables（价格表骨架的来源）。"""
     root = tmp_path / "repo"
-    shutil.copytree(REPO_ROOT / "data" / "game", root / "data" / "game")
+    shutil.copytree(REPO_ROOT / "data" / "tables", root / "data" / "tables")
     return root
 
 
@@ -218,7 +218,7 @@ def test_norm_name_bridges_mm_and_hyphen_variants():
 
 
 def test_build_ammo_name_map_real_catalog_collision_free():
-    catalog = mod.load_ammo_catalog(str(REPO_ROOT / "data" / "game" / "ammo.json"))
+    catalog = mod.load_ammo_catalog(str(REPO_ROOT / "data" / "tables"))
     name_map = build_ammo_name_map(catalog)
     assert len(name_map) == len(catalog)  # 现行官方目录无撞名键（mm 剔除不产生碰撞）
 
@@ -226,7 +226,7 @@ def test_build_ammo_name_map_real_catalog_collision_free():
 # ---- 弹药匹配：objectID 优先 + 名称全等唯一，缺价不猜测 ----
 
 def test_match_ammo_prices_on_fixtures():
-    catalog = mod.load_ammo_catalog(str(REPO_ROOT / "data" / "game" / "ammo.json"))
+    catalog = mod.load_ammo_catalog(str(REPO_ROOT / "data" / "tables"))
     name_map = build_ammo_name_map(catalog)
     rows = []
     for name in ("orzice_ammo.html", "orzice_ammo_p2.html", "orzice_ammo_p6.html"):
@@ -257,7 +257,7 @@ def test_match_ammo_prices_skips_zero_and_missing_price():
 
 
 def test_match_weapon_prices_filters_by_catalog_and_positive_price():
-    catalog = mod.load_weapon_catalog(str(REPO_ROOT / "data" / "game" / "weapons.json"))
+    catalog = mod.load_weapon_catalog(str(REPO_ROOT / "data" / "tables"))
     # 真实战备页夹具均为配件/装备 → 全部过滤掉
     rows = parse_rows(_fixture("orzice_zhanbei.html")) + parse_rows(_fixture("orzice_zhanbei_p2.html"))
     assert match_weapon_prices(rows, set(catalog)) == {}
@@ -447,9 +447,8 @@ def test_sync_403_writes_partial_result_and_reports_incomplete(tmp_path):
 
 def test_sync_missing_catalog_raises(tmp_path):
     root = tmp_path / "empty"
-    (root / "data" / "game").mkdir(parents=True)
-    (root / "data" / "game" / "weapons.json").write_text('{"weapons": []}', encoding="utf-8")
-    (root / "data" / "game" / "ammo.json").write_text('{"ammo": []}', encoding="utf-8")
+    (root / "data" / "tables" / "weapons").mkdir(parents=True)
+    (root / "data" / "tables" / "ammo.json").write_text('{"ammo": []}', encoding="utf-8")
     calls = []
     fetch = _page_fetcher({}, calls)
     with pytest.raises(RuntimeError):
@@ -488,7 +487,7 @@ def test_main_exits_zero_on_partial(monkeypatch, capsys):
 def test_match_part_prices_from_zhanbei_fixture():
     """战备页夹具中包含枪管、握把等配件，验证能按 objectID 及名称正确提取价格。"""
     rows = parse_rows(_fixture("orzice_zhanbei.html"))
-    part_catalog = mod.load_part_catalog(str(REPO_ROOT / "data" / "game" / "parts.json"))
+    part_catalog = mod.load_part_catalog(str(REPO_ROOT / "data" / "tables"))
     assert len(part_catalog) > 0
     name_map = mod.build_part_name_map(part_catalog)
 
@@ -516,6 +515,24 @@ def test_match_part_prices_prefers_name_map_on_oid_mismatch():
     assert "13520000003" not in prices
 
 
+def test_price_table_skeletons_match_game_data():
+    """价格表骨架的 weapon/ammo/part 集合必须等于 GameData 的对应集合（防目录漂移）。"""
+    from src.engine.game_data import GameData
+
+    gd = GameData()
+    tables = str(REPO_ROOT / "data" / "tables")
+
+    weapon_catalog = mod.load_weapon_catalog(tables)
+    ammo_catalog = mod.load_ammo_catalog(tables)
+    part_catalog = mod.load_part_catalog(tables)
+
+    assert set(weapon_catalog) == {
+        w["weapon_id"] for w in gd.weapons if not w["is_variant"]
+    }
+    assert set(ammo_catalog) == set(gd.ammo_by_id)
+    assert set(part_catalog) == set(gd.parts)
+
+
 def test_search_backfill_items_fetches_and_parses():
     """验证定向搜索回填能够正确组装 query 并收集条目行。"""
     def mock_fetch(path: str, page: int) -> str:
@@ -541,7 +558,10 @@ def test_search_backfill_items_fetches_and_parses():
 
 def test_sync_ammo_backfill_fetches_missing_in_season_ammo(tmp_path):
     """验证当当前赛季限定弹初次未命中时，可通过口径搜索回填补充行情。"""
-    weapons_data = {"weapons": [{"weapon_id": "18010000001", "name": "M4A1", "is_variant": False}]}
+    weapon_table = {
+        "base": {"weapon_id": "18010000001", "name": "M4A1", "category": "突击步枪", "caliber": "5.56x45mm"},
+        "variants": [],
+    }
     ammo_data = {
         "ammo": [
             {
@@ -554,9 +574,11 @@ def test_sync_ammo_backfill_fetches_missing_in_season_ammo(tmp_path):
             }
         ]
     }
-    (tmp_path / "data" / "game").mkdir(parents=True)
-    (tmp_path / "data" / "game" / "weapons.json").write_text(json.dumps(weapons_data), encoding="utf-8")
-    (tmp_path / "data" / "game" / "ammo.json").write_text(json.dumps(ammo_data), encoding="utf-8")
+    (tmp_path / "data" / "tables" / "weapons").mkdir(parents=True)
+    (tmp_path / "data" / "tables" / "weapons" / "18010000001.json").write_text(
+        json.dumps(weapon_table), encoding="utf-8"
+    )
+    (tmp_path / "data" / "tables" / "ammo.json").write_text(json.dumps(ammo_data), encoding="utf-8")
     (tmp_path / "data" / "reference").mkdir(parents=True)
 
     def mock_fetch(path: str, page: int) -> str:
@@ -566,7 +588,7 @@ def test_sync_ammo_backfill_fetches_missing_in_season_ammo(tmp_path):
             return '<tr><td><div class="ui-tname">7.62x51mm LS</div></td><td><span class="icon-gold ui-num">6,245</span></td></tr>'
         return ""
 
-    result = mod.sync(
+    mod.sync(
         output_dir=str(tmp_path),
         fetch=mock_fetch,
         sleep=_noop_sleep,

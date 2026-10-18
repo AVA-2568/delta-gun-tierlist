@@ -5,10 +5,10 @@ import os
 import pytest
 
 from src.engine.ammo_pricing import AmmoPriceTable
+from src.engine.engagement import BAND_NAMES
 from src.engine.game_data import load_game_data
 from src.engine.ranking import rank_weapons_for_scenario
 from src.engine.tiering import (
-    BAND_NAMES,
     SPARE_AMMO_ROUNDS,
     compute_full_price,
 )

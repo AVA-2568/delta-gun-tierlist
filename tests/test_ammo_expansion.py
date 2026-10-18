@@ -20,10 +20,9 @@ import os
 import pytest
 
 from src.engine.ammo_pricing import AmmoPriceTable, load_ammo_prices
-from src.engine.engagement import ScenarioError
+from src.engine.engagement import BAND_NAMES, ScenarioError
 from src.engine.game_data import load_game_data
 from src.engine.ranking import pick_priced_ammos, rank_weapons_for_scenario
-from src.engine.tiering import BAND_NAMES
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 

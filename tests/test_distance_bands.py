@@ -19,8 +19,8 @@ import os
 import pytest
 
 from src.engine import engagement as eg
+from src.engine.engagement import BAND_NAMES
 from src.engine.game_data import load_game_data
-from src.engine.tiering import BAND_NAMES
 from src.renderers.ttk_report import BAND_ORDER
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

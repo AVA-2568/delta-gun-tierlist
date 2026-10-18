@@ -43,6 +43,9 @@ class ModifierLayer:
     """
 
     scales: Dict[str, float] = field(default_factory=dict)
+    #: 仅 ``Mult_C``（纯倍率）的乘积；与 ``scales`` 并行保留，供需要区分
+    #: 「增量倍率 Mult_A」与「纯倍率 Mult_C」的派生量使用（如 FireInterval）。
+    mult_c: Dict[str, float] = field(default_factory=dict)
     addends: Dict[str, float] = field(default_factory=dict)
     overrides: Dict[str, float] = field(default_factory=dict)
     profiles: Dict[str, str] = field(default_factory=dict)
@@ -52,11 +55,15 @@ class ModifierLayer:
         scales = dict(self.scales)
         for key, value in other.scales.items():
             scales[key] = scales.get(key, 1.0) * value
+        mult_c = dict(self.mult_c)
+        for key, value in other.mult_c.items():
+            mult_c[key] = mult_c.get(key, 1.0) * value
         addends = dict(self.addends)
         for key, value in other.addends.items():
             addends[key] = addends.get(key, 0.0) + value
         return ModifierLayer(
             scales=scales,
+            mult_c=mult_c,
             addends=addends,
             overrides={**self.overrides, **other.overrides},
             profiles={**self.profiles, **other.profiles},
@@ -119,6 +126,8 @@ def accumulate(layer: ModifierLayer, target: Optional[str], modifier: Optional[s
 
     factor_value = factor(modifier, value)
     if factor_value is not None:
+        if modifier == "Mult_C" and value is not None:
+            layer.mult_c[target] = layer.mult_c.get(target, 1.0) * float(value)
         layer.scales[target] = layer.scales.get(target, 1.0) * factor_value
         return
     if modifier == "Addend" and value is not None:

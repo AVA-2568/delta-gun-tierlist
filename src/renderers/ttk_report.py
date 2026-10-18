@@ -6,7 +6,7 @@
 
 from __future__ import annotations
 
-from typing import Any, Dict, List, Mapping, Optional, Sequence
+from typing import Any, List, Mapping, Optional, Sequence
 
 from src.engine.engagement import BAND_NAMES as BAND_ORDER
 
@@ -15,6 +15,22 @@ TIER_ORDER = ("T0", "T1", "T2", "T3")
 #: 榜单文档只展示的层级：T2/T3 不入 md，仅保留在 ``data/榜单/*.json``
 #: （机器可读完整数据）——渲染层过滤，而非数据层删。
 DISPLAY_TIERS = ("T0", "T1")
+
+# --------------------------------------------------------------------------- #
+# TTK 口径（ADR-0001）：README / 距离榜 / llms.txt 必须引用同一常量，禁止各处自写
+# --------------------------------------------------------------------------- #
+
+#: 对外唯一公式：实战 TTK 的三段构成。
+TTK_FORMULA = "首发扳机延迟 + 击发时刻 + 弹丸飞行时间"
+
+#: 公式三段的口径明细（紧随公式展示，避免读者误以为只算射击间隔）。
+TTK_FORMULA_DETAIL = (
+    "击发时刻：单发/全自动为 `(期望击杀发数 − 1) × 射击间隔`；连发按官方 `sdkTiming` 节拍；"
+    "多弹丸按扣动扳机发数。飞行时间：`距离 / 原始初速`（不含精校修正）。"
+)
+
+#: 距离榜 T1 展示预算（ADR-0002）：T0 全列，T1 只列全量排名前 N 行。
+T1_DISPLAY_LIMIT = 100
 
 # --------------------------------------------------------------------------- #
 # 产物文件命名（展示层职责：管线层从这里取名落盘，README/文档从这里取名造链接）
@@ -225,33 +241,59 @@ def _thresholds_text(thresholds: Mapping[str, float]) -> str:
     return " / ".join(parts)
 
 
-def _tier_display_rows(payload: Mapping[str, Any], band: str) -> List[Mapping[str, Any]]:
-    """某距离带参与文档展示的行：仅 T0/T1，按全量排名序号升序。
+def _tier_display_rows(
+    payload: Mapping[str, Any], band: str
+) -> tuple[List[Mapping[str, Any]], List[Mapping[str, Any]]]:
+    """某距离带可展示的行，按层级拆成 ``(T0 行, T1 行)``，各自按全量排名升序。
 
     序号（``#`` 列）保持引擎的**全量排名**（含未展示的 T2/T3 榜位），不按显示行
-    重编——排名值直接取自 payload（渲染层只做格式化、禁止二次计算），序号空号
-    即代表其间存在未列出的 T2/T3 行，完整数据见 ``data/榜单/*.json``。
+    重编——排名值直接取自 payload（渲染层只做格式化、禁止二次计算）。分层按带内
+    TTK 单调切分，故 T0 段与 T1 段首尾相接、展示行排名连续（ADR-0003）。
     """
-    rows = [
-        w for w in payload["weapons"]
-        if band in (w.get("bands") or {})
-        and w["bands"][band].get("tier") in DISPLAY_TIERS
-    ]
-    rows.sort(key=lambda w: w["bands"][band]["rank"])
-    return rows
+    buckets: dict[str, List[Mapping[str, Any]]] = {tier: [] for tier in DISPLAY_TIERS}
+    for w in payload["weapons"]:
+        band_data = (w.get("bands") or {}).get(band)
+        if band_data is None:
+            continue
+        tier = band_data.get("tier")
+        if tier in buckets:
+            buckets[tier].append(w)
+    for rows in buckets.values():
+        rows.sort(key=lambda w: w["bands"][band]["rank"])
+    return buckets["T0"], buckets["T1"]
 
 
-def render_band_table(
+def _display_rows(
+    payload: Mapping[str, Any], band: str
+) -> tuple[List[Mapping[str, Any]], List[Mapping[str, Any]]]:
+    """按展示预算截断后的 ``(T0 行, T1 行)``：T0 全列，T1 只取前 ``T1_DISPLAY_LIMIT`` 行。"""
+    t0_rows, t1_rows = _tier_display_rows(payload, band)
+    return t0_rows, t1_rows[:T1_DISPLAY_LIMIT]
+
+
+def _weapon_display_text(
+    weapon: Mapping[str, Any], part_names: Mapping[str, str]
+) -> tuple[str, str]:
+    """「武器」与「起枪配置」两列文案。
+
+    官方预装态（变体 = 本体 + 预装件，不是独立的枪）：武器列显示本体名，预装来源
+    在配置列标注；其余行显示武器名与配装清单。
+    """
+    if weapon.get("is_variant"):
+        return (
+            str(weapon.get("base_name") or weapon["name"]),
+            f"出厂预装：{weapon.get('variant_item_name') or '—'}",
+        )
+    return weapon["name"], loadout_text(weapon.get("loadout") or {}, part_names)
+
+
+def _band_table_text(
     payload: Mapping[str, Any],
+    rows: Sequence[Mapping[str, Any]],
     band: str,
     part_names: Mapping[str, str],
-    limit: Optional[int] = None,
 ) -> str:
-    """渲染单个距离带的榜单表（只列 T0/T1，T2/T3 仅存于榜单 JSON）。"""
-    rows = _tier_display_rows(payload, band)
-    if limit:
-        rows = rows[:limit]
-
+    """把已选定的展示行渲染成距离榜宽表。"""
     ammo_meta = payload.get("ammo_price_meta") or {}
     weapon_meta = payload.get("weapon_price_meta") or {}
     currency = weapon_meta.get("currency") or ammo_meta.get("currency") or "哈夫币"
@@ -264,18 +306,8 @@ def render_band_table(
     ]
     for w in rows:
         band_data = w["bands"][band]
-        if w.get("is_variant"):
-            # 官方预装态：本体 + 官方预装件（变体不是独立的枪——武器列与本体一致，
-            # 预装来源在配置列标注；预装件会改战斗属性，但裸枪价与本体相同）
-            name = str(w.get("base_name") or w["name"])
-            loadout = f"出厂预装：{w.get('variant_item_name') or '—'}" + loadout_effect_text(
-                w.get("loadout_effects") or []
-            )
-        else:
-            name = w["name"]
-            loadout = loadout_text(w.get("loadout") or {}, part_names) + loadout_effect_text(
-                w.get("loadout_effects") or []
-            )
+        name, loadout = _weapon_display_text(w, part_names)
+        loadout += loadout_effect_text(w.get("loadout_effects") or [])
         ammo = w.get("ammo") or {}
         stock_mean = ((w.get("stock_bands") or {}).get(band) or {}).get("mean_ms")
         lines.append(
@@ -300,14 +332,28 @@ def render_band_table(
     return "\n".join(lines)
 
 
+def render_band_table(
+    payload: Mapping[str, Any],
+    band: str,
+    part_names: Mapping[str, str],
+) -> str:
+    """渲染单个距离带的榜单表（T0 全列 + T1 前 ``T1_DISPLAY_LIMIT`` 行，T2/T3 仅存于榜单 JSON）。"""
+    t0_rows, t1_rows = _display_rows(payload, band)
+    return _band_table_text(payload, t0_rows + t1_rows, band, part_names)
+
+
 def render_band_top_preview(
     payload: Mapping[str, Any],
     band: str,
     part_names: Mapping[str, str],
     limit: int = 5,
 ) -> str:
-    """README 主榜速览：单距离带前 N 名的精简表（完整列留给距离榜文档）。"""
-    rows = _tier_display_rows(payload, band)[:limit]
+    """README 主榜速览：单距离带前 N 名的精简表（完整列留给距离榜文档）。
+
+    取 T0 + T1（截断前）合并后的前 ``limit`` 名，按全量排名升序。
+    """
+    t0_rows, t1_rows = _tier_display_rows(payload, band)
+    rows = (t0_rows + t1_rows)[:limit]
 
     weapon_meta = payload.get("weapon_price_meta") or {}
     ammo_meta = payload.get("ammo_price_meta") or {}
@@ -321,13 +367,7 @@ def render_band_top_preview(
     ]
     for w in rows:
         band_data = w["bands"][band]
-        if w.get("is_variant"):
-            # 官方预装态：武器列显示本体名（变体 = 本体 + 预装件，不是独立的枪）
-            name = str(w.get("base_name") or w["name"])
-            loadout = f"出厂预装：{w.get('variant_item_name') or '—'}"
-        else:
-            name = w["name"]
-            loadout = loadout_text(w.get("loadout") or {}, part_names)
+        name, loadout = _weapon_display_text(w, part_names)
         lines.append(
             "| {rank} | {tier} | {name} | {mean} | {cost} | {gun} | {full} | {loadout} |".format(
                 rank=band_data["rank"],
@@ -359,30 +399,42 @@ def render_band_doc(
     band: str,
     scenario_meta: Mapping[str, Any],
     part_names: Mapping[str, str],
-    limit: Optional[int] = 120,
     prefix: Optional[str] = None,
 ) -> str:
-    """单个情景单个距离带的独立榜单文档（完整排名，一份距离一个文件）。
+    """单个情景单个距离带的独立榜单文档（一份距离一个文件）。
 
-    ``prefix`` 为文档标题与互链所用的情景名（主榜用 ``主榜``，其余情景用
-    ``scenario_doc_stem`` 的中文名）；缺省回落到主榜前缀。
+    展示规则见 ADR-0002：T0 全列，T1 只列全量排名前 ``T1_DISPLAY_LIMIT`` 行；
+    页头写明两层的真实行数与截断情况。``prefix`` 为文档标题与互链所用的情景名
+    （主榜用 ``主榜``，其余情景用 ``scenario_doc_stem`` 的中文名）；缺省回落到主榜前缀。
     """
     prefix = prefix or MAIN_BAND_DOC_PREFIX
     band_def = (payload.get("band_definitions") or {}).get(band)
     if band_def is None:
         raise KeyError(f"payload 未定义距离带：{band}")
     thresholds = (payload.get("tier_thresholds_ms") or {}).get(band) or {}
+    t0_rows, t1_rows = _tier_display_rows(payload, band)
+    t0_shown, t1_shown = t0_rows, t1_rows[:T1_DISPLAY_LIMIT]
+    t1_scope = "全列" if len(t1_rows) <= T1_DISPLAY_LIMIT else f"列前 {T1_DISPLAY_LIMIT} 行"
 
     lines: List[str] = []
     lines.append(f"# {prefix} · {band}（{band_def['from_m']:g}–{band_def['to_m']:g} m）")
     lines.append("")
     lines.append("> " + scenario_caption(scenario_meta))
     lines.append(">")
-    lines.append("> - **排序键**：带内平均实战 TTK（`(期望击杀发数 − 1) × 射击间隔`），"
-                 "不含开镜时间与弹丸飞行时间")
+    lines.append(f"> - **排序键**：带内平均实战 TTK（`{TTK_FORMULA}`）")
+    lines.append(f"> - **口径明细**：{TTK_FORMULA_DETAIL}")
     lines.append("> - **层级**：带内 TTK 分位数切分（前 15% → T0，15–40% → T1，40–70% → T2，其余 → T3）")
-    lines.append("> - **收录范围**：只列 T0 / T1（T2 / T3 不入文档）；序号为全量排名，"
-                 "空号即其间存在未列出行，完整数据见 `data/榜单/` 同名 JSON")
+    lines.append(
+        f"> - **收录范围**：T0 共 {len(t0_rows)} 行（全列）；T1 共 {len(t1_rows)} 行（{t1_scope}）；"
+        + (
+            "其余（T2 / T3）见 `data/榜单/` 同名 JSON"
+            if len(t1_rows) <= T1_DISPLAY_LIMIT
+            else "其余（T1 未列部分与 T2 / T3）见 `data/榜单/` 同名 JSON"
+        )
+    )
+    lines.append(
+        "> - **排名连续性**：未列出的行，排名均在本表末行之后；# 列为全量排名"
+    )
     if str(scenario_meta.get("probability_preset") or "") == LEGS_ONLY_PRESET:
         levels = "/".join(str(level) for level in (scenario_meta.get("ammo_levels") or []))
         lines.append(
@@ -392,7 +444,7 @@ def render_band_doc(
     if thresholds:
         lines.append(f"> - **层级阈值**：{_thresholds_text(thresholds)}")
     lines.append("")
-    lines.append(render_band_table(payload, band, part_names, limit=limit))
+    lines.append(_band_table_text(payload, t0_shown + t1_shown, band, part_names))
     lines.append("")
     lines.append("---")
     lines.append("")
@@ -402,7 +454,8 @@ def render_band_doc(
     lines.append("")
     lines.append("- 距离明细：本情景每状态的 0–80 m 每 10 m 采样 TTK 见 `data/榜单/<情景>.json` 的 "
                  "`ttk_by_distance_ms`")
-    lines.append("- 开镜时间、初速、后坐/散布等维度不计入 TTK，详见 [改枪指南](../改枪指南.md)")
+    lines.append("- 开镜时间、精校初速、后坐/散布等维度不计入 TTK（原始初速已计入弹丸飞行时间），"
+                 "详见 [改枪指南](../改枪指南.md)")
     lines.extend(_price_notes(payload))
     return "\n".join(lines)
 
@@ -438,8 +491,8 @@ def render_readme(
     lines.append("")
     lines.append("| 项 | 说明 |")
     lines.append("| :-- | :-- |")
-    lines.append("| 排序键 | 距离带内平均实战 TTK（`(期望击杀发数 − 1) × 射击间隔`） |")
-    lines.append("| 不参与 | 开镜时间、弹丸飞行时间（初速）、换弹、命中率修正 |")
+    lines.append(f"| 排序键 | 距离带内平均实战 TTK（`{TTK_FORMULA}`） |")
+    lines.append("| 不参与 | 开镜时间、换弹、命中率修正 |")
     lines.append("| 起枪状态 | 每行 = 一个「起枪配置状态 × 一款有价弹」：本体裸枪、本体+官方预装件（官方变体出厂态）、"
                  "束搜索枚举的改装状态（官方插槽规则 + 强制联动）；同口径同等级的多款有价弹各出一行，"
                  "缺价弹（市场无价）不参与枚举；仅列出 TTK 有差异的状态，全部一起排名分层 |")
@@ -447,16 +500,21 @@ def render_readme(
     lines.append("| 起枪成本 | 裸枪价格 = 本体交易行当日价（变体/改装共用本体价）；"
                  "整枪+180 发备弹 = 裸枪价 + 核心配件价 + 180 × 该行所配弹药单发价（预估；白板裸枪配件价为 0） |")
     lines.append("| 距离场 | 0–80 m（官方排行口径），分 4 个距离带，每带独立成榜 |")
-    lines.append("| 分层 | 带内 TTK 分位数切分 T0–T3，阈值公开；榜单文档只列 T0 / T1"
-                 "（T2 / T3 及全部状态行见 `data/榜单/*.json`） |")
+    lines.append(
+        f"| 分层 | 带内 TTK 分位数切分 T0–T3，阈值公开；文档 T0 全列、T1 列前 {T1_DISPLAY_LIMIT} 行"
+        "（其余见 `data/榜单/*.json`） |"
+    )
     lines.append(f"| 数据版本 | `{source.get('dataset_version', '未知')}`（{source.get('name', 'dfttk-v3')}） |")
+    lines.append("")
+    lines.append(f"> 实战 TTK = {TTK_FORMULA}。{TTK_FORMULA_DETAIL}")
+    lines.append("> 「纯 TTK」只表示榜单只按 TTK 排序、不合成经济性/操控性权重，不代表剔除飞行时间。")
     lines.append("")
 
     lines.append(f"## 主榜速览 · {scenario_doc_stem(scenario_meta)}")
     lines.append("")
     lines.append(
         f"> 护甲 {scenario_meta.get('armor_level')} 套 / 弹药 {scenario_meta.get('ammo_level')} 级，"
-        f"命中分布 `{scenario_meta.get('probability_preset')}`；每带只列 T0 / T1 层级的前 5 名，"
+        f"命中分布 `{scenario_meta.get('probability_preset')}`；每带速览只取 T0 / T1 合并后的前 5 名，"
         f"完整排名（全部起枪状态 × 预装收益 × 最差 TTK）见各距离榜。"
     )
     lines.append("")
@@ -481,8 +539,6 @@ def render_readme(
         lines.append("默认收录以下情景：5 个实战甲弹组合（口径：不含 3 级弹组合），"
                      "以及 1 个 **修脚** 情景（命中分布 `legs-only`：全腿部命中；"
                      "腿部位不经护甲结算，弹药 3/4/5 级有价弹同榜）。")
-        lines.append("用 `python -m src.pipeline --all` 可生成全部情景"
-                     "（21 个官方情景，含 `center` / `chest-only` 理论聚焦预设，加上修脚情景）。")
         lines.append("")
         lines.append("| 情景 | 护甲 | 弹药 | 命中分布 | 榜单 |")
         lines.append("| :-- | --: | --: | :-- | :-- |")
@@ -528,15 +584,19 @@ def render_readme(
                  "不参与枚举，榜单为**当前赛季可达成**的配置")
     lines.append("- **距离明细**：每状态的 0–80 m 每 10 m 采样 TTK 见 `data/榜单/<情景>.json` 的 "
                  "`ttk_by_distance_ms`")
-    lines.append("- **改枪指南**：开镜时间/初速/后坐等不进 TTK 的维度见 [docs/改枪指南.md](docs/改枪指南.md)")
+    lines.append("- **改枪指南**：开镜时间/精校初速/后坐等不进 TTK 的维度见 [docs/改枪指南.md](docs/改枪指南.md)")
     lines.append("- **对外数据表**：`python -m src.export` 导出至 `data/export/`，每日随榜单自动刷新；"
                  "三表与 TTK 引擎**同源同真**（同一 `WeaponStateResolver` 实测口径），"
                  "外部工具可据此对接两表推算任意配装")
     lines.append("  - `weapons.json`：全部收录枪械条目完整状态")
     lines.append("  - `parts.json`：全部配件的属性加成、弹道与伤害 profile 换挡、精校，target 附语义化键")
     lines.append("  - `links.json`：全部「单配件 × 本体枪」对接记录，即在官方默认态上单装一件配件后的关键状态")
-    lines.append("- **榜单刷新**：仓库页 **Actions → CI → Run workflow** 手动触发，即可在 GitHub 上"
-                 "同步官方数据、重算全部榜单并自动提交；本地无需跑任何重计算")
+    lines.append("- **榜单刷新**：仓库页 **Actions → CI → Run workflow** 手动触发，"
+                 "即可抓取当日行情、按需重算榜单并自动提交；官方数据更新需本地运行 "
+                 "`python -m src.collectors.game_data_sync` 刷新审计快照，再运行 "
+                 "`python tools/verify_official_reproduction.py --record-residual-conclusion` "
+                 "刷新复现统计，最后用 `python tools/tables_diff.py` 审阅差异并人工合入 "
+                 "`data/tables/`（`data/tables/` 是运行期唯一真源）")
     notes = _price_notes(main_payload)
     for note in notes:
         lines.append(note)

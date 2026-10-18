@@ -1,8 +1,12 @@
 """渲染层测试：只格式化、不出数值。"""
 
+import re
+
 import pytest
 
 from src.renderers.ttk_report import (
+    T1_DISPLAY_LIMIT,
+    TTK_FORMULA,
     band_doc_name,
     band_doc_ref,
     loadout_text,
@@ -86,9 +90,64 @@ def test_band_table_sorted_by_rank_and_complete():
     assert lines[3].endswith("官方默认 |")
 
 
-def test_band_table_limit():
-    table = render_band_table(PAYLOAD, "贴脸", PART_NAMES, limit=1)
-    assert len(table.splitlines()) == 3
+def _make_band_payload(t0_count: int, t1_count: int) -> dict:
+    """构造单距离带 payload：先 T0 后 T1，全量排名按层级连续编号。"""
+    weapons = []
+    for index in range(t0_count + t1_count):
+        tier = "T0" if index < t0_count else "T1"
+        mean_ms = 300.0 + index
+        weapons.append(
+            {
+                "profile_key": f"1801{index:07d}:base",
+                "name": f"{tier}武器{index + 1}",
+                "loadout": {},
+                "expected_shots_0m": 5.0,
+                "rpm": 700.0,
+                "effective_range_m": 40.0,
+                "bands": {
+                    "贴脸": {
+                        "rank": index + 1,
+                        "tier": tier,
+                        "mean_ms": mean_ms,
+                        "worst_ms": mean_ms,
+                        "best_ms": mean_ms,
+                    }
+                },
+            }
+        )
+    return {**PAYLOAD, "weapons": weapons}
+
+
+def test_band_doc_lists_all_t0_and_caps_t1():
+    """ADR-0002：T0 全列，T1 只列前 100 行；页头写明真实行数与截断；排名连续。"""
+    payload = _make_band_payload(3, 150)
+    md = render_band_doc(payload, "贴脸", SCENARIO_META, PART_NAMES)
+
+    data_rows = [line for line in md.splitlines() if re.match(r"^\| \d+ \|", line)]
+    assert len(data_rows) == 3 + T1_DISPLAY_LIMIT
+
+    ranks = [int(line.split("|")[1]) for line in data_rows]
+    assert ranks == list(range(1, 104))  # 展示行排名连续，无跳号
+
+    for index in (1, 2, 3):
+        assert f"| T0武器{index} |" in md
+    assert "| T1武器103 |" in md       # 第 100 行 T1（全量排名 103）
+    assert "| T1武器104 |" not in md   # 第 101 行 T1 起不展示
+
+    assert "T0 共 3 行（全列）" in md
+    assert "T1 共 150 行（列前 100 行）" in md
+    assert "未列出的行，排名均在本表末行之后" in md
+    assert "空号" not in md
+
+
+def test_band_doc_lists_all_t1_when_within_limit():
+    """T1 不足展示预算时全列，页头标注「全列」。"""
+    payload = _make_band_payload(2, 83)
+    md = render_band_doc(payload, "贴脸", SCENARIO_META, PART_NAMES)
+    assert "T0 共 2 行（全列）" in md
+    assert "T1 共 83 行（全列）" in md
+    data_rows = [line for line in md.splitlines() if re.match(r"^\| \d+ \|", line)]
+    assert len(data_rows) == 85
 
 
 PAYLOAD_WITH_T2 = {
@@ -124,7 +183,7 @@ PAYLOAD_WITH_T2 = {
 
 
 def test_band_table_only_lists_t0_t1_and_keeps_full_rank_numbers():
-    """榜单文档只列 T0/T1：T2 行不出现；# 列保持全量排名序号（空号 = 有未列行）。"""
+    """榜单文档只列 T0/T1：T2 行不出现；# 列保持全量排名序号（排名连续）。"""
     table = render_band_table(PAYLOAD_WITH_T2, "贴脸", PART_NAMES)
     assert "T2垫底枪" not in table  # T2 行被过滤
     assert "| 1 | **T0** | M4A1 |" in table
@@ -139,11 +198,12 @@ def test_band_top_preview_also_filters_t2():
 
 
 def test_band_doc_excludes_t2_rows_and_states_scope():
-    """距离榜文档：T2 行不入 md，且头部说明收录范围（T2/T3 见榜单 JSON）。"""
+    """距离榜文档：T2 行不入 md，页头写明 T0/T1 的真实行数。"""
     md = render_band_doc(PAYLOAD_WITH_T2, "贴脸", SCENARIO_META, PART_NAMES)
     assert "T2垫底枪" not in md
     assert "T1次优枪" in md
-    assert "只列 T0 / T1" in md
+    assert "T0 共 1 行（全列）" in md
+    assert "T1 共 1 行（全列）" in md
 
 
 def test_empty_tier_row_is_filtered():
@@ -178,6 +238,27 @@ def test_readme_is_slim_overview_with_band_nav():
     # 情景索引：主榜行指向 4 份距离榜，不再有旧英文路径
     assert "[贴脸](docs/榜单/主榜-贴脸.md) · [近距](docs/榜单/主榜-近距.md) · [中距](docs/榜单/主榜-中距.md) · [远距](docs/榜单/主榜-远距.md)" in md
     assert "docs/tierlist/" not in md
+
+
+def test_readme_and_band_doc_state_canonical_ttk_formula():
+    """ADR-0001：README 与距离榜必须引用规范公式，不得再声明「不含弹丸飞行时间」。"""
+    readme = render_readme(
+        PAYLOAD,
+        SCENARIO_META,
+        {"source": {"name": "dfttk-v3", "dataset_version": "x"}},
+        PART_NAMES,
+        scenario_index=[SCENARIO_META],
+    )
+    band_doc = render_band_doc(PAYLOAD, "贴脸", SCENARIO_META, PART_NAMES)
+    assert TTK_FORMULA == "首发扳机延迟 + 击发时刻 + 弹丸飞行时间"
+    for md in (readme, band_doc):
+        assert "首发扳机延迟 + 击发时刻 + 弹丸飞行时间" in md
+        assert "不含弹丸飞行时间" not in md
+        assert "距离 / 原始初速" in md
+    assert "| 不参与 | 开镜时间、换弹、命中率修正 |" in readme
+    assert f"T1 列前 {T1_DISPLAY_LIMIT} 行" in readme
+    assert "只列 T0 / T1" not in readme
+    assert "--all" not in readme
 
 
 def test_readme_scenario_index_all_bands_for_every_scenario():
@@ -294,8 +375,6 @@ def test_band_doc_renders_full_list_and_nav():
 
 
 def test_band_doc_rejects_unknown_band():
-    import pytest
-
     with pytest.raises(KeyError):
         render_band_doc(PAYLOAD, "不存在", SCENARIO_META, PART_NAMES)
 

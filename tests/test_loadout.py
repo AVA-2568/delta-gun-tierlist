@@ -1,6 +1,5 @@
 """配装枚举与精校求解测试（Task #3）。"""
 
-import json
 import os
 
 import pytest
@@ -10,7 +9,6 @@ from src.engine.loadout import (
     LoadoutSolver,
     build_socket_specs,
     effect_affects_ttk,
-    part_affects_ttk,
     target_affects_ttk,
 )
 
@@ -52,6 +50,72 @@ def test_socket_pruning_keeps_only_ttk_relevant(gd):
     assert "38" not in specs  # 枪托：只改开镜时间 → 不影响 TTK
     assert "1" not in specs  # 后握把：只改开镜/后坐 → 不影响 TTK
     assert "2" in specs  # 枪管（改有效射程 → 改变 E[N]）
+
+
+def test_single_non_default_ttk_option_is_enumerated(gd):
+    """唯一非默认的 TTK 选项仍须枚举。
+
+    MCX-LT 装焰魂枪管时，耦合规则强制挂载 376 护木；376 只暴露一个
+    socket 51（SUR 隔热外罩）。SUR 改射速 -3.4%，是合法的 TTK 选择，
+    不能因「只有一个选项」被剪掉。
+    """
+    weapon = gd.get_weapon("18010000044:base")
+    specs = {s.socket_id: s for s in build_socket_specs(gd, weapon)}
+    assert "51" in specs
+    assert specs["51"].options == ["13410000002"]
+
+
+def test_expired_s10_hvk_parts_are_excluded(gd):
+    """S10「裂变」已绝版的 HVK 改件不得进入枚举。
+
+    复合弓速射箭匣会大幅改射速/优势射程，若不排除会让新赛季榜单虚高。
+    """
+    from src.engine.loadout import EXCLUDED_PART_IDS
+
+    assert "13120000381" in EXCLUDED_PART_IDS
+    assert "13120000379" in EXCLUDED_PART_IDS
+    bow = gd.get_weapon("18150000001:base")
+    assert "5" not in {s.socket_id for s in build_socket_specs(gd, bow)}
+
+
+def test_fire_interval_override_applies_when_mode_is_unchanged(gd):
+    """无 FireRateMode 改写时，FireInterval 的 Initial/Addend 是射速机制本身。
+
+    M700 HVK 旋风枪身系统 Initial 0.45 → 133 rpm；叠加强化导气 Addend -0.30715
+    → 420 rpm（S11 官方套件）。
+    """
+    from src.engine.weapon_state import WeaponStateResolver
+
+    resolver = WeaponStateResolver(gd)
+    base = resolver.resolve("18060000009:base", loadout={"37": "13050000425"})
+    full = resolver.resolve(
+        "18060000009:base",
+        loadout={"37": "13050000425", "76": "13560000002"},
+    )
+    assert base.rpm == pytest.approx(60.0 / 0.45, rel=1e-9)
+    assert full.rpm == pytest.approx(60.0 / (0.45 - 0.30715), rel=1e-9)
+
+
+def test_fire_interval_mult_c_applies_with_mode_override(gd):
+    """Mult_C 是纯倍率，即使配件同时改写射击模式也要生效（93R 鼬鼠套件）。"""
+    from src.engine.weapon_state import WeaponStateResolver
+
+    state = WeaponStateResolver(gd).resolve(
+        "18070000006:base", loadout={"4": "13050000427"}
+    )
+    assert state.rpm == pytest.approx(60.0 / (0.16 * 0.559), rel=1e-9)
+
+
+def test_fire_interval_mult_a_is_redundant_with_mode_override(gd):
+    """Mult_A 已由模式节拍覆盖，不得再叠加（AS-Val 刺客高级枪管 ≈680 rpm）。"""
+    from src.engine.weapon_state import WeaponStateResolver
+
+    state = WeaponStateResolver(gd).resolve(
+        "18010000037:base", loadout={"2": "13020000561"}
+    )
+    assert state.rpm == pytest.approx(680.0, abs=1.0)
+
+
 
 
 def test_pruning_shrinks_space_dramatically(gd):

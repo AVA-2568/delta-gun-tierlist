@@ -8,11 +8,11 @@
   共约 814 条、10 条/页：条目名在 ``class="ui-tname"``，当日价在第一个
   ``class="icon-gold ui-num"``（两种形态：``"68,035"`` 千分位、或 Vue 模板
   ``{{NumQfw(25630)}}``）；官方 objectID 从 ``pic:'…/object/<11位数字>.png`` 提取。
-  只保留 objectID 命中 ``weapons.json`` weapon_id 集合的枪械条目，其余（配件/装备）忽略。
+  只保留 objectID 命中 ``data/tables/weapons/`` weapon_id 集合的枪械条目，其余（配件/装备）忽略。
 - ``https://orzice.com/v/ammo?p=N`` 弹药页约 10 页，格式同上；条目 ``pic`` 多为泛口径图
   （无 objectID，少数条目如 45-70 系/箭矢带官方 objectID）。有正价的条目按三层对齐：
   ① objectID 命中官方目录 → 精确匹配；② 「口径+名称」归一化（剥引号/空白/连字符/mm、
-  行名字级别名折叠）与官方 ``ammo.json`` 目录**全等唯一匹配**；③ 行名形如
+  行名字级别名折叠）与官方 ``data/tables/ammo.json`` 目录**全等唯一匹配**；③ 行名形如
   ``<口径>_N`` 的合并行情行（口径_N = 口径 + N 级弹）按 (归一化口径, N) 组匹配，
   对齐该口径同等级所有候选弹药条目。撞名键弃用、匹配不上或价格 0 → ``null``
   （赛季限定弹市场无流通落 ``null`` 是预期正确行为，不猜价）。
@@ -54,9 +54,10 @@ import urllib.parse
 import urllib.request
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
-from typing import Any, Callable, Dict, List, Optional, Set, Tuple
+from typing import Any, Callable, Dict, List, Optional, Sequence, Set, Tuple
 
-from src.collectors.normalize import MERGED_AMMO_IDS
+from src.engine.game_data import load_ammo_catalog, load_part_catalog, load_weapon_catalog
+from src.season import CURRENT_SEASON
 
 logger = logging.getLogger(__name__)
 
@@ -74,9 +75,9 @@ WEAPON_PRICE_SCHEMA = "weapon-price-daily"
 AMMO_PRICE_SCHEMA = "ammo-price-daily"
 PART_PRICE_SCHEMA = "part-price-daily"
 
-#: 当前赛季（与 ranking.CURRENT_SEASON 对齐）：非当前赛季的限定弹视为绝版，
-#: 即使有泛口径或模糊匹配也一律不上价（price_daily 恒为 null，杜绝脏价格污染 TTK 榜单）。
-CURRENT_SEASON = "S11"
+#: 当前赛季（唯一来源 :mod:`src.season`，与榜单候选口径共用）：非当前赛季的
+#: 限定弹视为绝版，即使有泛口径或模糊匹配也一律不上价（price_daily 恒为 null，
+#: 杜绝脏价格污染 TTK 榜单）。
 
 #: 返回值里的表路径文案（sync 内文件系统调用一律用纯字面量相对路径，不用本常量）
 WEAPON_TABLE_RELPATH = "data/reference/weapon_prices.json"
@@ -275,62 +276,7 @@ def crawl_pages(
     return rows, True
 
 
-# ---- 官方目录 ----
-def load_weapon_catalog(path: str) -> Dict[str, Dict[str, Any]]:
-    """读官方武器目录，返回 ``weapon_id -> 展示元数据``（仅本体，供全量表骨架）。
-
-    官方变体条目（``is_variant=true``）跳过：变体 = 本体 + 预装改件，
-    不存在独立的"变体枪"商品，同枪所有状态行共用本体价。
-    """
-    with open(path, encoding="utf-8") as fh:
-        catalog = json.load(fh)
-    return {
-        str(record["weapon_id"]): {
-            "name": record.get("name") or "",
-            "category": record.get("category") or "",
-            "caliber": record.get("caliber") or "",
-        }
-        for record in catalog.get("weapons", [])
-        if record.get("weapon_id") and not record.get("is_variant")
-    }
-
-
-def load_ammo_catalog(path: str) -> Dict[str, Dict[str, Any]]:
-    """读官方弹药目录，返回 ``ammo_item_id -> 展示元数据``（供全量表骨架）。
-
-    被 :data:`src.collectors.normalize.MERGED_AMMO_IDS` 合并的条目不进骨架
-    （合并 = 条目从目录消失；防御陈旧 ammo.json 残留被并 id）。
-    """
-    with open(path, encoding="utf-8") as fh:
-        catalog = json.load(fh)
-    return {
-        str(record["ammo_item_id"]): {
-            "caliber": record.get("caliber") or "",
-            "name": record.get("name") or "",
-            "penetration_level": record.get("penetration_level"),
-            "is_season_limited": bool(record.get("is_season_limited")),
-            "season_note": record.get("season_note"),
-        }
-        for record in catalog.get("ammo", [])
-        if record.get("ammo_item_id") and str(record["ammo_item_id"]) not in MERGED_AMMO_IDS
-    }
-
-
-def load_part_catalog(path: str) -> Dict[str, Dict[str, Any]]:
-    """读官方配件目录，返回 ``part_id -> 展示元数据``（供全量表骨架）。"""
-    if not os.path.exists(path):
-        return {}
-    with open(path, encoding="utf-8") as fh:
-        raw = json.load(fh)
-    parts = raw.get("parts", raw) if isinstance(raw, dict) else {}
-    return {
-        str(item_id): {
-            "name": record.get("name") or "",
-            "slot": record.get("slot") or "",
-        }
-        for item_id, record in parts.items()
-        if isinstance(record, dict) and record.get("name")
-    }
+# ---- 官方目录（读取实现见 :mod:`src.engine.game_data`，此处不重复展开逻辑）----
 
 
 #: 武器搜索回填别名（站方在战备页搜索框与官方简名写法差异的已知条目）
@@ -343,7 +289,11 @@ WEAPON_SEARCH_ALIASES: Dict[str, List[str]] = {
 
 
 def load_priority_part_ids(root_dir: str = ".") -> Set[str]:
-    """收集已有榜单与官方变体涉及的核心配件 ID 集合（优先保证其有价）。"""
+    """收集已有榜单与官方变体涉及的核心配件 ID 集合（优先保证其有价）。
+
+    来源：``data/榜单/*.json`` 的 ``loadout`` 件 + ``data/tables/weapons/*.json``
+    的变体件（base 块跳过）。
+    """
     part_ids: Set[str] = set()
     ranking_dir = os.path.join(root_dir, "data", "榜单")
     if os.path.isdir(ranking_dir):
@@ -358,23 +308,25 @@ def load_priority_part_ids(root_dir: str = ".") -> Set[str]:
                     loadout = w.get("loadout") or {}
                     if isinstance(loadout, dict):
                         part_ids.update(str(pid) for pid in loadout.values())
-                    if w.get("single_part_item_id"):
-                        part_ids.add(str(w["single_part_item_id"]))
                     if w.get("variant_item_id"):
                         part_ids.add(str(w["variant_item_id"]))
             except Exception:
                 continue
 
-    weapons_path = os.path.join(root_dir, "data", "game", "weapons.json")
-    if os.path.exists(weapons_path):
-        try:
-            with open(weapons_path, encoding="utf-8") as fh:
-                wdata = json.load(fh)
-            for w in wdata.get("weapons", []):
-                if w.get("is_variant") and w.get("variant_item_id"):
-                    part_ids.add(str(w["variant_item_id"]))
-        except Exception:
-            pass
+    weapons_dir = os.path.join(root_dir, "data", "tables", "weapons")
+    if os.path.isdir(weapons_dir):
+        for fname in os.listdir(weapons_dir):
+            if not fname.endswith(".json"):
+                continue
+            try:
+                with open(os.path.join(weapons_dir, fname), encoding="utf-8") as fh:
+                    table = json.load(fh)
+                for variant in table.get("variants") or []:
+                    variant_item_id = variant.get("variant_item_id")
+                    if variant_item_id:
+                        part_ids.add(str(variant_item_id))
+            except Exception:
+                continue
 
     return part_ids
 
@@ -795,15 +747,15 @@ def sync(
     prev_cwd = os.getcwd()
     os.chdir(root)
     try:
-        weapon_catalog = load_weapon_catalog("data/game/weapons.json")
+        weapon_catalog = load_weapon_catalog("data/tables")
         if not weapon_catalog:
-            raise RuntimeError("官方武器目录为空或缺失：data/game/weapons.json")
-        ammo_catalog = load_ammo_catalog("data/game/ammo.json")
+            raise RuntimeError("官方武器目录为空或缺失：data/tables/weapons/")
+        ammo_catalog = load_ammo_catalog("data/tables")
         if not ammo_catalog:
-            raise RuntimeError("官方弹药目录为空或缺失：data/game/ammo.json")
+            raise RuntimeError("官方弹药目录为空或缺失：data/tables/ammo.json")
 
         weapon_prices = match_weapon_prices(weapon_rows, set(weapon_catalog))
-        part_catalog = load_part_catalog("data/game/parts.json")
+        part_catalog = load_part_catalog("data/tables")
         part_name_map = build_part_name_map(part_catalog)
         part_prices = match_part_prices(weapon_rows, part_catalog, part_name_map) if part_catalog else {}
 
@@ -895,7 +847,7 @@ def sync(
         if weapon_changed:
             os.makedirs("data/reference", exist_ok=True)
             weapon_payload = json.dumps(weapon_table, ensure_ascii=False, indent=1) + "\n"
-            Path("data/reference/weapon_prices.json").write_text(weapon_payload, encoding="utf-8")
+            Path("data/reference/weapon_prices.json").write_text(weapon_payload, encoding="utf-8", newline="\n")
             logger.info(
                 "枪械价格表已更新：matched=%d / catalog=%d",
                 len(weapon_prices), len(weapon_catalog),
@@ -909,7 +861,7 @@ def sync(
         )
         if ammo_changed:
             ammo_payload = json.dumps(ammo_table, ensure_ascii=False, indent=1) + "\n"
-            Path("data/reference/ammo_prices.json").write_text(ammo_payload, encoding="utf-8")
+            Path("data/reference/ammo_prices.json").write_text(ammo_payload, encoding="utf-8", newline="\n")
             logger.info(
                 "弹药价格表已更新：matched=%d / catalog=%d",
                 len(ammo_prices), len(ammo_catalog),
@@ -925,7 +877,7 @@ def sync(
             )
             if part_changed:
                 part_payload = json.dumps(part_table, ensure_ascii=False, indent=1) + "\n"
-                Path("data/reference/part_prices.json").write_text(part_payload, encoding="utf-8")
+                Path("data/reference/part_prices.json").write_text(part_payload, encoding="utf-8", newline="\n")
                 logger.info(
                     "配件价格表已更新：matched=%d / catalog=%d",
                     len(part_prices), len(part_catalog),

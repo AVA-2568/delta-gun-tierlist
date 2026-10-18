@@ -12,9 +12,9 @@ from __future__ import annotations
 from typing import TYPE_CHECKING, Any, Dict, List, Mapping, Optional, Sequence
 
 from src.engine import engagement as eg
-from src.engine.loadout import LoadoutSolver, part_affects_ttk
+from src.engine.engagement import BAND_NAMES
+from src.engine.loadout import EXCLUDED_PART_IDS, LoadoutSolver, part_affects_ttk
 from src.engine.tiering import (
-    BAND_NAMES,
     BandResult,
     GunRanking,
     _effective_loadout,
@@ -24,15 +24,12 @@ from src.engine.tiering import (
     compute_parts_price,
     summarize_loadout_effects,
 )
+from src.season import CURRENT_SEASON
 
 if TYPE_CHECKING:  # pragma: no cover - 仅类型标注
     from src.engine.ammo_pricing import AmmoPriceTable
     from src.engine.part_pricing import PartPriceTable
     from src.engine.weapon_pricing import WeaponPriceTable
-
-#: 当前赛季（赛季更迭时人工更新；榜单弹药候选只保留常驻与当前赛季限定弹，
-#: 过期赛季限定弹视为实际无价值——持有者之外无法获取，数据仍保留在弹药表）。
-CURRENT_SEASON = "S11"
 
 
 def _ammo_in_season(record: Mapping[str, Any]) -> bool:
@@ -191,12 +188,14 @@ def rank_weapons_for_scenario(
         *,
         entry_kind: str,
         curve: Sequence[eg.TtkResult],
+        summary: Mapping[str, Mapping[str, float]],
         ammo: Mapping[str, Any],
         stock_bands: Mapping[str, Mapping[str, float]],
         loadout_effects: List[Dict[str, Any]],
         loadout: Optional[Mapping[str, Any]] = None,
         gun_price: Optional[int] = None,
     ) -> GunRanking:
+        """组装一行排名条目；``summary`` 为调用方已算好的 :func:`band_summary`（不重算）。"""
         ammo_price = _ammo_price(ammo)
         curve0 = curve[0]
         by_distance: Dict[str, float] = {}
@@ -226,7 +225,7 @@ def rank_weapons_for_scenario(
             loadout=effective_loadout,
             tuning={},
             entry_kind=entry_kind,
-            bands=_band_results(eg.band_summary(curve), ammo_price),
+            bands=_band_results(summary, ammo_price),
             overall_mean_ms=0.0,
             expected_shots_0m=curve0.expected_shots,
             rpm=curve0.rpm,
@@ -302,6 +301,9 @@ def rank_weapons_for_scenario(
             if variant_key not in keys_set:
                 continue
             variant_item_id = str(variant_weapon.get("variant_item_id") or "")
+            if variant_item_id in EXCLUDED_PART_IDS:
+                # 官方变体同样受赛季限时件约束：绝版件不得作为当前赛季可达成状态
+                continue
             if not part_affects_ttk(game_data.get_part(variant_item_id)):
                 continue
             try:
@@ -327,7 +329,7 @@ def rank_weapons_for_scenario(
                 beam_solver = solver
             else:
                 beam_solver = LoadoutSolver(game_data, solver.scenario_id, resolver=solver.resolver)
-                beam_solver._ammo_cache[base_key] = ammo  # 单弹求解器：束搜索打分固定用本款弹
+                beam_solver.use_ammo(base_key, ammo)  # 单弹求解器：束搜索打分固定用本款弹
 
             # ---- base 本体：官方默认（裸枪）× 本款弹 ----
             base_curve = eg.ttk_curve(
@@ -339,6 +341,7 @@ def rank_weapons_for_scenario(
                     base_weapon,
                     entry_kind="base",
                     curve=base_curve,
+                    summary=base_summary,
                     ammo=ammo,
                     stock_bands=base_summary,
                     loadout_effects=[],
@@ -358,6 +361,7 @@ def rank_weapons_for_scenario(
                         variant_weapon,
                         entry_kind="variant",
                         curve=variant_curve,
+                        summary=variant_summary,
                         ammo=ammo,
                         stock_bands=base_summary,
                         loadout_effects=summarize_loadout_effects(base_state, variant_state),
@@ -396,6 +400,7 @@ def rank_weapons_for_scenario(
                         base_weapon,
                         entry_kind="state",
                         curve=state_curve,
+                        summary=state_summary,
                         ammo=ammo,
                         stock_bands=base_summary,
                         loadout_effects=summarize_loadout_effects(

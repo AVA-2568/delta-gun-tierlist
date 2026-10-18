@@ -166,15 +166,15 @@ def export_links(gd: Any, resolver: WeaponStateResolver) -> Dict[str, Any]:
     在变体上继续改装可由外部工具以本表 + 枪械表组合推得。
     """
     links: List[Dict[str, Any]] = []
+    name_by_id = {
+        str(pid): rec.get("name") for pid, rec in gd.parts.items()
+    }
     for weapon in gd.weapons:
         if weapon.get("is_variant"):
             continue
         profile_key = str(weapon["profile_key"])
         base = resolver.resolve(profile_key)
         base_state = _state_summary(base)
-        name_by_id = {
-            str(pid): rec.get("name") for pid, rec in gd.parts.items()
-        }
         for socket in weapon.get("sockets") or []:
             socket_id = str(socket["socket_id"])
             for item_id in socket["options"]:

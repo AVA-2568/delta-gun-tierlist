@@ -14,13 +14,15 @@ from src.engine.ballistics import DamageContext, PLAYER_HEALTH
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 G = os.path.join(ROOT, "data", "game")
+T = os.path.join(ROOT, "data", "tables")
 
 TOL = 1e-4
 
 
 def _load():
     ammo = {a["ammo_item_id"]: a for a in json.load(open(os.path.join(G, "ammo.json"), encoding="utf-8"))["ammo"]}
-    armor = json.load(open(os.path.join(G, "armor.json"), encoding="utf-8"))["levels"]
+    # 护甲表是运行期真源：读 data/tables/（data/game/ 仅审计快照）
+    armor = json.load(open(os.path.join(T, "armor.json"), encoding="utf-8"))["levels"]
     weapons = json.load(open(os.path.join(G, "weapons.json"), encoding="utf-8"))["weapons"]
     scen = json.load(open(os.path.join(G, "scenarios.json"), encoding="utf-8"))
     return ammo, armor, weapons, scen

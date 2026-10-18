@@ -15,7 +15,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import Any, Dict, Iterable, List, Mapping, Optional, Sequence, Tuple
+from typing import Any, Dict, Iterable, List, Mapping, Optional, Sequence, Set, Tuple
 
 from src.engine import engagement as eg
 from src.engine.weapon_state import WeaponStateResolver, build_loadout
@@ -56,11 +56,16 @@ _ATTR_PREFIXES = ("DisplayAttrValues.", "WeaponMainAttribute.MainAttrValues.")
 # 赛季结束后无法获取。上游 dfttk published data 只含游戏内配件定义、不含获取渠道，
 # 若不过滤，配装搜索会选中这些已绝版件，导致榜单最优 TTK 在新赛季不可达成。
 # 维护方式：每赛季对照官方更新公告核对本清单（S11 起）。
+# S10「裂变」三件 HVK 限时件：ASh-12 双发枪管、复合弓速射箭匣、SVCH 凌风并联弹匣。
+# 其中速射箭匣会大幅改射速/优势射程（TTK 敏感），若不排除会让复合弓在新赛季虚高；
+# 凌风弹匣只改弹匣容量与换弹（TTK 中性），一并列入以保持赛季清单完整。
 EXCLUDED_PART_IDS: frozenset = frozenset(
     {
         "13020000590",  # M249 H.A.V.K 链锯套件（S9「回声」限时）
         "13020000595",  # MP7 H.A.V.K 格斗套件（S9「回声」限时）
         "13020000603",  # ASh-12 HVK 双发枪管（S10「裂变」限时）
+        "13120000381",  # 复合弓 HVK 速射箭匣（S10「裂变」限时，改射速/优势射程）
+        "13120000379",  # SVCH 凌风并联弹匣（S10「裂变」限时，TTK 中性但已绝版）
     }
 )
 
@@ -145,15 +150,26 @@ def _prune_options(
     game_data: Any,
     options: List[str],
     default_item: Optional[str],
+    relevant_providers: Optional[Set[str]] = None,
 ) -> List[str]:
-    """只保留直接影响 TTK 的选项，并保证默认件在内（否则最优可能被剪掉）。"""
+    """只保留直接影响 TTK 的选项，并保证默认件在内（否则最优可能被剪掉）。
+
+    ``relevant_providers`` 为「自身不直接改 TTK、但会解锁新的 TTK 选项」的
+    提供者件（如 QJB201 的护木解锁导气箍、M700 的枪身系统解锁导气）。它们也必须
+    保留，否则束搜索永远看不到被它们解锁的合法 TTK 状态。
+    """
+    relevant_providers = relevant_providers or set()
     kept: List[str] = []
     seen = set()
     for item in options:
+        part = game_data.get_part(item)
         if (
             item in seen
             or str(item) in EXCLUDED_PART_IDS
-            or not part_affects_ttk(game_data.get_part(item))
+            or part is None
+            # 不可选中的内部件只能由默认/耦合带入，不能作为玩家自由选项
+            or (str(item) != str(default_item) and not part.get("selectable", True))
+            or (not part_affects_ttk(part) and str(item) not in relevant_providers)
         ):
             continue
         seen.add(item)
@@ -163,21 +179,117 @@ def _prune_options(
     return kept
 
 
+def _ttk_options_by_socket(
+    game_data: Any,
+    weapon: Mapping[str, Any],
+    defaults: Mapping[str, str],
+    mounted_items: Iterable[str],
+) -> Dict[str, Set[str]]:
+    """给定已装提供者件，汇总它们暴露的「非默认 TTK 选项」：``socket_id -> 选项集合``。"""
+    out: Dict[str, Set[str]] = {}
+    for item in mounted_items:
+        for socket in (weapon.get("provider_sockets") or {}).get(str(item)) or []:
+            socket_id = str(socket.get("socket_id"))
+            default_item = defaults.get(socket_id)
+            out.setdefault(socket_id, set()).update(
+                str(option)
+                for option in socket.get("options") or []
+                if str(option) != default_item
+                and part_affects_ttk(game_data.get_part(str(option)))
+            )
+    return out
+
+
+def _relevant_providers(
+    game_data: Any,
+    weapon: Mapping[str, Any],
+    defaults: Mapping[str, str],
+) -> Set[str]:
+    """自身不改 TTK、但能解锁**默认装法拿不到**的新 TTK 选项的提供者件。
+
+    典型：QJB201 的三块护木本身无 TTK 效果，但分别解锁 socket 47 的
+    高速/稳固导气箍；M700 的 HVK 旋风枪身系统解锁 socket 76 的强化导气。
+
+    已由默认装法覆盖的提供者（例如各枪默认枪管已经暴露全部可用枪口）不算，
+    避免把所有枪管都当成有效提供者、把束搜索空间放大一个量级。
+    ``forced`` 耦合件（如 MCX-LT 焰魂枪管强制挂载的 376 护木）也不算：它们
+    由耦合规则自动装入，不需要作为根插槽选项参与搜索。
+    """
+    mounted, _ = build_loadout(weapon, {})
+    default_ttk = _ttk_options_by_socket(
+        game_data, weapon, defaults, mounted.values()
+    )
+    # 根插槽本身已提供的 TTK 选项也算「默认可得」：例如 M700 的 socket 2
+    # 已直接列出 443/444 枪管，内部件 18060000035 再暴露同一组枪管不构成新增。
+    for socket in weapon.get("sockets") or []:
+        socket_id = str(socket.get("socket_id"))
+        default_item = defaults.get(socket_id)
+        default_ttk.setdefault(socket_id, set()).update(
+            str(option)
+            for option in socket.get("options") or []
+            if str(option) != default_item
+            and part_affects_ttk(game_data.get_part(str(option)))
+        )
+    forced = {
+        str(rule.get("mounted_item_id"))
+        for rule in weapon.get("coupling") or []
+        if str(rule.get("mount_policy") or "") == "forced"
+    }
+    relevant: Set[str] = set()
+    for provider_id, sockets in (weapon.get("provider_sockets") or {}).items():
+        provider_id = str(provider_id)
+        if provider_id in forced:
+            continue
+        for socket in sockets:
+            socket_id = str(socket.get("socket_id"))
+            default_item = defaults.get(socket_id)
+            added = {
+                str(option)
+                for option in socket.get("options") or []
+                if str(option) != default_item
+                and part_affects_ttk(game_data.get_part(str(option)))
+            } - default_ttk.get(socket_id, set())
+            if added:
+                relevant.add(provider_id)
+                break
+    return relevant
+
+
+def _needs_enumeration(options: Sequence[str], default_item: Optional[str]) -> bool:
+    """剪枝后的选项是否值得枚举。
+
+    多于一个选项时显然要枚举；**唯一选项不是默认件时也必须枚举**——
+    「只有一个选项」不等于「没有搜索价值」：玩家仍可选择装上它（或保持不装），
+    例如 MCX-LT 焰魂枪管强制挂载的护木只暴露一个 SUR 隔热外罩，该外罩
+    改射速 -3.4%，属于会改变 TTK 的合法选择。只有「唯一选项就是默认件」时
+    才可跳过（默认态已经包含它）。
+    """
+    if not options:
+        return False
+    if len(options) > 1:
+        return True
+    return str(options[0]) != str(default_item or "")
+
+
 def build_socket_specs(game_data: Any, weapon: Mapping[str, Any]) -> List[SocketSpec]:
     """构造参与枚举的插槽计划：先根插槽，后插入式插槽。
 
-    选项按「直接影响 TTK」剪枝；剪枝后只剩单一选项的插槽不参与枚举（无搜索价值）。
+    选项按「直接影响 TTK」剪枝；剪枝后只剩默认件本身的插槽不参与枚举
+    （默认态已包含，无搜索价值），但**唯一非默认的 TTK 选项仍参与**。
     """
     defaults = {str(k): str(v) for k, v in (weapon.get("default_items") or {}).items()}
-    variant_item = str(weapon.get("variant_item_id")) if weapon.get("variant_item_id") else None
+    relevant = _relevant_providers(game_data, weapon, defaults)
 
     root: List[SocketSpec] = []
     for socket in weapon.get("sockets") or []:
         socket_id = str(socket.get("socket_id"))
         options = _prune_options(
-            game_data, [str(o) for o in (socket.get("options") or [])], defaults.get(socket_id)
+            game_data,
+            [str(o) for o in (socket.get("options") or [])],
+            defaults.get(socket_id),
+            relevant,
         )
-        if len(options) <= 1:
+        if not _needs_enumeration(options, defaults.get(socket_id)):
             continue
         root.append(SocketSpec(socket_id=socket_id, options=options))
 
@@ -192,8 +304,9 @@ def build_socket_specs(game_data: Any, weapon: Mapping[str, Any]) -> List[Socket
                 game_data,
                 [str(o) for o in (socket.get("options") or [])],
                 defaults.get(socket_id),
+                relevant,
             )
-            if len(options) <= 1:
+            if not _needs_enumeration(options, defaults.get(socket_id)):
                 continue
             inserts.setdefault(socket_id, {})[str(provider_id)] = options
 
@@ -249,6 +362,14 @@ class LoadoutSolver:
             else:
                 raise last_error  # type: ignore[misc]
         return self._ammo_cache[profile_key]
+
+    def use_ammo(self, profile_key: str, ammo: Mapping[str, Any]) -> None:
+        """把打分用弹固定为 ``ammo``（多等级情景逐弹成行时由调用方注入）。
+
+        注入后 :meth:`_band_score` 不再走 :meth:`ammo_for` 的官方池单弹选取，
+        束搜索的候选配装排序即按本款弹计算。
+        """
+        self._ammo_cache[profile_key] = ammo
 
     def _mounted(self, profile_key: str, loadout: Mapping[str, str]) -> Dict[str, str]:
         weapon = self.gd.get_weapon(profile_key)

@@ -12,7 +12,7 @@
 from __future__ import annotations
 
 import bisect
-from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
+from typing import Any, Dict, Iterable, List, Optional, Tuple
 
 LINEAR = "RCIM_Linear"
 CUBIC = "RCIM_Cubic"

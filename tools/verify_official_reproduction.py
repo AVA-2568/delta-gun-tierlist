@@ -38,8 +38,6 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
 
-from src.collectors.http import assert_public_https  # noqa: E402
-
 DEFAULT_SAMPLES = os.path.join(ROOT, "data", "game", "validation_samples.json")
 DEFAULT_TOL = 1e-9
 DEFAULT_CACHE_DIR = os.path.join(ROOT, ".cache", "dfttk")

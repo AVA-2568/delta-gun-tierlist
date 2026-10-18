@@ -116,6 +116,8 @@ class WeaponState:
     rule_mapping_types: Dict[str, str] = field(default_factory=dict)
 
     scales: Dict[str, float] = field(default_factory=dict)
+    #: 仅 ``Mult_C`` 纯倍率的乘积（与 scales 并行，供 FireInterval 区分 Mult_A/Mult_C）
+    mult_c: Dict[str, float] = field(default_factory=dict)
     addends: Dict[str, float] = field(default_factory=dict)
     overrides: Dict[str, float] = field(default_factory=dict)
     profile_refs: Dict[str, str] = field(default_factory=dict)
@@ -389,6 +391,7 @@ class WeaponStateResolver:
         state.base_panel = base_panel
         state.panel = panel
         state.scales = layer.scales
+        state.mult_c = layer.mult_c
         state.addends = layer.addends
         state.overrides = layer.overrides
         state.profile_refs = dict(layer.profiles)
@@ -497,6 +500,20 @@ class WeaponStateResolver:
                 base_interval = burst_cadence or float(sdk.get("fire_interval_s") or 0.0)
             else:
                 base_interval = float(sdk.get("fire_interval_s") or 0.0)
+        elif mode_override is None:
+            # 无 FireRateMode 改写的配件，``FireInterval`` 就是射速机制本身
+            # （如 M700 HVK 旋风枪身系统：Initial 0.45 → 133 rpm；强化导气
+            # Addend -0.30715 → 420 rpm）。有 FireRateMode 改写时该值只是
+            # 节拍量的冗余声明（AS Val 刺客枪管、93R 鼬鼠套件），不得叠加。
+            interval_override = state.overrides.get("FireInterval")
+            if interval_override is not None:
+                base_interval = float(interval_override)
+            base_interval += float(state.addends.get("FireInterval") or 0.0)
+            base_interval *= float(state.scales.get("FireInterval") or 1.0)
+        if mode_override is not None:
+            # ``Mult_C`` 是纯倍率，独立于射击模式：93R 鼬鼠套件把 Burst 改 Auto
+            # 后再乘 0.559，官方射速 671 rpm。``Mult_A`` 已由模式节拍覆盖，不叠加。
+            base_interval *= float(state.mult_c.get("FireInterval") or 1.0)
         interval_scale = state.scales.get(RT_RATE_OF_FIRE, 1.0)
         interval = base_interval * interval_scale
         state.fire_interval_seconds = interval

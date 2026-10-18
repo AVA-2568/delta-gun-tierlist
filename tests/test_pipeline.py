@@ -1,10 +1,13 @@
 """管线端到端测试（小规模、不写盘）。"""
 
+import inspect
 import os
+import subprocess
+import sys
 
 import pytest
 
-from src.pipeline import DEFAULT_SCENARIOS, MAIN_SCENARIO, run_pipeline
+from src.pipeline import DEFAULT_SCENARIOS, MAIN_SCENARIO, check_stale, refresh_prices, run_pipeline
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -128,3 +131,22 @@ def test_pipeline_combat_fields_present_and_sane(result):
         for data in weapon["bands"].values():
             assert data["mean_ms"] > 0
             assert data["worst_ms"] >= data["mean_ms"] - 1e-9
+
+
+def test_public_api_has_no_all_scenarios_param():
+    """--all 模式已删除：三个入口的签名不再接受 all_scenarios（发布集合固定）。"""
+    for func in (run_pipeline, refresh_prices, check_stale):
+        assert "all_scenarios" not in inspect.signature(func).parameters, func.__name__
+
+
+def test_cli_help_does_not_expose_all_flag():
+    """`python -m src.pipeline --help` 不再列出 --all。"""
+    proc = subprocess.run(
+        [sys.executable, "-m", "src.pipeline", "--help"],
+        cwd=ROOT, capture_output=True, text=True, encoding="utf-8", timeout=120,
+    )
+    assert proc.returncode == 0, proc.stderr
+    assert "--all" not in proc.stdout
+    # 保留入口仍在帮助中
+    assert "--scenario" in proc.stdout
+    assert "--render-only" in proc.stdout
