@@ -110,7 +110,7 @@
      "delta": 0.020004383682795
     }
    ],
-   "conclusion": "本地 2026-10-18 同步上游 20261015-bd-balance.1 后全量重算写入；上游伪差白盒裁定与历史结论文案见 git 历史中的 provenance.json 记录。"
+   "conclusion": "CI 每日自动固化：残余统计由 tools/verify_official_reproduction.py 当次全量重算写入；上游伪差白盒裁定与历史结论文案见 git 历史中的 provenance.json 记录。"
   }
  }
 }
