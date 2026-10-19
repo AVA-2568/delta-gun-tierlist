@@ -24,15 +24,16 @@ def result():
 
 
 def test_default_scenarios_match_confirmed_scope():
-    """默认榜单口径：5 个实战甲弹组合（不含 3 级弹）+ 修脚情景（全腿部、3/4/5 同榜）。"""
+    """默认榜单口径：5 个实战甲弹组合（不含 3 级弹，体积预瞄分布）+ 修脚情景（全腿部、3/4/5 同榜）。"""
     assert len(DEFAULT_SCENARIOS) == 6
-    official = [sid for sid in DEFAULT_SCENARIOS if sid.endswith("-default")]
-    assert len(official) == 5
-    for sid in official:
+    volume = [sid for sid in DEFAULT_SCENARIOS if sid.endswith("-volume")]
+    assert len(volume) == 5
+    for sid in volume:
         level = int(sid.split("-")[1])
         assert level >= 4, f"{sid} 不应包含 3 级甲弹组合"
     assert "legs-only" in DEFAULT_SCENARIOS
     assert MAIN_SCENARIO in DEFAULT_SCENARIOS
+    assert MAIN_SCENARIO.endswith("-volume")
 
 
 def test_pipeline_returns_payload_for_requested_scenario(result):

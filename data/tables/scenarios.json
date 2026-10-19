@@ -379,9 +379,98 @@
    "file": "rankings/firefight/armor-6-ammo-5-chest-only.json"
   },
   {
+   "scenario_id": "armor-4-ammo-4-volume",
+   "armor_level": "4",
+   "ammo_level": 4,
+   "probability_preset": "volume-aim",
+   "helmet_durability": 48,
+   "armor_durability": 110,
+   "hit_probabilities": {
+    "head": 0.0913,
+    "chest": 0.1968,
+    "abdomen": 0.4069,
+    "upperArm": 0.1419,
+    "lowerArm": 0.0538,
+    "thigh": 0.1073,
+    "calf": 0.002
+   }
+  },
+  {
+   "scenario_id": "armor-4-ammo-5-volume",
+   "armor_level": "4",
+   "ammo_level": 5,
+   "probability_preset": "volume-aim",
+   "helmet_durability": 48,
+   "armor_durability": 110,
+   "hit_probabilities": {
+    "head": 0.0913,
+    "chest": 0.1968,
+    "abdomen": 0.4069,
+    "upperArm": 0.1419,
+    "lowerArm": 0.0538,
+    "thigh": 0.1073,
+    "calf": 0.002
+   }
+  },
+  {
+   "scenario_id": "armor-5-ammo-4-volume",
+   "armor_level": "5",
+   "ammo_level": 4,
+   "probability_preset": "volume-aim",
+   "helmet_durability": 50,
+   "armor_durability": 125,
+   "hit_probabilities": {
+    "head": 0.0913,
+    "chest": 0.1968,
+    "abdomen": 0.4069,
+    "upperArm": 0.1419,
+    "lowerArm": 0.0538,
+    "thigh": 0.1073,
+    "calf": 0.002
+   }
+  },
+  {
+   "scenario_id": "armor-5-ammo-5-volume",
+   "armor_level": "5",
+   "ammo_level": 5,
+   "probability_preset": "volume-aim",
+   "helmet_durability": 50,
+   "armor_durability": 125,
+   "hit_probabilities": {
+    "head": 0.0913,
+    "chest": 0.1968,
+    "abdomen": 0.4069,
+    "upperArm": 0.1419,
+    "lowerArm": 0.0538,
+    "thigh": 0.1073,
+    "calf": 0.002
+   }
+  },
+  {
+   "scenario_id": "armor-6-ammo-5-volume",
+   "armor_level": "6",
+   "ammo_level": 5,
+   "probability_preset": "volume-aim",
+   "helmet_durability": 50,
+   "armor_durability": 150,
+   "hit_probabilities": {
+    "head": 0.0913,
+    "chest": 0.1968,
+    "abdomen": 0.4069,
+    "upperArm": 0.1419,
+    "lowerArm": 0.0538,
+    "thigh": 0.1073,
+    "calf": 0.002
+   }
+  },
+  {
    "scenario_id": "legs-only",
    "armor_level": "5",
-   "ammo_levels": [3, 4, 5],
+   "ammo_levels": [
+    3,
+    4,
+    5
+   ],
    "probability_preset": "legs-only",
    "helmet_durability": 50,
    "armor_durability": 125,

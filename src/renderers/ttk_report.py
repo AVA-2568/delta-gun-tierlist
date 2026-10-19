@@ -43,7 +43,11 @@ MAIN_BAND_DOC_PREFIX = "主榜"
 DOCS_BAND_DIR = "docs/榜单"
 
 #: 命中分布预设 → 中文名（未知预设回退原值，不猜测）
-PRESET_ZH = {"default": "实战", "center": "聚焦中心", "chest-only": "仅胸口", "legs-only": "修脚"}
+PRESET_ZH = {"default": "实战", "center": "聚焦中心", "chest-only": "仅胸口",
+             "legs-only": "修脚", "volume-aim": "实战"}
+
+#: 体积预瞄预设：预瞄胸腹 + 二维高斯散布 + 正面轮廓积分（见 ADR-0008）
+VOLUME_AIM_PRESET = "volume-aim"
 
 #: 修脚预设：全腿部命中、跨弹药等级同榜——不经护甲结算，故不以「护甲X弹药Y」命名
 LEGS_ONLY_PRESET = "legs-only"
@@ -88,11 +92,26 @@ def scenario_doc_stem(scenario_meta: Mapping[str, Any]) -> str:
     )
 
 
+PART_ZH = {"head": "头", "chest": "胸", "abdomen": "腹", "upperArm": "上臂",
+           "lowerArm": "前臂", "thigh": "大腿", "calf": "小腿"}
+
+
+def _volume_aim_detail(probs: Mapping[str, float] | None) -> str:
+    """体积预瞄口径的一句话说明；有分布数据时附逐部位占比。"""
+    head = "预瞄胸腹 + 二维高斯散布按正面轮廓积分、胸:腹 = 1:2"
+    if not probs:
+        return head
+    parts = " / ".join(
+        f"{PART_ZH[key]} {float(probs[key]) * 100:.1f}%" for key in PART_ZH if key in probs
+    )
+    return f"{head}，{parts}"
+
+
 def scenario_caption(scenario_meta: Mapping[str, Any]) -> str:
     """情景口径摘要（距离榜头部）：名称 + 护甲 / 弹药 / 命中分布。
 
     修脚情景（``legs-only``）使用专用文案：全腿部命中、腿部位不经护甲结算、
-    弹药候选等级同榜。
+    弹药候选等级同榜；体积预瞄情景（``volume-aim``）附模型说明与逐部位占比。
     """
     preset = str(scenario_meta.get("probability_preset") or "")
     if preset == LEGS_ONLY_PRESET:
@@ -101,6 +120,12 @@ def scenario_caption(scenario_meta: Mapping[str, Any]) -> str:
             f"{scenario_doc_stem(scenario_meta)}"
             f"（命中分布 `{preset}`：全腿部命中，大腿 50% / 小腿 50%；"
             f"弹药 {levels} 级有价弹同榜；腿部位不经护甲结算，护甲等级不影响结果）"
+        )
+    if preset == VOLUME_AIM_PRESET:
+        return (
+            f"{scenario_doc_stem(scenario_meta)}"
+            f"（护甲 {scenario_meta.get('armor_level')} 套 / 弹药 {scenario_meta.get('ammo_level')} 级；"
+            f"命中分布 `{preset}`：{_volume_aim_detail(scenario_meta.get('hit_probabilities'))}）"
         )
     return (
         f"{scenario_doc_stem(scenario_meta)}"
@@ -514,7 +539,9 @@ def render_readme(
     lines.append("")
     lines.append(
         f"> 护甲 {scenario_meta.get('armor_level')} 套 / 弹药 {scenario_meta.get('ammo_level')} 级，"
-        f"命中分布 `{scenario_meta.get('probability_preset')}`；每带速览只取 T0 / T1 合并后的前 5 名，"
+        f"命中分布 `{scenario_meta.get('probability_preset')}`"
+        f"（{_volume_aim_detail(scenario_meta.get('hit_probabilities'))}）；"
+        f"每带速览只取 T0 / T1 合并后的前 5 名，"
         f"完整排名（全部起枪状态 × 预装收益 × 最差 TTK）见各距离榜。"
     )
     lines.append("")
@@ -536,7 +563,8 @@ def render_readme(
     if scenario_index:
         lines.append("## 情景索引")
         lines.append("")
-        lines.append("默认收录以下情景：5 个实战甲弹组合（口径：不含 3 级弹组合），"
+        lines.append("默认收录以下情景：5 个实战甲弹组合（口径：不含 3 级弹组合；"
+                     "命中分布 `volume-aim` = 预瞄胸腹 + 二维高斯散布按正面轮廓积分），"
                      "以及 1 个 **修脚** 情景（命中分布 `legs-only`：全腿部命中；"
                      "腿部位不经护甲结算，弹药 3/4/5 级有价弹同榜）。")
         lines.append("")
@@ -560,6 +588,16 @@ def render_readme(
 
     lines.append("## 方法学与可信度")
     lines.append("")
+    main_probs = scenario_meta.get("hit_probabilities") or {}
+    lines.append(
+        "- **命中分布**：实战情景用 `volume-aim` —— 预瞄点取胸腹交界（1.30 m），弹着点服从"
+        "以预瞄点为中心的二维高斯（σ_v=0.28 m、σ_h=0.50σ_v），按 1.75 m 正面轮廓积分，"
+        "躯干按「胸:腹 = 1:2」分界（剑突高度 1.348 m）；"
+        f"逐部位占比：{_volume_aim_detail(main_probs).split('，', 1)[-1]}。"
+        "推导与参数见 `tools/derive_hit_probabilities.py` 与 "
+        "[ADR-0008](docs/adr/0008-volume-aim-hit-distribution.md)；"
+        "官方 `default` 预设（头 17.2% / 腿 14.2%）保留在表内作对照、不发布。"
+    )
     residual = ((provenance.get("integrity") or {}).get("official_reproduction_residual") or {})
     grades = residual.get("grade_counts") or {}
     if residual and grades:

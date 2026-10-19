@@ -17,7 +17,7 @@
 - ``README.md`` —— 首页：口径 + 主榜速览（每带 Top 5）+ 导航
 - ``docs/改枪指南.md`` —— 改枪指南（不进 TTK 的维度）
 
-内部 ``scenario_id``（如 ``armor-5-ammo-5-default``）保持英文稳定不变，
+内部 ``scenario_id``（如 ``armor-5-ammo-5-volume``）保持英文稳定不变，
 仅**落盘文件名**经 :func:`src.renderers.ttk_report.scenario_doc_stem` 中文化。
 重计算耗时（束搜索），CI 按 :func:`compute_inputs_fingerprint` 条件触发：
 ``--check-stale`` 新鲜时短路跳过重算，只跑 ``--price-only`` 刷新每日价格列；
@@ -60,8 +60,8 @@ from src.renderers.ttk_report import (
 
 logger = logging.getLogger(__name__)
 
-# 主榜情景：官方默认情景（defaultScenarioId）
-MAIN_SCENARIO = "armor-5-ammo-5-default"
+# 主榜情景：护甲5弹药5的体积预瞄口径（见 ADR-0008）
+MAIN_SCENARIO = "armor-5-ammo-5-volume"
 
 #: 弹药当日价表（由 src.collectors.ammo_price_sync 每日自动抓取维护，与 data/game/* 物理隔离）
 AMMO_PRICE_TABLE = "data/reference/ammo_prices.json"
@@ -88,15 +88,17 @@ FINGERPRINT_PIPELINE_FILE = ("src", "pipeline.py")
 INPUTS_FINGERPRINT_KEY = "inputs_fingerprint"
 
 # 默认出榜情景（口径已确认）：甲弹组合不含 3 级弹（3-3 / 4-3 不做）；
-# 命中分布只用实战预设 default（center / chest-only 为官方理论聚焦预设，不发布）；
+# 命中分布用体积预瞄预设 volume-aim（预瞄胸腹 + 二维高斯散布 + 正面轮廓积分，
+# 推导见 tools/derive_hit_probabilities.py 与 docs/adr/0008-volume-aim-hit-distribution.md）；
+# 官方 default / center / chest-only 预设保留在表内作对照，不发布；
 # 修脚情景（legs-only）为全腿部命中、弹药 3/4/5 级有价弹同榜的自定义情景，默认一并出榜。
 # 这是仓库唯一的发布集合：--all 模式已删除（见 docs/adr/0005-drop-all-scenarios.md）。
 DEFAULT_SCENARIOS: tuple = (
-    "armor-4-ammo-4-default",
-    "armor-4-ammo-5-default",
-    "armor-5-ammo-4-default",
-    "armor-5-ammo-5-default",
-    "armor-6-ammo-5-default",
+    "armor-4-ammo-4-volume",
+    "armor-4-ammo-5-volume",
+    "armor-5-ammo-4-volume",
+    "armor-5-ammo-5-volume",
+    "armor-6-ammo-5-volume",
     "legs-only",
 )
 
@@ -142,6 +144,7 @@ def _scenario_index(game_data: Any) -> List[Dict[str, Any]]:
             "ammo_level": s.get("ammo_level"),
             "ammo_levels": s.get("ammo_levels"),
             "probability_preset": s.get("probability_preset"),
+            "hit_probabilities": s.get("hit_probabilities"),
             "helmet_durability": s.get("helmet_durability"),
             "armor_durability": s.get("armor_durability"),
         }
@@ -520,7 +523,7 @@ def run_pipeline(
 
     Args:
         output_dir: 输出根目录。
-        scenarios: 指定情景 ID 列表（完整 ID，如 ``armor-5-ammo-5-default``）；
+        scenarios: 指定情景 ID 列表（完整 ID，如 ``armor-5-ammo-5-volume``）；
             ``None`` 时用 :data:`DEFAULT_SCENARIOS`。
         limit: 仅处理前 N 把枪（调试用）。
         beam_width: 起枪状态束搜索宽度（决定每枪枚举的状态数上限）。
@@ -614,7 +617,7 @@ def main() -> None:
         # 「A-B」（如 5-5）为甲弹组合简写；其余视为完整情景 ID（如 legs-only）
         parts = args.scenario.split("-")
         if len(parts) == 2 and all(part.isdigit() for part in parts):
-            scenarios = [f"armor-{parts[0]}-ammo-{parts[1]}-default"]
+            scenarios = [f"armor-{parts[0]}-ammo-{parts[1]}-volume"]
         else:
             scenarios = [args.scenario]
 

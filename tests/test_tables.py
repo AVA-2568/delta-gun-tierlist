@@ -128,7 +128,7 @@ def test_armor_from_tables(gd):
 
 
 def test_scenarios_official_set_and_custom_entry(gd):
-    """scenarios：官方 21 情景均在表侧；表侧唯一自定义情景为修脚 ``legs-only``。"""
+    """scenarios：官方 21 情景均在表侧；表侧自定义情景为修脚 ``legs-only`` 与 5 个体积预瞄情景。"""
     table = _load(os.path.join(TABLES_DIR, "scenarios.json"))
     snapshot = _load(os.path.join(GAME_DIR, "scenarios.json"))
     assert gd.scenarios_raw == table
@@ -144,13 +144,35 @@ def test_scenarios_official_set_and_custom_entry(gd):
     assert snapshot_ids <= table_ids, f"官方情景在表侧缺失：{sorted(snapshot_ids - table_ids)}"
 
     custom = sorted(table_ids - snapshot_ids)
-    assert custom == ["legs-only"], f"表侧自定义情景应为修脚，实际 {custom}"
+    assert custom == [
+        "armor-4-ammo-4-volume",
+        "armor-4-ammo-5-volume",
+        "armor-5-ammo-4-volume",
+        "armor-5-ammo-5-volume",
+        "armor-6-ammo-5-volume",
+        "legs-only",
+    ], f"表侧自定义情景不符：{custom}"
     legs = next(s for s in table["scenarios"] if s["scenario_id"] == "legs-only")
     assert legs["probability_preset"] == "legs-only"
     assert legs["ammo_levels"] == [3, 4, 5]
     assert legs["hit_probabilities"]["thigh"] == 0.5
     assert legs["hit_probabilities"]["calf"] == 0.5
     assert sum(legs["hit_probabilities"].values()) == pytest.approx(1.0)
+
+    # 体积预瞄情景：分布与推导脚本一致，胸:腹 = 1:2
+    from tools.derive_hit_probabilities import compute, rounded
+
+    expected = rounded(compute())
+    for sid in custom:
+        if sid == "legs-only":
+            continue
+        scenario = next(s for s in table["scenarios"] if s["scenario_id"] == sid)
+        assert scenario["probability_preset"] == "volume-aim"
+        assert scenario["hit_probabilities"] == expected, f"{sid} 分布与推导脚本不一致"
+        probs = scenario["hit_probabilities"]
+        assert sum(probs.values()) == pytest.approx(1.0)
+        # 几何按胸:腹 = 1:2 分界，经预瞄权重后概率比约 0.48（胸部离预瞄点更远）
+        assert probs["chest"] / probs["abdomen"] == pytest.approx(0.48, abs=0.02)
 
 
 def test_reference_domains_still_from_game(gd):
