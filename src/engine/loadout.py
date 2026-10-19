@@ -18,7 +18,7 @@ from dataclasses import dataclass, field
 from typing import Any, Dict, Iterable, List, Mapping, Optional, Sequence, Set, Tuple
 
 from src.engine import engagement as eg
-from src.engine.weapon_state import WeaponStateResolver, build_loadout
+from src.engine.weapon_state import WeaponStateResolver, build_loadout, occupancy_conflict
 
 # --------------------------------------------------------------------------- #
 # 影响 TTK 的规则目标
@@ -215,7 +215,7 @@ def _relevant_providers(
     ``forced`` 耦合件（如 MCX-LT 焰魂枪管强制挂载的 376 护木）也不算：它们
     由耦合规则自动装入，不需要作为根插槽选项参与搜索。
     """
-    mounted, _ = build_loadout(weapon, {})
+    mounted, _ = build_loadout(weapon, {}, parts=game_data.parts)
     default_ttk = _ttk_options_by_socket(
         game_data, weapon, defaults, mounted.values()
     )
@@ -373,7 +373,7 @@ class LoadoutSolver:
 
     def _mounted(self, profile_key: str, loadout: Mapping[str, str]) -> Dict[str, str]:
         weapon = self.gd.get_weapon(profile_key)
-        mounted, _ = build_loadout(weapon, loadout)
+        mounted, _ = build_loadout(weapon, loadout, parts=self.gd.parts)
         return mounted
 
     def _band_score(
@@ -428,6 +428,12 @@ class LoadoutSolver:
                 choices: List[Optional[str]] = list(options) if options else []
                 choices.append(None)  # 允许不装（回落到默认件）
                 for item in choices:
+                    # 互斥槽位（官方 extra_occupancy）：候选件与已装件的占用集合
+                    # 相交即装不出来，直接不展开该分支。
+                    if item is not None and occupancy_conflict(
+                        weapon, spec.socket_id, str(item), mounted, parts=self.gd.parts
+                    ):
+                        continue
                     trial = dict(loadout)
                     if item is None:
                         trial.pop(spec.socket_id, None)

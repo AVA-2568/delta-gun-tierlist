@@ -221,12 +221,92 @@ class WeaponState:
 # --------------------------------------------------------------------------- #
 # 配装合成
 # --------------------------------------------------------------------------- #
+def extra_occupancy(weapon: Mapping[str, Any], item_id: str) -> frozenset:
+    """该配件除自身安装槽位外**额外占用**的槽位（官方 ``assembly.extraOccupancy``）。
+
+    官方语义：一体式/组合件自带这些位置上的组件，装上它这些槽位就被占死。
+    两个配件的占用集合（自身槽位 ∪ 额外占用）相交即互斥，不能共存。
+    """
+    return frozenset(
+        str(x) for x in (weapon.get("extra_occupancy") or {}).get(str(item_id), [])
+    )
+
+
+def occupancy_conflict(
+    weapon: Mapping[str, Any],
+    socket_id: str,
+    item_id: str,
+    mounted: Mapping[str, str],
+    parts: Optional[Mapping[str, Mapping[str, Any]]] = None,
+) -> bool:
+    """把 ``item_id`` 装到 ``socket_id`` 是否与 ``mounted`` 中其它件互斥。
+
+    ``parts`` 给出时，覆盖到的**内部件**（``selectable=False``）不算冲突：
+    官方语义是一体式件自带这些位置上的内置件，合成层会把它卸下。只有两个
+    玩家可选件争抢同一槽位才是装不出来的非法组合。
+    """
+    mine = {str(socket_id)} | extra_occupancy(weapon, item_id)
+    for sid, other in mounted.items():
+        if str(sid) == str(socket_id) or str(other) == str(item_id):
+            continue
+        if parts is not None:
+            part = parts.get(str(other))
+            if part is not None and not part.get("selectable", True):
+                continue
+        theirs = {str(sid)} | extra_occupancy(weapon, other)
+        if mine & theirs:
+            return True
+    return False
+
+
+def _drop_overridden_internals(
+    weapon: Mapping[str, Any],
+    mounted: Dict[str, str],
+    parts: Optional[Mapping[str, Mapping[str, Any]]],
+) -> List[Tuple[str, str]]:
+    """移除被其它件额外占用覆盖的**内部件**（``selectable=False``）。
+
+    官方语义：装一体式/组合件时，它自带的位置上的原厂内置件随之卸下。若不清理，
+    内置件效果会继续计入实机状态。玩家可选件之间的占用冲突不在本函数处理——
+    那是非法配装，由枚举器与榜单入口拦截。
+    """
+    extra_map = weapon.get("extra_occupancy") or {}
+    if not extra_map:
+        return []
+    default_items = {str(v) for v in (weapon.get("default_items") or {}).values()}
+    dropped: List[Tuple[str, str]] = []
+    changed = True
+    while changed:
+        changed = False
+        covered: set = set()
+        for sid, item in mounted.items():
+            covered.update(extra_occupancy(weapon, item) - {str(sid)})
+        for sid, item in list(mounted.items()):
+            if str(sid) not in covered:
+                continue
+            if parts is not None:
+                part = parts.get(str(item))
+                internal = part is not None and not part.get("selectable", True)
+            else:
+                internal = str(item) in default_items
+            if internal:
+                mounted.pop(sid)
+                dropped.append((str(sid), str(item)))
+                changed = True
+    return dropped
+
+
 def build_loadout(
-    weapon: Mapping[str, Any], requested: Mapping[str, str]
+    weapon: Mapping[str, Any],
+    requested: Mapping[str, str],
+    parts: Optional[Mapping[str, Mapping[str, Any]]] = None,
 ) -> Tuple[Dict[str, str], List[str]]:
     """按官方插槽规则与强制联动合成配装。
 
     返回 ``(实际装配的 item_id 映射, notes)``。纯函数：不读实例状态。
+    ``parts`` 为配件表（``item_id -> 配件``）：给出时按 ``selectable`` 判定内部件，
+    未给出时退回「是否出现在 ``default_items``」。两种口径都用于清理被
+    ``extra_occupancy`` 覆盖的内置件。
 
     ⚠ 内部的 ``guard`` / ``claimed`` / ``conflicts`` 仲裁（``while changed`` 循环）
     处理真实数据中的多规则争槽（如 QJB201 rule4/rule11），**不得简化或删除**。
@@ -295,6 +375,12 @@ def build_loadout(
     if conflicts:
         notes.extend(sorted(set(conflicts)))
 
+    # extra_occupancy：一体式/组合件自带其占位上的内置件，必须卸下原厂默认件，
+    # 否则被覆盖件的效果会继续计入实机状态（汤姆逊一体枪管/先进枪身系统、
+    # 93R 鼬鼠套件、MP5SD 一体消音枪管等）。
+    for socket_id, item_id in _drop_overridden_internals(weapon, mounted, parts):
+        notes.append(f"槽位 {socket_id} 的内置件 {item_id} 被其它件额外占用，已卸下")
+
     return mounted, notes
 
 
@@ -348,7 +434,9 @@ class WeaponStateResolver:
         weapon = self.gd.get_weapon(profile_key)
         tuning_setting = {str(k): dict(v) for k, v in (tuning or {}).items()}
         if _precomputed_mounted is None:
-            resolved_loadout, loadout_notes = build_loadout(weapon, loadout or {})
+            resolved_loadout, loadout_notes = build_loadout(
+                weapon, loadout or {}, parts=self.gd.parts
+            )
         else:
             resolved_loadout, loadout_notes = dict(_precomputed_mounted), []
 

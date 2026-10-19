@@ -617,8 +617,9 @@ def render_readme(
                      "分档复现口径详见 `provenance.integrity.official_reproduction_residual`")
     lines.append("- **射击间隔**：由官方 `sdkTiming` 与射速模式决定，**291 个官方候选值取整后与官方整数 rpm 全部一致**"
                  "（官方仅发布整数 rpm，零偏差仅在取整口径下成立）")
-    lines.append("- **状态枚举**：官方插槽规则 + 强制联动，束搜索枚举合法起枪状态，"
-                 "仅保留 TTK 有差异的状态；已绝版的赛季限时件（哈夫克军工改件，如 S9 链锯/格斗套件）"
+    lines.append("- **状态枚举**：官方插槽规则 + 强制联动 + **额外占用互斥**（`assembly.extraOccupancy`），"
+                 "束搜索枚举合法起枪状态，仅保留 TTK 有差异的状态；互斥槽位上的两个可选件不会同时出现，"
+                 "一体式件覆盖的内置件按官方语义卸下；已绝版的赛季限时件（哈夫克军工改件，如 S9 链锯/格斗套件）"
                  "不参与枚举，榜单为**当前赛季可达成**的配置")
     lines.append("- **距离明细**：每状态的 0–80 m 每 10 m 采样 TTK 见 `data/榜单/<情景>.json` 的 "
                  "`ttk_by_distance_ms`")

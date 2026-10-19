@@ -13,3 +13,4 @@
 | [0006](0006-loadout-enumeration-completeness.md) | 配装枚举覆盖单选项插槽与解锁型提供者 | 已接受 | 2026-10-18 |
 | [0007](0007-fire-interval-semantics.md) | FireInterval/FireCD 的修饰语义 | 已接受 | 2026-10-18 |
 | [0008](0008-volume-aim-hit-distribution.md) | 实战情景改用体积预瞄命中分布（volume-aim） | 已接受 | 2026-10-19 |
+| [0009](0009-slot-occupancy-exclusivity.md) | 配装遵守官方额外占用槽位（extra_occupancy） | 已接受 | 2026-10-19 |

@@ -220,3 +220,70 @@ def test_build_loadout_agrees_with_resolver(gd):
     # 透传路径必须与 resolver 内部自行合成的结果逐位一致，否则 TTK 会静默改变
     internal = WeaponStateResolver(gd).resolve("18010000001:base", loadout={}, tuning=None)
     assert mounted == internal.loadout
+
+
+# --------------------------------------------------------------------------- #
+# 互斥槽位（官方 extra_occupancy）
+# --------------------------------------------------------------------------- #
+def test_extra_occupancy_drops_overridden_internals(gd):
+    """一体式件装入后，其额外占用的内置件必须被卸下（汤姆逊先进枪身系统）。
+
+    官方 `assembly.extraOccupancy`：13050000410 额外占用槽位 3（枪托）与 4（护木），
+    装它时这两个位置的原厂内置件随之卸下，否则其效果会继续计入实机状态。
+    """
+    from src.engine.weapon_state import build_loadout
+
+    weapon = gd.get_weapon("18020000046:13050000410")
+    mounted, notes = build_loadout(weapon, {}, parts=gd.parts)
+    assert mounted["37"] == "13050000410"
+    assert "3" not in mounted, "枪托被先进枪身系统占用，应卸下"
+    assert "4" not in mounted, "护木被先进枪身系统占用，应卸下"
+    assert any("额外占用" in note for note in notes)
+
+
+def test_extra_occupancy_blocks_mutually_exclusive_choices(gd):
+    """互斥件不得同时进入枚举：汤姆逊一体冲锋枪管 × 先进枪身系统（同占槽位 4）。"""
+    from src.engine.loadout import LoadoutSolver
+    from src.engine.weapon_state import build_loadout, occupancy_conflict
+
+    weapon = gd.get_weapon("18020000046:base")
+    assert occupancy_conflict(weapon, "2", "13020000608", {"37": "13050000410"})
+
+    solver = LoadoutSolver(gd, "armor-5-ammo-5-volume")
+    for loadout in solver.enumerate_loadouts("18020000046:base", beam_width=32):
+        mounted, _ = build_loadout(weapon, loadout, parts=gd.parts)
+        items = set(mounted.values())
+        assert not {"13020000608", "13050000410"} <= items, f"非法配装进入枚举：{mounted}"
+
+
+def test_official_candidates_free_of_mutually_exclusive_pairs(gd):
+    """官方候选配装不得出现「两个可选件占用同一槽位」的组合（口径回归）。
+
+    官方候选可以出现「可选件覆盖内部件」（一体件自带内置件的正常装法），
+    但绝不会出现玩家可选件互斥——这正是引擎此前缺失的约束。
+    """
+    from src.engine.weapon_state import build_loadout, extra_occupancy
+
+    checked = 0
+    for weapon in gd.weapons:
+        for cand in weapon.get("reference_candidates") or []:
+            loadout = {
+                str(entry.get("slotPath")): str(entry.get("itemId"))
+                for entry in cand.get("loadout_config") or []
+            }
+            mounted, _ = build_loadout(weapon, loadout, parts=gd.parts)
+            items = list(mounted.items())
+            checked += 1
+            for i, (socket_a, item_a) in enumerate(items):
+                for socket_b, item_b in items[i + 1 :]:
+                    part_a = gd.parts.get(item_a) or {}
+                    part_b = gd.parts.get(item_b) or {}
+                    if not (part_a.get("selectable", True) and part_b.get("selectable", True)):
+                        continue
+                    occ_a = {socket_a} | extra_occupancy(weapon, item_a)
+                    occ_b = {socket_b} | extra_occupancy(weapon, item_b)
+                    assert not (occ_a & occ_b), (
+                        f"{weapon['profile_key']} 候选 {cand.get('candidate_id')} "
+                        f"出现互斥件 {item_a}/{item_b}（槽位 {sorted(occ_a & occ_b)}）"
+                    )
+    assert checked == 291

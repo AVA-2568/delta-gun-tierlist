@@ -94,6 +94,15 @@ def _target_semantic(target: Optional[str]) -> Optional[str]:
 
 
 def export_parts(gd: Any) -> Dict[str, Any]:
+    # 额外占用槽位：官方 assembly.extraOccupancy 的 occupiedSocketIds。
+    # 同一配件在全部武器上的声明一致（已核验 41 个配件零分歧），故按配件聚合输出；
+    # 槽位编号语义由 weapons.json 的 sockets 决定。两个配件的
+    # 「自身安装槽位 ∪ 额外占用」相交即互斥，不能同时装配。
+    occupied: Dict[str, set] = {}
+    for weapon in gd.weapons:
+        for item_id, sockets in (weapon.get("extra_occupancy") or {}).items():
+            occupied.setdefault(str(item_id), set()).update(int(x) for x in sockets)
+
     parts = []
     for item_id in sorted(gd.parts):
         part = gd.parts[item_id]
@@ -108,6 +117,7 @@ def export_parts(gd: Any) -> Dict[str, Any]:
                 "name": part.get("name"),
                 "slot": part.get("slot"),
                 "selectable": bool(part.get("selectable", True)),
+                "occupied_socket_ids": sorted(occupied.get(str(item_id), ())),
                 "effects": effects,
                 "tunes": [dict(t) for t in part.get("tunes") or []],
             }

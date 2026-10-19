@@ -203,7 +203,7 @@ def rank_weapons_for_scenario(
             d = point.distance_m
             if abs(d - round(d)) < 1e-9 and round(d) % 10 == 0:
                 by_distance[str(int(d))] = round(point.ttk_milliseconds, 2)
-        effective_loadout = _effective_loadout(loadout or {}, weapon)
+        effective_loadout = _effective_loadout(loadout or {}, weapon, parts=game_data.parts)
         variant_item_id = str(weapon.get("variant_item_id")) if (entry_kind == "variant" and weapon.get("variant_item_id")) else None
         if entry_kind == "base" and not effective_loadout:
             part_ids: List[str] = []
@@ -406,7 +406,9 @@ def rank_weapons_for_scenario(
                         loadout_effects=summarize_loadout_effects(
                             base_state, state_mounted_choice
                         ),
-                        loadout=loadout_choice,
+                        # 展示用差量取自**实际装配结果**（而非求解器请求的差量）：
+                        # 一体式件覆盖的内置件在合成阶段已被卸下，不应再出现在配装里。
+                        loadout=state_mounted_choice.loadout,
                         gun_price=gun_price,
                     )
                 )

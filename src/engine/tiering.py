@@ -118,18 +118,28 @@ def summarize_loadout_effects(base_state: Any, final_state: Any) -> List[Dict[st
     return effects
 
 
-def _effective_loadout(loadout: Mapping[str, str], weapon: Mapping[str, Any]) -> Dict[str, str]:
+def _effective_loadout(
+    loadout: Mapping[str, str],
+    weapon: Mapping[str, Any],
+    parts: Optional[Mapping[str, Mapping[str, Any]]] = None,
+) -> Dict[str, str]:
     """只保留**玩家需要改装**的件（与官方默认件相同的选择不列出）。
 
     归一化后的配件表会保留原厂内部件（``selectable=false``，如原厂枪管/弹匣内衬），
-    求解器可能选中它们——它们不是玩家要装的配件，列出来只会干扰阅读。
+    求解器可能选中它们、耦合规则也可能强制带入——它们不是玩家要装的配件，
+    列出来只会干扰阅读（也**不计入配件价**）。
     """
     defaults = {str(k): str(v) for k, v in (weapon.get("default_items") or {}).items()}
-    return {
-        str(socket_id): str(item_id)
-        for socket_id, item_id in loadout.items()
-        if defaults.get(str(socket_id)) != str(item_id)
-    }
+    out: Dict[str, str] = {}
+    for socket_id, item_id in loadout.items():
+        if defaults.get(str(socket_id)) == str(item_id):
+            continue
+        if parts is not None:
+            part = parts.get(str(item_id))
+            if part is not None and not part.get("selectable", True):
+                continue
+        out[str(socket_id)] = str(item_id)
+    return out
 
 
 def compute_kill_cost(
