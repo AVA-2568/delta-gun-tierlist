@@ -2,11 +2,11 @@
  "schema": "weapon-price-daily",
  "currency": "哈夫币",
  "window": {
-  "from": "2026-10-21",
-  "to": "2026-10-21",
+  "from": "2026-10-22",
+  "to": "2026-10-22",
   "days": 1
  },
- "updated_at": "2026-10-21",
+ "updated_at": "2026-10-22",
  "source": "orzice 三角洲小涛查 · 战备页交易行实时价（本体裸枪当日价）",
  "note": "自动维护：每日 GitHub Actions 抓取 orzice 小涛查实时价；交易行无报价的枪械为 null（渲染为 —），变体共用本体价（配件价不计入），非官方数据仅供参考",
  "weapons": [
@@ -29,14 +29,14 @@
    "name": "QBZ95-1",
    "category": "突击步枪",
    "caliber": "5.8x42mm",
-   "price_daily": 46618
+   "price_daily": 48173
   },
   {
    "weapon_id": "18010000010",
    "name": "AKS-74U",
    "category": "突击步枪",
    "caliber": "5.45x39mm",
-   "price_daily": 12058
+   "price_daily": null
   },
   {
    "weapon_id": "18010000012",
@@ -92,7 +92,7 @@
    "name": "SCAR-H",
    "category": "突击步枪",
    "caliber": "7.62x51mm",
-   "price_daily": 129420
+   "price_daily": 132430
   },
   {
    "weapon_id": "18010000023",
@@ -106,21 +106,21 @@
    "name": "PTR-32",
    "category": "突击步枪",
    "caliber": "7.62x39mm",
-   "price_daily": 44348
+   "price_daily": 47408
   },
   {
    "weapon_id": "18010000031",
    "name": "CAR-15",
    "category": "突击步枪",
    "caliber": "5.56x45mm",
-   "price_daily": 11798
+   "price_daily": 12304
   },
   {
    "weapon_id": "18010000037",
    "name": "AS-Val",
    "category": "突击步枪",
    "caliber": "9x39mm",
-   "price_daily": 251471
+   "price_daily": 246231
   },
   {
    "weapon_id": "18010000038",
@@ -141,21 +141,21 @@
    "name": "KC17",
    "category": "突击步枪",
    "caliber": "5.45x39mm",
-   "price_daily": 235751
+   "price_daily": 246231
   },
   {
    "weapon_id": "18010000043",
    "name": "MK47",
    "category": "突击步枪",
    "caliber": "7.62x39mm",
-   "price_daily": 207996
+   "price_daily": 213331
   },
   {
    "weapon_id": "18010000044",
    "name": "MCX-LT",
    "category": "突击步枪",
    "caliber": ".300BLK",
-   "price_daily": 79474
+   "price_daily": null
   },
   {
    "weapon_id": "18010000045",
@@ -169,7 +169,7 @@
    "name": "RM277",
    "category": "突击步枪",
    "caliber": "6.8x51mm",
-   "price_daily": 111915
+   "price_daily": 117965
   },
   {
    "weapon_id": "18010000051",
@@ -197,7 +197,7 @@
    "name": "Vector",
    "category": "冲锋枪",
    "caliber": ".45ACP",
-   "price_daily": 177300
+   "price_daily": 182515
   },
   {
    "weapon_id": "18020000004",
@@ -225,7 +225,7 @@
    "name": "SR-3M",
    "category": "冲锋枪",
    "caliber": "9x39mm",
-   "price_daily": 124173
+   "price_daily": 127203
   },
   {
    "weapon_id": "18020000009",
@@ -239,21 +239,21 @@
    "name": "MP7",
    "category": "冲锋枪",
    "caliber": "4.6x30mm",
-   "price_daily": 208590
+   "price_daily": 213805
   },
   {
    "weapon_id": "18020000011",
    "name": "QCQ171",
    "category": "冲锋枪",
    "caliber": "9x19mm",
-   "price_daily": 124173
+   "price_daily": 127203
   },
   {
    "weapon_id": "18020000012",
    "name": "MK4",
    "category": "冲锋枪",
    "caliber": "4.6x30mm",
-   "price_daily": 171728
+   "price_daily": 176933
   },
   {
    "weapon_id": "18020000046",
@@ -274,14 +274,14 @@
    "name": "S12K霰弹枪",
    "category": "",
    "caliber": "12Gauge",
-   "price_daily": 42155
+   "price_daily": 43435
   },
   {
    "weapon_id": "18030000004",
    "name": "M870霰弹枪",
    "category": "",
    "caliber": "12Gauge",
-   "price_daily": 4800
+   "price_daily": 5000
   },
   {
    "weapon_id": "18030000005",
@@ -316,7 +316,7 @@
    "name": "M250",
    "category": "轻机枪",
    "caliber": "6.8x51mm",
-   "price_daily": 256464
+   "price_daily": 267154
   },
   {
    "weapon_id": "18040000004",
@@ -337,7 +337,7 @@
    "name": "VSS",
    "category": "精确射手步枪",
    "caliber": "9x39mm",
-   "price_daily": 48488
+   "price_daily": 47781
   },
   {
    "weapon_id": "18050000004",
@@ -351,7 +351,7 @@
    "name": "M14",
    "category": "精确射手步枪",
    "caliber": "7.62x51mm",
-   "price_daily": 168775
+   "price_daily": 174050
   },
   {
    "weapon_id": "18050000006",
@@ -365,14 +365,14 @@
    "name": "SR25",
    "category": "精确射手步枪",
    "caliber": "7.62x51mm",
-   "price_daily": 255008
+   "price_daily": 260213
   },
   {
    "weapon_id": "18050000008",
    "name": "SR9",
    "category": "精确射手步枪",
    "caliber": "7.62x51mm",
-   "price_daily": 10800
+   "price_daily": 11250
   },
   {
    "weapon_id": "18050000031",
@@ -386,14 +386,14 @@
    "name": "Marlin杠杆步枪",
    "category": "精确射手步枪",
    "caliber": "45-70 Govt",
-   "price_daily": 43436
+   "price_daily": null
   },
   {
    "weapon_id": "18050000033",
    "name": "SVCH",
    "category": "精确射手步枪",
    "caliber": "7.62x54R",
-   "price_daily": 62423
+   "price_daily": 67628
   },
   {
    "weapon_id": "18060000007",
@@ -414,21 +414,21 @@
    "name": "M700",
    "category": "狙击步枪",
    "caliber": "7.62x51mm",
-   "price_daily": 105000
+   "price_daily": 111000
   },
   {
    "weapon_id": "18060000011",
    "name": "AWM",
    "category": "狙击步枪",
    "caliber": ".338 Lap Mag",
-   "price_daily": 830999
+   "price_daily": 823579
   },
   {
    "weapon_id": "18060000033",
    "name": "M82",
    "category": "狙击步枪",
    "caliber": ".50 BMG",
-   "price_daily": 200299
+   "price_daily": 207719
   },
   {
    "weapon_id": "18070000002",
@@ -463,28 +463,28 @@
    "name": "93R",
    "category": "手枪",
    "caliber": "9x19mm",
-   "price_daily": 15637
+   "price_daily": 15885
   },
   {
    "weapon_id": "18070000010",
    "name": "G17",
    "category": "手枪",
    "caliber": "9x19mm",
-   "price_daily": 5000
+   "price_daily": 4800
   },
   {
    "weapon_id": "18070000033",
    "name": "M1911",
    "category": "手枪",
    "caliber": ".45ACP",
-   "price_daily": 16420
+   "price_daily": 17640
   },
   {
    "weapon_id": "18150000001",
    "name": "复合弓",
    "category": "特殊武器",
    "caliber": "",
-   "price_daily": 114000
+   "price_daily": 117000
   }
  ]
 }
