@@ -45,6 +45,7 @@ from src.engine.tiering import (
     compute_full_price,
     compute_kill_cost,
     compute_parts_price,
+    compute_parts_price_partial,
     extract_loadout_part_ids,
 )
 from src.engine.weapon_pricing import load_weapon_prices
@@ -420,12 +421,27 @@ def refresh_payload_prices(
         gun_price = weapon_table.price_for(str(row.get("weapon_id") or ""))
         part_ids = extract_loadout_part_ids(row)
         parts_price = compute_parts_price(part_ids, part_table)
+        parts_known, parts_missing = compute_parts_price_partial(part_ids, part_table)
         ammo["price_daily"] = ammo_price
         row["gun_price_daily"] = gun_price
         row["parts_price_daily"] = parts_price
+        row["parts_price_known_daily"] = parts_known
+        row["parts_missing_count"] = parts_missing
         row["full_price_180rd"] = compute_full_price(gun_price, ammo_price, parts_price=parts_price)
         for band in (row.get("bands") or {}).values():
             band["kill_cost"] = compute_kill_cost(band.get("mean_expected_shots"), ammo_price)
+
+    # 配置明细（武器页）同样刷新价格：每行配置独立计算配件价
+    for weapon_id, rows in (payload.get("configs") or {}).items():
+        gun_price = weapon_table.price_for(str(weapon_id))
+        for row in rows:
+            part_ids = extract_loadout_part_ids(row)
+            parts_price = compute_parts_price(part_ids, part_table)
+            parts_known, parts_missing = compute_parts_price_partial(part_ids, part_table)
+            row["gun_price_daily"] = gun_price
+            row["parts_price_daily"] = parts_price
+            row["parts_price_known_daily"] = parts_known
+            row["parts_missing_count"] = parts_missing
 
 
 def refresh_prices(

@@ -22,6 +22,7 @@ from src.engine.tiering import (
     compute_full_price,
     compute_kill_cost,
     compute_parts_price,
+    compute_parts_price_partial,
     summarize_loadout_effects,
 )
 from src.season import CURRENT_SEASON
@@ -204,6 +205,7 @@ def rank_weapons_for_scenario(
             else list(effective_loadout.values())
         )
         parts_price = compute_parts_price(part_ids, part_price_table)
+        parts_known, parts_missing = compute_parts_price_partial(part_ids, part_price_table)
 
         return GunRanking(
             profile_key=str(weapon["profile_key"]),
@@ -227,6 +229,8 @@ def rank_weapons_for_scenario(
             ammo_price_daily=ammo_price,
             gun_price_daily=gun_price,
             parts_price_daily=parts_price,
+            parts_price_known_daily=parts_known,
+            parts_missing_count=parts_missing,
             full_price_180rd=compute_full_price(gun_price, ammo_price, parts_price=parts_price),
             loadout_effects=loadout_effects,
             stock_bands=dict(stock_bands),

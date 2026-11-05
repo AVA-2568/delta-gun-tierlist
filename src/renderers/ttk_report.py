@@ -157,6 +157,24 @@ def _fmt(value: Any, digits: int = 1, suffix: str = "") -> str:
         return str(value)
 
 
+def gun_parts_price_text(
+    gun_price: Any,
+    parts_price: Any,
+    parts_known: Any,
+    parts_missing: Any,
+    currency: str = "哈夫币",
+) -> str:
+    """「裸枪 + 核心配件」价格：缺价件不猜测，只给已知部分的下限价。"""
+    if gun_price is None:
+        return "—"
+    if parts_price is not None:
+        return _fmt_money(int(gun_price) + int(parts_price), currency)
+    missing = int(parts_missing or 0)
+    if parts_known is None or missing <= 0:
+        return "—"
+    return f"≥ {_fmt_money(int(gun_price) + int(parts_known), currency)}（缺 {missing} 件）"
+
+
 def _fmt_money(value: Any, currency: str = "哈夫币") -> str:
     """整数金额千分位格式化；``None`` 渲染为 ``—``（缺价不猜测）。"""
     if value is None:
@@ -330,8 +348,8 @@ def _band_table_text(
     full_col = f"整枪+{rounds} 发备弹"
 
     lines = [
-        f"| # | 层级 | 武器 | 平均 TTK | 最差 TTK | 改装收益 | 期望击杀发数@0m | 弹药 | 单发价 | 击杀成本 | 裸枪价格 | {full_col} | 射速 | 优势射程 | 起枪配置 |",
-        "| :-- | :-- | :-- | --: | --: | --: | --: | :-- | --: | --: | --: | --: | --: | --: | :-- |",
+        f"| # | 层级 | 武器 | 平均 TTK | 最差 TTK | 改装收益 | 期望击杀发数@0m | 弹药 | 单发价 | 击杀成本 | 裸枪价格 | 裸枪+核心配件 | {full_col} | 射速 | 优势射程 | 起枪配置 |",
+        "| :-- | :-- | :-- | --: | --: | --: | --: | :-- | --: | --: | --: | --: | --: | --: | --: | :-- |",
     ]
     for w in rows:
         band_data = w["bands"][band]
@@ -340,7 +358,7 @@ def _band_table_text(
         ammo = w.get("ammo") or {}
         stock_mean = ((w.get("stock_bands") or {}).get(band) or {}).get("mean_ms")
         lines.append(
-            "| {rank} | {tier} | {name} | {mean} | {worst} | {gain} | {shots} | {ammo} | {price} | {cost} | {gun} | {full} | {rpm} | {rng} | {loadout} |".format(
+            "| {rank} | {tier} | {name} | {mean} | {worst} | {gain} | {shots} | {ammo} | {price} | {cost} | {gun} | {gun_parts} | {full} | {rpm} | {rng} | {loadout} |".format(
                 rank=band_data["rank"],
                 tier=_tier_badge(band_data.get("tier", "")),
                 name=name,
@@ -352,6 +370,13 @@ def _band_table_text(
                 price=_fmt_money(ammo.get("price_daily"), currency),
                 cost=_fmt_money(band_data.get("kill_cost"), currency),
                 gun=_fmt_money(w.get("gun_price_daily"), currency),
+                gun_parts=gun_parts_price_text(
+                    w.get("gun_price_daily"),
+                    w.get("parts_price_daily"),
+                    w.get("parts_price_known_daily"),
+                    w.get("parts_missing_count"),
+                    currency,
+                ),
                 full=_fmt_money(w.get("full_price_180rd"), currency),
                 rpm=_fmt(w.get("rpm"), 0),
                 rng=_fmt(w.get("effective_range_m"), 1, " m"),
@@ -405,6 +430,7 @@ def render_weapon_doc(
         "",
         "> 该枪**全部起枪配置 × 当期弹**在各距离带的平均实战 TTK（毫秒）；``★`` 为该枪在本带的最优配置（即榜单展示的那一行）。",
         "> 本页列出全部配置（含未进 T0/T1 的），按情景内平均 TTK 升序；期望击杀发数为 **0 m 口径**（无距离衰减）。",
+        "> 「裸枪+核心配件」= 本体裸枪价 + 该配置核心配件当日价；缺行情件不猜测，只给已含件的下限价 `≥ X（缺 N 件）`。",
         "",
         "[← 返回榜单](../README.md)",
         "",
@@ -416,19 +442,25 @@ def render_weapon_doc(
         meta = scenario_meta.get(sid) or {}
         lines.append(f"## {scenario_doc_stem(meta) if meta else sid}")
         lines.append("")
-        lines.append("| # | 配置 | 弹药 | 期望击杀发数@0m | 射速 | 优势射程 | 贴脸 | 近距 | 中距 | 远距 |")
-        lines.append("| --: | :-- | :-- | --: | --: | --: | --: | --: | --: | --: |")
+        lines.append("| # | 配置 | 弹药 | 期望击杀发数@0m | 射速 | 优势射程 | 裸枪+核心配件 | 贴脸 | 近距 | 中距 | 远距 |")
+        lines.append("| --: | :-- | :-- | --: | --: | --: | --: | --: | --: | --: | --: |")
         for index, row in enumerate(rows, start=1):
             config = loadout_text(row.get("loadout") or {}, part_names)
             bands = row.get("bands") or {}
             lines.append(
-                "| {n} | {cfg} | {ammo} | {shots} | {rpm} | {rng} | {b0} | {b1} | {b2} | {b3} |".format(
+                "| {n} | {cfg} | {ammo} | {shots} | {rpm} | {rng} | {price} | {b0} | {b1} | {b2} | {b3} |".format(
                     n=index,
                     cfg=config,
                     ammo=str(row.get("ammo") or "—"),
                     shots=_fmt(row.get("expected_shots_0m"), 2, " 发"),
                     rpm=_fmt(row.get("rpm"), 0),
                     rng=_fmt(row.get("effective_range_m"), 1, " m"),
+                    price=gun_parts_price_text(
+                        row.get("gun_price_daily"),
+                        row.get("parts_price_daily"),
+                        row.get("parts_price_known_daily"),
+                        row.get("parts_missing_count"),
+                    ),
                     b0=_band_cell(bands.get("贴脸")),
                     b1=_band_cell(bands.get("近距")),
                     b2=_band_cell(bands.get("中距")),
@@ -473,6 +505,13 @@ def render_band_top_preview(
                 mean=_fmt(band_data["mean_ms"], 1, " ms"),
                 cost=_fmt_money(band_data.get("kill_cost"), currency),
                 gun=_fmt_money(w.get("gun_price_daily"), currency),
+                gun_parts=gun_parts_price_text(
+                    w.get("gun_price_daily"),
+                    w.get("parts_price_daily"),
+                    w.get("parts_price_known_daily"),
+                    w.get("parts_missing_count"),
+                    currency,
+                ),
                 full=_fmt_money(w.get("full_price_180rd"), currency),
                 loadout=loadout,
             )
@@ -588,7 +627,8 @@ def render_readme(
                  "官方插槽规则 + 强制联动）× 一款当季弹；同一把枪只展示其带内最快的一行，"
                  "同口径同等级多款当季弹取最快者；当日无行情者成本列显示 —（不因缺价删行） |")
     lines.append("| 改装收益 | 该距离带内**本体裸枪 → 本状态**的平均 TTK 缩短量与百分比（`—` 表示本体裸枪行） |")
-    lines.append("| 起枪成本 | 裸枪价格 = 本体交易行当日价（变体/改装共用本体价）；"
+    lines.append("| 起枪成本 | 裸枪价格 = 本体交易行当日价；裸枪+核心配件 = 裸枪价 + 该配置核心配件当日价"
+                 "（缺行情件不猜测，给已知部分下限 `≥ X（缺 N 件）`）；"
                  "整枪+180 发备弹 = 裸枪价 + 核心配件价 + 180 × 该行所配弹药单发价（预估；白板裸枪配件价为 0） |")
     lines.append("| 距离场 | 0–80 m（官方排行口径），分 4 个距离带，每带独立成榜 |")
     lines.append(

@@ -42,6 +42,10 @@ def _config_rows(rankings: List[GunRanking]) -> Dict[str, List[Dict[str, Any]]]:
                 "expected_shots_0m": round(entry.expected_shots_0m, 3),
                 "muzzle_velocity_mps": round(entry.muzzle_velocity_mps, 1),
                 "effective_range_m": round(entry.effective_range_m, 1),
+                "gun_price_daily": entry.gun_price_daily,
+                "parts_price_daily": entry.parts_price_daily,
+                "parts_price_known_daily": entry.parts_price_known_daily,
+                "parts_missing_count": entry.parts_missing_count,
                 "bands": {
                     band: {
                         "mean_ms": round(result.mean_ms, 1),
@@ -123,6 +127,8 @@ def to_export(
                 },
                 "gun_price_daily": entry.gun_price_daily,
                 "parts_price_daily": entry.parts_price_daily,
+                "parts_price_known_daily": entry.parts_price_known_daily,
+                "parts_missing_count": entry.parts_missing_count,
                 "full_price_180rd": entry.full_price_180rd,
                 "bands": {
                     name: {

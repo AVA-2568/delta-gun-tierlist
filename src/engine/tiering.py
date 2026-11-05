@@ -76,6 +76,10 @@ class GunRanking:
     parts_price_daily: Optional[int] = None
     #: 起枪预估价：裸枪价 + N 发所配弹药 + 核心配件价（缺任一价则为 None）
     full_price_180rd: Optional[int] = None
+    #: 已知配件价之和（缺价件不计），用于「裸枪+核心配件 ≥ X（缺 N 件）」下限展示
+    parts_price_known_daily: Optional[int] = None
+    #: 缺当日行情的核心配件件数（0 表示价格完整）
+    parts_missing_count: int = 0
     #: 相对本体裸枪的关键 TTK 属性变化（伤害档案替换、射速、优势射程等）
     loadout_effects: List[Dict[str, Any]] = field(default_factory=list)
     #: 本体裸枪（无改装）在各距离带的 TTK 聚合，作为本行收益的参照
@@ -202,6 +206,30 @@ def extract_loadout_part_ids(entry_or_row: Any) -> List[str]:
     return []
 
 
+def compute_parts_price_partial(
+    part_ids: Sequence[str],
+    part_price_table: Any,
+) -> tuple:
+    """返回 ``(已知配件价之和, 缺价件数)``。
+
+    缺价件不猜测：已知部分可用于展示「≥ X（缺 N 件）」下限价，
+    严格总价仍由 :func:`compute_parts_price` 给出。
+    """
+    if not part_ids:
+        return 0, 0
+    if part_price_table is None or getattr(part_price_table, "is_empty", False):
+        return None, len(part_ids)
+    total = 0
+    missing = 0
+    for pid in part_ids:
+        price = part_price_table.price_for(str(pid))
+        if price is None:
+            missing += 1
+            continue
+        total += price
+    return total, missing
+
+
 def compute_parts_price(
     part_ids: Sequence[str],
     part_price_table: Any,
@@ -212,17 +240,8 @@ def compute_parts_price(
     - part_price_table 为 None / 空表，或其中任一配件缺价：返回 None（不猜测、不兜底）；
     - 否则返回各配件当日价之和。
     """
-    if not part_ids:
-        return 0
-    if part_price_table is None or getattr(part_price_table, "is_empty", False):
-        return None
-    total = 0
-    for pid in part_ids:
-        price = part_price_table.price_for(str(pid))
-        if price is None:
-            return None
-        total += price
-    return total
+    total, missing = compute_parts_price_partial(part_ids, part_price_table)
+    return None if missing else total
 
 
 def _quantile(sorted_values: Sequence[float], q: float) -> float:

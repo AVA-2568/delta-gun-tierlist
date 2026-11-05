@@ -15,6 +15,7 @@ from src.renderers.ttk_report import (
     render_band_top_preview,
     render_gunsmith_guide,
     render_readme,
+    gun_parts_price_text,
     render_weapon_doc,
     scenario_caption,
     scenario_doc_stem,
@@ -629,3 +630,18 @@ def test_weapon_doc_lists_all_configs_and_marks_band_best():
     assert "400.0" in doc                    # 非最优配置同样列出
     assert "期望击杀发数@0m" in doc           # 发数列
     assert "6.46 发" in doc
+
+
+def test_gun_parts_price_text_handles_missing_quotes():
+    """裸枪+核心配件：全价直接求和；缺价件只给已知部分的下限，不猜测。"""
+    assert gun_parts_price_text(161318, 151826, 151826, 0) == "313,144 哈夫币"
+    assert gun_parts_price_text(161318, None, 151826, 1) == "≥ 313,144 哈夫币（缺 1 件）"
+    assert gun_parts_price_text(None, 151826, 151826, 0) == "—"
+    assert gun_parts_price_text(161318, None, None, 3) == "—"
+
+
+def test_band_table_has_gun_parts_price_column():
+    table = render_band_table(PAYLOAD_WITH_COST, "贴脸", PART_NAMES)
+    header = table.splitlines()[0]
+    assert "裸枪+核心配件" in header
+    assert header.index("裸枪价格") < header.index("裸枪+核心配件") < header.index("整枪+180 发备弹")
