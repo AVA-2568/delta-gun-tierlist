@@ -460,32 +460,6 @@ def test_band_table_renders_gun_prices():
     assert f"{87591 + 180 * 4579:,} 哈夫币" in preview
 
 
-def test_variant_row_shows_base_name_not_variant_identity():
-    """官方预装态行：武器列显示本体名（变体 = 本体 + 预装件，不是独立的枪）。"""
-    payload = {
-        **PAYLOAD_WITH_COST,
-        "weapon_price_meta": {"available": True, "spare_ammo_rounds": 180,
-                              "currency": "哈夫币", "window": {}, "updated_at": "2026-09-22"},
-        "weapons": [
-            {**PAYLOAD_WITH_COST["weapons"][0],
-             "name": "M4A1-AR特勤一体消音组合",   # 变体 display_name（payload 保留官方身份）
-             "base_name": "M4A1",
-             "is_variant": True,
-             "variant_item_name": "AR特勤一体消音组合",
-             "gun_price_daily": 87591,
-             "full_price_180rd": 87591 + 180 * 4579},
-        ],
-    }
-    table = render_band_table(payload, "贴脸", PART_NAMES)
-    assert "| 1 | **T0** | M4A1 |" in table          # 武器列 = 本体名
-    assert "M4A1-AR特勤一体消音组合" not in table   # 变体枪名不得作为武器身份出现
-    assert "变体 · 出厂预装态" not in table          # 旧「变体枪」副标签移除
-    assert "出厂预装：AR特勤一体消音组合" in table   # 预装来源在配置列标注
-    preview = render_band_top_preview(payload, "贴脸", PART_NAMES)
-    assert "| 1 | **T0** | M4A1 |" in preview
-    assert "出厂预装：AR特勤一体消音组合" in preview
-
-
 def test_band_table_renders_ammo_and_money():
     table = render_band_table(PAYLOAD_WITH_COST, "贴脸", PART_NAMES)
     assert "4.6x30mm AP SX" in table

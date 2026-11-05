@@ -39,14 +39,13 @@ class BandResult:
 class GunRanking:
     """一个配置状态在一个情景下的完整成绩。
 
-    ``entry_kind`` 区分三种单状态行：
+    ``entry_kind`` 区分两种单状态行：
 
     - ``"base"``：本体裸枪（官方默认配装）；
-    - ``"variant"``：本体+官方预装件（官方变体出厂态，预装件生效、无其他改装）；
     - ``"state"``：束搜索枚举出的改装状态（玩家装配的核心件组合）。
 
-    每行只代表一个配置状态，全部参与排名与分层。变体不是独立的枪——
-    只是本体预装了官方改件，故 ``gun_price_daily`` 与本体一致。
+    每行只代表一个配置状态，全部参与排名与分层。上游「官方变体」条目（本体 + 单件
+    配件）不是独立的枪，不单独成行——其效果由 ``state`` 行覆盖。
     """
 
     profile_key: str
@@ -54,12 +53,9 @@ class GunRanking:
     display_name: str
     base_name: str
     category: str
-    is_variant: bool
-    variant_item_name: Optional[str]
     loadout: Dict[str, str]
     tuning: Dict[str, Dict[str, float]]
     entry_kind: str = "base"
-    variant_item_id: Optional[str] = None
     bands: Dict[str, BandResult] = field(default_factory=dict)
     overall_mean_ms: float = 0.0
     expected_shots_0m: float = 0.0
@@ -90,6 +86,9 @@ EFFECT_SPECS: tuple = (
     ("base_damage", "肉伤", 0, ""),
     ("base_armor_damage", "甲伤", 0, ""),
     ("rpm", "射速", 0, ""),
+    #: 首发扳机延迟：S12「移除扳机延迟」件把它从 0.05/0.1 s 置 0，
+    #: 是纯 TTK 三大项之一，必须在配装效果里显式呈现。
+    ("fire_delay_seconds", "扳机延迟", 3, " s"),
     ("effective_range_m", "优势射程", 1, " m"),
     ("projectile_count", "每发弹丸", 0, ""),
 )
@@ -182,47 +181,18 @@ def extract_loadout_part_ids(entry_or_row: Any) -> List[str]:
     """提取一个状态行或排名条目中所涉及的核心配件 item_id 列表。
 
     - ``entry_kind == "base"``（本体裸枪、无改装）：返回 []
-    - ``entry_kind == "variant"``：提取出厂预装改件（优先 variant_item_id，
-      若缺失则从 profile_key "weapon_id:part_id" 解析），并并入玩家改装件
     - ``entry_kind == "state"``（改装态）：loadout 字典中的非默认件
     """
     if isinstance(entry_or_row, GunRanking):
         if entry_or_row.entry_kind == "base" and not entry_or_row.loadout:
             return []
-        if entry_or_row.entry_kind == "variant" or entry_or_row.is_variant:
-            part_ids: List[str] = []
-            if entry_or_row.variant_item_id:
-                part_ids.append(str(entry_or_row.variant_item_id))
-            elif ":" in (entry_or_row.profile_key or ""):
-                suffix = entry_or_row.profile_key.split(":", 1)[1]
-                if suffix and suffix != "base":
-                    part_ids.append(suffix)
-            if entry_or_row.loadout:
-                part_ids.extend(str(v) for v in entry_or_row.loadout.values())
-            return part_ids
         return [str(v) for v in entry_or_row.loadout.values()]
 
     if not isinstance(entry_or_row, Mapping):
         return []
 
-    entry_kind = entry_or_row.get("entry_kind") or ("variant" if entry_or_row.get("is_variant") else "base")
-    if entry_kind == "base" and not entry_or_row.get("loadout"):
+    if entry_or_row.get("entry_kind") == "base" and not entry_or_row.get("loadout"):
         return []
-    if entry_or_row.get("is_variant") or entry_kind == "variant":
-        part_ids = []
-        vid = entry_or_row.get("variant_item_id")
-        if vid:
-            part_ids.append(str(vid))
-        else:
-            profile_key = str(entry_or_row.get("profile_key") or "")
-            if ":" in profile_key:
-                suffix = profile_key.split(":", 1)[1]
-                if suffix and suffix != "base":
-                    part_ids.append(suffix)
-        loadout = entry_or_row.get("loadout")
-        if loadout and isinstance(loadout, Mapping):
-            part_ids.extend(str(v) for v in loadout.values())
-        return part_ids
     loadout = entry_or_row.get("loadout")
     if loadout and isinstance(loadout, Mapping):
         return [str(v) for v in loadout.values()]

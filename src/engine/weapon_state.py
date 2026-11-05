@@ -618,8 +618,16 @@ class WeaponStateResolver:
             state.burst_fire_cycle_seconds = (
                 (burst_count - 1) * burst_intra + float(sdk.get("burst_fire_cd_s") or 0.0)
             ) * interval_scale
-        # 首发扳机延迟（独立机构属性，不随射速倍率缩放）
-        state.fire_delay_seconds = float(sdk.get("fire_delay_s") or 0.0)
+        # 首发扳机延迟（独立机构属性，不随射速倍率缩放）。
+        # 配件可用 ``FireDelayTime`` + ``Initial`` 绝对值覆盖该机构量——S12 三件
+        # 「移除扳机延迟」套件（PKM HVK斗牛无托套件、QJB201 新式獠牙短枪管/内部弹匣件）
+        # 均将 0.05 s 置 0。覆盖优先于基座 ``sdkTiming.fireDelayTime``，缺失时才回落。
+        delay_override = state.overrides.get("FireDelayTime")
+        state.fire_delay_seconds = (
+            float(delay_override)
+            if delay_override is not None
+            else float(sdk.get("fire_delay_s") or 0.0)
+        )
 
         # 初速：面板 attr2（优势射程）的相对变化传播到 GBullet_Velocity。
         attr2_ratio = (

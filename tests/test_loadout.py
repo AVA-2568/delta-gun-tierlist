@@ -22,9 +22,14 @@ def gd():
 
 
 def test_ttk_targets_only_rate_damage_range():
-    """当前口径：TTK 只由 E[N] 与射击间隔构成 → 只认射速/弹道档案/有效射程。"""
+    """当前口径：TTK = 击杀发数项 + 射击节拍项 + 首发扳机延迟项。
+
+    因此只认：射速/弹道档案/有效射程（改变 E[N] 与间隔）与 ``FireDelayTime``
+    （改变首发延迟）。
+    """
     assert target_affects_ttk("GRateOfFire")
     assert target_affects_ttk("BulletFlyingId")
+    assert target_affects_ttk("FireDelayTime")
     assert target_affects_ttk("DisplayAttrValues.2")  # 优势射程 → 改变 E[N]
     assert target_affects_ttk("WeaponMainAttribute.MainAttrValues.2")
     assert not target_affects_ttk("GAiming_ADSTime")  # 开镜不进 TTK
@@ -140,6 +145,47 @@ def test_fire_interval_mult_a_is_redundant_with_mode_override(gd):
     assert state.rpm == pytest.approx(680.0, abs=1.0)
 
 
+
+
+def test_fire_delay_override_clears_trigger_delay(gd):
+    """S12「移除扳机延迟」件：``FireDelayTime`` + ``Initial 0.0`` 覆盖基座 sdkTiming。
+
+    三件官方改件均以绝对值覆盖把 0.05 s 扳机延迟置 0；若解析层忽略该目标，
+    配件收益会被整段吞掉（PKM 斗牛套件将与裸枪 TTK 完全相同）。
+    """
+    from src.engine.weapon_state import WeaponStateResolver
+
+    resolver = WeaponStateResolver(gd)
+    assert resolver.resolve("18040000001:base").fire_delay_seconds == pytest.approx(0.05)
+    assert (
+        resolver.resolve("18040000001:base", loadout={"2": "13020000625"}).fire_delay_seconds
+        == 0.0
+    )
+    assert resolver.resolve("18040000004:base").fire_delay_seconds == pytest.approx(0.05)
+    assert (
+        resolver.resolve("18040000004:base", loadout={"2": "13020000529"}).fire_delay_seconds
+        == 0.0
+    )
+    assert (
+        resolver.resolve("18040000004:base", loadout={"5": "13120000380"}).fire_delay_seconds
+        == 0.0
+    )
+
+
+def test_fire_delay_override_reduces_ttk_by_exact_delay(gd):
+    """端到端：装「移除扳机延迟」件后，同距离 TTK 恰好少 0.05 s（其余状态不变）。"""
+    from src.engine import engagement as eg
+    from src.engine.weapon_state import WeaponStateResolver
+
+    solver = LoadoutSolver(gd, SCENARIO)
+    resolver = WeaponStateResolver(gd)
+    ammo = solver.ammo_for("18040000001:base")
+    base = resolver.resolve("18040000001:base")
+    cleared = resolver.resolve("18040000001:base", loadout={"2": "13020000625"})
+    args = (ammo, solver.armor, solver.probabilities)
+    base_ttk = eg.ttk_at(base, *args, 20.0).ttk_seconds
+    cleared_ttk = eg.ttk_at(cleared, *args, 20.0).ttk_seconds
+    assert base_ttk - cleared_ttk == pytest.approx(0.05, abs=1e-9)
 
 
 def test_pruning_shrinks_space_dramatically(gd):

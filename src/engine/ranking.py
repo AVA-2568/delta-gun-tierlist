@@ -103,10 +103,11 @@ def rank_weapons_for_scenario(
     条目构成（同一把枪会产生多个状态行）：
 
     - **base 本体**：官方默认配装（裸枪）；
-    - **本体+官方预装件**：官方变体出厂态（仅预装件影响 TTK 的才列）——
-      变体只是本体预装了官方改件，不是独立的枪，裸枪价与本体一致；
     - **改装状态**：束搜索枚举的合法配装（仅影响 TTK 的插槽参与），每个
       TTK 互异状态一行——四带平均 TTK 相同的状态视为同一情况，不重复列。
+
+    上游的「官方变体」条目（本体 + 某件配件）**不作为独立起枪状态**：它不是独立的
+    枪，只是裸枪装了某件配件，效果已由改装状态行覆盖，另列只会重复计入。
 
     全部状态行一起参与排名与 T0–T3 分层。各行的「预装收益」以同枪同弹本体
     裸枪为参照。
@@ -134,14 +135,11 @@ def rank_weapons_for_scenario(
     keys_set = set(keys)
     distances = tuple(float(d) for d in range(0, int(eg.DISTANCE_MAX) + 1))
 
-    # 按 weapon_id 分组：base 与其变体
-    groups: Dict[str, Dict[str, Any]] = {}
+    # 按 weapon_id 索引本体；上游变体条目（本体 + 单件配件）不参与起枪状态
+    groups: Dict[str, Mapping[str, Any]] = {}
     for weapon in game_data.weapons:
-        group = groups.setdefault(str(weapon["weapon_id"]), {"base": None, "variants": []})
-        if weapon.get("is_variant"):
-            group["variants"].append(weapon)
-        else:
-            group["base"] = weapon
+        if not weapon.get("is_variant"):
+            groups[str(weapon["weapon_id"])] = weapon
 
     def _band_results(
         summary: Mapping[str, Mapping[str, float]], ammo_price: Optional[int]
@@ -200,13 +198,11 @@ def rank_weapons_for_scenario(
             if abs(d - round(d)) < 1e-9 and round(d) % 10 == 0:
                 by_distance[str(int(d))] = round(point.ttk_milliseconds, 2)
         effective_loadout = _effective_loadout(loadout or {}, weapon, parts=game_data.parts)
-        variant_item_id = str(weapon.get("variant_item_id")) if (entry_kind == "variant" and weapon.get("variant_item_id")) else None
-        if entry_kind == "base" and not effective_loadout:
-            part_ids: List[str] = []
-        elif entry_kind == "variant":
-            part_ids = [variant_item_id] if variant_item_id else []
-        else:
-            part_ids = list(effective_loadout.values())
+        part_ids: List[str] = (
+            []
+            if entry_kind == "base" and not effective_loadout
+            else list(effective_loadout.values())
+        )
         parts_price = compute_parts_price(part_ids, part_price_table)
 
         return GunRanking(
@@ -215,9 +211,6 @@ def rank_weapons_for_scenario(
             display_name=str(weapon.get("display_name") or weapon.get("name") or weapon["profile_key"]),
             base_name=str(weapon.get("name") or weapon["profile_key"]),
             category=str(weapon.get("category") or ""),
-            is_variant=entry_kind == "variant",
-            variant_item_id=variant_item_id,
-            variant_item_name=weapon.get("variant_item_name") if entry_kind == "variant" else None,
             loadout=effective_loadout,
             tuning={},
             entry_kind=entry_kind,
@@ -243,16 +236,12 @@ def rank_weapons_for_scenario(
     rankings: List[GunRanking] = []
     excluded: List[Dict[str, str]] = []
 
-    for _weapon_id, group in groups.items():
-        base_weapon = group["base"]
-        if base_weapon is None:
-            continue
+    for base_weapon in groups.values():
         base_key = str(base_weapon["profile_key"])
         if base_key not in keys_set:
             continue
 
-        # 本体裸枪当日价：同枪全部状态行（本体/预装态/改装态）共用——
-        # 变体 = 本体 + 预装改件，改装只换配件，裸枪价不随配置变化
+        # 本体裸枪当日价：同枪全部状态行共用——改装只换配件，裸枪价不随配置变化
         gun_price = (
             weapon_price_table.price_for(str(base_weapon["weapon_id"]))
             if weapon_price_table is not None
@@ -284,30 +273,6 @@ def rank_weapons_for_scenario(
         except eg.ScenarioError as exc:
             excluded.append(_exclude(base_key, base_weapon, exc))
             continue
-
-        # 变体出厂态的状态解析与弹药无关（变体与本体共用口径弹药池，只解析一次）；
-        # TTK 曲线按弹逐款重算
-        variant_states: List[tuple] = []
-        for variant_weapon in group["variants"]:
-            variant_key = str(variant_weapon["profile_key"])
-            if variant_key not in keys_set:
-                continue
-            variant_item_id = str(variant_weapon.get("variant_item_id") or "")
-            if variant_item_id in EXCLUDED_PART_IDS:
-                # 官方变体同样受赛季限时件约束：绝版件不得作为当前赛季可达成状态
-                continue
-            if not part_affects_ttk(game_data.get_part(variant_item_id)):
-                continue
-            try:
-                variant_states.append(
-                    (
-                        variant_weapon,
-                        solver.resolver.resolve(variant_key, loadout={}, tuning=None),
-                    )
-                )
-            except eg.ScenarioError as exc:
-                excluded.append(_exclude(variant_key, variant_weapon, exc))
-                continue
 
         # 状态去重键含弹药维度（见 _signature）：不同弹的同名状态是不同行
         seen_signatures: set = set()
@@ -342,28 +307,8 @@ def rank_weapons_for_scenario(
             )
             seen_signatures.add(_signature(base_summary, ammo_item_id))
 
-            # ---- 变体枪先入榜：出厂预装态（保留官方身份命名）× 本款弹 ----
-            for variant_weapon, variant_state in variant_states:
-                variant_curve = eg.ttk_curve(
-                    variant_state, ammo, solver.armor, solver.probabilities, distances
-                )
-                variant_summary = eg.band_summary(variant_curve)
-                rankings.append(
-                    _factory_ranking(
-                        variant_weapon,
-                        entry_kind="variant",
-                        curve=variant_curve,
-                        summary=variant_summary,
-                        ammo=ammo,
-                        stock_bands=base_summary,
-                        loadout_effects=summarize_loadout_effects(base_state, variant_state),
-                        gun_price=gun_price,
-                    )
-                )
-                seen_signatures.add(_signature(variant_summary, ammo_item_id))
-
             # ---- 起枪状态池：束搜索合法配装（仅影响 TTK 的插槽参与）× 本款弹 ----
-            # 与 base/变体出厂态同 TTK 签名（同弹）的状态已由其行覆盖，跳过。
+            # 与 base 同 TTK 签名（同弹）的状态已由裸枪行覆盖，跳过。
             try:
                 beam = beam_solver.enumerate_loadouts(base_key, beam_width=beam_width)
             except eg.ScenarioError as exc:

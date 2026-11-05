@@ -44,7 +44,7 @@ def test_band_result_new_fields_have_defaults():
 def test_gun_ranking_new_fields_have_defaults():
     entry = GunRanking(
         profile_key="p", weapon_id="w", display_name="GUN", base_name="GUN",
-        category="突击步枪", is_variant=False, variant_item_name=None,
+        category="突击步枪",
         loadout={}, tuning={},
     )
     assert entry.ammo_item_id == ""

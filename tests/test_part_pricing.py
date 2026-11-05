@@ -52,32 +52,12 @@ def test_load_part_prices_valid_table(tmp_path: Path) -> None:
 
 def test_extract_loadout_part_ids() -> None:
     # 1. 白板裸枪
-    base_row = {"entry_kind": "base", "loadout": {}, "is_variant": False}
+    base_row = {"entry_kind": "base", "loadout": {}}
     assert extract_loadout_part_ids(base_row) == []
 
-    # 2. 变体出厂态（显式包含 variant_item_id）
-    variant_row = {
-        "entry_kind": "variant",
-        "is_variant": True,
-        "variant_item_id": "13020000563",
-        "loadout": {},
-    }
-    assert extract_loadout_part_ids(variant_row) == ["13020000563"]
-
-    # 2b. 变体出厂态（variant_item_id 为 None，但 profile_key 包含配件 ID 如 "18010000040:13020000543"）
-    variant_fallback_row = {
-        "entry_kind": "variant",
-        "is_variant": True,
-        "profile_key": "18010000040:13020000543",
-        "variant_item_id": None,
-        "loadout": {},
-    }
-    assert extract_loadout_part_ids(variant_fallback_row) == ["13020000543"]
-
-    # 3. 改装态（MK4 击剑手枪管 + 回声消音器）
+    # 2. 改装态（MK4 击剑手枪管 + 回声消音器）
     mod_row = {
         "entry_kind": "state",
-        "is_variant": False,
         "loadout": {"2": "13020000563", "6": "13130000172"},
     }
     assert set(extract_loadout_part_ids(mod_row)) == {"13020000563", "13130000172"}

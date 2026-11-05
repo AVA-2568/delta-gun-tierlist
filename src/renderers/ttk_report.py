@@ -25,6 +25,8 @@ TTK_FORMULA = "首发扳机延迟 + 击发时刻 + 弹丸飞行时间"
 
 #: 公式三段的口径明细（紧随公式展示，避免读者误以为只算射击间隔）。
 TTK_FORMULA_DETAIL = (
+    "首发扳机延迟取官方 `sdkTiming.fireDelayTime`，配件可经 `FireDelayTime` 覆盖"
+    "（S12「移除扳机延迟」件将其置 0）。"
     "击发时刻：单发/全自动为 `(期望击杀发数 − 1) × 射击间隔`；连发按官方 `sdkTiming` 节拍；"
     "多弹丸按扣动扳机发数。飞行时间：`距离 / 原始初速`（不含精校修正）。"
 )
@@ -298,16 +300,7 @@ def _display_rows(
 def _weapon_display_text(
     weapon: Mapping[str, Any], part_names: Mapping[str, str]
 ) -> tuple[str, str]:
-    """「武器」与「起枪配置」两列文案。
-
-    官方预装态（变体 = 本体 + 预装件，不是独立的枪）：武器列显示本体名，预装来源
-    在配置列标注；其余行显示武器名与配装清单。
-    """
-    if weapon.get("is_variant"):
-        return (
-            str(weapon.get("base_name") or weapon["name"]),
-            f"出厂预装：{weapon.get('variant_item_name') or '—'}",
-        )
+    """「武器」与「起枪配置」两列文案：武器名 + 配装清单。"""
     return weapon["name"], loadout_text(weapon.get("loadout") or {}, part_names)
 
 
@@ -325,7 +318,7 @@ def _band_table_text(
     full_col = f"整枪+{rounds} 发备弹"
 
     lines = [
-        f"| # | 层级 | 武器 | 平均 TTK | 最差 TTK | 预装收益 | 期望击杀发数@0m | 弹药 | 单发价 | 击杀成本 | 裸枪价格 | {full_col} | 射速 | 优势射程 | 起枪配置 |",
+        f"| # | 层级 | 武器 | 平均 TTK | 最差 TTK | 改装收益 | 期望击杀发数@0m | 弹药 | 单发价 | 击杀成本 | 裸枪价格 | {full_col} | 射速 | 优势射程 | 起枪配置 |",
         "| :-- | :-- | :-- | --: | --: | --: | --: | :-- | --: | --: | --: | --: | --: | --: | :-- |",
     ]
     for w in rows:
@@ -511,10 +504,10 @@ def render_readme(
     lines.append("| :-- | :-- |")
     lines.append(f"| 排序键 | 距离带内平均实战 TTK（`{TTK_FORMULA}`） |")
     lines.append("| 不参与 | 开镜时间、换弹、命中率修正 |")
-    lines.append("| 起枪状态 | 每行 = 一个「起枪配置状态 × 一款当季弹」：本体裸枪、本体+官方预装件（官方变体出厂态）、"
+    lines.append("| 起枪状态 | 每行 = 一个「起枪配置状态 × 一款当季弹」：本体裸枪、"
                  "束搜索枚举的改装状态（官方插槽规则 + 强制联动）；同口径同等级的多款当季弹各出一行，"
                  "当日无行情者成本列显示 —（不因缺价删行）；仅列出 TTK 有差异的状态，全部一起排名分层 |")
-    lines.append("| 预装收益 | 该距离带内**本体裸枪 → 本状态**的平均 TTK 缩短量与百分比（`—` 表示本体裸枪行） |")
+    lines.append("| 改装收益 | 该距离带内**本体裸枪 → 本状态**的平均 TTK 缩短量与百分比（`—` 表示本体裸枪行） |")
     lines.append("| 起枪成本 | 裸枪价格 = 本体交易行当日价（变体/改装共用本体价）；"
                  "整枪+180 发备弹 = 裸枪价 + 核心配件价 + 180 × 该行所配弹药单发价（预估；白板裸枪配件价为 0） |")
     lines.append("| 距离场 | 0–80 m（官方排行口径），分 4 个距离带，每带独立成榜 |")
@@ -535,7 +528,7 @@ def render_readme(
         f"命中分布 `{scenario_meta.get('probability_preset')}`"
         f"（{_volume_aim_detail(scenario_meta.get('hit_probabilities'))}）；"
         f"每带速览只取 T0 / T1 合并后的前 5 名，"
-        f"完整排名（全部起枪状态 × 预装收益 × 最差 TTK）见各距离榜。"
+        f"完整排名（全部起枪状态 × 改装收益 × 最差 TTK）见各距离榜。"
     )
     lines.append("")
     for band in BAND_ORDER:

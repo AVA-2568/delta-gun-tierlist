@@ -3,7 +3,7 @@
 三张表与 TTK 榜单**同源同真**：枪械状态全部经 :class:`WeaponStateResolver`
 实测产出（官方默认配装口径，与榜单 base/变体行一致），不引入第二套口径。
 
-- ``weapons.json`` —— 全部收录枪械（68 本体 + 18 官方变体出厂态）的完整状态
+- ``weapons.json`` —— 全部收录枪械（69 本体）的完整状态
 - ``parts.json``   —— 全部配件的属性加成 / profile 换挡 / 精校声明（target 附语义化键）
 - ``links.json``   —— 全部「单配件 × 本体枪」对接记录：在本体官方默认态上
   单装一件配件后的关键状态，外部工具据此即可对接两表计算任意配装
@@ -34,6 +34,7 @@ PROVENANCE_PATH = os.path.join("data", "game", "provenance.json")
 _STATE_FIELDS = (
     "rpm",
     "fire_interval_s",
+    "fire_delay_s",
     "flesh_damage",
     "armor_damage",
     "penetration_level",
@@ -63,6 +64,9 @@ def _state_summary(state: Any) -> Dict[str, Any]:
     return {
         "rpm": round(float(state.rpm), 2),
         "fire_interval_s": round(float(state.fire_interval_seconds), 6),
+        # 首发扳机延迟：TTK 三项之一，缺此字段外部无法复算 PKM/M249/M250 等
+        # 带延迟枪械的 TTK（配件可经 ``FireDelayTime`` 覆盖，故取状态量而非基座量）。
+        "fire_delay_s": round(float(state.fire_delay_seconds), 6),
         "flesh_damage": float(state.base_damage),
         "armor_damage": float(state.base_armor_damage),
         "penetration_level": int(state.base_penetration_level),
@@ -128,6 +132,10 @@ def export_parts(gd: Any) -> Dict[str, Any]:
 def export_weapons(gd: Any, resolver: WeaponStateResolver) -> Dict[str, Any]:
     weapons = []
     for weapon in gd.weapons:
+        # 上游变体条目（本体 + 单件配件）不是独立的枪，不导出为枪械条目；
+        # 其状态可由本表 + links 表组合推得。
+        if weapon.get("is_variant"):
+            continue
         state = resolver.resolve(str(weapon["profile_key"]))
         weapons.append(
             {
@@ -172,7 +180,7 @@ def export_weapons(gd: Any, resolver: WeaponStateResolver) -> Dict[str, Any]:
 def export_links(gd: Any, resolver: WeaponStateResolver) -> Dict[str, Any]:
     """「单配件 × 本体枪」对接表：在本体官方默认态上单装一件配件后的状态。
 
-    变体条目不参与枚举：变体 = 本体 + 官方预装件，其完整状态已在枪械表；
+    变体条目不参与枚举：变体 = 本体 + 单件配件，其完整状态已在枪械表；
     在变体上继续改装可由外部工具以本表 + 枪械表组合推得。
     """
     links: List[Dict[str, Any]] = []
@@ -223,7 +231,7 @@ def export_all(output_dir: str = EXPORT_DIR) -> Dict[str, int]:
     _write_json(os.path.join(output_dir, "parts.json"), export_parts(gd))
     _write_json(os.path.join(output_dir, "links.json"), export_links(gd, resolver))
     return {
-        "weapons": len(gd.weapons),
+        "weapons": sum(1 for w in gd.weapons if not w.get("is_variant")),
         "parts": len(gd.parts),
         "links": sum(len(s["options"]) for w in gd.weapons if not w.get("is_variant") for s in w.get("sockets") or []),
     }

@@ -77,20 +77,17 @@ def test_ranking_without_weapon_table_still_works(gd):
 
 
 def test_gun_price_attaches_to_all_states_of_the_gun(gd):
-    """裸枪价按本体计：同枪全部状态行（本体/预装态/改装态）同价。"""
+    """裸枪价按本体计：同枪全部状态行（本体/改装态）同价。"""
     rankings, payload = _run(
         gd,
-        ["18020000012:base", "18020000012:13020000563"],  # MK4 本体 + 击剑手枪管预装态
+        ["18020000012:base"],  # MK4 本体
         weapon_prices={"18020000012": 142801},
     )
-    assert rankings, "MK4 本体与预装态都应成行"
+    assert rankings, "MK4 本体应成行"
+    assert any(e.entry_kind == "state" for e in rankings), "MK4 改装态应成行"
     for entry in rankings:
         assert entry.weapon_id == "18020000012"
         assert entry.gun_price_daily == 142801
-    # 预装态行与本体行共用本体价（变体不是独立的枪）
-    variant_rows = [e for e in rankings if e.entry_kind == "variant"]
-    assert variant_rows, "MK4-击剑手枪管预装态应成行"
-    assert all(e.gun_price_daily == 142801 for e in variant_rows)
     assert payload["weapon_price_meta"]["available"] is True
     assert payload["weapon_price_meta"]["spare_ammo_rounds"] == 180
 
