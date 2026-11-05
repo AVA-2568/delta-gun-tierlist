@@ -593,6 +593,7 @@ def test_weapon_doc_lists_all_configs_and_marks_band_best():
                     "entry_kind": "base",
                     "ammo": "M855A1",
                     "rpm": 800.0,
+                    "expected_shots_0m": 6.52,
                     "effective_range_m": 40.0,
                     "bands": {
                         "贴脸": {"mean_ms": 400.0, "worst_ms": 410.0, "tier": "T1", "is_best": False},
@@ -605,6 +606,7 @@ def test_weapon_doc_lists_all_configs_and_marks_band_best():
                     "entry_kind": "state",
                     "ammo": "M855A1",
                     "rpm": 800.0,
+                    "expected_shots_0m": 6.46,
                     "effective_range_m": 52.0,
                     "bands": {
                         "贴脸": {"mean_ms": 362.6, "worst_ms": 362.6, "tier": "T0", "is_best": True},
@@ -625,3 +627,5 @@ def test_weapon_doc_lists_all_configs_and_marks_band_best():
     assert "AR特勤一体消音组合" in doc        # 改装行
     assert "362.6 ★" in doc                  # 带内最优标记
     assert "400.0" in doc                    # 非最优配置同样列出
+    assert "期望击杀发数@0m" in doc           # 发数列
+    assert "6.46 发" in doc

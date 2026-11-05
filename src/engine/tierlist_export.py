@@ -39,6 +39,7 @@ def _config_rows(rankings: List[GunRanking]) -> Dict[str, List[Dict[str, Any]]]:
                 "ammo": entry.ammo_name,
                 "ammo_item_id": entry.ammo_item_id,
                 "rpm": round(entry.rpm, 1),
+                "expected_shots_0m": round(entry.expected_shots_0m, 3),
                 "muzzle_velocity_mps": round(entry.muzzle_velocity_mps, 1),
                 "effective_range_m": round(entry.effective_range_m, 1),
                 "bands": {

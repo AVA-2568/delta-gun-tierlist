@@ -404,7 +404,7 @@ def render_weapon_doc(
         f"# {weapon_name} · 配置明细",
         "",
         "> 该枪**全部起枪配置 × 当期弹**在各距离带的平均实战 TTK（毫秒）；``★`` 为该枪在本带的最优配置（即榜单展示的那一行）。",
-        "> 本页列出全部配置（含未进 T0/T1 的），按情景内平均 TTK 升序。",
+        "> 本页列出全部配置（含未进 T0/T1 的），按情景内平均 TTK 升序；期望击杀发数为 **0 m 口径**（无距离衰减）。",
         "",
         "[← 返回榜单](../README.md)",
         "",
@@ -416,16 +416,17 @@ def render_weapon_doc(
         meta = scenario_meta.get(sid) or {}
         lines.append(f"## {scenario_doc_stem(meta) if meta else sid}")
         lines.append("")
-        lines.append("| # | 配置 | 弹药 | 射速 | 优势射程 | 贴脸 | 近距 | 中距 | 远距 |")
-        lines.append("| --: | :-- | :-- | --: | --: | --: | --: | --: | --: |")
+        lines.append("| # | 配置 | 弹药 | 期望击杀发数@0m | 射速 | 优势射程 | 贴脸 | 近距 | 中距 | 远距 |")
+        lines.append("| --: | :-- | :-- | --: | --: | --: | --: | --: | --: | --: |")
         for index, row in enumerate(rows, start=1):
             config = loadout_text(row.get("loadout") or {}, part_names)
             bands = row.get("bands") or {}
             lines.append(
-                "| {n} | {cfg} | {ammo} | {rpm} | {rng} | {b0} | {b1} | {b2} | {b3} |".format(
+                "| {n} | {cfg} | {ammo} | {shots} | {rpm} | {rng} | {b0} | {b1} | {b2} | {b3} |".format(
                     n=index,
                     cfg=config,
                     ammo=str(row.get("ammo") or "—"),
+                    shots=_fmt(row.get("expected_shots_0m"), 2, " 发"),
                     rpm=_fmt(row.get("rpm"), 0),
                     rng=_fmt(row.get("effective_range_m"), 1, " m"),
                     b0=_band_cell(bands.get("贴脸")),
