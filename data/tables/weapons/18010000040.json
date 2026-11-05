@@ -12,7 +12,9 @@
       "37280300002",
       "37280400001",
       "37280400002",
-      "37280500001"
+      "37280400003",
+      "37280500001",
+      "37280500003"
     ],
     "rpm": 780.2340702210663,
     "fire_interval_s": 0.0769,
@@ -455,6 +457,12 @@
           "13110000078",
           "13110000079",
           "13110000088"
+        ]
+      },
+      {
+        "socket_id": 73,
+        "options": [
+          "13550000003"
         ]
       }
     ],
@@ -1431,6 +1439,26 @@
         "ammo_level": 4
       },
       {
+        "candidate_id": "18010000040:base:37280400003:2=13020000546",
+        "loadout_config": [
+          {
+            "slotPath": "2",
+            "itemId": "13020000546"
+          }
+        ],
+        "tunes": {},
+        "loadout_item_ids": [
+          "13020000546"
+        ],
+        "loadout_item_names": [
+          "K437特攻一体消音枪管"
+        ],
+        "fire_rate": 780,
+        "muzzle_velocity": 678.5,
+        "ammo_item_id": "37280400003",
+        "ammo_level": 4
+      },
+      {
         "candidate_id": "18010000040:base:37280500001:2=13020000546",
         "loadout_config": [
           {
@@ -1448,6 +1476,26 @@
         "fire_rate": 780,
         "muzzle_velocity": 678.5,
         "ammo_item_id": "37280500001",
+        "ammo_level": 5
+      },
+      {
+        "candidate_id": "18010000040:base:37280500003:2=13020000546",
+        "loadout_config": [
+          {
+            "slotPath": "2",
+            "itemId": "13020000546"
+          }
+        ],
+        "tunes": {},
+        "loadout_item_ids": [
+          "13020000546"
+        ],
+        "loadout_item_names": [
+          "K437特攻一体消音枪管"
+        ],
+        "fire_rate": 780,
+        "muzzle_velocity": 678.5,
+        "ammo_item_id": "37280500003",
         "ammo_level": 5
       }
     ],
@@ -1501,6 +1549,26 @@
           "ammo_level": 4
         },
         {
+          "candidate_id": "18010000040:13020000543:37280400003:2=13020000543",
+          "loadout_config": [
+            {
+              "slotPath": "2",
+              "itemId": "13020000543"
+            }
+          ],
+          "tunes": {},
+          "loadout_item_ids": [
+            "13020000543"
+          ],
+          "loadout_item_names": [
+            "K437长矛手长枪管组合"
+          ],
+          "fire_rate": 780,
+          "muzzle_velocity": 862.5,
+          "ammo_item_id": "37280400003",
+          "ammo_level": 4
+        },
+        {
           "candidate_id": "18010000040:13020000543:37280500001:2=13020000543",
           "loadout_config": [
             {
@@ -1518,6 +1586,26 @@
           "fire_rate": 780,
           "muzzle_velocity": 862.5,
           "ammo_item_id": "37280500001",
+          "ammo_level": 5
+        },
+        {
+          "candidate_id": "18010000040:13020000543:37280500003:2=13020000543",
+          "loadout_config": [
+            {
+              "slotPath": "2",
+              "itemId": "13020000543"
+            }
+          ],
+          "tunes": {},
+          "loadout_item_ids": [
+            "13020000543"
+          ],
+          "loadout_item_names": [
+            "K437长矛手长枪管组合"
+          ],
+          "fire_rate": 780,
+          "muzzle_velocity": 862.5,
+          "ammo_item_id": "37280500003",
           "ammo_level": 5
         }
       ]

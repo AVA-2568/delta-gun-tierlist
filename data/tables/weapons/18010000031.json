@@ -14,6 +14,7 @@
       "37100300002",
       "37100400001",
       "37100400002",
+      "37100400003",
       "37100500001"
     ],
     "rpm": 632.2444678609062,
@@ -450,6 +451,12 @@
         "options": [
           "13030000115",
           "13030000178"
+        ]
+      },
+      {
+        "socket_id": 73,
+        "options": [
+          "13550000004"
         ]
       }
     ],
@@ -2164,6 +2171,26 @@
         "ammo_level": 4
       },
       {
+        "candidate_id": "18010000031:base:37100400003:2=13020000349",
+        "loadout_config": [
+          {
+            "slotPath": "2",
+            "itemId": "13020000349"
+          }
+        ],
+        "tunes": {},
+        "loadout_item_ids": [
+          "13020000349"
+        ],
+        "loadout_item_names": [
+          "AR加百列长枪管组合"
+        ],
+        "fire_rate": 632,
+        "muzzle_velocity": 718.75,
+        "ammo_item_id": "37100400003",
+        "ammo_level": 4
+      },
+      {
         "candidate_id": "18010000031:base:37100500001:2=13020000349",
         "loadout_config": [
           {
@@ -2271,6 +2298,26 @@
           "fire_rate": 632,
           "muzzle_velocity": 678.5,
           "ammo_item_id": "37100400001",
+          "ammo_level": 4
+        },
+        {
+          "candidate_id": "18010000031:13020000173:37100400003:2=13020000173",
+          "loadout_config": [
+            {
+              "slotPath": "2",
+              "itemId": "13020000173"
+            }
+          ],
+          "tunes": {},
+          "loadout_item_ids": [
+            "13020000173"
+          ],
+          "loadout_item_names": [
+            "AR特勤一体消音组合"
+          ],
+          "fire_rate": 632,
+          "muzzle_velocity": 649.75,
+          "ammo_item_id": "37100400003",
           "ammo_level": 4
         },
         {

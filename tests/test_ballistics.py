@@ -196,7 +196,8 @@ def test_falloff_full_damage_includes_segment_start():
     assert state.falloff_rate(30.5) == 0.85
     ammo = solver.ammo_for(key)
     e31 = ttk_at(state, ammo, solver.armor, solver.probabilities, 31.0).expected_shots
-    assert e31 == pytest.approx(7.006287973239626, abs=1e-9)
+    # S12 数据集（20261105-weiguang.1）刷新后的锚点；衰减段起点语义不变。
+    assert e31 == pytest.approx(6.907115745115039, abs=1e-9)
 
 
 def test_burst_timeline_matches_dfttk():
@@ -233,3 +234,95 @@ def test_burst_timeline_matches_dfttk():
 
     m250 = solver.resolver.resolve("18040000003:base", loadout={}, tuning=None)
     assert m250.fire_delay_seconds == 0.1
+
+
+# --------------------------------------------------------------------------- #
+# S12 叠层引爆（onHitEffects.detonation）
+# --------------------------------------------------------------------------- #
+
+def _detonation_ctx(on_hit_effects, per_shot=30.0, falloff=1.0):
+    """无护甲、单一胸部命中的最小上下文；每发固定伤害，隔离引爆通道。"""
+    return DamageContext(
+        base_flesh=per_shot,
+        base_armor=0.0,
+        hitbox_multipliers={"upperChest": 1.0},
+        ammo={
+            "flesh_damage_multiplier": 1.0,
+            "armor_damage_multiplier": 1.0,
+            "penetration_matrix": {
+                "0": {
+                    "body_health_rate": 1.0, "helmet_health_rate": 1.0,
+                    "body_durability_rate": 1.0, "helmet_durability_rate": 1.0,
+                    "penetrates": True,
+                }
+            },
+            "per_part": {},
+            "on_hit_effects": on_hit_effects,
+        },
+        armor_level=0,
+        helmet_durability=0.0,
+        armor_durability=0.0,
+        helmet_covered=[],
+        armor_covered=[],
+        hit_probabilities={"chest": 1.0},
+        falloff=falloff,
+    )
+
+
+def test_no_status_effects_keeps_legacy_expected_shots():
+    """无 on_hit_effects：每发 30 点 → 4 发（旧口径零回归）。"""
+    ctx = _detonation_ctx({})
+    assert ctx._detonation_base == 0.0
+    assert ctx.expected_kill_shots() == pytest.approx(4.0, abs=1e-12)
+
+
+def test_detonation_adds_fixed_damage_on_stage_shots():
+    """每 2 层 +20 点：第 2 发触发 → 3 发击杀（无引爆需 4 发）。"""
+    ctx = _detonation_ctx({"detonation": {"damage": 20, "stageStackCounts": [2, 4], "maxStacks": 8}})
+    assert ctx._detonation_base == 20.0
+    assert ctx._detonation_triggers == frozenset({2, 4, 6, 8})
+    assert ctx.expected_kill_shots() == pytest.approx(3.0, abs=1e-12)
+
+
+def test_detonation_damage_is_not_scaled_by_falloff():
+    """无护甲时爆炸退化为固定伤害，不受子弹距离衰减影响：falloff=0.5 时 4 发击杀。"""
+    ctx = _detonation_ctx(
+        {"detonation": {"damage": 20, "stageStackCounts": [2, 4], "maxStacks": 8}},
+        falloff=0.5,
+    )
+    assert ctx.expected_kill_shots() == pytest.approx(4.0, abs=1e-12)
+
+
+def test_detonation_extra_armor_damage_advances_break_progress():
+    """爆炸额外扣背心耐久：相同子弹命中数下，已引爆路径的碎甲伤害更高。"""
+    ctx = DamageContext(
+        base_flesh=30.0,
+        base_armor=20.0,
+        hitbox_multipliers={"upperChest": 1.0},
+        ammo={
+            "flesh_damage_multiplier": 1.0,
+            "armor_damage_multiplier": 1.0,
+            "penetration_matrix": {
+                "0": {
+                    "body_health_rate": 0.5, "helmet_health_rate": 1.0,
+                    "body_durability_rate": 1.0, "helmet_durability_rate": 1.0,
+                    "penetrates": True,
+                }
+            },
+            "per_part": {},
+            "on_hit_effects": {"detonation": {
+                "damage": 12, "armorDamage": 15,
+                "armorCorrection": {"0": {"bodyHealthRate": 0.5, "bodyDurabilityRate": 1.0}},
+                "stageStackCounts": [2, 4], "maxStacks": 8,
+            }},
+        },
+        armor_level=0,
+        helmet_durability=0.0,
+        armor_durability=60.0,
+        helmet_covered=[],
+        armor_covered=["upperChest"],
+        hit_probabilities={"chest": 1.0},
+        falloff=1.0,
+    )
+    assert ctx._detonation_need == 15.0
+    assert ctx._table[("chest", 0, 2, 1)] > ctx._table[("chest", 0, 2, 0)]

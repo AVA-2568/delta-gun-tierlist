@@ -14,6 +14,7 @@
       "37100300002",
       "37100400001",
       "37100400002",
+      "37100400003",
       "37100500001"
     ],
     "rpm": 879.7653958944281,
@@ -40,7 +41,7 @@
     "burst_count": 3,
     "muzzle_velocity_mps": 575.0,
     "projectile_count": 1,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "hitbox_multipliers": {
       "head": 1.9,
@@ -53,7 +54,7 @@
     },
     "damage_profile": {
       "profile_id": "authoring:weapon:18010000013:sol:damage",
-      "base_damage": 31.0,
+      "base_damage": 32.0,
       "base_armor_damage": 35.0,
       "base_penetration_level": 1,
       "hitbox_multipliers": {
@@ -79,11 +80,11 @@
       },
       {
         "from_m": 27.0,
-        "to_m": 54.0,
-        "rate": 0.85
+        "to_m": 40.0,
+        "rate": 0.9
       },
       {
-        "from_m": 54.0,
+        "from_m": 40.0,
         "to_m": 100.0,
         "rate": 0.7
       }
@@ -448,6 +449,12 @@
         "socket_id": 38,
         "options": [
           "13030000178"
+        ]
+      },
+      {
+        "socket_id": 73,
+        "options": [
+          "13550000004"
         ]
       }
     ],
@@ -1849,6 +1856,26 @@
         "fire_rate": 880,
         "muzzle_velocity": 747.5,
         "ammo_item_id": "37100400001",
+        "ammo_level": 4
+      },
+      {
+        "candidate_id": "18010000013:base:37100400003:2=13020000493",
+        "loadout_config": [
+          {
+            "slotPath": "2",
+            "itemId": "13020000493"
+          }
+        ],
+        "tunes": {},
+        "loadout_item_ids": [
+          "13020000493"
+        ],
+        "loadout_item_names": [
+          "K416A8长枪管组合"
+        ],
+        "fire_rate": 880,
+        "muzzle_velocity": 718.75,
+        "ammo_item_id": "37100400003",
         "ammo_level": 4
       },
       {

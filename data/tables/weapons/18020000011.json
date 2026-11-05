@@ -13,7 +13,8 @@
       "37200100001",
       "37200200001",
       "37200300001",
-      "37200400001"
+      "37200400001",
+      "37200500002"
     ],
     "rpm": 763.3587786259542,
     "fire_interval_s": 0.0786,
@@ -1410,6 +1411,32 @@
         "muzzle_velocity": 585,
         "ammo_item_id": "37200400001",
         "ammo_level": 4
+      },
+      {
+        "candidate_id": "18020000011:base:37200500002:2=13020000532,52=13420000002",
+        "loadout_config": [
+          {
+            "slotPath": "2",
+            "itemId": "13020000532"
+          },
+          {
+            "slotPath": "52",
+            "itemId": "13420000002"
+          }
+        ],
+        "tunes": {},
+        "loadout_item_ids": [
+          "13020000532",
+          "13420000002"
+        ],
+        "loadout_item_names": [
+          "QCQ171新式红缨战术枪管",
+          "QCQ171新式高射速化枪机"
+        ],
+        "fire_rate": 848,
+        "muzzle_velocity": 585,
+        "ammo_item_id": "37200500002",
+        "ammo_level": 5
       }
     ],
     "configuration_count": 1,

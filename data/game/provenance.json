@@ -3,37 +3,37 @@
   "name": "dfttk-v3",
   "base_url": "https://dfttk.com/data/v3/",
   "note": "该数据集为公开数据同步副本（部分文件自述权威性 DeltaForceDataEditorPublishedDataSynchronizedCopy），非腾讯官方 API。所有数值在使用前须经覆盖层或实测核验，详见 overrides 与核验状态字段。",
-  "dataset_version": "20261015-bd-balance.1",
-  "dataset_version_hash": "65089f0628197d53",
+  "dataset_version": "20261105-weiguang.1",
+  "dataset_version_hash": "46b19646df0b19a2",
   "schema_version": 3,
   "calculator_contracts": {
    "tuning": 1,
-   "effectResolver": 1,
+   "effectResolver": 3,
    "attributes": 1,
    "damage": 1,
    "defense": 2,
-   "combatSimulation": 4,
+   "combatSimulation": 7,
    "selection": 1
   },
-  "manifest_sha256": "a82ff9ae49496a49c7c0865784df926ff934b92ecc742c3773556dfa4d29aa46",
-  "synced_at": "2026-10-18T05:34:34.297292+00:00"
+  "manifest_sha256": "b7bafe4bdab46fb56c83dc259eb0fccdec775e8ca42090ed7ad6b5930d52a8e1",
+  "synced_at": "2026-11-05T03:38:49.833461+00:00"
  },
  "upstream_hashes": {
-  "catalog/ammo.json": "121341ded4b05627e844fe17438226e1fe523b7143a9789b69c51891e68a465d",
+  "catalog/ammo.json": "7a5201f3d4ccea16f07b94d99414cd8e6c78354342ebe7710bdd97a9da2f810c",
   "combat/defense/armors.json": "2bdf02f28aa73e975606657c8807a91eedffb91eb37638eafbb341cbfc693238",
   "combat/defense/helmets.json": "7288cb529d46ad078ab4150d016a9b4be8104b3b16b9f7329a03c8120570a7c2",
-  "combat/defense/ammo-interactions.json": "7fd27af1ae0fbda6624d76c2b8ed67a4f088eabcdacd80d93dbfe0bfe792b20f",
-  "rankings/firefight/index.json": "69209962843a0639f92c5f59cc6520e022d166ddb7a6eca7a60810f0ef7c37c4"
+  "combat/defense/ammo-interactions.json": "c2d3702f9fbed21297bf4b1070205841382e0338b4beb6a929e50bd0bd1d308a",
+  "rankings/firefight/index.json": "33ca28ce688044cb524c9f5c11397805e21faf26113cc97941a8ad3db49d7159"
  },
  "outputs": {
-  "weapons.json": "5696c2f9e4fa7cfaac2842af0ade16f09836970ca406979458fd35d44ac1fc66",
-  "ammo.json": "d47932b56d4cded7cdb244070d40d5aae4787b91c37d157482f29d075c43ec41",
+  "weapons.json": "ce2a6dcef54d9e439a5f766598d0eb02cff07a4c7d3787087b77158fc5063be0",
+  "ammo.json": "d263dc21b9e9d8d2e6b01fd06e895c621f17713750dc866e6cb8043ce40bd386",
   "armor.json": "79e3e82f2edb0d4dd20f73de8459b4582145d2a421abd908c32086c24ccde2f2",
-  "parts.json": "738878ed353c6f7be5b19db67e341a17855e18bc178bda8a4c57065c8784c67d",
-  "profiles.json": "59d01bc3ac52c9c8f69284119c042eafab6790c7235fad9a9544ed3b85f29109",
+  "parts.json": "0cf585b0a7006ac510f6d0e9719b211185d2e840ba6e231a1da85b11b5c27145",
+  "profiles.json": "063e5391feb3b87029302813872ab5a6fb30133bbac16bcea5a8d6353e91c557",
   "mechanism.json": "ee2613d94ccff4f3aa3c13ce7e31020cb261d935960b803c77e8ca01414d8c0b",
-  "scenarios.json": "85a578bfcd18bd5ea2605b3eff453b94d4661e72f89d63ccac3e506dfac7c43b",
-  "validation_samples.json": "090040fb26c9192f1b7b78e5fa03b7a57eecac2af5dfaf367e31deadeb1da58f"
+  "scenarios.json": "502fa00561fdbaee7a333c6c69516c3763a56efdc65819f1eae0fc150c713c5f",
+  "validation_samples.json": "0e40dcf830471ec9e447637aeaefc7a41cf9da4b8045b7ed08b8c8985a92d9db"
  },
  "merges": [
   {
@@ -43,11 +43,11 @@
   }
  ],
  "counts": {
-  "weapons": 86,
-  "ammo": 113,
-  "ammo_with_combat_profile": 113,
-  "parts": 1141,
-  "profiles": 1159,
+  "weapons": 88,
+  "ammo": 118,
+  "ammo_with_combat_profile": 118,
+  "parts": 1162,
+  "profiles": 1186,
   "armor_levels": 6,
   "mechanism_curves": 102,
   "validation_scenarios": 21
@@ -70,27 +70,69 @@
   },
   "official_reproduction_residual": {
    "verify_tol": 1e-09,
-   "residual_points": 785,
-   "total_points": 3774,
-   "max_abs_delta": 0.024488755200000156,
+   "residual_points": 920,
+   "total_points": 4029,
+   "max_abs_delta": 0.07218488716730675,
    "grade_counts": {
-    "bitwise": 1443,
-    "le_1e-9": 1546,
-    "le_1e-5": 743,
-    "le_1e-2": 39,
-    "gt_1e-2": 3
+    "bitwise": 1516,
+    "le_1e-9": 1593,
+    "le_1e-5": 842,
+    "le_1e-2": 64,
+    "gt_1e-2": 14
    },
    "grade_counts_note": "互斥分桶：五档之和 = total_points",
    "scenario_distribution": {
-    "armor-3-ammo-3": 66,
-    "armor-4-ammo-3": 77,
-    "armor-4-ammo-4": 74,
-    "armor-4-ammo-5": 47,
-    "armor-5-ammo-4": 213,
-    "armor-5-ammo-5": 149,
-    "armor-6-ammo-5": 159
+    "armor-3-ammo-3": 65,
+    "armor-4-ammo-3": 72,
+    "armor-4-ammo-4": 76,
+    "armor-4-ammo-5": 77,
+    "armor-5-ammo-4": 236,
+    "armor-5-ammo-5": 192,
+    "armor-6-ammo-5": 202
    },
    "gt_1e-2_points": [
+    {
+     "scenario": "armor-5-ammo-4-default",
+     "candidate": "18010000031:base:37100400003:2=13020000349",
+     "distance": 53.0,
+     "delta": 0.07218488716730675
+    },
+    {
+     "scenario": "armor-5-ammo-4-default",
+     "candidate": "18010000031:13020000173:37100400003:2=13020000173",
+     "distance": 48.0,
+     "delta": 0.06890651161737438
+    },
+    {
+     "scenario": "armor-5-ammo-4-default",
+     "candidate": "18010000014:13020000173:37100400003:2=13020000173",
+     "distance": 65.0,
+     "delta": 0.06599443885420975
+    },
+    {
+     "scenario": "armor-5-ammo-4-default",
+     "candidate": "18010000014:base:37100400003:2=13020000349",
+     "distance": 72.0,
+     "delta": 0.054110520551780894
+    },
+    {
+     "scenario": "armor-5-ammo-4-default",
+     "candidate": "18010000031:13020000173:37100400003:2=13020000173",
+     "distance": 0.0,
+     "delta": 0.042031440140402054
+    },
+    {
+     "scenario": "armor-5-ammo-4-center",
+     "candidate": "18010000031:base:37100400003:2=13020000349",
+     "distance": 53.0,
+     "delta": 0.029661685501007895
+    },
+    {
+     "scenario": "armor-5-ammo-4-default",
+     "candidate": "18010000031:base:37100400003:2=13020000349",
+     "distance": 0.0,
+     "delta": 0.024941210847257977
+    },
     {
      "scenario": "armor-4-ammo-4-center",
      "candidate": "18010000008:base:37130400001:2=13020000373",
@@ -108,9 +150,33 @@
      "candidate": "18010000008:base:37130400001:2=13020000373",
      "distance": 0.0,
      "delta": 0.020004383682795
+    },
+    {
+     "scenario": "armor-5-ammo-4-center",
+     "candidate": "18010000014:base:37100400003:2=13020000349",
+     "distance": 72.0,
+     "delta": 0.019936602277313753
+    },
+    {
+     "scenario": "armor-5-ammo-4-center",
+     "candidate": "18010000031:13020000173:37100400003:2=13020000173",
+     "distance": 48.0,
+     "delta": 0.01900357377764017
+    },
+    {
+     "scenario": "armor-5-ammo-4-default",
+     "candidate": "18010000017:base:37100400003:2=13020000320",
+     "distance": 77.0,
+     "delta": 0.010931546306505169
+    },
+    {
+     "scenario": "armor-5-ammo-4-center",
+     "candidate": "18010000031:13020000173:37100400003:2=13020000173",
+     "distance": 0.0,
+     "delta": 0.010105578893840672
     }
    ],
-   "conclusion": "CI 每日自动固化：残余统计由 tools/verify_official_reproduction.py 当次全量重算写入；上游伪差白盒裁定与历史结论文案见 git 历史中的 provenance.json 记录。"
+   "conclusion": "S12 数据集 20261105-weiguang.1 全量复现：4029 点，920 个残余超差点经白盒对拍（官方 dynamic 自声明参数，含 onHit.detonation 独立重算）全部归为官方 candidateMetrics 与官方参数表自相矛盾，本地引擎逐位一致，未归类 0 点。>1e-2 共 14 点：3 个历史伪差 + 11 个 5.56x45 CINDER 燃烧弹派生伪差，最大 0.0722 发。S12 叠层引爆已由 DamageContext 的 on_hit_effects.detonation 通道实现（55 个 chest-only 整数 STK 样本零误差）；burn 为时间轴 DoT，不进官方发数期望。"
   }
  }
 }

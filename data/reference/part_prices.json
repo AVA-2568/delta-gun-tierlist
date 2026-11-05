@@ -2,11 +2,11 @@
  "schema": "part-price-daily",
  "currency": "哈夫币",
  "window": {
-  "from": "2026-10-18",
-  "to": "2026-10-18",
+  "from": "2026-11-05",
+  "to": "2026-11-05",
   "days": 1
  },
- "updated_at": "2026-10-18",
+ "updated_at": "2026-11-05",
  "source": "orzice 三角洲小涛查 · 战备页交易行实时价（配件当日价）",
  "note": "自动维护：每日 GitHub Actions 抓取 orzice 小涛查实时价；交易行无报价的配件为 null（渲染为 —），非官方数据仅供参考",
  "parts": [
@@ -26,7 +26,7 @@
    "part_id": "13020000167",
    "name": ".357口径左轮长枪管",
    "slot": "barrel",
-   "price_daily": 5972
+   "price_daily": 2562
   },
   {
    "part_id": "13020000173",
@@ -50,19 +50,19 @@
    "part_id": "13020000230",
    "name": "SV98升华超长枪管",
    "slot": "barrel",
-   "price_daily": null
+   "price_daily": 47942
   },
   {
    "part_id": "13020000231",
    "name": "SV98龙萤轻枪管",
    "slot": "barrel",
-   "price_daily": 97483
+   "price_daily": 34108
   },
   {
    "part_id": "13020000239",
    "name": "M249犀牛长枪管",
    "slot": "barrel",
-   "price_daily": 33492
+   "price_daily": 25752
   },
   {
    "part_id": "13020000261",
@@ -74,7 +74,7 @@
    "part_id": "13020000291",
    "name": "SV98灵巧短枪管",
    "slot": "barrel",
-   "price_daily": 101377
+   "price_daily": 35382
   },
   {
    "part_id": "13020000302",
@@ -110,7 +110,7 @@
    "part_id": "13020000347",
    "name": "AR碳纤维枪管组合",
    "slot": "barrel",
-   "price_daily": 13519
+   "price_daily": 19734
   },
   {
    "part_id": "13020000348",
@@ -122,7 +122,7 @@
    "part_id": "13020000349",
    "name": "AR加百列长枪管组合",
    "slot": "barrel",
-   "price_daily": 37363
+   "price_daily": 70903
   },
   {
    "part_id": "13020000350",
@@ -164,13 +164,13 @@
    "part_id": "13020000357",
    "name": "AKM实用长枪管组合",
    "slot": "barrel",
-   "price_daily": 13846
+   "price_daily": 20416
   },
   {
    "part_id": "13020000358",
    "name": "AKM超然长枪管组合",
    "slot": "barrel",
-   "price_daily": 30621
+   "price_daily": 34461
   },
   {
    "part_id": "13020000359",
@@ -182,13 +182,13 @@
    "part_id": "13020000360",
    "name": "K416精英重枪管组合",
    "slot": "barrel",
-   "price_daily": 32600
+   "price_daily": 37700
   },
   {
    "part_id": "13020000362",
    "name": "K416特勤短枪管组合",
    "slot": "barrel",
-   "price_daily": 23153
+   "price_daily": 51713
   },
   {
    "part_id": "13020000363",
@@ -200,7 +200,7 @@
    "part_id": "13020000364",
    "name": "AUG实用集成三倍镜枪管",
    "slot": "barrel",
-   "price_daily": 36212
+   "price_daily": 51612
   },
   {
    "part_id": "13020000365",
@@ -212,13 +212,13 @@
    "part_id": "13020000366",
    "name": "AUG晨零一体消音管",
    "slot": "barrel",
-   "price_daily": 69254
+   "price_daily": 176984
   },
   {
    "part_id": "13020000367",
    "name": "AUG精英脚架长枪管",
    "slot": "barrel",
-   "price_daily": 62956
+   "price_daily": 100221
   },
   {
    "part_id": "13020000368",
@@ -236,7 +236,7 @@
    "part_id": "13020000370",
    "name": "AK12精英脚架长枪管",
    "slot": "barrel",
-   "price_daily": 37103
+   "price_daily": 72943
   },
   {
    "part_id": "13020000371",
@@ -248,7 +248,7 @@
    "part_id": "13020000372",
    "name": "QBZ95-1实用短枪管",
    "slot": "barrel",
-   "price_daily": 16129
+   "price_daily": 21354
   },
   {
    "part_id": "13020000373",
@@ -278,13 +278,13 @@
    "part_id": "13020000378",
    "name": "ASh-12 歼灭高精长枪管",
    "slot": "barrel",
-   "price_daily": 58847
+   "price_daily": 40997
   },
   {
    "part_id": "13020000379",
    "name": "ASh-12 CQB短枪管",
    "slot": "barrel",
-   "price_daily": 49831
+   "price_daily": 30251
   },
   {
    "part_id": "13020000380",
@@ -296,13 +296,13 @@
    "part_id": "13020000381",
    "name": "M7实用长枪管组合",
    "slot": "barrel",
-   "price_daily": 85164
+   "price_daily": 60314
   },
   {
    "part_id": "13020000383",
    "name": "M7堤风超长枪管组合",
    "slot": "barrel",
-   "price_daily": 213672
+   "price_daily": 191172
   },
   {
    "part_id": "13020000384",
@@ -320,7 +320,7 @@
    "part_id": "13020000386",
    "name": "M14漫游标准枪管",
    "slot": "barrel",
-   "price_daily": 66150
+   "price_daily": 80470
   },
   {
    "part_id": "13020000387",
@@ -332,7 +332,7 @@
    "part_id": "13020000388",
    "name": "M14洞察超长枪管",
    "slot": "barrel",
-   "price_daily": 195080
+   "price_daily": 146750
   },
   {
    "part_id": "13020000389",
@@ -344,13 +344,13 @@
    "part_id": "13020000390",
    "name": "SCARH海狸长枪管",
    "slot": "barrel",
-   "price_daily": 30699
+   "price_daily": 37099
   },
   {
    "part_id": "13020000391",
    "name": "SCARH实用标准枪管",
    "slot": "barrel",
-   "price_daily": 21966
+   "price_daily": 22701
   },
   {
    "part_id": "13020000392",
@@ -368,7 +368,7 @@
    "part_id": "13020000394",
    "name": "G3守卫标准枪管组合",
    "slot": "barrel",
-   "price_daily": 31281
+   "price_daily": 43656
   },
   {
    "part_id": "13020000395",
@@ -380,7 +380,7 @@
    "part_id": "13020000396",
    "name": "SR25新星超长枪管",
    "slot": "barrel",
-   "price_daily": 103521
+   "price_daily": 92811
   },
   {
    "part_id": "13020000397",
@@ -392,7 +392,7 @@
    "part_id": "13020000398",
    "name": "SR25瞬息短枪管",
    "slot": "barrel",
-   "price_daily": 94521
+   "price_daily": 71316
   },
   {
    "part_id": "13020000399",
@@ -410,7 +410,7 @@
    "part_id": "13020000402",
    "name": "svd实用长枪管",
    "slot": "barrel",
-   "price_daily": 23868
+   "price_daily": 19213
   },
   {
    "part_id": "13020000403",
@@ -428,13 +428,13 @@
    "part_id": "13020000406",
    "name": "SKS截断标准枪管",
    "slot": "barrel",
-   "price_daily": 28059
+   "price_daily": null
   },
   {
    "part_id": "13020000407",
    "name": "SKS瞬息超长枪管",
    "slot": "barrel",
-   "price_daily": 61954
+   "price_daily": 90154
   },
   {
    "part_id": "13020000408",
@@ -476,7 +476,7 @@
    "part_id": "13020000414",
    "name": "PKM壕战短枪管",
    "slot": "barrel",
-   "price_daily": 37195
+   "price_daily": 79600
   },
   {
    "part_id": "13020000415",
@@ -488,7 +488,7 @@
    "part_id": "13020000416",
    "name": "PKM地平线重枪管",
    "slot": "barrel",
-   "price_daily": 51392
+   "price_daily": 101507
   },
   {
    "part_id": "13020000417",
@@ -506,19 +506,19 @@
    "part_id": "13020000419",
    "name": "Vector导轨枪管组合",
    "slot": "barrel",
-   "price_daily": 38533
+   "price_daily": 32443
   },
   {
    "part_id": "13020000420",
    "name": "Vector堡垒重枪管组合",
    "slot": "barrel",
-   "price_daily": 50035
+   "price_daily": 42875
   },
   {
    "part_id": "13020000421",
    "name": "Vector长剑超长枪管组合",
    "slot": "barrel",
-   "price_daily": 49765
+   "price_daily": 42645
   },
   {
    "part_id": "13020000422",
@@ -530,19 +530,19 @@
    "part_id": "13020000423",
    "name": "smg45实用重枪管",
    "slot": "barrel",
-   "price_daily": 20074
+   "price_daily": 25674
   },
   {
    "part_id": "13020000424",
    "name": "SMG长弩超长枪管",
    "slot": "barrel",
-   "price_daily": 29218
+   "price_daily": 83818
   },
   {
    "part_id": "13020000425",
    "name": "SMG45竹鼠短枪管",
    "slot": "barrel",
-   "price_daily": null
+   "price_daily": 100401
   },
   {
    "part_id": "13020000426",
@@ -560,19 +560,19 @@
    "part_id": "13020000428",
    "name": "MP5战术枪管组合",
    "slot": "barrel",
-   "price_daily": 33163
+   "price_daily": 42663
   },
   {
    "part_id": "13020000429",
    "name": "MP5隐蔽短枪管组合",
    "slot": "barrel",
-   "price_daily": 38911
+   "price_daily": 59661
   },
   {
    "part_id": "13020000430",
    "name": "MP5斥候长枪管组合",
    "slot": "barrel",
-   "price_daily": 21555
+   "price_daily": 36495
   },
   {
    "part_id": "13020000431",
@@ -584,19 +584,19 @@
    "part_id": "13020000432",
    "name": "UZI竞赛性能长枪管",
    "slot": "barrel",
-   "price_daily": 18132
+   "price_daily": 30282
   },
   {
    "part_id": "13020000433",
    "name": "UZI突击标准枪管",
    "slot": "barrel",
-   "price_daily": 31159
+   "price_daily": 31564
   },
   {
    "part_id": "13020000434",
    "name": "UZI军需长枪管",
    "slot": "barrel",
-   "price_daily": 13323
+   "price_daily": 30333
   },
   {
    "part_id": "13020000436",
@@ -608,19 +608,19 @@
    "part_id": "13020000437",
    "name": "野牛伞兵短枪管",
    "slot": "barrel",
-   "price_daily": 16537
+   "price_daily": 34987
   },
   {
    "part_id": "13020000438",
    "name": "野牛打击者标准枪管",
    "slot": "barrel",
-   "price_daily": 15957
+   "price_daily": 46092
   },
   {
    "part_id": "13020000439",
    "name": "野牛刀锋超长枪管",
    "slot": "barrel",
-   "price_daily": 15913
+   "price_daily": 31288
   },
   {
    "part_id": "13020000440",
@@ -632,7 +632,7 @@
    "part_id": "13020000441",
    "name": "AWM天际线长枪管",
    "slot": "barrel",
-   "price_daily": 181527
+   "price_daily": 60487
   },
   {
    "part_id": "13020000442",
@@ -644,13 +644,13 @@
    "part_id": "13020000443",
    "name": "M700一体消音管",
    "slot": "barrel",
-   "price_daily": 163439
+   "price_daily": 74014
   },
   {
    "part_id": "13020000444",
    "name": "M700平流层长枪管",
    "slot": "barrel",
-   "price_daily": 138703
+   "price_daily": 56463
   },
   {
    "part_id": "13020000447",
@@ -662,25 +662,25 @@
    "part_id": "13020000448",
    "name": "S12K实用短枪管组合",
    "slot": "barrel",
-   "price_daily": 25512
+   "price_daily": 11082
   },
   {
    "part_id": "13020000449",
    "name": "S12K防御者短枪管组合",
    "slot": "barrel",
-   "price_daily": 31946
+   "price_daily": 20826
   },
   {
    "part_id": "13020000450",
    "name": "S12K实用长枪管组合",
    "slot": "barrel",
-   "price_daily": 26076
+   "price_daily": 10536
   },
   {
    "part_id": "13020000451",
    "name": "S12K破阵长枪管组合",
    "slot": "barrel",
-   "price_daily": 19362
+   "price_daily": 17972
   },
   {
    "part_id": "13020000452",
@@ -692,7 +692,7 @@
    "part_id": "13020000453",
    "name": "M1014断点枪管",
    "slot": "barrel",
-   "price_daily": 29899
+   "price_daily": 20699
   },
   {
    "part_id": "13020000454",
@@ -710,7 +710,7 @@
    "part_id": "13020000456",
    "name": "G18冲击长枪管",
    "slot": "barrel",
-   "price_daily": 26228
+   "price_daily": 27688
   },
   {
    "part_id": "13020000457",
@@ -722,13 +722,13 @@
    "part_id": "13020000458",
    "name": "左轮实用短管",
    "slot": "barrel",
-   "price_daily": 3180
+   "price_daily": 2560
   },
   {
    "part_id": "13020000459",
    "name": "左轮实用长管",
    "slot": "barrel",
-   "price_daily": 3788
+   "price_daily": 3478
   },
   {
    "part_id": "13020000460",
@@ -740,13 +740,13 @@
    "part_id": "13020000461",
    "name": "沙鹰膛线长枪管",
    "slot": "barrel",
-   "price_daily": 18473
+   "price_daily": 13853
   },
   {
    "part_id": "13020000462",
    "name": "沙鹰竞技枪管",
    "slot": "barrel",
-   "price_daily": 8554
+   "price_daily": 8224
   },
   {
    "part_id": "13020000463",
@@ -788,19 +788,19 @@
    "part_id": "13020000472",
    "name": "P90重攻长枪管",
    "slot": "barrel",
-   "price_daily": 59273
+   "price_daily": 70883
   },
   {
    "part_id": "13020000473",
    "name": "P90猎豹重枪管",
    "slot": "barrel",
-   "price_daily": 59024
+   "price_daily": 66734
   },
   {
    "part_id": "13020000474",
    "name": "MP5SD特勤一体消音枪管",
    "slot": "barrel",
-   "price_daily": 31334
+   "price_daily": 42884
   },
   {
    "part_id": "13020000475",
@@ -812,13 +812,13 @@
    "part_id": "13020000476",
    "name": "G17轻量化枪管",
    "slot": "barrel",
-   "price_daily": 5017
+   "price_daily": 4852
   },
   {
    "part_id": "13020000477",
    "name": "G17战术重枪管",
    "slot": "barrel",
-   "price_daily": 7336
+   "price_daily": 6841
   },
   {
    "part_id": "13020000478",
@@ -854,25 +854,25 @@
    "part_id": "13020000484",
    "name": ".357左轮逐风者枪管",
    "slot": "barrel",
-   "price_daily": 20664
+   "price_daily": 12714
   },
   {
    "part_id": "13020000485",
    "name": ".357左轮逐风者长枪管",
    "slot": "barrel",
-   "price_daily": 19321
+   "price_daily": 19851
   },
   {
    "part_id": "13020000486",
    "name": "G3加强长枪管组合",
    "slot": "barrel",
-   "price_daily": 46131
+   "price_daily": 42006
   },
   {
    "part_id": "13020000487",
    "name": "R93轻盈短枪管",
    "slot": "barrel",
-   "price_daily": 33190
+   "price_daily": 25510
   },
   {
    "part_id": "13020000488",
@@ -884,7 +884,7 @@
    "part_id": "13020000489",
    "name": "Mini-14增强枪管",
    "slot": "barrel",
-   "price_daily": 25888
+   "price_daily": 32548
   },
   {
    "part_id": "13020000490",
@@ -902,13 +902,13 @@
    "part_id": "13020000492",
    "name": "K416A8枪管组合",
    "slot": "barrel",
-   "price_daily": 41003
+   "price_daily": 51713
   },
   {
    "part_id": "13020000493",
    "name": "K416A8长枪管组合",
    "slot": "barrel",
-   "price_daily": 55283
+   "price_daily": 119543
   },
   {
    "part_id": "13020000494",
@@ -926,19 +926,19 @@
    "part_id": "13020000498",
    "name": "MP7蜂刺长枪管组合",
    "slot": "barrel",
-   "price_daily": 33921
+   "price_daily": 39291
   },
   {
    "part_id": "13020000499",
    "name": "MP7增强枪管组合",
    "slot": "barrel",
-   "price_daily": 44626
+   "price_daily": 37521
   },
   {
    "part_id": "13020000500",
    "name": "MP7狼牙轻枪管",
    "slot": "barrel",
-   "price_daily": 44375
+   "price_daily": 51475
   },
   {
    "part_id": "13020000501",
@@ -956,7 +956,7 @@
    "part_id": "13020000505",
    "name": "QBZ95战术枪管",
    "slot": "barrel",
-   "price_daily": 18327
+   "price_daily": 17387
   },
   {
    "part_id": "13020000506",
@@ -968,7 +968,7 @@
    "part_id": "13020000507",
    "name": "勇士海狸枪管",
    "slot": "barrel",
-   "price_daily": 30498
+   "price_daily": 21423
   },
   {
    "part_id": "13020000508",
@@ -992,13 +992,13 @@
    "part_id": "13020000514",
    "name": "新式蛟龙战术长枪管",
    "slot": "barrel",
-   "price_daily": 55664
+   "price_daily": 61424
   },
   {
    "part_id": "13020000515",
    "name": "M700猎食军规枪管",
    "slot": "barrel",
-   "price_daily": 134310
+   "price_daily": 49830
   },
   {
    "part_id": "13020000516",
@@ -1016,7 +1016,7 @@
    "part_id": "13020000518",
    "name": "M7灵蜥短枪管",
    "slot": "barrel",
-   "price_daily": 44573
+   "price_daily": 26723
   },
   {
    "part_id": "13020000519",
@@ -1028,7 +1028,7 @@
    "part_id": "13020000520",
    "name": "M250侍卫短枪管",
    "slot": "barrel",
-   "price_daily": 42758
+   "price_daily": 33833
   },
   {
    "part_id": "13020000522",
@@ -1040,7 +1040,7 @@
    "part_id": "13020000523",
    "name": "SMG45裂变长枪管",
    "slot": "barrel",
-   "price_daily": 72050
+   "price_daily": 75140
   },
   {
    "part_id": "13020000524",
@@ -1058,19 +1058,19 @@
    "part_id": "13020000528",
    "name": "QSZ92G响尾蛇战术枪管",
    "slot": "barrel",
-   "price_daily": 6346
+   "price_daily": 6181
   },
   {
    "part_id": "13020000529",
    "name": "QJB201新式獠牙短枪管",
    "slot": "barrel",
-   "price_daily": 32055
+   "price_daily": 106585
   },
   {
    "part_id": "13020000530",
    "name": "QJB201新式重锤战术枪管",
    "slot": "barrel",
-   "price_daily": 34642
+   "price_daily": 61627
   },
   {
    "part_id": "13020000531",
@@ -1082,13 +1082,13 @@
    "part_id": "13020000532",
    "name": "QCQ171新式红缨战术枪管",
    "slot": "barrel",
-   "price_daily": 55202
+   "price_daily": 60342
   },
   {
    "part_id": "13020000533",
    "name": "QCQ171新式渗透一体消音枪管",
    "slot": "barrel",
-   "price_daily": null
+   "price_daily": 68904
   },
   {
    "part_id": "13020000539",
@@ -1112,19 +1112,19 @@
    "part_id": "13020000543",
    "name": "K437长矛手长枪管组合",
    "slot": "barrel",
-   "price_daily": 273333
+   "price_daily": 254608
   },
   {
    "part_id": "13020000546",
    "name": "K437特攻一体消音枪管",
    "slot": "barrel",
-   "price_daily": 60252
+   "price_daily": 102852
   },
   {
    "part_id": "13020000550",
    "name": "725双管霰弹枪鹰隼长枪管",
    "slot": "barrel",
-   "price_daily": 34703
+   "price_daily": 23583
   },
   {
    "part_id": "13020000551",
@@ -1136,7 +1136,7 @@
    "part_id": "13020000552",
    "name": "KC17长剑枪管",
    "slot": "barrel",
-   "price_daily": 63910
+   "price_daily": 74150
   },
   {
    "part_id": "13020000553",
@@ -1160,13 +1160,13 @@
    "part_id": "13020000556",
    "name": "杠杆式步枪猎鹿人枪管",
    "slot": "barrel",
-   "price_daily": 59331
+   "price_daily": 56856
   },
   {
    "part_id": "13020000557",
    "name": "杠杆式步枪拓荒者枪管",
    "slot": "barrel",
-   "price_daily": 56360
+   "price_daily": 47230
   },
   {
    "part_id": "13020000558",
@@ -1178,19 +1178,19 @@
    "part_id": "13020000559",
    "name": "MK47余烬枪管",
    "slot": "barrel",
-   "price_daily": 228096
+   "price_daily": 185316
   },
   {
    "part_id": "13020000560",
    "name": "MK47鏖战枪管",
    "slot": "barrel",
-   "price_daily": 142536
+   "price_daily": 128276
   },
   {
    "part_id": "13020000561",
    "name": "AS Val刺客高级枪管",
    "slot": "barrel",
-   "price_daily": 85496
+   "price_daily": 67671
   },
   {
    "part_id": "13020000562",
@@ -1208,7 +1208,7 @@
    "part_id": "13020000564",
    "name": "MK4深空镀铬枪管",
    "slot": "barrel",
-   "price_daily": 41050
+   "price_daily": 71890
   },
   {
    "part_id": "13020000568",
@@ -1262,7 +1262,7 @@
    "part_id": "13020000579",
    "name": "P90长弓精钢枪管",
    "slot": "barrel",
-   "price_daily": 56390
+   "price_daily": 66650
   },
   {
    "part_id": "13020000582",
@@ -1304,7 +1304,7 @@
    "part_id": "13020000591",
    "name": "短吻鳄枪管组合",
    "slot": "barrel",
-   "price_daily": 27241
+   "price_daily": 20821
   },
   {
    "part_id": "13020000592",
@@ -1322,7 +1322,7 @@
    "part_id": "13020000594",
    "name": "沙漠之鹰镂空竞赛套件",
    "slot": "barrel",
-   "price_daily": 7944
+   "price_daily": 3924
   },
   {
    "part_id": "13020000595",
@@ -1352,7 +1352,7 @@
    "part_id": "13020000599",
    "name": "SVCH长枪管",
    "slot": "barrel",
-   "price_daily": 33857
+   "price_daily": 24932
   },
   {
    "part_id": "13020000600",
@@ -1364,19 +1364,19 @@
    "part_id": "13020000601",
    "name": "RM277重型一体枪管",
    "slot": "barrel",
-   "price_daily": 48695
+   "price_daily": 74345
   },
   {
    "part_id": "13020000602",
    "name": "RM277鲸鲨枪管组合",
    "slot": "barrel",
-   "price_daily": 125128
+   "price_daily": 121918
   },
   {
    "part_id": "13020000603",
    "name": "HVK双发枪管",
    "slot": "stock",
-   "price_daily": 131841
+   "price_daily": null
   },
   {
    "part_id": "13020000604",
@@ -1400,13 +1400,13 @@
    "part_id": "13020000608",
    "name": "汤姆逊一体冲锋枪管",
    "slot": "barrel",
-   "price_daily": 27860
+   "price_daily": 39340
   },
   {
    "part_id": "13020000615",
    "name": "MDR.308渗透者短枪管",
    "slot": "barrel",
-   "price_daily": 46328
+   "price_daily": 37403
   },
   {
    "part_id": "13020000616",
@@ -1421,6 +1421,30 @@
    "price_daily": null
   },
   {
+   "part_id": "13020000619",
+   "name": "未命名部件 13020000619",
+   "slot": "barrel",
+   "price_daily": null
+  },
+  {
+   "part_id": "13020000625",
+   "name": "HVK斗牛无托套件",
+   "slot": "barrel",
+   "price_daily": null
+  },
+  {
+   "part_id": "13020000628",
+   "name": "AN94突击步枪重载缓冲长枪管",
+   "slot": "barrel",
+   "price_daily": null
+  },
+  {
+   "part_id": "13020000629",
+   "name": "AN94突击步枪速释短枪管",
+   "slot": "barrel",
+   "price_daily": null
+  },
+  {
    "part_id": "13030000005",
    "name": "内部配件 13030000005",
    "slot": "rearGrip",
@@ -1430,7 +1454,7 @@
    "part_id": "13030000060",
    "name": "左轮狙击后握",
    "slot": "rearGrip",
-   "price_daily": 5491
+   "price_daily": 4251
   },
   {
    "part_id": "13030000062",
@@ -1454,13 +1478,13 @@
    "part_id": "13030000106",
    "name": "G3后握把",
    "slot": "rearGrip",
-   "price_daily": 22490
+   "price_daily": 21625
   },
   {
    "part_id": "13030000109",
    "name": "416实用后握把",
    "slot": "rearGrip",
-   "price_daily": 3531
+   "price_daily": 3540
   },
   {
    "part_id": "13030000110",
@@ -1472,55 +1496,55 @@
    "part_id": "13030000111",
    "name": "幻影后握把",
    "slot": "rearGrip",
-   "price_daily": 87155
+   "price_daily": 85375
   },
   {
    "part_id": "13030000112",
    "name": "侵袭后握把",
    "slot": "rearGrip",
-   "price_daily": 26043
+   "price_daily": 36658
   },
   {
    "part_id": "13030000113",
    "name": "飓风D-1后握把",
    "slot": "rearGrip",
-   "price_daily": 12309
+   "price_daily": 14209
   },
   {
    "part_id": "13030000114",
    "name": "射手D-2后握把",
    "slot": "rearGrip",
-   "price_daily": 14690
+   "price_daily": 14215
   },
   {
    "part_id": "13030000115",
    "name": "禁区一体枪托",
    "slot": "stock",
-   "price_daily": 51456
+   "price_daily": 48881
   },
   {
    "part_id": "13030000117",
    "name": "实用AK后握把",
    "slot": "rearGrip",
-   "price_daily": 16067
+   "price_daily": 21292
   },
   {
    "part_id": "13030000121",
    "name": "射手AK后握把",
    "slot": "rearGrip",
-   "price_daily": 18013
+   "price_daily": 20863
   },
   {
    "part_id": "13030000122",
    "name": "稳定AK后握把",
    "slot": "rearGrip",
-   "price_daily": 18910
+   "price_daily": 21285
   },
   {
    "part_id": "13030000124",
    "name": "svd聚合物一体枪托",
    "slot": "stock",
-   "price_daily": 42077
+   "price_daily": 31557
   },
   {
    "part_id": "13030000125",
@@ -1532,43 +1556,43 @@
    "part_id": "13030000127",
    "name": "XK防滑纹后握",
    "slot": "rearGrip",
-   "price_daily": 13147
+   "price_daily": 13422
   },
   {
    "part_id": "13030000128",
    "name": "XK橡胶套后握",
    "slot": "rearGrip",
-   "price_daily": 13153
+   "price_daily": 10403
   },
   {
    "part_id": "13030000129",
    "name": "XK竞技后握",
    "slot": "rearGrip",
-   "price_daily": 25131
+   "price_daily": 25496
   },
   {
    "part_id": "13030000130",
    "name": "沙鹰竞技后握",
    "slot": "rearGrip",
-   "price_daily": 8441
+   "price_daily": 7191
   },
   {
    "part_id": "13030000131",
    "name": "M9黑色均衡后握",
    "slot": "rearGrip",
-   "price_daily": 10314
+   "price_daily": 8064
   },
   {
    "part_id": "13030000132",
    "name": "M9木色稳定后握",
    "slot": "rearGrip",
-   "price_daily": 10758
+   "price_daily": 10083
   },
   {
    "part_id": "13030000133",
    "name": "M9肉色操控后握",
    "slot": "rearGrip",
-   "price_daily": 10294
+   "price_daily": 8269
   },
   {
    "part_id": "13030000134",
@@ -1724,7 +1748,7 @@
    "part_id": "13030000165",
    "name": "MP7稳固后握把",
    "slot": "rearGrip",
-   "price_daily": 35538
+   "price_daily": 40878
   },
   {
    "part_id": "13030000166",
@@ -1736,13 +1760,13 @@
    "part_id": "13030000167",
    "name": "AK重塔握把",
    "slot": "rearGrip",
-   "price_daily": 36455
+   "price_daily": 58705
   },
   {
    "part_id": "13030000168",
    "name": "AK镂空握把",
    "slot": "rearGrip",
-   "price_daily": 51724
+   "price_daily": 92779
   },
   {
    "part_id": "13030000169",
@@ -1778,7 +1802,7 @@
    "part_id": "13030000174",
    "name": ".357左轮逐风者后握把",
    "slot": "rearGrip",
-   "price_daily": 14810
+   "price_daily": 19315
   },
   {
    "part_id": "13030000175",
@@ -1802,7 +1826,7 @@
    "part_id": "13030000178",
    "name": "共振二代一体枪托",
    "slot": "stock",
-   "price_daily": null
+   "price_daily": 74181
   },
   {
    "part_id": "13030000179",
@@ -1814,13 +1838,13 @@
    "part_id": "13030000180",
    "name": "新式尖兵轻型握把",
    "slot": "rearGrip",
-   "price_daily": 17256
+   "price_daily": 25896
   },
   {
    "part_id": "13030000181",
    "name": "新式侍剑重型握把",
    "slot": "rearGrip",
-   "price_daily": 20187
+   "price_daily": 49137
   },
   {
    "part_id": "13030000182",
@@ -1868,7 +1892,7 @@
    "part_id": "13030000189",
    "name": "兵锋新式握把",
    "slot": "rearGrip",
-   "price_daily": 51067
+   "price_daily": 47207
   },
   {
    "part_id": "13030000190",
@@ -1892,7 +1916,7 @@
    "part_id": "13030000194",
    "name": "侍卫稳固后握把",
    "slot": "rearGrip",
-   "price_daily": 23149
+   "price_daily": 58839
   },
   {
    "part_id": "13030000195",
@@ -1910,7 +1934,7 @@
    "part_id": "13030000198",
    "name": "M249蝎尾握把",
    "slot": "rearGrip",
-   "price_daily": 21732
+   "price_daily": 23012
   },
   {
    "part_id": "13030000199",
@@ -1964,7 +1988,7 @@
    "part_id": "13030000207",
    "name": "SVCH稳固后握把",
    "slot": "rearGrip",
-   "price_daily": 23048
+   "price_daily": 21268
   },
   {
    "part_id": "13030000208",
@@ -1994,12 +2018,30 @@
    "part_id": "13030000213",
    "name": "汤姆逊人体工学后握把",
    "slot": "rearGrip",
-   "price_daily": 44384
+   "price_daily": 40344
+  },
+  {
+   "part_id": "13030000214",
+   "name": "未命名部件 13030000214",
+   "slot": "rearGrip",
+   "price_daily": null
   },
   {
    "part_id": "13030000216",
    "name": "内部配件 13030000216",
    "slot": "rearGrip",
+   "price_daily": null
+  },
+  {
+   "part_id": "13030000220",
+   "name": "PKM通用机枪无托套件后握把虚空",
+   "slot": "tertiaryRearGrip",
+   "price_daily": null
+  },
+  {
+   "part_id": "13030000221",
+   "name": "(未命名配置)",
+   "slot": "internal",
    "price_daily": null
   },
   {
@@ -2012,7 +2054,7 @@
    "part_id": "13040000006",
    "name": "闪电导轨枪托",
    "slot": "stock",
-   "price_daily": 25000
+   "price_daily": 38510
   },
   {
    "part_id": "13040000007",
@@ -2024,7 +2066,7 @@
    "part_id": "13040000009",
    "name": "核心导轨枪托",
    "slot": "stock",
-   "price_daily": 16556
+   "price_daily": 17981
   },
   {
    "part_id": "13040000077",
@@ -2042,7 +2084,7 @@
    "part_id": "13040000091",
    "name": "SG552枪托尾盖",
    "slot": "stock",
-   "price_daily": 3650
+   "price_daily": 3641
   },
   {
    "part_id": "13040000092",
@@ -2054,13 +2096,13 @@
    "part_id": "13040000100",
    "name": "G3枪托",
    "slot": "stock",
-   "price_daily": 15160
+   "price_daily": 13180
   },
   {
    "part_id": "13040000104",
    "name": "实用稳定枪托",
    "slot": "stock",
-   "price_daily": 3534
+   "price_daily": 3543
   },
   {
    "part_id": "13040000105",
@@ -2072,7 +2114,7 @@
    "part_id": "13040000106",
    "name": "实用轻型枪托",
    "slot": "stock",
-   "price_daily": 3522
+   "price_daily": 3532
   },
   {
    "part_id": "13040000107",
@@ -2096,13 +2138,13 @@
    "part_id": "13040000110",
    "name": "UR特种战术枪托",
    "slot": "stock",
-   "price_daily": 30280
+   "price_daily": 49915
   },
   {
    "part_id": "13040000111",
    "name": "416-C伸缩枪托",
    "slot": "stock",
-   "price_daily": 23171
+   "price_daily": 28526
   },
   {
    "part_id": "13040000112",
@@ -2120,7 +2162,7 @@
    "part_id": "13040000114",
    "name": "M16A4稳定枪托",
    "slot": "stock",
-   "price_daily": 23968
+   "price_daily": 23468
   },
   {
    "part_id": "13040000116",
@@ -2132,19 +2174,19 @@
    "part_id": "13040000117",
    "name": "AK折叠枪托",
    "slot": "stock",
-   "price_daily": 17086
+   "price_daily": 21216
   },
   {
    "part_id": "13040000118",
    "name": "PT1特种枪托",
    "slot": "stock",
-   "price_daily": 83875
+   "price_daily": 80305
   },
   {
    "part_id": "13040000119",
    "name": "AK骨架枪托",
    "slot": "stock",
-   "price_daily": 3524
+   "price_daily": 3534
   },
   {
    "part_id": "13040000120",
@@ -2156,55 +2198,55 @@
    "part_id": "13040000121",
    "name": "ASh-12骨架枪托",
    "slot": "stock",
-   "price_daily": 103754
+   "price_daily": 71534
   },
   {
    "part_id": "13040000122",
    "name": "ASh-12狙击枪托",
    "slot": "stock",
-   "price_daily": 64338
+   "price_daily": 57188
   },
   {
    "part_id": "13040000123",
    "name": "Vector共振一体式枪托",
    "slot": "stock",
-   "price_daily": 49761
+   "price_daily": 46206
   },
   {
    "part_id": "13040000127",
    "name": "MP5尾盖",
    "slot": "stock",
-   "price_daily": 3625
+   "price_daily": 3790
   },
   {
    "part_id": "13040000128",
    "name": "G3伸缩枪托",
    "slot": "stock",
-   "price_daily": 3543
+   "price_daily": 3551
   },
   {
    "part_id": "13040000129",
    "name": "MP5K折叠枪托",
    "slot": "stock",
-   "price_daily": 24171
+   "price_daily": 27121
   },
   {
    "part_id": "13040000130",
    "name": "UZI枪托",
    "slot": "stock",
-   "price_daily": 4143
+   "price_daily": 11193
   },
   {
    "part_id": "13040000132",
    "name": "1014伸缩托（展开）",
    "slot": "stock",
-   "price_daily": 39428
+   "price_daily": 45803
   },
   {
    "part_id": "13040000133",
    "name": "1014伸缩托（折叠）",
    "slot": "stock",
-   "price_daily": 31842
+   "price_daily": 33117
   },
   {
    "part_id": "13040000134",
@@ -2216,7 +2258,7 @@
    "part_id": "13040000135",
    "name": "S12K撞火枪托",
    "slot": "stock",
-   "price_daily": 53509
+   "price_daily": 47949
   },
   {
    "part_id": "13040000137",
@@ -2234,7 +2276,7 @@
    "part_id": "13040000139",
    "name": "PKM泽宁特枪托",
    "slot": "stock",
-   "price_daily": 37069
+   "price_daily": 98509
   },
   {
    "part_id": "13040000140",
@@ -2390,7 +2432,7 @@
    "part_id": "13040000172",
    "name": "AK枪托尾盖",
    "slot": "stock",
-   "price_daily": 1784
+   "price_daily": 1775
   },
   {
    "part_id": "13040000173",
@@ -2414,19 +2456,19 @@
    "part_id": "13040000176",
    "name": "M14EBR枪托",
    "slot": "stock",
-   "price_daily": 51526
+   "price_daily": 49746
   },
   {
    "part_id": "13040000178",
    "name": ".357左轮逐风者枪托",
    "slot": "stock",
-   "price_daily": 6597
+   "price_daily": 6862
   },
   {
    "part_id": "13040000179",
    "name": "M4缓冲托芯",
    "slot": "stock",
-   "price_daily": 5631
+   "price_daily": 5639
   },
   {
    "part_id": "13040000180",
@@ -2438,13 +2480,13 @@
    "part_id": "13040000181",
    "name": "PT3死士枪托",
    "slot": "stock",
-   "price_daily": 44675
+   "price_daily": 57205
   },
   {
    "part_id": "13040000182",
    "name": "AK19枪托",
    "slot": "stock",
-   "price_daily": 22987
+   "price_daily": 27787
   },
   {
    "part_id": "13040000183",
@@ -2462,7 +2504,7 @@
    "part_id": "13040000185",
    "name": "骨架狙击枪托",
    "slot": "stock",
-   "price_daily": 42533
+   "price_daily": 45143
   },
   {
    "part_id": "13040000187",
@@ -2480,13 +2522,13 @@
    "part_id": "13040000189",
    "name": "G3稳定枪托",
    "slot": "stock",
-   "price_daily": 17663
+   "price_daily": 20613
   },
   {
    "part_id": "13040000190",
    "name": "MP5伸缩枪托",
    "slot": "stock",
-   "price_daily": 14658
+   "price_daily": 16083
   },
   {
    "part_id": "13040000191",
@@ -2510,7 +2552,7 @@
    "part_id": "13040000194",
    "name": "AS Val枪托尾盖",
    "slot": "stock",
-   "price_daily": 7864
+   "price_daily": 6429
   },
   {
    "part_id": "13040000195",
@@ -2528,7 +2570,7 @@
    "part_id": "13040000197",
    "name": "UZI枪托尾盖",
    "slot": "stock",
-   "price_daily": 1775
+   "price_daily": 1869
   },
   {
    "part_id": "13040000198",
@@ -2558,7 +2600,7 @@
    "part_id": "13040000202",
    "name": "725双管霰弹枪守望者枪托",
    "slot": "stock",
-   "price_daily": 17227
+   "price_daily": 14872
   },
   {
    "part_id": "13040000203",
@@ -2576,19 +2618,19 @@
    "part_id": "13040000205",
    "name": "杠杆式步枪骨架枪托",
    "slot": "stock",
-   "price_daily": 21185
+   "price_daily": 24935
   },
   {
    "part_id": "13040000206",
    "name": "杠杆式步枪稳固狙击枪托",
    "slot": "stock",
-   "price_daily": 20562
+   "price_daily": 18687
   },
   {
    "part_id": "13040000207",
    "name": "杠杆式步枪无托后握把",
    "slot": "stock",
-   "price_daily": null
+   "price_daily": 22303
   },
   {
    "part_id": "13040000208",
@@ -2600,13 +2642,13 @@
    "part_id": "13040000209",
    "name": "杠杆式步枪战锤战术枪托",
    "slot": "stock",
-   "price_daily": 21573
+   "price_daily": 20743
   },
   {
    "part_id": "13040000219",
    "name": "KC17先进战斗枪托",
    "slot": "stock",
-   "price_daily": 34217
+   "price_daily": 32817
   },
   {
    "part_id": "13040000220",
@@ -2618,7 +2660,7 @@
    "part_id": "13040000221",
    "name": "MK47主宰者后托",
    "slot": "stock",
-   "price_daily": 71600
+   "price_daily": 73390
   },
   {
    "part_id": "13040000222",
@@ -2636,7 +2678,7 @@
    "part_id": "13040000225",
    "name": "QR高性能后托",
    "slot": "stock",
-   "price_daily": 57280
+   "price_daily": 59070
   },
   {
    "part_id": "13040000226",
@@ -2666,7 +2708,7 @@
    "part_id": "13040000233",
    "name": "AMR-HT镂空枪托",
    "slot": "stock",
-   "price_daily": 51560
+   "price_daily": 25760
   },
   {
    "part_id": "13040000234",
@@ -2678,7 +2720,7 @@
    "part_id": "13040000235",
    "name": "SVCH专用后托",
    "slot": "stock",
-   "price_daily": 30164
+   "price_daily": 26614
   },
   {
    "part_id": "13040000236",
@@ -2699,10 +2741,28 @@
    "price_daily": null
   },
   {
+   "part_id": "13040000241",
+   "name": "未命名部件 13040000241",
+   "slot": "stock",
+   "price_daily": null
+  },
+  {
    "part_id": "13040000247",
    "name": "汤姆逊弧光轻质枪托",
    "slot": "secondaryStock",
    "price_daily": 58531
+  },
+  {
+   "part_id": "13040000251",
+   "name": "PKM通用机枪无托套件枪托虚空",
+   "slot": "stock",
+   "price_daily": null
+  },
+  {
+   "part_id": "13040000252",
+   "name": "HVK双发后托套件",
+   "slot": "stock",
+   "price_daily": null
   },
   {
    "part_id": "13050000048",
@@ -2732,7 +2792,7 @@
    "part_id": "13050000178",
    "name": "SR25精英护木",
    "slot": "handguard",
-   "price_daily": 49143
+   "price_daily": 37868
   },
   {
    "part_id": "13050000179",
@@ -2750,19 +2810,19 @@
    "part_id": "13050000181",
    "name": "Mini-14聚合物一体枪托",
    "slot": "handguard",
-   "price_daily": 20358
+   "price_daily": 19933
   },
   {
    "part_id": "13050000182",
    "name": "Mini-14先进枪身系统",
    "slot": "handguard",
-   "price_daily": 36245
+   "price_daily": 32545
   },
   {
    "part_id": "13050000183",
    "name": "M14先进枪身系统",
    "slot": "handguard",
-   "price_daily": 194489
+   "price_daily": 107024
   },
   {
    "part_id": "13050000184",
@@ -2774,7 +2834,7 @@
    "part_id": "13050000186",
    "name": "M249导轨护木",
    "slot": "handguard",
-   "price_daily": 32155
+   "price_daily": 57955
   },
   {
    "part_id": "13050000188",
@@ -2798,7 +2858,7 @@
    "part_id": "13050000191",
    "name": "M870导轨护木",
    "slot": "handguard",
-   "price_daily": 1666
+   "price_daily": 1166
   },
   {
    "part_id": "13050000192",
@@ -2984,13 +3044,13 @@
    "part_id": "13050000233",
    "name": "M14聚合物一体枪托",
    "slot": "handguard",
-   "price_daily": 36639
+   "price_daily": 30519
   },
   {
    "part_id": "13050000234",
    "name": "M14导轨一体枪托",
    "slot": "handguard",
-   "price_daily": 45558
+   "price_daily": 49578
   },
   {
    "part_id": "13050000237",
@@ -3068,7 +3128,7 @@
    "part_id": "13050000249",
    "name": "svd聚合物护木",
    "slot": "handguard",
-   "price_daily": 31855
+   "price_daily": 21880
   },
   {
    "part_id": "13050000250",
@@ -3212,13 +3272,13 @@
    "part_id": "13050000280",
    "name": "UZI性能护木",
    "slot": "handguard",
-   "price_daily": 12831
+   "price_daily": 60326
   },
   {
    "part_id": "13050000281",
    "name": "UZI导轨护木",
    "slot": "handguard",
-   "price_daily": 15329
+   "price_daily": 29099
   },
   {
    "part_id": "13050000284",
@@ -3230,7 +3290,7 @@
    "part_id": "13050000285",
    "name": "野牛碳纤维护木",
    "slot": "handguard",
-   "price_daily": 10456
+   "price_daily": 17341
   },
   {
    "part_id": "13050000288",
@@ -3308,19 +3368,19 @@
    "part_id": "13050000306",
    "name": "M700黑色一体枪托",
    "slot": "handguard",
-   "price_daily": 35198
+   "price_daily": 16088
   },
   {
    "part_id": "13050000307",
    "name": "M700稳定一体枪托",
    "slot": "handguard",
-   "price_daily": 33025
+   "price_daily": 16855
   },
   {
    "part_id": "13050000308",
    "name": "M700先进枪身系统",
    "slot": "handguard",
-   "price_daily": 37188
+   "price_daily": 15343
   },
   {
    "part_id": "13050000310",
@@ -3428,7 +3488,7 @@
    "part_id": "13050000328",
    "name": "AKS74U导轨下护木",
    "slot": "handguard",
-   "price_daily": 6862
+   "price_daily": 20227
   },
   {
    "part_id": "13050000330",
@@ -3452,7 +3512,7 @@
    "part_id": "13050000334",
    "name": "M700军规护木",
    "slot": "handguard",
-   "price_daily": 32258
+   "price_daily": 16823
   },
   {
    "part_id": "13050000335",
@@ -3476,7 +3536,7 @@
    "part_id": "13050000338",
    "name": "M249军规导轨护木",
    "slot": "handguard",
-   "price_daily": 37315
+   "price_daily": 21835
   },
   {
    "part_id": "13050000339",
@@ -3638,7 +3698,7 @@
    "part_id": "13050000370",
    "name": "SR-25主宰者护木",
    "slot": "handguard",
-   "price_daily": 50042
+   "price_daily": 26772
   },
   {
    "part_id": "13050000371",
@@ -3776,13 +3836,13 @@
    "part_id": "13050000402",
    "name": "SVCH短护木",
    "slot": "handguard",
-   "price_daily": 25248
+   "price_daily": 21258
   },
   {
    "part_id": "13050000403",
    "name": "SVCH一体式护木",
    "slot": "handguard",
-   "price_daily": 47828
+   "price_daily": 43838
   },
   {
    "part_id": "13050000404",
@@ -3836,19 +3896,43 @@
    "part_id": "13050000423",
    "name": "汤姆逊拓展型护木",
    "slot": "handguard",
-   "price_daily": 25434
+   "price_daily": 47169
+  },
+  {
+   "part_id": "13050000424",
+   "name": "未命名部件 13050000424",
+   "slot": "handguard",
+   "price_daily": null
   },
   {
    "part_id": "13050000425",
    "name": "HVK旋风枪身系统",
    "slot": "handguardKit",
-   "price_daily": null
+   "price_daily": 204785
   },
   {
    "part_id": "13050000427",
    "name": "HVK鼬鼠冲锋枪套件",
    "slot": "handguard",
    "price_daily": 59212
+  },
+  {
+   "part_id": "13050000433",
+   "name": "PKM通用机枪无托套件护木虚空",
+   "slot": "internal",
+   "price_daily": null
+  },
+  {
+   "part_id": "13050000436",
+   "name": "(未命名配置)",
+   "slot": "handguard",
+   "price_daily": null
+  },
+  {
+   "part_id": "13050000437",
+   "name": "(未命名配置)",
+   "slot": "handguard",
+   "price_daily": null
   },
   {
    "part_id": "13110000023",
@@ -3866,19 +3950,19 @@
    "part_id": "13110000040",
    "name": "全息瞄准镜",
    "slot": "scope",
-   "price_daily": 5658
+   "price_daily": 5664
   },
   {
    "part_id": "13110000042",
    "name": "俄式准直二倍瞄准镜",
    "slot": "scope",
-   "price_daily": 18405
+   "price_daily": 19445
   },
   {
    "part_id": "13110000043",
    "name": "全景红点瞄准镜",
    "slot": "scope",
-   "price_daily": 38049
+   "price_daily": 32899
   },
   {
    "part_id": "13110000044",
@@ -3890,7 +3974,7 @@
    "part_id": "13110000046",
    "name": "反射式瞄准镜",
    "slot": "scope",
-   "price_daily": 5660
+   "price_daily": 5665
   },
   {
    "part_id": "13110000047",
@@ -3908,7 +3992,7 @@
    "part_id": "13110000049",
    "name": "PSO战斗2.5倍瞄准镜",
    "slot": "scope",
-   "price_daily": 21892
+   "price_daily": 24632
   },
   {
    "part_id": "13110000050",
@@ -3920,19 +4004,19 @@
    "part_id": "13110000051",
    "name": "HAMR组合瞄准镜",
    "slot": "scope",
-   "price_daily": 40418
+   "price_daily": 37528
   },
   {
    "part_id": "13110000052",
    "name": "侦察1.5/5可调瞄准镜",
    "slot": "scope",
-   "price_daily": 40341
+   "price_daily": 45006
   },
   {
    "part_id": "13110000053",
    "name": "XCOG突击3.5倍瞄准镜",
    "slot": "scope",
-   "price_daily": 44701
+   "price_daily": 65181
   },
   {
    "part_id": "13110000054",
@@ -3950,13 +4034,13 @@
    "part_id": "13110000056",
    "name": "光学狙击8倍瞄准镜",
    "slot": "scope",
-   "price_daily": 62458
+   "price_daily": 30328
   },
   {
    "part_id": "13110000057",
    "name": "3/7可调倍率狙击镜",
    "slot": "scope",
-   "price_daily": 82309
+   "price_daily": 55609
   },
   {
    "part_id": "13110000058",
@@ -3980,7 +4064,7 @@
    "part_id": "13110000061",
    "name": "okp-7反射瞄准镜",
    "slot": "scope",
-   "price_daily": 7197
+   "price_daily": 8227
   },
   {
    "part_id": "13110000062",
@@ -3998,13 +4082,13 @@
    "part_id": "13110000064",
    "name": "Cobra准直式瞄准镜",
    "slot": "scope",
-   "price_daily": 13313
+   "price_daily": 26703
   },
   {
    "part_id": "13110000065",
    "name": "全息二型瞄准镜",
    "slot": "scope",
-   "price_daily": 5132
+   "price_daily": 5652
   },
   {
    "part_id": "13110000066",
@@ -4022,19 +4106,19 @@
    "part_id": "13110000068",
    "name": "八倍先进热成像狙击镜",
    "slot": "scope",
-   "price_daily": 168515
+   "price_daily": null
   },
   {
    "part_id": "13110000069",
    "name": "LPVO多倍率战斗瞄具",
    "slot": "scope",
-   "price_daily": 38549
+   "price_daily": 29239
   },
   {
    "part_id": "13110000070",
    "name": "6/12神射手变倍狙击镜",
    "slot": "scope",
-   "price_daily": 87069
+   "price_daily": 40134
   },
   {
    "part_id": "13110000071",
@@ -4046,13 +4130,13 @@
    "part_id": "13110000072",
    "name": "1p-29俄制3倍瞄准镜",
    "slot": "scope",
-   "price_daily": 25725
+   "price_daily": 23145
   },
   {
    "part_id": "13110000073",
    "name": "视点3倍瞄准镜",
    "slot": "scope",
-   "price_daily": 56685
+   "price_daily": 70875
   },
   {
    "part_id": "13110000074",
@@ -4070,31 +4154,31 @@
    "part_id": "13110000077",
    "name": "侧置XRO快速反应瞄准镜",
    "slot": "scope",
-   "price_daily": 15209
+   "price_daily": 14404
   },
   {
    "part_id": "13110000078",
    "name": "侧置微型红点瞄准镜",
    "slot": "scope",
-   "price_daily": 15230
+   "price_daily": 14425
   },
   {
    "part_id": "13110000079",
    "name": "侧置战斗红点瞄准镜",
    "slot": "scope",
-   "price_daily": 15281
+   "price_daily": 14476
   },
   {
    "part_id": "13110000081",
    "name": "PSO狙击8倍瞄准镜",
    "slot": "scope",
-   "price_daily": 15146
+   "price_daily": 10946
   },
   {
    "part_id": "13110000082",
    "name": "M157火控光学系统",
    "slot": "scope",
-   "price_daily": 57824
+   "price_daily": 31889
   },
   {
    "part_id": "13110000085",
@@ -4106,43 +4190,43 @@
    "part_id": "13110000087",
    "name": "Osight微型瞄准镜",
    "slot": "scope",
-   "price_daily": 25172
+   "price_daily": 29807
   },
   {
    "part_id": "13110000088",
    "name": "侧置Osight微型瞄准镜",
    "slot": "scope",
-   "price_daily": 22526
+   "price_daily": 23331
   },
   {
    "part_id": "13110000089",
    "name": "ACOG精准六倍镜",
    "slot": "scope",
-   "price_daily": 44483
+   "price_daily": 28463
   },
   {
    "part_id": "13110000090",
    "name": "M3狙击镜",
    "slot": "scope",
-   "price_daily": 44952
+   "price_daily": 35957
   },
   {
    "part_id": "13110000091",
    "name": "灵眼3/7测距狙击瞄准镜",
    "slot": "scope",
-   "price_daily": 79307
+   "price_daily": 62472
   },
   {
    "part_id": "13110000092",
    "name": "灵眼6/12测距狙击瞄准镜",
    "slot": "scope",
-   "price_daily": 89142
+   "price_daily": 69862
   },
   {
    "part_id": "13110000093",
    "name": "棱镜通用二倍光学瞄具",
    "slot": "scope",
-   "price_daily": 53278
+   "price_daily": 43198
   },
   {
    "part_id": "13110000094",
@@ -4154,7 +4238,7 @@
    "part_id": "13110000095",
    "name": "复合弓智能倍镜",
    "slot": "scope",
-   "price_daily": 26628
+   "price_daily": 25603
   },
   {
    "part_id": "13110000096",
@@ -4172,25 +4256,25 @@
    "part_id": "13110000099",
    "name": "1p33 2/4倍望远镜",
    "slot": "scope",
-   "price_daily": 49823
+   "price_daily": 63863
   },
   {
    "part_id": "13110000102",
    "name": "VMX无框瞄具",
    "slot": "scope",
-   "price_daily": 75004
+   "price_daily": 57844
   },
   {
    "part_id": "13110000104",
    "name": "复合弓无框瞄具",
    "slot": "scope",
-   "price_daily": 14874
+   "price_daily": 10754
   },
   {
    "part_id": "13110000105",
    "name": "APX组合瞄具",
    "slot": "optic",
-   "price_daily": 37216
+   "price_daily": 41071
   },
   {
    "part_id": "13110000106",
@@ -4214,7 +4298,7 @@
    "part_id": "13120000030",
    "name": "5.56*45 30发聚合物弹匣",
    "slot": "magazine",
-   "price_daily": 5309
+   "price_daily": 8364
   },
   {
    "part_id": "13120000035",
@@ -4226,19 +4310,19 @@
    "part_id": "13120000036",
    "name": "5.56*45 30发铝匣",
    "slot": "magazine",
-   "price_daily": 2879
+   "price_daily": 3539
   },
   {
    "part_id": "13120000049",
    "name": "M14 30发弹匣",
    "slot": "magazine",
-   "price_daily": 83007
+   "price_daily": 41467
   },
   {
    "part_id": "13120000053",
    "name": "M14 50发弹鼓",
    "slot": "magazine",
-   "price_daily": 184567
+   "price_daily": 168592
   },
   {
    "part_id": "13120000054",
@@ -4256,7 +4340,7 @@
    "part_id": "13120000150",
    "name": "SR25 20发弹匣",
    "slot": "magazine",
-   "price_daily": 32728
+   "price_daily": 25008
   },
   {
    "part_id": "13120000156",
@@ -4274,7 +4358,7 @@
    "part_id": "13120000173",
    "name": "G3 30发弹匣",
    "slot": "magazine",
-   "price_daily": 18535
+   "price_daily": 21015
   },
   {
    "part_id": "13120000174",
@@ -4358,7 +4442,7 @@
    "part_id": "13120000243",
    "name": "AK545口径30发弹匣",
    "slot": "magazine",
-   "price_daily": 3532
+   "price_daily": 3697
   },
   {
    "part_id": "13120000244",
@@ -4382,7 +4466,7 @@
    "part_id": "13120000247",
    "name": "AKS-74U聚合物弹鼓75发",
    "slot": "magazine",
-   "price_daily": 35896
+   "price_daily": 37181
   },
   {
    "part_id": "13120000248",
@@ -4412,13 +4496,13 @@
    "part_id": "13120000253",
    "name": "VSS30发弹匣",
    "slot": "magazine",
-   "price_daily": 22529
+   "price_daily": 20474
   },
   {
    "part_id": "13120000254",
    "name": "VSS 45发弹匣",
    "slot": "magazine",
-   "price_daily": 58651
+   "price_daily": 69331
   },
   {
    "part_id": "13120000255",
@@ -4430,7 +4514,7 @@
    "part_id": "13120000256",
    "name": "aug60发",
    "slot": "magazine",
-   "price_daily": 35774
+   "price_daily": 31934
   },
   {
    "part_id": "13120000257",
@@ -4442,7 +4526,7 @@
    "part_id": "13120000258",
    "name": "5.8新式60发弹鼓",
    "slot": "magazine",
-   "price_daily": 61874
+   "price_daily": 47024
   },
   {
    "part_id": "13120000259",
@@ -4466,13 +4550,13 @@
    "part_id": "13120000262",
    "name": "M7 30发6.8弹匣",
    "slot": "magazine",
-   "price_daily": 23476
+   "price_daily": 27576
   },
   {
    "part_id": "13120000263",
    "name": "M7 45发6.8弹鼓",
    "slot": "magazine",
-   "price_daily": 51619
+   "price_daily": 49839
   },
   {
    "part_id": "13120000264",
@@ -4490,7 +4574,7 @@
    "part_id": "13120000267",
    "name": "Mini-14 30发弹匣",
    "slot": "magazine",
-   "price_daily": 44913
+   "price_daily": 41913
   },
   {
    "part_id": "13120000268",
@@ -4520,7 +4604,7 @@
    "part_id": "13120000272",
    "name": "Vector扩容40发弹匣",
    "slot": "magazine",
-   "price_daily": 20059
+   "price_daily": 25419
   },
   {
    "part_id": "13120000273",
@@ -4550,7 +4634,7 @@
    "part_id": "13120000277",
    "name": "MP5 50发弹鼓",
    "slot": "magazine",
-   "price_daily": 49663
+   "price_daily": 51438
   },
   {
    "part_id": "13120000278",
@@ -4568,7 +4652,7 @@
    "part_id": "13120000280",
    "name": "UZI 45发弹匣",
    "slot": "magazine",
-   "price_daily": 14575
+   "price_daily": 14880
   },
   {
    "part_id": "13120000281",
@@ -4580,7 +4664,7 @@
    "part_id": "13120000282",
    "name": "野牛 64发弹筒",
    "slot": "magazine",
-   "price_daily": 8768
+   "price_daily": 12428
   },
   {
    "part_id": "13120000283",
@@ -4598,7 +4682,7 @@
    "part_id": "13120000286",
    "name": "M700 10发弹匣",
    "slot": "magazine",
-   "price_daily": 24402
+   "price_daily": 14122
   },
   {
    "part_id": "13120000288",
@@ -4610,13 +4694,13 @@
    "part_id": "13120000289",
    "name": "S12K扩容10发弹匣",
    "slot": "magazine",
-   "price_daily": 6125
+   "price_daily": 4725
   },
   {
    "part_id": "13120000291",
    "name": "S12K扩容24发弹鼓",
    "slot": "magazine",
-   "price_daily": 52076
+   "price_daily": 45821
   },
   {
    "part_id": "13120000292",
@@ -4634,7 +4718,7 @@
    "part_id": "13120000294",
    "name": "G系手枪33发弹匣",
    "slot": "magazine",
-   "price_daily": 12867
+   "price_daily": 13142
   },
   {
    "part_id": "13120000295",
@@ -4646,7 +4730,7 @@
    "part_id": "13120000296",
    "name": "沙鹰13发弹匣",
    "slot": "magazine",
-   "price_daily": 5694
+   "price_daily": 4444
   },
   {
    "part_id": "13120000297",
@@ -4658,13 +4742,13 @@
    "part_id": "13120000298",
    "name": "93R 18发弹匣",
    "slot": "magazine",
-   "price_daily": 4916
+   "price_daily": 2876
   },
   {
    "part_id": "13120000299",
    "name": "93R 24发弹匣",
    "slot": "magazine",
-   "price_daily": 6017
+   "price_daily": 6692
   },
   {
    "part_id": "13120000300",
@@ -4676,7 +4760,7 @@
    "part_id": "13120000301",
    "name": "PKM扩容弹箱",
    "slot": "magazine",
-   "price_daily": 29404
+   "price_daily": 33244
   },
   {
    "part_id": "13120000302",
@@ -4730,13 +4814,13 @@
    "part_id": "13120000314",
    "name": "R93 15发弹匣",
    "slot": "magazine",
-   "price_daily": 17906
+   "price_daily": 16621
   },
   {
    "part_id": "13120000315",
    "name": "SG552 30发弹匣",
    "slot": "magazine",
-   "price_daily": 3617
+   "price_daily": 3616
   },
   {
    "part_id": "13120000316",
@@ -4748,19 +4832,19 @@
    "part_id": "13120000317",
    "name": "SG552 45发扩容弹匣",
    "slot": "magazine",
-   "price_daily": 39600
+   "price_daily": 53625
   },
   {
    "part_id": "13120000318",
    "name": "SMG45 40发扩容弹匣",
    "slot": "magazine",
-   "price_daily": 31350
+   "price_daily": 47850
   },
   {
    "part_id": "13120000319",
    "name": "MP7 30发弹匣",
    "slot": "magazine",
-   "price_daily": 15699
+   "price_daily": 15702
   },
   {
    "part_id": "13120000320",
@@ -4790,7 +4874,7 @@
    "part_id": "13120000327",
    "name": "AKS74U 30发弹匣",
    "slot": "magazine",
-   "price_daily": 3522
+   "price_daily": 3697
   },
   {
    "part_id": "13120000328",
@@ -4814,7 +4898,7 @@
    "part_id": "13120000331",
    "name": "SR25 30发扩容弹匣",
    "slot": "magazine",
-   "price_daily": 51432
+   "price_daily": 49657
   },
   {
    "part_id": "13120000332",
@@ -4832,7 +4916,7 @@
    "part_id": "13120000334",
    "name": "M1911 11发扩容弹匣",
    "slot": "magazine",
-   "price_daily": 4332
+   "price_daily": 3192
   },
   {
    "part_id": "13120000335",
@@ -4856,7 +4940,7 @@
    "part_id": "13120000340",
    "name": "霰弹枪快速装填器",
    "slot": "secondaryMagazine",
-   "price_daily": 7563
+   "price_daily": 5913
   },
   {
    "part_id": "13120000341",
@@ -4868,13 +4952,13 @@
    "part_id": "13120000342",
    "name": "AR聚合物30发 弹匣",
    "slot": "magazine",
-   "price_daily": 5259
+   "price_daily": 8249
   },
   {
    "part_id": "13120000343",
    "name": "5.8新式45发 扩容弹匣",
    "slot": "magazine",
-   "price_daily": 30432
+   "price_daily": 41982
   },
   {
    "part_id": "13120000344",
@@ -4886,13 +4970,13 @@
    "part_id": "13120000345",
    "name": "45发 K437扩容弹匣",
    "slot": "magazine",
-   "price_daily": 47789
+   "price_daily": 44249
   },
   {
    "part_id": "13120000348",
    "name": "K437 60发弹鼓",
    "slot": "magazine",
-   "price_daily": 24824
+   "price_daily": 23049
   },
   {
    "part_id": "13120000351",
@@ -4904,7 +4988,7 @@
    "part_id": "13120000359",
    "name": "MK4730发弹匣",
    "slot": "magazine",
-   "price_daily": 46124
+   "price_daily": 51449
   },
   {
    "part_id": "13120000360",
@@ -4916,7 +5000,7 @@
    "part_id": "13120000361",
    "name": "MK4 48发弹匣",
    "slot": "magazine",
-   "price_daily": 36876
+   "price_daily": 33796
   },
   {
    "part_id": "13120000362",
@@ -4952,7 +5036,7 @@
    "part_id": "13120000371",
    "name": "M82扩容弹鼓",
    "slot": "magazine",
-   "price_daily": 33699
+   "price_daily": 28374
   },
   {
    "part_id": "13120000372",
@@ -4982,7 +5066,7 @@
    "part_id": "13120000378",
    "name": "SVCH扩容弹匣",
    "slot": "magazine",
-   "price_daily": 34616
+   "price_daily": 21266
   },
   {
    "part_id": "13120000379",
@@ -5036,13 +5120,19 @@
    "part_id": "13120000389",
    "name": "汤姆逊加长弹匣",
    "slot": "magazine",
+   "price_daily": 118511
+  },
+  {
+   "part_id": "13120000390",
+   "name": "未命名部件 13120000390",
+   "slot": "magazine",
    "price_daily": null
   },
   {
    "part_id": "13120000392",
    "name": "MDR.308扩容弹匣",
    "slot": "magazine",
-   "price_daily": 30259
+   "price_daily": 37379
   },
   {
    "part_id": "13120000393",
@@ -5051,34 +5141,40 @@
    "price_daily": null
   },
   {
+   "part_id": "13120000399",
+   "name": "PKM通用机枪无托套件弹匣虚空",
+   "slot": "internal",
+   "price_daily": null
+  },
+  {
    "part_id": "13130000155",
    "name": "实用消焰器",
    "slot": "muzzle",
-   "price_daily": 3535
+   "price_daily": 3526
   },
   {
    "part_id": "13130000157",
    "name": "实用消音器",
    "slot": "muzzle",
-   "price_daily": 22279
+   "price_daily": 21329
   },
   {
    "part_id": "13130000158",
    "name": "钢制膛口制退器",
    "slot": "muzzle",
-   "price_daily": 14154
+   "price_daily": 14629
   },
   {
    "part_id": "13130000159",
    "name": "炽火抑制器",
    "slot": "muzzle",
-   "price_daily": 22993
+   "price_daily": 24913
   },
   {
    "part_id": "13130000160",
    "name": "钛金竞赛制退器",
    "slot": "muzzle",
-   "price_daily": null
+   "price_daily": 35697
   },
   {
    "part_id": "13130000161",
@@ -5102,19 +5198,19 @@
    "part_id": "13130000164",
    "name": "轻语战术消音器",
    "slot": "muzzle",
-   "price_daily": 51763
+   "price_daily": 57118
   },
   {
    "part_id": "13130000165",
    "name": "海神消焰器",
    "slot": "muzzle",
-   "price_daily": 39579
+   "price_daily": 41229
   },
   {
    "part_id": "13130000166",
    "name": "泰坦补偿器",
    "slot": "muzzle",
-   "price_daily": 44479
+   "price_daily": 26679
   },
   {
    "part_id": "13130000167",
@@ -5126,13 +5222,13 @@
    "part_id": "13130000168",
    "name": "沙暴垂直补偿器",
    "slot": "muzzle",
-   "price_daily": 46433
+   "price_daily": 48093
   },
   {
    "part_id": "13130000169",
    "name": "死寂消音器",
    "slot": "muzzle",
-   "price_daily": 47974
+   "price_daily": 46319
   },
   {
    "part_id": "13130000170",
@@ -5156,19 +5252,19 @@
    "part_id": "13130000173",
    "name": "PBS俄式消音器",
    "slot": "muzzle",
-   "price_daily": 52057
+   "price_daily": 55917
   },
   {
    "part_id": "13130000174",
    "name": "喇叭口消焰器",
    "slot": "muzzle",
-   "price_daily": null
+   "price_daily": 5335
   },
   {
    "part_id": "13130000175",
    "name": "AK实用补偿器",
    "slot": "muzzle",
-   "price_daily": 10881
+   "price_daily": 14681
   },
   {
    "part_id": "13130000176",
@@ -5180,7 +5276,7 @@
    "part_id": "13130000177",
    "name": "俄系冲锋枪精密消音器",
    "slot": "muzzle",
-   "price_daily": 74206
+   "price_daily": 71311
   },
   {
    "part_id": "13130000178",
@@ -5192,31 +5288,31 @@
    "part_id": "13130000180",
    "name": "漩涡消焰器",
    "slot": "muzzle",
-   "price_daily": null
+   "price_daily": 13409
   },
   {
    "part_id": "13130000181",
    "name": "共鸣狙击枪消音器",
    "slot": "muzzle",
-   "price_daily": 98410
+   "price_daily": 80510
   },
   {
    "part_id": "13130000182",
    "name": "余烬消音器",
    "slot": "muzzle",
-   "price_daily": 44536
+   "price_daily": 28471
   },
   {
    "part_id": "13130000183",
    "name": "泰坦消音器",
    "slot": "muzzle",
-   "price_daily": 57064
+   "price_daily": 40999
   },
   {
    "part_id": "13130000184",
    "name": "实用霰弹收束器",
    "slot": "muzzle",
-   "price_daily": 1411
+   "price_daily": 1151
   },
   {
    "part_id": "13130000185",
@@ -5228,31 +5324,31 @@
    "part_id": "13130000186",
    "name": "霰弹枪精密消音器",
    "slot": "muzzle",
-   "price_daily": 14595
+   "price_daily": 11935
   },
   {
    "part_id": "13130000187",
    "name": "霰弹枪囚笼补偿器",
    "slot": "muzzle",
-   "price_daily": 15258
+   "price_daily": 13263
   },
   {
    "part_id": "13130000188",
    "name": "霰弹枪巨炮制退器",
    "slot": "muzzle",
-   "price_daily": 20840
+   "price_daily": 19445
   },
   {
    "part_id": "13130000189",
    "name": "霰弹枪涡流收束器",
    "slot": "muzzle",
-   "price_daily": 37631
+   "price_daily": 36236
   },
   {
    "part_id": "13130000190",
    "name": "霰弹枪回声消音器",
    "slot": "muzzle",
-   "price_daily": 23802
+   "price_daily": 22767
   },
   {
    "part_id": "13130000191",
@@ -5264,7 +5360,7 @@
    "part_id": "13130000192",
    "name": "实用手枪消焰器",
    "slot": "muzzle",
-   "price_daily": 5027
+   "price_daily": 3047
   },
   {
    "part_id": "13130000193",
@@ -5282,13 +5378,13 @@
    "part_id": "13130000195",
    "name": "净化手枪消音器",
    "slot": "muzzle",
-   "price_daily": 12996
+   "price_daily": 10966
   },
   {
    "part_id": "13130000196",
    "name": "M7实用消音器",
    "slot": "muzzle",
-   "price_daily": 25963
+   "price_daily": 40438
   },
   {
    "part_id": "13130000197",
@@ -5312,13 +5408,13 @@
    "part_id": "13130000201",
    "name": "OPS消音器",
    "slot": "muzzle",
-   "price_daily": 11676
+   "price_daily": 21396
   },
   {
    "part_id": "13130000202",
    "name": "DTK制退器",
    "slot": "muzzle",
-   "price_daily": 30717
+   "price_daily": 46077
   },
   {
    "part_id": "13130000203",
@@ -5354,13 +5450,13 @@
    "part_id": "13130000208",
    "name": "先进多口径消音器",
    "slot": "muzzle",
-   "price_daily": null
+   "price_daily": 58561
   },
   {
    "part_id": "13130000209",
    "name": "薪火螺旋消焰器",
    "slot": "muzzle",
-   "price_daily": 24734
+   "price_daily": 21014
   },
   {
    "part_id": "13130000210",
@@ -5390,7 +5486,7 @@
    "part_id": "13130000216",
    "name": "725双管霰弹枪牛仔消音器",
    "slot": "muzzle",
-   "price_daily": 29491
+   "price_daily": 27936
   },
   {
    "part_id": "13130000220",
@@ -5432,7 +5528,7 @@
    "part_id": "13130000227",
    "name": "杠杆式步枪守望者钢制制退器",
    "slot": "muzzle",
-   "price_daily": 26584
+   "price_daily": 41959
   },
   {
    "part_id": "13130000228",
@@ -5480,11 +5576,17 @@
    "part_id": "13130000235",
    "name": "RM277断流消音器",
    "slot": "muzzle",
-   "price_daily": 76179
+   "price_daily": 99039
   },
   {
    "part_id": "13130000236",
    "name": "内部配件 13130000236",
+   "slot": "muzzle",
+   "price_daily": null
+  },
+  {
+   "part_id": "13130000238",
+   "name": "未命名部件 13130000238",
    "slot": "muzzle",
    "price_daily": null
   },
@@ -5504,7 +5606,7 @@
    "part_id": "13140000023",
    "name": "迷你阻手器",
    "slot": "foregrip",
-   "price_daily": 3550
+   "price_daily": 3557
   },
   {
    "part_id": "13140000024",
@@ -5516,7 +5618,7 @@
    "part_id": "13140000025",
    "name": "VFG骑士前握把",
    "slot": "foregrip",
-   "price_daily": 13707
+   "price_daily": 14182
   },
   {
    "part_id": "13140000026",
@@ -5528,7 +5630,7 @@
    "part_id": "13140000027",
    "name": "战术三角握把",
    "slot": "foregrip",
-   "price_daily": 32751
+   "price_daily": 42401
   },
   {
    "part_id": "13140000028",
@@ -5540,7 +5642,7 @@
    "part_id": "13140000029",
    "name": "RK-0前握把",
    "slot": "foregrip",
-   "price_daily": 26817
+   "price_daily": 47937
   },
   {
    "part_id": "13140000030",
@@ -5570,19 +5672,19 @@
    "part_id": "13140000034",
    "name": "共振人体工程握把",
    "slot": "foregrip",
-   "price_daily": 62559
+   "price_daily": 58979
   },
   {
    "part_id": "13140000035",
    "name": "X25U斜侧战斗握把",
    "slot": "foregrip",
-   "price_daily": 40524
+   "price_daily": 28944
   },
   {
    "part_id": "13140000036",
    "name": "K1精英斜角握把",
    "slot": "foregrip",
-   "price_daily": 30817
+   "price_daily": 45292
   },
   {
    "part_id": "13140000037",
@@ -5594,13 +5696,13 @@
    "part_id": "13140000038",
    "name": "伸缩脚架握把",
    "slot": "foregrip",
-   "price_daily": 18295
+   "price_daily": 16365
   },
   {
    "part_id": "13140000039",
    "name": "共振二代前握把",
    "slot": "foregrip",
-   "price_daily": 44739
+   "price_daily": 50109
   },
   {
    "part_id": "13140000040",
@@ -5612,19 +5714,19 @@
    "part_id": "13140000041",
    "name": "破晓垂直手电握把",
    "slot": "foregrip",
-   "price_daily": 15318
+   "price_daily": 14358
   },
   {
    "part_id": "13140000042",
    "name": "黎明三角手电握把",
    "slot": "foregrip",
-   "price_daily": 32018
+   "price_daily": 28458
   },
   {
    "part_id": "13140000043",
    "name": "EC通用前阻手",
    "slot": "foregrip",
-   "price_daily": 49659
+   "price_daily": 47884
   },
   {
    "part_id": "13140000044",
@@ -5654,37 +5756,37 @@
    "part_id": "13160000005",
    "name": "PEQ-2红色激光镭指",
    "slot": "functional",
-   "price_daily": 26821
+   "price_daily": 35461
   },
   {
    "part_id": "13160000006",
    "name": "LA-3C绿色激光镭指",
    "slot": "functional",
-   "price_daily": 27975
+   "price_daily": 35695
   },
   {
    "part_id": "13160000007",
    "name": "耀斑战术手电",
    "slot": "functional",
-   "price_daily": 41667
+   "price_daily": 52092
   },
   {
    "part_id": "13160000008",
    "name": "实用枪灯",
    "slot": "functional",
-   "price_daily": 9610
+   "price_daily": 7410
   },
   {
    "part_id": "13160000009",
    "name": "PERST-7蓝色激光镭指",
    "slot": "functional",
-   "price_daily": 30792
+   "price_daily": 35617
   },
   {
    "part_id": "13160000010",
    "name": "DBAL-X2紫色激光镭指",
    "slot": "functional",
-   "price_daily": 31640
+   "price_daily": 34520
   },
   {
    "part_id": "13160000013",
@@ -5696,19 +5798,19 @@
    "part_id": "13160000014",
    "name": "OLIGHT Baldr Pro R多功能手电",
    "slot": "functional",
-   "price_daily": 31921
+   "price_daily": 37041
   },
   {
    "part_id": "13160000015",
    "name": "下挂手枪灯",
    "slot": "functional",
-   "price_daily": 10329
+   "price_daily": 9389
   },
   {
    "part_id": "13160000016",
    "name": "OLIGHT Odin S战术手电",
    "slot": "functional",
-   "price_daily": 50007
+   "price_daily": 52092
   },
   {
    "part_id": "13160000017",
@@ -5720,7 +5822,7 @@
    "part_id": "13160000018",
    "name": "OLIGHT WARRIOR 3S战术手电",
    "slot": "functional",
-   "price_daily": 90549
+   "price_daily": 76239
   },
   {
    "part_id": "13160000019",
@@ -5732,7 +5834,7 @@
    "part_id": "13160000020",
    "name": "JAD下挂激光",
    "slot": "functional",
-   "price_daily": 57560
+   "price_daily": 45080
   },
   {
    "part_id": "13170000001",
@@ -5744,7 +5846,7 @@
    "part_id": "13170000002",
    "name": "PKM两脚架",
    "slot": "functional",
-   "price_daily": 9824
+   "price_daily": null
   },
   {
    "part_id": "13170000003",
@@ -5786,7 +5888,7 @@
    "part_id": "13170000011",
    "name": "QJB201脚架",
    "slot": "functional",
-   "price_daily": 17264
+   "price_daily": 18284
   },
   {
    "part_id": "13170000012",
@@ -5816,7 +5918,7 @@
    "part_id": "13200000006",
    "name": "AWM穹顶套件",
    "slot": "handguard",
-   "price_daily": 48712
+   "price_daily": 23337
   },
   {
    "part_id": "13200000008",
@@ -5846,7 +5948,7 @@
    "part_id": "13210000012",
    "name": "微型瞄具增高架",
    "slot": "scope",
-   "price_daily": 25285
+   "price_daily": 23660
   },
   {
    "part_id": "13210000013",
@@ -5858,7 +5960,7 @@
    "part_id": "13210000014",
    "name": "MEO微型瞄具增高架",
    "slot": "scope",
-   "price_daily": 9204
+   "price_daily": 10684
   },
   {
    "part_id": "13210000015",
@@ -5873,10 +5975,16 @@
    "price_daily": null
   },
   {
+   "part_id": "13210000018",
+   "name": "(未命名配置)",
+   "slot": "internal",
+   "price_daily": null
+  },
+  {
    "part_id": "13220000001",
    "name": "95长弓平台套件",
    "slot": "handguard",
-   "price_daily": 19732
+   "price_daily": 42832
   },
   {
    "part_id": "13220000002",
@@ -5912,7 +6020,7 @@
    "part_id": "13240000005",
    "name": "AUG枪托垫",
    "slot": "stock",
-   "price_daily": 59279
+   "price_daily": 101849
   },
   {
    "part_id": "13240000006",
@@ -5936,7 +6044,7 @@
    "part_id": "13240000009",
    "name": "RM277托垫",
    "slot": "stock",
-   "price_daily": 32865
+   "price_daily": 29640
   },
   {
    "part_id": "13240000013",
@@ -5960,13 +6068,13 @@
    "part_id": "13250000005",
    "name": "PSG-1精确扳机",
    "slot": "functional",
-   "price_daily": 106624
+   "price_daily": 75304
   },
   {
    "part_id": "13250000006",
    "name": "M1911夜鹰战术扳机",
    "slot": "functional",
-   "price_daily": 8289
+   "price_daily": 8624
   },
   {
    "part_id": "13250000007",
@@ -5996,13 +6104,13 @@
    "part_id": "13290000001",
    "name": "通用托腮板",
    "slot": "stock",
-   "price_daily": 18005
+   "price_daily": 18955
   },
   {
    "part_id": "13290000002",
    "name": "M700托腮板",
    "slot": "stock",
-   "price_daily": 16780
+   "price_daily": 12400
   },
   {
    "part_id": "13290000003",
@@ -6014,7 +6122,7 @@
    "part_id": "13290000006",
    "name": "RM277托腮板",
    "slot": "stock",
-   "price_daily": 48279
+   "price_daily": 41829
   },
   {
    "part_id": "13290000007",
@@ -6050,13 +6158,13 @@
    "part_id": "13320000010",
    "name": "DD蟒蛇护木片",
    "slot": "functional",
-   "price_daily": 5639
+   "price_daily": 5631
   },
   {
    "part_id": "13320000015",
    "name": "狂蜂护木片",
    "slot": "functional",
-   "price_daily": 5631
+   "price_daily": 5639
   },
   {
    "part_id": "13320000020",
@@ -6068,7 +6176,7 @@
    "part_id": "13330000001",
    "name": "稳固握把底座",
    "slot": "rearGrip",
-   "price_daily": 15989
+   "price_daily": 13319
   },
   {
    "part_id": "13330000002",
@@ -6086,13 +6194,13 @@
    "part_id": "13340000001",
    "name": "蜜獾小口径快拔套(黑)",
    "slot": "functional",
-   "price_daily": 5631
+   "price_daily": 5639
   },
   {
    "part_id": "13340000002",
    "name": "野蜂冲锋枪快拔套(黑)",
    "slot": "functional",
-   "price_daily": null
+   "price_daily": 5639
   },
   {
    "part_id": "13340000003",
@@ -6110,7 +6218,7 @@
    "part_id": "13340000005",
    "name": "蜜獾小口径快拔套(绿)",
    "slot": "functional",
-   "price_daily": 5631
+   "price_daily": 5639
   },
   {
    "part_id": "13340000006",
@@ -6122,19 +6230,19 @@
    "part_id": "13340000007",
    "name": "郊狼中间威力快拔套(绿)",
    "slot": "functional",
-   "price_daily": 5639
+   "price_daily": 5631
   },
   {
    "part_id": "13340000008",
    "name": "灰熊全威力快拔套(绿)",
    "slot": "functional",
-   "price_daily": 5631
+   "price_daily": 5639
   },
   {
    "part_id": "13340000009",
    "name": "蜜獾小口径快拔套(沙)",
    "slot": "functional",
-   "price_daily": 5639
+   "price_daily": 5631
   },
   {
    "part_id": "13340000010",
@@ -6146,13 +6254,13 @@
    "part_id": "13340000011",
    "name": "郊狼中间威力快拔套(沙)",
    "slot": "functional",
-   "price_daily": 5639
+   "price_daily": 5631
   },
   {
    "part_id": "13340000012",
    "name": "灰熊全威力快拔套(沙)",
    "slot": "functional",
-   "price_daily": 5639
+   "price_daily": 5631
   },
   {
    "part_id": "13340000013",
@@ -6164,7 +6272,7 @@
    "part_id": "13370000001",
    "name": "蜂网遮光罩",
    "slot": "functional",
-   "price_daily": 18517
+   "price_daily": 14227
   },
   {
    "part_id": "13380000001",
@@ -6176,7 +6284,7 @@
    "part_id": "13380000002",
    "name": "M1911夜鹰战术击锤",
    "slot": "functional",
-   "price_daily": 8959
+   "price_daily": 8624
   },
   {
    "part_id": "13390000001",
@@ -6188,13 +6296,13 @@
    "part_id": "13390000002",
    "name": "新式腾龙高速导气箍",
    "slot": "functional",
-   "price_daily": 57806
+   "price_daily": 71316
   },
   {
    "part_id": "13390000003",
    "name": "新式腾龙稳固导气箍",
    "slot": "functional",
-   "price_daily": 34693
+   "price_daily": 50133
   },
   {
    "part_id": "13390000004",
@@ -6212,13 +6320,13 @@
    "part_id": "13390000006",
    "name": "QJB201新式高速导气箍",
    "slot": "functional",
-   "price_daily": 24078
+   "price_daily": 62678
   },
   {
    "part_id": "13390000007",
    "name": "QJB201新式稳固导气箍",
    "slot": "functional",
-   "price_daily": 24943
+   "price_daily": 24618
   },
   {
    "part_id": "13400000001",
@@ -6230,13 +6338,13 @@
    "part_id": "13400000002",
    "name": "AKS74U导轨上护木",
    "slot": "handguard",
-   "price_daily": 15743
+   "price_daily": 27488
   },
   {
    "part_id": "13410000001",
    "name": "R93枪管隔热网",
    "slot": "functional",
-   "price_daily": 5636
+   "price_daily": 5628
   },
   {
    "part_id": "13410000002",
@@ -6254,13 +6362,13 @@
    "part_id": "13420000002",
    "name": "QCQ171新式高射速化枪机",
    "slot": "functional",
-   "price_daily": 24078
+   "price_daily": 16358
   },
   {
    "part_id": "13420000003",
    "name": "QCQ171新式稳固枪机",
    "slot": "functional",
-   "price_daily": 25043
+   "price_daily": 34693
   },
   {
    "part_id": "13420000004",
@@ -6272,13 +6380,13 @@
    "part_id": "13420000005",
    "name": "SVCH爆发枪机",
    "slot": "functional",
-   "price_daily": 33456
+   "price_daily": 38816
   },
   {
    "part_id": "13430000001",
    "name": "泽宁特拉机柄帽",
    "slot": "functional",
-   "price_daily": 1776
+   "price_daily": 1767
   },
   {
    "part_id": "13440000001",
@@ -6290,13 +6398,13 @@
    "part_id": "13440000002",
    "name": "复合弓轻型弓臂",
    "slot": "functional",
-   "price_daily": 75786
+   "price_daily": 33381
   },
   {
    "part_id": "13440000003",
    "name": "复合弓重型弓臂",
    "slot": "functional",
-   "price_daily": 97631
+   "price_daily": 52656
   },
   {
    "part_id": "13450000001",
@@ -6308,13 +6416,13 @@
    "part_id": "13450000002",
    "name": "复合弓均衡握把片",
    "slot": "functional",
-   "price_daily": 20052
+   "price_daily": 10752
   },
   {
    "part_id": "13450000003",
    "name": "复合弓增强握把片",
    "slot": "functional",
-   "price_daily": 19976
+   "price_daily": 13046
   },
   {
    "part_id": "13470000001",
@@ -6326,7 +6434,7 @@
    "part_id": "13470000002",
    "name": "复合弓增强弓弦",
    "slot": "functional",
-   "price_daily": 170852
+   "price_daily": 103092
   },
   {
    "part_id": "13470000003",
@@ -6356,7 +6464,7 @@
    "part_id": "13500000002",
    "name": "复合弓竞赛箭台",
    "slot": "functional",
-   "price_daily": 125901
+   "price_daily": 70646
   },
   {
    "part_id": "13500000003",
@@ -6392,13 +6500,13 @@
    "part_id": "13520000003",
    "name": "杠杆式步枪犀牛杠杆",
    "slot": "functional",
-   "price_daily": 16421
+   "price_daily": 14421
   },
   {
    "part_id": "13530000001",
    "name": "杠杆式步枪子弹袋",
    "slot": "functional",
-   "price_daily": 5821
+   "price_daily": 5820
   },
   {
    "part_id": "13540000001",
@@ -6410,7 +6518,7 @@
    "part_id": "13540000002",
    "name": "AR重型握把片",
    "slot": "functional",
-   "price_daily": 48341
+   "price_daily": 46671
   },
   {
    "part_id": "13540000003",
@@ -6431,6 +6539,18 @@
    "price_daily": null
   },
   {
+   "part_id": "13550000003",
+   "name": ".300 BLK TIV",
+   "slot": "functional",
+   "price_daily": null
+  },
+  {
+   "part_id": "13550000004",
+   "name": "5.56×45mm CINDER",
+   "slot": "functional",
+   "price_daily": null
+  },
+  {
    "part_id": "13560000001",
    "name": "内部配件 13560000001",
    "slot": "functional",
@@ -6440,13 +6560,13 @@
    "part_id": "13560000002",
    "name": "HVK旋风强化导气",
    "slot": "functional",
-   "price_daily": 142606
+   "price_daily": 34666
   },
   {
    "part_id": "18010000001",
    "name": "M4A1",
    "slot": "assaultRifle",
-   "price_daily": 120668
+   "price_daily": 136143
   },
   {
    "part_id": "18010000006",
@@ -6458,73 +6578,73 @@
    "part_id": "18010000008",
    "name": "QBZ95-1",
    "slot": "assaultRifle",
-   "price_daily": 41953
+   "price_daily": 51283
   },
   {
    "part_id": "18010000010",
    "name": "AKS-74U",
    "slot": "assaultRifle",
-   "price_daily": 12058
+   "price_daily": 12068
   },
   {
    "part_id": "18010000012",
    "name": "ASh-12",
    "slot": "assaultRifle",
-   "price_daily": 213331
+   "price_daily": 154646
   },
   {
    "part_id": "18010000013",
    "name": "K416",
    "slot": "assaultRifle",
-   "price_daily": 201684
+   "price_daily": 217614
   },
   {
    "part_id": "18010000014",
    "name": "M16A4",
    "slot": "assaultRifle",
-   "price_daily": 12282
+   "price_daily": 12295
   },
   {
    "part_id": "18010000015",
    "name": "AUG",
    "slot": "assaultRifle",
-   "price_daily": 128434
+   "price_daily": 155974
   },
   {
    "part_id": "18010000016",
    "name": "M7",
    "slot": "assaultRifle",
-   "price_daily": 203014
+   "price_daily": 165599
   },
   {
    "part_id": "18010000017",
    "name": "SG552",
    "slot": "assaultRifle",
-   "price_daily": 39059
+   "price_daily": 51579
   },
   {
    "part_id": "18010000018",
    "name": "AK12",
    "slot": "assaultRifle",
-   "price_daily": 99447
+   "price_daily": 126582
   },
   {
    "part_id": "18010000021",
    "name": "SCAR-H",
    "slot": "assaultRifle",
-   "price_daily": 126410
+   "price_daily": 123400
   },
   {
    "part_id": "18010000023",
    "name": "G3",
    "slot": "assaultRifle",
-   "price_daily": 54707
+   "price_daily": 56272
   },
   {
    "part_id": "18010000024",
    "name": "PTR-32",
    "slot": "assaultRifle",
-   "price_daily": 38228
+   "price_daily": 51998
   },
   {
    "part_id": "18010000031",
@@ -6536,43 +6656,43 @@
    "part_id": "18010000037",
    "name": "AS-Val",
    "slot": "assaultRifle",
-   "price_daily": 240991
+   "price_daily": 157151
   },
   {
    "part_id": "18010000038",
    "name": "腾龙",
    "slot": "assaultRifle",
-   "price_daily": 126187
+   "price_daily": 123182
   },
   {
    "part_id": "18010000040",
    "name": "K437",
    "slot": "assaultRifle",
-   "price_daily": 138874
+   "price_daily": 154909
   },
   {
    "part_id": "18010000042",
    "name": "KC17",
    "slot": "assaultRifle",
-   "price_daily": 230511
+   "price_daily": 214791
   },
   {
    "part_id": "18010000043",
    "name": "MK47",
    "slot": "assaultRifle",
-   "price_daily": 207996
+   "price_daily": 143976
   },
   {
    "part_id": "18010000044",
    "name": "MCX-LT",
    "slot": "assaultRifle",
-   "price_daily": 85594
+   "price_daily": 119254
   },
   {
    "part_id": "18010000045",
    "name": "AR57",
    "slot": "assaultRifle",
-   "price_daily": 207996
+   "price_daily": 154646
   },
   {
    "part_id": "18010000049",
@@ -6584,13 +6704,19 @@
    "part_id": "18010000051",
    "name": "MDR突击步枪",
    "slot": "assaultRifle",
-   "price_daily": 182138
+   "price_daily": 130088
+  },
+  {
+   "part_id": "18010000052",
+   "name": "AN94突击步枪",
+   "slot": "assaultRifle",
+   "price_daily": null
   },
   {
    "part_id": "18020000001",
    "name": "MP5",
    "slot": "submachineGun",
-   "price_daily": 38432
+   "price_daily": 50752
   },
   {
    "part_id": "18020000002",
@@ -6602,7 +6728,7 @@
    "part_id": "18020000003",
    "name": "Vector",
    "slot": "submachineGun",
-   "price_daily": 172085
+   "price_daily": 125150
   },
   {
    "part_id": "18020000004",
@@ -6614,49 +6740,49 @@
    "part_id": "18020000005",
    "name": "野牛",
    "slot": "submachineGun",
-   "price_daily": 12101
+   "price_daily": 12104
   },
   {
    "part_id": "18020000006",
    "name": "SMG-45",
    "slot": "submachineGun",
-   "price_daily": 54856
+   "price_daily": 59431
   },
   {
    "part_id": "18020000008",
    "name": "SR-3M",
    "slot": "submachineGun",
-   "price_daily": 124173
+   "price_daily": 109023
   },
   {
    "part_id": "18020000009",
    "name": "勇士",
    "slot": "submachineGun",
-   "price_daily": 47185
+   "price_daily": 51760
   },
   {
    "part_id": "18020000010",
    "name": "MP7",
    "slot": "submachineGun",
-   "price_daily": 208590
+   "price_daily": 140795
   },
   {
    "part_id": "18020000011",
    "name": "QCQ171",
    "slot": "submachineGun",
-   "price_daily": 130233
+   "price_daily": 87813
   },
   {
    "part_id": "18020000012",
    "name": "MK4",
    "slot": "submachineGun",
-   "price_daily": 156113
+   "price_daily": 130088
   },
   {
    "part_id": "18020000046",
    "name": "汤姆逊冲锋枪",
    "slot": "submachineGun",
-   "price_daily": 57735
+   "price_daily": 54695
   },
   {
    "part_id": "18030000001",
@@ -6668,49 +6794,49 @@
    "part_id": "18030000002",
    "name": "S12K霰弹枪",
    "slot": "unknown",
-   "price_daily": 43435
+   "price_daily": 39595
   },
   {
    "part_id": "18030000004",
    "name": "M870霰弹枪",
    "slot": "unknown",
-   "price_daily": 4800
+   "price_daily": 5000
   },
   {
    "part_id": "18030000005",
    "name": "725双管霰弹枪",
    "slot": "unknown",
-   "price_daily": 31915
+   "price_daily": 29355
   },
   {
    "part_id": "18030000006",
    "name": "FS-12霰弹枪",
    "slot": "unknown",
-   "price_daily": 56700
+   "price_daily": 60480
   },
   {
    "part_id": "18040000001",
    "name": "PKM",
    "slot": "lightMachineGun",
-   "price_daily": 91193
+   "price_daily": 173273
   },
   {
    "part_id": "18040000002",
    "name": "M249",
    "slot": "lightMachineGun",
-   "price_daily": 67018
+   "price_daily": 185968
   },
   {
    "part_id": "18040000003",
    "name": "M250",
    "slot": "lightMachineGun",
-   "price_daily": 240429
+   "price_daily": 213704
   },
   {
    "part_id": "18040000004",
    "name": "QJB201",
    "slot": "lightMachineGun",
-   "price_daily": 109433
+   "price_daily": 173273
   },
   {
    "part_id": "18050000002",
@@ -6728,79 +6854,79 @@
    "part_id": "18050000004",
    "name": "SVD",
    "slot": "marksmanRifle",
-   "price_daily": 126900
+   "price_daily": 89100
   },
   {
    "part_id": "18050000005",
    "name": "M14",
    "slot": "marksmanRifle",
-   "price_daily": 174050
+   "price_daily": 105475
   },
   {
    "part_id": "18050000006",
    "name": "SKS",
    "slot": "marksmanRifle",
-   "price_daily": 46530
+   "price_daily": 41580
   },
   {
    "part_id": "18050000007",
    "name": "SR25",
    "slot": "marksmanRifle",
-   "price_daily": 265418
+   "price_daily": 161318
   },
   {
    "part_id": "18050000008",
    "name": "SR9",
    "slot": "marksmanRifle",
-   "price_daily": 11250
+   "price_daily": 10800
   },
   {
    "part_id": "18050000031",
    "name": "PSG-1",
    "slot": "marksmanRifle",
-   "price_daily": 102600
+   "price_daily": 81000
   },
   {
    "part_id": "18050000032",
    "name": "Marlin杠杆步枪",
    "slot": "marksmanRifle",
-   "price_daily": null
+   "price_daily": 44055
   },
   {
    "part_id": "18050000033",
    "name": "SVCH",
    "slot": "marksmanRifle",
-   "price_daily": 72833
+   "price_daily": 62423
   },
   {
    "part_id": "18060000007",
    "name": "SV98",
    "slot": "sniperRifle",
-   "price_daily": 82055
+   "price_daily": 53175
   },
   {
    "part_id": "18060000008",
    "name": "R93",
    "slot": "sniperRifle",
-   "price_daily": 120000
+   "price_daily": 72000
   },
   {
    "part_id": "18060000009",
    "name": "M700",
    "slot": "sniperRifle",
-   "price_daily": 114000
+   "price_daily": 81000
   },
   {
    "part_id": "18060000011",
    "name": "AWM",
    "slot": "sniperRifle",
-   "price_daily": 823579
+   "price_daily": 645499
   },
   {
    "part_id": "18060000033",
    "name": "M82",
    "slot": "sniperRifle",
-   "price_daily": 207719
+   "price_daily": 140939
   },
   {
    "part_id": "18060000035",
@@ -6812,31 +6938,31 @@
    "part_id": "18070000002",
    "name": "QSZ92G",
    "slot": "pistol",
-   "price_daily": 5000
+   "price_daily": 4800
   },
   {
    "part_id": "18070000003",
    "name": ".357左轮",
    "slot": "pistol",
-   "price_daily": 13900
+   "price_daily": 9720
   },
   {
    "part_id": "18070000004",
    "name": "沙漠之鹰",
    "slot": "pistol",
-   "price_daily": 17030
+   "price_daily": 8490
   },
   {
    "part_id": "18070000005",
    "name": "G18",
    "slot": "pistol",
-   "price_daily": 19112
+   "price_daily": 19395
   },
   {
    "part_id": "18070000006",
    "name": "93R",
    "slot": "pistol",
-   "price_daily": 15637
+   "price_daily": 15885
   },
   {
    "part_id": "18070000010",
@@ -6848,13 +6974,13 @@
    "part_id": "18070000033",
    "name": "M1911",
    "slot": "pistol",
-   "price_daily": 17640
+   "price_daily": 8490
   },
   {
    "part_id": "18150000001",
    "name": "复合弓",
    "slot": "specialWeapon",
-   "price_daily": 120000
+   "price_daily": 90000
   }
  ]
 }

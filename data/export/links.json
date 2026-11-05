@@ -1,5 +1,5 @@
 {
- "dataset_version_ref": "20261015-bd-balance.1",
+ "dataset_version_ref": "20261105-weiguang.1",
  "links": [
   {
    "weapon_id": "18010000001",
@@ -6124,6 +6124,60 @@
    "opens_sockets": []
   },
   {
+   "weapon_id": "18010000001",
+   "weapon_name": "M4A1",
+   "profile_key": "18010000001:base",
+   "socket_id": "73",
+   "item_id": "13550000004",
+   "item_name": "5.56×45mm CINDER",
+   "state_changed": false,
+   "after": {
+    "rpm": 800.0,
+    "fire_interval_s": 0.075,
+    "flesh_damage": 31.0,
+    "armor_damage": 33.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 40.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 40.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 40.0,
+      "to_m": 70.0,
+      "rate": 0.85
+     },
+     {
+      "from_m": 70.0,
+      "to_m": 1000.0,
+      "rate": 0.7
+     }
+    ],
+    "ads_ms": 302.4,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 40.0,
+     "recoil_control": 41.0,
+     "waist_accuracy": 55.0,
+     "handling": 58.0,
+     "stability": 55.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
    "weapon_id": "18010000006",
    "weapon_name": "AKM",
    "profile_key": "18010000006:base",
@@ -6673,29 +6727,29 @@
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
-    "muzzle_velocity_mps": 556.5,
-    "effective_range_m": 42.4,
+    "muzzle_velocity_mps": 525.0,
+    "effective_range_m": 30.0,
     "falloff_segments": [
      {
       "from_m": 0.0,
-      "to_m": 42.400000000000006,
+      "to_m": 30.0,
       "rate": 1.0
      },
      {
-      "from_m": 42.400000000000006,
-      "to_m": 74.2,
+      "from_m": 30.0,
+      "to_m": 45.0,
       "rate": 0.85
      },
      {
-      "from_m": 74.2,
-      "to_m": 1060.0,
+      "from_m": 45.0,
+      "to_m": 1000.0,
       "rate": 0.7
      }
     ],
     "ads_ms": 315.0,
     "clip_capacity": 30,
     "panel": {
-     "effective_range": 42.4,
+     "effective_range": 40.0,
      "recoil_control": 41.0,
      "waist_accuracy": 57.0,
      "handling": 56.0,
@@ -25580,7 +25634,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -25602,11 +25656,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -25634,7 +25688,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -25656,11 +25710,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -25688,7 +25742,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -25710,11 +25764,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -25742,7 +25796,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -25764,11 +25818,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -25796,7 +25850,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -25818,11 +25872,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -25850,7 +25904,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -25872,11 +25926,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -25904,7 +25958,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -25926,11 +25980,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -25966,7 +26020,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -25988,11 +26042,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -26020,7 +26074,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -26042,11 +26096,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -26083,7 +26137,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -26105,11 +26159,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -26167,7 +26221,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -26189,11 +26243,11 @@
      },
      {
       "from_m": 28.62,
-      "to_m": 57.24,
-      "rate": 0.85
+      "to_m": 42.400000000000006,
+      "rate": 0.9
      },
      {
-      "from_m": 57.24,
+      "from_m": 42.400000000000006,
       "to_m": 106.0,
       "rate": 0.7
      }
@@ -26251,7 +26305,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -26273,11 +26327,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -26335,7 +26389,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -26357,11 +26411,11 @@
      },
      {
       "from_m": 31.86,
-      "to_m": 63.72,
-      "rate": 0.85
+      "to_m": 47.199999999999996,
+      "rate": 0.9
      },
      {
-      "from_m": 63.72,
+      "from_m": 47.199999999999996,
       "to_m": 118.0,
       "rate": 0.7
      }
@@ -26419,7 +26473,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -26441,11 +26495,11 @@
      },
      {
       "from_m": 35.1,
-      "to_m": 70.2,
-      "rate": 0.85
+      "to_m": 52.0,
+      "rate": 0.9
      },
      {
-      "from_m": 70.2,
+      "from_m": 52.0,
       "to_m": 130.0,
       "rate": 0.7
      }
@@ -26503,7 +26557,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -26525,11 +26579,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -26557,7 +26611,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -26579,11 +26633,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -26611,7 +26665,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -26633,11 +26687,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -26665,7 +26719,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -26687,11 +26741,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -26719,7 +26773,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -26741,11 +26795,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -26773,7 +26827,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -26795,11 +26849,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -26827,7 +26881,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -26849,11 +26903,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -26881,7 +26935,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -26903,11 +26957,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -26935,7 +26989,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -26957,11 +27011,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -26989,7 +27043,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -27011,11 +27065,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -27043,7 +27097,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -27065,11 +27119,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -27097,7 +27151,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -27119,11 +27173,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -27151,7 +27205,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -27173,11 +27227,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -27205,7 +27259,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -27227,11 +27281,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -27259,7 +27313,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -27281,11 +27335,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -27313,7 +27367,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -27335,11 +27389,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -27367,7 +27421,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -27389,11 +27443,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -27529,7 +27583,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -27551,11 +27605,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -27691,7 +27745,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -27713,11 +27767,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -27859,7 +27913,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -27881,11 +27935,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -28001,7 +28055,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -28023,11 +28077,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -28153,7 +28207,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -28175,11 +28229,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -28316,7 +28370,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -28338,11 +28392,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -28379,7 +28433,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -28401,11 +28455,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -28442,7 +28496,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -28464,11 +28518,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -28505,7 +28559,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -28527,11 +28581,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -28559,7 +28613,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -28581,11 +28635,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -28622,7 +28676,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -28644,11 +28698,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -28685,7 +28739,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -28707,11 +28761,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -28739,7 +28793,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -28761,11 +28815,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -28793,7 +28847,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -28815,11 +28869,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -28847,7 +28901,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -28869,11 +28923,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -28901,7 +28955,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -28923,11 +28977,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -28955,7 +29009,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -28977,11 +29031,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -29009,7 +29063,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -29031,11 +29085,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -29063,7 +29117,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -29085,11 +29139,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -29117,7 +29171,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -29139,11 +29193,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -29178,7 +29232,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -29200,11 +29254,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -29239,7 +29293,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -29261,11 +29315,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -29293,7 +29347,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -29315,11 +29369,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -29366,7 +29420,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -29388,11 +29442,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -29420,7 +29474,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -29442,11 +29496,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -29474,7 +29528,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -29496,11 +29550,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -29528,7 +29582,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -29550,11 +29604,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -29582,7 +29636,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -29604,11 +29658,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -29636,7 +29690,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -29658,11 +29712,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -29690,7 +29744,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -29712,11 +29766,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -29744,7 +29798,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -29766,11 +29820,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -29805,7 +29859,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -29827,11 +29881,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -29859,7 +29913,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -29881,11 +29935,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -29913,7 +29967,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -29935,11 +29989,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -29967,7 +30021,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -29989,11 +30043,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -30028,7 +30082,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -30050,11 +30104,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -30082,7 +30136,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -30104,11 +30158,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -30136,7 +30190,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -30158,11 +30212,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -30190,7 +30244,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -30212,11 +30266,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -30251,7 +30305,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -30273,11 +30327,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -30305,7 +30359,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -30327,11 +30381,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -30359,7 +30413,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -30381,11 +30435,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -30413,7 +30467,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -30435,11 +30489,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -30467,7 +30521,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -30489,11 +30543,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -30533,7 +30587,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -30555,11 +30609,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -30599,7 +30653,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -30621,11 +30675,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -30684,7 +30738,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -30706,11 +30760,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -30750,7 +30804,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -30772,11 +30826,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -30804,7 +30858,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -30826,11 +30880,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -30858,7 +30912,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -30880,11 +30934,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -30912,7 +30966,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -30934,11 +30988,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -30966,7 +31020,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -30988,11 +31042,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -31020,7 +31074,7 @@
    "after": {
     "rpm": 879.77,
     "fire_interval_s": 0.0682,
-    "flesh_damage": 31.0,
+    "flesh_damage": 32.0,
     "armor_damage": 35.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
@@ -31042,11 +31096,11 @@
      },
      {
       "from_m": 27.0,
-      "to_m": 54.0,
-      "rate": 0.85
+      "to_m": 40.0,
+      "rate": 0.9
      },
      {
-      "from_m": 54.0,
+      "from_m": 40.0,
       "to_m": 100.0,
       "rate": 0.7
      }
@@ -31059,6 +31113,60 @@
      "waist_accuracy": 61.0,
      "handling": 61.0,
      "stability": 46.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000013",
+   "weapon_name": "K416",
+   "profile_key": "18010000013:base",
+   "socket_id": "73",
+   "item_id": "13550000004",
+   "item_name": "5.56×45mm CINDER",
+   "state_changed": false,
+   "after": {
+    "rpm": 879.77,
+    "fire_interval_s": 0.0682,
+    "flesh_damage": 32.0,
+    "armor_damage": 35.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 27.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 27.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 27.0,
+      "to_m": 40.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 40.0,
+      "to_m": 100.0,
+      "rate": 0.7
+     }
+    ],
+    "ads_ms": 283.7,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 27.0,
+     "recoil_control": 44.0,
+     "waist_accuracy": 57.0,
+     "handling": 61.0,
+     "stability": 52.0
     }
    },
    "opens_sockets": []
@@ -37268,6 +37376,60 @@
    "opens_sockets": []
   },
   {
+   "weapon_id": "18010000014",
+   "weapon_name": "M16A4",
+   "profile_key": "18010000014:base",
+   "socket_id": "73",
+   "item_id": "13550000004",
+   "item_name": "5.56×45mm CINDER",
+   "state_changed": false,
+   "after": {
+    "rpm": 508.47,
+    "fire_interval_s": 0.118,
+    "flesh_damage": 33.0,
+    "armor_damage": 39.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 55.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 55.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 55.0,
+      "to_m": 90.0,
+      "rate": 0.85
+     },
+     {
+      "from_m": 90.0,
+      "to_m": 1000.0,
+      "rate": 0.7
+     }
+    ],
+    "ads_ms": 315.0,
+    "clip_capacity": 20,
+    "panel": {
+     "effective_range": 55.0,
+     "recoil_control": 40.0,
+     "waist_accuracy": 54.0,
+     "handling": 56.0,
+     "stability": 57.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
    "weapon_id": "18010000015",
    "weapon_name": "AUG",
    "profile_key": "18010000015:base",
@@ -38615,13 +38777,13 @@
       "rate": 0.8
      }
     ],
-    "ads_ms": 375.1,
+    "ads_ms": 355.4,
     "clip_capacity": 45,
     "panel": {
      "effective_range": 55.0,
      "recoil_control": 60.0,
      "waist_accuracy": 53.0,
-     "handling": 46.0,
+     "handling": 49.0,
      "stability": 59.0
     }
    },
@@ -38789,6 +38951,60 @@
      "waist_accuracy": 53.0,
      "handling": 54.0,
      "stability": 62.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000015",
+   "weapon_name": "AUG",
+   "profile_key": "18010000015:base",
+   "socket_id": "73",
+   "item_id": "13550000004",
+   "item_name": "5.56×45mm CINDER",
+   "state_changed": false,
+   "after": {
+    "rpm": 678.73,
+    "fire_interval_s": 0.0884,
+    "flesh_damage": 32.0,
+    "armor_damage": 35.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 2.0,
+     "upperChest": 1.1,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 55.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 55.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 55.0,
+      "to_m": 90.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 90.0,
+      "to_m": 1000.0,
+      "rate": 0.8
+     }
+    ],
+    "ads_ms": 327.4,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 55.0,
+     "recoil_control": 60.0,
+     "waist_accuracy": 53.0,
+     "handling": 54.0,
+     "stability": 59.0
     }
    },
    "opens_sockets": []
@@ -48796,6 +49012,60 @@
      "recoil_control": 46.0,
      "waist_accuracy": 53.0,
      "handling": 59.0,
+     "stability": 52.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000017",
+   "weapon_name": "SG552",
+   "profile_key": "18010000017:base",
+   "socket_id": "73",
+   "item_id": "13550000004",
+   "item_name": "5.56×45mm CINDER",
+   "state_changed": false,
+   "after": {
+    "rpm": 906.34,
+    "fire_interval_s": 0.0662,
+    "flesh_damage": 25.0,
+    "armor_damage": 34.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 65.0,
+      "rate": 0.85
+     },
+     {
+      "from_m": 65.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 283.7,
+    "clip_capacity": 20,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 46.0,
+     "waist_accuracy": 53.0,
+     "handling": 61.0,
      "stability": 52.0
     }
    },
@@ -75946,6 +76216,60 @@
    "opens_sockets": []
   },
   {
+   "weapon_id": "18010000031",
+   "weapon_name": "CAR-15",
+   "profile_key": "18010000031:base",
+   "socket_id": "73",
+   "item_id": "13550000004",
+   "item_name": "5.56×45mm CINDER",
+   "state_changed": false,
+   "after": {
+    "rpm": 632.24,
+    "fire_interval_s": 0.0949,
+    "flesh_damage": 27.0,
+    "armor_damage": 32.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 40.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 40.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 40.0,
+      "to_m": 70.0,
+      "rate": 0.85
+     },
+     {
+      "from_m": 70.0,
+      "to_m": 1000.0,
+      "rate": 0.7
+     }
+    ],
+    "ads_ms": 302.4,
+    "clip_capacity": 20,
+    "panel": {
+     "effective_range": 40.0,
+     "recoil_control": 50.0,
+     "waist_accuracy": 53.0,
+     "handling": 58.0,
+     "stability": 55.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
    "weapon_id": "18010000037",
    "weapon_name": "AS-Val",
    "profile_key": "18010000037:base",
@@ -90393,6 +90717,60 @@
    "opens_sockets": []
   },
   {
+   "weapon_id": "18010000040",
+   "weapon_name": "K437",
+   "profile_key": "18010000040:base",
+   "socket_id": "73",
+   "item_id": "13550000003",
+   "item_name": ".300 BLK TIV",
+   "state_changed": false,
+   "after": {
+    "rpm": 780.23,
+    "fire_interval_s": 0.0769,
+    "flesh_damage": 36.0,
+    "armor_damage": 32.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.3,
+     "lowerArm": 0.3,
+     "thigh": 0.3,
+     "lowerLeg": 0.3
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 60.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 60.0,
+      "to_m": 100.0,
+      "rate": 0.7
+     }
+    ],
+    "ads_ms": 361.4,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 45.0,
+     "waist_accuracy": 49.0,
+     "handling": 48.0,
+     "stability": 53.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
    "weapon_id": "18010000042",
    "weapon_name": "KC17",
    "profile_key": "18010000042:base",
@@ -100719,7 +101097,7 @@
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
-     "lowerChest": 0.9,
+     "lowerChest": 1.0,
      "upperArm": 0.35,
      "lowerArm": 0.35,
      "thigh": 0.35,
@@ -104794,6 +105172,60 @@
    "opens_sockets": []
   },
   {
+   "weapon_id": "18010000044",
+   "weapon_name": "MCX-LT",
+   "profile_key": "18010000044:base",
+   "socket_id": "73",
+   "item_id": "13550000003",
+   "item_name": ".300 BLK TIV",
+   "state_changed": false,
+   "after": {
+    "rpm": 840.34,
+    "fire_interval_s": 0.0714,
+    "flesh_damage": 34.0,
+    "armor_damage": 26.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.35,
+     "lowerArm": 0.35,
+     "thigh": 0.35,
+     "lowerLeg": 0.35
+    },
+    "muzzle_velocity_mps": 450.0,
+    "effective_range_m": 30.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 30.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 30.0,
+      "to_m": 50.0,
+      "rate": 0.85
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 100.0,
+      "rate": 0.7
+     }
+    ],
+    "ads_ms": 283.7,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 30.0,
+     "recoil_control": 44.0,
+     "waist_accuracy": 57.0,
+     "handling": 61.0,
+     "stability": 52.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
    "weapon_id": "18010000045",
    "weapon_name": "AR57",
    "profile_key": "18010000045:base",
@@ -104805,14 +105237,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -104859,14 +105291,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -104913,14 +105345,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -104967,14 +105399,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -105021,14 +105453,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -105075,14 +105507,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -105129,14 +105561,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -105191,14 +105623,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -105245,14 +105677,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -105308,14 +105740,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -105362,14 +105794,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -105439,14 +105871,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -105515,14 +105947,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -105576,14 +106008,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -105630,14 +106062,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -105684,14 +106116,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -105738,14 +106170,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -105792,14 +106224,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -105846,14 +106278,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -105900,14 +106332,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -105954,14 +106386,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -106008,14 +106440,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -106062,14 +106494,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -106116,14 +106548,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -106170,14 +106602,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -106224,14 +106656,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -106278,14 +106710,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -106332,14 +106764,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -106386,14 +106818,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -106440,14 +106872,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -106494,14 +106926,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -106548,14 +106980,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -106602,14 +107034,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -106749,14 +107181,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -106911,14 +107343,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -107058,14 +107490,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -107112,14 +107544,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -107166,14 +107598,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -107220,14 +107652,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -107274,14 +107706,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -107328,14 +107760,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -107382,14 +107814,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -107436,14 +107868,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -107490,14 +107922,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -107544,14 +107976,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -107605,14 +108037,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -107666,14 +108098,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -107720,14 +108152,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -107774,14 +108206,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -107828,14 +108260,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -107882,14 +108314,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -107936,14 +108368,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -107990,14 +108422,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -108044,14 +108476,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -108098,14 +108530,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -108152,14 +108584,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -108206,14 +108638,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -108260,14 +108692,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -108314,14 +108746,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -108368,14 +108800,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -108422,14 +108854,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -108476,14 +108908,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -108542,14 +108974,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -108608,14 +109040,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -108674,14 +109106,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -108728,14 +109160,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -108782,14 +109214,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -108836,14 +109268,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -108890,14 +109322,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -108944,14 +109376,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -108998,14 +109430,14 @@
     "rpm": 900.01,
     "fire_interval_s": 0.066666,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
      "head": 1.9,
      "upperChest": 1.0,
      "lowerChest": 0.9,
-     "upperArm": 0.4,
-     "lowerArm": 0.4,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
      "thigh": 0.4,
      "lowerLeg": 0.4
     },
@@ -116671,6 +117103,4331 @@
      "recoil_control": 40.0,
      "waist_accuracy": 54.0,
      "handling": 56.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "2",
+   "item_id": "13020000619",
+   "item_name": "未命名部件 13020000619",
+   "state_changed": false,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 321.2,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 55.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "2",
+   "item_id": "13020000628",
+   "item_name": "AN94突击步枪重载缓冲长枪管",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 747.5,
+    "effective_range_m": 45.5,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 45.5,
+      "rate": 1.0
+     },
+     {
+      "from_m": 45.5,
+      "to_m": 65.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 65.0,
+      "to_m": 1300.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 355.4,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 45.5,
+     "recoil_control": 48.0,
+     "waist_accuracy": 36.0,
+     "handling": 49.0,
+     "stability": 52.0
+    }
+   },
+   "opens_sockets": [
+    {
+     "socket_id": 6,
+     "options": [
+      "13130000173",
+      "13130000174",
+      "13130000175",
+      "13130000176",
+      "13130000202",
+      "13130000177",
+      "13130000155",
+      "13130000157",
+      "13130000158",
+      "13130000159",
+      "13130000160",
+      "13130000161",
+      "13130000162",
+      "13130000163",
+      "13130000164",
+      "13130000165",
+      "13130000167",
+      "13130000168",
+      "13130000169",
+      "13130000170",
+      "13130000171",
+      "13130000196",
+      "13130000197",
+      "13130000204",
+      "13130000208",
+      "13130000209",
+      "13130000210",
+      "13130000238",
+      "13130000224"
+     ]
+    }
+   ]
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "2",
+   "item_id": "13020000629",
+   "item_name": "AN94突击步枪速释短枪管",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 270.4,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 43.0,
+     "waist_accuracy": 60.0,
+     "handling": 63.0,
+     "stability": 42.0
+    }
+   },
+   "opens_sockets": [
+    {
+     "socket_id": 6,
+     "options": [
+      "13130000173",
+      "13130000174",
+      "13130000175",
+      "13130000176",
+      "13130000202",
+      "13130000177",
+      "13130000155",
+      "13130000157",
+      "13130000158",
+      "13130000159",
+      "13130000160",
+      "13130000161",
+      "13130000162",
+      "13130000163",
+      "13130000164",
+      "13130000165",
+      "13130000167",
+      "13130000168",
+      "13130000169",
+      "13130000170",
+      "13130000171",
+      "13130000196",
+      "13130000197",
+      "13130000204",
+      "13130000208",
+      "13130000209",
+      "13130000210",
+      "13130000238",
+      "13130000224"
+     ]
+    }
+   ]
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "4",
+   "item_id": "13050000424",
+   "item_name": "未命名部件 13050000424",
+   "state_changed": false,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 321.2,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 55.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": [
+    {
+     "socket_id": 8,
+     "options": [
+      "13140000021",
+      "13140000022",
+      "13140000023",
+      "13140000024",
+      "13140000025",
+      "13140000026",
+      "13140000027",
+      "13140000028",
+      "13140000029",
+      "13140000030",
+      "13140000031",
+      "13140000032",
+      "13140000033",
+      "13140000034",
+      "13140000035",
+      "13140000036",
+      "13140000037",
+      "13140000038",
+      "13140000039",
+      "13140000040",
+      "13140000041",
+      "13140000042",
+      "13140000043",
+      "13140000044"
+     ]
+    }
+   ]
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "4",
+   "item_id": "13050000436",
+   "item_name": "(未命名配置)",
+   "state_changed": false,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 321.2,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 55.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": [
+    {
+     "socket_id": 8,
+     "options": [
+      "13140000040",
+      "13140000038",
+      "13140000037",
+      "13140000044",
+      "13140000042",
+      "13140000041",
+      "13140000039",
+      "13140000036",
+      "13140000030",
+      "13140000034",
+      "13140000028",
+      "13140000027",
+      "13140000024",
+      "13140000035",
+      "13140000033",
+      "13140000032",
+      "13140000031",
+      "13140000029",
+      "13140000026",
+      "13140000025",
+      "13140000023",
+      "13140000022",
+      "13140000021",
+      "13140000043"
+     ]
+    },
+    {
+     "socket_id": 20,
+     "options": [
+      "13320000001",
+      "13320000005",
+      "13320000010",
+      "13320000015",
+      "13320000020",
+      "13160000005",
+      "13160000006",
+      "13160000009",
+      "13160000010",
+      "13160000007",
+      "13160000008",
+      "13160000016",
+      "13160000014",
+      "13160000018"
+     ]
+    },
+    {
+     "socket_id": 19,
+     "options": [
+      "13320000001",
+      "13320000005",
+      "13320000010",
+      "13320000015",
+      "13320000020",
+      "13160000005",
+      "13160000006",
+      "13160000009",
+      "13160000010",
+      "13160000007",
+      "13160000008",
+      "13160000016",
+      "13160000014"
+     ]
+    },
+    {
+     "socket_id": 17,
+     "options": [
+      "13160000007",
+      "13160000010",
+      "13160000009",
+      "13160000006",
+      "13160000005",
+      "13160000018"
+     ]
+    }
+   ]
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "4",
+   "item_id": "13050000437",
+   "item_name": "(未命名配置)",
+   "state_changed": false,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 321.2,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 55.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": [
+    {
+     "socket_id": 8,
+     "options": [
+      "13140000043",
+      "13140000040",
+      "13140000038",
+      "13140000037",
+      "13140000035",
+      "13140000033",
+      "13140000032",
+      "13140000031",
+      "13140000029",
+      "13140000026",
+      "13140000025",
+      "13140000023",
+      "13140000022",
+      "13140000021"
+     ]
+    },
+    {
+     "socket_id": 19,
+     "options": [
+      "13320000001",
+      "13320000005",
+      "13320000010",
+      "13320000015",
+      "13320000020",
+      "13160000005",
+      "13160000006",
+      "13160000009",
+      "13160000010",
+      "13160000007",
+      "13160000008",
+      "13160000016",
+      "13160000014"
+     ]
+    },
+    {
+     "socket_id": 20,
+     "options": [
+      "13320000020",
+      "13320000015",
+      "13320000010",
+      "13320000005",
+      "13320000001",
+      "13160000005",
+      "13160000006",
+      "13160000009",
+      "13160000010",
+      "13160000007",
+      "13160000008",
+      "13160000016",
+      "13160000014"
+     ]
+    },
+    {
+     "socket_id": 17,
+     "options": [
+      "13160000005",
+      "13160000006",
+      "13160000009",
+      "13160000010",
+      "13160000007",
+      "13160000018"
+     ]
+    }
+   ]
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "1",
+   "item_id": "13030000214",
+   "item_name": "未命名部件 13030000214",
+   "state_changed": false,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 321.2,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 55.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "1",
+   "item_id": "13030000117",
+   "item_name": "实用AK后握把",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 308.7,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 41.0,
+     "waist_accuracy": 52.0,
+     "handling": 57.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "1",
+   "item_id": "13030000121",
+   "item_name": "射手AK后握把",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 321.2,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 55.0,
+     "stability": 52.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "1",
+   "item_id": "13030000122",
+   "item_name": "稳定AK后握把",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 321.2,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 43.0,
+     "waist_accuracy": 52.0,
+     "handling": 55.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "1",
+   "item_id": "13030000167",
+   "item_name": "AK重塔握把",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 315.0,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 40.0,
+     "waist_accuracy": 56.0,
+     "handling": 56.0,
+     "stability": 49.0
+    }
+   },
+   "opens_sockets": [
+    {
+     "socket_id": 43,
+     "options": [
+      "13330000001",
+      "13330000002"
+     ]
+    }
+   ]
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "1",
+   "item_id": "13030000168",
+   "item_name": "AK镂空握把",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 263.5,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 42.0,
+     "waist_accuracy": 52.0,
+     "handling": 64.0,
+     "stability": 44.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "1",
+   "item_id": "13030000169",
+   "item_name": "RK3后握把",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 302.4,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 42.0,
+     "waist_accuracy": 52.0,
+     "handling": 58.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "1",
+   "item_id": "13030000170",
+   "item_name": "天蝎座后握把",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 321.2,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 47.0,
+     "waist_accuracy": 52.0,
+     "handling": 55.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "3",
+   "item_id": "13040000241",
+   "item_name": "未命名部件 13040000241",
+   "state_changed": false,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 321.2,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 55.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "3",
+   "item_id": "13040000112",
+   "item_name": "416轻型枪托",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 283.7,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 45.0,
+     "waist_accuracy": 52.0,
+     "handling": 61.0,
+     "stability": 42.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "3",
+   "item_id": "13040000110",
+   "item_name": "UR特种战术枪托",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 344.8,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 47.0,
+     "waist_accuracy": 52.0,
+     "handling": 51.0,
+     "stability": 52.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "3",
+   "item_id": "13040000109",
+   "item_name": "精英轻型枪托",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 321.2,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 42.0,
+     "waist_accuracy": 52.0,
+     "handling": 55.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "3",
+   "item_id": "13040000108",
+   "item_name": "侵掠核心枪托",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 321.2,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 45.0,
+     "waist_accuracy": 52.0,
+     "handling": 55.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "3",
+   "item_id": "13040000107",
+   "item_name": "枢机稳固枪托",
+   "state_changed": false,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 321.2,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 55.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "3",
+   "item_id": "13040000106",
+   "item_name": "实用轻型枪托",
+   "state_changed": false,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 321.2,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 55.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "3",
+   "item_id": "13040000105",
+   "item_name": "实用战术枪托",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 321.2,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 43.0,
+     "waist_accuracy": 52.0,
+     "handling": 55.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "3",
+   "item_id": "13040000185",
+   "item_name": "骨架狙击枪托",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 270.4,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 35.0,
+     "waist_accuracy": 36.0,
+     "handling": 63.0,
+     "stability": 54.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "3",
+   "item_id": "13040000184",
+   "item_name": "影袭托芯枪托",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 270.4,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 41.0,
+     "waist_accuracy": 60.0,
+     "handling": 63.0,
+     "stability": 42.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "3",
+   "item_id": "13040000113",
+   "item_name": "416稳固枪托",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 355.4,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 43.0,
+     "waist_accuracy": 52.0,
+     "handling": 49.0,
+     "stability": 56.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "3",
+   "item_id": "13040000118",
+   "item_name": "PT1特种枪托",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 296.1,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 47.0,
+     "waist_accuracy": 52.0,
+     "handling": 59.0,
+     "stability": 44.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "3",
+   "item_id": "13040000119",
+   "item_name": "AK骨架枪托",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 270.4,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 36.0,
+     "waist_accuracy": 52.0,
+     "handling": 63.0,
+     "stability": 45.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "3",
+   "item_id": "13040000120",
+   "item_name": "内部配件 13040000120",
+   "state_changed": false,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 321.2,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 55.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "3",
+   "item_id": "13040000224",
+   "item_name": "CT增强型后托",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 296.1,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 41.0,
+     "waist_accuracy": 44.0,
+     "handling": 59.0,
+     "stability": 50.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "3",
+   "item_id": "13040000225",
+   "item_name": "QR高性能后托",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 333.4,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 42.0,
+     "waist_accuracy": 68.0,
+     "handling": 53.0,
+     "stability": 51.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "3",
+   "item_id": "13040000234",
+   "item_name": "锚点导轨后托",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 333.4,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 43.0,
+     "waist_accuracy": 52.0,
+     "handling": 53.0,
+     "stability": 54.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "3",
+   "item_id": "13040000183",
+   "item_name": "MRGS镂空枪托",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 283.7,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 44.0,
+     "handling": 61.0,
+     "stability": 54.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "3",
+   "item_id": "13040000009",
+   "item_name": "核心导轨枪托",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 308.7,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 41.0,
+     "waist_accuracy": 52.0,
+     "handling": 57.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "3",
+   "item_id": "13040000006",
+   "item_name": "闪电导轨枪托",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 263.5,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 64.0,
+     "stability": 42.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "3",
+   "item_id": "13040000007",
+   "item_name": "影袭导轨枪托",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 277.1,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 46.0,
+     "waist_accuracy": 52.0,
+     "handling": 62.0,
+     "stability": 42.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "5",
+   "item_id": "13120000390",
+   "item_name": "未命名部件 13120000390",
+   "state_changed": false,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 321.2,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 55.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "5",
+   "item_id": "13120000245",
+   "item_name": "AKS-74U延长弹匣45发",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 350.0,
+    "clip_capacity": 45,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 50.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": [
+    {
+     "socket_id": 44,
+     "options": [
+      "13340000001",
+      "13340000005",
+      "13340000009"
+     ]
+    }
+   ]
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "11",
+   "item_id": "13110000053",
+   "item_name": "XCOG突击3.5倍瞄准镜",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 344.8,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 51.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "11",
+   "item_id": "13110000099",
+   "item_name": "1p33 2/4倍望远镜",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 355.4,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 49.0,
+     "stability": 52.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "11",
+   "item_id": "13110000049",
+   "item_name": "PSO战斗2.5倍瞄准镜",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 355.4,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 49.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "11",
+   "item_id": "13110000042",
+   "item_name": "俄式准直二倍瞄准镜",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 333.4,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 53.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "11",
+   "item_id": "13110000046",
+   "item_name": "反射式瞄准镜",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 333.4,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 53.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "11",
+   "item_id": "13110000091",
+   "item_name": "灵眼3/7测距狙击瞄准镜",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 368.0,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 47.0,
+     "stability": 54.0
+    }
+   },
+   "opens_sockets": [
+    {
+     "socket_id": 45,
+     "options": [
+      "13370000001"
+     ]
+    }
+   ]
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "11",
+   "item_id": "13110000043",
+   "item_name": "全景红点瞄准镜",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 333.4,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 53.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "11",
+   "item_id": "13110000065",
+   "item_name": "全息二型瞄准镜",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 333.4,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 53.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "11",
+   "item_id": "13110000040",
+   "item_name": "全息瞄准镜",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 333.4,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 53.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "11",
+   "item_id": "13110000062",
+   "item_name": "微型红点瞄准镜",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 333.4,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 53.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "11",
+   "item_id": "13110000063",
+   "item_name": "战斗红点瞄准镜",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 333.4,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 53.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "11",
+   "item_id": "13110000052",
+   "item_name": "侦察1.5/5可调瞄准镜",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 368.0,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 47.0,
+     "stability": 54.0
+    }
+   },
+   "opens_sockets": [
+    {
+     "socket_id": 45,
+     "options": [
+      "13370000001"
+     ]
+    }
+   ]
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "11",
+   "item_id": "13110000044",
+   "item_name": "XRO快速反应瞄准镜",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 333.4,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 53.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "11",
+   "item_id": "13110000087",
+   "item_name": "Osight微型瞄准镜",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 333.4,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 53.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "11",
+   "item_id": "13110000061",
+   "item_name": "okp-7反射瞄准镜",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 333.4,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 53.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "11",
+   "item_id": "13110000082",
+   "item_name": "M157火控光学系统",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 355.4,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 49.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": [
+    {
+     "socket_id": 45,
+     "options": [
+      "13370000001"
+     ]
+    }
+   ]
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "11",
+   "item_id": "13110000069",
+   "item_name": "LPVO多倍率战斗瞄具",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 355.4,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 49.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": [
+    {
+     "socket_id": 45,
+     "options": [
+      "13370000001"
+     ]
+    }
+   ]
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "11",
+   "item_id": "13110000066",
+   "item_name": "先进热融合全息瞄准镜",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 333.4,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 53.0,
+     "stability": 46.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "11",
+   "item_id": "13110000051",
+   "item_name": "HAMR组合瞄准镜",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 355.4,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 49.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": [
+    {
+     "socket_id": 40,
+     "options": [
+      "13110000060"
+     ]
+    }
+   ]
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "11",
+   "item_id": "13110000064",
+   "item_name": "Cobra准直式瞄准镜",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 333.4,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 53.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "11",
+   "item_id": "13110000073",
+   "item_name": "视点3倍瞄准镜",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 344.8,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 51.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "11",
+   "item_id": "13110000085",
+   "item_name": "AP5000反射式瞄准镜",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 333.4,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 53.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "11",
+   "item_id": "13110000057",
+   "item_name": "3/7可调倍率狙击镜",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 368.0,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 47.0,
+     "stability": 54.0
+    }
+   },
+   "opens_sockets": [
+    {
+     "socket_id": 40,
+     "options": [
+      "13110000043",
+      "13110000044",
+      "13110000062",
+      "13110000063",
+      "13110000087",
+      "13110000102",
+      "13200000008"
+     ]
+    },
+    {
+     "socket_id": 45,
+     "options": [
+      "13370000001"
+     ]
+    }
+   ]
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "11",
+   "item_id": "13110000072",
+   "item_name": "1p-29俄制3倍瞄准镜",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 344.8,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 51.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "11",
+   "item_id": "13110000089",
+   "item_name": "ACOG精准六倍镜",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 333.4,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 53.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "11",
+   "item_id": "13210000012",
+   "item_name": "微型瞄具增高架",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 308.7,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 57.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": [
+    {
+     "socket_id": 41,
+     "options": [
+      "13110000043",
+      "13110000044",
+      "13110000062",
+      "13110000063",
+      "13110000087",
+      "13110000102"
+     ]
+    }
+   ]
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "11",
+   "item_id": "13210000013",
+   "item_name": "多用途战术增高架",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 308.7,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 57.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": [
+    {
+     "socket_id": 14,
+     "options": [
+      "13160000005",
+      "13160000006",
+      "13160000009",
+      "13160000010"
+     ]
+    },
+    {
+     "socket_id": 50,
+     "options": [
+      "13110000040",
+      "13110000042",
+      "13110000043",
+      "13110000044",
+      "13110000046",
+      "13110000061",
+      "13110000062",
+      "13110000063",
+      "13110000064",
+      "13110000065",
+      "13110000066",
+      "13110000087",
+      "13110000098",
+      "13110000102",
+      "13210000012",
+      "13210000014"
+     ]
+    }
+   ]
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "11",
+   "item_id": "13210000014",
+   "item_name": "MEO微型瞄具增高架",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 327.4,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 54.0,
+     "stability": 50.0
+    }
+   },
+   "opens_sockets": [
+    {
+     "socket_id": 11,
+     "options": [
+      "13110000043",
+      "13110000044",
+      "13110000062",
+      "13110000063",
+      "13110000087",
+      "13110000102"
+     ]
+    }
+   ]
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "11",
+   "item_id": "13110000098",
+   "item_name": "UHX全息瞄准镜",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 333.4,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 53.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "11",
+   "item_id": "13110000102",
+   "item_name": "VMX无框瞄具",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 333.4,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 53.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "11",
+   "item_id": "13110000105",
+   "item_name": "APX组合瞄具",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 344.8,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 51.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": [
+    {
+     "socket_id": 40,
+     "options": [
+      "13110000043",
+      "13110000044",
+      "13110000062",
+      "13110000063",
+      "13110000087",
+      "13110000102"
+     ]
+    }
+   ]
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "31",
+   "item_id": "13110000076",
+   "item_name": "侧置全景红点瞄准镜",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 333.4,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 53.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "31",
+   "item_id": "13110000077",
+   "item_name": "侧置XRO快速反应瞄准镜",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 333.4,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 53.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "31",
+   "item_id": "13110000078",
+   "item_name": "侧置微型红点瞄准镜",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 333.4,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 53.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "31",
+   "item_id": "13110000079",
+   "item_name": "侧置战斗红点瞄准镜",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 333.4,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 53.0,
+     "stability": 48.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18010000052",
+   "weapon_name": "AN94突击步枪",
+   "profile_key": "18010000052:base",
+   "socket_id": "31",
+   "item_id": "13110000088",
+   "item_name": "侧置Osight微型瞄准镜",
+   "state_changed": true,
+   "after": {
+    "rpm": 600.0,
+    "fire_interval_s": 0.1,
+    "flesh_damage": 34.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 35.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 35.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 35.0,
+      "to_m": 50.0,
+      "rate": 0.9
+     },
+     {
+      "from_m": 50.0,
+      "to_m": 1000.0,
+      "rate": 0.75
+     }
+    ],
+    "ads_ms": 333.4,
+    "clip_capacity": 30,
+    "panel": {
+     "effective_range": 35.0,
+     "recoil_control": 39.0,
+     "waist_accuracy": 52.0,
+     "handling": 53.0,
      "stability": 48.0
     }
    },
@@ -177741,7 +182498,7 @@
      {
       "from_m": 18.0,
       "to_m": 32.0,
-      "rate": 0.85
+      "rate": 0.8
      },
      {
       "from_m": 32.0,
@@ -195422,6 +200179,92 @@
    "weapon_id": "18040000001",
    "weapon_name": "PKM",
    "profile_key": "18040000001:base",
+   "socket_id": "2",
+   "item_id": "13020000625",
+   "item_name": "HVK斗牛无托套件",
+   "state_changed": true,
+   "after": {
+    "rpm": 668.9,
+    "fire_interval_s": 0.0897,
+    "flesh_damage": 45.0,
+    "armor_damage": 42.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 630.0,
+    "effective_range_m": 40.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 40.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 40.0,
+      "to_m": 70.0,
+      "rate": 0.85
+     },
+     {
+      "from_m": 70.0,
+      "to_m": 1000.0,
+      "rate": 0.7
+     }
+    ],
+    "ads_ms": 350.0,
+    "clip_capacity": 75,
+    "panel": {
+     "effective_range": 40.0,
+     "recoil_control": 32.0,
+     "waist_accuracy": 61.0,
+     "handling": 50.0,
+     "stability": 65.0
+    }
+   },
+   "opens_sockets": [
+    {
+     "socket_id": 6,
+     "options": [
+      "13130000173",
+      "13130000174",
+      "13130000175",
+      "13130000176",
+      "13130000202",
+      "13130000157",
+      "13130000158",
+      "13130000159",
+      "13130000160",
+      "13130000161",
+      "13130000162",
+      "13130000163",
+      "13130000164",
+      "13130000165",
+      "13130000167",
+      "13130000168",
+      "13130000169",
+      "13130000170",
+      "13130000171",
+      "13130000196",
+      "13130000197",
+      "13130000204",
+      "13130000208",
+      "13130000209",
+      "13130000210",
+      "13130000224"
+     ]
+    }
+   ]
+  },
+  {
+   "weapon_id": "18040000001",
+   "weapon_name": "PKM",
+   "profile_key": "18040000001:base",
    "socket_id": "3",
    "item_id": "13040000006",
    "item_name": "闪电导轨枪托",
@@ -204093,6 +208936,60 @@
    "socket_id": "68",
    "item_id": "13030000201",
    "item_name": "内部配件 13030000201",
+   "state_changed": false,
+   "after": {
+    "rpm": 858.37,
+    "fire_interval_s": 0.0699,
+    "flesh_damage": 30.0,
+    "armor_damage": 38.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.4,
+     "lowerArm": 0.4,
+     "thigh": 0.4,
+     "lowerLeg": 0.4
+    },
+    "muzzle_velocity_mps": 575.0,
+    "effective_range_m": 40.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 40.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 40.0,
+      "to_m": 70.0,
+      "rate": 0.85
+     },
+     {
+      "from_m": 70.0,
+      "to_m": 1000.0,
+      "rate": 0.7
+     }
+    ],
+    "ads_ms": 480.0,
+    "clip_capacity": 100,
+    "panel": {
+     "effective_range": 40.0,
+     "recoil_control": 36.0,
+     "waist_accuracy": 48.0,
+     "handling": 35.0,
+     "stability": 55.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
+   "weapon_id": "18040000002",
+   "weapon_name": "M249",
+   "profile_key": "18040000002:base",
+   "socket_id": "73",
+   "item_id": "13550000004",
+   "item_name": "5.56×45mm CINDER",
    "state_changed": false,
    "after": {
     "rpm": 858.37,
@@ -216424,6 +221321,55 @@
      ]
     }
    ]
+  },
+  {
+   "weapon_id": "18050000002",
+   "weapon_name": "Mini-14",
+   "profile_key": "18050000002:base",
+   "socket_id": "73",
+   "item_id": "13550000004",
+   "item_name": "5.56×45mm CINDER",
+   "state_changed": false,
+   "after": {
+    "rpm": 589.97,
+    "fire_interval_s": 0.1017,
+    "flesh_damage": 34.0,
+    "armor_damage": 38.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 1.9,
+     "upperChest": 1.0,
+     "lowerChest": 0.9,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
+     "thigh": 0.5,
+     "lowerLeg": 0.5
+    },
+    "muzzle_velocity_mps": 650.0,
+    "effective_range_m": 90.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 90.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 90.0,
+      "to_m": 1000.0,
+      "rate": 0.85
+     }
+    ],
+    "ads_ms": 339.2,
+    "clip_capacity": 10,
+    "panel": {
+     "effective_range": 90.0,
+     "recoil_control": 60.0,
+     "waist_accuracy": 37.0,
+     "handling": 52.0,
+     "stability": 63.0
+    }
+   },
+   "opens_sockets": []
   },
   {
    "weapon_id": "18050000003",
@@ -236007,6 +240953,55 @@
    "opens_sockets": []
   },
   {
+   "weapon_id": "18050000007",
+   "weapon_name": "SR25",
+   "profile_key": "18050000007:base",
+   "socket_id": "67",
+   "item_id": "13040000252",
+   "item_name": "HVK双发后托套件",
+   "state_changed": true,
+   "after": {
+    "rpm": 728.16,
+    "fire_interval_s": 0.0824,
+    "flesh_damage": 50.0,
+    "armor_damage": 55.0,
+    "penetration_level": 1,
+    "hitbox_multipliers": {
+     "head": 2.1,
+     "upperChest": 1.0,
+     "lowerChest": 1.0,
+     "upperArm": 0.5,
+     "lowerArm": 0.5,
+     "thigh": 0.5,
+     "lowerLeg": 0.5
+    },
+    "muzzle_velocity_mps": 550.0,
+    "effective_range_m": 60.0,
+    "falloff_segments": [
+     {
+      "from_m": 0.0,
+      "to_m": 60.0,
+      "rate": 1.0
+     },
+     {
+      "from_m": 60.0,
+      "to_m": 1000.0,
+      "rate": 0.85
+     }
+    ],
+    "ads_ms": 296.1,
+    "clip_capacity": 10,
+    "panel": {
+     "effective_range": 60.0,
+     "recoil_control": 64.0,
+     "waist_accuracy": 28.0,
+     "handling": 59.0,
+     "stability": 62.0
+    }
+   },
+   "opens_sockets": []
+  },
+  {
    "weapon_id": "18050000008",
    "weapon_name": "SR9",
    "profile_key": "18050000008:base",
@@ -250388,13 +255383,13 @@
       "rate": 0.9
      }
     ],
-    "ads_ms": 469.1,
+    "ads_ms": 447.9,
     "clip_capacity": 20,
     "panel": {
      "effective_range": 65.0,
      "recoil_control": 40.0,
      "waist_accuracy": 35.0,
-     "handling": 36.0,
+     "handling": 38.0,
      "stability": 50.0
     }
    },
@@ -276809,7 +281804,7 @@
     "armor_damage": 65.0,
     "penetration_level": 1,
     "hitbox_multipliers": {
-     "head": 2.0,
+     "head": 1.7,
      "upperChest": 1.0,
      "lowerChest": 0.9,
      "upperArm": 0.56,

@@ -12,7 +12,9 @@
       "37280300002",
       "37280400001",
       "37280400002",
-      "37280500001"
+      "37280400003",
+      "37280500001",
+      "37280500003"
     ],
     "rpm": 840.3361344537815,
     "fire_interval_s": 0.0714,
@@ -67,7 +69,7 @@
     },
     "damage_profile_source": "combat-pack",
     "acoustics": {
-      "shot_distance_m": 500.0
+      "shot_distance_m": 350.0
     },
     "falloff_segments": [
       {
@@ -438,6 +440,12 @@
           "13110000078",
           "13110000079",
           "13110000088"
+        ]
+      },
+      {
+        "socket_id": 73,
+        "options": [
+          "13550000003"
         ]
       }
     ],
@@ -1372,6 +1380,26 @@
         "ammo_level": 4
       },
       {
+        "candidate_id": "18010000044:base:37280400003:2=13020000572",
+        "loadout_config": [
+          {
+            "slotPath": "2",
+            "itemId": "13020000572"
+          }
+        ],
+        "tunes": {},
+        "loadout_item_ids": [
+          "13020000572"
+        ],
+        "loadout_item_names": [
+          "MCX LT猎手枪管"
+        ],
+        "fire_rate": 840,
+        "muzzle_velocity": 585,
+        "ammo_item_id": "37280400003",
+        "ammo_level": 4
+      },
+      {
         "candidate_id": "18010000044:base:37280500001:2=13020000572",
         "loadout_config": [
           {
@@ -1389,6 +1417,26 @@
         "fire_rate": 840,
         "muzzle_velocity": 585,
         "ammo_item_id": "37280500001",
+        "ammo_level": 5
+      },
+      {
+        "candidate_id": "18010000044:base:37280500003:2=13020000572",
+        "loadout_config": [
+          {
+            "slotPath": "2",
+            "itemId": "13020000572"
+          }
+        ],
+        "tunes": {},
+        "loadout_item_ids": [
+          "13020000572"
+        ],
+        "loadout_item_names": [
+          "MCX LT猎手枪管"
+        ],
+        "fire_rate": 840,
+        "muzzle_velocity": 585,
+        "ammo_item_id": "37280500003",
         "ammo_level": 5
       }
     ],
@@ -1454,6 +1502,32 @@
           "ammo_level": 4
         },
         {
+          "candidate_id": "18010000044:13020000573:37280400003:2=13020000573,4/51=13410000002",
+          "loadout_config": [
+            {
+              "slotPath": "2",
+              "itemId": "13020000573"
+            },
+            {
+              "slotPath": "4/51",
+              "itemId": "13410000002"
+            }
+          ],
+          "tunes": {},
+          "loadout_item_ids": [
+            "13020000573",
+            "13410000002"
+          ],
+          "loadout_item_names": [
+            "MCX LT焰魂枪管",
+            "SUR隔热外罩"
+          ],
+          "fire_rate": 870,
+          "muzzle_velocity": 450,
+          "ammo_item_id": "37280400003",
+          "ammo_level": 4
+        },
+        {
           "candidate_id": "18010000044:13020000573:37280500001:2=13020000573,4/51=13410000002",
           "loadout_config": [
             {
@@ -1477,6 +1551,32 @@
           "fire_rate": 870,
           "muzzle_velocity": 450,
           "ammo_item_id": "37280500001",
+          "ammo_level": 5
+        },
+        {
+          "candidate_id": "18010000044:13020000573:37280500003:2=13020000573,4/51=13410000002",
+          "loadout_config": [
+            {
+              "slotPath": "2",
+              "itemId": "13020000573"
+            },
+            {
+              "slotPath": "4/51",
+              "itemId": "13410000002"
+            }
+          ],
+          "tunes": {},
+          "loadout_item_ids": [
+            "13020000573",
+            "13410000002"
+          ],
+          "loadout_item_names": [
+            "MCX LT焰魂枪管",
+            "SUR隔热外罩"
+          ],
+          "fire_rate": 870,
+          "muzzle_velocity": 450,
+          "ammo_item_id": "37280500003",
           "ammo_level": 5
         }
       ]

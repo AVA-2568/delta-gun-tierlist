@@ -78,11 +78,35 @@ def test_expired_s10_hvk_parts_are_excluded(gd):
     assert "5" not in {s.socket_id for s in build_socket_specs(gd, bow)}
 
 
+def test_expired_s11_hvk_parts_are_excluded_from_all_specs(gd):
+    """S12 起 S11 三件 HVK 限时件绝版：不得出现在任何枪的枚举选项/提供者中。
+
+    ADR-0006 在 S11 时把它们作为「当前赛季」保留并依赖其解锁型提供者语义；
+    赛季轮换结束后，M700 的旋风枪身系统 / 强化导气与 93R 的鼬鼠套件若继续
+    参与枚举，会给出 S12 不可达成的最优 TTK。
+    """
+    from src.engine.loadout import EXCLUDED_PART_IDS
+
+    for item in ("13050000427", "13050000425", "13560000002"):
+        assert item in EXCLUDED_PART_IDS
+    excluded = set(EXCLUDED_PART_IDS)
+    for weapon in gd.weapons:
+        for spec in build_socket_specs(gd, weapon):
+            options = set(spec.options)
+            for provider_options in spec.providers.values():
+                options.update(provider_options)
+            assert not (options & excluded), (
+                f"{weapon['profile_key']} 插槽 {spec.socket_id} 仍含绝版件 "
+                f"{sorted(options & excluded)}"
+            )
+
+
 def test_fire_interval_override_applies_when_mode_is_unchanged(gd):
     """无 FireRateMode 改写时，FireInterval 的 Initial/Addend 是射速机制本身。
 
     M700 HVK 旋风枪身系统 Initial 0.45 → 133 rpm；叠加强化导气 Addend -0.30715
-    → 420 rpm（S11 官方套件）。
+    → 420 rpm（S11 官方套件）。此处为显式 ``resolver.resolve`` 装配，用于验证
+    FireInterval 语义，不受绝版件枚举清单约束。
     """
     from src.engine.weapon_state import WeaponStateResolver
 
@@ -286,4 +310,4 @@ def test_official_candidates_free_of_mutually_exclusive_pairs(gd):
                         f"{weapon['profile_key']} 候选 {cand.get('candidate_id')} "
                         f"出现互斥件 {item_a}/{item_b}（槽位 {sorted(occ_a & occ_b)}）"
                     )
-    assert checked == 291
+    assert checked == 305

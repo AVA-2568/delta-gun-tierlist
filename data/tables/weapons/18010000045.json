@@ -42,27 +42,27 @@
     "muzzle_velocity_mps": 525.0,
     "projectile_count": 1,
     "flesh_damage": 30.0,
-    "armor_damage": 31.0,
+    "armor_damage": 32.0,
     "hitbox_multipliers": {
       "head": 1.9,
       "upperChest": 1.0,
       "lowerChest": 0.9,
-      "upperArm": 0.4,
-      "lowerArm": 0.4,
+      "upperArm": 0.5,
+      "lowerArm": 0.5,
       "thigh": 0.4,
       "lowerLeg": 0.4
     },
     "damage_profile": {
       "profile_id": "authoring:weapon:18010000045:sol:damage",
       "base_damage": 30.0,
-      "base_armor_damage": 31.0,
+      "base_armor_damage": 32.0,
       "base_penetration_level": 1,
       "hitbox_multipliers": {
         "head": 1.9,
         "upperChest": 1.0,
         "lowerChest": 0.9,
-        "upperArm": 0.4,
-        "lowerArm": 0.4,
+        "upperArm": 0.5,
+        "lowerArm": 0.5,
         "thigh": 0.4,
         "lowerLeg": 0.4
       },
@@ -1284,26 +1284,6 @@
         "ammo_level": 3
       },
       {
-        "candidate_id": "18010000045:base:37210300002:2=13020000592",
-        "loadout_config": [
-          {
-            "slotPath": "2",
-            "itemId": "13020000592"
-          }
-        ],
-        "tunes": {},
-        "loadout_item_ids": [
-          "13020000592"
-        ],
-        "loadout_item_names": [
-          "AR57激流超长枪管"
-        ],
-        "fire_rate": 900,
-        "muzzle_velocity": 682.5,
-        "ammo_item_id": "37210300002",
-        "ammo_level": 3
-      },
-      {
         "candidate_id": "18010000045:base:37210400001:2=13020000592",
         "loadout_config": [
           {
@@ -1321,26 +1301,6 @@
         "fire_rate": 900,
         "muzzle_velocity": 682.5,
         "ammo_item_id": "37210400001",
-        "ammo_level": 4
-      },
-      {
-        "candidate_id": "18010000045:base:37210400002:2=13020000592",
-        "loadout_config": [
-          {
-            "slotPath": "2",
-            "itemId": "13020000592"
-          }
-        ],
-        "tunes": {},
-        "loadout_item_ids": [
-          "13020000592"
-        ],
-        "loadout_item_names": [
-          "AR57激流超长枪管"
-        ],
-        "fire_rate": 900,
-        "muzzle_velocity": 682.5,
-        "ammo_item_id": "37210400002",
         "ammo_level": 4
       },
       {

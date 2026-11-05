@@ -8448,14 +8448,6 @@
           "value_ref": null
         },
         {
-          "target": "DisplayAttrValues.5",
-          "operation": "StaticAttributeModify",
-          "modifier": "Addend",
-          "scope": "NONE",
-          "value": -8.0,
-          "value_ref": null
-        },
-        {
           "target": "DisplayAttrValues.6",
           "operation": "StaticAttributeModify",
           "modifier": "Addend",
@@ -8504,19 +8496,27 @@
           "value_ref": null
         },
         {
-          "target": "WeaponMainAttribute.MainAttrValues.5",
-          "operation": "StaticAttributeModify",
-          "modifier": "Addend",
-          "scope": "NONE",
-          "value": -8.0,
-          "value_ref": null
-        },
-        {
           "target": "WeaponMainAttribute.MainAttrValues.6",
           "operation": "StaticAttributeModify",
           "modifier": "Addend",
           "scope": "NONE",
           "value": 0.0,
+          "value_ref": null
+        },
+        {
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -5.0,
+          "value_ref": null
+        },
+        {
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
+          "scope": "NONE",
+          "value": -5.0,
           "value_ref": null
         }
       ],
@@ -8545,22 +8545,6 @@
       "selectable": true,
       "effects": [
         {
-          "target": "WeaponMainAttribute.MainAttrValues.5",
-          "operation": "StaticAttributeModify",
-          "modifier": "Addend",
-          "scope": "NONE",
-          "value": -6.0,
-          "value_ref": null
-        },
-        {
-          "target": "DisplayAttrValues.5",
-          "operation": "StaticAttributeModify",
-          "modifier": "Addend",
-          "scope": "NONE",
-          "value": -6.0,
-          "value_ref": null
-        },
-        {
           "target": "GMagCapacity",
           "operation": "StaticAttributeReplace",
           "modifier": "Initial",
@@ -8569,19 +8553,19 @@
           "value_ref": null
         },
         {
-          "target": "ChangeClipTime",
-          "operation": "StaticAttributeReplace",
-          "modifier": "Initial",
+          "target": "WeaponMainAttribute.MainAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
           "scope": "NONE",
-          "value": 3.02,
+          "value": -4.0,
           "value_ref": null
         },
         {
-          "target": "ChangeClipTimewhenEmpty",
-          "operation": "StaticAttributeReplace",
-          "modifier": "Initial",
+          "target": "DisplayAttrValues.5",
+          "operation": "StaticAttributeModify",
+          "modifier": "Addend",
           "scope": "NONE",
-          "value": 3.71,
+          "value": -4.0,
           "value_ref": null
         }
       ],
@@ -8850,14 +8834,6 @@
           "scope": "NONE",
           "value": -0.3,
           "value_ref": null
-        },
-        {
-          "target": "AttackerValueId.DefaultDamageId",
-          "operation": "StaticAttributeReplace",
-          "modifier": "Initial",
-          "scope": "NONE",
-          "value": null,
-          "value_ref": "authoring:part:13120000381:sol:damage"
         }
       ],
       "tunes": []
@@ -8989,6 +8965,14 @@
           "value_ref": null
         }
       ],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000390",
+      "name": "未命名部件 13120000390",
+      "slot": "magazine",
+      "selectable": false,
+      "effects": [],
       "tunes": []
     },
     {

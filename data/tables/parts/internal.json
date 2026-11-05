@@ -10,8 +10,57 @@
       "tunes": []
     },
     {
+      "item_id": "13030000221",
+      "name": "(未命名配置)",
+      "slot": "internal",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13050000433",
+      "name": "PKM通用机枪无托套件护木虚空",
+      "slot": "internal",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13120000399",
+      "name": "PKM通用机枪无托套件弹匣虚空",
+      "slot": "internal",
+      "selectable": false,
+      "effects": [
+        {
+          "target": "GMagCapacity",
+          "operation": "StaticAttributeReplace",
+          "modifier": "Initial",
+          "scope": "NONE",
+          "value": 75.0,
+          "value_ref": null
+        },
+        {
+          "target": "GReload_Time",
+          "operation": "StaticAttributeModify",
+          "modifier": "Mult_A",
+          "scope": "NONE",
+          "value": 0.3,
+          "value_ref": null
+        }
+      ],
+      "tunes": []
+    },
+    {
       "item_id": "13200000009",
       "name": "内部配件 13200000009",
+      "slot": "internal",
+      "selectable": false,
+      "effects": [],
+      "tunes": []
+    },
+    {
+      "item_id": "13210000018",
+      "name": "(未命名配置)",
       "slot": "internal",
       "selectable": false,
       "effects": [],

@@ -94,7 +94,7 @@ def test_golden_fixture_merged_id_absent_from_skeleton():
     assert "37250400005" not in catalog
     table = mod.build_ammo_table(catalog, prices, "2026-09-30", notes=_notes)
     table_ids = [row["ammo_item_id"] for row in table["ammo"]]
-    assert len(table_ids) == len(catalog) == 113
+    assert len(table_ids) == len(catalog) == 118
     assert "37250400005" not in table_ids
 
 

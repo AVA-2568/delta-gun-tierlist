@@ -13,7 +13,8 @@
       "37200100001",
       "37200200001",
       "37200300001",
-      "37200400001"
+      "37200400001",
+      "37200500002"
     ],
     "rpm": 700.1166861143524,
     "fire_interval_s": 0.0857,
@@ -1389,6 +1390,26 @@
         "muzzle_velocity": 650,
         "ammo_item_id": "37200400001",
         "ammo_level": 4
+      },
+      {
+        "candidate_id": "18020000009:base:37200500002:2=13020000507",
+        "loadout_config": [
+          {
+            "slotPath": "2",
+            "itemId": "13020000507"
+          }
+        ],
+        "tunes": {},
+        "loadout_item_ids": [
+          "13020000507"
+        ],
+        "loadout_item_names": [
+          "勇士海狸枪管"
+        ],
+        "fire_rate": 700,
+        "muzzle_velocity": 650,
+        "ammo_item_id": "37200500002",
+        "ammo_level": 5
       }
     ],
     "configuration_count": 1,

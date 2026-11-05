@@ -13,7 +13,8 @@
       "37200100001",
       "37200200001",
       "37200300001",
-      "37200400001"
+      "37200400001",
+      "37200500002"
     ],
     "rpm": 819.672131147541,
     "fire_interval_s": 0.0732,
@@ -1453,6 +1454,26 @@
         "muzzle_velocity": 585,
         "ammo_item_id": "37200400001",
         "ammo_level": 4
+      },
+      {
+        "candidate_id": "18020000001:base:37200500002:2=13020000474",
+        "loadout_config": [
+          {
+            "slotPath": "2",
+            "itemId": "13020000474"
+          }
+        ],
+        "tunes": {},
+        "loadout_item_ids": [
+          "13020000474"
+        ],
+        "loadout_item_names": [
+          "MP5SD特勤一体消音枪管"
+        ],
+        "fire_rate": 820,
+        "muzzle_velocity": 585,
+        "ammo_item_id": "37200500002",
+        "ammo_level": 5
       }
     ],
     "configuration_count": 1,

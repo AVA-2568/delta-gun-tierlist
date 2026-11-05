@@ -344,7 +344,7 @@ def test_sync_writes_both_tables(tmp_path):
     assert result["complete"] is True
     assert result["weapon"]["changed"] is True
     assert result["weapon"]["matched"] == 2
-    assert result["weapon"]["catalog"] == 68  # manifest.weaponPacks 全量收录
+    assert result["weapon"]["catalog"] == 69  # manifest.weaponPacks 全量收录
     assert result["ammo"]["changed"] is True
     assert result["ammo"]["matched"] == 10  # 弹药夹具第 1 页 10 条，.300BLK_3 仅对齐常驻 V-Max（V-SUB 为 S8 排除）
 
@@ -355,7 +355,7 @@ def test_sync_writes_both_tables(tmp_path):
     assert weapon_table["window"]["from"] == weapon_table["updated_at"] == weapon_table["window"]["to"]
     assert "orzice" in weapon_table["source"] and "小涛查" in weapon_table["source"]
     ids = [row["weapon_id"] for row in weapon_table["weapons"]]
-    assert ids == sorted(ids) and len(ids) == 68
+    assert ids == sorted(ids) and len(ids) == 69
     by_id = {row["weapon_id"]: row["price_daily"] for row in weapon_table["weapons"]}
     assert by_id["18010000001"] == 69535
     assert by_id["18010000006"] == 71286  # 模板形态
@@ -366,7 +366,7 @@ def test_sync_writes_both_tables(tmp_path):
     assert ammo_table["schema"] == "ammo-price-daily"
     assert "orzice" in ammo_table["source"] and "小涛查" in ammo_table["source"]
     ammo_ids = [row["ammo_item_id"] for row in ammo_table["ammo"]]
-    assert ammo_ids == sorted(ammo_ids) and len(ammo_ids) == 113
+    assert ammo_ids == sorted(ammo_ids) and len(ammo_ids) == 118
     assert "37250400005" not in ammo_ids  # 合并条目（DART→箭型弹）不进骨架
     ammo_by_id = {row["ammo_item_id"]: row["price_daily"] for row in ammo_table["ammo"]}
     assert ammo_by_id["37100300001"] > 0  # 5.56x45mm M855（夹具第 1 页）
@@ -570,7 +570,7 @@ def test_sync_ammo_backfill_fetches_missing_in_season_ammo(tmp_path):
                 "name": "LS",
                 "penetration_level": 5,
                 "is_season_limited": True,
-                "season_note": "S11赛季限定子弹",
+                "season_note": f"{mod.CURRENT_SEASON}赛季限定子弹",
             }
         ]
     }

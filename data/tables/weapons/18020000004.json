@@ -13,7 +13,8 @@
       "37200100001",
       "37200200001",
       "37200300001",
-      "37200400001"
+      "37200400001",
+      "37200500002"
     ],
     "rpm": 780.2340702210663,
     "fire_interval_s": 0.0769,
@@ -1176,6 +1177,26 @@
         "muzzle_velocity": 585,
         "ammo_item_id": "37200400001",
         "ammo_level": 4
+      },
+      {
+        "candidate_id": "18020000004:base:37200500002:2=13020000432",
+        "loadout_config": [
+          {
+            "slotPath": "2",
+            "itemId": "13020000432"
+          }
+        ],
+        "tunes": {},
+        "loadout_item_ids": [
+          "13020000432"
+        ],
+        "loadout_item_names": [
+          "UZI竞赛性能长枪管"
+        ],
+        "fire_rate": 780,
+        "muzzle_velocity": 585,
+        "ammo_item_id": "37200500002",
+        "ammo_level": 5
       }
     ],
     "configuration_count": 1,

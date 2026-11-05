@@ -1,7 +1,7 @@
 """官方 candidateMetrics 全量复现验证。
 
 用本引擎（``load_game_data`` + ``WeaponStateResolver`` + ``build_context_from_state``）
-重算 ``data/game/validation_samples.json`` 的全部样本（21 情景 / 1338 候选 / 3774 点），
+重算 ``data/game/validation_samples.json`` 的全部样本（21 情景 / S12 数据集 / 4029 点），
 输出分级精度统计与偏差明细，作为修复收敛的度量基线。
 
 用法：
@@ -222,13 +222,13 @@ def _scenario_distribution(deviations: List[Dict[str, Any]]) -> Dict[str, int]:
 # ---------------------------------------------------------------------------
 # 白盒对拍（official param audit）
 #
-# 背景：全量复现收敛后残余 765 点（≤0.0245，全部位于 center/default 混合命中
+# 背景：全量复现收敛后残余 920 点（≤0.0722，主要位于 center/default 混合命中
 # 情景），经白盒对拍证明为官方上游侧自相矛盾——用官方
 # ``rankings/firefight/dynamic/*.json`` 自声明的 ``weaponDamageResult.damageModel``
 # （伤害 / 部位倍率 / 衰减段 / 穿甲修正 / 防具耐久与覆盖）直接驱动本引擎 DP，
-# 765 点的官方参数重算值全部与本地引擎值逐位一致，而官方 candidateMetrics 仍
+# 920 点的官方参数重算值全部与本地引擎值逐位一致，而官方 candidateMetrics 仍
 # 偏离 → 官方 E 与官方自己的参数表矛盾（本地无归零路径）。按官方 dynamic 是否
-# 声明 ``ammo.perPart`` 细分：未声明 698 点（含全部 >1e-2 点）、声明 67 点
+# 声明 ``ammo.perPart`` 细分：S12 全部 920 点均未声明 perPart（含全部 >1e-2 点）、声明 0 点
 # （37260400002/37260500002）。
 # 该模式把 ``.probe/validate_ballistics_full.py`` 的对拍逻辑并入正式工具，供
 # 刷新 ``--record-residual-conclusion`` 残余记录时引用。命中分布为双方共用的
@@ -311,18 +311,16 @@ def run_official_param_audit(
     1. 从官方 dynamic 文件取该候选的 ``damageModel`` 与 ``ammoInteractions``，
        构造官方口径弹药（含 ``perPart``，若官方有声明），驱动 ``DamageContext``
        独立重算 audit 值；
-    2. 分类（基线 765 残余点的实测分桶为 698/67/0）：
-       - ``param_contradiction_no_perpart``（698）：audit 值与本地引擎值逐位一致
+    2. 分类（S12 基线 920 残余点的实测分桶为 920/0/0）：
+       - ``param_contradiction_no_perpart``（S12：920）：audit 值与本地引擎值逐位一致
          （≤match_tol）而官方 E 仍偏离，且官方 dynamic **未**声明 ``ammo.perPart``
          → 官方 E 与官方参数表自相矛盾（含全部 >1e-2 点）；
-       - ``param_contradiction_with_perpart``（67）：同上逐位一致且 E 偏离，但官方
-         dynamic **声明了** ``ammo.perPart``（37260400002/37260500002）→ 官方 E
-         与含 perPart 的官方参数表同样矛盾；
+       - ``param_contradiction_with_perpart``（S12：0）：同上逐位一致且 E 偏离，但官方
+         dynamic **声明了** ``ammo.perPart``（历史数据集 37260400002/37260500002）；
        - ``unclassified``：以上皆非（audit 与本地不一致等）→ 需人工复查（退出码 1）。
 
-    注意：provenance 残余记录 conclusion 文字中「67 点官方 dynamic 声明缺
-    ammo.perPart」的表述与数据实际相反——67 点恰是 dynamic **声明了** perPart
-    的点（未声明者为 698），698/67 计数本身与记录一致。
+    S12 数据集下官方 dynamic 未再声明 ``ammo.perPart``，920 个残余点全部落入
+    ``param_contradiction_no_perpart``；``with_perpart`` 桶保留用于历史数据集回归。
 
     用途与用法见模块 docstring；联网仅在缓存与 .probe 均缺失 dynamic 文件时发生。
     返回字典含 ``residual_points`` / ``buckets`` / ``bucket_examples`` /
@@ -376,6 +374,9 @@ def run_official_param_audit(
                 "armor_damage_multiplier": dm["armorDamageMultiplier"],
                 "penetration_matrix": _official_conv_matrix(corr["armorCorrection"]),
                 "per_part": per_part,
+                # S12：把官方 dynamic 自声明的命中状态效果一并交给 DamageContext，
+                # 否则带叠层引爆的候选会被误判为 audit_mismatch_local。
+                "on_hit_effects": (wdr.get("statusEffects") or {}).get("onHit") or {},
             }
             ctx = DamageContext(
                 base_flesh=dm["baseFleshDamage"],
@@ -394,7 +395,7 @@ def run_official_param_audit(
 
             if abs(audit_val - item["local"]) <= match_tol:
                 # 官方参数重算 = 本地，而官方 E 仍偏离 → 官方自相矛盾；
-                # 按官方 dynamic 是否声明 perPart 细分（基线 698/67）
+                # 按官方 dynamic 是否声明 perPart 细分（S12 基线 920/0）
                 bucket = (
                     "param_contradiction_with_perpart" if per_part
                     else "param_contradiction_no_perpart"

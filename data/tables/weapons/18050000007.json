@@ -271,6 +271,12 @@
           "13110000079",
           "13110000088"
         ]
+      },
+      {
+        "socket_id": 67,
+        "options": [
+          "13040000252"
+        ]
       }
     ],
     "provider_sockets": {
@@ -1538,6 +1544,15 @@
         "target_socket_id": 30,
         "mounted_item_id": "13540000001",
         "mount_policy": "default"
+      },
+      {
+        "condition_type": "anyMounted",
+        "condition_item_ids": [
+          "13040000252"
+        ],
+        "target_socket_id": 68,
+        "mounted_item_id": "13030000221",
+        "mount_policy": "forced"
       }
     ],
     "default_items": {
@@ -1549,6 +1564,10 @@
       "30": "13540000001"
     },
     "extra_occupancy": {
+      "13040000252": [
+        1,
+        3
+      ],
       "13140000031": [
         10,
         36
@@ -1566,6 +1585,7 @@
     },
     "combat_variant_item_ids": [
       "13020000398",
+      "13040000252",
       "13130000169"
     ],
     "attribute_rules": {

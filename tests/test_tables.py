@@ -10,7 +10,7 @@
 ``data/game/`` 已降为只读审计快照：与它的逐键逐值相等**不再**由常驻测试承担
 （那是 ``python tools/migrate_tables.py --check`` 的职责），这里只比
 ``profile_key`` / ``item_id`` 集合以捕获集合级漂移。字段值正确性的硬门槛是
-3774 点官方复现测试（``tools/verify_official_reproduction.py``）。
+4029 点官方复现测试（``tools/verify_official_reproduction.py``）。
 
 计数断言取**精确值**而非下限式：数据侧任何规模变化都必须升级为一次有意的
 测试更新（``migrate --check`` 会先报出具体差异），下限式断言会让意外缩水
@@ -42,22 +42,22 @@ def gd():
 # ------------------------------------------------- 第 2 节：weapons 结构与集合 ----
 
 def test_weapons_expansion_profile_keys_match_snapshot(gd):
-    """展开后 86 条目（68 本体 + 18 变体），profile_key 集合与审计快照一致。"""
+    """展开后 88 条目（69 本体 + 19 变体），profile_key 集合与审计快照一致。"""
     snapshot_keys = {
         e["profile_key"] for e in _load(os.path.join(GAME_DIR, "weapons.json"))["weapons"]
     }
     table_keys = {e["profile_key"] for e in gd.weapons}
 
-    assert len(gd.weapons) == 86, f"展开后应为 86 条目，实际 {len(gd.weapons)}"
-    assert len(table_keys) == 86, "profile_key 重复"
+    assert len(gd.weapons) == 88, f"展开后应为 88 条目，实际 {len(gd.weapons)}"
+    assert len(table_keys) == 88, "profile_key 重复"
     assert table_keys == snapshot_keys, "profile_key 集合与审计快照不一致"
 
 
 def test_weapons_base_and_variant_counts(gd):
-    """68 本体（manifest.weaponPacks 全量收录）+ 18 官方榜变体（仅榜内 43 把有变体）。"""
+    """69 本体（manifest.weaponPacks 全量收录）+ 19 官方榜变体（仅榜内 43 把有变体）。"""
     bases = [e for e in gd.weapons if not e["is_variant"]]
     variants = [e for e in gd.weapons if e["is_variant"]]
-    assert len(bases) == 68 and len(variants) == 18
+    assert len(bases) == 69 and len(variants) == 19
 
 
 def test_weapons_order_base_before_variant(gd):
@@ -101,7 +101,7 @@ def test_unranked_weapons_are_independent_base_entries(gd):
 
 def test_parts_merge_item_ids_match_snapshot(gd):
     snapshot_ids = set(_load(os.path.join(GAME_DIR, "parts.json"))["parts"])
-    assert len(gd.parts) == 1141, f"合并后应为 1141 条，实际 {len(gd.parts)}"
+    assert len(gd.parts) == 1162, f"合并后应为 1162 条，实际 {len(gd.parts)}"
     assert set(gd.parts) == snapshot_ids, "item_id 集合与审计快照不一致"
 
 
@@ -116,7 +116,7 @@ def test_parts_slot_files_cover_all_slots(gd):
 def test_ammo_from_tables(gd):
     table_ammo = _load(os.path.join(TABLES_DIR, "ammo.json"))["ammo"]
     snapshot_ids = {a["ammo_item_id"] for a in _load(os.path.join(GAME_DIR, "ammo.json"))["ammo"]}
-    assert len(gd.ammo) == 113
+    assert len(gd.ammo) == 118
     assert {a["ammo_item_id"] for a in gd.ammo} == snapshot_ids
     assert {a["ammo_item_id"] for a in gd.ammo} == {a["ammo_item_id"] for a in table_ammo}
 
@@ -178,7 +178,7 @@ def test_scenarios_official_set_and_custom_entry(gd):
 def test_reference_domains_still_from_game(gd):
     """profiles/mechanism/validation_samples/provenance 冻结在 data/game 参考层。"""
     assert gd.profiles == _load(os.path.join(GAME_DIR, "profiles.json"))["profiles"]
-    assert len(gd.profiles) == 1159
+    assert len(gd.profiles) == 1186
     assert gd.mechanism == _load(os.path.join(GAME_DIR, "mechanism.json"))
     assert gd.validation_samples == _load(os.path.join(GAME_DIR, "validation_samples.json"))["samples"]
     assert gd.provenance == _load(os.path.join(GAME_DIR, "provenance.json"))

@@ -155,7 +155,7 @@ def test_scenarios_match_official_index():
     assert len(set(ids)) == 21
     distance = scenarios["distance_range"]
     assert distance == {"min": 0, "max": 80, "step": 1, "default_min": 15, "default_max": 40}
-    assert len(scenarios["weapon_pool"]) == 86
+    assert len(scenarios["weapon_pool"]) == 88
     for scenario in scenarios["scenarios"]:
         probs = scenario["hit_probabilities"]
         assert abs(sum(probs.values()) - 1.0) < 1e-6, f"{scenario['scenario_id']} 命中分布和不为 1"
@@ -184,7 +184,7 @@ def test_provenance_has_no_integrity_conflicts():
                 "ammo_profile_conflicts", "source_cross_checks"):
         assert integrity[key] == [], f"provenance.{key} 非空：{integrity[key]}"
     counts = provenance["counts"]
-    assert counts["weapons"] == 86
+    assert counts["weapons"] == 88
     assert counts["validation_scenarios"] >= 1
 
 

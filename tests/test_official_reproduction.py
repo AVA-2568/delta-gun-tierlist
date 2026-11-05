@@ -1,10 +1,11 @@
 """官方 candidateMetrics 全量复现回归（P0 审计修复固化）。
 
-阈值 1e-9。断言为**分级断言**而非朴素 fail_count==0：全量 3774 点收敛后仍残余
-765 点（≤0.0245），经白盒对拍（``tools/verify_official_reproduction.py
+阈值 1e-9。断言为**分级断言**而非朴素 fail_count==0：全量 4029 点收敛后仍残余
+920 点（≤0.0722），经白盒对拍（``tools/verify_official_reproduction.py
 --official-param-audit``）证明为官方上游侧自相矛盾（官方 dynamic 自声明参数
-独立重算与本地逐位一致，官方 candidateMetrics 的 E 值自相矛盾），已裁定为上游
-事实并记录于 ``data/game/provenance.json`` → ``integrity.official_reproduction_residual``。
+独立重算与本地逐位一致，官方 candidateMetrics 的 E 值自相矛盾；920/920 全部归类、
+未归类 0 点），已裁定为上游事实并记录于 ``data/game/provenance.json`` →
+``integrity.official_reproduction_residual``。
 
 因此本测试把复验结果与该记录逐项对齐：任何一侧漂移（数据被改、引擎被改）都会
 使两者对不齐而 fail。provenance 缺少该记录时直接 fail（记录是收敛固化的必需品，

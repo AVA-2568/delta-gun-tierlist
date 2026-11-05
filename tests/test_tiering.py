@@ -82,16 +82,16 @@ def test_band_definitions_match_engine():
 
 
 def test_unsupported_caliber_is_excluded(gd):
-    """9x19mm 无 5 级弹 → MP5 在 5-5 情景应被排除（与官方 excluded 口径一致）。"""
+    """12Ga 无 5 级弹 → M1014 在 5-5 情景应被排除（与官方 excluded 口径一致）。"""
     rankings, _thresholds, excluded = rank_weapons_for_scenario(
         gd,
         "armor-5-ammo-5-default",
         beam_width=8,
-        profile_keys=["18020000001:base"],  # MP5
+        profile_keys=["18030000001:base"],  # M1014
     )
     assert rankings == []
     assert len(excluded) == 1
-    assert excluded[0]["profile_key"] == "18020000001:base"
+    assert excluded[0]["profile_key"] == "18030000001:base"
     assert "5" in excluded[0]["reason"]
 
 
@@ -100,7 +100,7 @@ def test_ranking_produces_bands_and_thresholds(gd):
         gd,
         "armor-5-ammo-5-default",
         beam_width=8,
-        profile_keys=["18050000003:base", "18020000001:base"],  # VSS 可用 / MP5 被排除
+        profile_keys=["18050000003:base", "18030000001:base"],  # VSS 可用 / M1014 被排除
     )
     assert rankings
     assert len(excluded) == 1

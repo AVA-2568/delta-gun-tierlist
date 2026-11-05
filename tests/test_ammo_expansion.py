@@ -74,7 +74,7 @@ def test_pick_priced_ammos_all_priced_sorted_by_item_id(gd):
 
 
 def test_pick_priced_ammos_filters_expired_season(gd):
-    """过期赛季限定弹即使配价也被过滤（当前 S11，S9 赛季限定子弹排除）。"""
+    """过期赛季限定弹即使配价也被过滤（当前 S12，S9 赛季限定子弹排除）。"""
     for record in gd.ammo:
         if record["ammo_item_id"] == M855A1_APC:
             record["is_season_limited"] = True
@@ -91,7 +91,7 @@ def test_pick_priced_ammos_no_level_ammo_raises(gd):
     """口径无该等级弹药 → ScenarioError（与 pick_ammo 同语义）。"""
     table = AmmoPriceTable(prices={M855A1: 1641})
     with pytest.raises(ScenarioError):
-        pick_priced_ammos(gd, "18020000001:base", 5, table)  # MP5 9x19mm 无 5 级弹
+        pick_priced_ammos(gd, "18030000001:base", 5, table)  # M1014 12Ga 无 5 级弹
 
 
 def test_pick_priced_ammos_inactive_price_dimension_returns_empty(gd):
@@ -183,14 +183,20 @@ def test_real_price_table_apc_plus_unpriced_single_ammo(gd):
     assert {r.ammo_item_id for r in rankings} == {M855A1}
 
 
-def test_real_price_table_multi_priced_ammo_expands(gd):
-    """真实价格表（无 monkeypatch）：4.6x30mm 4 级 FMJ SX / FMJ ST 均有价 → MP7 本体两行。"""
+def test_real_price_table_expired_s11_ammo_leaves_single_mp7_row(gd):
+    """真实价格表：FMJ ST 是 S11 限定弹 → S12 退场，MP7 本体仅 FMJ SX 一行。
+
+    S12 起过期限定弹不入榜：无论行情表是否残留旧价（价格同步护栏会将其置为
+    null），榜单都只保留常驻弹 FMJ SX（37260400001）。「有价但过期仍被过滤」
+    由上面 monkeypatch 的手工价格表用例隔离覆盖；多弹展开同理。
+    """
     table = load_ammo_prices(os.path.join(ROOT, "data", "reference", "ammo_prices.json"))
     rankings, _thresholds, excluded = _run(gd, table, key=MP7)
     assert excluded == []
     base_rows = [r for r in rankings if r.entry_kind == "base"]
-    assert len(base_rows) == 2
-    assert {r.ammo_item_id for r in base_rows} == {"37260400001", "37260400002"}
+    assert len(base_rows) == 1
+    assert base_rows[0].ammo_item_id == "37260400001"
+    assert all(r.ammo_item_id != "37260400002" for r in rankings)
     assert all(r.ammo_price_daily is not None for r in rankings)
 
 

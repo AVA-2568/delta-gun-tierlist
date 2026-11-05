@@ -188,6 +188,10 @@ def normalize_ammo(
             # （如 37260400002 下胸/四肢 0.72、37260000002 头/胸 0.54），
             # 引擎 DamageContext 的 per_part 通道按此结算部位伤害。
             "per_part": {str(k): float(v) for k, v in (combat.get("hitboxMultipliers") or {}).items()},
+            # 命中附加状态效果（S12 起）：combat 包 ammoProfiles 的 onHitEffects，
+            # 含 detonation（叠层引爆）/ burn（燃烧）等通道，原样保留供伤害模型结算。
+            # 上游 statusEffects 是 weaponDamageResult 派生视图，此处才是弹药固有定义。
+            "on_hit_effects": combat.get("onHitEffects") or {},
             "profile_source": "combat-pack" if combat else "catalog-only",
             "penetration_matrix": matrix,
             "source_legacy_ammo_id": raw.get("sourceLegacyAmmoId"),
