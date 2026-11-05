@@ -356,13 +356,12 @@ def rank_weapons_for_scenario(
 
     thresholds: Dict[str, Dict[str, float]] = {}
     for band in BAND_NAMES:
-        present = [r for r in rankings if band in r.bands]
-        present.sort(key=lambda r: r.bands[band].mean_ms)
-        for index, entry in enumerate(present, start=1):
+        # 分层与排名都以「每把枪带内最优配置」为单位：先定枪级层级与代表行，
+        # 再给代表行编号（榜单每带每枪只展示一行）。
+        thresholds[band] = assign_tiers(rankings, band)
+        best_rows = [r for r in rankings if band in r.bands and r.bands[band].is_best]
+        best_rows.sort(key=lambda r: r.bands[band].mean_ms)
+        for index, entry in enumerate(best_rows, start=1):
             entry.bands[band].rank = index
-        # 已按 mean_ms 升序排好，直接复用给 assign_tiers，避免对同一分布再排一次
-        thresholds[band] = assign_tiers(
-            rankings, band, sorted_values=[r.bands[band].mean_ms for r in present]
-        )
 
     return rankings, thresholds, excluded

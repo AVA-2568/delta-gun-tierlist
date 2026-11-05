@@ -282,6 +282,8 @@ def _tier_display_rows(
         band_data = (w.get("bands") or {}).get(band)
         if band_data is None:
             continue
+        if not band_data.get("is_best"):
+            continue  # 每带每枪只展示其最优配置
         tier = band_data.get("tier")
         if tier in buckets:
             buckets[tier].append(w)
@@ -438,7 +440,7 @@ def render_band_doc(
     lines.append(">")
     lines.append(f"> - **排序键**：带内平均实战 TTK（`{TTK_FORMULA}`）")
     lines.append(f"> - **口径明细**：{TTK_FORMULA_DETAIL}")
-    lines.append("> - **层级**：带内 TTK 分位数切分（前 15% → T0，15–40% → T1，40–70% → T2，其余 → T3）")
+    lines.append("> - **层级**：带内**每把枪最优配置**的 TTK 分位数切分（前 15% → T0，15–40% → T1，40–70% → T2，其余 → T3）")
     lines.append(
         f"> - **收录范围**：只发布 T0 / T1 —— T0 共 {len(t0_rows)} 行、"
         f"T1 共 {len(t1_rows)} 行，均全列；T2 / T3 仅参与层级阈值计算，不发布"
@@ -504,16 +506,16 @@ def render_readme(
     lines.append("| :-- | :-- |")
     lines.append(f"| 排序键 | 距离带内平均实战 TTK（`{TTK_FORMULA}`） |")
     lines.append("| 不参与 | 开镜时间、换弹、命中率修正 |")
-    lines.append("| 起枪状态 | 每行 = 一个「起枪配置状态 × 一款当季弹」：本体裸枪、"
-                 "束搜索枚举的改装状态（官方插槽规则 + 强制联动）；同口径同等级的多款当季弹各出一行，"
-                 "当日无行情者成本列显示 —（不因缺价删行）；仅列出 TTK 有差异的状态，全部一起排名分层 |")
+    lines.append("| 起枪状态 | 每行 = 一把枪 × 该带最优起枪配置（裸枪或束搜索枚举的改装状态，"
+                 "官方插槽规则 + 强制联动）× 一款当季弹；同一把枪只展示其带内最快的一行，"
+                 "同口径同等级多款当季弹取最快者；当日无行情者成本列显示 —（不因缺价删行） |")
     lines.append("| 改装收益 | 该距离带内**本体裸枪 → 本状态**的平均 TTK 缩短量与百分比（`—` 表示本体裸枪行） |")
     lines.append("| 起枪成本 | 裸枪价格 = 本体交易行当日价（变体/改装共用本体价）；"
                  "整枪+180 发备弹 = 裸枪价 + 核心配件价 + 180 × 该行所配弹药单发价（预估；白板裸枪配件价为 0） |")
     lines.append("| 距离场 | 0–80 m（官方排行口径），分 4 个距离带，每带独立成榜 |")
     lines.append(
-        "| 分层 | 带内 TTK 分位数切分 T0–T3，阈值公开；**只发布 T0 / T1（全列）**，"
-        "T2 / T3 仅参与阈值计算 |"
+        "| 分层 | 以**每把枪的最优配置**分层：枪最优 TTK 分位数切分 T0–T3，阈值公开；"
+        "**只发布 T0 / T1 的枪**（每枪列带内最优配置），T2 / T3 仅参与阈值计算 |"
     )
     lines.append(f"| 数据版本 | `{source.get('dataset_version', '未知')}`（{source.get('name', 'dfttk-v3')}） |")
     lines.append("")
@@ -528,7 +530,7 @@ def render_readme(
         f"命中分布 `{scenario_meta.get('probability_preset')}`"
         f"（{_volume_aim_detail(scenario_meta.get('hit_probabilities'))}）；"
         f"每带速览只取 T0 / T1 合并后的前 5 名，"
-        f"完整排名（全部起枪状态 × 改装收益 × 最差 TTK）见各距离榜。"
+        f"完整排名（每枪一行的最优配置 × 改装收益 × 最差 TTK）见各距离榜。"
     )
     lines.append("")
     for band in BAND_ORDER:

@@ -43,8 +43,8 @@ PAYLOAD = {
             "rpm": 800.0,
             "effective_range_m": 47.2,
             "bands": {
-                "贴脸": {"rank": 1, "tier": "T0", "mean_ms": 362.61, "worst_ms": 362.61, "best_ms": 362.61},
-                "远距": {"rank": 2, "tier": "T1", "mean_ms": 431.32, "worst_ms": 431.32, "best_ms": 431.32},
+                "贴脸": {"rank": 1, "tier": "T0", "is_best": True, "mean_ms": 362.61, "worst_ms": 362.61, "best_ms": 362.61},
+                "远距": {"rank": 2, "tier": "T1", "is_best": True, "mean_ms": 431.32, "worst_ms": 431.32, "best_ms": 431.32},
             },
         },
         {
@@ -55,7 +55,7 @@ PAYLOAD = {
             "rpm": 600.0,
             "effective_range_m": 40.0,
             "bands": {
-                "贴脸": {"rank": 2, "tier": "T1", "mean_ms": 366.69, "worst_ms": 366.69, "best_ms": 366.69},
+                "贴脸": {"rank": 2, "tier": "T1", "is_best": True, "mean_ms": 366.69, "worst_ms": 366.69, "best_ms": 366.69},
             },
         },
     ],
@@ -107,6 +107,7 @@ def _make_band_payload(t0_count: int, t1_count: int) -> dict:
                     "贴脸": {
                         "rank": index + 1,
                         "tier": tier,
+                        "is_best": True,
                         "mean_ms": mean_ms,
                         "worst_ms": mean_ms,
                         "best_ms": mean_ms,
@@ -151,7 +152,7 @@ PAYLOAD_WITH_T2 = {
             "rpm": 700.0,
             "effective_range_m": 30.0,
             "bands": {
-                "贴脸": {"rank": 2, "tier": "T2", "mean_ms": 380.0,
+                "贴脸": {"rank": 2, "tier": "T2", "is_best": True, "mean_ms": 380.0,
                          "worst_ms": 380.0, "best_ms": 380.0},
             },
         },
@@ -163,7 +164,7 @@ PAYLOAD_WITH_T2 = {
             "rpm": 750.0,
             "effective_range_m": 40.0,
             "bands": {
-                "贴脸": {"rank": 3, "tier": "T1", "mean_ms": 370.0,
+                "贴脸": {"rank": 3, "tier": "T1", "is_best": True, "mean_ms": 370.0,
                          "worst_ms": 370.0, "best_ms": 370.0},
             },
         },
@@ -200,7 +201,7 @@ def test_empty_tier_row_is_filtered():
         **PAYLOAD,
         "weapons": [
             {**PAYLOAD["weapons"][0],
-             "bands": {"贴脸": {"rank": 1, "tier": "", "mean_ms": 362.61,
+             "bands": {"贴脸": {"rank": 1, "tier": "", "is_best": True, "mean_ms": 362.61,
                                 "worst_ms": 362.61, "best_ms": 362.61}}},
         ],
     }
@@ -244,7 +245,7 @@ def test_readme_and_band_doc_state_canonical_ttk_formula():
         assert "不含弹丸飞行时间" not in md
         assert "距离 / 原始初速" in md
     assert "| 不参与 | 开镜时间、换弹、命中率修正 |" in readme
-    assert "只发布 T0 / T1（全列）" in readme
+    assert "只发布 T0 / T1 的枪" in readme
     assert "T2 / T3 仅参与阈值计算" in readme
     assert "--all" not in readme
 
@@ -408,7 +409,7 @@ PAYLOAD_WITH_COST = {
             "ammo": {"ammo_item_id": "37260500001", "name": "AP SX",
                      "caliber": "4.6x30mm", "price_daily": 4579},
             "bands": {
-                "贴脸": {"rank": 1, "tier": "T0", "mean_ms": 286.92, "worst_ms": 286.92,
+                "贴脸": {"rank": 1, "tier": "T0", "is_best": True, "mean_ms": 286.92, "worst_ms": 286.92,
                          "best_ms": 286.92, "mean_expected_shots": 5.543, "kill_cost": 25381},
             },
         }
@@ -475,7 +476,7 @@ def test_missing_price_renders_dash():
             {**PAYLOAD_WITH_COST["weapons"][0],
              "ammo": {"ammo_item_id": "x", "name": "AP SX", "caliber": "4.6x30mm",
                       "price_daily": None},
-             "bands": {"贴脸": {"rank": 1, "tier": "T0", "mean_ms": 286.92, "worst_ms": 286.92,
+             "bands": {"贴脸": {"rank": 1, "tier": "T0", "is_best": True, "mean_ms": 286.92, "worst_ms": 286.92,
                                 "best_ms": 286.92, "mean_expected_shots": 5.543,
                                 "kill_cost": None}}}
         ],
@@ -493,7 +494,7 @@ def test_empty_caliber_renders_name_only():
             {**PAYLOAD_WITH_COST["weapons"][0],
              "ammo": {"ammo_item_id": "y", "name": "碳纤维穿甲箭矢", "caliber": "",
                       "price_daily": 1000},
-             "bands": {"贴脸": {"rank": 1, "tier": "T0", "mean_ms": 286.92, "worst_ms": 286.92,
+             "bands": {"贴脸": {"rank": 1, "tier": "T0", "is_best": True, "mean_ms": 286.92, "worst_ms": 286.92,
                                 "best_ms": 286.92, "mean_expected_shots": 5.0, "kill_cost": 5000}}}
         ],
     }

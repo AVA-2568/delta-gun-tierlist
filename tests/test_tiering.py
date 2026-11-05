@@ -129,8 +129,14 @@ def test_states_deduplicated_and_all_ranked(gd):
     assert len(signatures) == len(set(signatures))  # 四带签名互异
     for entry in rankings:
         for band in BAND_NAMES:
-            assert entry.bands[band].rank > 0
-            assert entry.bands[band].tier
+            assert entry.bands[band].tier  # 同枪全部配置共享该枪层级
+            if entry.bands[band].is_best:
+                assert entry.bands[band].rank > 0
+            else:
+                assert entry.bands[band].rank == 0  # 非最优配置不占榜单行
+    # 每带恰有一行代表该枪（is_best）
+    for band in BAND_NAMES:
+        assert sum(1 for e in rankings if e.bands[band].is_best) == 1
 
 
 def test_ttk_by_distance_samples_cover_official_range(gd):

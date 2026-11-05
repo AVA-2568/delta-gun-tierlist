@@ -3,10 +3,11 @@
 主排序键：**距离带内加权实战 TTK**（带内逐米 TTK 的算术平均，毫秒，升序）。
 稳健性列：**带内最差 TTK**（带内最大毫秒值）。
 
-分层规则：以该情景该距离带内所有枪的 TTK 分布**分位数**切分 T0–T3，
-阈值随情景公布（写入输出 JSON），保证「层级是相对强度」且可复算。
+分层规则：以该情景该距离带内**每把枪的最优配置** TTK 分布**分位数**切分 T0–T3，
+阈值随情景公布（写入输出 JSON），保证「层级是相对强度」且可复算。分层单位是枪
+而非配置行：一把枪的多个 TTK 不同配置共享该枪层级，只把最快的一行标为 ``is_best``。
 
-    排序升序后，前 15% → T0，15%–40% → T1，40%–70% → T2，其余 → T3
+    枪最优 TTK 升序后，前 15% → T0，15%–40% → T1，40%–70% → T2，其余 → T3
 """
 
 from __future__ import annotations
@@ -31,6 +32,8 @@ class BandResult:
     best_ms: float
     rank: int = 0
     tier: str = ""
+    #: 该行是否为所属枪在本带的最优配置（榜单每带每枪只展示这一行）
+    is_best: bool = False
     mean_expected_shots: float = 0.0
     kill_cost: Optional[int] = None
 
@@ -239,30 +242,38 @@ def assign_tiers(
     rankings: List[GunRanking],
     band: str,
     quantiles: tuple = TIER_QUANTILES,
-    sorted_values: Optional[Sequence[float]] = None,
 ) -> Dict[str, float]:
-    """按指定距离带内的 TTK 分布切分层级，返回各层阈值（毫秒）。
+    """按「每把枪在该带的最优配置」切分层级，返回各层阈值（毫秒）。
 
-    ``sorted_values`` 为该带内 ``mean_ms`` 的**升序**序列；调用方若已排好可直接传入，
-    省去重复排序。缺省时本函数自行排序。
+    分层单位是**枪**而不是配置行：同一把枪的多个 TTK 不同配置共享该枪层级，
+    其中带内最快的一行标记 ``is_best``（榜单每带每枪只展示这一行）。
+    若按配置行分层，一把枪的 20 多个配置会挤占大量 T0 名额，梯队语义失效。
     """
-    if sorted_values is None:
-        sorted_values = sorted(r.bands[band].mean_ms for r in rankings if band in r.bands)
-    values = sorted_values
-    if not values:
+    present = [r for r in rankings if band in r.bands]
+    if not present:
         return {}
+
+    best: Dict[str, GunRanking] = {}
+    for entry in present:
+        previous = best.get(entry.base_name)
+        if previous is None or entry.bands[band].mean_ms < previous.bands[band].mean_ms:
+            best[entry.base_name] = entry
+
+    values = sorted(r.bands[band].mean_ms for r in best.values())
     thresholds = {TIER_NAMES[i]: _quantile(values, q) for i, q in enumerate(quantiles)}
-    for entry in rankings:
-        band_result = entry.bands.get(band)
-        if band_result is None:
-            continue
-        value = band_result.mean_ms
-        for i, name in enumerate(TIER_NAMES):
-            key = TIER_NAMES[i]
+
+    tier_of: Dict[str, str] = {}
+    for name, entry in best.items():
+        value = entry.bands[band].mean_ms
+        for i, key in enumerate(TIER_NAMES):
             upper = thresholds.get(key)
             if upper is None or value <= upper + 1e-9:
-                band_result.tier = name
+                tier_of[name] = key
                 break
         else:
-            band_result.tier = TIER_NAMES[-1]
+            tier_of[name] = TIER_NAMES[-1]
+
+    for entry in present:
+        entry.bands[band].tier = tier_of[entry.base_name]
+        entry.bands[band].is_best = best[entry.base_name] is entry
     return thresholds

@@ -23,12 +23,14 @@ PUBLISHED_TIERS: tuple = ("T0", "T1")
 
 
 def is_published_entry(entry: GunRanking) -> bool:
-    """条目是否进对外榜单：任一带层级属于 :data:`PUBLISHED_TIERS` 即发布。
+    """条目是否进对外榜单：任一带是该枪最优配置且层级属于 T0/T1 即发布。
 
-    按「任一带」而非「全部带」判定：一把枪可能贴脸 T0、远距 T2，
-    只要它在某个距离带进了 T0/T1，就必须出现在该带的榜单里。
+    榜单每带每枪只展示其最优配置（``is_best``），层级由该枪最优配置决定；
+    同枪其他配置不单独成行。
     """
-    return any(band.tier in PUBLISHED_TIERS for band in entry.bands.values())
+    return any(
+        band.is_best and band.tier in PUBLISHED_TIERS for band in entry.bands.values()
+    )
 
 
 
@@ -84,6 +86,7 @@ def to_export(
                     name: {
                         "rank": b.rank,
                         "tier": b.tier,
+                        "is_best": b.is_best,
                         "mean_ms": round(b.mean_ms, 2),
                         "worst_ms": round(b.worst_ms, 2),
                         "best_ms": round(b.best_ms, 2),
@@ -91,9 +94,9 @@ def to_export(
                         "kill_cost": b.kill_cost,
                     }
                     for name, b in entry.bands.items()
-                    # 只发布 T0/T1 带：跨带差异不改变「只发 T0/T1」的口径，
-                    # 某把枪在远距是 T3，就不该把这条 T3 记录写进发布物
-                    if b.tier in PUBLISHED_TIERS
+                    # 只发布「该枪在本带的最优配置」且层级为 T0/T1 的带：
+                    # 非最优配置不占榜单行，T2/T3 不公开
+                    if b.is_best and b.tier in PUBLISHED_TIERS
                 },
             }
         )

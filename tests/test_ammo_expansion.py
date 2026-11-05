@@ -163,7 +163,11 @@ def test_all_ammos_ranked_and_tiered_together(gd):
     assert rankings
     for entry in rankings:
         for band in BAND_NAMES:
-            assert entry.bands[band].rank > 0
+            # 每带每枪只给最优配置编号，其余配置共享枪级层级
+            if entry.bands[band].is_best:
+                assert entry.bands[band].rank > 0
+            else:
+                assert entry.bands[band].rank == 0
             assert entry.bands[band].tier in {"T0", "T1", "T2", "T3"}
     assert set(thresholds) == set(BAND_NAMES)
 
