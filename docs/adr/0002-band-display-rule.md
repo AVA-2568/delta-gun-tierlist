@@ -1,6 +1,6 @@
 # ADR-0002：距离榜展示规则（T0 全列 + T1 前 100）
 
-- 状态：已接受
+- 状态：已被 ADR-0010 取代（2026-11-05：榜单改为只发布 T0 / T1，取消 T1 前 100 截断）
 - 日期：2026-10-18
 - 决策人：YH
 - 影响面：`src/renderers/ttk_report.py`、README、24 份距离榜文档、`tests/test_renderers.py`

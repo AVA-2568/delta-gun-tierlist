@@ -80,20 +80,20 @@ def test_ranking_attaches_ammo_and_cost(gd):
         assert entry.bands[band].kill_cost is not None
 
 
-def test_unpriced_ammo_excludes_weapon(gd):
-    """价格表激活但该弹无价 → 该枪整支排除（缺价 = 市场不可得，不上榜）。
+def test_unpriced_ammo_keeps_weapon_with_blank_cost(gd):
+    """价格表激活但该弹无价 → 该枪照常上榜，成本字段为 None（渲染为 —）。
 
-    该等级全部弹缺价与「口径无该等级弹药」同语义：进 excluded，不产行。
+    缺价只是行情层信息，不改变 TTK 口径：删行会让榜单随行情上下架抖动。
     """
     table = AmmoPriceTable(prices={"__any__": 1000})  # 无任何真实弹药主键
     rankings, _thresholds, excluded = rank_weapons_for_scenario(
         gd, "armor-5-ammo-5-default", beam_width=8,
         profile_keys=["18050000003:base"], price_table=table,
     )
-    assert rankings == []
-    assert len(excluded) == 1
-    assert excluded[0]["profile_key"] == "18050000003:base"
-    assert "缺价" in excluded[0]["reason"]
+    assert excluded == []
+    assert rankings, "缺价不得让该枪从榜单消失"
+    assert all(r.ammo_price_daily is None for r in rankings)
+    assert all(r.bands[b].kill_cost is None for r in rankings for b in r.bands)
 
 
 def test_cost_uses_band_mean_shots(gd):

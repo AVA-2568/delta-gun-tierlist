@@ -118,6 +118,9 @@ NAME_ALIASES: Dict[str, str] = {
     "箭形": "箭型",
     "鼠弹": "鼠蛋",
     "DART": "箭型弹",
+    # .300BLK 4 级：官方目录名 BCP-FMJ，行情行名只写到弹种（2026-11-05 实地核对
+    # 行情页仅有 .300 BLK FMJ / V-Max / TAC-TX 三行，与 3/4/5 级一一对应）
+    "BLK FMJ": "BLK BCP-FMJ",
 }
 
 
@@ -413,10 +416,16 @@ def build_ammo_name_map(catalog: Dict[str, Dict[str, Any]]) -> Dict[str, str]:
     """构建「归一化(口径+名称) → ammo_item_id」映射，供泛口径图条目（无 objectID）识别。
 
     仅收官方目录内归一化键**唯一**的条目；撞名键整组弃用（宁漏配不错配）。
+    名字已自带口径（归一化后以口径开头）时不再重复拼接口径，避免出现
+    ``.300blk.300blktiv`` 这类永远匹配不上行情行名的双口径键。
     """
     keys: Dict[str, List[str]] = {}
     for item_id, meta in catalog.items():
-        key = norm_name(f"{meta.get('caliber')} {meta.get('name')}")
+        caliber_key = norm_name(meta.get("caliber"))
+        name_key = norm_name(meta.get("name"))
+        key = name_key if caliber_key and name_key.startswith(caliber_key) else norm_name(
+            f"{meta.get('caliber')} {meta.get('name')}"
+        )
         keys.setdefault(key, []).append(str(item_id))
     dropped = {key: ids for key, ids in keys.items() if len(ids) > 1}
     if dropped:

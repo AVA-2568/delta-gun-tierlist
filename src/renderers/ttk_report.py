@@ -29,8 +29,8 @@ TTK_FORMULA_DETAIL = (
     "多弹丸按扣动扳机发数。飞行时间：`距离 / 原始初速`（不含精校修正）。"
 )
 
-#: 距离榜 T1 展示预算（ADR-0002）：T0 全列，T1 只列全量排名前 N 行。
-T1_DISPLAY_LIMIT = 100
+#: 对外发布层级（ADR-0010）：榜单只发布 T0 / T1，两者全列；T2 / T3 不发布。
+PUBLISHED_TIERS = ("T0", "T1")
 
 # --------------------------------------------------------------------------- #
 # 产物文件命名（展示层职责：管线层从这里取名落盘，README/文档从这里取名造链接）
@@ -119,7 +119,7 @@ def scenario_caption(scenario_meta: Mapping[str, Any]) -> str:
         return (
             f"{scenario_doc_stem(scenario_meta)}"
             f"（命中分布 `{preset}`：全腿部命中，大腿 50% / 小腿 50%；"
-            f"弹药 {levels} 级有价弹同榜；腿部位不经护甲结算，护甲等级不影响结果）"
+            f"弹药 {levels} 级弹同榜；腿部位不经护甲结算，护甲等级不影响结果）"
         )
     if preset == VOLUME_AIM_PRESET:
         return (
@@ -291,9 +291,8 @@ def _tier_display_rows(
 def _display_rows(
     payload: Mapping[str, Any], band: str
 ) -> tuple[List[Mapping[str, Any]], List[Mapping[str, Any]]]:
-    """按展示预算截断后的 ``(T0 行, T1 行)``：T0 全列，T1 只取前 ``T1_DISPLAY_LIMIT`` 行。"""
-    t0_rows, t1_rows = _tier_display_rows(payload, band)
-    return t0_rows, t1_rows[:T1_DISPLAY_LIMIT]
+    """``(T0 行, T1 行)``：榜单只发布 T0/T1，两者均全列（ADR-0010）。"""
+    return _tier_display_rows(payload, band)
 
 
 def _weapon_display_text(
@@ -362,7 +361,7 @@ def render_band_table(
     band: str,
     part_names: Mapping[str, str],
 ) -> str:
-    """渲染单个距离带的榜单表（T0 全列 + T1 前 ``T1_DISPLAY_LIMIT`` 行，T2/T3 仅存于榜单 JSON）。"""
+    """渲染单个距离带的榜单表（只发布 T0 / T1，两者全列；ADR-0010）。"""
     t0_rows, t1_rows = _display_rows(payload, band)
     return _band_table_text(payload, t0_rows + t1_rows, band, part_names)
 
@@ -428,8 +427,7 @@ def render_band_doc(
 ) -> str:
     """单个情景单个距离带的独立榜单文档（一份距离一个文件）。
 
-    展示规则见 ADR-0002：T0 全列，T1 只列全量排名前 ``T1_DISPLAY_LIMIT`` 行；
-    页头写明两层的真实行数与截断情况。``prefix`` 为文档标题与互链所用的情景名
+    展示规则见 ADR-0010：只发布 T0 / T1，两者全列；T2 / T3 参与阈值计算但不发布。``prefix`` 为文档标题与互链所用的情景名
     （主榜用 ``主榜``，其余情景用 ``scenario_doc_stem`` 的中文名）；缺省回落到主榜前缀。
     """
     prefix = prefix or MAIN_BAND_DOC_PREFIX
@@ -438,8 +436,7 @@ def render_band_doc(
         raise KeyError(f"payload 未定义距离带：{band}")
     thresholds = (payload.get("tier_thresholds_ms") or {}).get(band) or {}
     t0_rows, t1_rows = _tier_display_rows(payload, band)
-    t0_shown, t1_shown = t0_rows, t1_rows[:T1_DISPLAY_LIMIT]
-    t1_scope = "全列" if len(t1_rows) <= T1_DISPLAY_LIMIT else f"列前 {T1_DISPLAY_LIMIT} 行"
+    t0_shown, t1_shown = t0_rows, t1_rows
 
     lines: List[str] = []
     lines.append(f"# {prefix} · {band}（{band_def['from_m']:g}–{band_def['to_m']:g} m）")
@@ -450,12 +447,8 @@ def render_band_doc(
     lines.append(f"> - **口径明细**：{TTK_FORMULA_DETAIL}")
     lines.append("> - **层级**：带内 TTK 分位数切分（前 15% → T0，15–40% → T1，40–70% → T2，其余 → T3）")
     lines.append(
-        f"> - **收录范围**：T0 共 {len(t0_rows)} 行（全列）；T1 共 {len(t1_rows)} 行（{t1_scope}）；"
-        + (
-            "其余（T2 / T3）见 `data/榜单/` 同名 JSON"
-            if len(t1_rows) <= T1_DISPLAY_LIMIT
-            else "其余（T1 未列部分与 T2 / T3）见 `data/榜单/` 同名 JSON"
-        )
+        f"> - **收录范围**：只发布 T0 / T1 —— T0 共 {len(t0_rows)} 行、"
+        f"T1 共 {len(t1_rows)} 行，均全列；T2 / T3 仅参与层级阈值计算，不发布"
     )
     lines.append(
         "> - **排名连续性**：未列出的行，排名均在本表末行之后；# 列为全量排名"
@@ -463,7 +456,7 @@ def render_band_doc(
     if str(scenario_meta.get("probability_preset") or "") == LEGS_ONLY_PRESET:
         levels = "/".join(str(level) for level in (scenario_meta.get("ammo_levels") or []))
         lines.append(
-            f"> - **弹药口径**：{levels} 级有价弹同榜，每行自带所配弹药与单发价；"
+            f"> - **弹药口径**：{levels} 级弹同榜，每行自带所配弹药与单发价（当日无行情显示 —）；"
             "穿深不影响腿部伤害，跨等级按 TTK 与击杀成本直接比较"
         )
     if thresholds:
@@ -518,16 +511,16 @@ def render_readme(
     lines.append("| :-- | :-- |")
     lines.append(f"| 排序键 | 距离带内平均实战 TTK（`{TTK_FORMULA}`） |")
     lines.append("| 不参与 | 开镜时间、换弹、命中率修正 |")
-    lines.append("| 起枪状态 | 每行 = 一个「起枪配置状态 × 一款有价弹」：本体裸枪、本体+官方预装件（官方变体出厂态）、"
-                 "束搜索枚举的改装状态（官方插槽规则 + 强制联动）；同口径同等级的多款有价弹各出一行，"
-                 "缺价弹（市场无价）不参与枚举；仅列出 TTK 有差异的状态，全部一起排名分层 |")
+    lines.append("| 起枪状态 | 每行 = 一个「起枪配置状态 × 一款当季弹」：本体裸枪、本体+官方预装件（官方变体出厂态）、"
+                 "束搜索枚举的改装状态（官方插槽规则 + 强制联动）；同口径同等级的多款当季弹各出一行，"
+                 "当日无行情者成本列显示 —（不因缺价删行）；仅列出 TTK 有差异的状态，全部一起排名分层 |")
     lines.append("| 预装收益 | 该距离带内**本体裸枪 → 本状态**的平均 TTK 缩短量与百分比（`—` 表示本体裸枪行） |")
     lines.append("| 起枪成本 | 裸枪价格 = 本体交易行当日价（变体/改装共用本体价）；"
                  "整枪+180 发备弹 = 裸枪价 + 核心配件价 + 180 × 该行所配弹药单发价（预估；白板裸枪配件价为 0） |")
     lines.append("| 距离场 | 0–80 m（官方排行口径），分 4 个距离带，每带独立成榜 |")
     lines.append(
-        f"| 分层 | 带内 TTK 分位数切分 T0–T3，阈值公开；文档 T0 全列、T1 列前 {T1_DISPLAY_LIMIT} 行"
-        "（其余见 `data/榜单/*.json`） |"
+        "| 分层 | 带内 TTK 分位数切分 T0–T3，阈值公开；**只发布 T0 / T1（全列）**，"
+        "T2 / T3 仅参与阈值计算 |"
     )
     lines.append(f"| 数据版本 | `{source.get('dataset_version', '未知')}`（{source.get('name', 'dfttk-v3')}） |")
     lines.append("")
@@ -566,7 +559,7 @@ def render_readme(
         lines.append("默认收录以下情景：5 个实战甲弹组合（口径：不含 3 级弹组合；"
                      "命中分布 `volume-aim` = 预瞄胸腹 + 二维高斯散布按正面轮廓积分），"
                      "以及 1 个 **修脚** 情景（命中分布 `legs-only`：全腿部命中；"
-                     "腿部位不经护甲结算，弹药 3/4/5 级有价弹同榜）。")
+                     "腿部位不经护甲结算，弹药 3/4/5 级弹同榜）。")
         lines.append("")
         lines.append("| 情景 | 护甲 | 弹药 | 命中分布 | 榜单 |")
         lines.append("| :-- | --: | --: | :-- | :-- |")

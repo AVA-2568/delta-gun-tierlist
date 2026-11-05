@@ -4,7 +4,8 @@
 
 - 命中分布 = 全腿部（大腿 50% / 小腿 50%）。腿部位在任何护甲等级下都不被覆盖，
   修脚结果**与护甲等级无关**（护甲仅名义存在，不进结算）；
-- 弹药候选 = **3/4/5 级有价弹同榜**（穿深不影响腿部伤害，只比肉伤与价格）；
+- 弹药候选 = **3/4/5 级当季弹同榜**（穿深不影响腿部伤害，只比肉伤与价格；
+  缺价弹照常成行，成本列显示 —）；
 - 候选等级集合由情景的 ``ammo_levels`` 声明（:func:`src.engine.engagement.scenario_ammo_levels`），
   官方情景仍为单等级——行为逐位不变。
 """
@@ -17,7 +18,7 @@ from src.engine import engagement as eg
 from src.engine.ammo_pricing import AmmoPriceTable
 from src.engine.engagement import BAND_NAMES
 from src.engine.game_data import load_game_data
-from src.engine.ranking import pick_priced_ammos, rank_weapons_for_scenario
+from src.engine.ranking import pick_candidate_ammos, rank_weapons_for_scenario
 from src.engine.weapon_state import WeaponStateResolver
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,6 +28,7 @@ SCENARIO = "legs-only"
 M855 = "37100300001"      # 5.56x45mm 3 级
 M855A1 = "37100400001"    # 5.56x45mm 4 级
 M995 = "37100500001"      # 5.56x45mm 5 级
+CINDER = "37100400003"    # 5.56x45mm 4 级（S12 燃烧弹，常无行情）
 
 
 @pytest.fixture(scope="module")
@@ -83,38 +85,38 @@ def test_legs_ttk_is_armor_independent(gd):
 # 3/4/5 同榜候选
 # --------------------------------------------------------------------------- #
 
-def test_pick_priced_ammos_multi_level_candidates(gd):
-    """候选集合 = 3/4/5 级有价弹并集（按 ammo_item_id 升序，跨级同榜）。"""
+def test_pick_candidate_ammos_multi_level_candidates(gd):
+    """候选集合 = 3/4/5 级当季弹并集（按 ammo_item_id 升序，跨级同榜）。"""
     table = AmmoPriceTable(prices={M855: 316, M855A1: 1521})
-    ammos = pick_priced_ammos(gd, M4A1, (3, 4, 5), table)
-    assert [a["ammo_item_id"] for a in ammos] == [M855, M855A1]
-    assert {a["penetration_level"] for a in ammos} == {3, 4}
+    ammos = pick_candidate_ammos(gd, M4A1, (3, 4, 5), table)
+    assert [a["ammo_item_id"] for a in ammos] == [M855, M855A1, CINDER, M995]
+    assert {a["penetration_level"] for a in ammos} == {3, 4, 5}
 
 
 def test_legs_rank_includes_all_levels(gd):
-    """修脚榜：3/4/5 级有价弹各成行、统一起排名分层。"""
+    """修脚榜：3/4/5 级当季弹各成行、统一起排名分层（缺价弹同样在榜）。"""
     table = AmmoPriceTable(prices={M855: 316, M855A1: 1521, M995: 4992})
     rankings, _thresholds, excluded = _run(gd, table)
     assert excluded == []
     base_rows = [r for r in rankings if r.entry_kind == "base"]
     by_id = {r.ammo_item_id: r for r in base_rows}
-    assert set(by_id) == {M855, M855A1, M995}
+    assert set(by_id) == {M855, M855A1, CINDER, M995}
     assert by_id[M855].ammo_price_daily == 316
     assert by_id[M995].ammo_name == "M995"
+    assert by_id[CINDER].ammo_price_daily is None
     for entry in rankings:
         for band in BAND_NAMES:
             assert entry.bands[band].rank > 0
             assert entry.bands[band].tier in {"T0", "T1", "T2", "T3"}
 
 
-def test_legs_all_unpriced_excludes_weapon(gd):
-    """3/4/5 全部缺价 → 该枪无行，进 excluded（与「口径无任一级弹药」同语义）。"""
+def test_legs_all_unpriced_keeps_weapon(gd):
+    """3/4/5 全部缺价 → 仍照常出榜（价格留空），不因缺价删枪。"""
     table = AmmoPriceTable(prices={"__unrelated__": 1})
     rankings, _thresholds, excluded = _run(gd, table)
-    assert rankings == []
-    assert len(excluded) == 1
-    assert excluded[0]["profile_key"] == M4A1
-    assert "缺价" in excluded[0]["reason"]
+    assert excluded == []
+    assert {r.ammo_item_id for r in rankings} == {M855, M855A1, CINDER, M995}
+    assert all(r.ammo_price_daily is None for r in rankings)
 
 
 def test_legs_no_price_table_falls_back_per_level(gd):

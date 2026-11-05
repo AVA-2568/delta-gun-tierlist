@@ -226,6 +226,10 @@ def normalize_ammo(
             }
         )
 
+    # ---- 口径回填 + 名字去重（放在合并之后：合并护栏按非身份键逐字段比对，
+    #      不能先改 caliber/name，否则会误判「上游改数值」而跳过合并）----
+    backfill_ammo_calibers(records)
+
     return records
 
 
@@ -644,6 +648,50 @@ def ammo_type_to_caliber_map(ammo_records: List[Dict[str, Any]]) -> Dict[str, st
         if record["caliber"] and type_id not in mapping:
             mapping[type_id] = record["caliber"]
     return mapping
+
+
+def _caliber_key(text: str) -> str:
+    """口径比较键：小写、``×``→``x``、去空白/连字符/单位 ``mm``。"""
+    return re.sub(r"mm|[\s\-]+", "", str(text or "").lower().replace("×", "x"))
+
+
+def strip_caliber_prefix(name: str, caliber: str) -> str:
+    """去掉展示名开头与口径重复的部分（``5.56×45 CINDER`` → ``CINDER``）。
+
+    S12 起上游新弹的 ``name`` 自带口径前缀（``.300 BLK TIV`` / ``5.56×45 CINDER``），
+    而老弹只有型号（``M62`` / ``LS``）。不剥掉会在榜单里渲染成
+    ``.300BLK .300 BLK TIV``，且与行情行名（``.300 BLK TIV``）的匹配键错位。
+    仅当名字开头的词元拼接后**恰好等于**口径时才剥；不相等则原名返回。
+    """
+    if not caliber or not name:
+        return name
+    target = _caliber_key(caliber)
+    tokens = str(name).split()
+    accumulated = ""
+    for index, token in enumerate(tokens):
+        accumulated += _caliber_key(token)
+        if accumulated == target:
+            rest = " ".join(tokens[index + 1:]).strip()
+            return rest or name
+        if not target.startswith(accumulated):
+            return name
+    return name
+
+
+def backfill_ammo_calibers(records: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """回填弹药缺失口径并剥离名字里重复的口径前缀（原地修改并返回）。
+
+    上游对部分新弹（S12 的 ``.300 BLK TIV``/``TTV``、``5.56×45 CINDER``、
+    ``5.45×39mm SPALL`` 等）只给弹药类型、不给 ``caliber`` 字段。弹药类型内口径
+    唯一（实测无一个类型跨口径），故按 :func:`ammo_type_to_caliber_map` 回填；
+    类型内全空（如 type28 箭矢）保持空串——上游 null 真相，不猜口径。
+    """
+    type_caliber = ammo_type_to_caliber_map(records)
+    for record in records:
+        if not record.get("caliber"):
+            record["caliber"] = type_caliber.get(str(record.get("ammo_type_id") or ""), "")
+        record["name"] = strip_caliber_prefix(record.get("name") or "", record.get("caliber") or "")
+    return records
 
 
 def _sol_damage_profile(combat_pack: Dict[str, Any]) -> Tuple[Optional[str], Optional[Dict[str, Any]]]:

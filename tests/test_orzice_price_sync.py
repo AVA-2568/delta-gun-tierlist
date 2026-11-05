@@ -233,7 +233,10 @@ def test_match_ammo_prices_on_fixtures():
         rows.extend(parse_rows(_fixture(name)))
     prices, notes = match_ammo_prices(rows, catalog, name_map)
 
-    assert len(prices) == 30  # 30 个条目名：.300BLK_3 仅对齐常驻 V-Max（V-SUB 作为 S8 限定排除），_5 对齐 5 级弹
+    # 31 个条目名：.300BLK_3 仅对齐常驻 V-Max（V-SUB 作为 S8 限定排除），_4 对齐 4 级弹，
+    # _5 对齐 5 级弹（含 S12 新弹 TTV）。口径回填前 TIV/TTV caliber 为空，
+    # `<口径>_N` 合并行匹配不到它们，新弹会静默丢价。
+    assert len(prices) == 31
     # 名称全等匹配（含 mm 归一化桥接）
     assert prices["37160400001"] == 1942  # 12.7x55mm PS12
     assert all(p > 0 for p in prices.values())  # 有正价才入价

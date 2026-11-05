@@ -78,11 +78,15 @@ def test_parse_rows_decodes_html_entities_then_alias_row_matches():
 # ---- 黄金集对齐结论 ----
 
 def test_golden_fixture_all_priced_rows_resolved():
-    """35 有价行全部对齐，覆盖 34 个有效 ammo_item_id（过往赛季限定弹如 S8 V-SUB/BCP-SUB 排除），零静默未匹配。"""
+    """35 有价行全部对齐，覆盖 36 个有效 ammo_item_id（过往赛季限定弹如 S8 V-SUB/BCP-SUB 排除），零静默未匹配。
+
+    36 而非 34：口径回填后 `<口径>_4/_5` 合并行也覆盖 S12 新弹 TIV/TTV
+    （此前 caliber 为空 → 合并行按口径分组匹配不到它们，新弹静默丢价）。
+    """
     payload, catalog, prices, notes = _match()
     priced_rows = [r for r in payload["rows"] if r["price"]]
     assert len(priced_rows) == 35
-    assert len(prices) == 34
+    assert len(prices) == 36
     # 唯一 note 为双源取 min 的箭型弹
     assert len(notes) == 1 and "37250300001" in notes
 

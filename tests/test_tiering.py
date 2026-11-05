@@ -154,10 +154,16 @@ def test_to_export_payload_shape(gd):
     assert payload["scenario_id"] == "armor-5-ammo-5-default"
     assert payload["ranking_key"] == "band_mean_ttk_ms"
     assert payload["robustness_key"] == "band_worst_ttk_ms"
-    assert payload["eligible_weapon_count"] == len(payload["weapons"])
+    # eligible 计全部参赛状态行（含未发布的 T2/T3）；落盘只含 T0/T1
+    assert payload["published_entry_count"] == len(payload["weapons"])
+    assert payload["eligible_weapon_count"] >= payload["published_entry_count"]
     assert payload["excluded_weapon_count"] == 0
     assert payload["weapon_pool_count"] == payload["eligible_weapon_count"]
     assert payload["ranked_entry_count"] == len(rankings)
+    assert all(
+        any(b["tier"] in ("T0", "T1") for b in w["bands"].values())
+        for w in payload["weapons"]
+    )
     assert "贴脸" in payload["tier_thresholds_ms"]
     weapon = payload["weapons"][0]
     for key in ("profile_key", "name", "loadout", "overall_mean_ms", "bands",

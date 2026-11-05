@@ -60,9 +60,11 @@ jobs:
       # TTK 榜单只在数据变化时重算（枪械/配件/弹药/护甲/情景表或引擎代码）：
       # --check-stale 校验输入指纹，新鲜（退出 0）时短路跳过束搜索重算；
       # 过期（退出 1，含首次上线的旧产物无指纹）时才全量重算并写入新指纹。
+      # 束宽必须用默认值（48）：CI 与本地跑同一份输入必须得到同一份行集，
+      # 低束宽会静默砍掉近半状态行（5-5 情景实测 8 → 272 行 / 48 → 502 行）。
       - name: Rebuild Tier List (skip if inputs unchanged)
         run: |
-          python -m src.pipeline --check-stale || python -m src.pipeline --beam-width 8
+          python -m src.pipeline --check-stale || python -m src.pipeline
 
       # 每日价格变化只需刷新榜单价格列（击杀成本 = 带内平均期望发数 × 弹药价、
       # 整枪全价 = 裸枪价 + 180 发弹药价 + 核心配件价）并重出文档，TTK 字段保持原值。

@@ -1,13 +1,13 @@
-"""弹维度展开测试：同枪多款有效弹各出一行；缺价弹与过期赛季限定弹不上榜。
+"""弹维度展开测试：同枪多款当季弹各出一行；行情缺失只空成本列。
 
-口径（2026-10-05 榜单改造）：
+口径（2026-11-05 修正）：
 
-- 候选弹 = 该口径该等级全部弹药中 ``price_daily`` 非 null（有价 = 玩家市场可得）
-  **且非过期赛季限定**（常驻恒有效；赛季限定仅当前赛季有效，见
-  ranking.CURRENT_SEASON 常量）；
-- 每款有效弹独立束搜索、独立出状态行（行自带弹药名 / 单发价 / 成本）；
-- 该等级全部弹无效 → 该枪排除（与「口径无该等级弹药」同语义）；
-- 价格表未配置（``None`` / 空表）→ 价格维度不激活，回退官方池单弹。
+- 候选弹 = 该口径该等级全部**当季可用弹**（常驻恒有效；赛季限定仅当前赛季有效，
+  见 ranking.CURRENT_SEASON 常量）；**行情不参与候选判定**——缺价（数据源未
+  维护/未上架）只让成本列显示 ``—``，不得让整行或整枪消失；
+- 每款弹独立束搜索、独立出状态行（行自带弹药名 / 单发价 / 成本）；
+- 该等级无任何弹药 → 该枪排除（与「口径无该等级弹药」同语义）；
+- 价格表未配置（``None`` / 空表）→ 弹维度不激活，回退官方池单弹。
 
 数据锚点：5.56x45mm 4 级 = M855A1（``37100400001``，常驻）+ M855A1 APC+
 （``37100400002``，S9 赛季限定——即使配价也被赛季过滤排除）；4.6x30mm 4 级 =
@@ -22,7 +22,7 @@ import pytest
 from src.engine.ammo_pricing import AmmoPriceTable, load_ammo_prices
 from src.engine.engagement import BAND_NAMES, ScenarioError
 from src.engine.game_data import load_game_data
-from src.engine.ranking import pick_priced_ammos, rank_weapons_for_scenario
+from src.engine.ranking import pick_candidate_ammos, rank_weapons_for_scenario
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -30,6 +30,7 @@ M4A1 = "18010000001:base"
 MP7 = "18020000010:base"
 M855A1 = "37100400001"
 M855A1_APC = "37100400002"
+CINDER = "37100400003"
 SCENARIO_44 = "armor-4-ammo-4-default"
 
 
@@ -55,25 +56,25 @@ def _run(gd, price_table, key=M4A1, scenario=SCENARIO_44, beam_width=8):
 
 
 # --------------------------------------------------------------------------- #
-# pick_priced_ammos：候选集口径
+# pick_candidate_ammos：候选集口径
 # --------------------------------------------------------------------------- #
 
-def test_pick_priced_ammos_filters_unpriced(gd):
-    """只保留 price_daily 非 null 的弹：APC+ 未配价 → 被过滤。"""
+def test_pick_candidate_ammos_keeps_unpriced(gd):
+    """缺价不参与候选判定：CINDER 未配价仍返回（成本列由调用方置 —）。"""
     table = AmmoPriceTable(prices={M855A1: 1641})
-    ammos = pick_priced_ammos(gd, M4A1, 4, table)
-    assert [a["ammo_item_id"] for a in ammos] == [M855A1]
+    ammos = pick_candidate_ammos(gd, M4A1, 4, table)
+    assert [a["ammo_item_id"] for a in ammos] == [M855A1, CINDER]
 
 
-def test_pick_priced_ammos_all_priced_sorted_by_item_id(gd):
+def test_pick_candidate_ammos_sorted_by_item_id(gd):
     """多款有效弹全部返回，按 ammo_item_id 升序（确定性枚举顺序）。"""
     _force_regular(gd, M855A1_APC)
     table = AmmoPriceTable(prices={M855A1_APC: 2000, M855A1: 1641})
-    ammos = pick_priced_ammos(gd, M4A1, 4, table)
-    assert [a["ammo_item_id"] for a in ammos] == [M855A1, M855A1_APC]
+    ammos = pick_candidate_ammos(gd, M4A1, 4, table)
+    assert [a["ammo_item_id"] for a in ammos] == [M855A1, M855A1_APC, CINDER]
 
 
-def test_pick_priced_ammos_filters_expired_season(gd):
+def test_pick_candidate_ammos_filters_expired_season(gd):
     """过期赛季限定弹即使配价也被过滤（当前 S12，S9 赛季限定子弹排除）。"""
     for record in gd.ammo:
         if record["ammo_item_id"] == M855A1_APC:
@@ -81,23 +82,23 @@ def test_pick_priced_ammos_filters_expired_season(gd):
             record["season_note"] = "S9赛季限定子弹"
             break
     table = AmmoPriceTable(prices={M855A1_APC: 2000, M855A1: 1641})
-    ammos = pick_priced_ammos(gd, M4A1, 4, table)
-    assert [a["ammo_item_id"] for a in ammos] == [M855A1]
+    ammos = pick_candidate_ammos(gd, M4A1, 4, table)
+    assert [a["ammo_item_id"] for a in ammos] == [M855A1, CINDER]
     # 恢复常驻模拟供后续多弹展开测试使用
     _force_regular(gd, M855A1_APC)
 
 
-def test_pick_priced_ammos_no_level_ammo_raises(gd):
+def test_pick_candidate_ammos_no_level_ammo_raises(gd):
     """口径无该等级弹药 → ScenarioError（与 pick_ammo 同语义）。"""
     table = AmmoPriceTable(prices={M855A1: 1641})
     with pytest.raises(ScenarioError):
-        pick_priced_ammos(gd, "18030000001:base", 5, table)  # M1014 12Ga 无 5 级弹
+        pick_candidate_ammos(gd, "18030000001:base", 5, table)  # M1014 12Ga 无 5 级弹
 
 
-def test_pick_priced_ammos_inactive_price_dimension_returns_empty(gd):
-    """价格表未配置（None / 空表）→ []：价格维度不激活，调用方回退官方池单弹。"""
-    assert pick_priced_ammos(gd, M4A1, 4, None) == []
-    assert pick_priced_ammos(gd, M4A1, 4, AmmoPriceTable()) == []
+def test_pick_candidate_ammos_inactive_price_dimension_returns_empty(gd):
+    """价格表未配置（None / 空表）→ []：弹维度不激活，调用方回退官方池单弹。"""
+    assert pick_candidate_ammos(gd, M4A1, 4, None) == []
+    assert pick_candidate_ammos(gd, M4A1, 4, AmmoPriceTable()) == []
 
 
 # --------------------------------------------------------------------------- #
@@ -105,19 +106,19 @@ def test_pick_priced_ammos_inactive_price_dimension_returns_empty(gd):
 # --------------------------------------------------------------------------- #
 
 def test_multi_ammo_expands_base_rows(gd):
-    """两款有价弹 → 本体两行，各带自己的弹药名与单价。"""
+    """每款当季弹一行：有价带单价，缺价单价为 None（成本列由渲染层显示 —）。"""
     _force_regular(gd, M855A1_APC)
     table = AmmoPriceTable(prices={M855A1: 1641, M855A1_APC: 2000})
     rankings, _thresholds, excluded = _run(gd, table)
     assert excluded == []
     base_rows = [r for r in rankings if r.entry_kind == "base"]
-    assert len(base_rows) == 2
     by_id = {r.ammo_item_id: r for r in base_rows}
-    assert set(by_id) == {M855A1, M855A1_APC}
+    assert set(by_id) == {M855A1, M855A1_APC, CINDER}
     assert by_id[M855A1].ammo_name == "M855A1"
     assert by_id[M855A1].ammo_price_daily == 1641
     assert by_id[M855A1_APC].ammo_name == "M855A1 APC+"
     assert by_id[M855A1_APC].ammo_price_daily == 2000
+    assert by_id[CINDER].ammo_price_daily is None
 
 
 def test_multi_ammo_expands_beam_states_per_ammo(gd):
@@ -139,15 +140,19 @@ def test_multi_ammo_expands_beam_states_per_ammo(gd):
 
 
 def test_multi_ammo_rows_carry_own_cost(gd):
-    """击杀成本 / 起枪预估价按该行所配弹药的单发价计。"""
+    """击杀成本按该行所配弹药的单发价计；缺价弹成本为 None。"""
     _force_regular(gd, M855A1_APC)
     table = AmmoPriceTable(prices={M855A1: 1000, M855A1_APC: 2000})
+    units = {M855A1: 1000, M855A1_APC: 2000, CINDER: None}
     rankings, _thresholds, _excluded = _run(gd, table, beam_width=8)
     for entry in rankings:
-        unit = 1000 if entry.ammo_item_id == M855A1 else 2000
+        unit = units[entry.ammo_item_id]
         for band in BAND_NAMES:
             stats = entry.bands[band]
-            assert stats.kill_cost == int(stats.mean_expected_shots * unit + 0.5)
+            if unit is None:
+                assert stats.kill_cost is None
+            else:
+                assert stats.kill_cost == int(stats.mean_expected_shots * unit + 0.5)
 
 
 def test_all_ammos_ranked_and_tiered_together(gd):
@@ -167,20 +172,23 @@ def test_all_ammos_ranked_and_tiered_together(gd):
 # 过滤与排除
 # --------------------------------------------------------------------------- #
 
-def test_real_price_table_apc_plus_unpriced_single_ammo(gd):
-    """真实价格表：APC+ 当前无价 → 4-4 情景 M4A1 全部行只用 M855A1，本体仅一行。
+def test_real_price_table_unpriced_ammo_still_ranked(gd):
+    """真实价格表：CINDER 当前无价 → 4-4 情景 M4A1 仍出该弹的行（成本留空）。
 
-    数据锚点断言：APC+ 在当前 ammo_prices.json 中缺价（价格表每日更新，
+    数据锚点断言：CINDER 在当前 ammo_prices.json 中缺价（价格表每日更新，
     若将来上架，本测试的前置断言会先失败提醒更换样例）。
     """
     table = load_ammo_prices(os.path.join(ROOT, "data", "reference", "ammo_prices.json"))
-    assert table.price_for(M855A1_APC) is None, "前提失效：APC+ 已有价，请更换无价弹样例"
+    assert table.price_for(CINDER) is None, "前提失效：CINDER 已有价，请更换无价弹样例"
     rankings, _thresholds, excluded = _run(gd, table)
     assert excluded == []
     base_rows = [r for r in rankings if r.entry_kind == "base"]
-    assert len(base_rows) == 1
-    assert base_rows[0].ammo_item_id == M855A1
-    assert {r.ammo_item_id for r in rankings} == {M855A1}
+    by_id = {r.ammo_item_id: r for r in base_rows}
+    assert {M855A1, CINDER} <= set(by_id)
+    assert by_id[M855A1].ammo_price_daily == table.price_for(M855A1)
+    assert by_id[CINDER].ammo_price_daily is None
+    assert all(r.bands[b].kill_cost is None for r in rankings
+               if r.ammo_item_id == CINDER for b in BAND_NAMES)
 
 
 def test_real_price_table_expired_s11_ammo_leaves_single_mp7_row(gd):
@@ -200,14 +208,15 @@ def test_real_price_table_expired_s11_ammo_leaves_single_mp7_row(gd):
     assert all(r.ammo_price_daily is not None for r in rankings)
 
 
-def test_all_unpriced_excludes_weapon(gd):
-    """该等级全部弹缺价 → 该枪无行，进 excluded（与口径无弹同语义）。"""
+def test_all_unpriced_keeps_weapon_with_blank_price(gd):
+    """该等级全部弹缺价 → 仍照常出榜，价格字段全为 None（不因缺价删枪）。"""
     table = AmmoPriceTable(prices={"__unrelated__": 1})
     rankings, _thresholds, excluded = _run(gd, table)
-    assert rankings == []
-    assert len(excluded) == 1
-    assert excluded[0]["profile_key"] == M4A1
-    assert "缺价" in excluded[0]["reason"]
+    assert excluded == []
+    assert rankings, "缺价不得让该枪从榜单消失"
+    assert {M855A1, CINDER} <= {r.ammo_item_id for r in rankings}
+    assert all(r.ammo_price_daily is None for r in rankings)
+    assert all(r.bands[b].kill_cost is None for r in rankings for b in BAND_NAMES)
 
 
 def test_no_price_table_falls_back_to_official_pool(gd):
@@ -221,32 +230,33 @@ def test_no_price_table_falls_back_to_official_pool(gd):
     assert all(r.bands[b].kill_cost is None for r in rankings for b in BAND_NAMES)
 
 
-def test_single_priced_non_official_ammo_scores_beam_with_it(gd):
-    """唯一有价弹 ≠ 官方池弹：束搜索打分以该弹为准（行弹与打分弹一致）。
+def test_priced_non_official_ammo_scores_beam_with_it(gd):
+    """束搜索打分以「本款弹」为准：每款弹的状态行都围绕自己那款弹展开。
 
-    5.56 4 级官方池弹 = ammo_item_id 最小的 M855A1；只给 APC+ 配价时，
-    枚举与全部行都必须围绕 APC+ 展开。
+    5.56 4 级官方池弹 = ammo_item_id 最小的 M855A1；给 APC+ 配价后，
+    APC+ 的行必须存在且自带 APC+ 单价，其余弹行价格为 None。
     """
+    _force_regular(gd, M855A1_APC)
     table = AmmoPriceTable(prices={M855A1_APC: 2000})
     rankings, _thresholds, excluded = _run(gd, table)
     assert excluded == []
-    assert rankings, "APC+ 有价 → 应成行"
-    assert {r.ammo_item_id for r in rankings} == {M855A1_APC}
-    base_rows = [r for r in rankings if r.entry_kind == "base"]
-    assert len(base_rows) == 1
-    assert base_rows[0].ammo_name == "M855A1 APC+"
+    assert {r.ammo_item_id for r in rankings} == {M855A1, M855A1_APC, CINDER}
+    by_id = {r.ammo_item_id: r for r in rankings if r.entry_kind == "base"}
+    assert by_id[M855A1_APC].ammo_name == "M855A1 APC+"
+    assert by_id[M855A1_APC].ammo_price_daily == 2000
+    assert by_id[M855A1].ammo_price_daily is None
 
 
 def test_real_price_table_excludes_bcp_sub_even_if_priced(gd):
     """S8 赛季限定弹 BCP-SUB（37280400002）即使在价格表中有价，也被赛季过滤排除。
 
-    K437（.300BLK 4级）只能选用常驻弹 BCP-FMJ（37280400001）。
+    K437（.300BLK 4级）只保留当季弹：BCP-FMJ（常驻）与 TIV（S12 叠层引爆）。
     """
     table = AmmoPriceTable(prices={"37280400001": 1897, "37280400002": 2500})
     rankings, _thresholds, excluded = _run(gd, table, key="18010000040:base", beam_width=8)
     assert excluded == []
     ammo_ids = {r.ammo_item_id for r in rankings}
     assert "37280400002" not in ammo_ids
-    assert "37280400001" in ammo_ids
-    assert all(r.ammo_name == "BCP-FMJ" for r in rankings)
+    assert {"37280400001", "37280400003"} <= ammo_ids
+    assert {r.ammo_name for r in rankings} == {"BCP-FMJ", "TIV"}
 

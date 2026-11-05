@@ -47,7 +47,9 @@ def test_pipeline_returns_payload_for_requested_scenario(result):
 def test_pipeline_payload_is_self_contained(result):
     payload = result["payloads"][DEFAULT_SCENARIOS[0]]
     assert payload["scenario_id"] == DEFAULT_SCENARIOS[0]
-    assert payload["eligible_weapon_count"] == len(payload["weapons"])
+    # eligible 计全部参赛状态行（含未发布的 T2/T3）；落盘只含 T0/T1
+    assert payload["published_entry_count"] == len(payload["weapons"])
+    assert payload["eligible_weapon_count"] >= payload["published_entry_count"]
     assert payload["weapon_pool_count"] == payload["eligible_weapon_count"] + payload["excluded_weapon_count"]
     # 起枪状态口径：每把枪可展开多个 TTK 状态行，状态行数 >= 处理枪数
     assert payload["weapon_pool_count"] >= result["weapon_count"]  # 与本次处理的池一致

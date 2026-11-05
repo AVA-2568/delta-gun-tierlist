@@ -44,24 +44,27 @@ def _levels_text(levels: Sequence[int]) -> str:
     return "/".join(str(level) for level in levels)
 
 
-def pick_priced_ammos(
+def pick_candidate_ammos(
     game_data: Any,
     profile_key: str,
     ammo_levels: Any,
     price_table: Optional["AmmoPriceTable"],
 ) -> List[Dict[str, Any]]:
-    """该口径**候选等级集合**内全部有价弹（市场可得），按 ``ammo_item_id`` 升序。
+    """该口径**候选等级集合**内全部当季可用弹，按 ``ammo_item_id`` 升序。
 
     弹维度展开的候选集口径：
 
     - ``ammo_levels`` 为单等级（int）或多等级集合：官方情景为单等级，取该等级；
       多等级情景（如修脚，3/4/5 同榜）取集合内全部等级——同口径同款弹只出现一次；
-    - 有价（``price_daily`` 非 null）= 玩家市场可得 = 有效候选。缺价弹不参与
-      枚举、不上榜——其数据仍保留在 ``data/tables/ammo.json``（语义：数据有效
-      但市场暂不可得，赛季更新人工改表）；
+    - **价格不参与候选判定**：行情缺失（``price_daily`` 为 null，数据源未维护/
+      尚未上架）只让该行的成本列显示 ``—``，不得让整行或整枪消失。行情是展示层
+      信息，TTK 才是榜单口径；行情表每日刷新，若由它决定行存在与否，榜单会随
+      上下架抖动、重算前后判若两榜；
+    - 赛季限定仍参与过滤：常驻弹恒有效，赛季限定弹仅当前赛季有效
+      （:func:`_ammo_in_season`）；
     - 口径在集合内无任一级弹药 → :class:`src.engine.engagement.ScenarioError`
       （与 :func:`src.engine.engagement.pick_ammo` 同语义，调用方排除该枪）；
-    - 价格表未配置（``None`` 或空表）→ 返回 ``[]``：价格维度未激活，调用方
+    - 价格表未配置（``None`` 或空表）→ 返回 ``[]``：弹维度未激活，调用方
       回退官方池单弹，榜单保持可用（成本列显示 ``—``）。
     """
     if isinstance(ammo_levels, int):
@@ -80,12 +83,7 @@ def pick_priced_ammos(
     if price_table is None or price_table.is_empty:
         return []
     return sorted(
-        (
-            record
-            for record in candidates
-            if price_table.price_for(str(record["ammo_item_id"])) is not None
-            and _ammo_in_season(record)
-        ),
+        (record for record in candidates if _ammo_in_season(record)),
         key=lambda record: str(record["ammo_item_id"]),
     )
 
@@ -100,7 +98,7 @@ def rank_weapons_for_scenario(
     weapon_price_table: Optional["WeaponPriceTable"] = None,
     part_price_table: Optional["PartPriceTable"] = None,
 ) -> tuple:
-    """起枪状态口径榜单：每行 = 一个「起枪配置状态 × 一款有价弹」的 TTK，聚合距离带并分层。
+    """起枪状态口径榜单：每行 = 一个「起枪配置状态 × 一款当季弹」的 TTK，聚合距离带并分层。
 
     条目构成（同一把枪会产生多个状态行）：
 
@@ -115,17 +113,15 @@ def rank_weapons_for_scenario(
 
     **弹维度展开**：价格表激活（传入非空 ``price_table``）时，该枪在情景弹药
     **候选等级集合**下（官方情景为单等级；多等级情景如修脚为 3/4/5 同榜）的候选弹
-    = 该口径集合内全部弹药中**当日有价**（``price_daily`` 非 null，有价 = 玩家
-    市场可得）的每一款（:func:`pick_priced_ammos`）——每款弹独立束搜索、独立出
-    状态行，行自带该弹的名称 / 单发价 / 击杀成本。同枪不同弹排名不同是预期行为；
-    集合内全部弹缺价 → 该枪该情景无行（排除，与「口径无任一级弹药」同语义）。
-    价格表未配置（``None`` 或空表）时价格维度不激活，回退官方池单弹
-    （:func:`src.engine.engagement.pick_ammo`，每候选等级取 ``ammo_item_id``
+    = 该口径集合内**全部当季可用弹**的每一款（:func:`pick_candidate_ammos`）——每款
+    弹独立束搜索、独立出状态行，行自带该弹的名称 / 单发价 / 击杀成本。行情缺失
+    （``price_daily`` 为 null）**不影响成行**，只是该行成本列渲染为 ``—``；同枪不同弹
+    排名不同是预期行为。价格表未配置（``None`` 或空表）时弹维度不激活，回退官方池
+    单弹（:func:`src.engine.engagement.pick_ammo`，每候选等级取 ``ammo_item_id``
     最小者）；官方情景即原「单弹」口径，逐位不变。
 
-    **每日轻量刷新语义**：某弹从有价变缺价（下架）→ 已算出的行保留，成本列经
-    每日刷新变为 ``—``；从缺价变有价（重新上架）→ 该弹的行要等下次全量重算
-    才出现（上次枚举时无价，未曾成行）。
+    **每日轻量刷新语义**：行情只改价格列（成本/整枪价），不增删行——某弹当日无价
+    → 成本列变为 ``—``；次日恢复报价 → 成本列恢复，行与 TTK 全程不动。
 
     **口径弹药不可用的武器会被排除**（与官方榜一致：某些口径没有该等级弹药，
     例如 9x19mm 无 5 级弹）。官方对应输出为 ``eligibleWeaponCount`` / ``excludedWeaponCount``。
@@ -263,17 +259,13 @@ def rank_weapons_for_scenario(
             else None
         )
 
-        # ---- 情景弹药枚举：价格维度激活 → 候选等级全部有价弹逐款成行；
+        # ---- 情景弹药枚举：价格表激活 → 候选等级全部当季弹逐款成行（缺价只空成本列）；
         #      未激活 → 各候选等级官方池单弹 ----
         levels = eg.scenario_ammo_levels(solver.scenario)
         price_dimension_active = price_table is not None and not price_table.is_empty
         try:
             if price_dimension_active:
-                ammos = pick_priced_ammos(game_data, base_key, levels, price_table)
-                if not ammos:
-                    raise eg.ScenarioError(
-                        f"{base_key} 的 {_levels_text(levels)} 级弹药在市场全部缺价（不上榜）"
-                    )
+                ammos = pick_candidate_ammos(game_data, base_key, levels, price_table)
             else:
                 ammos = []
                 seen_ids: set = set()

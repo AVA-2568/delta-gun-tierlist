@@ -5,7 +5,6 @@ import re
 import pytest
 
 from src.renderers.ttk_report import (
-    T1_DISPLAY_LIMIT,
     TTK_FORMULA,
     band_doc_name,
     band_doc_ref,
@@ -118,36 +117,26 @@ def _make_band_payload(t0_count: int, t1_count: int) -> dict:
     return {**PAYLOAD, "weapons": weapons}
 
 
-def test_band_doc_lists_all_t0_and_caps_t1():
-    """ADR-0002：T0 全列，T1 只列前 100 行；页头写明真实行数与截断；排名连续。"""
+def test_band_doc_lists_all_t0_and_t1():
+    """ADR-0010：只发布 T0 / T1，两者全列；页头写明真实行数；排名连续。"""
     payload = _make_band_payload(3, 150)
     md = render_band_doc(payload, "贴脸", SCENARIO_META, PART_NAMES)
 
     data_rows = [line for line in md.splitlines() if re.match(r"^\| \d+ \|", line)]
-    assert len(data_rows) == 3 + T1_DISPLAY_LIMIT
+    assert len(data_rows) == 3 + 150
 
     ranks = [int(line.split("|")[1]) for line in data_rows]
-    assert ranks == list(range(1, 104))  # 展示行排名连续，无跳号
+    assert ranks == list(range(1, 154))  # 展示行排名连续，无跳号
 
     for index in (1, 2, 3):
         assert f"| T0武器{index} |" in md
-    assert "| T1武器103 |" in md       # 第 100 行 T1（全量排名 103）
-    assert "| T1武器104 |" not in md   # 第 101 行 T1 起不展示
+    assert "| T1武器153 |" in md
 
-    assert "T0 共 3 行（全列）" in md
-    assert "T1 共 150 行（列前 100 行）" in md
+    assert "只发布 T0 / T1" in md
+    assert "T0 共 3 行、T1 共 150 行，均全列" in md
+    assert "T2 / T3 仅参与层级阈值计算，不发布" in md
     assert "未列出的行，排名均在本表末行之后" in md
     assert "空号" not in md
-
-
-def test_band_doc_lists_all_t1_when_within_limit():
-    """T1 不足展示预算时全列，页头标注「全列」。"""
-    payload = _make_band_payload(2, 83)
-    md = render_band_doc(payload, "贴脸", SCENARIO_META, PART_NAMES)
-    assert "T0 共 2 行（全列）" in md
-    assert "T1 共 83 行（全列）" in md
-    data_rows = [line for line in md.splitlines() if re.match(r"^\| \d+ \|", line)]
-    assert len(data_rows) == 85
 
 
 PAYLOAD_WITH_T2 = {
@@ -202,8 +191,7 @@ def test_band_doc_excludes_t2_rows_and_states_scope():
     md = render_band_doc(PAYLOAD_WITH_T2, "贴脸", SCENARIO_META, PART_NAMES)
     assert "T2垫底枪" not in md
     assert "T1次优枪" in md
-    assert "T0 共 1 行（全列）" in md
-    assert "T1 共 1 行（全列）" in md
+    assert "T0 共 1 行、T1 共 1 行，均全列" in md
 
 
 def test_empty_tier_row_is_filtered():
@@ -256,8 +244,8 @@ def test_readme_and_band_doc_state_canonical_ttk_formula():
         assert "不含弹丸飞行时间" not in md
         assert "距离 / 原始初速" in md
     assert "| 不参与 | 开镜时间、换弹、命中率修正 |" in readme
-    assert f"T1 列前 {T1_DISPLAY_LIMIT} 行" in readme
-    assert "只列 T0 / T1" not in readme
+    assert "只发布 T0 / T1（全列）" in readme
+    assert "T2 / T3 仅参与阈值计算" in readme
     assert "--all" not in readme
 
 
@@ -323,7 +311,7 @@ def test_scenario_caption_legs_only():
     caption = scenario_caption(LEGS_META)
     assert caption.startswith("修脚（")
     assert "全腿部命中，大腿 50% / 小腿 50%" in caption
-    assert "弹药 3/4/5 级有价弹同榜" in caption
+    assert "弹药 3/4/5 级弹同榜" in caption
     assert "不经护甲结算" in caption
 
 

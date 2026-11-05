@@ -17,6 +17,20 @@ if TYPE_CHECKING:  # pragma: no cover - 仅类型标注
     from src.engine.part_pricing import PartPriceTable
     from src.engine.weapon_pricing import WeaponPriceTable
 
+#: 对外发布层级：只发布 T0 / T1；T2 / T3 仍参与分位阈值计算，但不落盘、不渲染。
+#: 口径见 ADR-0010（取代 ADR-0002 的「T1 前 100 行」截断规则）。
+PUBLISHED_TIERS: tuple = ("T0", "T1")
+
+
+def is_published_entry(entry: GunRanking) -> bool:
+    """条目是否进对外榜单：任一带层级属于 :data:`PUBLISHED_TIERS` 即发布。
+
+    按「任一带」而非「全部带」判定：一把枪可能贴脸 T0、远距 T2，
+    只要它在某个距离带进了 T0/T1，就必须出现在该带的榜单里。
+    """
+    return any(band.tier in PUBLISHED_TIERS for band in entry.bands.values())
+
+
 
 def to_export(
     rankings: List[GunRanking],
@@ -27,9 +41,14 @@ def to_export(
     weapon_price_table: Optional["WeaponPriceTable"] = None,
     part_price_table: Optional["PartPriceTable"] = None,
 ) -> Dict[str, Any]:
-    """序列化为可写入 JSON 的结构（渲染层直接消费，禁止二次计算）。"""
+    """序列化为可写入 JSON 的结构（渲染层直接消费，禁止二次计算）。
+
+    只序列化 T0/T1 条目（:data:`PUBLISHED_TIERS`）：T2/T3 仍参与分层阈值计算，
+    但不进对外榜单（JSON 与文档一致，见 ADR-0010）。
+    """
+    published = [entry for entry in rankings if is_published_entry(entry)]
     payload_rankings: List[Dict[str, Any]] = []
-    for entry in rankings:
+    for entry in published:
         payload_rankings.append(
             {
                 "profile_key": entry.profile_key,
@@ -75,6 +94,9 @@ def to_export(
                         "kill_cost": b.kill_cost,
                     }
                     for name, b in entry.bands.items()
+                    # 只发布 T0/T1 带：跨带差异不改变「只发 T0/T1」的口径，
+                    # 某把枪在远距是 T3，就不该把这条 T3 记录写进发布物
+                    if b.tier in PUBLISHED_TIERS
                 },
             }
         )
@@ -122,6 +144,8 @@ def to_export(
         "eligible_weapon_count": eligible,
         "excluded_weapon_count": excluded_count,
         "ranked_entry_count": len(rankings),
+        "published_entry_count": len(published),
+        "published_tiers": list(PUBLISHED_TIERS),
         "excluded_weapons": [dict(item) for item in (excluded or [])],
         "tier_thresholds_ms": {
             band: {tier: round(value, 2) for tier, value in per.items()}
