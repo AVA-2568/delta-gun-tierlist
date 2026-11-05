@@ -22,6 +22,47 @@ if TYPE_CHECKING:  # pragma: no cover - 仅类型标注
 PUBLISHED_TIERS: tuple = ("T0", "T1")
 
 
+def _config_rows(rankings: List[GunRanking]) -> Dict[str, List[Dict[str, Any]]]:
+    """按 weapon_id 聚合全部配置行（含未发布的 T2/T3 与非最优配置）。
+
+    只保留配置明细页需要的字段：配置本身、弹药、射击参数与各带 TTK，
+    不带价格与订单信息（价格随情景刷新，明细页不展示成本）。
+    """
+    by_weapon: Dict[str, List[Dict[str, Any]]] = {}
+    for entry in rankings:
+        by_weapon.setdefault(entry.weapon_id, []).append(
+            {
+                "profile_key": entry.profile_key,
+                "name": entry.base_name,
+                "loadout": dict(entry.loadout),
+                "entry_kind": entry.entry_kind,
+                "ammo": entry.ammo_name,
+                "ammo_item_id": entry.ammo_item_id,
+                "rpm": round(entry.rpm, 1),
+                "muzzle_velocity_mps": round(entry.muzzle_velocity_mps, 1),
+                "effective_range_m": round(entry.effective_range_m, 1),
+                "bands": {
+                    band: {
+                        "mean_ms": round(result.mean_ms, 1),
+                        "worst_ms": round(result.worst_ms, 1),
+                        "tier": result.tier,
+                        "is_best": result.is_best,
+                    }
+                    for band, result in entry.bands.items()
+                },
+            }
+        )
+    for rows in by_weapon.values():
+        rows.sort(
+            key=lambda row: (
+                sum(b["mean_ms"] for b in row["bands"].values()) / len(row["bands"])
+                if row["bands"]
+                else float("inf")
+            )
+        )
+    return by_weapon
+
+
 def is_published_entry(entry: GunRanking) -> bool:
     """条目是否进对外榜单：任一带是该枪最优配置且层级属于 T0/T1 即发布。
 
@@ -156,4 +197,7 @@ def to_export(
             for name in BAND_NAMES
         },
         "weapons": payload_rankings,
+        # 每把枪的全部起枪配置（不限 T0/T1、不限带内最优）：供「武器配置明细页」渲染，
+        # 榜单表每带每枪只展示 is_best 一行，完整配置在这里可查。
+        "configs": _config_rows(rankings),
     }

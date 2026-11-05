@@ -15,6 +15,7 @@ from src.renderers.ttk_report import (
     render_band_top_preview,
     render_gunsmith_guide,
     render_readme,
+    render_weapon_doc,
     scenario_caption,
     scenario_doc_stem,
 )
@@ -37,6 +38,7 @@ PAYLOAD = {
     "weapons": [
         {
             "profile_key": "18010000001:base",
+            "weapon_id": "18010000001",
             "name": "M4A1",
             "loadout": {"2": "13020000173"},
             "expected_shots_0m": 5.8348,
@@ -49,6 +51,7 @@ PAYLOAD = {
         },
         {
             "profile_key": "18010000006:base",
+            "weapon_id": "18010000006",
             "name": "AKM",
             "loadout": {},
             "expected_shots_0m": 4.67,
@@ -84,8 +87,8 @@ def test_band_table_sorted_by_rank_and_complete():
     assert lines[0].startswith("| # | 层级 | 武器 |")
     # 表头 + 分隔 + 2 行数据
     assert len(lines) == 4
-    assert lines[2].startswith("| 1 | **T0** | M4A1 |")
-    assert lines[3].startswith("| 2 | T1 | AKM |")
+    assert lines[2].startswith("| 1 | **T0** | [M4A1](../武器/18010000001.md) |")
+    assert lines[3].startswith("| 2 | T1 | [AKM](../武器/18010000006.md) |")
     assert lines[3].endswith("官方默认 |")
 
 
@@ -176,7 +179,7 @@ def test_band_table_only_lists_t0_t1_and_keeps_full_rank_numbers():
     """榜单文档只列 T0/T1：T2 行不出现；# 列保持全量排名序号（排名连续）。"""
     table = render_band_table(PAYLOAD_WITH_T2, "贴脸", PART_NAMES)
     assert "T2垫底枪" not in table  # T2 行被过滤
-    assert "| 1 | **T0** | M4A1 |" in table
+    assert "| 1 | **T0** | [M4A1](../武器/18010000001.md) |" in table
     assert "| 3 | T1 | T1次优枪 |" in table  # 序号保持全量排名，不按显示行重编
 
 
@@ -344,7 +347,7 @@ def test_band_top_preview_limits_rows():
     lines = table.splitlines()
     assert lines[0] == "| # | 层级 | 武器 | 平均 TTK | 击杀成本 | 裸枪价格 | 整枪+180 发备弹 | 起枪配置 |"
     assert len(lines) == 3
-    assert lines[2].startswith("| 1 | **T0** | M4A1 |")
+    assert lines[2].startswith("| 1 | **T0** | [M4A1](docs/武器/18010000001.md) |")
 
 
 def test_band_doc_renders_full_list_and_nav():
@@ -354,7 +357,7 @@ def test_band_doc_renders_full_list_and_nav():
     assert "T0 ≤ 320.0 ms" in md
     # 完整榜（非速览）表格
     assert "| 最差 TTK |" in md
-    assert "| 2 | T1 | AKM |" in md
+    assert "[AKM](../武器/18010000006.md)" in md
     # 导航：其余三带可点，当前带加粗不可自链
     assert "**贴脸**" in md
     assert "[贴脸](主榜-贴脸.md)" not in md
@@ -575,3 +578,50 @@ def test_readme_notes_weapon_price_source_and_cost_rule():
     assert "| 起枪成本 |" in md
     assert "整枪+180 发备弹" in md
     assert "回答三个问题" in md
+
+
+def test_weapon_doc_lists_all_configs_and_marks_band_best():
+    """武器明细页：展开全部配置，★ 标记该枪带内最优，裸枪显示「官方默认」。"""
+    payload = {
+        **PAYLOAD,
+        "configs": {
+            "18010000001": [
+                {
+                    "profile_key": "18010000001:base",
+                    "name": "M4A1",
+                    "loadout": {},
+                    "entry_kind": "base",
+                    "ammo": "M855A1",
+                    "rpm": 800.0,
+                    "effective_range_m": 40.0,
+                    "bands": {
+                        "贴脸": {"mean_ms": 400.0, "worst_ms": 410.0, "tier": "T1", "is_best": False},
+                    },
+                },
+                {
+                    "profile_key": "18010000001:base",
+                    "name": "M4A1",
+                    "loadout": {"2": "13020000173"},
+                    "entry_kind": "state",
+                    "ammo": "M855A1",
+                    "rpm": 800.0,
+                    "effective_range_m": 52.0,
+                    "bands": {
+                        "贴脸": {"mean_ms": 362.6, "worst_ms": 362.6, "tier": "T0", "is_best": True},
+                    },
+                },
+            ]
+        },
+    }
+    doc = render_weapon_doc(
+        "18010000001",
+        "M4A1",
+        {"armor-5-ammo-5-default": payload},
+        {"armor-5-ammo-5-default": SCENARIO_META},
+        PART_NAMES,
+    )
+    assert "M4A1 · 配置明细" in doc
+    assert "官方默认" in doc                 # 裸枪行
+    assert "AR特勤一体消音组合" in doc        # 改装行
+    assert "362.6 ★" in doc                  # 带内最优标记
+    assert "400.0" in doc                    # 非最优配置同样列出

@@ -50,12 +50,15 @@ from src.engine.tiering import (
 from src.engine.weapon_pricing import load_weapon_prices
 from src.renderers.ttk_report import (
     BAND_ORDER,
+    WEAPON_DOC_DIR,
     band_doc_name,
     main_band_doc_prefix,
     render_band_doc,
     render_gunsmith_guide,
     render_readme,
+    render_weapon_doc,
     scenario_doc_stem,
+    weapon_doc_filename,
 )
 
 logger = logging.getLogger(__name__)
@@ -300,6 +303,25 @@ def _render_outputs(
             band_path = os.path.join(docs_dir, band_doc_name(prefix, band))
             Path(band_path).write_text(render_band_doc(payload, band, meta, part_names, prefix=prefix), encoding="utf-8", newline="\n")
             files_written.append(band_path)
+
+    # 武器配置明细页：每把枪一份，展开全部配置（榜单每带只展示最优一行）
+    weapon_names: Dict[str, str] = {}
+    for payload in payloads.values():
+        for weapon_id, rows in (payload.get("configs") or {}).items():
+            if rows:
+                weapon_names.setdefault(str(weapon_id), str(rows[0].get("name") or weapon_id))
+    # 全部情景齐全时才写明细页：单情景/limit 调试只算部分枪，覆盖会写出残缺页
+    if weapon_names and set(payloads) == set(DEFAULT_SCENARIOS):
+        weapon_dir = os.path.join(output_dir, WEAPON_DOC_DIR)
+        os.makedirs(weapon_dir, exist_ok=True)
+        for weapon_id, weapon_name in sorted(weapon_names.items()):
+            weapon_path = os.path.join(weapon_dir, weapon_doc_filename(weapon_id))
+            Path(weapon_path).write_text(
+                render_weapon_doc(weapon_id, weapon_name, payloads, scenario_meta_all, part_names),
+                encoding="utf-8",
+                newline="\n",
+            )
+            files_written.append(weapon_path)
 
     main_payload = payloads.get(MAIN_SCENARIO)
     if main_payload is not None:

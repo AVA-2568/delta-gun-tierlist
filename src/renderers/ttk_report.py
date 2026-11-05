@@ -300,10 +300,20 @@ def _display_rows(
 
 
 def _weapon_display_text(
-    weapon: Mapping[str, Any], part_names: Mapping[str, str]
+    weapon: Mapping[str, Any],
+    part_names: Mapping[str, str],
+    doc_prefix: Optional[str] = None,
 ) -> tuple[str, str]:
-    """「武器」与「起枪配置」两列文案：武器名 + 配装清单。"""
-    return weapon["name"], loadout_text(weapon.get("loadout") or {}, part_names)
+    """「武器」与「起枪配置」两列文案：武器名（可链接到配置明细页）+ 配装清单。
+
+    ``doc_prefix`` 为明细页相对于当前文档的路径前缀：距离榜在 ``docs/榜单/``
+    用 ``../武器/``，README 在仓库根用 ``docs/武器/``。
+    """
+    name = str(weapon["name"])
+    weapon_id = str(weapon.get("weapon_id") or "")
+    if doc_prefix and weapon_id:
+        name = f"[{name}]({doc_prefix}{weapon_doc_filename(weapon_id)})"
+    return name, loadout_text(weapon.get("loadout") or {}, part_names)
 
 
 def _band_table_text(
@@ -325,7 +335,7 @@ def _band_table_text(
     ]
     for w in rows:
         band_data = w["bands"][band]
-        name, loadout = _weapon_display_text(w, part_names)
+        name, loadout = _weapon_display_text(w, part_names, doc_prefix="../武器/")
         loadout += loadout_effect_text(w.get("loadout_effects") or [])
         ammo = w.get("ammo") or {}
         stock_mean = ((w.get("stock_bands") or {}).get(band) or {}).get("mean_ms")
@@ -361,6 +371,73 @@ def render_band_table(
     return _band_table_text(payload, t0_rows + t1_rows, band, part_names)
 
 
+#: 武器配置明细页目录（相对仓库根）与文件名规则
+WEAPON_DOC_DIR = "docs/武器"
+
+
+def weapon_doc_filename(weapon_id: str) -> str:
+    """武器明细页文件名：用 weapon_id 保证稳定、避免中文名重名。"""
+    return f"{weapon_id}.md"
+
+
+def _band_cell(band_data: Optional[Mapping[str, Any]]) -> str:
+    """明细页单元格：平均 TTK，``★`` 标记该枪在本带的最优配置；无数据渲染 ``—``。"""
+    if not band_data:
+        return "—"
+    value = _fmt(band_data.get("mean_ms"), 1)
+    return f"{value} ★" if band_data.get("is_best") else value
+
+
+def render_weapon_doc(
+    weapon_id: str,
+    weapon_name: str,
+    payloads: Mapping[str, Mapping[str, Any]],
+    scenario_meta: Mapping[str, Mapping[str, Any]],
+    part_names: Mapping[str, str],
+) -> str:
+    """渲染单把枪的配置明细页：全部起枪配置 × 每款弹 × 各距离带 TTK。
+
+    数据取自各情景 payload 的 ``configs``（含未进 T0/T1、非带内最优的配置），
+    按情景内平均 TTK 升序；榜单表只展示带内最优一行，本页是完整展开。
+    """
+    lines = [
+        f"# {weapon_name} · 配置明细",
+        "",
+        "> 该枪**全部起枪配置 × 当期弹**在各距离带的平均实战 TTK（毫秒）；``★`` 为该枪在本带的最优配置（即榜单展示的那一行）。",
+        "> 本页列出全部配置（含未进 T0/T1 的），按情景内平均 TTK 升序。",
+        "",
+        "[← 返回榜单](../README.md)",
+        "",
+    ]
+    for sid, payload in payloads.items():
+        rows = (payload.get("configs") or {}).get(weapon_id) or []
+        if not rows:
+            continue
+        meta = scenario_meta.get(sid) or {}
+        lines.append(f"## {scenario_doc_stem(meta) if meta else sid}")
+        lines.append("")
+        lines.append("| # | 配置 | 弹药 | 射速 | 优势射程 | 贴脸 | 近距 | 中距 | 远距 |")
+        lines.append("| --: | :-- | :-- | --: | --: | --: | --: | --: | --: |")
+        for index, row in enumerate(rows, start=1):
+            config = loadout_text(row.get("loadout") or {}, part_names)
+            bands = row.get("bands") or {}
+            lines.append(
+                "| {n} | {cfg} | {ammo} | {rpm} | {rng} | {b0} | {b1} | {b2} | {b3} |".format(
+                    n=index,
+                    cfg=config,
+                    ammo=str(row.get("ammo") or "—"),
+                    rpm=_fmt(row.get("rpm"), 0),
+                    rng=_fmt(row.get("effective_range_m"), 1, " m"),
+                    b0=_band_cell(bands.get("贴脸")),
+                    b1=_band_cell(bands.get("近距")),
+                    b2=_band_cell(bands.get("中距")),
+                    b3=_band_cell(bands.get("远距")),
+                )
+            )
+        lines.append("")
+    return "\n".join(lines).rstrip() + "\n"
+
+
 def render_band_top_preview(
     payload: Mapping[str, Any],
     band: str,
@@ -386,7 +463,7 @@ def render_band_top_preview(
     ]
     for w in rows:
         band_data = w["bands"][band]
-        name, loadout = _weapon_display_text(w, part_names)
+        name, loadout = _weapon_display_text(w, part_names, doc_prefix="docs/武器/")
         lines.append(
             "| {rank} | {tier} | {name} | {mean} | {cost} | {gun} | {full} | {loadout} |".format(
                 rank=band_data["rank"],
@@ -530,7 +607,7 @@ def render_readme(
         f"命中分布 `{scenario_meta.get('probability_preset')}`"
         f"（{_volume_aim_detail(scenario_meta.get('hit_probabilities'))}）；"
         f"每带速览只取 T0 / T1 合并后的前 5 名，"
-        f"完整排名（每枪一行的最优配置 × 改装收益 × 最差 TTK）见各距离榜。"
+        f"完整排名（每枪一行的最优配置 × 改装收益 × 最差 TTK）见各距离榜；点击武器名可查看该枪全部配置的 TTK 明细（`docs/武器/`）。"
     )
     lines.append("")
     for band in BAND_ORDER:
