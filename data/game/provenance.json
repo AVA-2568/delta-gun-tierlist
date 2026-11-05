@@ -176,7 +176,7 @@
      "delta": 0.010105578893840672
     }
    ],
-   "conclusion": "S12 数据集 20261105-weiguang.1 全量复现：4029 点，920 个残余超差点经白盒对拍（官方 dynamic 自声明参数，含 onHit.detonation 独立重算）全部归为官方 candidateMetrics 与官方参数表自相矛盾，本地引擎逐位一致，未归类 0 点。>1e-2 共 14 点：3 个历史伪差 + 11 个 5.56x45 CINDER 燃烧弹派生伪差，最大 0.0722 发。S12 叠层引爆已由 DamageContext 的 on_hit_effects.detonation 通道实现（55 个 chest-only 整数 STK 样本零误差）；burn 为时间轴 DoT，不进官方发数期望。"
+   "conclusion": "CI 每日自动固化：残余统计由 tools/verify_official_reproduction.py 当次全量重算写入；上游伪差白盒裁定与历史结论文案见 git 历史中的 provenance.json 记录。"
   }
  }
 }
