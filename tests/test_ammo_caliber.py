@@ -20,7 +20,7 @@ from src.collectors.normalize import (
     backfill_ammo_calibers,
     strip_caliber_prefix,
 )
-from src.engine.ammo_pricing import load_ammo_prices
+from src.engine.ammo_pricing import AmmoPriceTable
 from src.engine.game_data import load_game_data
 from src.engine.ranking import rank_weapons_for_scenario
 
@@ -129,9 +129,13 @@ def test_blk_fmj_alias_maps_to_bcp_fmj():
 # --------------------------------------------------------------------------- #
 
 def test_unpriced_new_ammo_still_ranked_with_blank_price():
-    """MCX-LT 在 5-5 情景：TAC-TX 有价、TTV 无价，两弹都必须在榜。"""
+    """MCX-LT 在 5-5 情景：TAC-TX 有价、TTV 无价，两弹都必须在榜。
+
+    价格表由测试自建：行情每日变动，不能把「某款弹当日无价」写成测试前提
+    （2026-11-06/07 的 CI 失败即由此引起）。
+    """
     gd = load_game_data(os.path.join(ROOT, "data", "game"))
-    table = load_ammo_prices(os.path.join(ROOT, "data", "reference", "ammo_prices.json"))
+    table = AmmoPriceTable(prices={"37280500001": 5418})
     rankings, _thresholds, excluded = rank_weapons_for_scenario(
         gd, "armor-5-ammo-5-default", beam_width=4, profile_keys=[MCX_LT],
         price_table=table,
@@ -139,6 +143,6 @@ def test_unpriced_new_ammo_still_ranked_with_blank_price():
     assert excluded == []
     base_rows = {r.ammo_item_id: r for r in rankings if r.entry_kind == "base"}
     assert {"37280500001", TTV} <= set(base_rows)
-    assert base_rows["37280500001"].ammo_price_daily is not None
+    assert base_rows["37280500001"].ammo_price_daily == 5418
     assert base_rows[TTV].ammo_price_daily is None
     assert base_rows[TTV].ammo_name == "TTV"

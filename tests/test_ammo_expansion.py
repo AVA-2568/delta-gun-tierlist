@@ -19,7 +19,7 @@ import os
 
 import pytest
 
-from src.engine.ammo_pricing import AmmoPriceTable, load_ammo_prices
+from src.engine.ammo_pricing import AmmoPriceTable
 from src.engine.engagement import BAND_NAMES, ScenarioError
 from src.engine.game_data import load_game_data
 from src.engine.ranking import pick_candidate_ammos, rank_weapons_for_scenario
@@ -176,33 +176,31 @@ def test_all_ammos_ranked_and_tiered_together(gd):
 # 过滤与排除
 # --------------------------------------------------------------------------- #
 
-def test_real_price_table_unpriced_ammo_still_ranked(gd):
-    """真实价格表：CINDER 当前无价 → 4-4 情景 M4A1 仍出该弹的行（成本留空）。
+def test_unpriced_ammo_still_ranked_with_blank_cost(gd):
+    """隔离价格表：仅 M855A1 配价、CINDER 缺价 → 两弹都成行，缺价行成本留空。
 
-    数据锚点断言：CINDER 在当前 ammo_prices.json 中缺价（价格表每日更新，
-    若将来上架，本测试的前置断言会先失败提醒更换样例）。
+    行情每日变动，价格表由测试自建；不得把「某弹当日无价」写成测试前提
+    （2026-11-06/07 的 CI 失败即由此引起）。
     """
-    table = load_ammo_prices(os.path.join(ROOT, "data", "reference", "ammo_prices.json"))
-    assert table.price_for(CINDER) is None, "前提失效：CINDER 已有价，请更换无价弹样例"
+    table = AmmoPriceTable(prices={M855A1: 1641})
     rankings, _thresholds, excluded = _run(gd, table)
     assert excluded == []
     base_rows = [r for r in rankings if r.entry_kind == "base"]
     by_id = {r.ammo_item_id: r for r in base_rows}
     assert {M855A1, CINDER} <= set(by_id)
-    assert by_id[M855A1].ammo_price_daily == table.price_for(M855A1)
+    assert by_id[M855A1].ammo_price_daily == 1641
     assert by_id[CINDER].ammo_price_daily is None
     assert all(r.bands[b].kill_cost is None for r in rankings
                if r.ammo_item_id == CINDER for b in BAND_NAMES)
 
 
-def test_real_price_table_expired_s11_ammo_leaves_single_mp7_row(gd):
-    """真实价格表：FMJ ST 是 S11 限定弹 → S12 退场，MP7 本体仅 FMJ SX 一行。
+def test_expired_s11_ammo_leaves_single_mp7_row(gd):
+    """过期 S11 限定弹 FMJ ST 即使残留旧价也不入榜：MP7 本体仅 FMJ SX 一行。
 
-    S12 起过期限定弹不入榜：无论行情表是否残留旧价（价格同步护栏会将其置为
-    null），榜单都只保留常驻弹 FMJ SX（37260400001）。「有价但过期仍被过滤」
-    由上面 monkeypatch 的手工价格表用例隔离覆盖；多弹展开同理。
+    价格表由测试自建并给过期弹配价，直接覆盖「有价但过期仍被过滤」，
+    不受每日行情变动影响。
     """
-    table = load_ammo_prices(os.path.join(ROOT, "data", "reference", "ammo_prices.json"))
+    table = AmmoPriceTable(prices={"37260400001": 1897, "37260400002": 2500})
     rankings, _thresholds, excluded = _run(gd, table, key=MP7)
     assert excluded == []
     base_rows = [r for r in rankings if r.entry_kind == "base"]

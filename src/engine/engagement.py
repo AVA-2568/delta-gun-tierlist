@@ -129,23 +129,14 @@ def damage_context(
     )
 
 
-def ttk_at(
+def _ttk_result(
     state: Any,
     ammo_record: Mapping[str, Any],
-    armor_definition: Mapping[str, Any],
-    hit_probabilities: Mapping[str, float],
     distance_m: float,
+    falloff: float,
+    shots: float,
 ) -> TtkResult:
-    """单点实战 TTK（秒）：``首发扳机延迟 + 第 E 发击发时刻 + 弹丸飞行时间``。
-
-    对齐官方 dfttk 默认口径：
-    - 击发时刻：单发/全自动为 ``(E - 1) × 间隔``，连发武器按官方 sdkTiming 节拍的精确射击时间线；
-      多弹丸武器按扣动扳机发数（弹丸数 / 有效弹丸数）计算。
-    - 飞行时间：使用不含精校修正的原始初速。
-    - 开镜时间作为参考量返回，不叠加进 TTK。
-    """
-    ctx = damage_context(state, ammo_record, armor_definition, hit_probabilities, distance_m)
-    shots = ctx.expected_kill_shots()
+    """由期望击杀发数组装单点结果；昂贵的 E[N] 求解由调用方缓存复用。"""
     ammo_name = str(ammo_record.get("name") or "")
     projectile_count = int(getattr(state, "projectile_count", 1) or 1)
     effective_projectiles = 1 if "独头" in ammo_name else max(1, projectile_count)
@@ -163,12 +154,35 @@ def ttk_at(
         ttk_seconds=ttk,
         expected_shots=trigger_pulls,
         ads_seconds=float(state.ads_milliseconds()) / 1000.0,
-        flight_seconds=(float(distance_m) / velocity) if velocity > 0 else 0.0,
+        flight_seconds=flight,
         fire_interval_seconds=interval,
         rpm=float(state.rpm),
-        falloff=float(state.falloff_rate(distance_m)),
+        falloff=falloff,
         effective_range_m=float(state.effective_range_m),
         muzzle_velocity_mps=velocity,
+    )
+
+
+def ttk_at(
+    state: Any,
+    ammo_record: Mapping[str, Any],
+    armor_definition: Mapping[str, Any],
+    hit_probabilities: Mapping[str, float],
+    distance_m: float,
+) -> TtkResult:
+    """单点实战 TTK（秒）：``首发扳机延迟 + 第 E 发击发时刻 + 弹丸飞行时间``。
+
+    对齐官方 dfttk 默认口径：
+    - 击发时刻：单发/全自动为 ``(E - 1) × 间隔``，连发武器按官方 sdkTiming 节拍的精确射击时间线；
+      多弹丸武器按扣动扳机发数（弹丸数 / 有效弹丸数）计算。
+    - 飞行时间：使用不含精校修正的原始初速。
+    - 开镜时间作为参考量返回，不叠加进 TTK。
+    """
+    ctx = damage_context(state, ammo_record, armor_definition, hit_probabilities, distance_m)
+    return _ttk_result(
+        state, ammo_record, distance_m,
+        float(state.falloff_rate(distance_m)),
+        ctx.expected_kill_shots(),
     )
 
 
@@ -179,12 +193,28 @@ def ttk_curve(
     hit_probabilities: Mapping[str, float],
     distances: Optional[Sequence[float]] = None,
 ) -> List[TtkResult]:
-    """在 0–80m 上按 1m 步长（默认）计算 TTK 曲线。"""
+    """在 0–80m 上按 1m 步长（默认）计算 TTK 曲线。
+
+    ``distance_m`` 只经 ``state.falloff_rate`` 进入伤害上下文（见
+    ``build_context_from_state``），而衰减系数是分段阶梯：同一段内伤害表与
+    E[N] 完全相同，唯一随距离变化的是飞行时间 ``d / 原始初速``。因此按衰减
+    系数缓存一次上下文与一次精确 DP，段内其余点只做轻量组装——81 次 DP 压到
+    衰减段数量级（通常 4–6 次），逐点结果与逐米全算严格一致。
+    """
     if distances is None:
         distances = [float(d) for d in range(int(DISTANCE_MIN), int(DISTANCE_MAX) + 1)]
-    return [
-        ttk_at(state, ammo_record, armor_definition, hit_probabilities, float(d)) for d in distances
-    ]
+    shots_by_falloff: Dict[float, float] = {}
+    results: List[TtkResult] = []
+    for d in distances:
+        dm = float(d)
+        rate = float(state.falloff_rate(dm))
+        shots = shots_by_falloff.get(rate)
+        if shots is None:
+            ctx = damage_context(state, ammo_record, armor_definition, hit_probabilities, dm)
+            shots = ctx.expected_kill_shots()
+            shots_by_falloff[rate] = shots
+        results.append(_ttk_result(state, ammo_record, dm, rate, shots))
+    return results
 
 
 # 距离带（设计规范 6 节）。带语义互斥：首带 [lo, hi]（含 0 m），其余 (lo, hi]——

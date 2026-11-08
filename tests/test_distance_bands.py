@@ -75,3 +75,33 @@ def test_band_boundaries_are_contiguous():
     assert edges[-1][1] == 80
     for (_, hi), (lo, _) in zip(edges, edges[1:]):
         assert hi == lo
+
+
+def test_ttk_curve_falloff_cache_matches_per_meter(gd, monkeypatch):
+    """衰减段缓存不得改变任何 TTK 数值，且必须真正减少精确 DP 次数。"""
+    from src.engine.ballistics import DamageContext
+    from src.engine.loadout import LoadoutSolver
+
+    solver = LoadoutSolver(gd, "armor-5-ammo-5-default")
+    key = "18010000001:base"
+    state = solver.resolver.resolve(key, loadout={}, tuning=None)
+    ammo = solver.ammo_for(key)
+    distances = tuple(float(d) for d in range(0, 81))
+
+    # 逐米全算 = 真值（ttk_at 保留未优化的单点语义）
+    expected = [eg.ttk_at(state, ammo, solver.armor, solver.probabilities, d) for d in distances]
+
+    calls = {"n": 0}
+    original = DamageContext.expected_kill_shots
+
+    def counted(self, *args, **kwargs):
+        calls["n"] += 1
+        return original(self, *args, **kwargs)
+
+    monkeypatch.setattr(DamageContext, "expected_kill_shots", counted)
+    actual = eg.ttk_curve(state, ammo, solver.armor, solver.probabilities, distances)
+    monkeypatch.undo()
+
+    assert actual == expected  # dataclass 全字段逐位一致
+    segments = len({state.falloff_rate(d) for d in distances})
+    assert calls["n"] == segments  # 81 次 DP → 衰减段数量级

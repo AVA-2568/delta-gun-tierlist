@@ -23,6 +23,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import ipaddress
 import json
 import os
@@ -475,10 +476,37 @@ def _print_audit_report(audit: Dict[str, Any]) -> None:
         print(f"    [unclassified] {item}")
 
 
+def _verification_fingerprint(
+    samples_path: str, tol: float, scenario_filter: Optional[str]
+) -> str:
+    """计算「本次全量复验结果」所依赖的输入指纹。
+
+    覆盖 TTK 输入指纹（tables/engine/pipeline）、``data/game/*.json``（含
+    validation_samples）、本工具自身与 CLI 参数。``provenance.json`` 必须排除：
+    ``record_residual`` 会写它，纳入会形成自指，令每日短路永远失效。
+    """
+    from src.pipeline import compute_inputs_fingerprint
+
+    digest = hashlib.sha256()
+    digest.update(compute_inputs_fingerprint(ROOT).encode("utf-8"))
+    game_dir = Path(ROOT, "data", "game")
+    for path in sorted(game_dir.rglob("*.json")):
+        if path.name == "provenance.json":
+            continue
+        digest.update(path.relative_to(game_dir).as_posix().encode("utf-8"))
+        digest.update(b"\0")
+        digest.update(path.read_bytes())
+        digest.update(b"\0")
+    digest.update(Path(__file__).read_bytes())
+    digest.update(repr((tol, scenario_filter or "", os.path.abspath(samples_path))).encode("utf-8"))
+    return digest.hexdigest()
+
+
 def record_residual(
     provenance_path: str,
     result: Dict[str, Any],
     conclusion: str,
+    inputs_fingerprint: str = "",
 ) -> None:
     """把复验残余写入 ``provenance.json`` 的 ``integrity.official_reproduction_residual``。
 
@@ -522,6 +550,8 @@ def record_residual(
         "gt_1e-2_points": gt_tol_points,
         "conclusion": conclusion,
     }
+    if inputs_fingerprint:
+        residual["inputs_fingerprint"] = inputs_fingerprint
     provenance.setdefault("integrity", {})["official_reproduction_residual"] = residual
     provenance_text = json.dumps(provenance, ensure_ascii=False, indent=1, sort_keys=False) + "\n"
     Path(provenance_path).write_text(provenance_text, encoding="utf-8", newline="\n")
@@ -607,11 +637,27 @@ def main() -> int:
         "（不带时仅打印将修改的文件与原因并拒绝写入）",
     )
     ap.add_argument("--provenance", default=os.path.join(ROOT, "data", "game", "provenance.json"))
+    ap.add_argument(
+        "--skip-if-unchanged",
+        action="store_true",
+        help="残余记录的输入指纹未变时跳过全量复验（CI 每日兜底用；首次运行仍会全量重算）",
+    )
     args = ap.parse_args()
 
     if args.refresh_output_hashes:
         refresh_output_hashes(args.provenance, confirm=args.confirm)
         return 0
+
+    verification_fp = _verification_fingerprint(args.samples, args.tol, args.scenario)
+    if args.skip_if_unchanged and not args.official_param_audit:
+        try:
+            with open(args.provenance, encoding="utf-8") as fh:
+                residual = json.load(fh).get("integrity", {}).get("official_reproduction_residual") or {}
+        except (OSError, ValueError):
+            residual = {}
+        if residual and residual.get("inputs_fingerprint") == verification_fp:
+            print(f"  输入指纹未变（{verification_fp[:12]}…），跳过全量复验；既有残余记录有效")
+            return 1 if residual.get("residual_points", 0) > 0 else 0
 
     if args.official_param_audit:
         audit = run_official_param_audit(tol=args.tol, samples_path=args.samples)
@@ -661,7 +707,10 @@ def main() -> int:
     print()
 
     if args.record_residual_conclusion:
-        record_residual(args.provenance, result, args.record_residual_conclusion)
+        record_residual(
+            args.provenance, result, args.record_residual_conclusion,
+            inputs_fingerprint=verification_fp,
+        )
 
     if result["fail_count"] > 0:
         print("  结果：存在超差点（退出码 1）")

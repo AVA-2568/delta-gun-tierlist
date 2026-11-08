@@ -179,6 +179,12 @@ def _scenario_payload_path(output_dir: str, scenario_meta: Mapping[str, Any]) ->
     )
 
 
+#: 指纹计算的文件字节缓存：key = (相对路径, mtime_ns, size)。
+#: 缓存的是**原始字节**而非子哈希——总 digest 必须逐字节拼接才能保持指纹不变；
+#: 改成子哈希合并会让所有历史榜单指纹漂移，触发无谓的全量重算。
+_FILE_BYTES_CACHE: Dict[Tuple[str, int, int], bytes] = {}
+
+
 def compute_inputs_fingerprint(output_dir: str = ".") -> str:
     """计算 TTK 榜单输入的数据指纹（SHA256 十六进制串）。
 
@@ -188,8 +194,10 @@ def compute_inputs_fingerprint(output_dir: str = ".") -> str:
 
     稳定性约定：相对路径按 ``/`` 归一并参与哈希（按路径排序后拼接），文件按
     **字节**读入；配合仓库 ``* text=auto eol=lf`` 策略，Windows 与 Linux 产物
-    指纹一致。
+    指纹一致。同进程内按 ``(路径, mtime_ns, size)`` 复用文件字节，未变文件
+    不再重复读盘；每次调用重建缓存表，自动淘汰已删除/改名文件。
     """
+    global _FILE_BYTES_CACHE
     root = Path(output_dir)
     rel_paths: List[Path] = []
     tables_dir = root.joinpath(*FINGERPRINT_TABLES_DIR)
@@ -203,11 +211,21 @@ def compute_inputs_fingerprint(output_dir: str = ".") -> str:
         rel_paths.append(pipeline_file)
 
     digest = hashlib.sha256()
+    next_cache: Dict[Tuple[str, int, int], bytes] = {}
     for rel in sorted((p.relative_to(root) for p in rel_paths), key=lambda p: p.as_posix()):
-        digest.update(rel.as_posix().encode("utf-8"))
+        posix = rel.as_posix()
+        path = root / rel
+        stat = path.stat()
+        key = (posix, stat.st_mtime_ns, stat.st_size)
+        payload = _FILE_BYTES_CACHE.get(key)
+        if payload is None:
+            payload = path.read_bytes()
+        next_cache[key] = payload
+        digest.update(posix.encode("utf-8"))
         digest.update(b"\0")
-        digest.update((root / rel).read_bytes())
+        digest.update(payload)
         digest.update(b"\0")
+    _FILE_BYTES_CACHE = next_cache
     return digest.hexdigest()
 
 
@@ -271,6 +289,22 @@ def _load_payloads_from_disk(
     return payloads
 
 
+def _write_if_changed(path: str, content: str) -> bool:
+    """内容未变则不落盘（幂等），返回本次是否真的写了文件。
+
+    每日价格刷新会重渲染全部文档；价格未变时内容一致，跳过写盘可避免
+    mtime 抖动与 CI 中 ``git add -A`` 的无谓扫描。
+    """
+    target = Path(path)
+    try:
+        if target.read_text(encoding="utf-8") == content:
+            return False
+    except (OSError, UnicodeDecodeError):
+        pass
+    target.write_text(content, encoding="utf-8", newline="\n")
+    return True
+
+
 def _render_outputs(
     payloads: Mapping[str, Mapping[str, Any]],
     output_dir: str,
@@ -280,9 +314,10 @@ def _render_outputs(
     """把 payload 渲染落盘：情景 JSON + 每情景 4 份距离榜 + README + 改枪指南。
 
     所有情景一律按距离带拆分独立榜单（主榜前缀 ``主榜``，其余用情景中文名），
-    不再产出 4 带合订版。
+    不再产出 4 带合订版。``files_written`` 只记录本次**真正写盘**的文件。
     """
-    scenario_meta_all = {s["scenario_id"]: s for s in _scenario_index(game_data)}
+    scenario_index_all = _scenario_index(game_data)
+    scenario_meta_all = {s["scenario_id"]: s for s in scenario_index_all}
     files_written: List[str] = []
 
     for sid, payload in payloads.items():
@@ -291,8 +326,8 @@ def _render_outputs(
 
         json_path = _scenario_payload_path(output_dir, meta)
         os.makedirs(os.path.dirname(json_path), exist_ok=True)
-        Path(json_path).write_text(json.dumps(payload, ensure_ascii=False, indent=1) + "\n", encoding="utf-8", newline="\n")
-        files_written.append(json_path)
+        if _write_if_changed(json_path, json.dumps(payload, ensure_ascii=False, indent=1) + "\n"):
+            files_written.append(json_path)
 
         docs_dir = os.path.join(output_dir, DOCS_SCENARIO_DIR)
         os.makedirs(docs_dir, exist_ok=True)
@@ -302,8 +337,8 @@ def _render_outputs(
             if not any(band in (w.get("bands") or {}) for w in payload["weapons"]):
                 continue
             band_path = os.path.join(docs_dir, band_doc_name(prefix, band))
-            Path(band_path).write_text(render_band_doc(payload, band, meta, part_names, prefix=prefix), encoding="utf-8", newline="\n")
-            files_written.append(band_path)
+            if _write_if_changed(band_path, render_band_doc(payload, band, meta, part_names, prefix=prefix)):
+                files_written.append(band_path)
 
     # 武器配置明细页：每把枪一份，展开全部配置（榜单每带只展示最优一行）
     weapon_names: Dict[str, str] = {}
@@ -317,48 +352,66 @@ def _render_outputs(
         os.makedirs(weapon_dir, exist_ok=True)
         for weapon_id, weapon_name in sorted(weapon_names.items()):
             weapon_path = os.path.join(weapon_dir, weapon_doc_filename(weapon_id))
-            Path(weapon_path).write_text(
+            if _write_if_changed(
+                weapon_path,
                 render_weapon_doc(weapon_id, weapon_name, payloads, scenario_meta_all, part_names),
-                encoding="utf-8",
-                newline="\n",
-            )
-            files_written.append(weapon_path)
+            ):
+                files_written.append(weapon_path)
 
     main_payload = payloads.get(MAIN_SCENARIO)
     if main_payload is not None:
         readme_path = os.path.join(output_dir, "README.md")
-        Path(readme_path).write_text(
+        if _write_if_changed(
+            readme_path,
             render_readme(
                 main_payload,
                 scenario_meta_all[MAIN_SCENARIO],
                 game_data.provenance,
                 part_names,
                 # 只索引实际生成了榜单文件的情景，避免 README 出现死链
-                scenario_index=[
-                    s for s in _scenario_index(game_data) if s["scenario_id"] in payloads
-                ],
+                scenario_index=[s for s in scenario_index_all if s["scenario_id"] in payloads],
                 repo_slug=_repo_slug(),
             ),
-            encoding="utf-8",
-            newline="\n",
-        )
-        files_written.append(readme_path)
+        ):
+            files_written.append(readme_path)
 
     guide_path = os.path.join(output_dir, GUNSMITH_GUIDE_PATH)
     os.makedirs(os.path.dirname(guide_path), exist_ok=True)
-    Path(guide_path).write_text(render_gunsmith_guide(game_data, game_data.provenance), encoding="utf-8", newline="\n")
-    files_written.append(guide_path)
+    if _write_if_changed(guide_path, render_gunsmith_guide(game_data, game_data.provenance)):
+        files_written.append(guide_path)
 
     return files_written
 
 
+#: 情景计算输入缓存：key 为四个输入路径，value 为已加载的官方数据与价格表。
+#: ProcessPoolExecutor 的同一 worker 会连续处理多个情景，借此避免重复加载
+#: 148 个 JSON；run_pipeline 每次进入会清空，避免跨运行拿到陈旧价格表。
+_SCENARIO_INPUTS_CACHE: Dict[Tuple[str, ...], Tuple[Any, ...]] = {}
+
+
+def _load_scenario_inputs(output_dir: str) -> Tuple[Any, ...]:
+    key = (
+        os.path.join(output_dir, DEFAULT_DATA_DIR),
+        os.path.join(output_dir, AMMO_PRICE_TABLE),
+        os.path.join(output_dir, WEAPON_PRICE_TABLE),
+        os.path.join(output_dir, PART_PRICE_TABLE),
+    )
+    cached = _SCENARIO_INPUTS_CACHE.get(key)
+    if cached is None:
+        cached = (
+            load_game_data(key[0]),
+            load_ammo_prices(key[1]),
+            load_weapon_prices(key[2]),
+            load_part_prices(key[3]),
+        )
+        _SCENARIO_INPUTS_CACHE[key] = cached
+    return cached
+
+
 def _compute_scenario(args: tuple) -> tuple:
-    """单情景完整计算（供串行/并行两路复用；子进程内自带数据加载）。"""
+    """单情景完整计算（供串行/并行两路复用；输入在同一进程内只加载一次）。"""
     sid, output_dir, keys, beam_width = args
-    game_data = load_game_data(os.path.join(output_dir, DEFAULT_DATA_DIR))
-    price_table = load_ammo_prices(os.path.join(output_dir, AMMO_PRICE_TABLE))
-    weapon_price_table = load_weapon_prices(os.path.join(output_dir, WEAPON_PRICE_TABLE))
-    part_price_table = load_part_prices(os.path.join(output_dir, PART_PRICE_TABLE))
+    game_data, price_table, weapon_price_table, part_price_table = _load_scenario_inputs(output_dir)
     solver = LoadoutSolver(game_data, sid)
     rankings, thresholds, excluded = ranking.rank_weapons_for_scenario(
         game_data, sid, solver=solver, beam_width=beam_width,
@@ -588,6 +641,9 @@ def run_pipeline(
         payloads = _load_payloads_from_disk(output_dir, targets, scenario_meta_all)
         keys_count = 0
     else:
+        # 每次逻辑运行从干净输入开始（价格表可能被外部更新/测试注入）；
+        # 子进程随后在 pool.map 期间复用各自 worker 内的一份加载结果。
+        _SCENARIO_INPUTS_CACHE.clear()
         keys = [w["profile_key"] for w in game_data.weapons]
         if limit:
             keys = keys[:limit]
@@ -680,7 +736,13 @@ def main() -> None:
             f"写出 {len(result['files_written'])} 个文件"
         )
         if not result["refreshed"]:
-            sys.exit(1)
+            # 全部情景缺榜单 JSON / 无指纹：产物不可用，需要一次全量重算。
+            # 用退出码 2 与真实异常（1）区分，供 CI 精确兜底而不掩盖错误。
+            logger.error(
+                "%d 个情景均无法价格刷新（缺榜单 JSON 或输入指纹），需先全量重算",
+                len(result["scenarios"]),
+            )
+            sys.exit(2)
         return
 
     result = run_pipeline(

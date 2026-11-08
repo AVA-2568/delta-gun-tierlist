@@ -22,7 +22,8 @@
 设计要点：
 
 - 标准库 urllib，**零第三方依赖**（与采集层一致）。
-- 请求串行、间隔 2s、真实浏览器 UA，宁慢勿封；403 退避 60s 重试一次，
+- 请求串行、默认间隔 0.6s（可用 ORZICE_REQUEST_INTERVAL_S 覆盖）、真实浏览器 UA，
+  宁慢勿封；403 退避 60s 重试一次并把后续间隔回退到保守值 2s，
   仍失败即停止翻页并写已获部分结果（退出码 0 + 日志警告），绝不并发、绝不高频重试。
 - 空页（站点 404 文案页，无条目行）即翻页终止。
 - 仅 https 且 host 必须为 ``orzice.com``，并解析 DNS 拒绝环回/私有/保留地址。
@@ -89,8 +90,24 @@ _USER_AGENT = (
     "(KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
 )
 
-#: 请求间隔（秒）：串行慢抓，宁慢勿封
-REQUEST_INTERVAL_S = 2.0
+def _env_seconds(name: str, default: float) -> float:
+    """从环境变量读非负秒数；未设置或非法值一律回落默认值（不让外部输入搞挂 import）。"""
+    raw = os.environ.get(name)
+    if raw is None:
+        return default
+    try:
+        value = float(raw)
+    except ValueError:
+        logger.warning("环境变量 %s 非数值（%r），使用默认值 %ss", name, raw, default)
+        return default
+    return value if value >= 0.0 else default
+
+
+#: 请求间隔（秒）：串行慢抓，宁慢勿封。默认 0.6s，可用
+#: ``ORZICE_REQUEST_INTERVAL_S`` 覆盖（站点反馈变严时无需改代码即可调回保守值）。
+REQUEST_INTERVAL_S = _env_seconds("ORZICE_REQUEST_INTERVAL_S", 0.6)
+#: 触发 403 后的保守间隔（秒）：后续翻页立即放慢，避免持续触发限流
+CONSERVATIVE_INTERVAL_S = 2.0
 #: 403 退避（秒）：退避 60s 后重试一次，再失败即停（部分结果）
 BACKOFF_403_S = 60.0
 #: 页数上限（战备页约 82 页 + 冗余，防异常计数死循环；翻页以空页终止为准，不写死页数）
@@ -234,16 +251,18 @@ def crawl_pages(
     """串行翻页抓取一个列表，返回 ``(全部条目行, 是否完整抓完)``。
 
     翻页终止：空页（站点 404 文案页无条目行）或 HTTP 404 → 正常终止（完整）；
-    403 → 退避 :data:`BACKOFF_403_S` 重试一次，仍失败 → 停止并返回已获部分
+    403 → 退避 :data:`BACKOFF_403_S` 重试一次并把后续间隔回退到
+    :data:`CONSERVATIVE_INTERVAL_S`，仍失败 → 停止并返回已获部分
     （``complete=False``）；其余网络异常同样停止返回部分结果。
     任何情况下不并发、不高频重试。
     """
     rows: List[Dict[str, Any]] = []
     page = 1
+    current_interval = interval
     while page <= max_pages:
         html: Optional[str] = None
         for attempt in (1, 2):
-            sleep(interval)
+            sleep(current_interval)
             try:
                 html = fetch(path, page)
                 break
@@ -252,8 +271,10 @@ def crawl_pages(
                     html = ""  # 越界页 → 翻页终止
                     break
                 if exc.code == 403 and attempt == 1:
+                    current_interval = CONSERVATIVE_INTERVAL_S
                     logger.warning(
-                        "orzice 403，退避 %gs 后重试一次：%s?p=%s", backoff_403_s, path, page
+                        "orzice 403，退避 %gs 后重试一次，后续间隔回退 %gs：%s?p=%s",
+                        backoff_403_s, current_interval, path, page,
                     )
                     sleep(backoff_403_s)
                     continue
