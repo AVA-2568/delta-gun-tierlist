@@ -176,7 +176,8 @@
      "delta": 0.010105578893840672
     }
    ],
-   "conclusion": "CI 每日自动固化：残余统计由 tools/verify_official_reproduction.py 当次全量重算写入；上游伪差白盒裁定与历史结论文案见 git 历史中的 provenance.json 记录。"
+   "conclusion": "CI 每日自动固化：残余统计由 tools/verify_official_reproduction.py 当次全量重算写入；上游伪差白盒裁定与历史结论文案见 git 历史中的 provenance.json 记录。",
+   "inputs_fingerprint": "6909b6e0cbc4eed55922997fbf46cd9c2071dd90ade37d1c2ca110f28ccc7a8b"
   }
  }
 }
